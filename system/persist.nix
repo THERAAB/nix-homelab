@@ -19,7 +19,7 @@
       "/var/lib/"
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
-      "/run/secrets.d"
+      # "/run/secrets.d"
     ];
     files = [
       "/etc/machine-id"
