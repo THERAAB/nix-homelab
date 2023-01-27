@@ -11,7 +11,6 @@
       path = "/home/raab/.config/.gitconfig";
     };
     pushbullet_api_key = {
-      #owner = "gatus";
       neededForUsers = true;
       restartUnits = [ "podman-gatus.service" ];
     };

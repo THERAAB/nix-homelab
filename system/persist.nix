@@ -19,11 +19,9 @@
       "/var/lib/"
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
-      # "/run/secrets.d"
     ];
     files = [
       "/etc/machine-id"
-      # "/run/secrets"
       { file = "/etc/nix/id_rsa"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
   };
