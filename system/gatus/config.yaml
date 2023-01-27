@@ -1,0 +1,111 @@
+alerting:
+  custom:
+    url: "https://api.pushbullet.com/v2/pushes"
+    method: "POST"
+    headers:
+      {
+        "Access-Token" : "<PLACEHOLDER>",
+        "Content-Type" : "application/json"
+      }
+    body: |
+      {
+        "type": "note",
+        "title": "Gatus [ALERT_TRIGGERED_OR_RESOLVED]: [ENDPOINT_NAME]",
+        "body": "[ALERT_DESCRIPTION] - [ENDPOINT_URL]"
+      }
+    default-alert:
+      description: "Request Failed!"
+      send-on-resolved: true
+      failure-threshold: 5
+      success-threshold: 3
+endpoints:
+  - name: AdGuard
+    url: tcp://adguard.server.box:3000
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: Govee Water Alarm
+    url: "icmp://192.168.1.103"
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: Home Assistant
+    url: tcp://home-assistant.server.box:8123
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: Homer.box
+    url: tcp://homer.server.box:8082
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: Homer.tail
+    url: tcp://homer.server.box:8083
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: Jellyfin
+    url: http://jellyfin.server.box/health
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: custom
+  - name: Jellyseerr
+    url: http://jellyseerr.server.box/health
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: custom
+  - name: NetData
+    url: tcp://netdata.server.box:19999
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: PFSense
+    url: "icmp://192.168.1.1"
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: Prowlarr
+    url: http://prowlarr.server.box/health
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: custom
+  - name: Radarr
+    url: http://radarr.server.box/health
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: custom
+  - name: Sonarr
+    url: http://sonarr.server.box/health
+    conditions:
+      - "[STATUS] == 200"
+    alerts:
+      - type: custom
+  - name: Ring Doorbell
+    url: "icmp://192.168.1.108"
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: TP-Link Archer
+    url: "icmp://192.168.1.102"
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
+  - name: VueTorrent
+    url: "icmp://vuetorrent.server.box"
+    conditions:
+      - "[CONNECTED] == true"
+    alerts:
+      - type: custom
