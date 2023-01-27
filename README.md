@@ -3,7 +3,7 @@
 A [NixOS](https://nixos.org/) configuration repository for my Intel 12th Gen [selfhosted](https://www.reddit.com/r/selfhosted/) server.
 [NixOS](https://nixos.org/) allows you to create a fully declarative operating system using the [Nix language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language).
 
-![dashboard-png](https://github.com/THERAAB/server/blob/main/assets/dashboard.png?raw=true "PNG of Dashboard")
+![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/assets/dashboard.png?raw=true "PNG of Dashboard")
 
 ## What's inside
 
@@ -38,7 +38,7 @@ I recommend copy-pasting what commands you need because this script is dangerous
 expects you to have 1 nvme and 1 sda device
 ```console
 nix-shell -p git
-sudo git clone https://github.com/THERAAB/server instructions
+sudo git clone https://github.com/THERAAB/nix-homelab instructions
 gnome-text-editor instructions/wipe-disk-and-install.sh &
 ```
 ### Now we can reboot into console
@@ -52,12 +52,12 @@ Now we can ssh from any computer in our tailscale network
 Change git to SSH now that we have our SSH key
 ```console
 cd /nix/persist/server
-git remote set-url origin git@github.com:THERAAB/server.git
+git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 ```
 Or if I'm too dumb to figure that out:
 ```console
 sudo rm -rf /nix/persist/server
-git clone git@github.com:THERAAB/server.git /nix/persist/server
+git clone git@github.com:THERAAB/nix-homelab.git /nix/persist/server
 ```
 Update and reboot
 ```console
@@ -65,7 +65,7 @@ server/nixos-update-manager.sh update_flake
 sudo reboot
 ```
 ## Manual Setup Steps
-Check [manual.md](https://github.com/THERAAB/server/blob/main/manual.md) for specific manual app setups
+Check [manual.md](https://github.com/THERAAB/nix-homelab/blob/main/manual.md) for specific manual app setups
 
 ## TODO
-Check [TODO.txt](https://github.com/THERAAB/server/blob/main/TODO.txt)
+Check [TODO.txt](https://github.com/THERAAB/nix-homelab/blob/main/TODO.txt)

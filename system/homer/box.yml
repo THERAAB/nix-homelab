@@ -37,7 +37,7 @@ colors:
 links:
   - name: "GitHub"
     icon: "fab fa-github"
-    url: "https://github.com/THERAAB/server"
+    url: "https://github.com/THERAAB/nix-homelab"
   - name: "Wiki"
     icon: "fas fa-book"
     url: "https://www.wikipedia.org/"

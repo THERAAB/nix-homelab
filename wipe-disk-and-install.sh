@@ -49,7 +49,7 @@ sudo mount /dev/disk/by-label/BOOT /mnt/boot
 
 # Setup server directory
 cd /mnt/nix/persist/
-sudo git clone https://github.com/THERAAB/server server
+sudo git clone https://github.com/THERAAB/nix-homelab server
 cd server
 
 # Install NixOs
