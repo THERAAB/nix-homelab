@@ -1,5 +1,6 @@
 washing machine
 alarm for sensors
+shopping list
 Back up these keys for sops
   ~/.config/sops/age/keys.txt
   /etc/ssh/ssh_host_ed25519_key
