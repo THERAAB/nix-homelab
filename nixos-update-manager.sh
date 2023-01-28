@@ -1,20 +1,20 @@
 #!/bin/sh
 
 update_channel() {
-    pushd /nix/persist/server
+    pushd /nix/persist/nix-homelab
     nix flake update --extra-experimental-features nix-command --extra-experimental-features flakes
     popd
 }
 
 update_flake() {
-    pushd /nix/persist/server
+    pushd /nix/persist/nix-homelab
     git pull
     sudo nixos-rebuild switch --flake .#
     popd
 }
 
 update_dotfiles_git() {
-    pushd /nix/persist/server
+    pushd /nix/persist/nix-homelab
     git pull
     git add .
     git commit -m "automated commit"

@@ -38,6 +38,6 @@ sudo reboot
 ```console
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 journalctl -b -1 -p 0..5
-sops /nix/persist/server/system/secrets/secrets.yaml
+sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
 ncdu -x /
 ```

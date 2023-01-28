@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 { 
   services.tailscale.enable = true;   
-  networking.hostName = "server";
+  networking.hostName = "nix-homelab";
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;

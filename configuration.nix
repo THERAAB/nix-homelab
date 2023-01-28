@@ -21,7 +21,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = "04:00";
-    flake = "/nix/persist/server";
+    flake = "/nix/persist/nix-homelab";
     flags = [
       "--update-input" "nixpkgs"
     ];

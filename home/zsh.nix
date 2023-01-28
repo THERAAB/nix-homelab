@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  update-script = "/nix/persist/server/nixos-update-manager.sh";
+  update-script = "/nix/persist/nix-homelab/nixos-update-manager.sh";
 in
 {
   programs.zsh = {

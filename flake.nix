@@ -1,5 +1,5 @@
 {
-  description = "Server flake";
+  description = "nix-homelab flake";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
@@ -26,7 +26,7 @@
       lib = nixpkgs.lib;
     in {
       nixosConfigurations = {
-        server = lib.nixosSystem { 
+        nix-homelab = lib.nixosSystem {
           inherit system;
           modules = [ 
             impermanence.nixosModules.impermanence

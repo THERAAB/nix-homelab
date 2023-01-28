@@ -51,17 +51,17 @@ Now we can ssh from any computer in our tailscale network
 ### Now SSH From Desktop
 Change git to SSH now that we have our SSH key
 ```console
-cd /nix/persist/server
+cd /nix/persist/nix-homelab
 git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 ```
 Or if I'm too dumb to figure that out:
 ```console
-sudo rm -rf /nix/persist/server
-git clone git@github.com:THERAAB/nix-homelab.git /nix/persist/server
+sudo rm -rf /nix/persist/nix-homelab
+git clone git@github.com:THERAAB/nix-homelab.git /nix/persist/nix-homelab
 ```
 Update and reboot
 ```console
-server/nixos-update-manager.sh update_flake
+nix-homelab/nixos-update-manager.sh update_flake
 sudo reboot
 ```
 ## Manual Setup Steps

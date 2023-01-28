@@ -5,7 +5,7 @@ let
   port = 7000;
   app-name = "gatus";
   local-config-dir = "/nix/persist/${app-name}/";
-  system-app-dir = "/nix/persist/server/system/${app-name}/";
+  system-app-dir = "/nix/persist/nix-homelab/system/${app-name}/";
 in
 {
   users = {

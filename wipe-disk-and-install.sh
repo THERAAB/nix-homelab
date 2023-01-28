@@ -49,11 +49,11 @@ sudo mount /dev/disk/by-label/BOOT /mnt/boot
 
 # Setup server directory
 cd /mnt/nix/persist/
-sudo git clone https://github.com/THERAAB/nix-homelab server
-cd server
+sudo git clone https://github.com/THERAAB/nix-homelab nix-homelab
+cd nix-homelab
 
 # Install NixOs
-sudo nixos-install --flake .#server
+sudo nixos-install --flake .#nix-homelab
 
 sudo reboot
 # Remove flash drive, and go back to README.md

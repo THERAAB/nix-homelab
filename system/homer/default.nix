@@ -5,7 +5,7 @@ let
   box-port = 8082;
   tail-port = 8083;
   app-name = "homer";
-  system-app-dir = "/nix/persist/server/system/${app-name}/";
+  system-app-dir = "/nix/persist/nix-homelab/system/${app-name}/";
   system-config-dir = system-app-dir + "/config/";
   local-config-dir = "/nix/persist/${app-name}/";
   tail-config-dir = local-config-dir + "/tail/";
