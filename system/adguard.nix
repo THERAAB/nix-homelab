@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   port = 3000;
+  network = (import ./network.properties.nix);
 in
 {
   services.caddy.virtualHosts = {
@@ -27,7 +28,7 @@ in
         ratelimit = 0;
         bind_hosts = [ "0.0.0.0" ];
         port = 53;
-        upstream_dns = [ "192.168.1.1" ];
+        upstream_dns = [ "${network.pfSense.local.ip}" ];
         protection_enabled = true;
         blocked_hosts = [ "version.bind" "id.server" "hostname.bind" ];
         trusted_proxies = [ "127.0.0.0/8" "::1/128" ];
@@ -36,19 +37,19 @@ in
         rewrites = [
           {
             domain = "server.box";
-            answer = "192.168.3.11";
+            answer = "${network.nix-homelab.local.ip}";
           }
           {
             domain = "*.server.box";
-            answer = "192.168.3.11";
+            answer = "${network.nix-homelab.local.ip}";
           }
           {
             domain = "server.tail";
-            answer = "100.89.26.123";
+            answer = "${network.nix-homelab.tailscale.ip}";
           }
           {
             domain = "*.server.tail";
-            answer = "100.89.26.123";
+            answer = "${network.nix-homelab.tailscale.ip}";
           }
         ];
       };

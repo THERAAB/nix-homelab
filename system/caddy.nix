@@ -1,13 +1,16 @@
 { config, pkgs, ... }:
+let
+  network = (import ./network.properties.nix);
+in
 {
   services.caddy = {
     enable = true;
     virtualHosts = {
       "http://tplink.server.box".extraConfig = ''
-        reverse_proxy http://192.168.1.102
+        reverse_proxy http://${network.tplink.local.ip}
       '';
       "http://tplink.server.tail".extraConfig = ''
-        reverse_proxy http://192.168.1.102
+        reverse_proxy http://${network.tplink.local.ip}
       '';
     };
   };

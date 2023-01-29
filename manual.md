@@ -1,7 +1,7 @@
 ## Manual Setup Notes
 Some additional setup is needed for non-declarative apps
 ### Add Back DNS resolver in DHCP settings
-Services -> DHCP Server -> DNS Servers -> 192.168.3.11
+Services -> DHCP Server -> DNS Servers -> nix-homelab local ip
 ### Check IP Leakage
 ```console
 sudo podman exec -it vuetorrent sh
@@ -10,7 +10,7 @@ curl https://am.i.mullvad.net/json
 
 ### If you want to use privoxy
 - https
-- 192.168.3.11
+- nix-homelab local ip
 - 8118
 - https://iknowwhatyoudownload.com
 - https://mullvad.net/en/check/

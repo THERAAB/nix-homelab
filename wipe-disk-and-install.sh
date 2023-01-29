@@ -56,7 +56,7 @@ sudo mkdir -p /mnt/nix/persist/home/raab
 sudo mount -o bind /mnt/nix/persist/system/etc/nixos /mnt/etc/nixos
 sudo mount /dev/disk/by-label/BOOT /mnt/boot
 
-# Setup server directory
+# Setup nix-homelab directory
 sudo git clone https://github.com/THERAAB/nix-homelab /mnt/nix/persist/nix-homelab
 cd /mnt/nix/persist/nix-homelab
 

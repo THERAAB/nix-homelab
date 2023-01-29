@@ -5,6 +5,7 @@ let
   port = 8112;
   app-name = "vuetorrent";
   local-config-dir = media.dir.config + "/${app-name}/";
+  network = (import ../network.properties.nix);
 in
 {
   users = {
@@ -41,7 +42,7 @@ in
       UMASK="022";
       TZ="America/New_York";
       VPN_ENABLED="true";
-      VPN_LAN_NETWORK="192.168.2.0/24,192.168.3.0/24";
+      VPN_LAN_NETWORK="${network.desktop.subnet},${network.nix-homelab.subnet}";
       VPN_CONF="wg0";
       VPN_ADDITIONAL_PORTS="";
       VPN_IP_CHECK_DELAY="5";
