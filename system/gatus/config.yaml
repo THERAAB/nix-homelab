@@ -23,7 +23,7 @@ endpoints:
     url: http://adguard.server.box/
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<!doctype html>*)'
+      - '[BODY] == pat(*<title>Login</title>*)'
     alerts:
       - type: custom
   - name: Govee Water Alarm
