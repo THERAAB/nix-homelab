@@ -20,7 +20,7 @@ alerting:
       success-threshold: 3
 endpoints:
   - name: AdGuard
-    url: http://adguard.server.box/login.html
+    url: http://adguard.server.box/
     conditions:
       - "[STATUS] == 200"
       - '[BODY] == pat(*<!doctype html>*)'
@@ -33,9 +33,10 @@ endpoints:
     alerts:
       - type: custom
   - name: Home Assistant
-    url: tcp://home-assistant.server.box:8123
+    url: http://home-assistant.server.box
     conditions:
       - "[CONNECTED] == true"
+      - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
   - name: Homer.box
