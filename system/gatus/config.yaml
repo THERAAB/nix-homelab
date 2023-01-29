@@ -20,9 +20,10 @@ alerting:
       success-threshold: 3
 endpoints:
   - name: AdGuard
-    url: tcp://adguard.server.box:3000
+    url: http://adguard.server.box/login.html
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
+      - [BODY] == pat(*<form class="card">*)
     alerts:
       - type: custom
   - name: Govee Water Alarm
