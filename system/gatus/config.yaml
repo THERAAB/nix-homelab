@@ -33,21 +33,21 @@ endpoints:
     alerts:
       - type: custom
   - name: Home Assistant
-    url: http://home-assistant.server.box
+    url: http://home-assistant.server.box/
     conditions:
       - "[STATUS] == 200"
       - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
   - name: Homer.box
-    url: http://server.box
+    url: http://server.box/
     conditions:
       - "[STATUS] == 200"
       - '[BODY] == pat(*<html lang="en">*)'
     alerts:
       - type: custom
   - name: Homer.tail
-    url: http://server.tail
+    url: http://server.tail/
     conditions:
       - "[STATUS] == 200"
       - '[BODY] == pat(*<html lang="en">*)'
@@ -66,18 +66,18 @@ endpoints:
     alerts:
       - type: custom
   - name: NetData
-    url: http://netdata.server.box
+    url: http://netdata.server.box/
     conditions:
       - "[STATUS] == 200"
       - '[BODY] == pat(*<!doctype html>*)'
     alerts:
       - type: custom
   - name: PFSense
-    url: "https://192.168.1.1/index.php"
+    url: https://192.168.1.1/
     client:
       insecure: true
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
       - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
@@ -106,14 +106,16 @@ endpoints:
     alerts:
       - type: custom
   - name: TP-Link Archer
-    url: "icmp://192.168.1.102"
+    url: http://tplinkwifi.net/
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
+      - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
   - name: VueTorrent
-    url: "icmp://vuetorrent.server.box"
+    url: "http://vuetorrent.server.box"
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
+      - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
