@@ -29,7 +29,7 @@ Note that it's probably a bad idea for you to try to build this if you're not me
 - You probably don't have my sops keys (shoutout to my FBI agent!)
 
 ### Download NixOS
-- Grab the GNOME installer from the [NixOS Downlaods Page](https://nixos.org/download.html#nix-install-linux)
+- Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
 - Boot into flash drive
 
@@ -42,13 +42,13 @@ sudo git clone https://github.com/THERAAB/nix-homelab instructions
 gnome-text-editor instructions/wipe-disk-and-install.sh &
 ```
 ### Now we can reboot into console
-Note: might want to delete old tailscale "media" device prior to this
+Note: might want to delete old tailscale "nix-homelab" device prior to this
 ```console
 sudo tailscale up --ssh
 ```
 Now we can ssh from any computer in our tailscale network
 
-### Now SSH From Desktop
+### SSH From Desktop
 Change git to SSH now that we have our SSH key
 ```console
 cd /nix/persist/nix-homelab
@@ -57,11 +57,13 @@ git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 Or if I'm too dumb to figure that out:
 ```console
 sudo rm -rf /nix/persist/nix-homelab
+sudo mkdir -p /nix/persist/nix-homelab
+sudo chown raab /nix/persist/nix-homelab
 git clone git@github.com:THERAAB/nix-homelab.git /nix/persist/nix-homelab
 ```
 Update and reboot
 ```console
-nix-homelab/nixos-update-manager.sh update_flake
+/nix/persist/nix-homelab/nixos-update-manager.sh update_flake
 sudo reboot
 ```
 ## Manual Setup Steps
