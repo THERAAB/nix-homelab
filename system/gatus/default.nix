@@ -44,7 +44,7 @@ in
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
-    autoStart = true;
+    autoStart = false;
     image = "twinproduction/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
