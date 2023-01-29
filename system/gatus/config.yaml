@@ -109,7 +109,7 @@ endpoints:
     url: http://tplinkwifi.net/
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<!DOCTYPE html>*)'
+      - '[BODY] == pat(*<!doctype html>*)'
     alerts:
       - type: custom
   - name: VueTorrent
