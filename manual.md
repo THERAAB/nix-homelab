@@ -26,11 +26,20 @@ curl https://am.i.mullvad.net/json
 - Intel QuickSync
 - Enable Tone mapping
 
-### Prowlarr indexers
-- 1337x
-- Rarbg
-- TPB
-- RuTracker.ru
+### Prowlarr 
+- Add indexers
+  - 1337x
+  - Rarbg?
+  - TPB
+  - RuTracker.ru
+- Add sonar & radarr
+- Add qbittorent
+
+### Jellyseerr
+- Setup last, make sure to add movies/tv paths in sonarr/radarr and request something before trying to setup
+
+### Home Assistant
+- Add govee, sonoff, kasa, and zigbee devices
 
 ### Clean up nix store
 ```console
