@@ -25,6 +25,16 @@ in
     SECRET=`cat ${config.sops.secrets.pushbullet_api_key.path}`
     ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$SECRET|" ${local-config-dir}/config.yaml
   '';
+  # Delay gatus start for 30s because it needs adguard to setup first
+  # Otherwise local DNS record lookups will fail.
+  # There's a smarter way to do this with wanted and after, but this is the lazy way
+  systemd.timers."start-${app-name}" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "30s";
+      Unit = "podman-${app-name}.service";
+    };
+  };
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
