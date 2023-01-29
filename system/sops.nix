@@ -12,7 +12,7 @@
     };
     pushbullet_api_key = {
       neededForUsers = true;
-      # restartUnits = [ "podman-gatus.service" ];
+      restartUnits = [ "podman-gatus.service" ];
     };
     home_assistant = {
       owner = "hass";
