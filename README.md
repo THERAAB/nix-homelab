@@ -31,6 +31,9 @@ Note that it's probably a bad idea for you to try to build this if you're not me
 ### Download NixOS
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
+- Remove DNS resolver from pfSense Interfaces. Otherwise, you will have no DNS during install
+  - Services -> DHCP Server -> DNS Servers -> remove IP
+  - Repeat for all interfaces
 - Boot into flash drive
 
 ### Get this repo so we can run some scripts
