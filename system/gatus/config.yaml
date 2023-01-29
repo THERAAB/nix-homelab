@@ -40,9 +40,10 @@ endpoints:
     alerts:
       - type: custom
   - name: Homer.box
-    url: tcp://homer.server.box:8082
+    url: http://server.box
     conditions:
       - "[CONNECTED] == true"
+      - '[BODY] == pat(*<html lang="en">*)'
     alerts:
       - type: custom
   - name: Homer.tail
