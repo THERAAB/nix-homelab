@@ -35,6 +35,7 @@ Note that it's probably a bad idea for you to try to build this if you're not me
 - Remove DNS resolver from pfSense Interfaces. Otherwise, you will have no DNS during install
   - Services -> DHCP Server -> DNS Servers -> remove IP
   - Repeat for all interfaces
+- Disable Override local DNS from tailscale console
 - Boot into flash drive
 
 ### Get this repo so we can run some scripts
