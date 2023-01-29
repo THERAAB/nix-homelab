@@ -24,9 +24,10 @@ A [NixOS](https://nixos.org/) configuration repository for my Intel 12th Gen [se
 
 ## Installation
 
-Note that it's probably a bad idea for you to try to build this if you're not me for two reasons:
+Note that it's probably a bad idea for you to try to build this if you're not me for 3 reasons:
 - You probably don't have my hardware
 - You probably don't have my sops keys (shoutout to my FBI agent!)
+- You likely won't have same IPs and network setup
 
 ### Download NixOS
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
