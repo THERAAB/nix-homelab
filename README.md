@@ -63,7 +63,7 @@ git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 ```
 - Place keys.txt in ~/.config/sops/age/keys.txt
 ```console
-sudo vi ~/.config/sops/age/keys.txt
+vi ~/.config/sops/age/keys.txt
 ```
 - Place ssh_host_ed25519_key in /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
 ```console
