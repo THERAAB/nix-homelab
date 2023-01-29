@@ -35,21 +35,22 @@ endpoints:
   - name: Home Assistant
     url: http://home-assistant.server.box
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
       - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
   - name: Homer.box
     url: http://server.box
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
       - '[BODY] == pat(*<html lang="en">*)'
     alerts:
       - type: custom
   - name: Homer.tail
-    url: tcp://homer.server.box:8083
+    url: http://server.tail
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
+      - '[BODY] == pat(*<html lang="en">*)'
     alerts:
       - type: custom
   - name: Jellyfin
@@ -65,15 +66,17 @@ endpoints:
     alerts:
       - type: custom
   - name: NetData
-    url: tcp://netdata.server.box:19999
+    url: http://netdata.server.box
     conditions:
-      - "[CONNECTED] == true"
+      - "[STATUS] == 200"
+      - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
   - name: PFSense
-    url: "icmp://192.168.1.1"
+    url: "https://192.168.1.1/index.php"
     conditions:
       - "[CONNECTED] == true"
+      - '[BODY] == pat(*<!DOCTYPE html>*)'
     alerts:
       - type: custom
   - name: Prowlarr
