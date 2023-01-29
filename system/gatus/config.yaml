@@ -36,21 +36,21 @@ endpoints:
     url: http://home-assistant.server.box/
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<!DOCTYPE html>*)'
+      - '[BODY] == pat(*<title>Home Assistant</title>*)'
     alerts:
       - type: custom
   - name: Homer.box
     url: http://server.box/
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<html lang="en">*)'
+      - '[BODY] == pat(*<div id="app-mount"></div>*)'
     alerts:
       - type: custom
   - name: Homer.tail
     url: http://server.tail/
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<html lang="en">*)'
+      - '[BODY] == pat(*<div id="app-mount"></div>*)'
     alerts:
       - type: custom
   - name: Jellyfin
@@ -69,7 +69,7 @@ endpoints:
     url: http://netdata.server.box/
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<!doctype html>*)'
+      - '[BODY] == pat(*<title>netdata dashboard</title>*)'
     alerts:
       - type: custom
   - name: PFSense
@@ -78,7 +78,7 @@ endpoints:
       insecure: true
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<!DOCTYPE html>*)'
+      - '[BODY] == pat(*<title>pfSense - Login</title>*)'
     alerts:
       - type: custom
   - name: Prowlarr
@@ -106,16 +106,16 @@ endpoints:
     alerts:
       - type: custom
   - name: TP-Link Archer
-    url: http://tplinkwifi.net/
+    url: http://tplink.server.box/
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<!doctype html>*)'
+      - '[BODY] == pat(*<?xml version="1.0" encoding="utf-8"?>*)'
     alerts:
       - type: custom
   - name: VueTorrent
     url: "http://vuetorrent.server.box"
     conditions:
       - "[STATUS] == 200"
-      - '[BODY] == pat(*<!DOCTYPE html>*)'
+      - '[BODY] == pat(*<title>qBittorrent</title>*)'
     alerts:
       - type: custom
