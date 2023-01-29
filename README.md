@@ -46,6 +46,7 @@ Note: might want to delete old tailscale "nix-homelab" device prior to this
 ```console
 sudo tailscale up --ssh
 ```
+Disable expiry and enable SSH from tailscale console
 Now we can ssh from any computer in our tailscale network
 
 ### SSH From Desktop
