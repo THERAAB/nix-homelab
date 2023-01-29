@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  media = (import ./properties.nix).media;
+  media = (import ./properties.nix);
 in
 {
   imports = [

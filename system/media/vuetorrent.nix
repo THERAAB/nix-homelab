@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  media = (import ./properties.nix).media;
+  media = (import ./properties.nix);
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
