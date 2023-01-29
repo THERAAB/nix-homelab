@@ -1,6 +1,6 @@
 Some additional setup is needed for non-declarative apps
 ### Add Back DNS resolver in DHCP settings
-- Services -> DHCP Server -> DNS Servers -> 192.168.3.11
+Services -> DHCP Server -> DNS Servers -> 192.168.3.11
 ### Check IP Leakage
 ```console
 sudo podman exec -it vuetorrent sh
