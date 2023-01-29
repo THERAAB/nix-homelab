@@ -39,7 +39,7 @@ curl https://am.i.mullvad.net/json
 - Setup last, make sure to add movies/tv paths in sonarr/radarr and request something before trying to setup
 
 ### Home Assistant
-- Add govee, sonoff, kasa, and zigbee devices
+- Add govee, sonoff, kasa, pushbullet and zigbee devices
 
 ### Clean up nix store
 ```console
