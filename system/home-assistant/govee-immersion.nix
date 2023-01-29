@@ -6,7 +6,7 @@ let
     rev    = "0.2.2";
     sha256 = "sha256-vIBx+t+AcWG9z7O5bv4yMMCplpc54N29/QxMUwHjeSU=";
   };
-  devices = (import ./properties.nix).devices;
+  devices = (import ./devices.properties.nix);
 in
 {
   systemd.tmpfiles.rules = [

@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   triggered-entities-name = "{{ trigger.to_state.attributes.friendly_name }}";
-  devices = (import ./properties.nix).devices;
+  devices = (import ./devices.properties.nix);
 in
 {
   services.home-assistant.config = {
