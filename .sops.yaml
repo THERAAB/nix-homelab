@@ -1,6 +1,5 @@
 keys:
   - &admin_raab age13zaj0hnh70f6hnrr9gl4adwj0nyvvrsu9g32q8sz3s5uz6zwq38q9u0edy
-  - &nix-homelab_new age14sz4y0uk8qyhu6u0f8dtsnyd9nlsdwycckg683v8zmfwf4jzjs6s2gzza0
   - &nix-homelab age13cky8fk7apgdv4f8j3nqmsj4scsr397slgp75wdey724xmklev2qm8zuvg
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
@@ -8,4 +7,3 @@ creation_rules:
       - age:
           - *admin_raab
           - *nix-homelab
-          - *nix-homelab_new

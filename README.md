@@ -50,7 +50,9 @@ Note: might want to delete old tailscale "nix-homelab" device prior to this
 ```console
 sudo tailscale up --ssh
 ```
-Disable expiry and enable SSH from tailscale console. Now we can ssh from any computer in our tailscale network
+- Disable expiry from tailscale console. 
+- Update tailscale IP in system/network.properties.nix and in tailscale DNS server settings
+Now we can ssh from any computer in our tailscale network
 
 ### SSH From Desktop
 Change git to SSH now that we have our SSH key
@@ -58,16 +60,11 @@ Change git to SSH now that we have our SSH key
 cd /nix/persist/nix-homelab
 git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 ```
-Or if I'm too dumb to figure that out:
+- Place keys.txt in ~/.config/sops/age/keys.txt
+- Place ssh_host_ed25519_key in /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
+- Finally, Update and reboot
 ```console
-sudo rm -rf /nix/persist/nix-homelab
-sudo mkdir -p /nix/persist/nix-homelab
-sudo chown raab /nix/persist/nix-homelab
-git clone git@github.com:THERAAB/nix-homelab.git /nix/persist/nix-homelab
-```
-Update .sops.yaml with new public key. Then place keys.txt in ~/.config/sops/age/keys.txt. Finally, Update and reboot
-```console
-/nix/persist/nix-homelab/nixos-update-manager.sh update_flake
+update-full-with-git
 sudo reboot
 ```
 ## Manual Setup Steps
