@@ -35,7 +35,9 @@ Note that it's probably a bad idea for you to try to build this if you're not me
 - Remove DNS resolver from pfSense Interfaces. Otherwise, you will have no DNS during install
   - Services -> DHCP Server -> DNS Servers -> remove IP
   - Repeat for all interfaces
-- Disable Override local DNS from tailscale console
+- In Tailscale admin console
+  - Disable Override local DNS
+  - delete old tailscale "nix-homelab" device
 - Boot into flash drive
 
 ### Get this repo so we can run some scripts
@@ -47,12 +49,13 @@ sudo git clone https://github.com/THERAAB/nix-homelab instructions
 gnome-text-editor instructions/wipe-disk-and-install.sh &
 ```
 ### Now we can reboot into console
-Note: might want to delete old tailscale "nix-homelab" device prior to this
 ```console
 sudo tailscale up --ssh
 ```
 - Disable expiry from tailscale console. 
-- Update tailscale IP in system/network.properties.nix and in tailscale DNS server settings
+- Update tailscale IP in 
+  - system/network.properties.nix 
+  - tailscale DNS server settings
 Now we can ssh from any computer in our tailscale network
 
 ### SSH From Desktop

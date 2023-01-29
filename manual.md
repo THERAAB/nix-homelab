@@ -1,7 +1,13 @@
 ## Manual Setup Notes
 Some additional setup is needed for non-declarative apps
-### Add Back DNS resolver in DHCP settings
-Services -> DHCP Server -> DNS Servers -> nix-homelab local ip
+### Add Back DNS resolver
+- Services -> DHCP Server -> DNS Servers -> nix-homelab local ip
+- Re-enable override local DNS in tailscale
+
+### VueTorrent
+- admin/adminadmin
+- reset password
+- Settings > WebUi > Enable alternate UI
 ### Check IP Leakage
 ```console
 sudo podman exec -it vuetorrent sh
@@ -25,9 +31,6 @@ curl https://am.i.mullvad.net/json
 - Rarbg
 - TPB
 - RuTracker.ru
-
-### VueTorrent
-- Settings > WebUi > Enable alternate UI
 
 ### Clean up nix store
 ```console
