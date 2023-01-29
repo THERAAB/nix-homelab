@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  media = (import ./properties.nix);
+  media = (import ./media.properties.nix);
   uid = 9994;
   port = 7878;
   app-name = "radarr";

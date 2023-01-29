@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  media = (import ./properties.nix);
+  media = (import ./media.properties.nix);
   uid = 9993;
   port = 9696;
   app-name = "prowlarr";
