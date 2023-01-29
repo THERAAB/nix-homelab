@@ -31,7 +31,7 @@ in
   systemd.timers."start-${app-name}" = {
     wantedBy = [ "timers.target" ];
     timerConfig = {
-      OnBootSec = "30s";
+      OnBootSec = "90s";
       Unit = "podman-${app-name}.service";
     };
   };
