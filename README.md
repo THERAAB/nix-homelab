@@ -62,6 +62,8 @@ sudo mkdir -p /nix/persist/nix-homelab
 sudo chown raab /nix/persist/nix-homelab
 git clone git@github.com:THERAAB/nix-homelab.git /nix/persist/nix-homelab
 ```
+Update .sops.yaml with new public key
+Place keys.txt in ~/.config/sops/age/keys.txt
 Update and reboot
 ```console
 /nix/persist/nix-homelab/nixos-update-manager.sh update_flake
