@@ -15,6 +15,7 @@ in
     "R  ${custom-blueprints-dir}            -       -       -       -   -                                                           "
     "C  ${custom-blueprints-dir}            -       -       -       -   /nix/persist/nix-homelab/system/home-assistant/blueprints   "
     "Z  ${custom-blueprints-dir}            770     hass    hass    -   -                                                           "
+    "Z  /var/lib/hass/blueprints            770     hass    hass    -   -                                                           "
     "Z  /var/lib/hass/custom_components     770     hass    hass    -   -                                                           "
   ];
 
