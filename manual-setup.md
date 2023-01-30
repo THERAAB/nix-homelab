@@ -14,17 +14,16 @@ sudo podman exec -it vuetorrent sh
 curl https://am.i.mullvad.net/json
 ```
 
-### If you want to use privoxy
-- https
-- nix-homelab local ip
-- 8118
-- https://iknowwhatyoudownload.com
-- https://mullvad.net/en/check/
+### Check privoxy
+- https, 192.168.3.11:8118
+- Verify with these:
+  - https://iknowwhatyoudownload.com
+  - https://mullvad.net/en/check/
 
 ### Jellyfin hardware acceleration
-- Dashboard > Playback
+- Dashboard -> Playback
 - Intel QuickSync
-- Enable Tone mapping (not VPP)
+- Enable Tone mapping (non VPP option)
 
 ### Prowlarr 
 - Add indexers
@@ -43,7 +42,13 @@ curl https://am.i.mullvad.net/json
 Set up last, make sure to do above before trying to set up
 
 ### Home Assistant
-Add govee, sonoff, kasa, pushbullet, android tv and zigbee devices
+Add below services & their devices:
+- Govee
+- Sonoff
+- Kasa
+- Pushbullet
+- Android tv
+- Zigbee devices (water alarms)
 
 ### Clean up nix store
 ```console
