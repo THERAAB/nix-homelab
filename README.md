@@ -56,23 +56,22 @@ sudo tailscale up --ssh
 - Update tailscale IP in 
   - system/network.properties.nix 
   - tailscale DNS server settings
-Now we can ssh from any computer in our tailscale network
 
 ### SSH From Desktop
-Change git to SSH now that we have our SSH key
+Now we can SSH in, change git to SSH now that we have our SSH key
 ```console
 cd /nix/persist/nix-homelab
 git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 ```
-- Place keys.txt in ~/.config/sops/age/keys.txt
+Place keys.txt
 ```console
 vi ~/.config/sops/age/keys.txt
 ```
-- Place ssh_host_ed25519_key in /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
+Place ssh_host_ed25519_key
 ```console
 sudo vi /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
 ```
-- Finally, Update and reboot
+Finally, Update and reboot
 ```console
 update-full-with-git
 sudo reboot

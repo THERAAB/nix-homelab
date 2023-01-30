@@ -2,11 +2,11 @@
 Some additional setup is needed for non-declarative apps
 ### Add Back DNS resolver
 - Services -> DHCP Server -> DNS Servers -> nix-homelab local ip
-- Re-enable override local DNS in tailscale
+- Re-enable override local DNS in tailscale, make sure it has new IP
 
 ### VueTorrent
 - admin/adminadmin
-- reset password
+- change user & password
 - Settings > WebUi > Enable alternate UI
 ### Check IP Leakage
 ```console
@@ -24,7 +24,7 @@ curl https://am.i.mullvad.net/json
 ### Jellyfin hardware acceleration
 - Dashboard > Playback
 - Intel QuickSync
-- Enable Tone mapping
+- Enable Tone mapping (not VPP)
 
 ### Prowlarr 
 - Add indexers
@@ -36,10 +36,10 @@ curl https://am.i.mullvad.net/json
 - Add qbittorent
 
 ### Jellyseerr
-- Setup last, make sure to add movies/tv paths in sonarr/radarr and request something before trying to setup
+Setup last, make sure to add movies/tv paths in sonarr/radarr and request something before trying to setup
 
 ### Home Assistant
-- Add govee, sonoff, kasa, pushbullet, android tv and zigbee devices
+Add govee, sonoff, kasa, pushbullet, android tv and zigbee devices
 
 ### Clean up nix store
 ```console
