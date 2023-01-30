@@ -63,7 +63,7 @@ Now we can SSH in, change git to SSH now that we have our SSH key
 cd /nix/persist/nix-homelab
 git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 ```
-Place sops keys ([Bitwarden](https://vault.bitwarden.com/#/login))
+Place sops keys from [Bitwarden](https://vault.bitwarden.com/#/login)
 ```console
 vi ~/.config/sops/age/keys.txt
 sudo vi /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
