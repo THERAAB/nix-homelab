@@ -32,10 +32,10 @@ Note that it's probably a bad idea for you to try to build this if you're not me
 ### Download NixOS
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
-- Remove DNS resolver from pfSense Interfaces. Otherwise, you will have no DNS during install
+- If you have hardcoded DNS server in pfSense, remove it. Otherwise, you will have no DNS during install
   - Services -> DHCP Server -> DNS Servers -> remove IP
   - Repeat for all interfaces
-- In Tailscale admin console
+- Tailscale cleanup of old device
   - Disable Override local DNS
   - delete old tailscale "nix-homelab" device
 - Boot into flash drive
@@ -77,7 +77,7 @@ update-full-with-git
 sudo reboot
 ```
 ## Manual Setup Steps
-Check [manual.md](https://github.com/THERAAB/nix-homelab/blob/main/manual.md) for specific manual app setups
+Check [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-setup.md) for specific manual app setups
 
 ## TODO
 Check [TODO.txt](https://github.com/THERAAB/nix-homelab/blob/main/TODO.txt)
