@@ -29,14 +29,18 @@ curl https://am.i.mullvad.net/json
 ### Prowlarr 
 - Add indexers
   - 1337x
-  - Rarbg?
+  - Rarbg
   - TPB
   - RuTracker.ru
 - Add sonar & radarr
 - Add qbittorent
 
+### Sonar & Radarr
+- Add qbittorrent
+- Add movies/tv paths in sonarr/radarr and request something (needed for Jellyseerr to work)
+
 ### Jellyseerr
-Setup last, make sure to add movies/tv paths in sonarr/radarr and request something before trying to setup
+Set up last, make sure to do above before trying to set up
 
 ### Home Assistant
 Add govee, sonoff, kasa, pushbullet, android tv and zigbee devices
