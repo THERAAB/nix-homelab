@@ -88,6 +88,6 @@ sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 journalctl -b -1 -p 0..5
 # Add/modify secrets
 sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
-# Check what is not being persisted by NixOs Persistence module (will be wiped on boot if not 0B)
+# Check what is not being persisted by NixOs Persistence module (non 0B files will be wiped on boot)
 ncdu -x /
 ```
