@@ -52,3 +52,4 @@ Add below services & their devices:
 - Pushbullet
 - Android tv
 - Zigbee devices (water alarms)
+- Shopping (and shopping zone)

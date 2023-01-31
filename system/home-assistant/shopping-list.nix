@@ -13,9 +13,9 @@ in
         radius = "63";
       }
     ];
-    "automation shopping" = [
+    automation = [
       {
-        alias = "Send shopping list when arrive at shopping center";
+        alias = "Send shopping list when arrive at store";
         trigger = {
           platform = "zone";
           entity_id = devices.entity-id.phones.pixel.location;
