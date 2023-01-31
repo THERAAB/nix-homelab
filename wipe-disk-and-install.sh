@@ -48,7 +48,7 @@ sudo umount /mnt
 sudo fdisk -l
 
 # ----------------------------------------------------------------------
-# NixOs Setup and install                                              #
+# NixOs Setup and Install                                              #
 # ----------------------------------------------------------------------
 # Create dirs, Mount tmpfs & subvolumes
 sudo mount -t tmpfs none /mnt
