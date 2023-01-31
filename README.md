@@ -41,7 +41,7 @@ if you're not me for 3 reasons:
 - Tailscale cleanup of old device
   - Disable Override local DNS
   - delete old tailscale "nix-homelab" device
-- Boot into flash drive
+- Boot into flash drive (Fn + F12 to load boot menu on startup)
 
 ### Get this repo so we can run some scripts
 ```console
@@ -51,7 +51,7 @@ gnome-text-editor instructions/wipe-disk-and-install.sh &
 ```
 I recommend copy-pasting what commands you need because this script is dangerous (will wipe entire system). It also
 expects you to have 1 nvme and 1 sda device
-### Now we can reboot into console
+### Reboot into console, activate SSH
 ```console
 sudo tailscale up --ssh
 ```
@@ -60,18 +60,19 @@ sudo tailscale up --ssh
   - system/network.properties.nix 
   - tailscale DNS server settings
 
-### SSH From Desktop
-Now we can SSH in, change git to SSH now that we have our SSH key
-```console
-cd /nix/persist/nix-homelab
-git remote set-url origin git@github.com:THERAAB/nix-homelab.git
-```
+### Setup GitHub with SSH
 Place sops keys from [Bitwarden](https://vault.bitwarden.com/#/login)
 ```console
 vi ~/.config/sops/age/keys.txt
 sudo vi /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
 ```
-Finally, update, optimse store, and reboot
+Change git to SSH now that we have our SSH key
+```console
+ssh nix-homelab
+cd /nix/persist/nix-homelab
+git remote set-url origin git@github.com:THERAAB/nix-homelab.git
+```
+Finally, update, optimize store, and reboot
 ```console
 update-full-with-git
 nix-store --optimise
