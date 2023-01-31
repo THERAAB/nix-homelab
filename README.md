@@ -100,4 +100,7 @@ systemctl list-units
 
 # Check unit failures
 journalctl -u ${unit-name}
+
+# Restart a podman container
+sudo podman restart podman-${name}.service
 ```
