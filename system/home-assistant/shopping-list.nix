@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 let
   devices = (import ./devices.properties.nix);
+  shopping-zone = "Shopping";
 in
 {
   services.home-assistant.config = {
     zone = [
       {
-        name = "Send shopping list when arrive at shopping center";
+        name = shopping-zone;
         latitude = "!secret shopping_latitude";
         longitude = "!secret shopping_longitude";
         radius = "63";
@@ -14,15 +15,15 @@ in
     ];
     automation = [
       {
-        alias = "Send shopping notification";
+        alias = "Send shopping list when arrive at shopping center";
         trigger = {
           platform = "zone";
           entity_id = devices.entity-id.phones.pixel.location;
-          zone = devices.entity-id.phones.pixel.notify;
+          zone = shopping-zone;
           event = "enter";
         };
         action = {
-          service = "";
+          service = devices.entity-id.phones.pixel.notify;
           data = {
             message = "Click to open shopping list";
             data = {
