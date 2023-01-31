@@ -44,13 +44,13 @@ if you're not me for 3 reasons:
 - Boot into flash drive
 
 ### Get this repo so we can run some scripts
-I recommend copy-pasting what commands you need because this script is dangerous (will wipe entire system). It also
-expects you to have 1 nvme and 1 sda device
 ```console
 nix-shell -p git
 sudo git clone https://github.com/THERAAB/nix-homelab instructions
 gnome-text-editor instructions/wipe-disk-and-install.sh &
 ```
+I recommend copy-pasting what commands you need because this script is dangerous (will wipe entire system). It also
+expects you to have 1 nvme and 1 sda device
 ### Now we can reboot into console
 ```console
 sudo tailscale up --ssh
@@ -71,9 +71,10 @@ Place sops keys from [Bitwarden](https://vault.bitwarden.com/#/login)
 vi ~/.config/sops/age/keys.txt
 sudo vi /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
 ```
-Finally, Update and reboot
+Finally, Update, optimse store and reboot
 ```console
 update-full-with-git
+nix-store --optimise
 sudo reboot
 ```
 ## Manual Setup Steps
@@ -81,3 +82,15 @@ Check [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-
 
 ## TODO
 Check [TODO.txt](https://github.com/THERAAB/nix-homelab/blob/main/TODO.txt)
+
+## Some useful commands
+```console
+# Check recent NixOs builds
+sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+# Check last boot logs of certain priority (0-5)
+journalctl -b -1 -p 0..5
+# Add/modify secrets
+sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
+# Check what isn't being persisted by NixOs Persistence module (will be wiped on boot if not 0B)
+ncdu -x /
+```

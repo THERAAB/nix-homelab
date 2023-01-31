@@ -1,9 +1,11 @@
-## Manual Setup Notes
-Some additional setup is needed for non-declarative apps
-### Add Back DNS resolver
-- Services -> DHCP Server -> DNS Servers -> nix-homelab local ip
-- Re-enable override local DNS in tailscale, make sure it has new IP
+# Manual Setup Notes
+Some additional setup is needed for my non-declarative app setup
+## Networking
+### Add Adguard DNS resolver to pfSense and Tailscale
+- pfSense -> Services -> DHCP Server -> DNS Servers -> nix-homelab local ip
+- tailscale -> DNS settings -> override local DNS
 
+## Privacy VPN
 ### VueTorrent
 - admin/adminadmin
 - change user & password
@@ -13,13 +15,13 @@ Some additional setup is needed for non-declarative apps
 sudo podman exec -it vuetorrent sh
 curl https://am.i.mullvad.net/json
 ```
-
 ### Check privoxy
-- https, 192.168.3.11:8118
+- Set firefox proxy to https://192.168.3.11:8118
 - Verify with these:
   - https://iknowwhatyoudownload.com
   - https://mullvad.net/en/check/
 
+## ARR Stack
 ### Jellyfin hardware acceleration
 - Dashboard -> Playback
 - Intel QuickSync
@@ -41,7 +43,8 @@ curl https://am.i.mullvad.net/json
 ### Jellyseerr
 Set up last, make sure to do above before trying to set up
 
-### Home Assistant
+### Home Automation
+## Home Assistant
 Add below services & their devices:
 - Govee
 - Sonoff
@@ -49,19 +52,3 @@ Add below services & their devices:
 - Pushbullet
 - Android tv
 - Zigbee devices (water alarms)
-
-### Clean up nix store
-```console
-update-full-with-git
-garbage-collect-all
-nix-store --optimise
-sudo reboot
-```
-
-### Some useful commands
-```console
-sudo nix-env -p /nix/var/nix/profiles/system --list-generations
-journalctl -b -1 -p 0..5
-sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
-ncdu -x /
-```
