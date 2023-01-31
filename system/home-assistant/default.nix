@@ -9,6 +9,7 @@ in
     ./aqara-water-alarms.nix
     ./battery-notifications.nix
     ./govee-immersion.nix
+    ./shopping-list.nix
   ];
 
   systemd.tmpfiles.rules = [
