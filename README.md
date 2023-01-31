@@ -1,7 +1,9 @@
 # RAAB's HomeLab Server
 
-A [NixOS](https://nixos.org/) configuration repository for my Intel 12th Gen [selfhosted](https://www.reddit.com/r/selfhosted/) server.
+A [NixOS](https://nixos.org/) configuration repository for my [selfhosted](https://www.reddit.com/r/selfhosted/) server.
 [NixOS](https://nixos.org/) allows you to create a fully declarative operating system using the [Nix language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language).
+This repo contains everything needed to rebuild my server from scratch, with the only manual steps being in [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-setup.md)
+and the installation instructions below.
 
 ![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/assets/dashboard.png?raw=true "PNG of Dashboard")
 
@@ -20,19 +22,20 @@ A [NixOS](https://nixos.org/) configuration repository for my Intel 12th Gen [se
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
 - Reverse Proxy with [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [netdata](https://www.netdata.cloud/) and [gatus](https://github.com/TwiN/gatus)
-- [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system for compression and snapshots (not using right now)
+- [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
 
 ## Installation
 
-Note that it's probably a bad idea for you to try to build this if you're not me for 3 reasons:
-- You probably don't have my hardware
+This repo contains some customizations for my specific setup, and you likely won't be able to follow these instructions exactly
+if you're not me for 3 reasons:
+- You probably don't have my hardware (Intel 12th Gen CPU, 1 nvme, 1 sda device)
 - You probably don't have my sops keys (shoutout to my FBI agent!)
-- You likely won't have same IPs and network setup
+- You likely won't have same IPs and network, firewall (pfSense), and tailscale setup
 
 ### Download NixOS
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
-- If you have hardcoded DNS server in pfSense, remove it. Otherwise, you will have no DNS during install
+- If you previously used this setup and have hardcoded DNS server in pfSense, remove it. Otherwise, you will have no DNS during install
   - Services -> DHCP Server -> DNS Servers -> remove IP
   - Repeat for all interfaces
 - Tailscale cleanup of old device
