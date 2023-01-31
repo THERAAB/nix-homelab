@@ -53,8 +53,8 @@ in
         unit_system = "imperial";
         time_zone = "America/New_York";
         temperature_unit = "F";
-        longitude = "!secret longitude";
-        latitude = "!secret latitude";
+        longitude = "!secret home_longitude";
+        latitude = "!secret home_latitude";
       };
     };
   };
