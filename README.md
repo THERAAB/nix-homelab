@@ -77,13 +77,9 @@ update-full-with-git
 nix-store --optimise
 sudo reboot
 ```
-## Manual Setup Steps
 Check [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-setup.md) for specific manual app setups
 
-## TODO
-Check [TODO.txt](https://github.com/THERAAB/nix-homelab/blob/main/TODO.txt)
-
-## Some useful commands
+## Maintenance
 These commands might help with some common maintenance tasks
 ```console
 # Check recent NixOs builds
