@@ -1,5 +1,12 @@
 #!/bin/bash
 
+########################################################################################################################
+#                                   ---------- READ HERE First ---------
+#   NOTE: I recommend copy-pasting what commands you need because this script is dangerous.
+#   If run fully, it will wipe entire system.
+#   It also expects you to have /dev/nvme0n1 and /dev/sda devices formatted as per below sections
+########################################################################################################################
+
 # ----------------------------------------------------------------------------------------------------------------------
 # Wipe /dev/nvme0n1 (OS Install) and reformat
 # Don't do this unless you want to wipe your OS
