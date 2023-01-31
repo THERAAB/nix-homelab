@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# Wipe /dev/nvme0n1 (OS Install) and reformat --------------------------
-# Don't do this unless you want to wipe your OS
+# ----------------------------------------------------------------------
+# Wipe /dev/nvme0n1 (OS Install) and reformat                          #
+# Don't do this unless you want to wipe your OS                        #
+# ----------------------------------------------------------------------
 # Make GPT/fat32/btrfs partitions for nvme0n1 (nvme)
 sudo parted /dev/nvme0n1 -- mklabel gpt
 sudo parted /dev/nvme0n1 -- mkpart ESP fat32 1MB 512MB
@@ -23,8 +25,10 @@ cd ..
 sudo umount /mnt
 # ----------------------------------------------------------------------
 
-# -- Wipe /dev/sda (media HDD) and reformat ----------------------------
-# Don't do this unless you want to wipe your media drive
+# ----------------------------------------------------------------------
+# Wipe /dev/sda (media HDD) and reformat                               #
+# Don't do this unless you want to wipe your OS                        #
+# ----------------------------------------------------------------------
 # Make BTRFS Partition
 sudo parted /dev/sda -- mklabel gpt
 sudo parted /dev/sda -- mkpart primary btrfs 4MiB 100%
@@ -43,7 +47,9 @@ sudo umount /mnt
 # Verify disk formatting worked
 sudo fdisk -l
 
-# NixOs Setup & Install ------------------------------------------------
+# ----------------------------------------------------------------------
+# NixOs Setup and install                                              #
+# ----------------------------------------------------------------------
 # Create dirs, Mount tmpfs & subvolumes
 sudo mount -t tmpfs none /mnt
 sudo mkdir -p /mnt/{home/raab,nix,boot,media,etc/nixos}
