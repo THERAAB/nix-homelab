@@ -7,9 +7,13 @@
         sewer-trap = "binary_sensor.lumi_lumi_sensor_wleak_aq1_iaszone";
       };
     };
-    battery.phones = {
-      pixel = "sensor.pixel_6_battery_level";
-      galaxy-tab-s7 = "sensor.sm_t870_battery_level";
+    phones = {
+      pixel = {
+        battery = "sensor.pixel_6_battery_level";
+        location = "device_tracker.pixel_6";
+        notify = "notify.mobile_app_pixel_6";
+      };
+      galaxy-tab-s7.battery = "sensor.sm_t870_battery_level";
     };
     living-room = {
       android-tv = "media_player.android_tv_192_168_1_115";

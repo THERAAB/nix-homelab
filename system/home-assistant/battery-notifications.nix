@@ -29,8 +29,8 @@ in
             ];
             exclude = {
               entity_id = [
-                devices.entity-id.battery.phones.pixel
-                devices.entity-id.battery.phones.galaxy-tab-s7
+                devices.entity-id.phones.pixel.battery
+                devices.entity-id.phones.galaxy-tab-s7.battery
               ];
             };
           };

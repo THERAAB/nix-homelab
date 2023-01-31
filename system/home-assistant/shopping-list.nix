@@ -2,7 +2,7 @@
   services.home-assistant.config = {
     zone = [
       {
-        name = "Shopping";
+        name = "Send shopping list when arrive at shopping center";
         latitude = "!secret shopping_latitude";
         longitude = "!secret shopping_longitude";
         radius = "63";
@@ -13,12 +13,12 @@
         alias = "Send shopping notification";
         trigger = {
           platform = "zone";
-          entity_id = "device_tracker.pixel_6";
-          zone = "zone.Shopping";
+          entity_id = devices.entity-id.phones.pixel.location;
+          zone = devices.entity-id.phones.pixel.notify;
           event = "enter";
         };
         action = {
-          service = "notify.mobile_app_pixel_6";
+          service = "";
           data = {
             message = "Click to open shopping list";
             data = {
