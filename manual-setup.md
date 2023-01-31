@@ -43,8 +43,8 @@ curl https://am.i.mullvad.net/json
 ### Jellyseerr
 Set up last, make sure to do above before trying to set up
 
-### Home Automation
-## Home Assistant
+## Home Automation
+### Home Assistant
 Add below services & their devices:
 - Govee
 - Sonoff

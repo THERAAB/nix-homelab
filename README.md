@@ -84,6 +84,7 @@ Check [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-
 Check [TODO.txt](https://github.com/THERAAB/nix-homelab/blob/main/TODO.txt)
 
 ## Some useful commands
+These commands might help with some common maintenance tasks
 ```console
 # Check recent NixOs builds
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
@@ -91,6 +92,6 @@ sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 journalctl -b -1 -p 0..5
 # Add/modify secrets
 sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
-# Check what isn't being persisted by NixOs Persistence module (will be wiped on boot if not 0B)
+# Check what is not being persisted by NixOs Persistence module (will be wiped on boot if not 0B)
 ncdu -x /
 ```
