@@ -13,7 +13,7 @@ in
         radius = "63";
       }
     ];
-    zzautomation = [
+    "automation shopping" = [
       {
         alias = "Send shopping list when arrive at shopping center";
         trigger = {
