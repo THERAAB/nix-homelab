@@ -18,5 +18,6 @@
     age
     sops
     ssh-to-age
+    netavark # for podman to stop flooding logs
   ];
 }
