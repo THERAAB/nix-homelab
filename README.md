@@ -85,14 +85,19 @@ These commands might help with some common maintenance tasks
 ```console
 # Check recent NixOs generations
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+
 # Check last boot logs of certain priority (0-5)
 journalctl -b -1 -p 0..5
+
 # Add/modify secrets
 sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
+
 # See anything not persisted by NixOs Persistence module (non 0B files will be wiped on boot)
 ncdu -x /
+
 # List systemd units
 systemctl list-units
+
 # Check unit failures
 journalctl -u ${unit-name}
 ```
