@@ -91,4 +91,8 @@ journalctl -b -1 -p 0..5
 sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
 # See anything not persisted by NixOs Persistence module (non 0B files will be wiped on boot)
 ncdu -x /
+# List systemd units
+systemctl list-units
+# Check unit failures
+journalctl -u ${unit-name}
 ```

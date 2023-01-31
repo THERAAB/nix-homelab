@@ -7,7 +7,7 @@
       ".config/sops/age"
     ];
     files = [
-      ".config/.gitconfig"
+      # ".config/.gitconfig"
     ];
   };
 }
