@@ -1,7 +1,7 @@
 # Manual Setup Notes
-Some additional setup is needed for my non-declarative app setup
+Some apps can't be managed declaratively, so additional setup needed for them is described here.
 ## Networking
-### Add Adguard DNS resolver to pfSense and Tailscale
+### Use Adguard Home
 - pfSense -> Services -> DHCP Server -> DNS Servers -> nix-homelab local ip
 - tailscale -> DNS settings -> override local DNS
 

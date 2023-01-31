@@ -9,7 +9,7 @@ and the installation instructions below.
 
 ## What's inside
 
-- Declarative/Reproducible OS using [NixOS](https://nixos.org/)
+- Declarative/Reproducible builds using [NixOS](https://nixos.org/)
 - An Ephemeral root/home storage scheme (See [Erase your darlings](https://grahamc.com/blog/erase-your-darlings) and [NixOS Impermanence](https://github.com/nix-community/impermanence))
 - Secret management with [sops-nix](https://github.com/Mic92/sops-nix/blob/master/README.md)
 - Dependency pinning with [Nix Flakes](https://nixos.wiki/wiki/Flakes)
@@ -71,7 +71,7 @@ Place sops keys from [Bitwarden](https://vault.bitwarden.com/#/login)
 vi ~/.config/sops/age/keys.txt
 sudo vi /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
 ```
-Finally, Update, optimse store and reboot
+Finally, update, optimse store, and reboot
 ```console
 update-full-with-git
 nix-store --optimise
@@ -82,12 +82,12 @@ Check [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-
 ## Maintenance
 These commands might help with some common maintenance tasks
 ```console
-# Check recent NixOs builds
+# Check recent NixOs generations
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 # Check last boot logs of certain priority (0-5)
 journalctl -b -1 -p 0..5
 # Add/modify secrets
 sops /nix/persist/nix-homelab/system/secrets/secrets.yaml
-# Check what is not being persisted by NixOs Persistence module (non 0B files will be wiped on boot)
+# See anything not persisted by NixOs Persistence module (non 0B files will be wiped on boot)
 ncdu -x /
 ```
