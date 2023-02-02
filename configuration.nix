@@ -22,7 +22,10 @@
     nixos-upgrade.onFailure = [ "nixos-upgrade-on-failure.service" ];
     nixos-upgrade-on-failure = {
       script = let
-        nixUpgradeLogs = pkgs.runCommand "getLogs" {} "${pkgs.systemd}/bin/journalctl -u nixos-upgrade.service | tail -15";
+        nixUpgradeLogs = pkgs.runCommand "getLogs" {} ''
+          mkdir $out
+          ${pkgs.systemd}/bin/journalctl -u nixos-upgrade.service | tail -15
+        '';
       in ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         echo '{"type":"note","title":"Nixos Upgrade Failed","body":"<LOGS>"}' > ./body.json
