@@ -23,14 +23,10 @@
     nixos-upgrade-on-failure = {
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
-        ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
-                                -H "Content-Type: application/json"     \
-                                -X POST                                 \
-                                -d '{                                   \
-                                      "type" : "note",                  \
-                                      "title" : "test",                 \
-                                      "body" : "test"                   \
-                                     }'                                 \
+        ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"                           \
+                                -H "Content-Type: application/json"                 \
+                                -X POST                                             \
+                                -d '{"type":"note","title":"test","body":"test"}'   \
                                 https://api.pushbullet.com/v2/pushes
       '';
     };
