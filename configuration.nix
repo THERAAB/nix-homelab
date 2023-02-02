@@ -25,7 +25,7 @@
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         echo '{"type":"note","title":"Nixos Upgrade Failed","body":"<LOGS>"}' > ./body.json
         LOGS=`journalctl -u nixos-upgrade.service | tail -15`
-        sed -i "s|<LOGS>|$LOGS|" ./body.json
+        sed -i 's|<LOGS>|$LOGS|' ./body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
