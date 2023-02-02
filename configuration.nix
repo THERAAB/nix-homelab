@@ -24,7 +24,7 @@
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
-        ${pkgs.curl}/bin/curl   -H "Content-Type: application/json"     \
+                                -H "Content-Type: application/json"     \
                                 -X POST                                 \
                                 -d '{                                   \
                                       "type" : "note",                  \
