@@ -24,7 +24,7 @@
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         echo '{"type":"note","title":"Nixos Upgrade Failed","body":"' > body.json
-        journalctl -n 15 -o cat -u nixos-upgrade.service  >> body.json
+        journalctl -n 15 -u nixos-upgrade.service  >> body.json
         echo '"}' >> body.json
 
         ${pkgs.dos2unix}/bin/unix2dos body.json
