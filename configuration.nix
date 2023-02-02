@@ -23,10 +23,11 @@
     nixos-upgrade-on-failure = {
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
+        LOGS=`journalctl -u nixos-upgrade.service | tail -15`
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"                           \
                                 -H "Content-Type: application/json"                 \
                                 -X POST                                             \
-                                -d '{"type":"note","title":"test","body":"test"}'   \
+                                -d '{"type":"note","title":"test","body":"$LOGS"}'   \
                                 https://api.pushbullet.com/v2/pushes
       '';
     };
