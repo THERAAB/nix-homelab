@@ -21,11 +21,13 @@
   systemd.services = {
     nixos-upgrade.onFailure = [ "nixos-upgrade-on-failure.service" ];
     nixos-upgrade-on-failure = {
-      script = ''
+      script = let
+        nixUpgradeLogs = runCommand "getLogs" {} "journalctl -u nixos-upgrade.service | tail -15";
+      in ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         echo '{"type":"note","title":"Nixos Upgrade Failed","body":"<LOGS>"}' > ./body.json
-        LOGS=`journalctl -u nixos-upgrade.service | tail -15`
-        sed -i 's|<LOGS>|$LOGS|' ./body.json
+
+        sed -i 's|<LOGS>|${nixUpgradeLogs}|' ./body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
