@@ -27,7 +27,7 @@
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"                           \
                                 -H "Content-Type: application/json"                 \
                                 -X POST                                             \
-                                -d '{"type":"note","title":"test","body":"$LOGS"}'   \
+                                -d '{"type":"note","title":"test","body":"${LOGS}"}'   \
                                 https://api.pushbullet.com/v2/pushes
       '';
     };
