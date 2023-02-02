@@ -29,8 +29,7 @@
       in ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         echo '{"type":"note","title":"Nixos Upgrade Failed","body":"<LOGS>"}' > ./body.json
-
-        sed -i 's|<LOGS>|${nixUpgradeLogs}|' ./body.json
+        ${pkgs.gnused}/bin/sed -i 's|<LOGS>|${nixUpgradeLogs}|' ./body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
