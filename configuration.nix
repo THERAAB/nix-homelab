@@ -30,7 +30,7 @@
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
                                 -X POST                                 \
-                                -d "$BODY_WITH_LOGS"                      \
+                                -d '$BODY_WITH_LOGS'                    \
                                 https://api.pushbullet.com/v2/pushes
       '';
     };
