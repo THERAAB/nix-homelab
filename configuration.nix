@@ -22,11 +22,12 @@
     nixos-upgrade.onFailure = [ "nixos-upgrade-on-failure.service" ];
     nixos-upgrade-on-failure = {
       script = ''
-        echo test > test.txt
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
-        echo '{"type":"file","title":"Nixos Upgrade Failed","file_name":"test.txt","file_type":"text/plain"}' > body.json
 
-        ${pkgs.dos2unix}/bin/unix2dos body.json
+        echo '{"type":"file","title":"Nixos Upgrade Failed","body":"' > body.json
+        journalctl -n 15 -u nixos-upgrade.service  >> body.json
+        echo '"}' >> body.json
+
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
                                 -X POST                                 \
