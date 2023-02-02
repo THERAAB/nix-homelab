@@ -7,7 +7,7 @@
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
 
         echo '{"type":"note","title":"Nixos Upgrade Failed","body":"' > body.json
-        journalctl -n 15 -u nixos-upgrade.service  >> body.json
+        journalctl -o json-seq -n 15 -u nixos-upgrade.service  >> body.json
         echo '"}' >> body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
