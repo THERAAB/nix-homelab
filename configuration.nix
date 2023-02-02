@@ -23,9 +23,9 @@
     nixos-upgrade-on-failure = {
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
-        BODY=`{"type":"note","title":"Nixos Upgrade Failed","body":"<LOGS>"}`
+        echo '{"type":"note","title":"Nixos Upgrade Failed","body":"<LOGS>"}' > body.json
         LOGS=`journalctl -u nixos-upgrade.service | tail -15`
-        echo "$BODY" | sed s/<LOGS>/$LOGS/ > body.json
+        sed -i s|<LOGS>|$LOGS| body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
