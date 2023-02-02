@@ -18,7 +18,25 @@
     };
   };
 
-  # nixos-upgrade.service
+  systemd.services = {
+    nixos-upgrade.onFailure = [ "nixos-upgrade-on-failure.service" ];
+    nixos-upgrade-on-failure = {
+      script = ''
+        TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
+        ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
+        ${pkgs.curl}/bin/curl   -H "Content-Type: application/json"     \
+                                -X POST                                 \
+                                -d '{                                   \
+                                      "type" : "note",                  \
+                                      "title" : "test",                 \
+                                      "body" : "test"                   \
+                                     }'                                 \
+                                https://api.pushbullet.com/v2/pushes
+      '';
+    };
+  };
+
+
   system.autoUpgrade = {
     enable = true;
     dates = "04:00";

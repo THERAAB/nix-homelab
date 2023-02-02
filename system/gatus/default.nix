@@ -22,8 +22,8 @@ in
   ];
   system.activationScripts."gatus-secrets" = ''
     cp ${system-app-dir}/config.yaml ${local-config-dir}/config.yaml
-    SECRET=`cat ${config.sops.secrets.pushbullet_api_key.path}`
-    ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$SECRET|" ${local-config-dir}/config.yaml
+    TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
+    ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
   '';
   # Delay gatus start for 30s because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
