@@ -6,7 +6,7 @@
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
 
-        echo '{"type":"file","title":"Nixos Upgrade Failed","body":"' > body.json
+        echo '{"type":"note","title":"Nixos Upgrade Failed","body":"' > body.json
         journalctl -n 15 -u nixos-upgrade.service  >> body.json
         echo '"}' >> body.json
 
