@@ -24,11 +24,10 @@
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         echo '{"type":"note","title":"Nixos Upgrade Failed","body":"' > body.json
-        journalctl -u nixos-upgrade.service | tail -15 | ${pkgs.gnused}/bin/sed s/\$/$CR/ >> body.json
+        journalctl -u nixos-upgrade.service | tail -15 >> body.json
         echo '"}' >> body.json
 
-        echo body.json
-
+        ${pkgs.dos2unix}/bin/unix2dos body.json
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
                                 -X POST                                 \
