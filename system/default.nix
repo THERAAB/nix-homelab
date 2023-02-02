@@ -15,5 +15,6 @@
     ./caddy.nix
     ./netdata.nix
     ./sops.nix
+    ./auto-upgrade.nix
   ];
 }
