@@ -7,6 +7,7 @@
       ".config/sops/age"
     ];
     files = [
+      ".ssh/known_hosts"
     ];
   };
 }
