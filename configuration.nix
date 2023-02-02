@@ -25,12 +25,12 @@
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         BODY=`{"type":"note","title":"Nixos Upgrade Failed","body":"<LOGS>"}`
         LOGS=`journalctl -u nixos-upgrade.service | tail -15`
-        BODY_WITH_LOGS=`echo $BODY | sed s/<LOGS>/$LOGS/`
+        echo $BODY | sed s/<LOGS>/$LOGS/ > body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
                                 -X POST                                 \
-                                -d '$BODY_WITH_LOGS'                    \
+                                -d @body.json                           \
                                 https://api.pushbullet.com/v2/pushes
       '';
     };
