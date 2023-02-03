@@ -61,7 +61,7 @@ in
   };
   systemd.tmpfiles.rules = [
     "C    ${www-dir}                    -           -               -               -   ${olivetin}/www "
-    "L    ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
+    "L+   ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
     "Z    ${scripts-dir}                700         root            root            -   -               "
     "Z    ${www-dir}                    770         ${app-name}     ${app-name}     -   -               "
   ];
