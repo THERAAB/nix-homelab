@@ -42,6 +42,7 @@ in
       TZ="America/New_York";
     };
     extraOptions = [
+      "--privileged"
     ];
   };
 }
