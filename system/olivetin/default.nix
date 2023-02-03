@@ -35,6 +35,7 @@ in
     image = "jamesread/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
+      "${pkgs.systemd}/bin:/run/current-system/sw/bin/"
     ];
     user = "root";
     # user = "${toString uid}";

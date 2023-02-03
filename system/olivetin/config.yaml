@@ -2,4 +2,4 @@ actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
   - title: Upgrade
-    shell: systemctl start nixos-upgrade.service
+    shell: /run/systemd/shutdown
