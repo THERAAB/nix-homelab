@@ -7,18 +7,8 @@ let
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/nix/persist/${app-name}/scripts";
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
-
-  shellScript = pkgs.writeShellScript "commands.sh" ''
-    case "$1" in
-      reboot)
-        reboot now;;
-      jellyfin_reboot)
-        podman stop jellyfin
-        sleep 1
-        podman start jellyfin
-    esac
-  '';
-
+  shellScript = (import ./script.nix).shellScript;
+  
   olivetin = pkgs.stdenv.mkDerivation rec {
     pname = "OliveTin";
     version = "2022.11.14";
