@@ -1,5 +1,3 @@
-listenAddressSingleHTTPFrontend: 0.0.0.0:1338
-
 actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
