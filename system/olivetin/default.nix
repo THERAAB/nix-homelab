@@ -25,7 +25,8 @@ in
 
     preStart = ''
       cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
-      cp --force -r ${olivetin}/www/* "$STATE_DIRECTORY/www"
+      mkdir -p $STATE_DIRECTORY/www
+      cp -r ${olivetin}/www/* "$STATE_DIRECTORY/www"
       chmod 600 "$STATE_DIRECTORY/config.yaml"
     '';
 
