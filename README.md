@@ -22,6 +22,7 @@ and the installation instructions below.
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
 - Reverse Proxy with [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [netdata](https://www.netdata.cloud/) and [gatus](https://github.com/TwiN/gatus)
+- WebUI for script execution with [OliveTin](https://www.olivetin.app/)
 - [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
 
 ## Installation
