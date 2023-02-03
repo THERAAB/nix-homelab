@@ -11,7 +11,7 @@ let
   shellScript = pkgs.writeShellScript "commands.sh" ''
     case "$1" in
       hello)
-        echo hello3;;
+        echo hello4;;
     esac
   '';
 
