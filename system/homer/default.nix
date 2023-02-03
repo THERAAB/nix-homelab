@@ -18,17 +18,17 @@ let
 in
 {
   systemd.tmpfiles.rules = [
-    "r    ${box-config-dir}/config.yml      -   -               -               -   -                                   "
-    "r    ${tail-config-dir}/config.yml     -   -               -               -   -                                   "
-    "R    ${box-config-dir}/icons           -   -               -               -   -                                   "
-    "R    ${tail-config-dir}/icons          -   -               -               -   -                                   "
-    "C    ${tail-config-dir}                -   -               -               -   ${system-config-dir}                "
-    "C    ${box-config-dir}                 -   -               -               -   ${system-config-dir}                "
-    "C    ${tail-config-dir}/icons          -   -               -               -   /nix/persist/nix-homelab/icons      "
-    "C    ${box-config-dir}/icons           -   -               -               -   /nix/persist/nix-homelab/icons      "
-    "C    ${box-config-dir}/config.yml      -   -               -               -   ${system-app-dir}/box.yml           "
-    "C    ${tail-config-dir}/config.yml     -   -               -               -   ${system-app-dir}/tail.yml          "
-    "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                                   "
+    "r    ${box-config-dir}/config.yml      -   -               -               -   -                                       "
+    "r    ${tail-config-dir}/config.yml     -   -               -               -   -                                       "
+    "R    ${box-config-dir}/icons           -   -               -               -   -                                       "
+    "R    ${tail-config-dir}/icons          -   -               -               -   -                                       "
+    "C    ${tail-config-dir}                -   -               -               -   ${system-config-dir}                    "
+    "C    ${box-config-dir}                 -   -               -               -   ${system-config-dir}                    "
+    "C    ${tail-config-dir}/icons          -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
+    "C    ${box-config-dir}/icons           -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
+    "C    ${box-config-dir}/config.yml      -   -               -               -   ${system-app-dir}/box.yml               "
+    "C    ${tail-config-dir}/config.yml     -   -               -               -   ${system-app-dir}/tail.yml              "
+    "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                                       "
   ];
   users = {
     groups.${app-name}.gid = gid;
