@@ -49,6 +49,7 @@ in
     };
   };
   systemd.tmpfiles.rules = [
+    "d    ${www-dir}    -       -             -               -   -                 "
     "C    ${www-dir}    -       -             -               -   ${olivetin}/www   "
     "Z    ${www-dir}    770     ${app-name}   ${app-name}     -   -                 "
   ];
