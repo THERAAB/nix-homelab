@@ -30,21 +30,18 @@ in
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  virtualisation.oci-containers.containers."${app-name}" = {
-    autoStart = true;
-    image = "jamesread/${app-name}";
-    volumes = [
-      "${local-config-dir}:/config"
-      "${pkgs.systemd}:/systemd"
-    ];
-    user = "root";
-    # user = "${toString uid}";
-    ports = [ "${toString port}:${toString port}" ];
-    environment = {
-      TZ="America/New_York";
+  olivetin = stdenv.mkDerivation rec {
+    pname = "OliveTin";
+    version = "2022.11.14";
+    src = fetchurl {
+      url = "https://github.com/OliveTin/OliveTin/releases/download/${version}/OliveTin-linux-amd64.tar.gz";
+      sha256 = "";
     };
-    extraOptions = [
-      "--privileged"
-    ];
+    installPhase = ''
+      mkdir -p $out/bin
+      echo hello
+      ls
+      pwd
+    '';
   };
 }
