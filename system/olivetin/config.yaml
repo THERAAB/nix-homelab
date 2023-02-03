@@ -2,4 +2,4 @@ actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
   - title: Restart Olivetin
-    shell: /run/current-system/sw/bin/systemctl restart podman-olivetin.service
+    shell: /systemd/bin/systemctl restart podman-olivetin.service
