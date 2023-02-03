@@ -2,4 +2,4 @@ actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
   - title: Upgrade
-    shell: /run/systemd/shutdown
+    shell: /run/current-system/sw/bin/reboot
