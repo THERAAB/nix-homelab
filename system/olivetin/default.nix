@@ -30,12 +30,12 @@ in
     };
   };
   networking.firewall.allowedTCPPorts = [ port ];
-  systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}                   -       -             -               -   -                                 "
-    "r    ${local-config-dir}/config.yaml       -       -             -               -   -                                 "
-    "C    ${local-config-dir}/config.yaml       -       -             -               -   ${system-config-dir}/config.yaml  "
-    "Z    ${local-config-dir}                   740     ${app-name}   ${app-name}     -   -                                 "
-  ];
+#  systemd.tmpfiles.rules = [
+#    "d    ${local-config-dir}                   -       -             -               -   -                                 "
+#    "r    ${local-config-dir}/config.yaml       -       -             -               -   -                                 "
+#    "C    ${local-config-dir}/config.yaml       -       -             -               -   ${system-config-dir}/config.yaml  "
+#    "Z    ${local-config-dir}                   740     ${app-name}   ${app-name}     -   -                                 "
+#  ];
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
