@@ -1,4 +1,4 @@
 actions:
   - title: Run script Hello
-    icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
+    icon: '<img src = "customIcons/gatus.png" width = "48px"/>'
     shell: sudo /nix/persist/olivetin/scripts/commands.sh hello
