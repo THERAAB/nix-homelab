@@ -1,5 +1,5 @@
 actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
-  - title: Upgrade
-    shell: /run/current-system/sw/bin/reboot
+  - title: Restart Olivetin
+    shell: /run/current-system/sw/bin/systemctl restart podman-olivetin.service
