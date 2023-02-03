@@ -43,6 +43,7 @@ in
     serviceConfig = {
       DynamicUser = true;
       ExecStart = "${olivetin}/bin/olivetin -configdir $STATE_DIRECTORY";
+      Environment="PATH=/run/wrappers/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin";
       Restart = "always";
       RuntimeDirectory = "OliveTin";
       StateDirectory = "OliveTin";
