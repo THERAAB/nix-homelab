@@ -1,4 +1,4 @@
-{ config, pkgs, stdenv, fetchurl, ... }:
+{ config, pkgs, ... }:
 let
   port = 1337;
   app-name = "olivetin";
@@ -30,10 +30,10 @@ in
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  olivetin = stdenv.mkDerivation rec {
+  olivetin = pkgs.stdenv.mkDerivation rec {
     pname = "OliveTin";
     version = "2022.11.14";
-    src = fetchurl {
+    src = pkgs.fetchurl {
       url = "https://github.com/OliveTin/OliveTin/releases/download/${version}/OliveTin-linux-amd64.tar.gz";
       sha256 = "";
     };
