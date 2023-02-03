@@ -9,7 +9,10 @@ let
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
 
   shellScript = pkgs.writeShellScript "commands.sh" ''
-    echo hello
+    case "$1" in
+      hello)
+        echo hello2;;
+    esac
   '';
 
   olivetin = pkgs.stdenv.mkDerivation rec {
