@@ -60,7 +60,7 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "r  ${www-dir}                    -           -               -               -   -               "
+    "R  ${www-dir}                    -           -               -               -   -               "
     "L  ${www-dir}                    -           -               -               -   ${olivetin}/www "
     "r  ${scripts-dir}/commands.sh    -           -               -               -   -               "
     "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
