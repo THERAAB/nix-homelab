@@ -60,12 +60,14 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "R  ${www-dir}                    -           -               -               -   -               "
-    "L  ${www-dir}                    -           -               -               -   ${olivetin}/www "
-    "r  ${scripts-dir}/commands.sh    -           -               -               -   -               "
-    "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
-    "Z  ${scripts-dir}                700         root            root            -   -               "
-    "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -               "
+    "R  ${www-dir}                    -           -               -               -   -                                 "
+    "L  ${www-dir}                    -           -               -               -   ${olivetin}/www                   "
+    "r  ${scripts-dir}/commands.sh    -           -               -               -   -                                 "
+    "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}                    "
+    "r  ${www-dir}/customIcons        -           -               -               -   -                                 "
+    "L  ${www-dir}/customIcons        -           -               -               -   /nix/persist/nix-homelab/icons    "
+    "Z  ${scripts-dir}                700         root            root            -   -                                 "
+    "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -                                 "
   ];
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {
