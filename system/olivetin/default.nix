@@ -37,8 +37,8 @@ in
       "${local-config-dir}:/config"
       #"/var/run/docker.sock:/var/run/docker.sock"
     ];
-    user = "root";
-    #user = "${toString uid}";
+    #user = "root";
+    user = "${toString uid}";
     ports = [ "${toString port}:${toString port}" ];
     environment = {
       TZ="America/New_York";
