@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, stdenv, ... }:
 let
   port = 1337;
   app-name = "olivetin";
