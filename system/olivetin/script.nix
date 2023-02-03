@@ -7,10 +7,10 @@ pkgs.writeShellScript "commands.sh" ''
     jellyfin_reboot)
       podman stop jellyfin
       sleep 1
-      podman start jellyfin
+      podman start jellyfin;;
     gatus_reboot)
       podman stop gatus
       sleep 1
-      podman start gatus
+      podman start gatus;;
   esac
 ''
