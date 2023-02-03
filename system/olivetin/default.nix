@@ -23,6 +23,7 @@ let
   };
 in
 {
+  environment.systemPackages = [ olivetin ];
   users = {
     groups.${app-name}.gid = gid;
     users.${app-name} = {
