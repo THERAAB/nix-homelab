@@ -25,7 +25,7 @@ in
 
     preStart = ''
       cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
-      cp --force -r "${olivetin}/www/*" "$STATE_DIRECTORY/www"
+      cp --force -r ${olivetin}/www/* "$STATE_DIRECTORY/www"
       chmod 600 "$STATE_DIRECTORY/config.yaml"
     '';
 
@@ -49,8 +49,9 @@ in
     "http://${app-name}.server.tail".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    "127.0.0.1:${toString port}".extraConfig = ''
+    "http://127.0.0.1:${toString port}".extraConfig = ''
       root * /var/lib/OliveTin/www/
+      file_server
     '';
   };
 }
