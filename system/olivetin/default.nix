@@ -35,9 +35,7 @@ in
     image = "jamesread/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
-      "/var/run/docker.sock:/var/run/docker.sock"
     ];
-    #user = "root";
     user = "${toString uid}";
     ports = [ "${toString port}:${toString port}" ];
     environment = {
