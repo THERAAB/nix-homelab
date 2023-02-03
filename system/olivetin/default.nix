@@ -16,6 +16,7 @@ let
     };
     installPhase = ''
       mkdir -p $out/bin
+      cp OliveTin $out/bin
       echo hello
       ls
       pwd
