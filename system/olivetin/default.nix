@@ -7,7 +7,7 @@ let
   www-dir = "/var/www/${app-name}";
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
 
-  shellScript = writeShellScript "commands.sh" ''
+  shellScript = pkgs.writeShellScript "commands.sh" ''
     echo hello
   '';
 
