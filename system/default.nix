@@ -5,6 +5,7 @@
     ./homer
     ./media
     ./gatus
+    ./olivetin
     ./adguard.nix
     ./persist.nix
     ./boot.nix
