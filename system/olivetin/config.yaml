@@ -1,5 +1,5 @@
 actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
-  - title: Reboot
-    shell: reboot now
+  - title: Upgrade
+    shell: systemctl start nixos-upgrade.service
