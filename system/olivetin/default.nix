@@ -3,6 +3,7 @@ let
   port = 1337;
   app-name = "olivetin";
   local-config-dir = "/nix/persist/${app-name}";
+  system-config-dir = "/nix/persist/nix-homelab/system/${app-name}";
   uid = 1778;
   gid = 1778;
 in
@@ -16,10 +17,10 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}                   -       -             -               -   - "
-    "r    ${local-config-dir}/config.yaml       -       -             -               -   - "
-    "C    ${local-config-dir}/config.yaml       -       -             -               -   - "
-    "Z    ${local-config-dir}                   740     ${app-name}   ${app-name}     -   - "
+    "d    ${local-config-dir}                   -       -             -               -   -                                 "
+    "r    ${local-config-dir}/config.yaml       -       -             -               -   -                                 "
+    "C    ${local-config-dir}/config.yaml       -       -             -               -   ${system-config-dir}/config.yaml  "
+    "Z    ${local-config-dir}                   740     ${app-name}   ${app-name}     -   -                                 "
   ];
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
@@ -31,10 +32,10 @@ in
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "docker.io/jamesread/${app-name}";
+    image = "jamesread/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
-      # "/var/run/docker.sock:/var/run/docker.sock"
+      "/var/run/docker.sock:/var/run/docker.sock"
     ];
     user = "${toString uid}";
     ports = [ "${toString port}:${toString port}" ];
