@@ -121,3 +121,12 @@ services:
         tag: "monitor"
         keywords: "monitor"
         url: "http://gatus.server.tail"
+  - name: "Maintenance"
+    icon: "fas fa-cogs"
+    items:
+      - name: "OliveTin"
+        logo: "assets/icons/olivetin.png"
+        subtitle: "Execute Commands"
+        tag: "exec"
+        keywords: "exec"
+        url: "http://olivetin.server.tail"

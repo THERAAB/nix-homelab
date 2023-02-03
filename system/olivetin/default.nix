@@ -41,7 +41,7 @@ in
     '';
 
     serviceConfig = {
-      User = "root";
+      User = "olivetin";
       Group = "olivetin";
       ExecStart = "${olivetin}/bin/olivetin -configdir $STATE_DIRECTORY";
       Environment="PATH=/run/wrappers/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin";
