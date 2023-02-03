@@ -60,7 +60,8 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "C  ${www-dir}                    -           -               -               -   ${olivetin}/www "
+    "r  ${www-dir}                    -           -               -               -   ${olivetin}/www "
+    "L  ${www-dir}                    -           -               -               -   ${olivetin}/www "
     "r  ${scripts-dir}/commands.sh    -           -               -               -   -               "
     "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
     "Z  ${scripts-dir}                700         root            root            -   -               "
