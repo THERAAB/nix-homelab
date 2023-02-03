@@ -11,7 +11,7 @@ let
   shellScript = pkgs.writeShellScript "commands.sh" ''
     case "$1" in
       hello)
-        echo hello2;;
+        echo hello3;;
     esac
   '';
 
@@ -60,10 +60,11 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "C    ${www-dir}                    -           -               -               -   ${olivetin}/www "
-    "L+   ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
-    "Z    ${scripts-dir}                700         root            root            -   -               "
-    "Z    ${www-dir}                    770         ${app-name}     ${app-name}     -   -               "
+    "C  ${www-dir}                    -           -               -               -   ${olivetin}/www "
+    "r  ${scripts-dir}/commands.sh    -           -               -               -   -               "
+    "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
+    "Z  ${scripts-dir}                700         root            root            -   -               "
+    "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -               "
   ];
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {
