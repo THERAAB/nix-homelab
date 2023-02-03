@@ -46,11 +46,11 @@ in
     ];
     ports = [ "${toString port}:${toString port}" ];
     environment = {
-        PUID="${toString uid}";
-        PGID="${toString media.gid}";
-        UMASK="022";
-        TZ="America/New_York";
-        DOCKER_MODS="linuxserver/mods:jellyfin-opencl-intel";
+      PUID="${toString uid}";
+      PGID="${toString media.gid}";
+      UMASK="022";
+      TZ="America/New_York";
+      DOCKER_MODS="linuxserver/mods:jellyfin-opencl-intel";
     };
     extraOptions = [
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
