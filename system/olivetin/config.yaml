@@ -1,6 +1,6 @@
 actions:
   - title: Reboot
-    icon: '<img src = "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" width = "48px"/>'
+    icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
     shell: sudo reboot now
   - title: Upgrade
     icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
