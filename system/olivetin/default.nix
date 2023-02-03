@@ -15,11 +15,7 @@ let
       sha256 = "sha256-7vviqktDhFTjFEjLEbgqcwUxyqRTvAUNNwta02pEz5E=";
     };
     installPhase = ''
-      mkdir -p $out/bin
-      cp OliveTin $out/bin
-      echo hello
-      ls
-      pwd
+      install -m755 -D ./OliveTin $out/bin/olivetin
     '';
   };
 in
