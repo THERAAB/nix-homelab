@@ -36,7 +36,8 @@ in
     volumes = [
       "${local-config-dir}:/config"
     ];
-    user = "${toString uid}";
+    user = "root";
+    # user = "${toString uid}";
     ports = [ "${toString port}:${toString port}" ];
     environment = {
       TZ="America/New_York";
