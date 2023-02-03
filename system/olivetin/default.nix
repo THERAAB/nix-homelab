@@ -7,7 +7,12 @@ let
   www-dir = "/var/www/${app-name}";
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
 
+  shellScript = writeShellScript "commands.sh" ''
+    echo hello
+  '';
+
   olivetin = pkgs.stdenv.mkDerivation rec {
+    inherit shellScript;
     pname = "OliveTin";
     version = "2022.11.14";
     src = pkgs.fetchurl {
@@ -18,8 +23,11 @@ let
       install -m755 -D ./OliveTin $out/bin/olivetin
       mkdir -p $out/www
       cp -r webui/* $out/www/
+      mkdir -p $out/scripts
+      ln -s $shellScript $out/scripts/commands.sh
     '';
   };
+
 in
 {
   users = {
@@ -31,7 +39,7 @@ in
     };
     users.caddy.extraGroups = [ app-name ];
   };
-  environment.systemPackages = [ olivetin ];
+  environment.systemPackages = [ olivetin olivetinBashScript ];
   systemd.services.olivetin = {
     wantedBy = [ "multi-user.target" ];
 
