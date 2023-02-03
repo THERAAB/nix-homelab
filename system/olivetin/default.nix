@@ -55,12 +55,10 @@ in
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
-      root * ${www-dir}
-      file_server
+      reverse_proxy http://127.0.0.1:${toString port}
     '';
     "http://${app-name}.server.tail".extraConfig = ''
-      root * ${www-dir}
-      file_server
+      reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
 }
