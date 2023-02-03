@@ -56,14 +56,15 @@ in
   networking.firewall.allowedTCPPorts = [ ui-port backend-port ];
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString ui-port}
+      root * ${www-dir}
+      file_server
     '';
     "http://${app-name}.server.tail".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString ui-port}
     '';
-    "http://127.0.0.1:${toString ui-port}".extraConfig = ''
-      root * ${www-dir}
-      file_server
-    '';
+    #"http://127.0.0.1:${toString ui-port}".extraConfig = ''
+    #  root * ${www-dir}
+    #  file_server
+    #'';
   };
 }
