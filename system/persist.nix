@@ -8,7 +8,6 @@
     "Z  /nix/persist/home/raab                      740 raab    -   -   -"
     "Z  /nix/persist/home/raab/.ssh                 700 raab    -   -   -"
     "Z  /nix/persist/home/raab/.config/sops         700 raab    -   -   -"
-
   ];
   programs.fuse.userAllowOther = true;
   environment.persistence."/nix/persist/system" = {

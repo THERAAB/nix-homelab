@@ -13,6 +13,8 @@ let
     };
     installPhase = ''
       install -m755 -D ./OliveTin $out/bin/olivetin
+      mkdir -p $out/www
+      cp -r webui/* $out/www/
     '';
   };
 in
@@ -23,6 +25,7 @@ in
 
     preStart = ''
       cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
+      cp --force -r "${olivetin}/www/*" "$STATE_DIRECTORY/www"
       chmod 600 "$STATE_DIRECTORY/config.yaml"
     '';
 
@@ -34,6 +37,10 @@ in
       StateDirectory = "OliveTin";
     };
   };
+  systemd.tmpfiles.rules = [
+    "C  /nix/persist/home/raab                      -   raab    -   -   -"
+    "Z  /nix/persist/home/raab/.config/sops         700 raab    -   -   -"
+  ];
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
@@ -41,6 +48,9 @@ in
     '';
     "http://${app-name}.server.tail".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
+    '';
+    "127.0.0.1:${toString port}".extraConfig = ''
+      root * /var/lib/OliveTin/www/
     '';
   };
 }
