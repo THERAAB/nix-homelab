@@ -8,5 +8,9 @@ pkgs.writeShellScript "commands.sh" ''
       podman stop jellyfin
       sleep 1
       podman start jellyfin
+    gatus_reboot)
+      podman stop gatus
+      sleep 1
+      podman start gatus
   esac
 ''
