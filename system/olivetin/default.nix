@@ -12,6 +12,8 @@ let
     case "$1" in
       reboot)
         reboot now;;
+      jellyfin_reboot)
+        podman restart jellyfin
     esac
   '';
 
