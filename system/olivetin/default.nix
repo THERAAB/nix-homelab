@@ -6,6 +6,21 @@ let
   system-config-dir = "/nix/persist/nix-homelab/system/${app-name}";
   uid = 1778;
   gid = 1778;
+
+  olivetin = pkgs.stdenv.mkDerivation rec {
+    pname = "OliveTin";
+    version = "2022.11.14";
+    src = pkgs.fetchurl {
+      url = "https://github.com/OliveTin/OliveTin/releases/download/${version}/OliveTin-linux-amd64.tar.gz";
+      sha256 = "";
+    };
+    installPhase = ''
+      mkdir -p $out/bin
+      echo hello
+      ls
+      pwd
+    '';
+  };
 in
 {
   users = {
@@ -28,20 +43,6 @@ in
     '';
     "http://${app-name}.server.tail".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
-    '';
-  };
-  olivetin = pkgs.stdenv.mkDerivation rec {
-    pname = "OliveTin";
-    version = "2022.11.14";
-    src = pkgs.fetchurl {
-      url = "https://github.com/OliveTin/OliveTin/releases/download/${version}/OliveTin-linux-amd64.tar.gz";
-      sha256 = "";
-    };
-    installPhase = ''
-      mkdir -p $out/bin
-      echo hello
-      ls
-      pwd
     '';
   };
 }
