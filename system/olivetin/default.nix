@@ -60,9 +60,9 @@ in
     "http://${app-name}.server.tail".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    #"http://127.0.0.1:${toString port}".extraConfig = ''
-    #  root * ${www-dir}
-    #  file_server
-    #'';
+    "http://127.0.0.1:${toString port}".extraConfig = ''
+      root * ${www-dir}
+      file_server
+    '';
   };
 }
