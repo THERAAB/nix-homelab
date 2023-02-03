@@ -7,8 +7,8 @@ let
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/nix/persist/${app-name}/scripts";
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
-  shellScript = (import ./script.nix).shellScript;
-  
+  shellScript = callPackage ./script.nix {};
+
   olivetin = pkgs.stdenv.mkDerivation rec {
     pname = "OliveTin";
     version = "2022.11.14";
