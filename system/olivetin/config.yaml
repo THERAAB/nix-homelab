@@ -1,7 +1,7 @@
 actions:
-  - title: Reboot
+  - title: Reboot Server
     icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
     shell: sudo reboot now
-  - title: Upgrade
+  - title: Restart Gatus
     icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
     shell: sudo systemctl restart podman-gatus.service
