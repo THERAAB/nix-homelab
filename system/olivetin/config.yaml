@@ -1,5 +1,5 @@
 actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
-  - title: Restart Jellyfin
-    shell: podman restart jellyfin
+  - title: Reboot
+    shell: reboot now
