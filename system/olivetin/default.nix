@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 let
   port = 1337;
+  uid = 62893;
+  gid = 62893;
   app-name = "olivetin";
+  www-dir = "/nix/persist/${app-name}/www";
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
 
   olivetin = pkgs.stdenv.mkDerivation rec {
@@ -19,14 +22,21 @@ let
   };
 in
 {
+  users = {
+    groups.${app-name}.gid = gid;
+    users.${app-name} = {
+      group = app-name;
+      uid = uid;
+      isSystemUser = true;
+    };
+    users.caddy.extraGroups = [ app-name ];
+  };
   environment.systemPackages = [ olivetin ];
   systemd.services.olivetin = {
     wantedBy = [ "multi-user.target" ];
 
     preStart = ''
       cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
-      mkdir -p $STATE_DIRECTORY/www
-      cp -r ${olivetin}/www/* "$STATE_DIRECTORY/www"
       chmod 600 "$STATE_DIRECTORY/config.yaml"
     '';
 
@@ -39,8 +49,8 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "C  /nix/persist/home/raab                      -   raab    -   -   -"
-    "Z  /nix/persist/home/raab/.config/sops         700 raab    -   -   -"
+    "C    ${www-dir}    -       -             -               -   ${olivetin}/www   "
+    "Z    ${www-dir}    770     ${app-name}   ${app-name}     -   -                 "
   ];
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {
@@ -51,7 +61,7 @@ in
       reverse_proxy http://127.0.0.1:${toString port}
     '';
     "http://127.0.0.1:${toString port}".extraConfig = ''
-      root * /var/lib/OliveTin/www/
+      root * ${www-dir}
       file_server
     '';
   };
