@@ -4,7 +4,7 @@ let
   uid = 62893;
   gid = 62893;
   app-name = "olivetin";
-  www-dir = "/nix/persist/${app-name}/www";
+  www-dir = "/var/www/${app-name}";
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
 
   olivetin = pkgs.stdenv.mkDerivation rec {

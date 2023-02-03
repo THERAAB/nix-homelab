@@ -1,4 +1,3 @@
-externalRestAddress: http://olivetin.server.box
 actions:
   - title: "Hello world!"
     shell: echo 'Hello World!'
