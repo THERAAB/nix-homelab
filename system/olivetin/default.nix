@@ -37,7 +37,6 @@ in
 
     preStart = ''
       cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
-      sudo cp -rf ${olivetin}/www/* ${www-dir}
       chmod 600 "$STATE_DIRECTORY/config.yaml"
     '';
 
@@ -50,7 +49,8 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "Z    ${www-dir}    770     ${app-name}   ${app-name}     -   - "
+    "C    ${www-dir}    -       -               -               -   ${olivetin}/www "
+    "Z    ${www-dir}    770     ${app-name}     ${app-name}     -   -               "
   ];
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {
