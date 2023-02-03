@@ -4,8 +4,6 @@ let
   app-name = "olivetin";
   local-config-dir = "/nix/persist/${app-name}";
   system-config-dir = "/nix/persist/nix-homelab/system/${app-name}";
-  uid = 1778;
-  gid = 1778;
 
   olivetin = pkgs.stdenv.mkDerivation rec {
     pname = "OliveTin";
@@ -21,14 +19,17 @@ let
 in
 {
   environment.systemPackages = [ olivetin ];
-  users = {
-    groups.${app-name}.gid = gid;
-    users.${app-name} = {
-      group = app-name;
-      uid = uid;
-      isSystemUser = true;
+  systemd.services.olivetin = {
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      DynamicUser = true;
+      ExecStart = "${pkgs.olivetin}/bin/olivetin -configdir ${local-config-dir}";
+      Restart = "always";
+      RuntimeDirectory = "OliveTin";
+      StateDirectory = "OliveTin";
     };
   };
+  networking.firewall.allowedTCPPorts = [ port ];
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}                   -       -             -               -   -                                 "
     "r    ${local-config-dir}/config.yaml       -       -             -               -   -                                 "
