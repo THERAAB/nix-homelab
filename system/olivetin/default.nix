@@ -2,8 +2,7 @@
 let
   port = 1337;
   app-name = "olivetin";
-  local-config-dir = "/nix/persist/${app-name}";
-  system-config-dir = "/nix/persist/nix-homelab/system/${app-name}";
+  configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
 
   olivetin = pkgs.stdenv.mkDerivation rec {
     pname = "OliveTin";
@@ -21,6 +20,12 @@ in
   environment.systemPackages = [ olivetin ];
   systemd.services.olivetin = {
     wantedBy = [ "multi-user.target" ];
+
+    preStart = ''
+      cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
+      chmod 600 "$STATE_DIRECTORY/config.yaml"
+    '';
+
     serviceConfig = {
       DynamicUser = true;
       ExecStart = "${olivetin}/bin/olivetin -configdir $STATE_DIRECTORY";
@@ -30,12 +35,12 @@ in
     };
   };
   networking.firewall.allowedTCPPorts = [ port ];
-#  systemd.tmpfiles.rules = [
-#    "d    ${local-config-dir}                   -       -             -               -   -                                 "
-#    "r    ${local-config-dir}/config.yaml       -       -             -               -   -                                 "
-#    "C    ${local-config-dir}/config.yaml       -       -             -               -   ${system-config-dir}/config.yaml  "
-#    "Z    ${local-config-dir}                   740     ${app-name}   ${app-name}     -   -                                 "
-#  ];
+  systemd.tmpfiles.rules = [
+    "d    ${local-config-dir}                   -       -             -               -   -                                 "
+    "r    ${local-config-dir}/config.yaml       -       -             -               -   -                                 "
+    "C    ${local-config-dir}/config.yaml       -       -             -               -   ${system-config-dir}/config.yaml  "
+    "Z    ${local-config-dir}                   740     ${app-name}   ${app-name}     -   -                                 "
+  ];
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
