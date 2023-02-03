@@ -37,7 +37,7 @@ in
 
     preStart = ''
       cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
-      cp -rf ${olivetin}/www/* ${www-dir}
+      sudo cp -rf ${olivetin}/www/* ${www-dir}
       chmod 600 "$STATE_DIRECTORY/config.yaml"
     '';
 
