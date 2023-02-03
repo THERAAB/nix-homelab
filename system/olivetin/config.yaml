@@ -1,7 +1,4 @@
 actions:
-  - title: Reboot Server
+  - title: Run script
     icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
-    shell: sudo reboot now
-  - title: Restart Gatus
-    icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
-    shell: sudo systemctl restart podman-gatus.service
+    shell: sudo /nix/persist/olivetin/scripts/commands.sh

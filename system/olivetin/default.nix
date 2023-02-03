@@ -5,6 +5,7 @@ let
   gid = 62893;
   app-name = "olivetin";
   www-dir = "/var/www/${app-name}";
+  scripts-dir = "/nix/persist/${app-name}/scripts";
   configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
 
   shellScript = pkgs.writeShellScript "commands.sh" ''
@@ -12,7 +13,6 @@ let
   '';
 
   olivetin = pkgs.stdenv.mkDerivation rec {
-    inherit shellScript;
     pname = "OliveTin";
     version = "2022.11.14";
     src = pkgs.fetchurl {
@@ -23,8 +23,6 @@ let
       install -m755 -D ./OliveTin $out/bin/olivetin
       mkdir -p $out/www
       cp -r webui/* $out/www/
-      mkdir -p $out/scripts
-      ln -s $shellScript $out/scripts/commands.sh
     '';
   };
 
@@ -59,8 +57,11 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "C    ${www-dir}    -       -               -               -   ${olivetin}/www "
-    "Z    ${www-dir}    770     ${app-name}     ${app-name}     -   -               "
+    "C    ${www-dir}                    -           -               -               -   ${olivetin}/www "
+    "d    ${scripts-dir}                -           -               -               -   -               "
+    "L    ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}  "
+    "Z    ${scripts-dir}                700         root            root            -   -               "
+    "Z    ${www-dir}                    770         ${app-name}     ${app-name}     -   -               "
   ];
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {
