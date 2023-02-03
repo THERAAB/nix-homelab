@@ -13,7 +13,9 @@ let
       reboot)
         reboot now;;
       jellyfin_reboot)
-        podman restart jellyfin
+        podman stop jellyfin
+        sleep 1
+        podman start jellyfin
     esac
   '';
 
