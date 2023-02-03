@@ -23,7 +23,7 @@ in
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       DynamicUser = true;
-      ExecStart = "${pkgs.olivetin}/bin/olivetin -configdir ${local-config-dir}";
+      ExecStart = "${olivetin}/bin/olivetin -configdir ${local-config-dir}";
       Restart = "always";
       RuntimeDirectory = "OliveTin";
       StateDirectory = "OliveTin";
