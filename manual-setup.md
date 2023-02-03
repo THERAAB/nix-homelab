@@ -26,6 +26,8 @@ curl https://am.i.mullvad.net/json
 - Dashboard -> Playback
 - Intel QuickSync
 - Enable Tone mapping (non VPP option)
+### Jellyfin Android client
+Settings -> Client Settings -> Video Player type -> Integrated Player
 
 ### Prowlarr 
 - Add indexers
