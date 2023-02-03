@@ -10,8 +10,8 @@ let
 
   shellScript = pkgs.writeShellScript "commands.sh" ''
     case "$1" in
-      hello)
-        echo hello4;;
+      reboot)
+        reboot now;;
     esac
   '';
 

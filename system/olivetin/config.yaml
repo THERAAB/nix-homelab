@@ -1,4 +1,4 @@
 actions:
-  - title: Run script Hello
-    icon: '<img src = "customIcons/gatus.png" width = "48px"/>'
-    shell: sudo /nix/persist/olivetin/scripts/commands.sh hello
+  - title: Reboot Server
+    icon: '<img src = "customIcons/reboot.png" width = "48px"/>'
+    shell: sudo /nix/persist/olivetin/scripts/commands.sh reboot
