@@ -21,6 +21,6 @@
   };
   # Sudo
   security.sudo.extraConfig = ''
-
+    olivetin ALL=(root) /run/current-system/sw/bin/reboot
   '';
 }
