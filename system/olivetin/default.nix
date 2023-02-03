@@ -39,7 +39,7 @@ in
     };
     users.caddy.extraGroups = [ app-name ];
   };
-  environment.systemPackages = [ olivetin olivetinBashScript ];
+  environment.systemPackages = [ olivetin ];
   systemd.services.olivetin = {
     wantedBy = [ "multi-user.target" ];
 
