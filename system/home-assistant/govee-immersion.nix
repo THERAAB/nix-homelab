@@ -10,7 +10,7 @@ let
 in
 {
   systemd.tmpfiles.rules = [
-    "C  /var/lib/hass/custom_components/govee 770    hass hass    -   ${hacs-govee}/custom_components/govee "
+    "L  /var/lib/hass/custom_components/govee 770    hass hass    -   ${hacs-govee}/custom_components/govee "
   ];
   services.home-assistant = {
     extraPackages = python3Packages: with python3Packages; [
