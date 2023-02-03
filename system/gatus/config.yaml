@@ -119,3 +119,10 @@ endpoints:
       - '[BODY] == pat(*<title>qBittorrent</title>*)'
     alerts:
       - type: custom
+  - name: OliveTin
+    url: http://olivetin.server.box/
+    conditions:
+      - "[STATUS] == 200"
+      - '[BODY] == pat(*<title>OliveTin</title>*)'
+    alerts:
+      - type: custom
