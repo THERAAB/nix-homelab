@@ -19,4 +19,8 @@
       };
     };
   };
+  # Sudo
+  security.sudo.extraConfig = ''
+
+  '';
 }

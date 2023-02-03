@@ -1,4 +1,4 @@
 actions:
   - title: Reboot
     icon: '<img src = "https://www.olivetin.app/resources/images/logo.png" width = "48px"/>'
-    shell: reboot now
+    shell: sudo reboot now
