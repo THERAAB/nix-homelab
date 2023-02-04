@@ -10,3 +10,7 @@ actions:
     icon: '<img src = "customIcons/gatus.png" width = "48px"/>'
     shell: sudo /nix/persist/olivetin/scripts/commands.sh -p gatus
     timeout: 20
+  - title: Restart AdGuard
+    icon: '<img src = "customIcons/adguard.png" width = "48px"/>'
+    shell: sudo /nix/persist/olivetin/scripts/commands.sh -s adguardhome
+    timeout: 20
