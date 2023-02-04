@@ -2,7 +2,7 @@
 {
   programs.git = {
     includes = [
-     { path = "/home/raab/.config/.gitconfig"; }
+     { path = "/nix/persist/home/raab/.config/.gitconfig"; }
     ];
     enable = true;
     userName = "THERAAB";

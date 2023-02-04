@@ -8,7 +8,7 @@
   sops.secrets = {
     git_config = {
       owner = "raab";
-      path = "/home/raab/.config/.gitconfig";
+      path = "/nix/persist/home/raab/.config/.gitconfig";
     };
     pushbullet_api_key = {
       neededForUsers = true;
