@@ -14,10 +14,18 @@ pkgs.writeShellScript "commands.sh" ''
   }
 
   function restart_podman_container() {
+    echo stopping $1
     podman stop $1
     sleep 1
+    echo starting $1
     podman start $1
+    echo restarted container $1
     return 0
+  }
+
+  function restart_server() {
+    echo rebooting server
+    reboot now
   }
 
   # Check inputs
@@ -32,7 +40,7 @@ pkgs.writeShellScript "commands.sh" ''
   elif [[ "$1" == "-p" ]] || [[ "$1" == "--podman" ]]; then
     restart_podman_container $2
   elif [[ $1 == "-r" ]] || [[ "$1" == "--reboot" ]]; then
-    reboot now
+    restart_server
   else
     echo "Incorrect input provided $1"
     show_usage
