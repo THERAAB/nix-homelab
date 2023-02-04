@@ -4,12 +4,12 @@ pkgs.writeShellScript "commands.sh" ''
   # OliveTin has nopasswd sudo access to this script, so we want to limit what it can do as root
 
   function show_usage() {
-    printf "Usage: $0 [option] [parameter]]\n"
+    printf "Usage: [option] [parameter]]\n"
     printf "\n"
     printf "Options:\n"
     printf " -p|--podman [container name], restart container\n"
     printf " -r|--reboot, Reboot system\n"
-    printf " -h|--help, Print help\n"
+    printf " -h|--help, Print this menu\n"
     return 0
   }
 
