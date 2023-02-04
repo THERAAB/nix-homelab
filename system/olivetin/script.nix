@@ -27,17 +27,15 @@ pkgs.writeShellScript "commands.sh" ''
     exit 1
   fi
 
-  while [ ! -z "$1" ]; do
-    if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
-      show_usage
-    elif [[ "$1" == "-p" ]] || [[ "$1" == "--podman" ]]; then
-      restart_podman_container $2
-    elif [[ $1 == "-r" ]] || [[ "$1" == "--reboot" ]]; then
-      reboot now
-    else
-      echo "Incorrect input provided $1"
-      show_usage
-    fi
-  shift
-  done
+  if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
+    show_usage
+  elif [[ "$1" == "-p" ]] || [[ "$1" == "--podman" ]]; then
+    restart_podman_container $2
+  elif [[ $1 == "-r" ]] || [[ "$1" == "--reboot" ]]; then
+    reboot now
+  else
+    echo "Incorrect input provided $1"
+    show_usage
+  fi
+  exit 0
 ''
