@@ -51,7 +51,3 @@ actions:
     icon: '<img src = "customIcons/pwa-192x192.png" width = "48px"/>'
     shell: sudo /nix/persist/olivetin/scripts/commands.sh -p homer.tail
     timeout: 20
-  - title: Restart OliveTin
-    icon: '<img src = "customIcons/olivetin.png" width = "48px"/>'
-    shell: sudo /nix/persist/olivetin/scripts/commands.sh -s olivetin
-    timeout: 20
