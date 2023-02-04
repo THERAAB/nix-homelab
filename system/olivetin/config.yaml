@@ -9,7 +9,7 @@ actions:
     timeout: 20
   - title: Restart Jellyseerr
     icon: '<img src = "customIcons/jellyseerr.png" width = "48px"/>'
-    shell: sudo /nix/persist/olivetin/scripts/commands.sh -p jellyserr
+    shell: sudo /nix/persist/olivetin/scripts/commands.sh -p jellyseerr
     timeout: 20
   - title: Restart Prowlarr
     icon: '<img src = "customIcons/prowlarr.png" width = "48px"/>'
