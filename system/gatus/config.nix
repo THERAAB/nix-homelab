@@ -24,7 +24,7 @@
         url = "http://adguard.server.box/";
         conditions = [
           "[STATUS] == 200"
-          "'[BODY] == pat(*<title>Login</title>*)'"
+          "[BODY] == pat(*<title>Login</title>*)"
         ];
         alerts = [
           {
