@@ -1,6 +1,6 @@
 { lib, buildPythonPackage, fetchPypi, oyaml, pyyaml }:
 
-  buildPythonPackage (rec {
+  buildPythonPackage rec {
     pname = "bios";
     version = "0.1.2";
     src = fetchPypi {
@@ -13,4 +13,4 @@
     propagatedBuildInputs = [
       oyaml pyyaml
     ];
-  })
+  }
