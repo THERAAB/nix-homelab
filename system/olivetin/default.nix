@@ -22,18 +22,8 @@ let
     '';
   };
 
-  cfg.settings = {
-    actions = [
-      {
-        title = "Reboot Server";
-        icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
-        shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
-        timeout = 20;
-      }
-    ];
-  };
+  cfg = (import ./config.nix);
 
-  #configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
   configFile = pkgs.writeTextFile {
     name = "config.yaml";
     text = builtins.toJSON cfg.settings;
