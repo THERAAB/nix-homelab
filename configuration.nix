@@ -40,7 +40,10 @@
 
     # Flake setup
     package = pkgs.nixVersions.stable;
-    
+
+    extraOptions = ''
+      experimental-features = "nix-command flakes";
+    '';
     settings = {
       # Enable flakes and new 'nix' command
       experimental-features = "nix-command flakes";
