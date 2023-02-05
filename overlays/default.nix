@@ -12,7 +12,7 @@
     # });
     python = prev.python.override {
       packageOverrides = final: prev: {
-        my_stuff = super.buildPythonPacakge rec {
+        my_stuff = prev.buildPythonPacakge rec {
           pname = "aiohttp";
           version = "3.8.3";
           src = prev.fetchPypi {
