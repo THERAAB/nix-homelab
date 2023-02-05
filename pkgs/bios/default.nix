@@ -1,18 +1,16 @@
 { lib, buildPythonPackage, fetchPypi, oyaml, pyyaml }:
 
-  buildPythonPackage {
+  buildPythonPackage (rec {
     pname = "bios";
     version = "0.1.2";
     src = fetchPypi {
-      pname = "bios";
-      version = "0.1.2";
+      inherit pname version;
       sha256 = "sha256-vM/CQBG2pjGm7e7xBpVRpOyq/3s+1QpiIaaAdYUFAOk=";
     };
 
-    doCheck = false;
+    # doCheck = false;
 
     propagatedBuildInputs = [
       oyaml pyyaml
     ];
-
-  }
+  })
