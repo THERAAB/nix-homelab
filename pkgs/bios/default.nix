@@ -4,7 +4,7 @@
     pname = "bios";
     version = "0.1.2";
     src = fetchPypi {
-      inherit pname;
+      pname = "bios";
       version = "0.1.2";
       sha256 = "sha256-vM/CQBG2pjGm7e7xBpVRpOyq/3s+1QpiIaaAdYUFAOk=";
     };
