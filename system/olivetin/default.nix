@@ -26,7 +26,7 @@ let
     actions = [
       {
         title = "Reboot Server";
-        icon = '''<img src = "customIcons/reboot.png" width = "48px"/>' '';
+        icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
         shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
         timeout = 20;
       }
