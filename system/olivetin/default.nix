@@ -26,7 +26,7 @@ in
     users.caddy.extraGroups = [ app-name ];
   };
 
-  environment.systemPackages = [ olivetin ];
+  environment.systemPackages = with pkgs; [ olivetin ];
   systemd.services.olivetin = {
     wantedBy = [ "multi-user.target" ];
 
