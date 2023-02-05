@@ -2,5 +2,5 @@
   olivetin = pkgs.callPackage ./olivetin { };
   hacs-govee = pkgs.callPackage ./hacs-govee { };
   bios = pkgs.python3Packages.callPackage ./bios { };
-  govee_api_laggat = pkgs.python3Packages.callPackage ./gove_api_laggat { };
+  govee_api_laggat = pkgs.python3Packages.callPackage ./govee_api_laggat { };
 }
