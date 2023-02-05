@@ -12,6 +12,6 @@
     };
     installPhase = ''
       mkdir -p $out/custom_components
-      install -m755 -D ./custom_components/govee $out/custom_components/govee
+      cp -r ./custom_components/govee $out/custom_components/govee
     '';
   }
