@@ -23,7 +23,6 @@ let
   };
 
   cfg = (import ./config.nix);
-
   configFile = pkgs.writeTextFile {
     name = "config.yaml";
     text = builtins.toJSON cfg.settings;
