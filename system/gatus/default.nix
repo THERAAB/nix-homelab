@@ -20,7 +20,7 @@ in
     "d    ${local-config-dir}   -       -             -               -   - "
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
-  system.activationScripts."gatus-secrets" = ''
+  systemd.services."podman-${app-name}".preStart = ''
     cp ${system-app-dir}/config.yaml ${local-config-dir}/config.yaml
     TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
     ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
