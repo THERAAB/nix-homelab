@@ -1,0 +1,16 @@
+{ stdenv, fetchurl }:
+
+  stdenv.mkDerivation rec {
+    pname = "hacs-govee";
+    version = "0.2.2";
+    src = fetchFromGithub {
+      inherit pname version;
+      repo = pname;
+      rev = version;
+      owner  = "LaggAt";
+      sha256 = "sha256-vIBx+t+AcWG9z7O5bv4yMMCplpc54N29/QxMUwHjeSU=";
+    };
+    installPhase = ''
+      install -m755 -D ./custom_components/govee $out/custom_components/govee
+    '';
+  }

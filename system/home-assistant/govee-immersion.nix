@@ -1,16 +1,10 @@
 { config, pkgs, ... }:
 let
-  hacs-govee = pkgs.fetchFromGitHub rec {
-    owner  = "LaggAt";
-    repo   = "hacs-govee";
-    rev    = "0.2.2";
-    sha256 = "sha256-vIBx+t+AcWG9z7O5bv4yMMCplpc54N29/QxMUwHjeSU=";
-  };
   devices = (import ./devices.properties.nix);
 in
 {
   systemd.tmpfiles.rules = [
-    "L  /var/lib/hass/custom_components/govee 770    hass hass    -   ${hacs-govee}/custom_components/govee "
+    "L  /var/lib/hass/custom_components/govee 770    hass hass    -   ${pkgs.hacs-govee}/custom_components/govee "
   ];
   services.home-assistant = {
     extraPackages = python3Packages: with python3Packages; [

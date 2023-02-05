@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchurl, fetchzip, nixosTests }:
+{ stdenv, fetchurl }:
 
   stdenv.mkDerivation rec {
     pname = "OliveTin";
