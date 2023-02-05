@@ -61,7 +61,6 @@
             sops-nix.nixosModules.sops
 
             home-manager.nixosModules.home-manager {
-              extraSpecialArgs = { inherit inputs outputs; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.raab = { pkgs, ... }: {
