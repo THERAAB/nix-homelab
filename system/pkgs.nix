@@ -19,5 +19,6 @@
     sops
     ssh-to-age
     dos2unix
+    bios
   ];
 }
