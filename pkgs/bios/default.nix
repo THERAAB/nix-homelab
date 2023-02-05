@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, buildPythonPackage }:
+{ stdenv, buildPythonPackage, fetchPypi }:
 
   stdenv.mkDerivation rec {
     pname = "bios";
