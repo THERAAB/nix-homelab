@@ -8,16 +8,9 @@ let
 
   cfg = (import ./config.nix);
   format = pkgs.formats.yaml {};
-
   configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
     cp ${format.generate "config.yaml" cfg.settings} $out
   '';
-
-  #configFile = pkgs.writeTextFile {
-  #  name = "config.yaml";
-  #  text = builtins.toJSON cfg.settings;
-  #};
-
 in
 {
   users = {
