@@ -38,7 +38,7 @@ in
     serviceConfig = {
       User = "olivetin";
       Group = "olivetin";
-      ExecStart = "${olivetin}/bin/olivetin -configdir $STATE_DIRECTORY";
+      ExecStart = "${pkgs.olivetin}/bin/olivetin -configdir $STATE_DIRECTORY";
       Environment="PATH=/run/wrappers/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin";
       Restart = "always";
       RuntimeDirectory = "OliveTin";
@@ -47,7 +47,7 @@ in
   };
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                                     "
-    "C  ${www-dir}                    -           -               -               -   ${olivetin}/www                       "
+    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www                       "
     "r  ${scripts-dir}/commands.sh    -           -               -               -   -                                     "
     "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}                        "
     "r  ${www-dir}/customIcons        -           -               -               -   -                                     "
