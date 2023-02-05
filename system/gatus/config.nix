@@ -4,7 +4,7 @@
       custom = {
         url = "https://api.pushbullet.com/v2/pushes";
         method = "POST";
-        headers = ''
+        headers = '' |
           {
             "Access-Token" : "<PLACEHOLDER>",
             "Content-Type" : "application/json"
@@ -19,7 +19,7 @@
         '';
         default-alert = {
           description = "Request Failed!";
-          send-on-resolved = "true";
+          send-on-resolved = true;
           failure-threshold = 5;
           success-thershold = 3;
         };
