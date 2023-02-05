@@ -1,16 +1,13 @@
-{ stdenv, buildPythonPackage, fetchPypi }:
+{ lib, buildPythonPackage, fetchPypi }:
 
-  stdenv.mkDerivation rec {
+  buildPythonPackage (rec {
     pname = "bios";
     version = "0.1.2";
-    src = buildPythonPackage {
+    src = fetchPypi {
       inherit pname version;
-      src = fetchPypi {
-        inherit pname version;
-        hash = "sha256-vM/CQBG2pjGm7e7xBpVRpOyq/3s+1QpiIaaAdYUFAOk=";
-      };
-      propagatedBuildInputs = [
-        oyaml pyyaml
-      ];
+      hash = "sha256-vM/CQBG2pjGm7e7xBpVRpOyq/3s+1QpiIaaAdYUFAOk=";
     };
-  }
+    propagatedBuildInputs = [
+      oyaml pyyaml
+    ];
+  })
