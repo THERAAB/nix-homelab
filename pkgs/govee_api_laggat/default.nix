@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchPypi, pexpect, events, pygatt, aiohttp, certifi, dacite, pytest }:
+{ lib, buildPythonPackage, fetchPypi, bios, pexpect, events, pygatt, aiohttp, certifi, dacite, pytest }:
 
   buildPythonPackage rec {
     pname = "govee_api_laggat";
