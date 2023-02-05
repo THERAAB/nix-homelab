@@ -1,4 +1,4 @@
-{ lib, buildPythonPackage, fetchPypi }:
+{ lib, buildPythonPackage, fetchPypi, oyaml, pyyaml }:
 
   buildPythonPackage (rec {
     pname = "bios";
