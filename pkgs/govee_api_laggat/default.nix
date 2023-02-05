@@ -15,7 +15,7 @@
       pexpect
       events
       pygatt
-      python.aiohttp
+      pythonPackages.my_stuff.aiohttp
       certifi
       dacite
       pytest

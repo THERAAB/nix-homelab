@@ -22,5 +22,6 @@
         };
       };
     };
+    pythonPackages = python.pkgs;
   };
 }
