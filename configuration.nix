@@ -39,7 +39,7 @@
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     # Flake setup
-    package = pkgs.nixVersions.unstable;
+    package = pkgs.nixVersions.stable;
 
     settings = {
       # Enable flakes and new 'nix' command
