@@ -23,10 +23,10 @@ let
   };
 
   cfg = (import ./config.nix);
-  configFile = pkgs.writeTextFile {
-    name = "config.yaml";
-    text = builtins.toJSON cfg.settings;
-  };
+  format = pkgs.formats.yaml {};
+  configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
+    cp ${format.generate "config.yaml" cfg.settings} $out
+  '';
 
 in
 {
