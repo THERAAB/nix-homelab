@@ -8,7 +8,27 @@ in
   ];
   services.home-assistant = {
     extraPackages = python3Packages: with python3Packages; [
-      pkgs.govee_api_laggat
+      (
+        buildPythonPackage rec {
+          pname = "govee_api_laggat";
+          version = "0.2.2";
+          src = fetchPypi {
+            inherit version pname;
+            hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
+          };
+
+          propagatedBuildInputs = [
+            pkgs.bios
+            pexpect
+            events
+            pygatt
+            aiohttp
+            certifi
+            dacite
+            pytest
+          ];
+        }
+      )
     ];
     config.automation = [
       {
