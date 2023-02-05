@@ -5,7 +5,13 @@ let
   port = 7000;
   app-name = "gatus";
   local-config-dir = "/nix/persist/${app-name}/";
-  system-app-dir = "/nix/persist/nix-homelab/system/${app-name}/";
+
+  cfg = (import ./config.nix);
+  configFile = pkgs.writeTextFile {
+    name = "config.yaml";
+    text = builtins.toJSON cfg.settings;
+  };
+
 in
 {
   users = {
@@ -21,7 +27,7 @@ in
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
   systemd.services."podman-${app-name}".preStart = ''
-    cp ${system-app-dir}/config.yaml ${local-config-dir}/config.yaml
+    cp --force ${configFile} ${local-config-dir}/config.yaml
     TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
     ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
   '';
