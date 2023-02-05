@@ -1,9 +1,9 @@
-{ stdenv, fetchurl }:
+{ stdenv, fetchFromGitHub }:
 
   stdenv.mkDerivation rec {
     pname = "hacs-govee";
     version = "0.2.2";
-    src = fetchFromGithub {
+    src = fetchFromGitHub {
       inherit pname version;
       repo = pname;
       rev = version;
