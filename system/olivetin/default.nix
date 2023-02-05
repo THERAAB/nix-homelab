@@ -22,7 +22,16 @@ let
     '';
   };
 
-  cfg = config.services.olivetin;
+  cfg.settings = {
+    actions = [
+      {
+        title = "Reboot Server";
+        icon = '''<img src = "customIcons/reboot.png" width = "48px"/>' '';
+        shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
+        timeout = 20;
+      }
+    ];
+  };
 
   #configFile = "/nix/persist/nix-homelab/system/${app-name}/config.yaml";
   configFile = pkgs.writeTextFile {
@@ -40,17 +49,6 @@ in
       isSystemUser = true;
     };
     users.caddy.extraGroups = [ app-name ];
-  };
-
-  cfg.settings = {
-    actions = [
-      {
-        title = "Reboot Server";
-        icon = '''<img src = "customIcons/reboot.png" width = "48px"/>' '';
-        shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
-        timeout = 20;
-      }
-    ];
   };
 
   environment.systemPackages = [ olivetin ];
