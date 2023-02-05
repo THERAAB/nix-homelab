@@ -11,7 +11,6 @@ let
 
   configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
     cp ${format.generate "config.yaml" cfg.settings} $out
-    sed -i -e "s/'\!\([a-z_]\+\) \(.*\)'/\!\1 \2/;s/^\!\!/\!/;" $out
   '';
 
   #configFile = pkgs.writeTextFile {
