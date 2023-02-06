@@ -49,7 +49,9 @@ in
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
+    wants = [ "podman-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
+    before = [ "podman-gatus.service" ];
   };
   # Delay gatus start for 30s because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
