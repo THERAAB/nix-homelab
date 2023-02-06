@@ -54,9 +54,9 @@ in
   };
   # Delay gatus start because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
-  systemd.services."podman-${appname}" = {
-      wantedBy = [ "yamlSecretAdder-gatus.service" ];
-      after = [ "yamlSecretAdder-gatus.service" "adguardhome.service" ];
+  systemd.services."podman-${app-name}" = {
+    wantedBy = [ "yamlSecretAdder-gatus.service" ];
+    after = [ "yamlSecretAdder-gatus.service" "adguardhome.service" ];
   };
 
   services.caddy.virtualHosts = {
