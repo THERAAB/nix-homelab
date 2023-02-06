@@ -4,7 +4,26 @@ let
   network = (import ./network.properties.nix);
 in
 {
-  imports = [ ../modules/nixos/olivetin ];
+  imports = [
+    ../../modules/nixos/olivetin
+    ../../modules/nixos/yamlConfigMaker
+  ];
+
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "Adguard";
+      url = "http://adguard.server.box/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>Login</title>*)''
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin.settings.actions = [
     {
       title = "Restart AdGuard";
