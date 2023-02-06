@@ -4,7 +4,7 @@ let
   app-name = "netdata";
 in
 {
-  imports = [ ../../modules/nixos/olivetin ];
+  imports = [ ../modules/nixos/olivetin ];
   services.olivetin.settings.actions = [
     {
       title = "Restart NetData";

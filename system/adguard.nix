@@ -4,7 +4,7 @@ let
   network = (import ./network.properties.nix);
 in
 {
-  imports = [ ../../modules/nixos/olivetin ];
+  imports = [ ../modules/nixos/olivetin ];
   services.olivetin.settings.actions = [
     {
       title = "Restart AdGuard";
