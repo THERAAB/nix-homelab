@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   port = 3000;
-  settings = import ./settings.nix;
+  settings = import (./settings.nix).settings;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
