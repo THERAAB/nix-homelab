@@ -7,13 +7,17 @@ let
   local-config-dir = "/nix/persist/${app-name}/";
 
   cfg = (import ./config.nix);
-  format = pkgs.formats.yaml {};
-  configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
-    cp ${format.generate "config.yaml" cfg.settings} $out
-  '';
+#  format = pkgs.formats.yaml {};
+#  configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
+#    cp ${format.generate "config.yaml" cfg.settings} $out
+#  '';
 in
 {
-  imports = [ ../../modules/nixos/olivetin ];
+  imports = [ ../../modules/nixos/olivetin ../../modules/nixos/yamlConfigMaker ];
+  services.yamlConfigMaker.configFiles."gatus" = {
+    path = "${local-config-dir}/config.yaml";
+    fileContents = cfg.settings;
+  };
   services.olivetin.settings.actions = [
     {
       title = "Restart Gatus";
@@ -34,11 +38,14 @@ in
     "d    ${local-config-dir}   -       -             -               -   - "
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
-  systemd.services."podman-${app-name}".preStart = ''
-    cp --force ${configFile} ${local-config-dir}/config.yaml
-    TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
-    ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
-  '';
+  systemd.services."yamlSecretAdder-gatus" = {
+    preStart = ''
+      TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
+      ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
+    '';
+    wantedBy = [ "yamlConfigMaker-gatus.service" ];
+    after = [ "yamlConfigMaker-gatus.service" ];
+  };
   # Delay gatus start for 30s because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
   # There's a smarter way to do this with wanted and after, but this is the lazy way
