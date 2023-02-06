@@ -9,8 +9,12 @@ let
   shellScript = pkgs.callPackage ./script.nix {};
 in
 {
-  imports = [ ../../modules/nixos/olivetin ];
+  imports = [ ../../modules/nixos/olivetin ../../modules/nixos/configMaker ];
 
+  services.configMaker.configFiles."config.yaml" = {
+    path = "/home/raab/config.yaml";
+    fileContents.hello = "hello";
+  };
   services.olivetin = {
     enable = true;
     settings.actions = [
