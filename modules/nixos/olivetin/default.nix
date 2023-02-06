@@ -14,7 +14,7 @@ in {
     enable = mkEnableOption (lib.mdDoc "OliveTin");
     settings = mkOption {
       default = null;
-      type = nullOr (submodule {
+      type = (submodule {
         freeformType = (pkgs.formats.yaml { }).type;
       });
     };
