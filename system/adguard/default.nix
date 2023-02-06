@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 let
   port = 3000;
-  network = import ../network.properties.nix;
   settings = import ./settings.nix;
 in
 {

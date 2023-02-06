@@ -1,3 +1,6 @@
+let
+  network = import ../network.properties.nix;
+in
 {
   settings = {
     bind_host = "0.0.0.0";
