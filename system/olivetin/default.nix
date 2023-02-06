@@ -47,7 +47,7 @@ in
   };
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                                     "
-    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www                       "
+    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www                  "
     "r  ${scripts-dir}/commands.sh    -           -               -               -   -                                     "
     "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}                        "
     "r  ${www-dir}/customIcons        -           -               -               -   -                                     "
