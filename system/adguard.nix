@@ -4,6 +4,15 @@ let
   network = (import ./network.properties.nix);
 in
 {
+  imports = [ ../../modules/nixos/olivetin ];
+  services.olivetin.settings.actions = [
+    {
+      title = "Restart AdGuard";
+      icon = ''<img src = "customIcons/adguard.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s adguardhome";
+      timeout = 20;
+    }
+  ];
   services.caddy.virtualHosts = {
     "http://adguard.server.box".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}

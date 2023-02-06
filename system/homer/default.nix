@@ -17,6 +17,21 @@ let
   };
 in
 {
+  imports = [ ../../modules/nixos/olivetin ];
+  services.olivetin.settings.actions = [
+    {
+      title = "Restart Homer.box";
+      icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p homer.box";
+      timeout = 20;
+    }
+    {
+      title = "Restart Homer.tail";
+      icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p homer.tail";
+      timeout = 20;
+    }
+  ];
   systemd.tmpfiles.rules = [
     "r    ${box-config-dir}/config.yml      -   -               -               -   -                                       "
     "r    ${tail-config-dir}/config.yml     -   -               -               -   -                                       "

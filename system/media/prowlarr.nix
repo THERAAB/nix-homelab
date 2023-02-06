@@ -7,6 +7,15 @@ let
   local-config-dir = media.dir.config + "/${app-name}/";
 in
 {
+  imports = [ ../../modules/nixos/olivetin ];
+  services.olivetin.settings.actions = [
+    {
+      title = "Restart Prowlarr";
+      icon = ''<img src = "customIcons/prowlarr.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p prowlarr";
+      timeout = 20;
+    }
+  ];
   users = {
     users."${app-name}" = {
       group = "media";

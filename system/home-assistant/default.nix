@@ -10,6 +10,16 @@ in
     ./battery-notifications.nix
     ./govee-immersion.nix
     ./shopping-list.nix
+    ../../modules/nixos/olivetin
+  ];
+
+  services.olivetin.settings.actions = [
+    {
+      title = "Restart Home Assistant";
+      icon = ''<img src = "customIcons/home-assistant.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s home-assistant";
+      timeout = 20;
+    }
   ];
 
   systemd.tmpfiles.rules = [

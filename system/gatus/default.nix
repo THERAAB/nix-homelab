@@ -13,6 +13,15 @@ let
   '';
 in
 {
+  imports = [ ../../modules/nixos/olivetin ];
+  services.olivetin.settings.actions = [
+    {
+      title = "Restart Gatus";
+      icon = ''<img src = "customIcons/gatus.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p gatus";
+      timeout = 20;
+    }
+  ];
   users = {
     groups.${app-name}.gid = gid;
     users.${app-name} = {

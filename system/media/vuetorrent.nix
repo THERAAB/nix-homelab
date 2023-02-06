@@ -8,6 +8,15 @@ let
   network = (import ../network.properties.nix);
 in
 {
+  imports = [ ../../modules/nixos/olivetin ];
+  services.olivetin.settings.actions = [
+    {
+      title = "Restart Vuetorrent";
+      icon = ''<img src = "customIcons/vuetorrent.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p vuetorrent";
+      timeout = 20;
+    }
+  ];
   users = {
     users."${app-name}" = {
       group = "media";
