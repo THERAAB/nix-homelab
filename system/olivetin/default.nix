@@ -27,7 +27,7 @@ in
     };
   };
 
-  environment.systemPackages = with pkgs; [ olivetin ];
+  # environment.systemPackages = with pkgs; [ olivetin ];
 
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                                     "
