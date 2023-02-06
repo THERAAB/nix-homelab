@@ -6,7 +6,7 @@
     ./media
     ./gatus
     ./olivetin
-    ./adguard.nix
+    ./adguard
     ./persist.nix
     ./boot.nix
     ./hardware.nix
