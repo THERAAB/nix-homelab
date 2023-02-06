@@ -16,7 +16,7 @@ let
 
 in
 {
-  services.hello = {
+  olivetin-module.services.hello = {
     enable = true;
     greeter = "Bob";
   };
