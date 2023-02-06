@@ -7,16 +7,20 @@ let
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/nix/persist/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
-
-  cfg = (import ./config.nix);
-
 in
 {
   imports = [ ../../modules/nixos/olivetin ];
 
   services.olivetin = {
     enable = true;
-    settings = cfg.settings;
+    settings.actions = [
+      {
+        title = "Reboot Server";
+        icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
+        shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
+        timeout = 20;
+      }
+    ];
   };
   users = {
     groups.${app-name}.gid = gid;
@@ -26,8 +30,6 @@ in
       isSystemUser = true;
     };
   };
-
-  # environment.systemPackages = with pkgs; [ olivetin ];
 
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                                     "
