@@ -10,9 +10,9 @@ in
   imports = [ ../../modules/nixos/olivetin ];
   services.olivetin.settings.actions = [
     {
-      title = "Reboot Server";
-      icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
+      title = "Restart Jellyfin";
+      icon = ''<img src = "customIcons/jellyfin.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p jellyfin";
       timeout = 20;
     }
   ];
