@@ -1,5 +1,6 @@
 let
   network = import ../network.properties.nix;
+  port = 3000;
 in
 {
   settings = {
