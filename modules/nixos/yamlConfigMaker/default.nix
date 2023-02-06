@@ -2,7 +2,7 @@
 with lib;
 let
   format = pkgs.formats.yaml {};
-  cfg = config.services.configMaker;
+  cfg = config.services.yamlConfigMaker;
   configOpts =
     { name, ... }: {
       options = {
@@ -29,7 +29,7 @@ let
     script = "cp ${format.generate "${name}" value.fileContents} ${value.path}";
   };
 in {
-  options.services.configMaker = {
+  options.services.yamlConfigMaker = {
     configFiles = mkOption {
      default = {};
      type = types.attrsOf (types.submodule configOpts);

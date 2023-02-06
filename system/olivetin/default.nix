@@ -9,9 +9,9 @@ let
   shellScript = pkgs.callPackage ./script.nix {};
 in
 {
-  imports = [ ../../modules/nixos/olivetin ../../modules/nixos/configMaker ];
+  imports = [ ../../modules/nixos/olivetin ../../modules/nixos/yamlConfigMaker ];
 
-  services.configMaker.configFiles."testConfig" = {
+  services.yamlConfigMaker.configFiles."testConfig" = {
     path = "/home/raab/config.yaml";
     fileContents.hello = "hello";
   };
