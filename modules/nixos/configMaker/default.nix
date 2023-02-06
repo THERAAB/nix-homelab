@@ -25,8 +25,8 @@ let
       };
     };
   mkService = name: value: {
-    wantedBy = "multi-user.target";
-    serviceConfig.ExecStart = "cp ${format.generate "${name}" value.fileContents} ${value.path}";
+    wantedBy = ["multi-user.target"];
+    script = "cp ${format.generate "${name}" value.fileContents} ${value.path}";
   };
 in {
   options.services.configMaker = {
