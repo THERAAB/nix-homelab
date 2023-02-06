@@ -26,11 +26,11 @@ let
           });
         };
       };
-      mkService = name: value: {
-        wantedBy = "multi-user.target";
-        ExecStart = "cp ${format.generate "${name}" value.settings} ${value.path}";
-      };
     };
+  mkService = name: value: {
+    wantedBy = "multi-user.target";
+    ExecStart = "cp ${format.generate "${name}" value.settings} ${value.path}";
+  };
 in {
   options.services.configMaker = {
     configFiles = mkOption {
