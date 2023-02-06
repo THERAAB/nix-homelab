@@ -40,6 +40,9 @@
         in import ./shell.nix { inherit pkgs; }
       );
 
+      # Your custom packages and modifications, exported as overlays
+      overlays = import ./overlays;
+
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
