@@ -7,7 +7,7 @@ let
     { name, ... }: {
       options = {
         name = mkOption {
-          default = "config.yaml";
+          default = null;
           type = with types; nullOr str;
         };
         path = mkOption {

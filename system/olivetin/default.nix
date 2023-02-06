@@ -11,7 +11,7 @@ in
 {
   imports = [ ../../modules/nixos/olivetin ../../modules/nixos/configMaker ];
 
-  services.configMaker.configFiles."config.yaml" = {
+  services.configMaker.configFiles."testConfig" = {
     path = "/home/raab/config.yaml";
     fileContents.hello = "hello";
   };
