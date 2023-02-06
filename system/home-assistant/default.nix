@@ -11,8 +11,24 @@ in
     ./govee-immersion.nix
     ./shopping-list.nix
     ../../modules/nixos/olivetin
+    ../../modules/nixos/yamlConfigMaker
   ];
 
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "Home Assistant";
+      url = "http://home-assistant.server.box/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>Home Assistant</title>*)''
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin.settings.actions = [
     {
       title = "Restart Home Assistant";

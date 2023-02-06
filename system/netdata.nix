@@ -4,7 +4,25 @@ let
   app-name = "netdata";
 in
 {
-  imports = [ ../modules/nixos/olivetin ];
+  imports = [
+    ../modules/nixos/olivetin
+    ../modules/nixos/yamlConfigMaker
+  ];
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "NetData";
+      url = "http://netdata.server.box/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>netdata dashboard</title>*)''
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin.settings.actions = [
     {
       title = "Restart NetData";

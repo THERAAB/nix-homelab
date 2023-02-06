@@ -17,7 +17,39 @@ let
   };
 in
 {
-  imports = [ ../../modules/nixos/olivetin ];
+  imports = [
+    ../modules/nixos/olivetin
+    ../modules/nixos/yamlConfigMaker
+  ];
+
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "Homer.box";
+      url = "http://server.box/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<div id="app-mount"></div>*)''
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+    {
+      name = "Homer.tail";
+      url = "http://server.tail/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<div id="app-mount"></div>*)''
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin.settings.actions = [
     {
       title = "Restart Homer.box";

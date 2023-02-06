@@ -8,7 +8,26 @@ let
   network = (import ../network.properties.nix);
 in
 {
-  imports = [ ../../modules/nixos/olivetin ];
+  imports = [
+    ../modules/nixos/olivetin
+    ../modules/nixos/yamlConfigMaker
+  ];
+
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "VueTorrent";
+      url = "http://vuetorrent.server.box/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>qBittorrent</title>*)''
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin.settings.actions = [
     {
       title = "Restart Vuetorrent";
