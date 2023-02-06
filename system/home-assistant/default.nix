@@ -10,8 +10,6 @@ in
     ./battery-notifications.nix
     ./govee-immersion.nix
     ./shopping-list.nix
-#    ../../modules/nixos/olivetin
-#    ../../modules/nixos/yamlConfigMaker
   ];
 
   services.yamlConfigMaker.gatus.settings.endpoints = [

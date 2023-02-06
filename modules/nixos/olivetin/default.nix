@@ -7,9 +7,7 @@ let
   configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
       cp ${format.generate "config.yaml" cfg.settings} $out
     '';
-
 in {
-
   options.services.olivetin = with types; {
     enable = mkEnableOption (lib.mdDoc "OliveTin");
     settings = mkOption {

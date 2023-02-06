@@ -8,11 +8,6 @@ let
   network = (import ../network.properties.nix);
 in
 {
-#  imports = [
-#    ../../modules/nixos/olivetin
-#    ../../modules/nixos/yamlConfigMaker
-#  ];
-
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "VueTorrent";

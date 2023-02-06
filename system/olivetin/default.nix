@@ -9,11 +9,6 @@ let
   shellScript = pkgs.callPackage ./script.nix {};
 in
 {
-#  imports = [
-#    ../../modules/nixos/olivetin
-#    ../../modules/nixos/yamlConfigMaker
-#  ];
-
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "OliveTin";

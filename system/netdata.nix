@@ -4,10 +4,6 @@ let
   app-name = "netdata";
 in
 {
-#  imports = [
-#    ../modules/nixos/olivetin
-#    ../modules/nixos/yamlConfigMaker
-#  ];
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "NetData";

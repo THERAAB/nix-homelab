@@ -5,18 +5,9 @@ let
   port = 7000;
   app-name = "gatus";
   local-config-dir = "/nix/persist/${app-name}/";
-
   cfg = (import ./config.nix);
-#  format = pkgs.formats.yaml {};
-#  configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
-#    cp ${format.generate "config.yaml" cfg.settings} $out
-#  '';
 in
 {
-#  imports = [
-#    ../../modules/nixos/olivetin
-#    ../../modules/nixos/yamlConfigMaker
-#  ];
 
   services.yamlConfigMaker.gatus = {
     path = "${local-config-dir}/config.yaml";
