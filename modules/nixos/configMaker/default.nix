@@ -55,4 +55,7 @@ in {
      type = types.attrsOf (types.submodule configOpts);
     };
   };
+  config = {
+    systemd.services = mapAttrs' (n: v: nameValuePair "${cfg.configMaker}-${n}" (mkService n v)) cfg.configFiles;
+  };
 }
