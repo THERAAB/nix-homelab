@@ -39,7 +39,7 @@ in
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
   systemd.services."yamlSecretAdder-gatus" = {
-    preStart = ''
+    script = ''
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
     '';
