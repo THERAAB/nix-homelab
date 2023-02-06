@@ -9,17 +9,14 @@ let
   shellScript = pkgs.callPackage ./script.nix {};
 
   cfg = (import ./config.nix);
-  format = pkgs.formats.yaml {};
-  configFile = pkgs.runCommand "config.yaml" { preferLocalBuild = true; } ''
-    cp ${format.generate "config.yaml" cfg.settings} $out
-  '';
 
 in
 {
   imports = [ ../../modules/nixos/olivetin ];
-  services.hello = {
+
+  services.olivetin = {
     enable = true;
-    greeter = "Bob";
+    settings = cfg.settings;
   };
   users = {
     groups.${app-name}.gid = gid;
@@ -28,28 +25,10 @@ in
       uid = uid;
       isSystemUser = true;
     };
-    users.caddy.extraGroups = [ app-name ];
   };
 
   environment.systemPackages = with pkgs; [ olivetin ];
-  systemd.services.olivetin = {
-    wantedBy = [ "multi-user.target" ];
 
-    preStart = ''
-      cp --force "${configFile}" "$STATE_DIRECTORY/config.yaml"
-      chmod 600 "$STATE_DIRECTORY/config.yaml"
-    '';
-
-    serviceConfig = {
-      User = "olivetin";
-      Group = "olivetin";
-      ExecStart = "${pkgs.olivetin}/bin/olivetin -configdir $STATE_DIRECTORY";
-      Environment="PATH=/run/wrappers/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin";
-      Restart = "always";
-      RuntimeDirectory = "OliveTin";
-      StateDirectory = "OliveTin";
-    };
-  };
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                                     "
     "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www                  "
