@@ -22,7 +22,7 @@ in
     path = "${local-config-dir}/config.yaml";
     settings = {
       alerting = cfg.alerting;
-      # endpoints = cfg.endpoints;
+      endpoints = cfg.endpoints;
     };
   };
 

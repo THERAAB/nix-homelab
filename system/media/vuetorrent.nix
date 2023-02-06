@@ -9,8 +9,8 @@ let
 in
 {
   imports = [
-    ../modules/nixos/olivetin
-    ../modules/nixos/yamlConfigMaker
+    ../../modules/nixos/olivetin
+    ../../modules/nixos/yamlConfigMaker
   ];
 
   services.yamlConfigMaker.gatus.settings.endpoints = [
