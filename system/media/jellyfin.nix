@@ -7,6 +7,15 @@ let
   local-config-dir = media.dir.config + "/${app-name}/";
 in
 {
+  imports = [ ../../modules/nixos/olivetin ];
+  services.olivetin.settings.actions = [
+    {
+      title = "Reboot Server";
+      icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
+      timeout = 20;
+    }
+  ];
   users = {
     users."${app-name}" = {
       group = "media";
