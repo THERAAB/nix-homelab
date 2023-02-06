@@ -5,10 +5,9 @@ let
   port = 7000;
   app-name = "gatus";
   local-config-dir = "/nix/persist/${app-name}/";
-  cfg = (import ./config.nix);
+  cfg = import ./config.nix;
 in
 {
-
   services.yamlConfigMaker.gatus = {
     path = "${local-config-dir}/config.yaml";
     settings = {
@@ -16,7 +15,6 @@ in
       endpoints = cfg.endpoints;
     };
   };
-
   services.olivetin.settings.actions = [
     {
       title = "Restart Gatus";

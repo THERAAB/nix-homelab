@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  devices = (import ./devices.properties.nix);
+  devices = import ./devices.properties.nix;
   check-time = "8:30:00";
   battery-threshold = 30;
 in

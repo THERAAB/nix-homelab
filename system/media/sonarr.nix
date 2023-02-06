@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  media = (import ./media.properties.nix);
+  media = import ./media.properties.nix;
   uid = 9995;
   port = 8989;
   app-name = "sonarr";

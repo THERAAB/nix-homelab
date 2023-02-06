@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  devices = (import ./devices.properties.nix);
+  devices = import ./devices.properties.nix;
 in
 {
   systemd.tmpfiles.rules = [

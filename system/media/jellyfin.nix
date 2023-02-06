@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  media = (import ./media.properties.nix);
+  media = import ./media.properties.nix;
   uid = 9992;
   port = 8096;
   app-name = "jellyfin";

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  network = (import ./network.properties.nix);
+  network = import ./network.properties.nix;
 in
 {
   services.caddy = {

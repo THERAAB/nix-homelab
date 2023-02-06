@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 let
-  media = (import ./media.properties.nix);
+  media = import ./media.properties.nix;
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
   local-config-dir = media.dir.config + "/${app-name}/";
-  network = (import ../network.properties.nix);
+  network = import ../network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [

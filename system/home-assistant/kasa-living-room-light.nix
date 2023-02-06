@@ -1,5 +1,5 @@
 let
-  devices = (import ./devices.properties.nix);
+  devices = import ./devices.properties.nix;
 in
 {
   services.home-assistant.config.automation = [
