@@ -26,27 +26,10 @@ let
           });
         };
       };
-      config = mkMerge [
-        {
-          name = mkDefault name;
-        }
-        (mkIf (config.format == "yaml") {
-          fileFormat = pkgs.formats.yaml {};
-        })
-        {
-          result = pkgs.runCommand "${name}" { preferLocalBuild = true; } ''
-            cp ${fileFormat.generate "${name}" config.fileContents} ${config.path}
-          '';
-        }
-        {
-          systemd.services.configMaker.${name} = {
-            wantedBy = [ "multi-user.target" ];
-            serviceConfig = {
-              ExecStart = "cp $result ${config.path}";
-            };
-          };
-        }
-      ];
+      mkService = name: value: {
+        wantedBy = "multi-user.target";
+        ExecStart = "cp ${format.generate "${name}" value.settings} ${value.path}";
+      };
     };
 in {
   options.services.configMaker = {
@@ -56,6 +39,6 @@ in {
     };
   };
   config = {
-    systemd.services = mapAttrs' (n: v: nameValuePair "config-${n}" (lib.mkService n v)) cfg.configFiles;
+    systemd.services = mapAttrs' (n: v: nameValuePair "config-${n}" (mkService n v)) cfg.configFiles;
   };
 }
