@@ -16,7 +16,8 @@ let
 
 in
 {
-  olivetin-module.services.hello = {
+  imports = [ /nix/persist/nix-homelab/modules/nixos/olivetin ];
+  services.hello = {
     enable = true;
     greeter = "Bob";
   };
