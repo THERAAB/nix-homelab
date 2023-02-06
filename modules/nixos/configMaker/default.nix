@@ -8,17 +8,17 @@ let
       options = {
         name = mkOption {
           default = "config.yaml";
-          type = nullOr str;
+          type = with types; nullOr str;
         };
         path = mkOption {
           default = null;
-          type = nullOr str;
+          type = with types; nullOr str;
           description = lib.mdDoc "Path to resulting file";
           example = "/home/raab/config.yaml";
         };
         fileContents = mkOption {
           default = null;
-          type = nullOr (submodule {
+          type = with types; nullOr (submodule {
             freeformType = (pkgs.formats.yaml { }).type;
           });
         };
