@@ -56,6 +56,6 @@ in {
     };
   };
   config = {
-    systemd.services = mapAttrs' (n: v: nameValuePair "config-${n}" (mkService n v)) cfg.configFiles;
+    systemd.services = mapAttrs' (n: v: nameValuePair "config-${n}" (lib.mkService n v)) cfg.configFiles;
   };
 }
