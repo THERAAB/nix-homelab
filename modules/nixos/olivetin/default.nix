@@ -1,4 +1,4 @@
-{ lib, pkgs, config, ... }:
+{ lib, pkgs, config, mkIf, ... }:
 let
   cfg = config.services.olivetin;
 
