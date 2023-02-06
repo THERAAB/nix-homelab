@@ -1,7 +1,7 @@
 { lib, pkgs, config, options, ... }:
 with lib;
 let
-  cfg = services.configMaker;
+  cfg = config.services.configMaker;
   configOpts =
     { name, ... }: {
       options = {
