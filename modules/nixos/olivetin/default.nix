@@ -10,11 +10,11 @@ let
 
 in {
 
-  options.services.olivetin = {
+  options.services.olivetin = with types; {
     enable = mkEnableOption (lib.mdDoc "OliveTin");
     settings = mkOption {
       default = null;
-      type = (submodule {
+      type = nullOr (submodule {
         freeformType = (pkgs.formats.yaml { }).type;
       });
     };
