@@ -7,10 +7,10 @@ let
   local-config-dir = media.dir.config + "/${app-name}/";
 in
 {
-  imports = [
-    ../../modules/nixos/olivetin
-    ../../modules/nixos/yamlConfigMaker
-  ];
+#  imports = [
+#    ../../modules/nixos/olivetin
+#    ../../modules/nixos/yamlConfigMaker
+#  ];
 
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {

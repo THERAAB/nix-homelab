@@ -57,6 +57,8 @@
           modules = [
             # > Our main nixos configuration file <
             impermanence.nixosModules.impermanence
+            ./modules/nixos/yamlConfigMaker
+            ./modules/nixos/olivetin
             ./configuration.nix
             sops-nix.nixosModules.sops
 
