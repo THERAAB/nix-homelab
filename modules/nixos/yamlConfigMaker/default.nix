@@ -16,7 +16,7 @@ let
           description = lib.mdDoc "Path to resulting file";
           example = "/home/raab/config.yaml";
         };
-        fileContents = mkOption {
+        settings = mkOption {
           default = null;
           type = with types; nullOr (submodule {
             freeformType = (pkgs.formats.yaml { }).type;
@@ -26,16 +26,14 @@ let
     };
   mkService = name: value: {
     wantedBy = ["multi-user.target"];
-    script = "cp ${format.generate "${name}" value.fileContents} ${value.path}";
+    script = "cp ${format.generate "${name}" value.settings} ${value.path}";
   };
 in {
-  options.services.yamlConfigMaker = {
-    configFiles = mkOption {
-     default = {};
-     type = types.attrsOf (types.submodule configOpts);
-    };
+  options.services.yamlConfigMaker = mkOption {
+    default = {};
+    type = types.attrsOf (types.submodule configOpts);
   };
   config = {
-    systemd.services = mapAttrs' (n: v: nameValuePair "yamlConfigMaker-${n}" (mkService n v)) cfg.configFiles;
+    systemd.services = mapAttrs' (n: v: nameValuePair "yamlConfigMaker-${n}" (mkService n v)) cfg;
   };
 }

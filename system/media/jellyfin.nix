@@ -12,22 +12,20 @@ in
     ../../modules/nixos/yamlConfigMaker
   ];
 
-  services.yamlConfigMaker.configFiles.gatus = {
-    fileContents.endpoints = [
-      {
-        name = "Jellyfin";
-        url = "http://jellyfin.server.box/health";
-        conditions = [
-          "[STATUS] == 200"
-        ];
-        alerts = [
-          {
-            type = "custom";
-          }
-        ];
-      }
-    ];
-  };
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "Jellyfin";
+      url = "http://jellyfin.server.box/health";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin.settings.actions = [
     {
       title = "Restart Jellyfin";

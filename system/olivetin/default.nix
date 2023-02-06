@@ -14,23 +14,21 @@ in
     ../../modules/nixos/yamlConfigMaker
   ];
 
-  services.yamlConfigMaker.configFiles.gatus = {
-    fileContents.endpoints = [
-      {
-        name = "OliveTin";
-        url = "http://olivetin.server.box/";
-        conditions = [
-          "[STATUS] == 200"
-          ''[BODY] == pat(*<title>OliveTin</title>*)''
-        ];
-        alerts = [
-          {
-            type = "custom";
-          }
-        ];
-      }
-    ];
-  };
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "OliveTin";
+      url = "http://olivetin.server.box/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>OliveTin</title>*)''
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin = {
     enable = true;
     settings.actions = [
