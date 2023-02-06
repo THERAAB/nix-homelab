@@ -27,14 +27,24 @@ let
         };
       };
       config = mkMerge [
-        { name = mkDefault name; }
+        {
+          name = mkDefault name;
+        }
         (mkIf (config.format == "yaml") {
           fileFormat = pkgs.formats.yaml {};
         })
         {
-        result = pkgs.runCommand "${name}" { preferLocalBuild = true; } ''
-          cp ${fileFormat.generate "${name}" config.fileContents} ${config.path}
-        '';
+          result = pkgs.runCommand "${name}" { preferLocalBuild = true; } ''
+            cp ${fileFormat.generate "${name}" config.fileContents} ${config.path}
+          '';
+        }
+        {
+          systemd.services.configMaker.${name} = {
+            wantedBy = [ "multi-user.target" ];
+            serviceConfig = {
+              ExecStart = "cp $result ${config.path}";
+            };
+          };
         }
       ];
     };
