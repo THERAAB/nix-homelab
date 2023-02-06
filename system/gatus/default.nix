@@ -49,20 +49,16 @@ in
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
-    wants = [ "podman-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
-    before = [ "podman-gatus.service" ];
+
   };
-  # Delay gatus start for 30s because it needs adguard to setup first
+  # Delay gatus start because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
-  # There's a smarter way to do this with wanted and after, but this is the lazy way
-  systemd.timers."start-${app-name}" = {
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnBootSec = "30s";
-      Unit = "podman-${app-name}.service";
-    };
+  systemd.services."podman-${appname}" = {
+      wantedBy = [ "yamlSecretAdder-gatus.service" ];
+      after = [ "yamlSecretAdder-gatus.service" "adguardhome.service" ];
   };
+
   services.caddy.virtualHosts = {
     "http://${app-name}.server.box".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
