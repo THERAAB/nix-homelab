@@ -16,6 +16,10 @@ let
 
 in
 {
+  services.hello = {
+    enable = true;
+    greeter = "Bob";
+  };
   users = {
     groups.${app-name}.gid = gid;
     users.${app-name} = {
