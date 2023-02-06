@@ -1,6 +1,7 @@
 { lib, pkgs, config, options, ... }:
 with lib;
 let
+  format = pkgs.formats.yaml {};
   cfg = config.services.configMaker;
   configOpts =
     { name, ... }: {
@@ -14,10 +15,6 @@ let
           type = nullOr str;
           description = lib.mdDoc "Path to resulting file";
           example = "/home/raab/config.yaml";
-        };
-        format = mkOption {
-          default = "yaml";
-          type = str;
         };
         fileContents = mkOption {
           default = null;
