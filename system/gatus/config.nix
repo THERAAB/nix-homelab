@@ -83,18 +83,6 @@
         ];
       }
       {
-        name = "Jellyfin";
-        url = "http://jellyfin.server.box/health";
-        conditions = [
-          "[STATUS] == 200"
-        ];
-        alerts = [
-          {
-            type = "custom";
-          }
-        ];
-      }
-      {
         name = "Jellyseerr";
         url = "http://jellyseerr.server.box/health";
         conditions = [
@@ -200,19 +188,6 @@
         conditions = [
           "[STATUS] == 200"
           ''[BODY] == pat(*<title>qBittorrent</title>*)''
-        ];
-        alerts = [
-          {
-            type = "custom";
-          }
-        ];
-      }
-      {
-        name = "OliveTin";
-        url = "http://olivetin.server.box/";
-        conditions = [
-          "[STATUS] == 200"
-          ''[BODY] == pat(*<title>OliveTin</title>*)''
         ];
         alerts = [
           {

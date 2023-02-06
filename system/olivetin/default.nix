@@ -9,7 +9,28 @@ let
   shellScript = pkgs.callPackage ./script.nix {};
 in
 {
-  imports = [ ../../modules/nixos/olivetin ];
+  imports = [
+    ../../modules/nixos/olivetin
+    ../../modules/nixos/yamlConfigMaker
+  ];
+
+  services.yamlConfigMaker.configFiles.gatus = {
+    fileContents.endpoints = [
+      {
+        name = "OliveTin";
+        url = "http://olivetin.server.box/";
+        conditions = [
+          "[STATUS] == 200"
+          ''[BODY] == pat(*<title>OliveTin</title>*)''
+        ];
+        alerts = [
+          {
+            type = "custom";
+          }
+        ];
+      }
+    ];
+  };
   services.olivetin = {
     enable = true;
     settings.actions = [

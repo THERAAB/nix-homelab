@@ -13,11 +13,16 @@ let
 #  '';
 in
 {
-  imports = [ ../../modules/nixos/olivetin ../../modules/nixos/yamlConfigMaker ];
-  services.yamlConfigMaker.configFiles."gatus" = {
+  imports = [
+    ../../modules/nixos/olivetin
+    ../../modules/nixos/yamlConfigMaker
+  ];
+
+  services.yamlConfigMaker.configFiles.gatus = {
     path = "${local-config-dir}/config.yaml";
-    fileContents = cfg.settings;
+    fileContents.alerting = cfg.settings.alerting;
   };
+
   services.olivetin.settings.actions = [
     {
       title = "Restart Gatus";
