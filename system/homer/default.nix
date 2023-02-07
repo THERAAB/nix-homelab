@@ -9,6 +9,7 @@ let
   system-config-dir = system-app-dir + "/config/";
   local-config-dir = "/nix/persist/${app-name}/";
   tail-config = import ./tail.nix;
+  box-config = import ./box.nix;
   tail-config-dir = local-config-dir + "/tail/";
   box-config-dir = local-config-dir + "/box/";
   environment = {
@@ -21,6 +22,10 @@ in
   services.yamlConfigMaker."homer.tail" = {
     path = "${tail-config-dir}/config.yml";
     settings = tail-config;
+  };
+  services.yamlConfigMaker."homer.box" = {
+    path = "${box-config-dir}/config.yml";
+    settings = box-config;
   };
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
@@ -65,14 +70,12 @@ in
     }
   ];
   systemd.tmpfiles.rules = [
-    "r    ${box-config-dir}/config.yml      -   -               -               -   -                                       "
     "R    ${box-config-dir}/icons           -   -               -               -   -                                       "
     "R    ${tail-config-dir}/icons          -   -               -               -   -                                       "
     "C    ${tail-config-dir}                -   -               -               -   ${system-config-dir}                    "
     "C    ${box-config-dir}                 -   -               -               -   ${system-config-dir}                    "
     "C    ${tail-config-dir}/icons          -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
     "C    ${box-config-dir}/icons           -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
-    "C    ${box-config-dir}/config.yml      -   -               -               -   ${system-app-dir}/box.yml               "
     "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                                       "
   ];
   users = {
