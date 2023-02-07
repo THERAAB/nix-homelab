@@ -19,7 +19,7 @@ let
         settings = mkOption {
           default = null;
           type = with types; nullOr (submodule {
-            freeformType = (pkgs.formats.yaml { }).type;
+            freeformType = (format { }).type;
           });
         };
       };

@@ -35,10 +35,16 @@ in
     "d    ${local-config-dir}   -       -             -               -   - "
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
-  systemd.services."yamlSecretAdder-gatus" = {
+  # We have some stuff we want to fix about this generated yaml
+  # Mainly add secret for pushbullet and fix some quotes
+  systemd.services."yamlPatcher-gatus" = {
     script = ''
+      # Update pushbullet api key
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
+
+      # fix quotes for icmp
+      sed -i 's|url: icmp://*|'
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
@@ -47,8 +53,8 @@ in
   # Delay gatus start because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
   systemd.services."podman-${app-name}" = {
-    wantedBy = [ "yamlSecretAdder-gatus.service" ];
-    after = [ "yamlSecretAdder-gatus.service" "adguardhome.service" ];
+    wantedBy = [ "yamlPatcher-gatus.service" ];
+    after = [ "yamlPatcher-gatus.service" "adguardhome.service" ];
   };
 
   services.caddy.virtualHosts = {
