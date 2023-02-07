@@ -22,16 +22,11 @@ let
             freeformType = (pkgs.formats.yaml { }).type;
           });
         };
-        wants = mkOption {
-          default = null;
-          type = with types; nullOr str;
-        };
       };
     };
   mkService = name: value: {
     wantedBy = ["multi-user.target"];
     script = "cp ${format.generate "${name}" value.settings} ${value.path}";
-    wants = mkIf (value.wants != null) [value.wants];
   };
 in {
   options.services.yamlConfigMaker = mkOption {

@@ -14,7 +14,6 @@ in
       alerting = cfg.alerting;
       endpoints = cfg.endpoints;
     };
-    wants = [ "yamlPatcher-gatus.service" ];
   };
   services.olivetin.settings.actions = [
     {
@@ -43,7 +42,9 @@ in
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
     '';
+    wantedBy = [ "yamlConfigMaker-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
+
   };
   # Delay gatus start because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
