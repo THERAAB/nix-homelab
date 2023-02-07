@@ -8,8 +8,8 @@ let
 in
 {
   users = {
-    groups."${app-name}".gid = gid;
-    users."${app-name}" = {
+    groups.${app-name}.gid = gid;
+    users.${app-name} = {
       group = app-name;
       uid = uid;
       isSystemUser = true;
@@ -34,7 +34,7 @@ in
       "${local-config-dir}:/app/config"
     ];
     ports = [ "${toString port}:3001" ];
-    user = "${app-name}";
+    user = "${toString uid}";
     environment = {
       PUID="${toString uid}";
       PGID="${toString gid}";
