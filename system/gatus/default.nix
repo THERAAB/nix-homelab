@@ -42,9 +42,6 @@ in
       # Update pushbullet api key
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
-
-      # fix quotes for icmp
-      sed -i 's|url: icmp://*|'
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
