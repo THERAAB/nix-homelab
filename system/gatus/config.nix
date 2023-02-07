@@ -21,7 +21,7 @@
       name = "Govee Water Alarm";
       url = "tcp://192.168.1.103:53";
       conditions = [
-        "[STATUS] == 200"
+        "[STATUS] == 0"
       ];
       alerts = [
         {
