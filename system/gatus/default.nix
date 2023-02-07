@@ -36,15 +36,15 @@ in
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
   # We have some stuff we want to fix about this generated yaml
-  # Mainly add secret for pushbullet and fix some quotes
+  # Mainly add secret for pushbullet and remove quptes from json body
   systemd.services."yamlPatcher-gatus" = {
     script = ''
       # Update pushbullet api key
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
 
-      # Add quotes to icmp commands:
-      ${pkgs.gnused}/bin/sed -i 's|url: \(icmp://.*\)|url: "\1"|' ${local-config-dir}/config.yaml
+      # remove quotes from body:
+      ${pkgs.gnused}/bin/sed -i "s/body: '\({.*}\)'/body: \1/" ${local-config-dir}/config.yaml
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
