@@ -45,9 +45,9 @@
     }
     {
       name = "Ring Doorbell";
-      url = "icmp://192.168.1.108";
+      url = "tcp://192.168.1.108:53";
       conditions = [
-        "[CONNECTED] == true"
+        "[STATUS] == 0"
       ];
       alerts = [
         {
