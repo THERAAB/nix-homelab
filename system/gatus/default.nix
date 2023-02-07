@@ -44,7 +44,7 @@ in
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
 
       # Add quotes to icmp commands:
-      ${pkgs.gnused}/bin/sed 's|url: \(icmp://.*\)|url: "\1"|' ${local-config-dir}/config.yaml
+      ${pkgs.gnused}/bin/sed -i 's|url: \(icmp://.*\)|url: "\1"|' ${local-config-dir}/config.yaml
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
