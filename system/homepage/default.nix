@@ -2,7 +2,7 @@
 let
   gid = 3030;
   uid = 3030;
-  port = 3000;
+  port = 3001;
   app-name = "homepage";
   local-config-dir = "/nix/persist/${app-name}/";
 in
@@ -33,7 +33,7 @@ in
     volumes = [
       "${local-config-dir}:/app/config"
     ];
-    ports = [ "${toString port}:${toString port}" ];
+    ports = [ "${toString port}:3001" ];
     environment = {
       PUID="${toString uid}";
       PGID="${toString gid}";
