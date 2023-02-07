@@ -44,7 +44,7 @@ in
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
 
       # remove quotes from body:
-      ${pkgs.gnused}/bin/sed -i "s/body: '\(| {.*}\)'/body: \1/" ${local-config-dir}/config.yaml
+      ${pkgs.gnused}/bin/sed -i "s/body: '\({.*}\)'/body: \1/" ${local-config-dir}/config.yaml
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
