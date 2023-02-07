@@ -40,6 +40,7 @@ in
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}/wireguard             -       -               -       -   -                               "
+    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -       -   -                               "
     "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -       -   /run/secrets/wireguard_mullvad  "
     "Z    ${local-config-dir}                       740     ${app-name}     media   -   -                               "
   ];
