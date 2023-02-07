@@ -5,8 +5,7 @@ let
   box-port = 8082;
   tail-port = 8083;
   app-name = "homer";
-  system-app-dir = "/nix/persist/nix-homelab/system/${app-name}/";
-  system-config-dir = system-app-dir + "/config/";
+  system-icons-dir = "/nix/persist/nix-homelab/assets/icons";
   local-config-dir = "/nix/persist/${app-name}/";
   tail-config = import ./tail.nix;
   box-config = import ./box.nix;
@@ -70,11 +69,11 @@ in
     }
   ];
   systemd.tmpfiles.rules = [
-    "R    ${box-config-dir}/icons           -   -               -               -   -                                       "
-    "R    ${tail-config-dir}/icons          -   -               -               -   -                                       "
-    "C    ${tail-config-dir}/icons          -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
-    "C    ${box-config-dir}/icons           -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
-    "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                                       "
+    "R    ${box-config-dir}/icons           -   -               -               -   -                     "
+    "R    ${tail-config-dir}/icons          -   -               -               -   -                     "
+    "C    ${tail-config-dir}/icons          -   -               -               -   ${system-icons-dir}   "
+    "C    ${box-config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
+    "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                     "
   ];
   users = {
     groups.${app-name}.gid = gid;
