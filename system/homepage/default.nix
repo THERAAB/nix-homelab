@@ -36,7 +36,7 @@ in
     ports = [ "${toString port}:${toString port}" ];
     environment = {
       PUID="${toString uid}";
-      PGID="${toString media.gid}";
+      PGID="${toString gid}";
       UMASK="022";
       TZ="America/New_York";
     };
