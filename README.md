@@ -5,7 +5,7 @@ A [NixOS](https://nixos.org/) configuration repository for my [selfhosted](https
 This repo contains everything needed to rebuild my server from scratch, with the only manual steps being in [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-setup.md)
 and the installation instructions below.
 
-![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/assets/dashboard.png?raw=true "PNG of Dashboard")
+![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/assets/screenshots/dashboard.png?raw=true "PNG of Dashboard")
 
 ## What's inside
 
