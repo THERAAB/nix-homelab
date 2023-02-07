@@ -7,7 +7,7 @@
         Access-Token = "<PLACEHOLDER>";
         Content-Type = "application/json";
       };
-      body = ''|{"type": "note","title": "Gatus [ALERT_TRIGGERED_OR_RESOLVED]: [ENDPOINT_NAME]","body": "[ALERT_DESCRIPTION] - [ENDPOINT_URL]"}'';
+      body = ''| {"type":"note","title":"Gatus [ALERT_TRIGGERED_OR_RESOLVED]: [ENDPOINT_NAME]","body":"[ALERT_DESCRIPTION] - [ENDPOINT_URL]"}'';
       default-alert = {
         description = "Request Failed!";
         send-on-resolved = true;
