@@ -31,7 +31,7 @@ in
     autoStart = true;
     image = "ghcr.io/benphelps/${app-name}";
     volumes = [
-      "${local-config-dir}:/config"
+      "${local-config-dir}:/app/config"
     ];
     ports = [ "${toString port}:3001" ];
     user = "${toString uid}";
