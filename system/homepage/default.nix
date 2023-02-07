@@ -36,8 +36,6 @@ in
     ports = [ "${toString port}:3001" ];
     user = "${toString uid}";
     environment = {
-      PUID="${toString uid}";
-      PGID="${toString gid}";
       UMASK="022";
       TZ="America/New_York";
     };
