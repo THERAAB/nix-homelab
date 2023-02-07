@@ -71,7 +71,7 @@ in
       VPN_ADDITIONAL_PORTS="";
       VPN_IP_CHECK_DELAY="5";
       VPN_IP_CHECK_EXIT="true";
-      PRIVOXY_ENABLED="false";
+      PRIVOXY_ENABLED="true";
     };
     extraOptions = [
       "--privileged"
