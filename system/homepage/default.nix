@@ -34,6 +34,7 @@ in
       "${local-config-dir}:/app/config"
     ];
     ports = [ "${toString port}:3001" ];
+    user = "$app-name";
     environment = {
       PUID="${toString uid}";
       PGID="${toString gid}";
