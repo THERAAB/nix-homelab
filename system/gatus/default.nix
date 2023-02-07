@@ -35,8 +35,7 @@ in
     "d    ${local-config-dir}   -       -             -               -   - "
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
-  # We have some stuff we want to fix about this generated yaml
-  # Mainly add secret for pushbullet and remove quptes from json body
+  # Add secret for pushbullet
   systemd.services."yamlPatcher-gatus" = {
     script = ''
       # Update pushbullet api key
