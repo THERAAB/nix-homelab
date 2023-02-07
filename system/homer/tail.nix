@@ -1,3 +1,6 @@
+let
+  settings-default = import ./settings-default.nix;
+in
 {
   # See https://fontawesome.com/v5/search for icons options
   title = settings-default.title;
