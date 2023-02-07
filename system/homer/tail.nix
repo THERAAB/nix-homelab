@@ -5,7 +5,7 @@
   logo = "logo.png";
   header = true;
   footer = false;
-  theme = default;
+  theme = "default";
   colors = {
     light = {
       highlight-primary = "#eceff4";
