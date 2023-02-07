@@ -7,6 +7,7 @@
     ./gatus
     ./olivetin
     ./adguard
+    ./homepage
     ./persist.nix
     ./boot.nix
     ./hardware.nix
