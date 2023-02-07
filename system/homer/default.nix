@@ -72,8 +72,6 @@ in
   systemd.tmpfiles.rules = [
     "R    ${box-config-dir}/icons           -   -               -               -   -                                       "
     "R    ${tail-config-dir}/icons          -   -               -               -   -                                       "
-    "C    ${tail-config-dir}                -   -               -               -   ${system-config-dir}                    "
-    "C    ${box-config-dir}                 -   -               -               -   ${system-config-dir}                    "
     "C    ${tail-config-dir}/icons          -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
     "C    ${box-config-dir}/icons           -   -               -               -   /nix/persist/nix-homelab/assets/icons   "
     "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                                       "
