@@ -19,7 +19,7 @@
   endpoints = [
     {
       name = "Govee Water Alarm";
-      url = "icmp://192.168.1.103";
+      url = ''"icmp://192.168.1.103"'';
       conditions = [
         "[CONNECTED] == true"
       ];
