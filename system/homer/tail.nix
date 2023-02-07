@@ -36,12 +36,12 @@
     {
       name = "GitHub";
       icon = "fab fa-github";
-      url = "https =//github.com/THERAAB/nix-homelab";
+      url = "https://github.com/THERAAB/nix-homelab";
     }
     {
       name = "Wiki";
       icon = "fas fa-book";
-      url = "https =//www.wikipedia.org/";
+      url = "https://www.wikipedia.org/";
     }
   ];
   services = [
@@ -55,7 +55,7 @@
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http =//jellyfin.server.tail";
+          url = "http://jellyfin.server.tail";
         }
         {
          name = "Jellyseerr";
@@ -63,7 +63,7 @@
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http =//jellyseerr.server.tail";
+          url = "http://jellyseerr.server.tail";
         }
       ];
     }
@@ -77,7 +77,7 @@
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
-          url = "http =//prowlarr.server.tail";
+          url = "http://prowlarr.server.tail";
         }
         {
           name = "VueTorrent";
@@ -85,7 +85,7 @@
           subtitle = "Manage Torrents";
           tag = "download";
           keywords = "torrent download";
-          url = "http =//vuetorrent.server.tail";
+          url = "http://vuetorrent.server.tail";
         }
         {
           name = "Radarr";
@@ -93,7 +93,7 @@
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
-          url = "http =//radarr.server.tail";
+          url = "http://radarr.server.tail";
         }
         {
           name = "Sonarr";
@@ -101,7 +101,7 @@
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
-          url = "http =//sonarr.server.tail";
+          url = "http://sonarr.server.tail";
         }
       ];
     }
@@ -115,7 +115,7 @@
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
-          url = "http =//tplink.server.tail";
+          url = "http://tplink.server.tail";
         }
         {
           name = "AdGuard";
@@ -123,7 +123,7 @@
           subtitle = "DNS Ad Blocking";
           tag = "dns";
           keywords = "dns adblock";
-          url = "http =//adguard.server.tail";
+          url = "http://adguard.server.tail";
         }
         {
           name = "Home Assistant";
@@ -131,7 +131,7 @@
           subtitle = "Smart Home Automation";
           tag = "smart-home";
           keywords = "smart home assistant automation";
-          url = "http =//home-assistant.server.tail";
+          url = "http://home-assistant.server.tail";
         }
       ];
     }
@@ -145,7 +145,7 @@
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
-          url = "http =//netdata.server.tail";
+          url = "http://netdata.server.tail";
         }
         {
           name = "Gatus";
@@ -153,7 +153,7 @@
           subtitle = "Monitor Services";
           tag = "monitor";
           keywords = "monitor";
-          url = "http =//gatus.server.tail";
+          url = "http://gatus.server.tail";
         }
       ];
     }
@@ -167,7 +167,7 @@
           subtitle = "Execute Commands";
           tag = "exec";
           keywords = "exec";
-          url = "http =//olivetin.server.tail";
+          url = "http://olivetin.server.tail";
         }
       ];
     }
