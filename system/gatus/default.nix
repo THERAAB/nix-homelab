@@ -42,9 +42,6 @@ in
       # Update pushbullet api key
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
-
-      # remove quotes from body:
-      ${pkgs.gnused}/bin/sed -i "s/body: '\({.*}\)'/body: \1/" ${local-config-dir}/config.yaml
     '';
     wantedBy = [ "yamlConfigMaker-gatus.service" ];
     after = [ "yamlConfigMaker-gatus.service" ];
