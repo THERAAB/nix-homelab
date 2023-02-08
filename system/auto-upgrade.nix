@@ -10,8 +10,6 @@
         journalctl -n 15 -u nixos-upgrade.service  >> body.json
         echo '"}' >> body.json
 
-        cat body.json
-
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
                                 -X POST                                 \
