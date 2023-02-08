@@ -4,22 +4,6 @@ let
   settings = (import ./settings.nix).settings;
 in
 {
-  services.yamlConfigMaker."homer.tail".settings.services = [
-    {
-      name = "Media";
-      icon = "fas fa-play";
-      items = [
-        {
-         name = "test";
-          logo = "assets/icons/jellyfin.png";
-          subtitle = "Watch Movies & TV";
-          tag = "media";
-          keywords = "movies tv shows media";
-          url = "http://test.server.box";
-        }
-      ];
-    }
-  ];
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Adguard";
