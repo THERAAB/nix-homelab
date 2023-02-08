@@ -18,8 +18,8 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart Gatus";
-      icon = ''<img src = "customIcons/gatus.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p gatus";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];
@@ -36,7 +36,7 @@ in
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
   # Add secret for pushbullet
-  systemd.services."yamlPatcher-gatus" = {
+  systemd.services."yamlPatcher-${app-name}" = {
     script = ''
       # Update pushbullet api key
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
@@ -49,8 +49,8 @@ in
   # Delay gatus start because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
   systemd.services."podman-${app-name}" = {
-    wantedBy = [ "yamlPatcher-gatus.service" ];
-    after = [ "yamlPatcher-gatus.service" "adguardhome.service" ];
+    wantedBy = [ "yamlPatcher-${app-name}.service" ];
+    after = [ "yamlPatcher-${app-name}.service" "adguardhome.service" ];
   };
 
   services.caddy.virtualHosts = {

@@ -7,12 +7,13 @@ let
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/nix/persist/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
+  system-icons-dir = "/nix/persist/nix-homelab/assets/icons";
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "OliveTin";
-      url = "http://olivetin.server.box/";
+      url = "http://${app-name}.server.box/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>OliveTin</title>*)''
@@ -45,14 +46,14 @@ in
   };
 
   systemd.tmpfiles.rules = [
-    "R  ${www-dir}                    -           -               -               -   -                                     "
-    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www                  "
-    "r  ${scripts-dir}/commands.sh    -           -               -               -   -                                     "
-    "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}                        "
-    "r  ${www-dir}/customIcons        -           -               -               -   -                                     "
-    "L  ${www-dir}/customIcons        -           -               -               -   /nix/persist/nix-homelab/assets/icons "
-    "Z  ${scripts-dir}                700         root            root            -   -                                     "
-    "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -                                     "
+    "R  ${www-dir}                    -           -               -               -   -                         "
+    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www      "
+    "r  ${scripts-dir}/commands.sh    -           -               -               -   -                         "
+    "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}            "
+    "r  ${www-dir}/customIcons        -           -               -               -   -                         "
+    "L  ${www-dir}/customIcons        -           -               -               -   ${system-icons-dir}       "
+    "Z  ${scripts-dir}                700         root            root            -   -                         "
+    "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -                         "
   ];
   networking.firewall.allowedTCPPorts = [ port ];
   services.caddy.virtualHosts = {

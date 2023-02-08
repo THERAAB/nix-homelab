@@ -2,12 +2,13 @@
 let
   port = 3000;
   settings = (import ./settings.nix).settings;
+  app-name = "adguard";
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Adguard";
-      url = "http://adguard.server.box/";
+      url = "http://${app-name}.server.box/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>Login</title>*)''
@@ -22,7 +23,7 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart AdGuard";
-      icon = ''<img src = "customIcons/adguard.png" width = "48px"/>'';
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s adguardhome";
       timeout = 20;
     }

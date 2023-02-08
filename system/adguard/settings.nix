@@ -1,6 +1,7 @@
 let
   network = import ../network.properties.nix;
   port = 3000;
+  filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in
 {
   settings = {
@@ -43,61 +44,61 @@ in
     filters = [
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_1.txt";
+        url = "${filter-dir}/filter_1.txt";
         name = "AdGuard DNS filter";
         id = 1;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt";
+        url = "${filter-dir}/filter_2.txt";
         name = "AdAway Default Blocklist";
         id = 2;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_5.txt";
+        url = "${filter-dir}/filter_5.txt";
         name = "OISD Blocklist Basic";
         id = 3;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_4.txt";
+        url = "${filter-dir}/filter_4.txt";
         name = "Dan Pollock's List";
         id = 4;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_6.txt";
+        url = "${filter-dir}/filter_6.txt";
         name = "Dandelion Sprout's Game Console Adblock List";
         id = 5;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_7.txt";
+        url = "${filter-dir}/filter_7.txt";
         name = "Perflyst and Dandelion Sprout's Smart-TV Blocklist";
         id = 6;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_12.txt";
+        url = "${filter-dir}/filter_12.txt";
         name = "Dandelion Sprout's Anti-Malware List";
         id = 7;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_8.txt";
+        url = "${filter-dir}/filter_8.txt";
         name = "NoCoin Filter List";
         id = 8;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_3.txt";
+        url = "${filter-dir}/filter_3.txt";
         name = "Peter Lowe's Blocklist";
         id = 9;
       }
       {
         enabled = true;
-        url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_10.txt";
+        url = "${filter-dir}/filter_10.txt";
         name = "Scam Blocklist by DurableNapkin";
         id = 10;
       }

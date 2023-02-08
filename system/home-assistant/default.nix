@@ -1,7 +1,9 @@
 { config, pkgs, lib, ... }:
 let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom/";
+  system-blueprints-dir = "/nix/persist/nix-homelab/system/home-assistant/blueprints";
   port = 8123;
+  app-name = "home-assistant";
 in
 {
   imports = [
@@ -15,7 +17,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Home Assistant";
-      url = "http://home-assistant.server.box/";
+      url = "http://${app-name}.server.box/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>Home Assistant</title>*)''
@@ -30,25 +32,25 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart Home Assistant";
-      icon = ''<img src = "customIcons/home-assistant.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s home-assistant";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s ${app-name}";
       timeout = 20;
     }
   ];
 
   systemd.tmpfiles.rules = [
-    "R  ${custom-blueprints-dir}            -       -       -       -   -                                                           "
-    "L  ${custom-blueprints-dir}            -       -       -       -   /nix/persist/nix-homelab/system/home-assistant/blueprints   "
-    "Z  ${custom-blueprints-dir}            770     hass    hass    -   -                                                           "
-    "Z  /var/lib/hass/blueprints            770     hass    hass    -   -                                                           "
-    "Z  /var/lib/hass/custom_components     770     hass    hass    -   -                                                           "
+    "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
+    "L  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
+    "Z  ${custom-blueprints-dir}            770     hass    hass    -   -                           "
+    "Z  /var/lib/hass/blueprints            770     hass    hass    -   -                           "
+    "Z  /var/lib/hass/custom_components     770     hass    hass    -   -                           "
   ];
 
   services.caddy.virtualHosts = {
-    "http://home-assistant.server.box".extraConfig = ''
+    "http://${app-name}.server.box".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    "http://home-assistant.server.tail".extraConfig = ''
+    "http://${app-name}.server.tail".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
