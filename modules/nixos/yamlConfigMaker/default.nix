@@ -14,7 +14,7 @@ let
           default = null;
           type = with types; nullOr str;
           description = lib.mdDoc "Path to resulting file";
-          example = "/home/raab/config.yaml";
+          example = "/path/to/config.yaml";
         };
         settings = mkOption {
           default = null;

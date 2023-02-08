@@ -7,7 +7,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "NetData";
-      url = "http://netdata.server.box/";
+      url = "http://${app-name}.server.box/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>netdata dashboard</title>*)''
@@ -22,8 +22,8 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart NetData";
-      icon = ''<img src = "customIcons/netdata.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s netdata";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s ${app-name}";
       timeout = 20;
     }
   ];

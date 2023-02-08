@@ -1,8 +1,11 @@
 { config, pkgs, ... }:
+let
+  local-config-dir = "/nix/persist/home/raab/.config/";
+in
 {
   programs.git = {
     includes = [
-     { path = "/nix/persist/home/raab/.config/.gitconfig"; }
+     { path = "${local-config-dir}/.gitconfig"; }
     ];
     enable = true;
     userName = "THERAAB";
