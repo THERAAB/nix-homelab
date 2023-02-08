@@ -3,12 +3,13 @@ let
   port = 3000;
   settings = (import ./settings.nix).settings;
   app-name = "adguard";
+  network = import ../network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Adguard";
-      url = "http://${app-name}.server.box/";
+      url = "http://${app-name}.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>Login</title>*)''
@@ -29,10 +30,10 @@ in
     }
   ];
   services.caddy.virtualHosts = {
-    "http://adguard.server.box".extraConfig = ''
+    "http://adguard.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    "http://adguard.server.tail".extraConfig = ''
+    "http://adguard.${network.domain.tail}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };

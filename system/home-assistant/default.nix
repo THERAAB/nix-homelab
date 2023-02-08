@@ -4,6 +4,7 @@ let
   system-blueprints-dir = "/nix/persist/nix-homelab/system/home-assistant/blueprints";
   port = 8123;
   app-name = "home-assistant";
+  network = import ../network.properties.nix;
 in
 {
   imports = [
@@ -17,7 +18,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Home Assistant";
-      url = "http://${app-name}.server.box/";
+      url = "http://${app-name}.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>Home Assistant</title>*)''
@@ -47,10 +48,10 @@ in
   ];
 
   services.caddy.virtualHosts = {
-    "http://${app-name}.server.box".extraConfig = ''
+    "http://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    "http://${app-name}.server.tail".extraConfig = ''
+    "http://${app-name}.${network.domain.tail}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };

@@ -2,12 +2,13 @@
 let
   port = 19999;
   app-name = "netdata";
+  network = import ./network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "NetData";
-      url = "http://${app-name}.server.box/";
+      url = "http://${app-name}.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>netdata dashboard</title>*)''
@@ -28,10 +29,10 @@ in
     }
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.server.box".extraConfig = ''
+    "http://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    "http://${app-name}.server.tail".extraConfig = ''
+    "http://${app-name}.${network.domain.tail}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };

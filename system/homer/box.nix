@@ -23,7 +23,7 @@ in
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyfin.server.box";
+          url = "http://jellyfin.${network.domain.local}";
         }
         {
          name = "Jellyseerr";
@@ -31,7 +31,7 @@ in
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyseerr.server.box";
+          url = "http://jellyseerr.${network.domain.local}";
         }
       ];
     }
@@ -45,7 +45,7 @@ in
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
-          url = "http://prowlarr.server.box";
+          url = "http://prowlarr.${network.domain.local}";
         }
         {
           name = "VueTorrent";
@@ -53,7 +53,7 @@ in
           subtitle = "Manage Torrents";
           tag = "download";
           keywords = "torrent download";
-          url = "http://vuetorrent.server.box";
+          url = "http://vuetorrent.${network.domain.local}";
         }
         {
           name = "Radarr";
@@ -61,7 +61,7 @@ in
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
-          url = "http://radarr.server.box";
+          url = "http://radarr.${network.domain.local}";
         }
         {
           name = "Sonarr";
@@ -69,7 +69,7 @@ in
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
-          url = "http://sonarr.server.box";
+          url = "http://sonarr.${network.domain.local}";
         }
       ];
     }
@@ -91,7 +91,7 @@ in
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
-          url = "http://tplink.server.box";
+          url = "http://tplink.${network.domain.local}";
         }
         {
           name = "AdGuard";
@@ -99,7 +99,7 @@ in
           subtitle = "DNS Ad Blocking";
           tag = "dns";
           keywords = "dns adblock";
-          url = "http://adguard.server.box";
+          url = "http://adguard.${network.domain.local}";
         }
         {
           name = "Home Assistant";
@@ -107,7 +107,7 @@ in
           subtitle = "Smart Home Automation";
           tag = "smart-home";
           keywords = "smart home assistant automation";
-          url = "http://home-assistant.server.box";
+          url = "http://home-assistant.${network.domain.local}";
         }
       ];
     }
@@ -121,7 +121,7 @@ in
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://netdata.server.box";
+          url = "http://netdata.${network.domain.local}";
         }
         {
           name = "Gatus";
@@ -129,7 +129,7 @@ in
           subtitle = "Monitor Services";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://gatus.server.box";
+          url = "http://gatus.${network.domain.local}";
         }
       ];
     }
@@ -143,7 +143,7 @@ in
           subtitle = "Execute Commands";
           tag = "exec";
           keywords = "exec";
-          url = "http://olivetin.server.box";
+          url = "http://olivetin.${network.domain.local}";
         }
       ];
     }

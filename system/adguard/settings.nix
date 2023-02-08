@@ -24,19 +24,19 @@ in
       bootstrap_dns = [ "9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10" ];
       rewrites = [
         {
-          domain = "server.box";
+          domain = "${network.domain.local}";
           answer = "${network.nix-homelab.local.ip}";
         }
         {
-          domain = "*.server.box";
+          domain = "*.${network.domain.local}";
           answer = "${network.nix-homelab.local.ip}";
         }
         {
-          domain = "server.tail";
+          domain = "${network.domain.tail}";
           answer = "${network.nix-homelab.tailscale.ip}";
         }
         {
-          domain = "*.server.tail";
+          domain = "*.${network.domain.tail}";
           answer = "${network.nix-homelab.tailscale.ip}";
         }
       ];

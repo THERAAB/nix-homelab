@@ -6,6 +6,7 @@ let
   app-name = "gatus";
   local-config-dir = "/nix/persist/${app-name}/";
   cfg = import ./config.nix;
+  network = import ../network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus = {
@@ -54,10 +55,10 @@ in
   };
 
   services.caddy.virtualHosts = {
-    "http://${app-name}.server.box".extraConfig = ''
+    "http://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    "http://${app-name}.server.tail".extraConfig = ''
+    "http://${app-name}.${network.domain.tail}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };

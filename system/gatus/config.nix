@@ -60,7 +60,7 @@ in
     }
     {
       name = "TP-Link Archer";
-      url = "http://tplink.server.box/";
+      url = "http://tplink.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<?xml version="1.0" encoding="utf-8"?>*)''

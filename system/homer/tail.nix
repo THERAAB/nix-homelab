@@ -1,5 +1,6 @@
 let
   settings-default = import ./settings-default.nix;
+  network = import ../network.properties.nix;
 in
 {
   # See https://fontawesome.com/v5/search for icons options
@@ -22,7 +23,7 @@ in
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyfin.server.tail";
+          url = "http://jellyfin.${network.domain.tail}";
         }
         {
          name = "Jellyseerr";
@@ -30,7 +31,7 @@ in
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyseerr.server.tail";
+          url = "http://jellyseerr.${network.domain.tail}";
         }
       ];
     }
@@ -44,7 +45,7 @@ in
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
-          url = "http://prowlarr.server.tail";
+          url = "http://prowlarr.${network.domain.tail}";
         }
         {
           name = "VueTorrent";
@@ -52,7 +53,7 @@ in
           subtitle = "Manage Torrents";
           tag = "download";
           keywords = "torrent download";
-          url = "http://vuetorrent.server.tail";
+          url = "http://vuetorrent.${network.domain.tail}";
         }
         {
           name = "Radarr";
@@ -60,7 +61,7 @@ in
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
-          url = "http://radarr.server.tail";
+          url = "http://radarr.${network.domain.tail}";
         }
         {
           name = "Sonarr";
@@ -68,7 +69,7 @@ in
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
-          url = "http://sonarr.server.tail";
+          url = "http://sonarr.${network.domain.tail}";
         }
       ];
     }
@@ -82,7 +83,7 @@ in
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
-          url = "http://tplink.server.tail";
+          url = "http://tplink.${network.domain.tail}";
         }
         {
           name = "AdGuard";
@@ -90,7 +91,7 @@ in
           subtitle = "DNS Ad Blocking";
           tag = "dns";
           keywords = "dns adblock";
-          url = "http://adguard.server.tail";
+          url = "http://adguard.${network.domain.tail}";
         }
         {
           name = "Home Assistant";
@@ -98,7 +99,7 @@ in
           subtitle = "Smart Home Automation";
           tag = "smart-home";
           keywords = "smart home assistant automation";
-          url = "http://home-assistant.server.tail";
+          url = "http://home-assistant.${network.domain.tail}";
         }
       ];
     }
@@ -112,7 +113,7 @@ in
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://netdata.server.tail";
+          url = "http://netdata.${network.domain.tail}";
         }
         {
           name = "Gatus";
@@ -120,7 +121,7 @@ in
           subtitle = "Monitor Services";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://gatus.server.tail";
+          url = "http://gatus.${network.domain.tail}";
         }
       ];
     }
@@ -134,7 +135,7 @@ in
           subtitle = "Execute Commands";
           tag = "exec";
           keywords = "exec";
-          url = "http://olivetin.server.tail";
+          url = "http://olivetin.${network.domain.tail}";
         }
       ];
     }

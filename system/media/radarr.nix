@@ -5,12 +5,13 @@ let
   port = 7878;
   app-name = "radarr";
   local-config-dir = media.dir.config + "/${app-name}/";
+  network = import ../network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Radarr";
-      url = "http://${app-name}.server.box/health";
+      url = "http://${app-name}.${network.domain.local}/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -41,10 +42,10 @@ in
     "Z    ${local-config-dir}     740     ${app-name}   media    -   - "
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.server.box".extraConfig = ''
+    "http://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
-    "http://${app-name}.server.tail".extraConfig = ''
+    "http://${app-name}.${network.domain.tail}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
