@@ -12,6 +12,7 @@ let
   tail-config-dir = local-config-dir + "/tail/";
   box-config-dir = local-config-dir + "/box/";
   network = import ../network.properties.nix;
+  homer-hostname = "server";
   environment = {
     UMASK="022";
     INIT_ASSETS = "0";
@@ -30,7 +31,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Homer.box";
-      url = "http://${network.domain.local}/";
+      url = "http://${homer-hostname}.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<div id="app-mount"></div>*)''
@@ -43,7 +44,7 @@ in
     }
     {
       name = "Homer.tail";
-      url = "http://${network.domain.tail}/";
+      url = "http://${homer-hostname}.${network.domain.tail}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<div id="app-mount"></div>*)''
@@ -85,10 +86,10 @@ in
     };
   };
   services.caddy.virtualHosts = {
-    "http://${network.domain.local}".extraConfig = ''
+    "http://${homer-hostname}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString box-port}
     '';
-    "http://${network.domain.tail}".extraConfig = ''
+    "http://${homer-hostname}.${network.domain.tail}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString tail-port}
     '';
   };
