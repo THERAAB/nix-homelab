@@ -21,7 +21,7 @@
       name = "Govee Water Alarm";
       url = "tcp://192.168.1.103:53";
       conditions = [
-        "[RESPONSE_TIME] < 200"
+        "[RESPONSE_TIME] < 500"
       ];
       alerts = [
         {
@@ -47,7 +47,7 @@
       name = "Ring Doorbell";
       url = "tcp://192.168.1.108:53";
       conditions = [
-        "[RESPONSE_TIME] < 200"
+        "[RESPONSE_TIME] < 500"
       ];
       alerts = [
         {
