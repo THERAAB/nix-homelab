@@ -1,3 +1,6 @@
+let
+  network = import ../network.properties.nix;
+in
 {
   alerting = {
     custom = {
@@ -19,7 +22,7 @@
   endpoints = [
     {
       name = "Govee Water Alarm";
-      url = "tcp://192.168.1.103:53";
+      url = "tcp://${network.govee-water-alarm.local.ip}:53";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
@@ -31,7 +34,7 @@
     }
     {
       name = "PFSense";
-      url = "https://192.168.1.1/";
+      url = "https://${network.pfSense.local.ip}/";
       client.insecure = true;
       conditions = [
         "[STATUS] == 200"
@@ -45,7 +48,7 @@
     }
     {
       name = "Ring Doorbell";
-      url = "tcp://192.168.1.108:53";
+      url = "tcp://${network.ring-doorbell.local.ip}:53";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];

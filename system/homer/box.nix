@@ -1,5 +1,6 @@
 let
   settings-default = import ./settings-default.nix;
+  network = import ../network.properties.nix;
 in
 {
   # See https://fontawesome.com/v5/search for icons options
@@ -82,7 +83,7 @@ in
           subtitle = "Firewall Router";
           tag = "firewall";
           keywords = "firewall router";
-          url = "http://192.168.1.1";
+          url = "http://${network.pfSense.local.ip}";
         }
         {
           name = "TP-Link Archer";
