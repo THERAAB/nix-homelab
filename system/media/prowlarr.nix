@@ -11,7 +11,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Prowlarr";
-      url = "http://prowlarr.server.box/health";
+      url = "http://${app-name}.server.box/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -25,8 +25,8 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart Prowlarr";
-      icon = ''<img src = "customIcons/prowlarr.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p prowlarr";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];

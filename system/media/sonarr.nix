@@ -10,7 +10,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Sonarr";
-      url = "http://sonarr.server.box/health";
+      url = "http://${app-name}.server.box/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -24,8 +24,8 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart Sonarr";
-      icon = ''<img src = "customIcons/sonarr.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p sonarr";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];

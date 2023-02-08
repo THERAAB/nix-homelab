@@ -10,7 +10,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Jellyseerr";
-      url = "http://jellyseerr.server.box/health";
+      url = "http://${app-name}.server.box/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -24,8 +24,8 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart Jellyseerr";
-      icon = ''<img src = "customIcons/jellyseerr.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p jellyseerr";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];
@@ -50,7 +50,7 @@ in
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "fallenbagel/jellyseerr";
+    image = "fallenbagel/${app-name}";
     volumes = [
       "${local-config-dir}:/app/config"
       "${media.dir.movies}:/movies"

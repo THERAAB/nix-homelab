@@ -11,7 +11,7 @@ in
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "VueTorrent";
-      url = "http://vuetorrent.server.box/";
+      url = "http://${app-name}.server.box/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>qBittorrent</title>*)''
@@ -26,8 +26,8 @@ in
   services.olivetin.settings.actions = [
     {
       title = "Restart Vuetorrent";
-      icon = ''<img src = "customIcons/vuetorrent.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p vuetorrent";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];
