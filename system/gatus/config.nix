@@ -45,7 +45,7 @@
     }
     {
       name = "Ring Doorbell";
-      url = "udp://192.168.1.108:7077";
+      url = "udp://192.168.1.108:9078";
       conditions = [
         "[CONNECTED] == true"
       ];
