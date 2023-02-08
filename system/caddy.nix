@@ -12,12 +12,6 @@ in
       "http://tplink.server.tail".extraConfig = ''
         reverse_proxy http://${network.tplink.local.ip}
       '';
-      "https://pfsense.server.box".extraConfig = ''
-        reverse_proxy https://${network.pfSense.local.ip}
-      '';
-      "https://pfsense.server.tail".extraConfig = ''
-        reverse_proxy https://${network.pfSense.local.ip}
-      '';
     };
   };
 }
