@@ -45,7 +45,7 @@
     }
     {
       name = "Ring Doorbell";
-      url = "tcp://192.168.1.108:9998";
+      url = "tcp://192.168.1.108:9999";
       conditions = [
         "[CONNECTED] == true"
       ];
