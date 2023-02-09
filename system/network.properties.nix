@@ -9,7 +9,7 @@
   };
   pfSense.local.ip = "192.168.1.1";
   tplink.local.ip = "192.168.1.102";
-  govee-water-alarm.local.ip = "192.168.1.103";
+  govee-water-alarm.local.ip = "192.168.1.3";
   ring-doorbell.local.ip = "192.168.1.108";
   domain.local = "box";
   domain.tail = "tail";
