@@ -1,7 +1,7 @@
 {
   nix-homelab = {
     tailscale.ip = "100.121.108.123";
-    local.ip = "192.168.3.1";
+    local.ip = "192.168.3.2";
     subnet = "192.168.3.0/24";
   };
   desktop = {
