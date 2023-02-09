@@ -24,6 +24,7 @@ in
           tag = "media";
           keywords = "movies tv shows media";
           url = "http://jellyfin.${network.domain.local}";
+          target = "_blank";
         }
         {
          name = "Jellyseerr";
