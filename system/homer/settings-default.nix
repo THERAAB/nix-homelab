@@ -36,11 +36,13 @@
       name = "GitHub";
       icon = "fab fa-github";
       url = "https://github.com/THERAAB/nix-homelab";
+      target = "_blank";
     }
     {
       name = "Wiki";
       icon = "fas fa-book";
       url = "https://www.wikipedia.org/";
+      target = "_blank";
     }
   ];
 }

@@ -18,20 +18,22 @@ in
       icon = "fas fa-play";
       items = [
         {
-         name = "Jellyfin";
+          name = "Jellyfin";
           logo = "assets/icons/jellyfin.png";
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
           url = "http://jellyfin.${network.domain.tail}";
+          target = "_blank";
         }
         {
-         name = "Jellyseerr";
+          name = "Jellyseerr";
           logo = "assets/icons/jellyseerr.png";
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
           url = "http://jellyseerr.${network.domain.tail}";
+          target = "_blank";
         }
       ];
     }
@@ -39,13 +41,14 @@ in
       name = "Downloads";
       icon = "fas fa-download";
       items = [
-       {
+        {
           name = "Prowlarr";
           logo = "assets/icons/prowlarr.png";
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
           url = "http://prowlarr.${network.domain.tail}";
+          target = "_blank";
         }
         {
           name = "VueTorrent";
@@ -54,6 +57,7 @@ in
           tag = "download";
           keywords = "torrent download";
           url = "http://vuetorrent.${network.domain.tail}";
+          target = "_blank";
         }
         {
           name = "Radarr";
@@ -62,6 +66,7 @@ in
           tag = "movies";
           keywords = "movies media";
           url = "http://radarr.${network.domain.tail}";
+          target = "_blank";
         }
         {
           name = "Sonarr";
@@ -70,6 +75,7 @@ in
           tag = "tv";
           keywords = "tv shows media";
           url = "http://sonarr.${network.domain.tail}";
+          target = "_blank";
         }
       ];
     }
@@ -84,6 +90,7 @@ in
           tag = "wireless";
           keywords = "wireless router access point";
           url = "http://tplink.${network.domain.tail}";
+          target = "_blank";
         }
         {
           name = "AdGuard";
@@ -92,6 +99,7 @@ in
           tag = "dns";
           keywords = "dns adblock";
           url = "http://adguard.${network.domain.tail}";
+          target = "_blank";
         }
         {
           name = "Home Assistant";
@@ -100,6 +108,7 @@ in
           tag = "smart-home";
           keywords = "smart home assistant automation";
           url = "http://home-assistant.${network.domain.tail}";
+          target = "_blank";
         }
       ];
     }
@@ -114,6 +123,7 @@ in
           tag = "monitor";
           keywords = "monitor";
           url = "http://netdata.${network.domain.tail}";
+          target = "_blank";
         }
         {
           name = "Gatus";
@@ -122,6 +132,7 @@ in
           tag = "monitor";
           keywords = "monitor";
           url = "http://gatus.${network.domain.tail}";
+          target = "_blank";
         }
       ];
     }
@@ -136,6 +147,7 @@ in
           tag = "exec";
           keywords = "exec";
           url = "http://olivetin.${network.domain.tail}";
+          target = "_blank";
         }
       ];
     }
