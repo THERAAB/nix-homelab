@@ -101,4 +101,7 @@ systemctl list-units
 
 # Check unit failures
 journalctl -u ${unit-name}
+
+# Check network device issues
+journalctl -b 0 | grep r8169
 ```
