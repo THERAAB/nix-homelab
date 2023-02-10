@@ -22,7 +22,7 @@
     };
     git_ssh_key = {
       owner = "raab";
-      path = "/home/raab/.ssh/id_rsa";
+      path = "/nix/persist/home/raab/.ssh/id_rsa";
     };
   };
 }

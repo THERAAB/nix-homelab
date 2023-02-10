@@ -7,6 +7,7 @@
     ];
     files = [
       ".ssh/known_hosts"
+      ".ssh/id_rsa"
     ];
   };
 }
