@@ -11,5 +11,5 @@
   # Install r8168 driver (RealTek proprietary) for network controller
   environment.systemPackages = [ pkgs.linuxKernel.packages.linux_6_1.r8168 ];
   # and blacklist kernel module driver
-  blacklistedKernelModules = [ "r8169" ];
+  boot.blacklistedKernelModules = [ "r8169" ];
 }
