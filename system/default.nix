@@ -2,8 +2,8 @@
 {
   imports = [
     ./home-assistant
-    #./homer
-    #./media
+    ./homer
+    ./media
     ./gatus
     ./olivetin
     ./adguard
