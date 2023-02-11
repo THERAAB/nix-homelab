@@ -104,4 +104,7 @@ journalctl -u ${unit-name}
 
 # Check network device issues
 journalctl -b 0 | grep r8169
+
+# See which network drivers available
+lspci -v
 ```
