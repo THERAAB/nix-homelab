@@ -5,7 +5,7 @@
   ];
   virtualisation.containers.containersConf.settings = {
     engine = {
-      helper_binaries_dir = "${pkgs.netavark}\bin";
+      helper_binaries_dir = "${pkgs.netavark}/bin";
     };
   };
 }
