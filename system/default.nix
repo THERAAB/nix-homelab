@@ -4,7 +4,7 @@
     ./home-assistant
     #./homer
     #./media
-    #./gatus
+    ./gatus
     ./olivetin
     ./adguard
     ./persist.nix
