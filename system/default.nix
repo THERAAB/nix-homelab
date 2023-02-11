@@ -2,9 +2,9 @@
 {
   imports = [
     ./home-assistant
-    ./homer
-    ./media
-    ./gatus
+    #./homer
+    #./media
+    #./gatus
     ./olivetin
     ./adguard
     ./persist.nix
