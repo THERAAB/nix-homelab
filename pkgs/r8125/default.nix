@@ -1,6 +1,4 @@
-{ stdenv, lib, fetchFromGitHub, kernel, system ? builtins.currentSystem }:
-
-with import <nixpkgs> { inherit system; };
+{ stdenv, lib, fetchFromGitHub, kernel }:
 
 stdenv.mkDerivation rec {
   pname = "r8125";
