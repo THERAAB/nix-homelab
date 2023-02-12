@@ -1,4 +1,4 @@
-{ config, pkgs, stdenv, lib, kernel, ... }:
+{ config, pkgs, stdenv, lib, kernel, fetchFromGitHub, ... }:
 {  
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
