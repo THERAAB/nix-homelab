@@ -1,10 +1,10 @@
 { stdenv, lib, fetchFromGitHub, config }:
 
 
-let modDestDir = "$out/lib/modules/${config.boot.kernelPackages.kernel.modDirVersion}/kernel/drivers/net/ethernet/realtek/r8168";
+let modDestDir = "$out/lib/modules/${pkgs.linuxKernel.kernels.linux_5_15.modDirVersion}/kernel/drivers/net/ethernet/realtek/r8168";
 
 in stdenv.mkDerivation rec {
-  name = "r8168-${config.boot.kernelPackages.kernel.version}-${version}";
+  name = "r8168-${pkgs.linuxKernel.kernels.linux_5_15.version}-${version}";
   # on update please verify that the source matches the realtek version
   version = "8.048.03";
 
@@ -22,13 +22,13 @@ in stdenv.mkDerivation rec {
 
   hardeningDisable = [ "pic" ];
 
-  nativeBuildInputs = config.boot.kernelPackages.kernel.moduleBuildDependencies;
+  nativeBuildInputs = pkgs.linuxKernel.kernels.linux_5_15.moduleBuildDependencies;
 
   # avoid using the Makefile directly -- it doesn't understand
   # any kernel but the current.
   # based on the ArchLinux pkgbuild: https://git.archlinux.org/svntogit/community.git/tree/trunk/PKGBUILD?h=packages/r8168
-  makeFlags = config.boot.kernelPackages.kernel.makeFlags ++ [
-    "-C ${config.boot.kernelPackages.kernel.dev}/lib/modules/${config.boot.kernelPackages.kernel.modDirVersion}/build"
+  makeFlags = pkgs.linuxKernel.kernels.linux_5_15.makeFlags ++ [
+    "-C ${pkgs.linuxKernel.kernels.linux_5_15.dev}/lib/modules/${pkgs.linuxKernel.kernels.linux_5_15.modDirVersion}/build"
     "M=$(PWD)/src"
     "modules"
   ];
@@ -54,6 +54,6 @@ in stdenv.mkDerivation rec {
     license = licenses.gpl2Plus;
     platforms = platforms.linux;
     maintainers = with maintainers; [ timokau ];
-    broken = (lib.versions.majorMinor config.boot.kernelPackages.kernel.modDirVersion) != "5.15";
+    broken = (lib.versions.majorMinor pkgs.linuxKernel.kernels.linux_5_15.modDirVersion) != "5.15";
   };
 }
