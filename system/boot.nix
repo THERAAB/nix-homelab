@@ -1,4 +1,4 @@
-{ config, pkgs, lib, kernel, fetchFromGitHub, ... }:
+{ config, pkgs, lib, fetchFromGitHub, ... }:
 {  
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -26,7 +26,7 @@
 
           hardeningDisable = [ "pic" ];
 
-          nativeBuildInputs = kernel.moduleBuildDependencies;
+          nativeBuildInputs = pkgs.kernel.moduleBuildDependencies;
 
           preBuild = ''
             substituteInPlace src/Makefile --replace "BASEDIR :=" "BASEDIR ?="
@@ -34,14 +34,14 @@
           '';
 
           makeFlags = [
-            "BASEDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}"
+            "BASEDIR=${pkgs.kernel.dev}/lib/modules/${pkgs.kernel.modDirVersion}"
           ];
 
           buildFlags = [ "modules" ];
 
           meta = with lib; {
             # Not sure if this patch will work on 6.3
-            broken = lib.versionAtLeast kernel.version "6.3.0";
+            broken = lib.versionAtLeast pkgs.kernel.version "6.3.0";
           };
         }
       )
