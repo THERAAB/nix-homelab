@@ -1,10 +1,10 @@
 { stdenv, lib, fetchFromGitHub, config }:
 
 
-let modDestDir = "$out/lib/modules/${kernel.modDirVersion}/kernel/drivers/net/ethernet/realtek/r8168";
+let modDestDir = "$out/lib/modules/${config.boot.kernelPackages.kernel.modDirVersion}/kernel/drivers/net/ethernet/realtek/r8168";
 
 in stdenv.mkDerivation rec {
-  name = "r8168-${kernel.version}-${version}";
+  name = "r8168-${config.boot.kernelPackages.kernel.version}-${version}";
   # on update please verify that the source matches the realtek version
   version = "8.048.03";
 
