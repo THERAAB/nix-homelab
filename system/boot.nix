@@ -8,7 +8,7 @@
     kernelParams = [ "i915.force_probe=4692" "i915.enable_guc=3" ];
     # Adding patched r8125 kernel module for ethernet
     extraModulePackages = [
-      pkgs.r8125
+      # pkgs.r8125
     ];
   };
 }
