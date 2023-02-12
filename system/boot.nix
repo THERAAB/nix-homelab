@@ -21,6 +21,7 @@
   # 03:00.0 Ethernet controller: Realtek Semiconductor Co., Ltd. RTL8125 2.5GbE Controller (rev 05)
   # SUBSYSTEM=="net", ACTION=="add", ATTR{address}="d8:5e:d3:96:1c:ac",
   # SUBSYSTEM=="net", ACTION=="add", KERNELS=="03:00.0"
+  # /run/booted-system/kernel-modules/lib/modules/5.15.92/kernel/drivers/net/ethernet/realtek/
   services.udev.extraRules = ''
     SUBSYSTEM=="net", ACTION=="add", ATTR{address}="d8:5e:d3:96:1c:ac", DRIVERS=="r8168"
   '';
