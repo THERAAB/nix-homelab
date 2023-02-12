@@ -1,5 +1,7 @@
 { stdenv, lib, fetchFromGitHub, kernel }:
 
+with import <nixpkgs> { inherit system; };
+
 stdenv.mkDerivation rec {
   pname = "r8125";
   # On update please verify (using `diff -r`) that the source matches the
