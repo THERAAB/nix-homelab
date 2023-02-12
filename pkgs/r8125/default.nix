@@ -12,7 +12,7 @@ stdenv.mkDerivation rec {
     owner = "awesometic";
     repo = "realtek-r8125-dkms";
     rev = version;
-    sha256 = "";
+    sha256 = "sha256-b7TXUSdBYYACRvImK0ocfC/eWtdYN8hhwqybPZQbLAc=";
   };
 
   hardeningDisable = [ "pic" ];
