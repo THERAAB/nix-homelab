@@ -1,4 +1,4 @@
-{ config, pkgs, lib, fetchFromGitHub, kernel, ... }:
+{ config, pkgs, ... }:
 {  
   boot = {
     kernelPackages = pkgs.linuxPackages_5_15;
@@ -6,6 +6,12 @@
     loader.efi.canTouchEfiVariables = true;
     # Force kernel to use the right CPU driver & use graphics controller
     kernelParams = [ "i915.force_probe=4692" "i915.enable_guc=3" ];
+    # Power Management stuff
+    kernel.sysctl = {
+      "kernel.nmi_watchdog" = 0;
+      "vm.dirty_writeback_centisecs" = 6000;
+      "vm.laptop_mode" = 5;
+    };
     # Adding patched r8125 kernel module for ethernet
     extraModulePackages = [
       # pkgs.r8125
