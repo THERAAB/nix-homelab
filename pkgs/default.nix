@@ -3,7 +3,7 @@
 
 { pkgs ? (import ../nixpkgs.nix) { } }: {
   olivetin = pkgs.callPackage ./olivetin { };
-  r8125 = pkgs.linuxKernel.callPackage ./r8125 { };
+  r8125 = pkgs.linuxKernel.packages.callPackage ./r8125 { };
   hacs-govee = pkgs.callPackage ./hacs-govee { };
   bios = pkgs.python3Packages.callPackage ./bios { };
 }
