@@ -1,7 +1,7 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example' or (legacy) 'nix-build -A example'
 
-{ pkgs ? (import ../nixpkgs.nix) { } }: {
+{ pkgs ? (import ../nixpkgs.nix) { }, kernel }: {
   olivetin = pkgs.callPackage ./olivetin { };
   r8125 = pkgs.callPackage ./r8125 { };
   hacs-govee = pkgs.callPackage ./hacs-govee { };
