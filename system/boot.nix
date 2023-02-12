@@ -1,4 +1,4 @@
-{ config, pkgs, stdenv, lib, kernel, fetchFromGitHub, mkDerivation, ... }:
+{ config, pkgs, stdenv, lib, kernel, fetchFromGitHub, stdenv, ... }:
 {  
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -9,7 +9,7 @@
     # Adding patched r8125 kernel module for ethernet
     extraModulePackages = [
       (
-        mkDerivation rec {
+        stdenv.mkDerivation rec {
           pname = "r8125";
           # On update please verify (using `diff -r`) that the source matches the
           # realtek version.
