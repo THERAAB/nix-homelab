@@ -24,6 +24,6 @@
   # /run/booted-system/kernel-modules/lib/modules/5.15.92/kernel/drivers/net/ethernet/realtek/
   # udevadm info -a -p /sys/class/net/enp3s0
   services.udev.extraRules = ''
-    SUBSYSTEM=="net", KERNELS=="0000:03:00.0", ACTION=="add", DRIVERS+="r8168"
+    SUBSYSTEM=="net", KERNELS=="0000:03:00.0", ACTION=="add", DRIVERS=="r8168"
   '';
 }
