@@ -17,7 +17,7 @@ stdenv.mkDerivation rec {
 
   hardeningDisable = [ "pic" ];
 
-  nativeBuildInputs = pkgs.linuxPackages_latest.kernel.moduleBuildDependencies;
+  nativeBuildInputs = pkgs.linuxKernel.kernels.linux_6_1.moduleBuildDependencies;
 
   preBuild = ''
     substituteInPlace src/Makefile --replace "BASEDIR :=" "BASEDIR ?="
@@ -25,13 +25,13 @@ stdenv.mkDerivation rec {
   '';
 
   makeFlags = [
-    "BASEDIR=${pkgs.linuxPackages_latest.kernel.dev}/lib/modules/${pkgs.linuxPackages_latest.kernel.modDirVersion}"
+    "BASEDIR=${pkgs.linuxKernel.kernels.linux_6_1.kernel.dev}/lib/modules/${pkgs.linuxKernel.kernels.linux_6_1.modDirVersion}"
   ];
 
   buildFlags = [ "modules" ];
 
   meta = with lib; {
     # Not sure if this patch will work on 6.3
-    broken = lib.versionAtLeast pkgs.linuxPackages_latest.kernel.version "6.3.0";
+    # broken = lib.versionAtLeast pkgs.linuxKernel.kernels.linux_6_1.version "6.3.0";
   };
 }
