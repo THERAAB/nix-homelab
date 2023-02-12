@@ -20,5 +20,6 @@
     ssh-to-age
     dos2unix
     hping
+    fwts
   ];
 }
