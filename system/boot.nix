@@ -26,7 +26,7 @@
 
           hardeningDisable = [ "pic" ];
 
-          nativeBuildInputs = pkgs.kernel.moduleBuildDependencies;
+          nativeBuildInputs = lib.kernel.moduleBuildDependencies;
 
           preBuild = ''
             substituteInPlace src/Makefile --replace "BASEDIR :=" "BASEDIR ?="
@@ -34,7 +34,7 @@
           '';
 
           makeFlags = [
-            "BASEDIR=${pkgs.kernel.dev}/lib/modules/${pkgs.kernel.modDirVersion}"
+            "BASEDIR=${lib.kernel.dev}/lib/modules/${lib.kernel.modDirVersion}"
           ];
 
           buildFlags = [ "modules" ];
