@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchFromGitHub, kernel }:
+{ stdenv, lib, fetchFromGitHub, kernel, system ? builtins.currentSystem }:
 
 with import <nixpkgs> { inherit system; };
 
