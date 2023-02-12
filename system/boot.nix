@@ -12,7 +12,7 @@
       "vm.laptop_mode" = 5;
     };
     # Adding r8168 kernel module for ethernet
-    extraModulePackages = with config.boot.kernelPackages; [ r8168 ];
-    kernelModules = [ "r8168" ];
+    initrd.availableKernelModules = with config.boot.kernelPackages; [ r8168 ];
+    initrd.kernelModules = [ "r8168" ];
   };
 }
