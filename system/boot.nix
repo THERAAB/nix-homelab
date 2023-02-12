@@ -41,7 +41,7 @@
 
           meta = with lib; {
             # Not sure if this patch will work on 6.3
-            broken = lib.versionAtLeast kernel.version "6.3.0";
+            broken = lib.versionAtLeast pkgs.kernel.version "6.3.0";
           };
         }
       )
