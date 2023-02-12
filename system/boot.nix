@@ -22,7 +22,8 @@
   # SUBSYSTEM=="net", ACTION=="add", ATTR{address}="d8:5e:d3:96:1c:ac",
   # SUBSYSTEM=="net", ACTION=="add", KERNELS=="03:00.0"
   # /run/booted-system/kernel-modules/lib/modules/5.15.92/kernel/drivers/net/ethernet/realtek/
+  # udevadm info -a -p /sys/class/net/enp3s0
   services.udev.extraRules = ''
-    SUBSYSTEM=="net", ATTR{address}="d8:5e:d3:96:1c:ac", SYMLINK+="r8168"
+    SUBSYSTEM=="net", KERNELS=="0000:03:00.0", ACTION=="add", DRIVERS+="r8168"
   '';
 }
