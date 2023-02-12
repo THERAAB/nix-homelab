@@ -11,9 +11,9 @@
       "vm.dirty_writeback_centisecs" = 6000;
       "vm.laptop_mode" = 5;
     };
-    # Adding patched r8125 kernel module for ethernet
-    extraModulePackages = [
-      pkgs.linuxKernel.packages.linux_5_15.r8168
+    # Adding r8168 kernel module for ethernet
+    extraModulePackages = with config.boot.kernelPackages; [
+      r8168
     ];
   };
 }
