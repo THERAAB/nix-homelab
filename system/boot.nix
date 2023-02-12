@@ -1,7 +1,7 @@
 { config, pkgs, lib, fetchFromGitHub, kernel, ... }:
 {  
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_1;
+    kernelPackages = pkgs.linuxPackages_5_9;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     # Force kernel to use the right CPU driver & use graphics controller
