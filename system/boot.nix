@@ -9,7 +9,7 @@
     # Adding patched r8125 kernel module for ethernet
     extraModulePackages = [
       (
-        stdenv.mkDerivation rec {
+        pkgs.mkDerivation rec {
           pname = "r8125";
           # On update please verify (using `diff -r`) that the source matches the
           # realtek version.
