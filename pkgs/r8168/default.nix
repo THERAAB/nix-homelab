@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchFromGitHub, config }:
+{ stdenv, lib, fetchFromGitHub, config, pkgs }:
 
 
 let modDestDir = "$out/lib/modules/${pkgs.linuxKernel.kernels.linux_5_15.modDirVersion}/kernel/drivers/net/ethernet/realtek/r8168";
