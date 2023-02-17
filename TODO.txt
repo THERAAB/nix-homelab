@@ -2,4 +2,3 @@ washing machine
 more water alarms
 alarm for sensors
 shopping list
-loopback
