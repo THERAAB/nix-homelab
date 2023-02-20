@@ -1,4 +1,1 @@
-washing machine
-more water alarms
-alarm for sensors
-shopping list
+See nix-server/TODO.txt

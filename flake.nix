@@ -31,24 +31,25 @@
       # Acessible through 'nix build', 'nix shell', etc
       packages = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
+        in import ./share/lib/pkgs { inherit pkgs; }
       );
       # Devshell for bootstrapping
       # Acessible through 'nix develop' or 'nix-shell' (legacy)
       devShells = forAllSystems (system:
         let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
+        in import ./share/shell.nix { inherit pkgs; }
       );
       # Your custom packages and modifications, exported as overlays
-      overlays = import ./overlays;
+      overlays = import ./share/lib/overlays;
       nixosConfigurations = {
-        nix-homelab = nixpkgs.lib.nixosSystem {
+        nix-server = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
             impermanence.nixosModules.impermanence
-            ./modules/nixos/yamlConfigMaker
-            ./modules/nixos/olivetin
-            ./configuration.nix
+            ./share/lib/modules/nixos/yamlConfigMaker
+            ./share/lib/modules/nixos/olivetin
+            ./share/nixos
+            ./nix-server/nixos
             sops-nix.nixosModules.sops
 
             home-manager.nixosModules.home-manager {
@@ -56,7 +57,30 @@
               home-manager.useUserPackages = true;
               home-manager.users.raab = { pkgs, ... }: {
                 imports = [ impermanence.nixosModules.home-manager.impermanence
-                            ./home.nix
+                            ./share/home
+                            ./nix-server/home
+                ];
+              };
+            }
+          ];
+        };
+        nix-router = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            impermanence.nixosModules.impermanence
+            ./share/lib/modules/nixos/yamlConfigMaker
+            ./share/lib/modules/nixos/olivetin
+            ./share/nixos
+            ./nix-router/nixos
+            sops-nix.nixosModules.sops
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.raab = { pkgs, ... }: {
+                imports = [ impermanence.nixosModules.home-manager.impermanence
+                            ./share/home
+                            ./nix-router/home
                 ];
               };
             }
