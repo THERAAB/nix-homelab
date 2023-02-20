@@ -12,5 +12,6 @@
     ./caddy.nix
     ./netdata.nix
     ./users.nix
+    ./hardware.nix
   ];
 }
