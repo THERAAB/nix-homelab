@@ -8,5 +8,6 @@
     ./sops.nix
     ./auto-upgrade.nix
     ./configuration.nix
+    ./users.nix
   ];
 }

@@ -13,5 +13,6 @@
     ./netdata.nix
     ./users.nix
     ./hardware.nix
+    ./sops.nix
   ];
 }
