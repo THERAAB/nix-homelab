@@ -1,1 +1,28 @@
-everything
+avahi
+dhcpd (255.255.255.0 subnet mask, DNS server)
+dpinger
+radvd
+syslogd
+unbound
+static IPs
+dns server (127.0.0.1, 0.0.0.0)
+monitoring
+reboot button
+Firewall rules (WAN) -> Block private networks & bogon networks
+
+WAN:
+- DHCP/DHCP6
+- 64 prefix length
+-/32
+
+APLAN:
+- Static IPv4
+- 192.168.1.1/24
+
+NIXLAN:
+- Static IPv4
+- 192.168.2.1/24
+
+MEDIA:
+- Static IPv4
+- 192.168.3.1/24
