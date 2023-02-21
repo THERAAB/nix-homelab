@@ -1,4 +1,5 @@
 # Nix-Router
+## Note: This project is still a WIP and you probably don't want to actually use it
 
 A [NixOS](https://nixos.org/) configuration for my [selfhosted](https://www.reddit.com/r/selfhosted/) router.
 This repo contains everything needed to rebuild my router from scratch, with the only manual steps being in the installation instructions below.
