@@ -43,6 +43,9 @@ expects you to have 1 nvme and 1 sda device
 ### Reboot into console, activate SSH
 ```console
 sudo tailscale up --ssh
+
+# SSH from desktop
+ssh nix-server
 ```
 - Disable expiry from tailscale console. 
 - Update tailscale IP in 
@@ -57,7 +60,6 @@ sudo vi /nix/persist/system/etc/ssh/ssh_host_ed25519_sops
 ```
 Change git to SSH now that we have our SSH key
 ```console
-ssh nix-server
 cd /nix/persist/nix-homelab
 git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 ```
