@@ -8,7 +8,6 @@
     ./olivetin
     ./adguard
     ./hardware-configuration.nix
-    ./boot.nix
     ./caddy.nix
     ./netdata.nix
     ./users.nix

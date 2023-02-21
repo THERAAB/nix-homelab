@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages_latest_hardened;
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     # Power Management stuff
