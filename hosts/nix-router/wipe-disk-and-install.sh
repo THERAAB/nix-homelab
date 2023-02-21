@@ -17,11 +17,11 @@ sudo parted /dev/sda -- mkpart ESP fat32 1MB 512MB
 sudo parted /dev/sda -- set 1 esp on
 sudo parted /dev/sda -- mkpart primary btrfs 512MB 100%
 
-# Format /dev/nvme0n1 fs
+# Format /dev/sda fs
 sudo mkfs.fat -F 32 -n BOOT /dev/sda1
 sudo mkfs.btrfs -L nixos /dev/sda2 -f
 
-# Create btrfs subvolumes for /dev/nvme0n1
+# Create btrfs subvolumes for /dev/sda
 cd /
 sudo mkdir -p /mnt
 sudo mount /dev/disk/by-label/nixos /mnt
