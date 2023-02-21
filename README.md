@@ -1,6 +1,6 @@
 # Nix-Homelab
 
-A [NixOS](https://nixos.org/) configuration repository for my [selfhosted](https://www.reddit.com/r/selfhosted/) homelab server & router.
+A [NixOS](https://nixos.org/) configuration repository for my [selfhosted](https://www.reddit.com/r/selfhosted/) homelab.
 [NixOS](https://nixos.org/) allows you to create a fully declarative operating system using the [Nix language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language).
 This repo contains everything needed to rebuild my homelab from scratch, with the only manual steps being in the README files below.
 
