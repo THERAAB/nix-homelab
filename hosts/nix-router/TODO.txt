@@ -1,5 +1,9 @@
+https://dataswamp.org/~solene/2022-08-03-nixos-with-live-usb-router.html
+
 avahi
 dhcpd (255.255.255.0 subnet mask, DNS server)
+dhcpcd dhcpd4?
+networking.usePredictableInterfaceNames = true;
 dpinger
 radvd
 syslogd
