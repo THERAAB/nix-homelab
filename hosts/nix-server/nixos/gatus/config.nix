@@ -33,20 +33,6 @@ in
       ];
     }
     {
-      name = "PFSense";
-      url = "https://${network.pfSense.local.ip}/";
-      client.insecure = true;
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<title>pfSense - Login</title>*)''
-      ];
-      alerts = [
-        {
-          type = "custom";
-        }
-      ];
-    }
-    {
       name = "Ring Doorbell";
       url = "tcp://${network.ring-doorbell.local.ip}:53";
       conditions = [
