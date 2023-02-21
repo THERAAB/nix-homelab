@@ -16,7 +16,7 @@
       galaxy-tab-s7.battery = "sensor.sm_t870_battery_level";
     };
     living-room = {
-      android-tv = "media_player.android_tv_192_168_1_115";
+      android-tv = "media_player.android_tv_192_168_0_5";
       lamp = "switch.living_room_lamp";
       govee-immersion = "light.h6199_2328";
     };
