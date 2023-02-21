@@ -1,17 +1,16 @@
 { config, pkgs, ... }:
 let
   media = import ./media.properties.nix;
-  uid = 9993;
-  port = 9696;
-  app-name = "prowlarr";
+  uid = 9995;
+  port = 8989;
+  app-name = "sonarr";
   local-config-dir = media.dir.config + "/${app-name}/";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
 in
 {
-
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
-      name = "Prowlarr";
+      name = "Sonarr";
       url = "http://${app-name}.${network.domain.local}/health";
       conditions = [
         "[STATUS] == 200"
@@ -25,7 +24,7 @@ in
   ];
   services.olivetin.settings.actions = [
     {
-      title = "Restart Prowlarr";
+      title = "Restart Sonarr";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
@@ -52,9 +51,11 @@ in
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "linuxserver/${app-name}:develop";
+    image = "linuxserver/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
+      "${media.dir.tv}:/tv"
+      "${media.dir.downloads}:/app/qBittorrent/downloads"
     ];
     ports = [ "${toString port}:${toString port}" ];
     environment = {

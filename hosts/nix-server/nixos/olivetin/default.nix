@@ -7,8 +7,8 @@ let
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/nix/persist/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
-  system-icons-dir = "/nix/persist/nix-homelab/assets/icons";
-  network = import ../../../share/network.properties.nix;
+  system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
+  network = import ../../../../share/network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [

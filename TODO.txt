@@ -1,1 +1,1 @@
-See nix-server/TODO.txt
+See hosts/nix-server/TODO.txt

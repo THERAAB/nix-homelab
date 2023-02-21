@@ -1,16 +1,16 @@
 { config, pkgs, ... }:
 let
   media = import ./media.properties.nix;
-  uid = 9991;
-  port = 5055;
-  app-name = "jellyseerr";
+  uid = 9994;
+  port = 7878;
+  app-name = "radarr";
   local-config-dir = media.dir.config + "/${app-name}/";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
-      name = "Jellyseerr";
+      name = "Radarr";
       url = "http://${app-name}.${network.domain.local}/health";
       conditions = [
         "[STATUS] == 200"
@@ -24,7 +24,7 @@ in
   ];
   services.olivetin.settings.actions = [
     {
-      title = "Restart Jellyseerr";
+      title = "Restart Radarr";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
@@ -38,8 +38,8 @@ in
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -           -           -   - "
-    "Z    ${local-config-dir}     740     ${app-name} media       -   - "
+    "d    ${local-config-dir}     -       -             -        -   - "
+    "Z    ${local-config-dir}     740     ${app-name}   media    -   - "
   ];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
@@ -51,11 +51,11 @@ in
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "fallenbagel/${app-name}";
+    image = "linuxserver/${app-name}";
     volumes = [
-      "${local-config-dir}:/app/config"
+      "${local-config-dir}:/config"
       "${media.dir.movies}:/movies"
-      "${media.dir.tv}:/tv"
+      "${media.dir.downloads}:/app/qBittorrent/downloads"
     ];
     ports = [ "${toString port}:${toString port}" ];
     environment = {

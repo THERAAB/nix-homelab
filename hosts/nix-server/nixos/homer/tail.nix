@@ -1,6 +1,6 @@
 let
   settings-default = import ./settings-default.nix;
-  network = import ../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
 in
 {
   # See https://fontawesome.com/v5/search for icons options
@@ -19,7 +19,7 @@ in
       items = [
         {
           name = "Jellyfin";
-          logo = "assets/icons/jellyfin.png";
+          logo = "share/assets/icons/jellyfin.png";
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
@@ -28,7 +28,7 @@ in
         }
         {
           name = "Jellyseerr";
-          logo = "assets/icons/jellyseerr.png";
+          logo = "share/assets/icons/jellyseerr.png";
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
@@ -43,7 +43,7 @@ in
       items = [
         {
           name = "Prowlarr";
-          logo = "assets/icons/prowlarr.png";
+          logo = "share/assets/icons/prowlarr.png";
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
@@ -52,7 +52,7 @@ in
         }
         {
           name = "VueTorrent";
-          logo = "assets/icons/vuetorrent.png";
+          logo = "share/assets/icons/vuetorrent.png";
           subtitle = "Manage Torrents";
           tag = "download";
           keywords = "torrent download";
@@ -61,7 +61,7 @@ in
         }
         {
           name = "Radarr";
-          logo = "assets/icons/radarr.png";
+          logo = "share/assets/icons/radarr.png";
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
@@ -70,7 +70,7 @@ in
         }
         {
           name = "Sonarr";
-          logo = "assets/icons/sonarr.png";
+          logo = "share/assets/icons/sonarr.png";
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
@@ -85,7 +85,7 @@ in
       items = [
         {
           name = "TP-Link Archer";
-          logo = "assets/icons/tplink.png";
+          logo = "share/assets/icons/tplink.png";
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
@@ -94,7 +94,7 @@ in
         }
         {
           name = "AdGuard";
-          logo = "assets/icons/adguard.png";
+          logo = "share/assets/icons/adguard.png";
           subtitle = "DNS Ad Blocking";
           tag = "dns";
           keywords = "dns adblock";
@@ -103,7 +103,7 @@ in
         }
         {
           name = "Home Assistant";
-          logo = "assets/icons/home-assistant.png";
+          logo = "share/assets/icons/home-assistant.png";
           subtitle = "Smart Home Automation";
           tag = "smart-home";
           keywords = "smart home assistant automation";
@@ -118,7 +118,7 @@ in
       items = [
         {
           name = "Netdata";
-          logo = "assets/icons/netdata.png";
+          logo = "share/assets/icons/netdata.png";
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
@@ -127,7 +127,7 @@ in
         }
         {
           name = "Gatus";
-          logo = "assets/icons/gatus.png";
+          logo = "share/assets/icons/gatus.png";
           subtitle = "Monitor Services";
           tag = "monitor";
           keywords = "monitor";
@@ -142,7 +142,7 @@ in
       items = [
         {
           name = "OliveTin";
-          logo = "assets/icons/olivetin.png";
+          logo = "share/assets/icons/olivetin.png";
           subtitle = "Execute Commands";
           tag = "exec";
           keywords = "exec";

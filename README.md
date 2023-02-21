@@ -1,1 +1,1 @@
-See nix-server/README.md
+See hosts/nix-server/README.md

@@ -5,13 +5,13 @@ let
   box-port = 8082;
   tail-port = 8083;
   app-name = "homer";
-  system-icons-dir = "/nix/persist/nix-homelab/assets/icons";
+  system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   local-config-dir = "/nix/persist/${app-name}/";
   tail-config = import ./tail.nix;
   box-config = import ./box.nix;
   tail-config-dir = local-config-dir + "/tail/";
   box-config-dir = local-config-dir + "/box/";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
   homer-hostname = "server";
   environment = {
     UMASK="022";

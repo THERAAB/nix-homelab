@@ -3,7 +3,7 @@ let
   port = 3000;
   settings = (import ./settings.nix).settings;
   app-name = "adguard";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [

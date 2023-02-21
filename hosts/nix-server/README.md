@@ -2,10 +2,10 @@
 
 A [NixOS](https://nixos.org/) configuration repository for my [selfhosted](https://www.reddit.com/r/selfhosted/) server.
 [NixOS](https://nixos.org/) allows you to create a fully declarative operating system using the [Nix language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language).
-This repo contains everything needed to rebuild my server from scratch, with the only manual steps being in [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/nix-server/manual-setup.md)
+This repo contains everything needed to rebuild my server from scratch, with the only manual steps being in [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/manual-setup.md)
 and the installation instructions below.
 
-![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/assets/screenshots/dashboard.png?raw=true "PNG of Dashboard")
+![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/share/assets/screenshots/dashboard.png?raw=true "PNG of Dashboard")
 
 ## What's inside
 

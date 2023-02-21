@@ -6,7 +6,7 @@ let
   app-name = "gatus";
   local-config-dir = "/nix/persist/${app-name}/";
   cfg = import ./config.nix;
-  network = import ../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
 in
 {
   services.yamlConfigMaker.gatus = {

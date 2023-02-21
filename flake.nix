@@ -49,7 +49,7 @@
             ./share/lib/modules/nixos/yamlConfigMaker
             ./share/lib/modules/nixos/olivetin
             ./share/nixos
-            ./nix-server/nixos
+            ./hosts/nix-server/nixos
             sops-nix.nixosModules.sops
 
             home-manager.nixosModules.home-manager {
@@ -58,7 +58,7 @@
               home-manager.users.raab = { pkgs, ... }: {
                 imports = [ impermanence.nixosModules.home-manager.impermanence
                             ./share/home
-                            ./nix-server/home
+                            ./hosts/nix-server/home
                 ];
               };
             }
