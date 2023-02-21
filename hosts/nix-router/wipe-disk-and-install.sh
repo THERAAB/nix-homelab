@@ -54,12 +54,6 @@ sudo mount /dev/disk/by-label/BOOT /mnt/boot
 sudo git clone https://github.com/THERAAB/nix-homelab /mnt/nix/persist/nix-homelab
 cd /mnt/nix/persist/nix-homelab
 
-# Generate config
-nixos-generate-config --root /mnt
-sudo vi /mnt/etc/nixos/hardware-configuration.nix
-sudo mv /mnt/etc/nixos/hardware-configuration.nix .
-sudo rm /mnt/etc/nixos/configuration.nix
-
 # Install NixOs
 sudo nixos-install --flake .#nix-router
 
