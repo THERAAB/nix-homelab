@@ -16,10 +16,10 @@ My NixOS Homelab, with each machine having some shared configuration
 - [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
 
 ## Nix-Server
-See [hosts/nix-server/README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/README.md)
+See [The Nix-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/README.md)
 
 ## Nix-Router
-See [hosts/nix-router/README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-router/README.md)
+See [The Nix-Router README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-router/README.md)
 
 ## Maintenance
 These commands might help with some common maintenance tasks
