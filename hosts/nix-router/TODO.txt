@@ -1,12 +1,8 @@
 https://dataswamp.org/~solene/2022-08-03-nixos-with-live-usb-router.html
+https://nixos.wiki/wiki/Networking
 
 avahi
-dhcpd (255.255.255.0 subnet mask, DNS server)
-dhcpcd dhcpd4?
-networking.usePredictableInterfaceNames = true;
-dpinger
-radvd
-syslogd
+dhcpd4 (255.255.255.0 subnet mask, DNS server)
 unbound
 static IPs
 dns server (127.0.0.1, 0.0.0.0)
@@ -30,3 +26,6 @@ NIXLAN:
 MEDIA:
 - Static IPv4
 - 192.168.3.1/24
+
+disable dhcpcd?
+radvd (ipv6)?
