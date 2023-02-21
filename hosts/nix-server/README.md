@@ -1,19 +1,10 @@
-# Nix-Homelab
+# Nix-Server
 
-A [NixOS](https://nixos.org/) configuration repository for my [selfhosted](https://www.reddit.com/r/selfhosted/) server.
-[NixOS](https://nixos.org/) allows you to create a fully declarative operating system using the [Nix language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language).
+A [NixOS](https://nixos.org/) configuration for my [selfhosted](https://www.reddit.com/r/selfhosted/) server.
 This repo contains everything needed to rebuild my server from scratch, with the only manual steps being in [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/manual-setup.md)
 and the installation instructions below.
 
-![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/share/assets/screenshots/dashboard.png?raw=true "PNG of Dashboard")
-
 ## What's inside
-
-- Declarative/Reproducible builds using [NixOS](https://nixos.org/)
-- An Ephemeral root/home storage scheme (See [Erase your darlings](https://grahamc.com/blog/erase-your-darlings) and [NixOS Impermanence](https://github.com/nix-community/impermanence))
-- Secret management with [sops-nix](https://github.com/Mic92/sops-nix/blob/master/README.md)
-- Dependency pinning with [Nix Flakes](https://nixos.wiki/wiki/Flakes)
-- Local user declarative setup with [Home Manager](https://github.com/nix-community/home-manager)
 - Declarative Home Assistant with [NixOS Home Assistant Module](https://nixos.wiki/wiki/Home_Assistant)
 - Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [JellySeerr](https://github.com/Fallenbagel/jellyseerr), and [linuxserver.io](https://www.linuxserver.io/) podman images
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
@@ -23,7 +14,6 @@ and the installation instructions below.
 - Reverse Proxy with [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [netdata](https://www.netdata.cloud/) and [gatus](https://github.com/TwiN/gatus)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
-- [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
 
 ## Installation
 
@@ -31,14 +21,12 @@ This repo contains some customizations for my specific setup, and you likely won
 if you're not me for 3 reasons:
 - You probably don't have my hardware (Intel 12th Gen CPU, 1 nvme, 1 sda device)
 - You probably don't have my sops keys (shoutout to my FBI agent!)
-- You likely won't have same IPs and network, firewall (pfSense), and tailscale setup
+- You likely won't have same IPs and network, firewall (See nix-router), and tailscale setup
 
 ### Download NixOS
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
-- If you previously used this setup and have hardcoded DNS server in pfSense, remove it. Otherwise, you will have no DNS during install
-  - Services -> DHCP Server -> DNS Servers -> remove IP
-  - Repeat for all interfaces
+- If you previously used this setup and have hardcoded DNS server in nix-router, remove it. Otherwise, you will have no DNS during install
 - Tailscale cleanup of old device
   - Disable Override local DNS
   - delete old tailscale "nix-server" device
@@ -48,7 +36,7 @@ if you're not me for 3 reasons:
 ```console
 nix-shell -p git
 sudo git clone https://github.com/THERAAB/nix-homelab instructions
-gnome-text-editor instructions/wipe-disk-and-install.sh &
+gnome-text-editor instructions/hosts/nix-server/wipe-disk-and-install.sh &
 ```
 I recommend copy-pasting what commands you need because this script is dangerous (will wipe entire system). It also
 expects you to have 1 nvme and 1 sda device
@@ -79,26 +67,4 @@ update-full-with-git
 nix-store --optimise
 sudo reboot
 ```
-Check [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/manual-setup.md) for specific manual app setups
-
-## Maintenance
-These commands might help with some common maintenance tasks
-```console
-# Check recent NixOs generations
-sudo nix-env -p /nix/var/nix/profiles/system --list-generations
-
-# Check last boot logs of certain priority (0-5)
-journalctl -b -1 -p 0..5
-
-# Add/modify secrets
-sops /nix/persist/nix-homelab/share/nixos/secrets/secrets.yaml
-
-# See anything not persisted by NixOs Persistence module (non 0B files will be wiped on boot)
-ncdu -x /
-
-# List systemd units
-systemctl list-units
-
-# Check unit failures
-journalctl -u ${unit-name}
-```
+Check [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/manual-setup.md) for specific manual app setups

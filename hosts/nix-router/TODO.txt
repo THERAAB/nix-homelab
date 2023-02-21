@@ -1,2 +1,1 @@
 everything
-Intel J4125, Intel i225 Network Chip, 1 mSATA SSD
