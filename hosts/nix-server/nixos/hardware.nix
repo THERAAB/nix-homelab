@@ -1,17 +1,8 @@
 { config, pkgs, ... }:
-{ 
-  services.tailscale.enable = true;   
+{
   networking.hostName = "nix-server";
-  networking.networkmanager.enable = true;
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 80 443 ];
-    allowedUDPPorts = [ 53 ];
-    trustedInterfaces = [ "tailscale0" ];
-  };
 
   powerManagement = {
-    powertop.enable = true;
     # Sata power management
     scsiLinkPolicy = "med_power_with_dipm";
     # Spin down HDD after 1 hour
@@ -31,7 +22,4 @@
       libvdpau-va-gl
     ];
   };
-
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.utf8";
 }
