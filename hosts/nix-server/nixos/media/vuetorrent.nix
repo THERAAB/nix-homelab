@@ -66,7 +66,7 @@ in
       UMASK="022";
       TZ="America/New_York";
       VPN_ENABLED="true";
-      VPN_LAN_NETWORK="${network.desktop.subnet},${network.nix-server.subnet}";
+      VPN_LAN_NETWORK="${network.desktop.subnet}";
       VPN_CONF="wg0";
       VPN_ADDITIONAL_PORTS="";
       VPN_IP_CHECK_DELAY="5";

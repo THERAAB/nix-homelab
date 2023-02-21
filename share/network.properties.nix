@@ -1,15 +1,14 @@
 {
   nix-server = {
     tailscale.ip = "100.121.108.123";
-    local.ip = "192.168.3.2";
-    subnet = "192.168.3.0/24";
+    local.ip = "192.168.0.2";
   };
   desktop = {
-    subnet = "192.168.2.0/24";
+    subnet = "192.168.0.0/24";
   };
-  tplink.local.ip = "192.168.1.2";
-  govee-water-alarm.local.ip = "192.168.1.3";
-  ring-doorbell.local.ip = "192.168.1.4";
+  tplink.local.ip = "192.168.0.1";
+  govee-water-alarm.local.ip = "192.168.0.4";
+  ring-doorbell.local.ip = "192.168.0.3";
   domain.local = "box";
   domain.tail = "tail";
 }
