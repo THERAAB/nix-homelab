@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   networking.hostName = "nix-server";
-
+  networking.networkmanager.enable = true;
   powerManagement = {
     # Sata power management
     scsiLinkPolicy = "med_power_with_dipm";

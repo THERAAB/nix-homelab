@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
-  networking.hostName = "nix-router";
+    networking.hostName = "nix-router";
 }
