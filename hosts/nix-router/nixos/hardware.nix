@@ -8,7 +8,7 @@ in
     hostName = "nix-router";
     nftables.enable = true;
     nameservers = [ "${dns-server}" ];
-    trustedInterfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+    firewall.trustedInterfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
 
     interfaces = {
       # WAN
