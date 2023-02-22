@@ -64,4 +64,10 @@ in
       ];
     };
   };
+
+  services.avahi = {
+    enable = true;
+    reflector = true;
+    interfaces = [ lan-interfaces ];
+  };
 }
