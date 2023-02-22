@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   dns-server = "8.8.8.8";
-  network = import ../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
 in
 {
   networking = {
