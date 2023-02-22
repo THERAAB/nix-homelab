@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   dns-server = "8.8.8.8";
+  network = import ../../share/network.properties.nix;
 in
 {
   networking = {
@@ -13,7 +14,7 @@ in
       enp1s0 = {
         useDHCP = true;
         ipv4.addresses = [{
-          address = "${nix-router.local.ip}";
+          address = "${network.nix-router.local.ip}";
           prefixLength = 24;
         }];
       };
