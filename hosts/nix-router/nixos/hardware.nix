@@ -1,6 +1,5 @@
 { config, lib, pkgs, ... }:
 let
-  dns-server = "8.8.8.8";
   network = import ../../../share/network.properties.nix;
   lan-interfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
   lan1-address = "10.10.11.1";
@@ -8,12 +7,13 @@ let
   lan3-address = "10.10.13.1";
   wan-interface = "enp1s0";
   prefixLength = 24;
+  localhost = "127.0.0.1";
 in
 {
   networking = {
     hostName = "nix-router";
     nftables.enable = true;
-    nameservers = [ "${dns-server}" ];
+    nameservers = [ "${localhost}" ];
     firewall.trustedInterfaces = lan-interfaces;
     nat.enable = true;
     nat.externalInterface = wan-interface;
@@ -57,7 +57,7 @@ in
 
   services.dnsmasq = {
     settings = {
-      server = [ dns-server ];
+      server = [ localhost ];
       interface = [ lan-interfaces ];
       domain-needed = true;
       dhcp-range = [ "10.10.11.100,10.10.11.254,24h" "10.10.12.100,10.10.12.254,24h" "10.10.13.100,10.10.13.254,24h" ];
