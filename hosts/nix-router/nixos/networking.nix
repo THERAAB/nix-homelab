@@ -29,7 +29,7 @@ in
           prefixLength = network.prefixLength;
         }];
       };
-      # LAN 2
+      # LAN 2 (Desktop)
       enp3s0 = {
         useDHCP = true;
         ipv4.addresses = [{
