@@ -3,10 +3,6 @@ let
   dns-server = "8.8.8.8";
 in
 {
-  boot.kernel.sysctl = {
-    "net.ipv4.conf.all.forwarding" = true;
-  };
-
 
   services.dhcpd4 = {
     enable = true;

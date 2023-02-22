@@ -3,13 +3,11 @@ https://nixos.wiki/wiki/Networking
 
 avahi
 dhcpd4 (255.255.255.0 subnet mask, DNS server)
-enp1s0 - enp4s0, enp3s0/eno1?
 unbound
 static IPs
 dns server (127.0.0.1, 0.0.0.0)
 monitoring
 reboot button
-Firewall rules (WAN) -> Block private networks & bogon networks
 
 WAN:
 - DHCP/DHCP6
