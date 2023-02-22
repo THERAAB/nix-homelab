@@ -9,6 +9,9 @@ in
     nftables.enable = true;
     nameservers = [ "${dns-server}" ];
     firewall.trustedInterfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+    nat.enable = true;
+    nat.externalInterface = "enp1s0";
+    nat.internalInterfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
 
     interfaces = {
       # WAN
