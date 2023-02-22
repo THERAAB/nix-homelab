@@ -18,7 +18,7 @@ in
         useDHCP = true;
         ipv4.addresses = [{
           address = "${network.nix-router.local.ip}";
-          prefixLength = prefixLength;
+          prefixLength = network.prefixLength;
         }];
       };
       # LAN 1
