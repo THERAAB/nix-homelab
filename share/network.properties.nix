@@ -6,6 +6,7 @@
   desktop = {
     subnet = "192.168.0.0/24";
   };
+  nix-router.local.ip = "192.168.0.7";
   tplink.local.ip = "192.168.0.1";
   govee-water-alarm.local.ip = "192.168.0.4";
   ring-doorbell.local.ip = "192.168.0.3";
