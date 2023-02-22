@@ -5,6 +5,7 @@ in
 {
   services.dnsmasq = {
     settings = {
+      # TODO: point to adguard
       server = [ network.localhost ];
       interface = [ network.lan-interfaces ];
       domain-needed = true;
