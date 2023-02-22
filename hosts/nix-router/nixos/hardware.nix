@@ -2,16 +2,19 @@
 let
   dns-server = "8.8.8.8";
   network = import ../../../share/network.properties.nix;
+  lan-interfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+  wan-interface = "enp1s0";
+  prefixLength = 24;
 in
 {
   networking = {
     hostName = "nix-router";
     nftables.enable = true;
     nameservers = [ "${dns-server}" ];
-    firewall.trustedInterfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+    firewall.trustedInterfaces = lan-interfaces;
     nat.enable = true;
-    nat.externalInterface = "enp1s0";
-    nat.internalInterfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+    nat.externalInterface = wan-interface;
+    nat.internalInterfaces = lan-interfaces;
 
     interfaces = {
       # WAN
@@ -19,7 +22,7 @@ in
         useDHCP = true;
         ipv4.addresses = [{
           address = "${network.nix-router.local.ip}";
-          prefixLength = 24;
+          prefixLength = prefixLength;
         }];
       };
       # LAN 1
@@ -27,7 +30,7 @@ in
         useDHCP = true;
         ipv4.addresses = [{
           address = "10.10.11.1";
-          prefixLength = 24;
+          prefixLength = prefixLength;
         }];
       };
       # LAN 2
@@ -35,7 +38,7 @@ in
         useDHCP = true;
         ipv4.addresses = [{
           address = "10.10.12.1";
-          prefixLength = 24;
+          prefixLength = prefixLength;
         }];
       };
       # LAN 3
@@ -43,7 +46,7 @@ in
         useDHCP = true;
         ipv4.addresses = [{
           address = "10.10.13.1";
-          prefixLength = 24;
+          prefixLength = prefixLength;
         }];
       };
     };
