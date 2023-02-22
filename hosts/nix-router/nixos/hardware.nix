@@ -68,6 +68,6 @@ in
   services.avahi = {
     enable = true;
     reflector = true;
-    interfaces = [ lan-interfaces ];
+    interfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
   };
 }
