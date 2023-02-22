@@ -3,6 +3,9 @@ let
   dns-server = "8.8.8.8";
   network = import ../../../share/network.properties.nix;
   lan-interfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+  lan1-address = "10.10.11.1";
+  lan2-address = "10.10.12.1";
+  lan3-address = "10.10.13.1";
   wan-interface = "enp1s0";
   prefixLength = 24;
 in
@@ -29,7 +32,7 @@ in
       enp2s0 = {
         useDHCP = true;
         ipv4.addresses = [{
-          address = "10.10.11.1";
+          address = lan1-address;
           prefixLength = prefixLength;
         }];
       };
@@ -37,7 +40,7 @@ in
       enp3s0 = {
         useDHCP = true;
         ipv4.addresses = [{
-          address = "10.10.12.1";
+          address = lan2-address;
           prefixLength = prefixLength;
         }];
       };
@@ -45,7 +48,7 @@ in
       enp4s0 = {
         useDHCP = true;
         ipv4.addresses = [{
-          address = "10.10.13.1";
+          address = lan3-address;
           prefixLength = prefixLength;
         }];
       };
@@ -69,5 +72,20 @@ in
     enable = true;
     reflector = true;
     interfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+  };
+
+  services.unbound = {
+    enable = true;
+    settings = {
+      server = {
+        interface = [ "127.0.0.1" "0.0.0.0" ];
+        access-control = [
+          "127.0.0.0/8 allow"
+          "${lan1-address} allow"
+          "${lan2-address} allow"
+          "${lan3-address} allow"
+        ];
+      };
+    };
   };
 }
