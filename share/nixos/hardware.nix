@@ -3,8 +3,6 @@
   services.tailscale.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 80 443 ];
-    allowedUDPPorts = [ 53 ];
     trustedInterfaces = [ "tailscale0" ];
   };
 

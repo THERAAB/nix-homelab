@@ -2,6 +2,10 @@
 {
   networking.hostName = "nix-server";
   networking.networkmanager.enable = true;
+  networking.firewall = {
+    allowedTCPPorts = [ 80 443 ];
+    allowedUDPPorts = [ 53 ];
+  };
   powerManagement = {
     # Sata power management
     scsiLinkPolicy = "med_power_with_dipm";
