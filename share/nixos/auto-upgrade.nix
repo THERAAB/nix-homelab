@@ -5,8 +5,9 @@
     nixos-upgrade-on-failure = {
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
+        HOSTNAME=`hostname`
 
-        echo '{"type":"note","title":"Nixos Upgrade Failed","body":"Upgrade failed, run journalctl -u nixos-upgrade for details"}' > body.json
+        echo '{"type":"note","title":"$HOSTNAME Upgrade Failed","body":"Upgrade failed on $HOSTNAME, run journalctl -u nixos-upgrade for details"}' > body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
