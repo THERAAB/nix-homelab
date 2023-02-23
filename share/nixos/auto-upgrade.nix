@@ -7,7 +7,7 @@
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
         HOSTNAME=`${pkgs.nettools}/bin/hostname`
 
-        echo '{"type":"note","title":"$HOSTNAME Upgrade Failed","body":"Upgrade failed on $HOSTNAME, run journalctl -u nixos-upgrade for details"}' > body.json
+        echo '{"type":"note","title":"'$HOSTNAME' Upgrade Failed","body":"Upgrade failed on '$HOSTNAME', run journalctl -u nixos-upgrade for details"}' > body.json
 
         ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
                                 -H "Content-Type: application/json"     \
