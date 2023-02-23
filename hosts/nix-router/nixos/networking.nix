@@ -16,10 +16,10 @@ in
       # WAN
       enp1s0 = {
         useDHCP = true;
-        ipv4.addresses = [{
-          address = "${network.nix-router.local.ip}";
-          prefixLength = network.prefixLength;
-        }];
+        #ipv4.addresses = [{
+        #  address = "${network.nix-router.local.ip}";
+        #  prefixLength = network.prefixLength;
+        #}];
       };
       # LAN 1
       enp2s0 = {
