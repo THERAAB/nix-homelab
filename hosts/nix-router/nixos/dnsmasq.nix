@@ -6,7 +6,7 @@ in
   services.dnsmasq = {
     settings = {
       # TODO: point to adguard
-      server = [ network.localhost ];
+      server = [ "192.168.0.7" ];
       interface = [ network.lan-interfaces ];
       domain-needed = true;
       dhcp-range = [ "10.10.11.100,10.10.11.254,24h" "10.10.12.100,10.10.12.254,24h" "10.10.13.100,10.10.13.254,24h" ];
