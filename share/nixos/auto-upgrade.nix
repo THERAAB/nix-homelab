@@ -5,7 +5,7 @@
     nixos-upgrade-on-failure = {
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
-        HOSTNAME=`hostname`
+        HOSTNAME=`${pkgs.net-tools}/bin/hostname`
 
         echo '{"type":"note","title":"$HOSTNAME Upgrade Failed","body":"Upgrade failed on $HOSTNAME, run journalctl -u nixos-upgrade for details"}' > body.json
 
