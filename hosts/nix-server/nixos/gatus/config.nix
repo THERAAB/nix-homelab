@@ -24,7 +24,7 @@ in
       name = "Govee Water Alarm";
       url = "tcp://${network.govee-water-alarm.local.ip}:53";
       conditions = [
-        "[RESPONSE_TIME] < 500"
+        "[RESPONSE_TIME] < 5000"
       ];
       alerts = [
         {
