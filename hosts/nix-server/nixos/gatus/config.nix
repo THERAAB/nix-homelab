@@ -36,7 +36,7 @@ in
       name = "Ring Doorbell";
       url = "tcp://${network.ring-doorbell.local.ip}:53";
       conditions = [
-        "[RESPONSE_TIME] < 500"
+        "[RESPONSE_TIME] < 2000"
       ];
       alerts = [
         {
