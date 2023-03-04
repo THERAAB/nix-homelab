@@ -35,7 +35,7 @@
   };
   domain.local = "box";
   domain.tail = "tail";
-  lan-interfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+  lan-interfaces = [ "enp2s0" "eno1" "enp4s0" ];
   lan1-address = "10.10.11.1";
   lan2-address = "10.10.12.1";
   lan3-address = "10.10.13.1";

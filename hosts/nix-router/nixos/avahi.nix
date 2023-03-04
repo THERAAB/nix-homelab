@@ -3,6 +3,6 @@
   services.avahi = {
     enable = true;
     reflector = true;
-    interfaces = [ "enp2s0" "enp3s0" "enp4s0" ];
+    interfaces = [ "enp2s0" "eno1" "enp4s0" ];
   };
 }

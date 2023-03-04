@@ -30,7 +30,7 @@ in
         }];
       };
       # LAN 2 (Desktop)
-      enp3s0 = {
+      eno1 = {
         useDHCP = true;
         ipv4.addresses = [{
           address = network.lan2-address;
