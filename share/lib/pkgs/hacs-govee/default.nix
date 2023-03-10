@@ -13,6 +13,5 @@
     installPhase = ''
       mkdir -p $out/custom_components
       cp -r ./custom_components/govee $out/custom_components/govee
-      echo hello
     '';
   }
