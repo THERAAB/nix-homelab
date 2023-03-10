@@ -11,7 +11,7 @@ in
     ./kasa-living-room-light.nix
     ./aqara-water-alarms.nix
     ./battery-notifications.nix
-#    ./govee-immersion.nix
+    ./govee-immersion.nix
     ./shopping-list.nix
   ];
 
