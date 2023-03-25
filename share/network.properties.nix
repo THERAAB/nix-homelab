@@ -1,7 +1,7 @@
 {
   nix-server = {
     tailscale.ip = "100.121.108.123";
-    local.ip = "192.168.3.1";
+    local.ip = "192.168.3.2";
   };
   desktop = {
     subnet = "192.168.2.1/24";
