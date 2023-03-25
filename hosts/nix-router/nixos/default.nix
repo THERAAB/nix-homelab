@@ -2,9 +2,9 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./unbound.nix
+    # ./unbound.nix
     ./networking.nix
-    ./dnsmasq.nix
-    ./avahi.nix
+    # ./dnsmasq.nix
+    # ./avahi.nix
   ];
 }
