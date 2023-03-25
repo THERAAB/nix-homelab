@@ -24,7 +24,7 @@ in
       name = "Govee Water Alarm";
       url = "tcp://${network.govee-water-alarm.local.ip}:53";
       conditions = [
-        "[RESPONSE_TIME] < 5000"
+        "[RESPONSE_TIME] < 500"
       ];
       alerts = [
         {
@@ -36,7 +36,7 @@ in
       name = "Ring Doorbell";
       url = "tcp://${network.ring-doorbell.local.ip}:53";
       conditions = [
-        "[RESPONSE_TIME] < 2000"
+        "[RESPONSE_TIME] < 500"
       ];
       alerts = [
         {
