@@ -2,7 +2,7 @@
 Some apps can't be managed declaratively, so additional setup needed for them is described here.
 ## Networking
 ### Use Adguard Home
-- DHCP Server -> DNS Servers -> nix-server local ip
+- pfSense -> DHCP Server -> DNS Servers -> nix-server local ip
 - tailscale -> DNS settings -> override local DNS
 
 ## Privacy VPN

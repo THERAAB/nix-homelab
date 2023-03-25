@@ -21,12 +21,12 @@ This repo contains some customizations for my specific setup, and you likely won
 if you're not me for 3 reasons:
 - You probably don't have my hardware (Intel 12th Gen CPU, 1 nvme, 1 sda device)
 - You probably don't have my sops keys (shoutout to my FBI agent!)
-- You likely won't have same IPs and network, firewall (See nix-router), and tailscale setup
+- You likely won't have same IPs and network, firewall (pfSense), and tailscale setup
 
 ### Download NixOS
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
-- If you previously used this setup and have hardcoded DNS server in nix-router, remove it. Otherwise, you will have no DNS during install
+- If you previously used this setup and have hardcoded DNS server in pfSense, remove it. Otherwise, you will have no DNS during install
 - Tailscale cleanup of old device
   - Disable Override local DNS
   - delete old tailscale "nix-server" device

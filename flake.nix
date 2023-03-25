@@ -64,28 +64,6 @@
             }
           ];
         };
-        nix-router = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            impermanence.nixosModules.impermanence
-            ./share/lib/modules/nixos/yamlConfigMaker
-            ./share/lib/modules/nixos/olivetin
-            ./share/nixos
-            ./hosts/nix-router/nixos
-            sops-nix.nixosModules.sops
-
-            home-manager.nixosModules.home-manager {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.raab = { pkgs, ... }: {
-                imports = [ impermanence.nixosModules.home-manager.impermanence
-                            ./share/home
-                            ./hosts/nix-router/home
-                ];
-              };
-            }
-          ];
-        };
       };
     };
 }

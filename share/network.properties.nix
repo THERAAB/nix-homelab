@@ -9,7 +9,7 @@
     local.ip = "10.10.12.2";
     mac = "a8:a1:59:e8:a2:66";
   };
-  nix-router = {
+  pfSense = {
     local.ip = "192.168.0.7";
     mac = "00:e2:69:5d:b0:f8";
   };
