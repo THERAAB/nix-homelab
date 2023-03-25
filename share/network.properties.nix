@@ -3,10 +3,7 @@
     tailscale.ip = "100.121.108.123";
     local.ip = "192.168.3.2";
   };
-  desktop = {
-    subnet = "192.168.2.1/24";
-    local.ip = "192.168.2.1";
-  };
+  desktop.subnet = "192.168.2.1/24";
   pfSense.local.ip = "192.168.1.1";
   tplink.local.ip = "192.168.0.1";
   govee-water-alarm.local.ip = "192.168.0.4";
