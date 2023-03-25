@@ -84,6 +84,15 @@ in
       icon = "fas fa-house-signal";
       items = [
         {
+          name = "PfSense";
+          logo = "assets/icons/pfsense.png";
+          subtitle = "Firewall Router";
+          tag = "wireless";
+          keywords = "router firewall";
+          url = "https://192.168.1.1";
+          target = "_blank";
+        }
+        {
           name = "TP-Link Archer";
           logo = "assets/icons/tplink.png";
           subtitle = "Wireless Access Point";
