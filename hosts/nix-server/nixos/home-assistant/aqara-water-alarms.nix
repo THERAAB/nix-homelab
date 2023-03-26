@@ -28,6 +28,30 @@ in
           }
         ];
       }
+      {
+        alias = "Water Alarm Offline Alerts";
+        trigger = {
+          platform = "state";
+          entity_id = "${devices.entity-id.basement.water-alarms.hot-water-heater}, ${devices.entity-id.basement.water-alarms.bathroom}, ${devices.entity-id.basement.water-alarms.sewer-trap}";
+          to = "unavailable";
+          for = {
+            minutes = 5;
+          };
+        };
+        action = [
+          {
+            service = "notify.notify";
+            data_template.message = "Device ${triggered-entities-name} is offline!";
+          }
+          {
+            service = "notify.pushbullet";
+            data = {
+              message = "${triggered-entities-name} is Offline!";
+              title = "Device ${triggered-entities-name} unavailable!";
+            };
+          }
+        ];
+      }
     ];
   };
 }
