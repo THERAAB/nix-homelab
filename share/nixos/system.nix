@@ -3,12 +3,6 @@
   security.auditd.enable = true;
   nix.settings.allowed-users = [ "@wheel" ];
   
-  # Zsh
-  environment.pathsToLink = [ "share/zsh" ];
-  environment.shells = with pkgs; [ zsh ];
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-  
   #OpenSSH
   services.openssh = {
     enable = true;
