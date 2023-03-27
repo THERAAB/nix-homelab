@@ -11,5 +11,6 @@
     ./users.nix
     ./hardware.nix
     ./boot.nix
+    ./fish.nix
   ];
 }
