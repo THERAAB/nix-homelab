@@ -17,15 +17,11 @@
       ls = "exa";
       la = "exa -lah";
       vi = "nvim";
-      cat = "bat";
+      cat = "bat --theme=Nord";
       grep = "rg";
       ps = "procs";
       du = "dust";
-      find = "fd";
       htop = "btm";
     };
   };
-  environment.systemPackages = with pkgs.fishPlugins; [
-    grc
-  ];
 }
