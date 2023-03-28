@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     neovim
     killall
-    htop
     parted
     hdparm
     pciutils # for lspci
