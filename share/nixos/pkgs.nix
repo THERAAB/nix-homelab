@@ -28,5 +28,7 @@
     du-dust
     fd
     bottom
+    fzf
+    zoxide
   ];
 }

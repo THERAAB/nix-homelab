@@ -8,6 +8,7 @@
       ".cache.tealdeer"
       ".cache/nvim"
       ".local/share/fish"
+      ".local/share/zoxide"
     ];
     files = [
       ".ssh/known_hosts"

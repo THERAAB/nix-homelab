@@ -6,6 +6,7 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
+      zoxide init fish | source
     '';
     shellAliases = {
       update-channels = "/nix/persist/nix-homelab/nixos-update-manager.sh update_channel";
