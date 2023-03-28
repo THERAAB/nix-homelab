@@ -20,5 +20,14 @@
     dos2unix
     hping
     fwts
+    exa
+    grc
+    bat
+    ripgrep
+    tealdeer
+    procs
+    du-dust
+    fd
+    bottom
   ];
 }

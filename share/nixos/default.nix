@@ -12,5 +12,6 @@
     ./hardware.nix
     ./boot.nix
     ./fish.nix
+    ./starship.nix
   ];
 }
