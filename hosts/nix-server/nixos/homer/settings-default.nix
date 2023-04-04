@@ -7,9 +7,9 @@
   theme = "default";
   colors = {
     dark = {
-      highlight-primary = "transparent";
+      highlight-primary = "#df8e1d";
       highlight-secondary = "#414559";
-      highlight-hover = "#df8e1d";
+      highlight-hover = "#414559";
       background = "#303446";
       card-background = "#414559";
       text = "#c6d0f5";
