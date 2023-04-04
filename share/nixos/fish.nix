@@ -16,8 +16,8 @@
       garbage-collect-all = "/nix/persist/nix-homelab/nixos-update-manager.sh gc";
       ls = "exa";
       la = "exa -lah";
-      vi = "nvim";
-      cat = "bat --theme=Nord";
+      vi = "hx";
+      cat = "bat --theme=base16-256";
       grep = "rg";
       ps = "procs";
       du = "dust";

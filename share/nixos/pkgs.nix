@@ -27,5 +27,6 @@
     du-dust
     bottom
     zoxide
+    helix
   ];
 }
