@@ -21,9 +21,9 @@
     light = {
       highlight-primary = "transparent";
       highlight-secondary = "#ccd0da";
-      highlight-hover = "#ccd0da";
+      highlight-hover = "#e6e9ef";
       background = "#eff1f5";
-      card-background = "#ccd0da";
+      card-background = "#e6e9ef";
       text = "#4c4f69";
       text-header = "#4c4f69";
       text-title = "#4c4f69";
