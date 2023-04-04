@@ -8,7 +8,7 @@
   colors = {
     dark = {
       highlight-primary = "transparent";
-      highlight-secondary = "#414559";
+      highlight-secondary = "#df8e1d";
       highlight-hover = "#414559";
       background = "#303446";
       card-background = "#414559";
