@@ -15,7 +15,7 @@
       text = "#c6d0f5";
       text-header = "#c6d0f5";
       text-title = "#c6d0f5";
-      text-subtitle = "#f4b8e4";
+      text-subtitle = "#ca9ee6";
       card-shadow = "rgba(0, 0, 0, 0.1)";
     };
     light = {
