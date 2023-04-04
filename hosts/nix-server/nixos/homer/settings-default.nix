@@ -27,7 +27,7 @@
       text = "#4c4f69";
       text-header = "#4c4f69";
       text-title = "#4c4f69";
-      text-subtitle = "#f4b8e4";
+      text-subtitle = "#ea76cb";
       card-shadow = "rgba(0, 0, 0, 0.1)";
     };
   };
