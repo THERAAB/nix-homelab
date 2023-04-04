@@ -13,7 +13,7 @@
       background = "#303446";
       card-background = "#414559";
       text = "#c6d0f5";
-      text-header = "#df8e1d";
+      text-header = "#c6d0f5";
       text-title = "#c6d0f5";
       text-subtitle = "#f4b8e4";
       card-shadow = "rgba(0, 0, 0, 0.1)";
