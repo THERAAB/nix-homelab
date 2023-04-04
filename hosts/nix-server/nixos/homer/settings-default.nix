@@ -20,7 +20,7 @@
     };
     light = {
       highlight-primary = "transparent";
-      highlight-secondary = "#ccd0da";
+      highlight-secondary = "#e6e9ef";
       highlight-hover = "#e6e9ef";
       background = "#eff1f5";
       card-background = "#e6e9ef";
