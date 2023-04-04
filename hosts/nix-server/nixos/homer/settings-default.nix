@@ -6,7 +6,7 @@
   footer = false;
   theme = "default";
   colors = {
-    light = {
+    dark = {
       highlight-primary = "transparent";
       highlight-secondary = "#414559";
       highlight-hover = "#414559";
@@ -15,10 +15,10 @@
       text = "#c6d0f5";
       text-header = "#c6d0f5";
       text-title = "#c6d0f5";
-      text-subtitle = "#fe640b";
+      text-subtitle = "#f4b8e4";
       card-shadow = "rgba(0, 0, 0, 0.1)";
     };
-    dark = {
+    light = {
       highlight-primary = "transparent";
       highlight-secondary = "#ccd0da";
       highlight-hover = "#ccd0da";
@@ -27,7 +27,7 @@
       text = "#4c4f69";
       text-header = "#4c4f69";
       text-title = "#4c4f69";
-      text-subtitle = "#ef9f76";
+      text-subtitle = "#f4b8e4";
       card-shadow = "rgba(0, 0, 0, 0.1)";
     };
   };
