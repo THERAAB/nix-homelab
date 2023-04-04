@@ -16,8 +16,8 @@
       text-header = "#c6d0f5";
       text-title = "#c6d0f5";
       text-subtitle = "#81c8be";
-      link = "#a6d189";
-      link-hover = "#a6d189";
+      link = "#fe640b";
+      link-hover = "#fe640b";
       card-shadow = "rgba(0, 0, 0, 0.1)";
     };
     dark = {
@@ -30,8 +30,8 @@
       text-header = "#4c4f69";
       text-title = "#4c4f69";
       text-subtitle = "#179299";
-      link = "#40a02b";
-      link-hover = "#40a02b";
+      link = "#fe640b";
+      link-hover = "#fe640b";
       card-shadow = "rgba(0, 0, 0, 0.1)";
     };
   };
