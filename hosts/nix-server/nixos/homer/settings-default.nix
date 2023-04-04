@@ -7,12 +7,12 @@
   theme = "default";
   colors = {
     dark = {
-      highlight-primary = "#df8e1d";
+      highlight-primary = "transparent";
       highlight-secondary = "#414559";
       highlight-hover = "#414559";
       background = "#303446";
       card-background = "#414559";
-      text = "#c6d0f5";
+      text = "#df8e1d";
       text-header = "#c6d0f5";
       text-title = "#c6d0f5";
       text-subtitle = "#f4b8e4";
