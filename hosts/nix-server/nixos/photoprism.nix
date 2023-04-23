@@ -8,9 +8,8 @@ in
   services.${app-name} = {
     enable = true;
     originalsPath = "/photos";
-    # address = "${app-name}.${network.domain.local}";
     settings = {
-      PHOTOPRISM_ADMIN_PASSWORD = "insecure";
+      # PHOTOPRISM_ADMIN_PASSWORD = "insecure";
     };
   };
   services.caddy.virtualHosts = {
