@@ -13,5 +13,6 @@
     ./users.nix
     ./hardware.nix
     ./sops.nix
+    ./photoprism.nix
   ];
 }
