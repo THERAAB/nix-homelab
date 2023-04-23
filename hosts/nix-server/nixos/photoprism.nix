@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   port = 2342;
-  app-name = photoprism;
+  app-name = "photoprism";
   network = import ../../../share/network.properties.nix;
 in
 {
