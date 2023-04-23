@@ -8,7 +8,7 @@ in
   services.${app-name} = {
     enable = true;
     originalsPath = "/photos";
-    address = "192.168.3.2";
+    address = "${app-name}.${network.domain.local}";
     settings = {
       PHOTOPRISM_ADMIN_PASSWORD = "insecure";
     };
