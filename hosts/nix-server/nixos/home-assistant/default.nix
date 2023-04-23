@@ -38,7 +38,6 @@ in
       timeout = 20;
     }
   ];
-
   systemd.tmpfiles.rules = [
     "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
     "L  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
@@ -46,7 +45,6 @@ in
     "Z  /var/lib/hass/blueprints            770     hass    hass    -   -                           "
     "Z  /var/lib/hass/custom_components     770     hass    hass    -   -                           "
   ];
-
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
