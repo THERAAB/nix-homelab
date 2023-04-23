@@ -6,7 +6,7 @@ in
   services.photoprism = {
     enable = true;
     originalsPath = "/photos";
-    # address = "http://192.168.3.2:2342/";
+    address = "http://192.168.3.2";
     settings = {
       PHOTOPRISM_ADMIN_PASSWORD = "insecure";
     };
