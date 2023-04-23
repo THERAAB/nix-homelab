@@ -29,7 +29,7 @@ in
     }
   ];
   systemd.tmpfiles.rules = [
-    "Z  /photos     770     photoprism    photoprism    -   - "
+    "Z  /photos     770     raab    raab    -   - "
   ];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
