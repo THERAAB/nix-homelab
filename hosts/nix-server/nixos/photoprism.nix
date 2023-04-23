@@ -4,5 +4,6 @@ let
 in
 {
   services.photoprism.enable = true;
+  services.photoprism.originalsPath = "/photos";
   networking.firewall.allowedTCPPorts = [ port ];
 }
