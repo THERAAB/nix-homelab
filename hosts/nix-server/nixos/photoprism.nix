@@ -39,7 +39,7 @@ in
   networking.firewall.allowedTCPPorts = [ port ];
   services.${app-name} = {
     enable = true;
-    originalsPath = ""/var/lib/private/photoprism/originals"";
+    originalsPath = "/var/lib/private/photoprism/originals";
   };
 
 }
