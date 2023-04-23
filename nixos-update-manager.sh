@@ -26,7 +26,6 @@ update_full() {
     update_dotfiles_git
     update_channel
     update_flake
-    update_dotfiles_git
 }
 
 gc() {
