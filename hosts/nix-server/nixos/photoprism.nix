@@ -29,7 +29,7 @@ in
     }
   ];
   systemd.tmpfiles.rules = [
-    "Z  /photos     770     raab    users    -   - "
+    "Z  /photos     740     ${app-name}    ${app-name}    -   - "
   ];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
