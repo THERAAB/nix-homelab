@@ -30,6 +30,8 @@ in
     }
   ];
   systemd.tmpfiles.rules = [
+    "d  ${local-config-dir}         -       -             -               -   - "
+    "d  ${local-config-dir}/photos  -       -             -               -   - "
     "Z  ${local-config-dir}         740     ${app-name}    ${app-name}    -   - "
     "Z  ${local-config-dir}/photos  740     ${app-name}    ${app-name}    -   - "
   ];
@@ -44,7 +46,7 @@ in
   networking.firewall.allowedTCPPorts = [ port ];
   services.${app-name} = {
     enable = true;
-    originalsPath = "/photos";
+    originalsPath = "${local-config-dir}/photos";
   };
 
 }
