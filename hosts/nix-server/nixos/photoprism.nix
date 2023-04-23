@@ -40,6 +40,6 @@ in
   services.${app-name} = {
     enable = true;
     originalsPath = "/var/lib/private/photoprism/originals";
-    #TODO: Password management
+    passwordFile = "${config.sops.secrets.df_password.path}";
   };
 }
