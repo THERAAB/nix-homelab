@@ -2,6 +2,7 @@
 let
   port = 2342;
   app-name = photoprism;
+  network = import ../../../share/network.properties.nix;
 in
 {
   services.${app-name} = {
