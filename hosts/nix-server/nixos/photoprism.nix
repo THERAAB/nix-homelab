@@ -47,6 +47,9 @@ in
   };
   services.${app-name} = {
     enable = true;
+    settings = {
+      PHOTOPRISM_ADMIN_USER = "raab";
+    };
     address = "0.0.0.0";
     originalsPath = "/var/lib/private/photoprism/originals";
     passwordFile = config.sops.secrets.df_password.path;
