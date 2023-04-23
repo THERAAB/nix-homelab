@@ -8,8 +8,6 @@
     wireguard_mullvad = {
        owner = "vuetorrent";
     };
-    df_password = {
-      owner = "photoprism";
-    };
+    df_password = {};
   };
 }

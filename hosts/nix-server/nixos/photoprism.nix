@@ -38,13 +38,6 @@ in
     '';
   };
   networking.firewall.allowedTCPPorts = [ port ];
-  users = {
-    users."${app-name}" = {
-      group = app-name;
-      uid = uid;
-      isSystemUser = true;
-    };
-  };
   services.${app-name} = {
     enable = true;
     settings = {
