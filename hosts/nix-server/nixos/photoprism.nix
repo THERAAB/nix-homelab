@@ -39,6 +39,7 @@ in
   networking.firewall.allowedTCPPorts = [ port ];
   services.${app-name} = {
     enable = true;
+    address = "0.0.0.0";
     originalsPath = "/var/lib/private/photoprism/originals";
     passwordFile = config.sops.secrets.df_password.path;
   };
