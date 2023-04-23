@@ -3,7 +3,6 @@ let
   port = 2342;
   app-name = "photoprism";
   network = import ../../../share/network.properties.nix;
-  local-config-dir = "/nix/persist/${app-name}";
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
@@ -29,12 +28,6 @@ in
       timeout = 20;
     }
   ];
-  systemd.tmpfiles.rules = [
-    "d  ${local-config-dir}         -       -             -               -   - "
-    "d  ${local-config-dir}/photos  -       -             -               -   - "
-    "Z  ${local-config-dir}         740     ${app-name}    ${app-name}    -   - "
-    "Z  ${local-config-dir}/photos  777     ${app-name}    ${app-name}    -   - "
-  ];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
@@ -46,7 +39,7 @@ in
   networking.firewall.allowedTCPPorts = [ port ];
   services.${app-name} = {
     enable = true;
-    originalsPath = "${local-config-dir}/photos";
+    originalsPath = ""/var/lib/private/photoprism/originals"";
   };
 
 }
