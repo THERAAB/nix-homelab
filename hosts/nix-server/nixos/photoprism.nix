@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   port = 2342;
+  uid=9116;
   app-name = "photoprism";
   network = import ../../../share/network.properties.nix;
 in
@@ -37,6 +38,13 @@ in
     '';
   };
   networking.firewall.allowedTCPPorts = [ port ];
+  users = {
+    users."${app-name}" = {
+      group = app-name;
+      uid = uid;
+      isSystemUser = true;
+    };
+  };
   services.${app-name} = {
     enable = true;
     address = "0.0.0.0";
