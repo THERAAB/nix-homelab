@@ -35,6 +35,15 @@ in
           url = "http://jellyseerr.${network.domain.tail}";
           target = "_blank";
         }
+        {
+         name = "Photoprism";
+          logo = "assets/icons/photoprism.png";
+          subtitle = "View & Manage Photos";
+          tag = "photos";
+          keywords = "photos media";
+          url = "http://photoprism.${network.domain.tail}";
+          target = "_blank";
+        }
       ];
     }
     {
