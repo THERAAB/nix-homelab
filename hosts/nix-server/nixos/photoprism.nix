@@ -3,6 +3,7 @@ let
   port = 2342;
   app-name = "photoprism";
   network = import ../../../share/network.properties.nix;
+  local-config-dir = "/nix/persist/${app-name}";
 in
 {
   services.yamlConfigMaker.gatus.settings.endpoints = [
@@ -29,7 +30,8 @@ in
     }
   ];
   systemd.tmpfiles.rules = [
-    "Z  /photos     740     ${app-name}    ${app-name}    -   - "
+    "Z  ${local-config-dir}         740     ${app-name}    ${app-name}    -   - "
+    "Z  ${local-config-dir}/photos  740     ${app-name}    ${app-name}    -   - "
   ];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
