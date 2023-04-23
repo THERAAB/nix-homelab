@@ -33,7 +33,7 @@ in
     "d  ${local-config-dir}         -       -             -               -   - "
     "d  ${local-config-dir}/photos  -       -             -               -   - "
     "Z  ${local-config-dir}         740     ${app-name}    ${app-name}    -   - "
-    "Z  ${local-config-dir}/photos  740     ${app-name}    ${app-name}    -   - "
+    "Z  ${local-config-dir}/photos  777     ${app-name}    ${app-name}    -   - "
   ];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
