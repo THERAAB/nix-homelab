@@ -17,7 +17,6 @@ in
       bind_hosts = [ "0.0.0.0" ];
       port = 53;
       upstream_dns = [ "${network.pfSense.local.ip}" ];
-      # upstream_dns = [ "1.1.1.1" ];
       protection_enabled = true;
       blocked_hosts = [ "version.bind" "id.server" "hostname.bind" ];
       trusted_proxies = [ "127.0.0.0/8" "::1/128" ];
