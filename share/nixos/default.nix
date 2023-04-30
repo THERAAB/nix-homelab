@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./podman.nix
+    # ./podman.nix
     ./persist.nix
     ./system.nix
     ./pkgs.nix
