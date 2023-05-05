@@ -28,5 +28,6 @@
     bottom
     zoxide
     helix
+    ethtool
   ];
 }
