@@ -1,9 +1,12 @@
 { config, pkgs, ... }:
 {
   services.tailscale.enable = true;
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
+  networking = {
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "tailscale0" ];
+    };
+    interfaces.enp3s0.wakeOnLan.enable = true;
   };
 
   powerManagement.powertop.enable = true;
