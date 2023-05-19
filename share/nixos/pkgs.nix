@@ -29,5 +29,6 @@
     zoxide
     helix
     ethtool
+    kitty
   ];
 }
