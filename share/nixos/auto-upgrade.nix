@@ -20,7 +20,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    dates = "04:00";
+    dates = "Sun *-*-* 04:00:00";
     flake = "/nix/persist/nix-homelab";
     flags = [
       "--update-input" "nixpkgs"
