@@ -1,13 +1,11 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   media = import ./media.properties.nix;
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
   local-config-dir = media.dir.config + "/${app-name}/";
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "VueTorrent";
@@ -59,19 +57,19 @@ in
       "${local-config-dir}:/config"
       "${media.dir.downloads}:/app/qBittorrent/downloads"
     ];
-    ports = [ "${toString port}:8080" "8118:8118" ];
+    ports = ["${toString port}:8080" "8118:8118"];
     environment = {
-      PUID="${toString uid}";
-      PGID="${toString media.gid}";
-      UMASK="022";
-      TZ="America/New_York";
-      VPN_ENABLED="true";
-      VPN_LAN_NETWORK="${network.desktop.subnet}";
-      VPN_CONF="wg0";
-      VPN_ADDITIONAL_PORTS="";
-      VPN_IP_CHECK_DELAY="5";
-      VPN_IP_CHECK_EXIT="true";
-      PRIVOXY_ENABLED="true";
+      PUID = "${toString uid}";
+      PGID = "${toString media.gid}";
+      UMASK = "022";
+      TZ = "America/New_York";
+      VPN_ENABLED = "true";
+      VPN_LAN_NETWORK = "${network.desktop.subnet}";
+      VPN_CONF = "wg0";
+      VPN_ADDITIONAL_PORTS = "";
+      VPN_IP_CHECK_DELAY = "5";
+      VPN_IP_CHECK_EXIT = "true";
+      PRIVOXY_ENABLED = "true";
     };
     extraOptions = [
       "--privileged"

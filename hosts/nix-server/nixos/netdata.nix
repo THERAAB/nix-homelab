@@ -1,10 +1,8 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   port = 19999;
   app-name = "netdata";
   network = import ../../../share/network.properties.nix;
-in
-{
+in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "NetData";
@@ -36,7 +34,7 @@ in
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  networking.firewall.allowedTCPPorts = [ port ];
+  networking.firewall.allowedTCPPorts = [port];
   services.netdata = {
     enable = true;
     configText = ''

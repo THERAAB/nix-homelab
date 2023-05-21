@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{...}: {
   imports = [
     ./persist.nix
     ./system.nix

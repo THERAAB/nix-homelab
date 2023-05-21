@@ -1,9 +1,7 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   devices = import ./devices.properties.nix;
   shopping-zone = "Shopping";
-in
-{
+in {
   services.home-assistant.config = {
     zone = [
       {

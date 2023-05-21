@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{pkgs, ...}:
 pkgs.writeShellScript "commands.sh" ''
   # OliveTin has nopasswd sudo access to this script, so we want to limit what it can do as root
 

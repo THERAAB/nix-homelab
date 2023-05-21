@@ -1,15 +1,14 @@
-{ config, pkgs, ... }:
-{ 
+{pkgs, ...}: {
   security.auditd.enable = true;
-  nix.settings.allowed-users = [ "@wheel" ];
-  
+  nix.settings.allowed-users = ["@wheel"];
+
   #OpenSSH
   services.openssh = {
     enable = true;
     ports = [22];
     settings = {
-    PasswordAuthentication = false;
-    KbdInteractiveAuthentication = false;
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
     };
   };
 

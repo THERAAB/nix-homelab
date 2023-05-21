@@ -1,7 +1,6 @@
 let
   devices = import ./devices.properties.nix;
-in
-{
+in {
   services.home-assistant.config.automation = [
     {
       alias = "Turn lamp off if TV on";
@@ -37,7 +36,7 @@ in
           {
             condition = "time";
             before = devices.living-room.lamp-off-time;
-            weekday = [ "mon" "tue" "wed" "thu" "fri" "sat" "sun" ];
+            weekday = ["mon" "tue" "wed" "thu" "fri" "sat" "sun"];
           }
         ];
       };

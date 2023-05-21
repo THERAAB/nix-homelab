@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   gid = 4444;
   uid = 4444;
   box-port = 8082;
@@ -14,12 +13,11 @@ let
   network = import ../../../../share/network.properties.nix;
   homer-hostname = "server";
   environment = {
-    UMASK="022";
+    UMASK = "022";
     INIT_ASSETS = "0";
-    TZ="America/New_York";
+    TZ = "America/New_York";
   };
-in
-{
+in {
   services.yamlConfigMaker."homer.tail" = {
     path = "${tail-config-dir}/config.yml";
     settings = tail-config;
@@ -99,7 +97,7 @@ in
     volumes = [
       "${box-config-dir}:/www/assets"
     ];
-    ports = [ "${toString box-port}:8080" ];
+    ports = ["${toString box-port}:8080"];
     user = "${toString uid}";
     environment = environment;
   };
@@ -109,7 +107,7 @@ in
     volumes = [
       "${tail-config-dir}:/www/assets"
     ];
-    ports = [ "${toString tail-port}:8080" ];
+    ports = ["${toString tail-port}:8080"];
     user = "${toString uid}";
     environment = environment;
   };

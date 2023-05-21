@@ -1,10 +1,8 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   devices = import ./devices.properties.nix;
   check-time = "8:30:00";
   battery-threshold = 30;
-in
-{
+in {
   services.home-assistant.config = {
     automation = [
       {

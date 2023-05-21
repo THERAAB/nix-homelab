@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-let
+{pkgs, ...}: let
   port = 1337;
   uid = 62893;
   gid = 62893;
@@ -9,8 +8,7 @@ let
   shellScript = pkgs.callPackage ./script.nix {};
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "OliveTin";
@@ -56,7 +54,7 @@ in
     "Z  ${scripts-dir}                700         root            root            -   -                         "
     "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -                         "
   ];
-  networking.firewall.allowedTCPPorts = [ port ];
+  networking.firewall.allowedTCPPorts = [port];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}

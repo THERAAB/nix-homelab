@@ -2,26 +2,27 @@ let
   network = import ../../../../share/network.properties.nix;
   port = 3000;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
-in
-{
+in {
   settings = {
     bind_host = "0.0.0.0";
     bind_port = port;
-    users = [{
-      name = "raab";
-      password = "$2a$10$4gtwC3j0OycMT2aMfwEbUepE.e6sFFhJq2JLuVLS1zy6iL8ebax3K";
-    }];
+    users = [
+      {
+        name = "raab";
+        password = "$2a$10$4gtwC3j0OycMT2aMfwEbUepE.e6sFFhJq2JLuVLS1zy6iL8ebax3K";
+      }
+    ];
     theme = "auto";
     dns = {
       ratelimit = 0;
-      bind_hosts = [ "0.0.0.0" ];
+      bind_hosts = ["0.0.0.0"];
       port = 53;
-      upstream_dns = [ "${network.pfSense.local.ip}" ];
+      upstream_dns = ["${network.pfSense.local.ip}"];
       protection_enabled = true;
-      blocked_hosts = [ "version.bind" "id.server" "hostname.bind" ];
-      trusted_proxies = [ "127.0.0.0/8" "::1/128" ];
+      blocked_hosts = ["version.bind" "id.server" "hostname.bind"];
+      trusted_proxies = ["127.0.0.0/8" "::1/128"];
       cache_size = 4194304;
-      bootstrap_dns = [ "9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10" ];
+      bootstrap_dns = ["9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10"];
       rewrites = [
         {
           domain = "*.${network.domain.local}";

@@ -1,5 +1,4 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-{
+{...}: {
   home.username = "raab";
   home.homeDirectory = "/home/raab";
   programs.home-manager.enable = true;
@@ -13,5 +12,4 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.11";
-  
 }

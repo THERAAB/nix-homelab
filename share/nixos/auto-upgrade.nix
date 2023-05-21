@@ -1,7 +1,10 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   systemd.services = {
-    nixos-upgrade.onFailure = [ "nixos-upgrade-on-failure.service" ];
+    nixos-upgrade.onFailure = ["nixos-upgrade-on-failure.service"];
     nixos-upgrade-on-failure = {
       script = ''
         TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
@@ -23,7 +26,8 @@
     dates = "Sun *-*-* 04:00:00";
     flake = "/nix/persist/nix-homelab";
     flags = [
-      "--update-input" "nixpkgs"
+      "--update-input"
+      "nixpkgs"
     ];
     allowReboot = true;
   };

@@ -1,12 +1,11 @@
-{ config, pkgs, ... }:
-{
+{...}: {
   sops.secrets = {
     home_assistant = {
       owner = "hass";
       path = "/var/lib/hass/secrets.yaml";
     };
     wireguard_mullvad = {
-       owner = "vuetorrent";
+      owner = "vuetorrent";
     };
     df_password = {};
   };

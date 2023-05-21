@@ -1,7 +1,6 @@
 let
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   alerting = {
     custom = {
       url = "https://api.pushbullet.com/v2/pushes";

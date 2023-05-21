@@ -1,8 +1,7 @@
 let
   settings-default = import ./settings-default.nix;
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   # See https://fontawesome.com/v5/search for icons options
   title = settings-default.title;
   subtitle = "Homer.tail Dashboard";
@@ -36,7 +35,7 @@ in
           target = "_blank";
         }
         {
-         name = "Photoprism";
+          name = "Photoprism";
           logo = "assets/icons/photoprism.png";
           subtitle = "View & Manage Photos";
           tag = "photos";

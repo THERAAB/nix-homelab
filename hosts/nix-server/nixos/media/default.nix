@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   media = import ./media.properties.nix;
-in
-{
+in {
   imports = [
     ./jellyfin.nix
     ./vuetorrent.nix

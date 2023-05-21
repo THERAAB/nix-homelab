@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   uid = 901;
   gid = 901;
   port = 7000;
@@ -7,8 +10,7 @@ let
   local-config-dir = "/nix/persist/${app-name}/";
   cfg = import ./config.nix;
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   services.yamlConfigMaker.gatus = {
     path = "${local-config-dir}/config.yaml";
     settings = {
@@ -43,15 +45,14 @@ in
       TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
     '';
-    wantedBy = [ "yamlConfigMaker-gatus.service" ];
-    after = [ "yamlConfigMaker-gatus.service" ];
-
+    wantedBy = ["yamlConfigMaker-gatus.service"];
+    after = ["yamlConfigMaker-gatus.service"];
   };
   # Delay gatus start because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
   systemd.services."podman-${app-name}" = {
-    wantedBy = [ "yamlPatcher-${app-name}.service" ];
-    after = [ "yamlPatcher-${app-name}.service" "adguardhome.service" ];
+    wantedBy = ["yamlPatcher-${app-name}.service"];
+    after = ["yamlPatcher-${app-name}.service" "adguardhome.service"];
   };
 
   services.caddy.virtualHosts = {
@@ -68,12 +69,12 @@ in
     volumes = [
       "${local-config-dir}:/config"
     ];
-    ports = [ "${toString port}:8080" ];
+    ports = ["${toString port}:8080"];
     environment = {
-      PUID="${toString uid}";
-      PGID="${toString gid}";
-      UMASK="022";
-      TZ="America/New_York";
+      PUID = "${toString uid}";
+      PGID = "${toString gid}";
+      UMASK = "022";
+      TZ = "America/New_York";
     };
   };
 }

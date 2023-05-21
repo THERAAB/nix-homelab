@@ -1,36 +1,35 @@
-{ config, pkgs, ... }:
-let
+{pkgs, ...}: let
   devices = import ./devices.properties.nix;
-in
-{
+in {
   systemd.tmpfiles.rules = [
     "R  /var/lib/hass/custom_components/govee   -       -       -       -   -                                          "
     "L  /var/lib/hass/custom_components/govee   770     hass    hass    -   ${pkgs.hacs-govee}/custom_components/govee "
   ];
   services.home-assistant = {
-    extraPackages = python3Packages: with python3Packages; [
-      (
-        buildPythonPackage rec {
-          pname = "govee_api_laggat";
-          version = "0.2.2";
-          src = fetchPypi {
-            inherit version pname;
-            hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
-          };
+    extraPackages = python3Packages:
+      with python3Packages; [
+        (
+          buildPythonPackage rec {
+            pname = "govee_api_laggat";
+            version = "0.2.2";
+            src = fetchPypi {
+              inherit version pname;
+              hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
+            };
 
-          propagatedBuildInputs = [
-            pkgs.bios
-            pexpect
-            events
-            pygatt
-            aiohttp
-            certifi
-            dacite
-            pytest
-          ];
-        }
-      )
-    ];
+            propagatedBuildInputs = [
+              pkgs.bios
+              pexpect
+              events
+              pygatt
+              aiohttp
+              certifi
+              dacite
+              pytest
+            ];
+          }
+        )
+      ];
     config.automation = [
       {
         alias = "Turn on Govee with TV after sunset ${devices.living-room.lamp-sunset-offset}";
@@ -41,9 +40,9 @@ in
           to = "idle";
         };
         condition = {
-           condition = "sun";
-           after = "sunset";
-           after_offset = devices.living-room.lamp-sunset-offset;
+          condition = "sun";
+          after = "sunset";
+          after_offset = devices.living-room.lamp-sunset-offset;
         };
         action = {
           service = "light.turn_on";

@@ -1,11 +1,9 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   port = 3000;
   settings = (import ./settings.nix).settings;
   app-name = "adguard";
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Adguard";
@@ -37,7 +35,7 @@ in
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  networking.firewall.allowedTCPPorts = [ port ];
+  networking.firewall.allowedTCPPorts = [port];
   services.adguardhome = {
     mutableSettings = false;
     enable = true;

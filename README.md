@@ -7,7 +7,9 @@ This repo contains everything needed to rebuild my homelab from scratch, with th
 ![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/share/assets/screenshots/dashboard.png?raw=true "PNG of Dashboard")
 
 ## What's inside
+
 My NixOS Homelab, with each machine having some shared configuration
+
 - Declarative/Reproducible builds using [NixOS](https://nixos.org/)
 - An Ephemeral root/home storage scheme (See [Erase your darlings](https://grahamc.com/blog/erase-your-darlings) and [NixOS Impermanence](https://github.com/nix-community/impermanence))
 - Secret management with [sops-nix](https://github.com/Mic92/sops-nix/blob/master/README.md)
@@ -16,10 +18,13 @@ My NixOS Homelab, with each machine having some shared configuration
 - [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
 
 ## Nix-Server
+
 See [The Nix-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/README.md)
 
 ## Maintenance
+
 These commands might help with some common maintenance tasks
+
 ```console
 # Check recent NixOs generations
 sudo nix-env -p /nix/var/nix/profiles/system --list-generations

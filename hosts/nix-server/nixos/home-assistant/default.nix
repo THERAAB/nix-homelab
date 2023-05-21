@@ -1,12 +1,10 @@
-{ config, pkgs, lib, ... }:
-let
+{...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom/";
   system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-server/nixos/home-assistant/blueprints";
   port = 8123;
   app-name = "home-assistant";
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   imports = [
     ./kasa-living-room-light.nix
     ./aqara-water-alarms.nix
@@ -53,7 +51,7 @@ in
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  networking.firewall.allowedTCPPorts = [ port ];
+  networking.firewall.allowedTCPPorts = [port];
   services.home-assistant = {
     enable = true;
     extraComponents = [
@@ -71,7 +69,7 @@ in
     config = {
       default_config = {};
       http = {
-        trusted_proxies = [ "127.0.0.1" ];
+        trusted_proxies = ["127.0.0.1"];
         use_x_forwarded_for = true;
       };
       homeassistant = {

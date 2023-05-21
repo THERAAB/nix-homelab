@@ -1,8 +1,6 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   network = import ../../../share/network.properties.nix;
-in
-{
+in {
   services.caddy = {
     enable = true;
     virtualHosts = {

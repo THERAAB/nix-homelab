@@ -1,8 +1,7 @@
 let
   settings-default = import ./settings-default.nix;
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   # See https://fontawesome.com/v5/search for icons options
   title = settings-default.title;
   subtitle = "Homer.box Dashboard";
@@ -18,7 +17,7 @@ in
       icon = "fas fa-play";
       items = [
         {
-         name = "Jellyfin";
+          name = "Jellyfin";
           logo = "assets/icons/jellyfin.png";
           subtitle = "Watch Movies & TV";
           tag = "media";
@@ -27,7 +26,7 @@ in
           target = "_blank";
         }
         {
-         name = "Jellyseerr";
+          name = "Jellyseerr";
           logo = "assets/icons/jellyseerr.png";
           subtitle = "Request Movies & TV";
           tag = "media";
@@ -36,7 +35,7 @@ in
           target = "_blank";
         }
         {
-         name = "Photoprism";
+          name = "Photoprism";
           logo = "assets/icons/photoprism.png";
           subtitle = "View & Manage Photos";
           tag = "photos";
@@ -50,7 +49,7 @@ in
       name = "Downloads";
       icon = "fas fa-download";
       items = [
-       {
+        {
           name = "Prowlarr";
           logo = "assets/icons/prowlarr.png";
           subtitle = "Manage Indexers";

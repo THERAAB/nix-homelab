@@ -1,13 +1,11 @@
-{ config, pkgs, ... }:
-let
+{...}: let
   media = import ./media.properties.nix;
   uid = 9991;
   port = 5055;
   app-name = "jellyseerr";
   local-config-dir = media.dir.config + "/${app-name}/";
   network = import ../../../../share/network.properties.nix;
-in
-{
+in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Jellyseerr";
@@ -57,12 +55,12 @@ in
       "${media.dir.movies}:/movies"
       "${media.dir.tv}:/tv"
     ];
-    ports = [ "${toString port}:${toString port}" ];
+    ports = ["${toString port}:${toString port}"];
     environment = {
-      PUID="${toString uid}";
-      PGID="${toString media.gid}";
-      UMASK="022";
-      TZ="America/New_York";
+      PUID = "${toString uid}";
+      PGID = "${toString media.gid}";
+      UMASK = "022";
+      TZ = "America/New_York";
     };
   };
 }

@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-{
+{...}: {
   systemd.tmpfiles.rules = [
     "d  /nix/persist/home/raab                      -   raab    -   -   -"
     "d  /nix/persist/home/raab/.config/sops/age     700 raab    -   -   -"
@@ -22,7 +21,10 @@
     ];
     files = [
       "/etc/machine-id"
-      { file = "/etc/nix/id_rsa"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+      {
+        file = "/etc/nix/id_rsa";
+        parentDirectory = {mode = "u=rwx,g=,o=";};
+      }
     ];
   };
 }
