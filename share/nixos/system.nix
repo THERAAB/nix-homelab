@@ -18,6 +18,5 @@
     localuser = null;
   };
 
-  # Neovim
   environment.variables.EDITOR = "hx";
 }
