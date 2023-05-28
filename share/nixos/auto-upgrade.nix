@@ -26,8 +26,7 @@
     dates = "Sun *-*-* 04:00:00";
     flake = "/nix/persist/nix-homelab";
     flags = [
-      "--update-input"
-      "nixpkgs"
+      "--recreate-lock-file"
     ];
     allowReboot = true;
   };
