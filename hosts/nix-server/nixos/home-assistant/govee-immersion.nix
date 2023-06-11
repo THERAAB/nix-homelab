@@ -18,7 +18,7 @@ in {
             };
 
             propagatedBuildInputs = [
-              pkgs.bios
+              pkgs.python3Packages.bios
               pexpect
               events
               pygatt
