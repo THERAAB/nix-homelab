@@ -1,11 +1,11 @@
 {
   lib,
-  buildPythonPackage,
+  python311,
   fetchPypi,
   oyaml,
   pyyaml,
 }:
-buildPythonPackage rec {
+python311.pkgs.buildPythonPackage rec {
   pname = "bios";
   version = "0.1.2";
   src = fetchPypi {
