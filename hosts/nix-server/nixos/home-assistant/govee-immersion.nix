@@ -18,6 +18,7 @@ in {
             };
 
             propagatedBuildInputs = [
+              pkgs.bios
               pexpect
               events
               pygatt
@@ -25,9 +26,6 @@ in {
               certifi
               dacite
               pytest
-            ];
-            nativeBuildInputs = [
-              pkgs.bios
             ];
           }
         )
