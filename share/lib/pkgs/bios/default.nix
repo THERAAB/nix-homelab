@@ -1,6 +1,7 @@
 {
   lib,
   python311,
+  python311Packages,
   fetchPypi,
   oyaml,
   pyyaml,
@@ -16,8 +17,8 @@ python311.pkgs.buildPythonPackage rec {
   doCheck = false;
 
   propagatedBuildInputs = [
-    oyaml
-    pyyaml
+    python311Packages.oyaml
+    python311Packages.pyyaml
   ];
 
   meta = with lib; {
