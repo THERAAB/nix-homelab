@@ -14,8 +14,8 @@ python310Packages.buildPythonPackage rec {
   doCheck = false;
 
   propagatedBuildInputs = [
-    python311Packages.oyaml
-    python311Packages.pyyaml
+    python310Packages.oyaml
+    python310Packages.pyyaml
   ];
 
   meta = with lib; {
