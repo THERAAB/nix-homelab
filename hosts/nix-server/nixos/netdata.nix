@@ -36,7 +36,7 @@ in {
   };
   networking.firewall.allowedTCPPorts = [port];
   services.netdata = {
-    enable = false;
+    enable = true;
     configText = ''
       [global]
         update every = 5
