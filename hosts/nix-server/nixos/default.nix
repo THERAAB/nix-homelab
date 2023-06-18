@@ -8,7 +8,7 @@
     ./adguard
     ./hardware-configuration.nix
     ./caddy.nix
-    #./netdata.nix
+    ./netdata.nix
     ./users.nix
     ./hardware.nix
     ./sops.nix
