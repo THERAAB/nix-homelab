@@ -3,7 +3,7 @@
   python311Packages,
   fetchPypi,
 }:
-python311Packages.buildPythonPackage rec {
+python310Packages.buildPythonPackage rec {
   pname = "bios";
   version = "0.1.2";
   src = fetchPypi {
