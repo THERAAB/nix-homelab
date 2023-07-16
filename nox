@@ -50,4 +50,6 @@ case "$1" in
         gc;;
     status)
         status;;
+    pull)
+        pull;;
 esac
