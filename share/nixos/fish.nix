@@ -8,14 +8,9 @@
       zoxide init --cmd cd fish | source
     '';
     shellAliases = {
-      update-channels = "/nix/persist/nix-homelab/nixos-update-manager.sh update_channel";
-      update-flake = "/nix/persist/nix-homelab/nixos-update-manager.sh update_flake";
-      update-full-with-git = "/nix/persist/nix-homelab/nixos-update-manager.sh update_full";
-      update-git-dotfiles = "/nix/persist/nix-homelab/nixos-update-manager.sh update_dotfiles_git";
-      garbage-collect-all = "/nix/persist/nix-homelab/nixos-update-manager.sh gc";
+      nox = "/nix/persist/nix-homelab/nox";
       ls = "exa";
       la = "exa -lah";
-      vi = "hx";
       cat = "bat --theme=base16-256";
       grep = "rg";
       ps = "procs";
