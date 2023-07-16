@@ -33,6 +33,10 @@ gc() {
     nix-collect-garbage -d
 }
 
+pull() {
+    git -C $dir pull
+}
+
 case "$1" in
     inputs)
         inputs;;
