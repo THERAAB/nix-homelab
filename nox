@@ -1,0 +1,49 @@
+#!/bin/sh
+
+# nox: NixOs eXecute
+
+dir=/nix/persist/nix-homelab
+
+inputs() {
+    sudo nix flake update $dir
+}
+
+update() {
+    git -C $dir pull
+    sudo nixos-rebuild switch --flake $dir#
+}
+
+commit() {
+    git -C $dir pull
+    git -C $dir add .
+    git -C $dir commit -m "automated commit"
+    git -C $dir push
+}
+
+status() {
+    git -C $dir status
+}
+
+update_full() {
+    inputs
+    update
+}
+
+gc() {
+    nix-collect-garbage -d
+}
+
+case "$1" in
+    inputs)
+        inputs;;
+    update)
+        update;;
+    commit)
+        commit;;
+    update-full)
+        update_full;;
+    gc)
+        gc;;
+    status)
+        status;;
+esac
