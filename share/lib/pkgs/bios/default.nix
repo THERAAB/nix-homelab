@@ -1,6 +1,6 @@
 {
   lib,
-  python310Packages,
+  python311Packages,
   fetchPypi,
 }:
 python311Packages.buildPythonPackage rec {
