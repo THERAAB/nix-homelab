@@ -22,7 +22,7 @@ in {
   services.olivetin.settings.actions = [
     {
       title = "Restart Unifi";
-      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
       shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
