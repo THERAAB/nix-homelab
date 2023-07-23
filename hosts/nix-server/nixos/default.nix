@@ -13,5 +13,6 @@
     ./hardware.nix
     ./sops.nix
     ./photoprism.nix
+    ./unifi.nix
   ];
 }
