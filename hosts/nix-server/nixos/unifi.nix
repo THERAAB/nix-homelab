@@ -1,30 +1,19 @@
-{pkgs, ...}: let
+{...}: let
+  uid = 8112;
   port = 8443;
-  app-name = "unifi";
-  network = import ../../../share/network.properties.nix;
+  app-name = "unifi-controller";
+  network = import ../../../../share/network.properties.nix;
+  local-config-dir = "/nix/persist/${app-name}/";
 in {
-  services.yamlConfigMaker.gatus.settings.endpoints = [
-    {
-      name = "Unifi";
-      url = "http://${app-name}.${network.domain.local}/";
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<title>Unifi</title>*)''
-      ];
-      alerts = [
-        {
-          type = "custom";
-        }
-      ];
-    }
-  ];
-  services.olivetin.settings.actions = [
-    {
-      title = "Restart Unifi";
-      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s ${app-name}";
-      timeout = 20;
-    }
+  users = {
+    users."${app-name}" = {
+      uid = uid;
+      isSystemUser = true;
+    };
+  };
+  systemd.tmpfiles.rules = [
+    "d    ${local-config-dir}     -       -             -        -   - "
+    "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
   services.caddy.virtualHosts = {
     "http://${app-name}.${network.domain.local}".extraConfig = ''
@@ -34,10 +23,22 @@ in {
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  networking.firewall.allowedTCPPorts = [port];
-  services.${app-name} = {
-    enable = true;
-    unifiPackage = pkgs.unifi;
-    openFirewall = true;
+  virtualisation.oci-containers.containers."${app-name}" = {
+    autoStart = true;
+    image = "linuxserver/${app-name}";
+    volumes = [
+      "${local-config-dir}:/config"
+    ];
+    ports = [
+      "${toString port}:${toString port}"
+      "3478:3478/udp"
+      "1001:1001/udp"
+      "8080:8080"
+    ];
+    environment = {
+      PUID = "${toString uid}";
+      UMASK = "022";
+      TZ = "America/New_York";
+    };
   };
 }
