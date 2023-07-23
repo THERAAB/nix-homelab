@@ -5,12 +5,12 @@
   # network = import ../../../../share/network.properties.nix;
   local-config-dir = "/nix/persist/${app-name}/";
 in {
-  #users = {
-  #  users."${app-name}" = {
-  #    uid = uid;
-  #    isSystemUser = true;
-  #  };
-  #};
+  users = {
+    users."${app-name}" = {
+      uid = uid;
+      isSystemUser = true;
+    };
+  };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}     -       -             -        -   - "
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
