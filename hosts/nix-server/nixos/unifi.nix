@@ -2,27 +2,27 @@
   uid = 8112;
   port = 8443;
   app-name = "unifi-controller";
-  network = import ../../../../share/network.properties.nix;
+  # network = import ../../../../share/network.properties.nix;
   local-config-dir = "/nix/persist/${app-name}/";
 in {
-  users = {
-    users."${app-name}" = {
-      uid = uid;
-      isSystemUser = true;
-    };
-  };
-  systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -             -        -   - "
-    "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
-  ];
-  services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
-    '';
-    "http://${app-name}.${network.domain.tail}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
-    '';
-  };
+  #users = {
+  #  users."${app-name}" = {
+  #    uid = uid;
+  #    isSystemUser = true;
+  #  };
+  #};
+  #systemd.tmpfiles.rules = [
+  #  "d    ${local-config-dir}     -       -             -        -   - "
+  #  "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
+  #];
+  #services.caddy.virtualHosts = {
+  #  "http://${app-name}.${network.domain.local}".extraConfig = ''
+  #    reverse_proxy http://127.0.0.1:${toString port}
+  #  '';
+  #  "http://${app-name}.${network.domain.tail}".extraConfig = ''
+  #    reverse_proxy http://127.0.0.1:${toString port}
+  #  '';
+  #};
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "linuxserver/${app-name}";
