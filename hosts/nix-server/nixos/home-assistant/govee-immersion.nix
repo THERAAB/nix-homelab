@@ -6,8 +6,8 @@ in {
     "L  /var/lib/hass/custom_components/govee   770     hass    hass    -   ${pkgs.hacs-govee}/custom_components/govee "
   ];
   services.home-assistant = {
-    extraPackages = python310Packages:
-      with python310Packages; [
+    extraPackages = python311Packages:
+      with python311Packages; [
         (
           buildPythonPackage rec {
             pname = "govee_api_laggat";
