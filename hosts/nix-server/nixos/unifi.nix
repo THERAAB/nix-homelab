@@ -38,9 +38,9 @@ in {
     '';
   };
   networking.firewall.allowedTCPPorts = [port];
-  services.${app-name} = {
-    enable = true;
-    unifiPackage = pkgs.unifi6;
-    openFirewall = true;
-  };
+  #services.${app-name} = {
+  #  enable = true;
+  #  unifiPackage = pkgs.unifi6;
+  #  openFirewall = true;
+  #};
 }
