@@ -1,6 +1,6 @@
 {...}: let
-  uid = 8112;
-  gid = 8111;
+  uid = 7812;
+  gid = 7813;
   port = 8443;
   app-name = "unifi-controller";
   network = import ../../../../share/network.properties.nix;
