@@ -11,10 +11,10 @@ in {
   #    isSystemUser = true;
   #  };
   #};
-  #systemd.tmpfiles.rules = [
-  #  "d    ${local-config-dir}     -       -             -        -   - "
-  #  "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
-  #];
+  systemd.tmpfiles.rules = [
+    "d    ${local-config-dir}     -       -             -        -   - "
+    "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
+  ];
   #services.caddy.virtualHosts = {
   #  "http://${app-name}.${network.domain.local}".extraConfig = ''
   #    reverse_proxy http://127.0.0.1:${toString port}
