@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   port = 8443;
   app-name = "unifi";
   network = import ../../../share/network.properties.nix;
@@ -39,8 +36,8 @@ in {
   };
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
-    enable = true;
-  #  unifiPackage = pkgs.unifi6;
-  #  openFirewall = true;
+    enable = false;
+    unifiPackage = pkgs.unifi;
+    openFirewall = true;
   };
 }
