@@ -1,4 +1,7 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  ...
+}: let
   devices = import ./devices.properties.nix;
 in {
   systemd.tmpfiles.rules = [
@@ -7,7 +10,7 @@ in {
   ];
   services.home-assistant = {
     extraPackages = python311Packages:
-      with python311Packages; [
+      with pkgs.python311Packages; [
         (
           buildPythonPackage rec {
             pname = "govee_api_laggat";
