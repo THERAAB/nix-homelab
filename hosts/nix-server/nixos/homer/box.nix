@@ -110,6 +110,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Unifi Controller";
+          logo = "assets/icons/unifi.png";
+          subtitle = "Wireless Access Point";
+          tag = "wireless";
+          keywords = "wireless router access point";
+          url = "https://192.168.3.2:8443/";
+          target = "_blank";
+        }
+        {
           name = "AdGuard";
           logo = "assets/icons/adguard.png";
           subtitle = "DNS Ad Blocking";

@@ -3,9 +3,30 @@
   gid = 7813;
   port = 8443;
   app-name = "unifi-controller";
-  network = import ../../../share/network.properties.nix;
   local-config-dir = "/nix/persist/${app-name}/";
 in {
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "Unifi Controller";
+      url = "https://192.168.3.2:8443";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
+  services.olivetin.settings.actions = [
+    {
+      title = "Restart Unifi";
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
+      timeout = 20;
+    }
+  ];
   users = {
     users."${app-name}" = {
       uid = uid;
@@ -18,14 +39,6 @@ in {
     "d    ${local-config-dir}     -       -             -        -   - "
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
-  services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
-    '';
-    "http://${app-name}.${network.domain.tail}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
-    '';
-  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "linuxserver/${app-name}";
@@ -40,6 +53,7 @@ in {
     ];
     environment = {
       PUID = "${toString uid}";
+      PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
     };
