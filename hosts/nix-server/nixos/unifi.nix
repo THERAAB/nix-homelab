@@ -3,7 +3,7 @@
   gid = 7813;
   port = 8443;
   app-name = "unifi-controller";
-  network = import ../../../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
   local-config-dir = "/nix/persist/${app-name}/";
 in {
   users = {
