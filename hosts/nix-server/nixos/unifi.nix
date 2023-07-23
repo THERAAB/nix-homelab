@@ -40,8 +40,7 @@ in {
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
     enable = true;
-    unifiPackage = pkgs.unifi;
-    mongodbPackage = pkgs.mongodb-3_6;
+    unifiPackage = pkgs.unifi6;
     openFirewall = true;
   };
 }
