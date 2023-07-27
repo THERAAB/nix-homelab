@@ -45,16 +45,15 @@ in {
     }
     {
       name = "Unifi AP 6+";
-      url = "https://192.168.3.2:8443/";
+      url = "tcp://192.168.1.52:53";
       conditions = [
-        "[STATUS] == 200"
+        "[RESPONSE_TIME] < 500"
       ];
       alerts = [
         {
           type = "custom";
         }
       ];
-      client.insecure = true;
     }
   ];
 }
