@@ -5,7 +5,7 @@
   };
   desktop.subnet = "192.168.2.0/24";
   pfSense.local.ip = "192.168.1.1";
-  tplink.local.ip = "192.168.1.2";
+  unifi-ap-6-plus.local.ip = "192.168.1.2";
   govee-water-alarm.local.ip = "192.168.1.3";
   ring-doorbell.local.ip = "192.168.1.4";
   kasa-living-room-plug.local.ip = "192.168.1.6";

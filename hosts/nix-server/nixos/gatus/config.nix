@@ -45,7 +45,7 @@ in {
     }
     {
       name = "Unifi AP 6+";
-      url = "tcp://192.168.1.52:53";
+      url = "tcp://${network.unifi-ap-6-plus.local.ip}:53";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
