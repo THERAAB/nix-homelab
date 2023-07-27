@@ -44,7 +44,7 @@ in {
       ];
     }
     {
-      name = "TP-Link Archer";
+      name = "Unifi AP 6+";
       url = "https://192.168.3.2:8443/";
       conditions = [
         "[STATUS] == 200"
@@ -54,6 +54,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
 }
