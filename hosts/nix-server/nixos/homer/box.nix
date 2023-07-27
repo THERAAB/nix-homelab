@@ -101,15 +101,6 @@ in {
           target = "_blank";
         }
         {
-          name = "TP-Link Archer";
-          logo = "assets/icons/tplink.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "http://tplink.${network.domain.local}";
-          target = "_blank";
-        }
-        {
           name = "Unifi Controller";
           logo = "assets/icons/unifi.png";
           subtitle = "Wireless Access Point";

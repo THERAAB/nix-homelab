@@ -45,10 +45,9 @@ in {
     }
     {
       name = "TP-Link Archer";
-      url = "http://tplink.${network.domain.local}/";
+      url = "https://192.168.3.2:8443/";
       conditions = [
         "[STATUS] == 200"
-        ''[BODY] == pat(*<?xml version="1.0" encoding="utf-8"?>*)''
       ];
       alerts = [
         {

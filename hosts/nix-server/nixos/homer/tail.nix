@@ -92,15 +92,6 @@ in {
       icon = "fas fa-house-signal";
       items = [
         {
-          name = "TP-Link Archer";
-          logo = "assets/icons/tplink.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "http://tplink.${network.domain.tail}";
-          target = "_blank";
-        }
-        {
           name = "AdGuard";
           logo = "assets/icons/adguard.png";
           subtitle = "DNS Ad Blocking";
