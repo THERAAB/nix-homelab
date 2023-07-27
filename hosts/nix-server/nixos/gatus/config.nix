@@ -45,7 +45,19 @@ in {
     }
     {
       name = "Unifi AP 6+";
-      url = "icmp://${network.unifi-ap-6-plus.local.ip}";
+      url = "tcp://${network.unifi-ap-6-plus.local.ip}:53";
+      conditions = [
+        "[RESPONSE_TIME] < 500"
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+    {
+      name = "Unifi Lite 8 Switch";
+      url = "tcp://${network.unifi-usw-lite.local.ip}:53";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
