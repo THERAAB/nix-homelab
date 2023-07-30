@@ -5,8 +5,8 @@
   };
   desktop.subnet = "192.168.2.0/24";
   pfSense.local.ip = "192.168.1.1";
-  unifi-ap-6-plus.local.ip = "192.168.1.52";
-  unifi-usw-lite.local.ip = "192.168.1.51";
+  unifi-u6-plus.local.ip = "192.168.1.52";
+  unifi-usw-lite-8.local.ip = "192.168.1.51";
   govee-water-alarm.local.ip = "192.168.1.3";
   ring-doorbell.local.ip = "192.168.1.4";
   kasa-living-room-plug.local.ip = "192.168.1.6";

@@ -44,8 +44,8 @@ in {
       ];
     }
     {
-      name = "Unifi AP 6+";
-      url = "tcp://${network.unifi-ap-6-plus.local.ip}:53";
+      name = "Unifi U6+";
+      url = "tcp://${network.unifi-u6-plus.local.ip}:53";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
@@ -57,7 +57,7 @@ in {
     }
     {
       name = "Unifi Lite 8 Switch";
-      url = "tcp://${network.unifi-usw-lite.local.ip}:53";
+      url = "tcp://${network.unifi-usw-lite-8.local.ip}:53";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
