@@ -97,7 +97,7 @@ in {
           subtitle = "Firewall Router";
           tag = "wireless";
           keywords = "router firewall";
-          url = "https://192.168.1.1";
+          url = "https://${network.pfSense.local.ip}";
           target = "_blank";
         }
         {
@@ -106,7 +106,7 @@ in {
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
-          url = "https://192.168.3.2:8443/";
+          url = "https://${network.nix-server.local.ip}:8443/";
           target = "_blank";
         }
         {

@@ -4,11 +4,12 @@
   port = 8443;
   app-name = "unifi-controller";
   local-config-dir = "/nix/persist/${app-name}/";
+  network = import ../../../share/network.properties.nix;
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Unifi Controller";
-      url = "https://192.168.3.2:8443";
+      url = "https://${network.nix-server.local.ip}:${port}";
       conditions = [
         "[STATUS] == 200"
       ];
