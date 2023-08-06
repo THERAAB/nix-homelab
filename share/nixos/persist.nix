@@ -15,6 +15,7 @@
       "/etc/nixos"
       "/var/log"
       "/var/lib/"
+      "/var/cache/netdata"
       "/var/www/"
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
