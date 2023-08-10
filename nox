@@ -5,6 +5,7 @@
 dir=/nix/persist/nix-homelab
 
 inputs() {
+    git -C $dir pull
     sudo nix flake update $dir
 }
 
