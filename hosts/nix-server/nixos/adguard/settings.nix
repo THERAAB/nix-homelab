@@ -32,6 +32,10 @@ in {
           domain = "*.${network.domain.local}";
           answer = "${network.nix-server.local.ip}";
         }
+        {
+          domain = "*.${network.domain.box}";
+          answer = "${network.nix-server.local.ip}";
+        }
       ];
     };
     filters = [
