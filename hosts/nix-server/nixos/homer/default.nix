@@ -1,15 +1,12 @@
 {...}: let
   gid = 4444;
   uid = 4444;
-  box-port = 8082;
-  tail-port = 8083;
+  port = 8082;
   app-name = "homer";
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   local-config-dir = "/nix/persist/${app-name}/";
-  tail-config = import ./tail.nix;
-  box-config = import ./box.nix;
-  tail-config-dir = local-config-dir + "/tail/";
-  box-config-dir = local-config-dir + "/box/";
+  config = import ./config.nix;
+  config-dir = local-config-dir;
   network = import ../../../../share/network.properties.nix;
   homer-hostname = "server";
   environment = {
@@ -18,31 +15,14 @@
     TZ = "America/New_York";
   };
 in {
-  services.yamlConfigMaker."homer.tail" = {
-    path = "${tail-config-dir}/config.yml";
-    settings = tail-config;
-  };
-  services.yamlConfigMaker."homer.box" = {
-    path = "${box-config-dir}/config.yml";
-    settings = box-config;
+  services.yamlConfigMaker."homer" = {
+    path = "${config-dir}/config.yml";
+    settings = config;
   };
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Homer.box";
-      url = "http://${homer-hostname}.${network.domain.local}/";
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<div id="app-mount"></div>*)''
-      ];
-      alerts = [
-        {
-          type = "custom";
-        }
-      ];
-    }
-    {
-      name = "Homer.tail";
-      url = "http://${homer-hostname}.${network.domain.tail}/";
+      url = "http://${homer-hostname}.${network.domain.box}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<div id="app-mount"></div>*)''
@@ -56,23 +36,15 @@ in {
   ];
   services.olivetin.settings.actions = [
     {
-      title = "Restart Homer.box";
+      title = "Restart Homer";
       icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p homer.box";
-      timeout = 20;
-    }
-    {
-      title = "Restart Homer.tail";
-      icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p homer.tail";
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p homer";
       timeout = 20;
     }
   ];
   systemd.tmpfiles.rules = [
-    "R    ${box-config-dir}/icons           -   -               -               -   -                     "
-    "R    ${tail-config-dir}/icons          -   -               -               -   -                     "
-    "C    ${tail-config-dir}/icons          -   -               -               -   ${system-icons-dir}   "
-    "C    ${box-config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
+    "R    ${config-dir}/icons           -   -               -               -   -                     "
+    "C    ${config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
     "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                     "
   ];
   users = {
@@ -84,30 +56,17 @@ in {
     };
   };
   services.caddy.virtualHosts = {
-    "http://${homer-hostname}.${network.domain.local}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString box-port}
-    '';
-    "http://${homer-hostname}.${network.domain.tail}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString tail-port}
+    "http://${homer-hostname}.${network.domain.box}".extraConfig = ''
+      reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  virtualisation.oci-containers.containers."${app-name}.box" = {
+  virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "b4bz/${app-name}";
     volumes = [
-      "${box-config-dir}:/www/assets"
+      "${config-dir}:/www/assets"
     ];
-    ports = ["${toString box-port}:8080"];
-    user = "${toString uid}";
-    environment = environment;
-  };
-  virtualisation.oci-containers.containers."${app-name}.tail" = {
-    autoStart = true;
-    image = "b4bz/${app-name}";
-    volumes = [
-      "${tail-config-dir}:/www/assets"
-    ];
-    ports = ["${toString tail-port}:8080"];
+    ports = ["${toString port}:8080"];
     user = "${toString uid}";
     environment = environment;
   };

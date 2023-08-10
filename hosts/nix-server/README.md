@@ -11,7 +11,7 @@ and the installation instructions below.
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
 - Mesh VPN with [Tailscale](https://tailscale.com/)
-- [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
+- [Homer](https://github.com/bastienwirtz/homer) Dashboard
 - Reverse Proxy with [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [netdata](https://www.netdata.cloud/) and [gatus](https://github.com/TwiN/gatus)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)

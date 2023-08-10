@@ -28,10 +28,7 @@ in {
     }
   ];
   services.caddy.virtualHosts = {
-    "http://adguard.${network.domain.local}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
-    '';
-    "http://adguard.${network.domain.tail}".extraConfig = ''
+    "http://adguard.${network.domain.box}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };

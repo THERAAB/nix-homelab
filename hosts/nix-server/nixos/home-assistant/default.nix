@@ -44,10 +44,7 @@ in {
     "Z  /var/lib/hass/custom_components     770     hass    hass    -   -                           "
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
-    '';
-    "http://${app-name}.${network.domain.tail}".extraConfig = ''
+    "http://${app-name}.${network.domain.box}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
