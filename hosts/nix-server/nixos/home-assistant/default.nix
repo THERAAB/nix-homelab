@@ -16,7 +16,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Home Assistant";
-      url = "http://${app-name}.${network.domain.local}/";
+      url = "http://${app-name}.${network.domain.box}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>Home Assistant</title>*)''

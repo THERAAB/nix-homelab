@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Prowlarr";
-      url = "http://${app-name}.${network.domain.local}/health";
+      url = "http://${app-name}.${network.domain.box}/health";
       conditions = [
         "[STATUS] == 200"
       ];
