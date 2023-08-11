@@ -32,10 +32,6 @@ in {
           domain = "*.${network.domain.tail}";
           answer = "${network.nix-server.tailscale.ip}";
         }
-        {
-          domain = "*.${network.domain.box}";
-          answer = "${network.nix-server.local.ip}";
-        }
       ];
     };
     filters = [
