@@ -4,7 +4,7 @@ let
 in {
   # See https://fontawesome.com/v5/search for icons options
   title = settings-default.title;
-  subtitle = "Homer.box Dashboard";
+  subtitle = "Homer.tail Dashboard";
   logo = settings-default.logo;
   header = settings-default.header;
   footer = settings-default.footer;
@@ -22,7 +22,7 @@ in {
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyfin.${network.domain.box}";
+          url = "http://jellyfin.${network.domain.tail}";
           target = "_blank";
         }
         {
@@ -31,7 +31,7 @@ in {
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyseerr.${network.domain.box}";
+          url = "http://jellyseerr.${network.domain.tail}";
           target = "_blank";
         }
         {
@@ -40,7 +40,7 @@ in {
           subtitle = "View & Manage Photos";
           tag = "photos";
           keywords = "photos media";
-          url = "http://photoprism.${network.domain.box}";
+          url = "http://photoprism.${network.domain.tail}";
           target = "_blank";
         }
       ];
@@ -55,7 +55,7 @@ in {
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
-          url = "http://prowlarr.${network.domain.box}";
+          url = "http://prowlarr.${network.domain.tail}";
           target = "_blank";
         }
         {
@@ -64,7 +64,7 @@ in {
           subtitle = "Manage Torrents";
           tag = "download";
           keywords = "torrent download";
-          url = "http://vuetorrent.${network.domain.box}";
+          url = "http://vuetorrent.${network.domain.tail}";
           target = "_blank";
         }
         {
@@ -73,7 +73,7 @@ in {
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
-          url = "http://radarr.${network.domain.box}";
+          url = "http://radarr.${network.domain.tail}";
           target = "_blank";
         }
         {
@@ -82,7 +82,7 @@ in {
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
-          url = "http://sonarr.${network.domain.box}";
+          url = "http://sonarr.${network.domain.tail}";
           target = "_blank";
         }
       ];
@@ -92,30 +92,12 @@ in {
       icon = "fas fa-house-signal";
       items = [
         {
-          name = "PfSense";
-          logo = "assets/icons/pfsense.png";
-          subtitle = "Firewall Router";
-          tag = "wireless";
-          keywords = "router firewall";
-          url = "https://${network.pfSense.local.ip}";
-          target = "_blank";
-        }
-        {
-          name = "Unifi Controller";
-          logo = "assets/icons/unifi.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "https://${network.nix-server.local.ip}:8443/";
-          target = "_blank";
-        }
-        {
           name = "AdGuard";
           logo = "assets/icons/adguard.png";
           subtitle = "DNS Ad Blocking";
           tag = "dns";
           keywords = "dns adblock";
-          url = "http://adguard.${network.domain.box}";
+          url = "http://adguard.${network.domain.tail}";
           target = "_blank";
         }
         {
@@ -124,7 +106,7 @@ in {
           subtitle = "Smart Home Automation";
           tag = "smart-home";
           keywords = "smart home assistant automation";
-          url = "http://home-assistant.${network.domain.box}";
+          url = "http://home-assistant.${network.domain.tail}";
           target = "_blank";
         }
       ];
@@ -139,7 +121,7 @@ in {
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://netdata.${network.domain.box}";
+          url = "http://netdata.${network.domain.tail}";
           target = "_blank";
         }
         {
@@ -148,7 +130,7 @@ in {
           subtitle = "Monitor Services";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://gatus.${network.domain.box}";
+          url = "http://gatus.${network.domain.tail}";
           target = "_blank";
         }
       ];
@@ -163,7 +145,7 @@ in {
           subtitle = "Execute Commands";
           tag = "exec";
           keywords = "exec";
-          url = "http://olivetin.${network.domain.box}";
+          url = "http://olivetin.${network.domain.tail}";
           target = "_blank";
         }
       ];
