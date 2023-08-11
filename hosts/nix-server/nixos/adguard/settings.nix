@@ -29,7 +29,7 @@ in {
           answer = "${network.nix-server.tailscale.ip}";
         }
         {
-          domain = "*.box.home";
+          domain = "*.box";
           answer = "${network.nix-server.local.ip}";
         }
       ];
