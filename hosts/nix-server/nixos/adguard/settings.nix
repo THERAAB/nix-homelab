@@ -25,12 +25,12 @@ in {
       bootstrap_dns = ["9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10"];
       rewrites = [
         {
-          domain = "*.box.tail";
-          answer = "${network.nix-server.tailscale.ip}";
-        }
-        {
           domain = "*.box";
           answer = "${network.nix-server.local.ip}";
+        }
+        {
+          domain = "*.box.tail";
+          answer = "${network.nix-server.tailscale.ip}";
         }
       ];
     };
