@@ -32,6 +32,14 @@ in {
           domain = "*.${network.domain.tail}";
           answer = "${network.nix-server.tailscale.ip}";
         }
+        {
+          domain = "jellyfin.test.com";
+          answer = "${network.nix-server.tailscale.ip}";
+        }
+        {
+          domain = "jellyfin.internal.test.com";
+          answer = "${network.nix-server.local.ip}";
+        }
       ];
     };
     filters = [
