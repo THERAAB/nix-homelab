@@ -33,11 +33,11 @@ in {
           answer = "${network.nix-server.tailscale.ip}";
         }
         {
-          domain = "jellyfin.test.com";
+          domain = "jellyfin.box.tail";
           answer = "${network.nix-server.tailscale.ip}";
         }
         {
-          domain = "jellyfin.internal.test.com";
+          domain = "jellyfin.box.home";
           answer = "${network.nix-server.local.ip}";
         }
       ];
