@@ -25,11 +25,11 @@ in {
       bootstrap_dns = ["9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10"];
       rewrites = [
         {
-          domain = "jellyfin.box.tail";
+          domain = "*.box.tail";
           answer = "${network.nix-server.tailscale.ip}";
         }
         {
-          domain = "jellyfin.box.home";
+          domain = "*.box.home";
           answer = "${network.nix-server.local.ip}";
         }
       ];
