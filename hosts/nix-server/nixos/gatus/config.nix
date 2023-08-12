@@ -56,6 +56,18 @@ in {
       ];
     }
     {
+      name = "Ecobee Thermostat";
+      url = "tcp://${network.ecobee.local.ip}:53";
+      conditions = [
+        "[RESPONSE_TIME] < 500"
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+    {
       name = "Unifi U6+";
       url = "tcp://${network.unifi-u6-plus.local.ip}:53";
       conditions = [

@@ -12,5 +12,6 @@
   kasa-living-room-plug.local.ip = "192.168.127.6";
   android-tv.local.ip = "192.168.127.5";
   b-hyve.local.ip = "192.168.127.7";
+  ecobee.local.ip = "192.168.127.8";
   domain.local = "box";
 }
