@@ -28,6 +28,10 @@ in {
           domain = "*.${network.domain.local}.pumpkin";
           answer = "${network.nix-server.local.ip}";
         }
+        {
+          domain = "*.${network.domain.local}.tail";
+          answer = "${network.nix-server.tailscale.ip}";
+        }
       ];
     };
     filters = [
