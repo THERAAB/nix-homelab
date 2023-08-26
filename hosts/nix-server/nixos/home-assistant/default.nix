@@ -11,6 +11,7 @@ in {
     ./battery-notifications.nix
     ./govee-immersion.nix
     ./shopping-list.nix
+    ./tapo-light-strip.nix
   ];
 
   services.yamlConfigMaker.gatus.settings.endpoints = [
