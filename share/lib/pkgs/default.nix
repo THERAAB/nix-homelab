@@ -3,5 +3,6 @@
 {pkgs ? (import ../../nixpkgs.nix) {}}: {
   olivetin = pkgs.callPackage ./olivetin {};
   hacs-govee = pkgs.callPackage ./hacs-govee {};
+  home-assistant-tapo-p100 = pkgs.callPackage ./home-assistant-tapo-p100 {};
   bios = pkgs.python3Packages.callPackage ./bios {};
 }
