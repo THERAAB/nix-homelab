@@ -16,6 +16,7 @@
             };
 
             propagatedBuildInputs = [
+              certifi
             ];
           }
         )
