@@ -12,7 +12,7 @@
             version = "3.9.0";
             src = fetchPypi {
               inherit version pname;
-              hash = "";
+              hash = "sha256-wYL3CGh4Q2TBggI2l96VK+yhjDsqgNSSF6sv4ASAIXE=";
             };
 
             propagatedBuildInputs = [
