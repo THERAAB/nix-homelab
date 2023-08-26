@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     inherit pname version;
     repo = pname;
     rev = version;
-    owner = "LaggAt";
+    owner = "petretiandrea";
     sha256 = "";
   };
   installPhase = ''
