@@ -17,6 +17,11 @@
 
             propagatedBuildInputs = [
               certifi
+              cryptography
+              jsons
+              requests
+              aiohttp
+              semantic-version
             ];
           }
         )
