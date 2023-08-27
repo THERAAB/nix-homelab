@@ -45,11 +45,6 @@
           data = {
             brightness_pct = 15;
             color_temp = 365;
-            rgb_color = [
-              255
-              255
-              255
-            ];
           };
           target = {
             entity_id = "light.kitchen_over_cabinet_lights";
