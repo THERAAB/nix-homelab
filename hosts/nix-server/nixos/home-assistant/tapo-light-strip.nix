@@ -26,5 +26,36 @@
           }
         )
       ];
+    config.automation = [
+      {
+        alias = "Turn on Kitchen Cabinet LEDs when Motion Detected";
+        trigger = {
+          platform = "state";
+          entity_id = "binary_sensor.lumi_lumi_motion_ac02_motion";
+          from = "off";
+          to = "on";
+        };
+        condition = {
+          condition = "numeric_state";
+          entity_id = "sensor.lumi_lumi_motion_ac02_illuminance";
+          below = "10";
+        };
+        action = {
+          service = "light.turn_on";
+          data = {
+            brightness_pct = 15;
+            color_temp = 365;
+            rgb_color = [
+              255
+              255
+              255
+            ];
+          };
+          target = {
+            entity_id = "light.kitchen_over_cabinet_lights";
+          };
+        };
+      }
+    ];
   };
 }
