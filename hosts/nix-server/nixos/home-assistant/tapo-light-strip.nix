@@ -44,7 +44,7 @@
           service = "light.turn_on";
           data = {
             brightness_pct = 15;
-            color_temp = 365;
+            color_temp = 250;
           };
           target = {
             entity_id = "light.kitchen_over_cabinet_lights";
