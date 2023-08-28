@@ -40,16 +40,36 @@
           entity_id = "sensor.lumi_lumi_motion_ac02_illuminance";
           below = "15";
         };
-        action = {
-          service = "light.turn_on";
-          data = {
-            brightness_pct = 15;
-            color_temp = 300;
-          };
-          target = {
-            entity_id = "light.kitchen_over_cabinet_lights";
-          };
-        };
+        action = [
+          {
+            service = "light.turn_on";
+            data = {
+              brightness_pct = 15;
+              color_temp = 300;
+            };
+            target = {
+              entity_id = "light.kitchen_over_cabinet_lights";
+            };
+          }
+          {
+            type = "no_motion";
+            platform = "state";
+            entity_id = "binary_sensor.lumi_lumi_motion_ac02_motion";
+            from = "on";
+            to = "off";
+            for = {
+              hours = 0;
+              minutes = 0;
+              seconds = 30;
+            };
+          }
+          {
+            service = "light.turn_off";
+            target = {
+              entity_id = "light.kitchen_over_cabinet_lights";
+            };
+          }
+        ];
       }
     ];
   };
