@@ -38,7 +38,7 @@
         condition = {
           condition = "numeric_state";
           entity_id = "sensor.lumi_lumi_motion_ac02_illuminance";
-          below = "7";
+          below = "9";
         };
         action = [
           {
