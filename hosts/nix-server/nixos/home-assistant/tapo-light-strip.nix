@@ -52,15 +52,16 @@
             };
           }
           {
-            type = "no_motion";
-            platform = "state";
-            entity_id = "binary_sensor.lumi_lumi_motion_ac02_motion";
-            from = "on";
-            to = "off";
-            for = {
-              hours = 0;
-              minutes = 0;
-              seconds = 30;
+            wait_for_trigger = {
+              platform = "state";
+              entity_id = "binary_sensor.lumi_lumi_motion_ac02_motion";
+              from = "on";
+              to = "off";
+              for = {
+                hours = 0;
+                minutes = 0;
+                seconds = 30;
+              };
             };
           }
           {
