@@ -60,7 +60,7 @@
               for = {
                 hours = 0;
                 minutes = 0;
-                seconds = 180;
+                seconds = 90;
               };
             };
           }
