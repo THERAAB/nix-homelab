@@ -63,7 +63,7 @@ in {
       "ifttt"
       "androidtv"
       "pushbullet"
-      "pywizlight"
+      "wiz"
     ];
     config = {
       default_config = {};
