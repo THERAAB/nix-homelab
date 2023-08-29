@@ -97,7 +97,7 @@ in {
           subtitle = "Firewall Router";
           tag = "wireless";
           keywords = "router firewall";
-          url = "https://${network.pfSense.local.ip}";
+          url = "https://pfsense.pumpkin/";
           target = "_blank";
         }
         {
