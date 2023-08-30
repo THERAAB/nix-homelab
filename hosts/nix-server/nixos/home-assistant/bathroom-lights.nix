@@ -52,8 +52,7 @@
         {
           repeat = {
             while = {
-              type = "is_humidity";
-              condition = "device";
+              condition = "numeric_state";
               entity_id = "sensor.lumi_lumi_weather_humidity";
               above = 80;
             };
