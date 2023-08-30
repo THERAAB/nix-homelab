@@ -59,7 +59,7 @@
             };
             sequence = {
               delay = {
-                seocnds = 30;
+                seconds = 30;
               };
             };
           };
