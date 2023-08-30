@@ -58,8 +58,6 @@
               from = "on";
               to = "off";
               for = {
-                hours = 0;
-                minutes = 0;
                 seconds = 90;
               };
             };

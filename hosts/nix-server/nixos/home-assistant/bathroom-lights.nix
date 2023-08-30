@@ -45,9 +45,22 @@
             from = "on";
             to = "off";
             for = {
-              hours = 0;
               minutes = 5;
-              seconds = 0;
+            };
+          };
+        }
+        {
+          repeat = {
+            while = {
+              type = "is_humidity";
+              condition = "device";
+              entity_id = "sensor.lumi_lumi_weather_humidity";
+              above = 80;
+            };
+            sequence = {
+              delay = {
+                seocnds = 30;
+              };
             };
           };
         }
