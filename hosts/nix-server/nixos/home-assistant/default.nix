@@ -12,6 +12,7 @@ in {
     ./govee-immersion.nix
     ./shopping-list.nix
     ./tapo-light-strip.nix
+    ./bathroom-lights.nix
   ];
 
   services.yamlConfigMaker.gatus.settings.endpoints = [
