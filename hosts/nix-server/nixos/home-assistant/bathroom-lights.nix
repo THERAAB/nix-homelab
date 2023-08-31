@@ -45,7 +45,7 @@
             from = "on";
             to = "off";
             for = {
-              minutes = 5;
+              seconds = 90;
             };
           };
         }
@@ -54,7 +54,7 @@
             while = {
               condition = "numeric_state";
               entity_id = "sensor.lumi_lumi_weather_humidity";
-              above = 80;
+              above = 75;
             };
             sequence = {
               delay = {
