@@ -18,7 +18,7 @@
           "then" = {
             service = "light.turn_on";
             data = {
-              brightness_pct = 15;
+              brightness_pct = 35;
               color_temp = "400";
             };
             target.entity_id = [
@@ -54,7 +54,7 @@
             while = {
               condition = "numeric_state";
               entity_id = "sensor.lumi_lumi_weather_humidity";
-              above = 75;
+              above = 70;
             };
             sequence = {
               delay = {
