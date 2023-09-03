@@ -6,7 +6,7 @@
         platform = "numeric_state";
         entity_id = "sensor.washing_machine_plug_active_power";
         for = {
-          seconds = 90;
+          seconds = 60;
         };
         below = 5;
       };
@@ -30,7 +30,7 @@
         platform = "numeric_state";
         entity_id = "sensor.dryer_plug_active_power";
         for = {
-          seconds = 90;
+          seconds = 60;
         };
         below = 5;
       };
