@@ -30,9 +30,9 @@
         platform = "numeric_state";
         entity_id = "sensor.dryer_plug_active_power";
         for = {
-          seconds = 60;
+          seconds = 10;
         };
-        below = 5;
+        below = 150;
       };
       action = [
         {
