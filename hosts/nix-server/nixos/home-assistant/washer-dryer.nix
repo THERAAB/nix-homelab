@@ -28,7 +28,7 @@
       alias = "Dryer Done Notification";
       trigger = {
         platform = "numeric_state";
-        entity_id = "sensor.dryer_plug_active_power";
+        entity_id = "sensor.dryer_plug_active_power_3";
         for = {
           seconds = 10;
         };
