@@ -32,7 +32,7 @@
         for = {
           seconds = 10;
         };
-        below = 150;
+        below = 50;
       };
       action = [
         {
