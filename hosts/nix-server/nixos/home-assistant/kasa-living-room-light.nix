@@ -13,7 +13,7 @@ in {
       action = {
         service = "switch.turn_off";
         target = {
-          entity_id = devices.entity-id.living-room.lamp;
+          entity_id = "switch.living-room_lamp";
         };
       };
     }
@@ -43,7 +43,7 @@ in {
       action = {
         service = "switch.turn_on";
         target = {
-          entity_id = devices.entity-id.living-room.lamp;
+          entity_id = "switch.living_room_lamp";
         };
       };
     }
@@ -62,7 +62,7 @@ in {
       action = {
         service = "switch.turn_on";
         target = {
-          entity_id = devices.entity-id.living-room.lamp;
+          entity_id = "switch.living_room_lamp";
         };
       };
     }
@@ -75,7 +75,7 @@ in {
       action = {
         service = "switch.turn_off";
         target = {
-          entity_id = devices.entity-id.living-room.lamp;
+          entity_id = "switch.living_room_lamp";
         };
       };
     }
