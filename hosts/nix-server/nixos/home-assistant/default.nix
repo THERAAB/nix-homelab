@@ -13,6 +13,7 @@ in {
     ./shopping-list.nix
     ./tapo-light-strip.nix
     ./bathroom-lights.nix
+    ./washer-dryer.nix
   ];
 
   services.yamlConfigMaker.gatus.settings.endpoints = [
