@@ -13,7 +13,7 @@ in {
       action = {
         service = "switch.turn_off";
         target = {
-          entity_id = "switch.living-room_lamp";
+          entity_id = "switch.living_room_lamp";
         };
       };
     }
