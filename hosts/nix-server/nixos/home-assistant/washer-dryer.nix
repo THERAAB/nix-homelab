@@ -9,7 +9,7 @@
           seconds = 90;
         };
       };
-      actions = [
+      action = [
         {
           service = "notify.pushbullet";
           data = {
