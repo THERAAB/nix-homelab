@@ -17,7 +17,7 @@
     };
     living-room = {
       android-tv = "media_player.android_tv_192_168_127_5";
-      lamp = "switch.living_room_lamp";
+      lamp = "switch.living_room_lamp_switch";
       govee-immersion = "light.h6199_2328";
     };
   };
