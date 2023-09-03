@@ -8,6 +8,7 @@
         for = {
           seconds = 90;
         };
+        below = 5;
       };
       action = [
         {
