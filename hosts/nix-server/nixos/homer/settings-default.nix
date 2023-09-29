@@ -39,9 +39,21 @@
       target = "_blank";
     }
     {
-      name = "Wiki";
-      icon = "fas fa-book";
-      url = "https://www.wikipedia.org/";
+      name = "YouTube";
+      icon = "fab fa-youtube";
+      url = "https://www.youtube.com/";
+      target = "_blank";
+    }
+    {
+      name = "Gmail";
+      icon = "fas fa-envelope";
+      url = "https://www.gmail.com/";
+      target = "_blank";
+    }
+    {
+      name = "Outlook";
+      icon = "fas fa-at";
+      url = "https://www.outlook.live.com/";
       target = "_blank";
     }
   ];
