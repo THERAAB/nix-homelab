@@ -56,5 +56,11 @@
       url = "https://outlook.live.com/mail/0/";
       target = "_blank";
     }
+    {
+      name = "Raindrop.io";
+      icon = "fas fa-cloud";
+      url = "https://app.raindrop.io/my/-1";
+      target = "_blank";
+    }
   ];
 }
