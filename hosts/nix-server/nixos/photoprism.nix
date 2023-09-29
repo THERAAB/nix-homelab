@@ -37,7 +37,7 @@ in {
     settings = {
       PHOTOPRISM_ADMIN_USER = "raab";
       PHOTOPRISM_UPLOAD_NSFW = "true";
-      PHOTOPRISM_ORIGINALS_LIMIT = -1;
+      PHOTOPRISM_ORIGINALS_LIMIT = "-1";
     };
     address = "0.0.0.0";
     originalsPath = "/var/lib/private/photoprism/originals";
