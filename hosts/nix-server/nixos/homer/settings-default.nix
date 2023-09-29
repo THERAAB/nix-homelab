@@ -62,5 +62,11 @@
       url = "https://app.raindrop.io/my/-1";
       target = "_blank";
     }
+    {
+      name = "Dropbox";
+      icon = "fab fa-dropbox";
+      url = "https://www.dropbox.com/home";
+      target = "_blank";
+    }
   ];
 }
