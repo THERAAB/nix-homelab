@@ -12,7 +12,7 @@
         {
           "if" = {
             condition = "time";
-            before = "6:00:00";
+            before = "8:00:00";
             after = "20:00:00";
           };
           "then" = {
@@ -45,7 +45,7 @@
             from = "on";
             to = "off";
             for = {
-              seconds = 90;
+              seconds = 300;
             };
           };
         }
@@ -54,7 +54,7 @@
             while = {
               condition = "numeric_state";
               entity_id = "sensor.lumi_lumi_weather_humidity";
-              above = 70;
+              above = 80;
             };
             sequence = {
               delay = {
