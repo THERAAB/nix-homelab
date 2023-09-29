@@ -47,13 +47,13 @@
     {
       name = "Gmail";
       icon = "fas fa-envelope";
-      url = "https://www.mail.google.com/u/0/#inbox";
+      url = "https://www.mail.google.com/mail/u/0/#inbox";
       target = "_blank";
     }
     {
       name = "Outlook";
       icon = "fas fa-at";
-      url = "https://www.outlook.live.com/mail/0/";
+      url = "https://outlook.live.com/mail/0/";
       target = "_blank";
     }
   ];
