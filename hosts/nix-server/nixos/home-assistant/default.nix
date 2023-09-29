@@ -51,6 +51,11 @@ in {
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
+  services.caddy.virtualHosts = {
+    "http://${app-name}.${network.domain.local}.pumpkin".extraConfig = ''
+      reverse_proxy http://127.0.0.1:${toString port}
+    '';
+  };
   networking.firewall.allowedTCPPorts = [port];
   services.home-assistant = {
     enable = true;
