@@ -54,7 +54,7 @@
             while = {
               condition = "numeric_state";
               entity_id = "sensor.lumi_lumi_weather_humidity";
-              above = 80;
+              above = 87;
             };
             sequence = {
               delay = {
