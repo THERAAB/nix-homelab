@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
     repo = pname;
     rev = version;
     owner = "petretiandrea";
-    sha256 = "";
+    sha256 = "sha256-SKOKu+R2e20r8tAWcSfypP6qPybkEsjF54tA145QdiU=";
   };
   installPhase = ''
     mkdir -p $out/custom_components
