@@ -9,10 +9,10 @@
         (
           buildPythonPackage rec {
             pname = "plugp100";
-            version = "3.9.0";
+            version = "3.11.0";
             src = fetchPypi {
               inherit version pname;
-              hash = "sha256-wYL3CGh4Q2TBggI2l96VK+yhjDsqgNSSF6sv4ASAIXE=";
+              hash = "";
             };
 
             propagatedBuildInputs = [
