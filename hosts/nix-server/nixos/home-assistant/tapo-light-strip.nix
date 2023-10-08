@@ -22,6 +22,7 @@
               requests
               aiohttp
               semantic-version
+              scapy
             ];
           }
         )
