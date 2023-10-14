@@ -4,7 +4,7 @@
 }:
 stdenv.mkDerivation rec {
   pname = "home-assistant-tapo-p100";
-  version = "v2.9.1";
+  version = "v2.10.0";
   src = fetchFromGitHub {
     inherit pname version;
     repo = pname;
