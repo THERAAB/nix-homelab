@@ -8,11 +8,13 @@ in {
     ./prowlarr.nix
     ./radarr.nix
     ./sonarr.nix
+    ./audiobookshelf.nix
   ];
   systemd.tmpfiles.rules = [
     "d    ${media.dir.downloads}    -       -       -       -   - "
     "d    ${media.dir.movies}       -       -       -       -   - "
     "d    ${media.dir.tv}           -       -       -       -   - "
+    "d    ${media.dir.audiobooks}   -       -       -       -   - "
     "Z    /media                    770     media   media   -   - "
   ];
   users = {
