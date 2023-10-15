@@ -9,6 +9,7 @@ in {
     ./radarr.nix
     ./sonarr.nix
     ./audiobookshelf.nix
+    ./readarr.nix
   ];
   systemd.tmpfiles.rules = [
     "d    ${media.dir.downloads}    -       -       -       -   - "

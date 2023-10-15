@@ -94,6 +94,15 @@ in {
           url = "http://sonarr.${network.domain.local}";
           target = "_blank";
         }
+        {
+          name = "Readarr";
+          logo = "assets/icons/readarr.png";
+          subtitle = "Manage Books";
+          tag = "books";
+          keywords = "books audiobooks media";
+          url = "http://readarr.${network.domain.local}";
+          target = "_blank";
+        }
       ];
     }
     {
