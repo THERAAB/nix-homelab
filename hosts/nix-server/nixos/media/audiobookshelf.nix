@@ -49,7 +49,8 @@ in {
   };
   systemd.services."${app-name}" = {
     script = ''
-    audiobookshelf --metadata "$(pwd)/metadata" \
+    ${pkgs.audiobookshelf}/bin/audiobookshelf \
+      --metadata "${local-config-dir}/metadata" \
       --config "${local-config-dir}/config" \
       --port ${toString port} \
       --host 127.0.0.1
