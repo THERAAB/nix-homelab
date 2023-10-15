@@ -49,7 +49,7 @@ in {
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "advplyr/${app-name}";
+    image = "ghcr.io/advplyr/${app-name}:latest";
     volumes = [
       "${local-config-dir}/config:/config"
       "${local-config-dir}/metadata:/metadata"
