@@ -1,7 +1,7 @@
 {...}: let
   media = import ./media.properties.nix;
   uid = 9996;
-  port = 13378;
+  port = 13379;
   app-name = "audiobookshelf";
   local-config-dir = media.dir.config + "/${app-name}";
   network = import ../../../../share/network.properties.nix;
