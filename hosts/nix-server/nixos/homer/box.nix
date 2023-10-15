@@ -35,6 +35,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Audiobookshelf";
+          logo = "assets/icons/audiobookshelf.png";
+          subtitle = "Listen to Audiobooks and Podcasts";
+          tag = "audiobook";
+          keywords = "audiobook podcast media";
+          url = "http://audiobookshelf.${network.domain.local}";
+          target = "_blank";
+        }
+        {
           name = "Photoprism";
           logo = "assets/icons/photoprism.png";
           subtitle = "View & Manage Photos";
