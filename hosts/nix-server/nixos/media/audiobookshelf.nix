@@ -54,9 +54,8 @@ in {
       --port ${port} \
       --host 127.0.0.1
     '';
-    wantedBy = ["yamlConfigMaker-gatus.service"];
-    after = ["yamlConfigMaker-gatus.service"];
-    port = port;
+    wantedBy = ["default.target"];
+    after = ["default.target"];
   };
   #    "${local-config-dir}/config:/config"
   #    "${local-config-dir}/metadata:/metadata"
