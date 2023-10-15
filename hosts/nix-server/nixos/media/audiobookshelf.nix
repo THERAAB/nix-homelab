@@ -58,8 +58,8 @@ in {
     ];
     ports = ["${toString port}:${toString port}"];
     environment = {
-      PUID = "${toString uid}";
-      PGID = "${toString media.gid}";
+      AUDIOBOOKSHELF_UID = "${toString uid}";
+      AUDIOBOOKSHELF_GID = "${toString media.gid}";
       UMASK = "022";
       TZ = "America/New_York";
     };
