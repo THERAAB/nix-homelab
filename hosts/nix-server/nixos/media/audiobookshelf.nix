@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   media = import ./media.properties.nix;
   uid = 9996;
   port = 13378;
@@ -57,6 +57,9 @@ in {
     wantedBy = ["default.target"];
     after = ["default.target"];
   };
+  environment.systemPackages = with pkgs; [
+    audiobookshelf
+  ];
   #    "${local-config-dir}/config:/config"
   #    "${local-config-dir}/metadata:/metadata"
   #    "${media.dir.audiobooks}:/audiobooks"
