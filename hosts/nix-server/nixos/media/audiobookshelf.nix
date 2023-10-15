@@ -51,7 +51,7 @@ in {
     script = ''
     audiobookshelf --metadata "$(pwd)/metadata" \
       --config "${local-config-dir}/config" \
-      --port ${port} \
+      --port ${toString port} \
       --host 127.0.0.1
     '';
     wantedBy = ["default.target"];
