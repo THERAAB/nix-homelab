@@ -54,6 +54,7 @@ in {
       "${local-config-dir}/config:/config"
       "${local-config-dir}/metadata:/metadata"
       "${media.dir.audiobooks}:/audiobooks"
+      "${media.dir.podcasts}:/podcasts"
     ];
     ports = ["${toString port}:${toString port}"];
     environment = {

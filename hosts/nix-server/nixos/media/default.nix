@@ -15,6 +15,7 @@ in {
     "d    ${media.dir.movies}       -       -       -       -   - "
     "d    ${media.dir.tv}           -       -       -       -   - "
     "d    ${media.dir.audiobooks}   -       -       -       -   - "
+    "d    ${media.dir.podcasts}   -       -       -       -   - "
     "Z    /media                    770     media   media   -   - "
   ];
   users = {
