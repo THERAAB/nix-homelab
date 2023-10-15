@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{...}: let
   media = import ./media.properties.nix;
   uid = 9996;
   port = 13378;
@@ -24,7 +24,7 @@ in {
     {
       title = "Restart Audiobookshelf";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s ${app-name}";
+      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];
@@ -47,22 +47,21 @@ in {
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
-  systemd.services."${app-name}" = {
-    script = ''
-    ${pkgs.audiobookshelf}/bin/audiobookshelf \
-      --metadata "${local-config-dir}/metadata" \
-      --config "${local-config-dir}/config" \
-      --port ${toString port} \
-      --host 127.0.0.1
-    '';
-    wantedBy = ["default.target"];
-    after = ["default.target"];
+  virtualisation.oci-containers.containers."${app-name}" = {
+    autoStart = true;
+    image = "advplyr/${app-name}";
+    volumes = [
+      "${local-config-dir}/config:/config"
+      "${local-config-dir}/metadata:/metadata"
+      "${media.dir.audiobooks}:/audiobooks"
+      "${media.dir.podcasts}:/podcasts"
+    ];
+    ports = ["${toString port}:${toString port}"];
+    environment = {
+      PUID = "${toString uid}";
+      PGID = "${toString media.gid}";
+      UMASK = "022";
+      TZ = "America/New_York";
+    };
   };
-  environment.systemPackages = with pkgs; [
-    audiobookshelf
-  ];
-  #    "${local-config-dir}/config:/config"
-  #    "${local-config-dir}/metadata:/metadata"
-  #    "${media.dir.audiobooks}:/audiobooks"
-  #    "${media.dir.podcasts}:/podcasts"
 }
