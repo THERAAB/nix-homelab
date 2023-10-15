@@ -52,7 +52,7 @@ in {
     image = "advplyr/${app-name}";
     volumes = [
       "${local-config-dir}/config:/config"
-      "${local-config-dir}/metadata:/config"
+      "${local-config-dir}/metadata:/metadata"
       "${media.dir.audiobooks}:/audiobooks"
     ];
     ports = ["${toString port}:${toString port}"];
