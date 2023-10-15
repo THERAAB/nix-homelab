@@ -56,7 +56,7 @@ in {
       "${media.dir.audiobooks}:/audiobooks"
       "${media.dir.podcasts}:/podcasts"
     ];
-    ports = ["${toString port}:${toString port}"];
+    ports = ["${toString port}:80"];
     environment = {
       AUDIOBOOKSHELF_UID = "${toString uid}";
       AUDIOBOOKSHELF_GID = "${toString media.gid}";
