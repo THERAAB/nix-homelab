@@ -53,10 +53,11 @@ Settings -> Client Settings -> Video Player type -> Integrated Player
 - Add sonar & radarr
 - Add qbittorent
 
-### Sonar & Radarr
+### Sonar, Radarr, Readarr
 
 - Add qbittorrent
 - Add movies/tv paths in sonarr/radarr and request something (needed for Jellyseerr to work)
+- Add books path in readarr
 
 ### Jellyseerr
 
