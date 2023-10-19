@@ -47,9 +47,7 @@ Settings -> Client Settings -> Video Player type -> Integrated Player
 
 - Add indexers
   - 1337x
-  - Rarbg
   - TPB
-  - RuTracker.ru
 - Add sonar & radarr
 - Add qbittorent
 
