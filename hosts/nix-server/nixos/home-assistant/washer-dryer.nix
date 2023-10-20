@@ -6,9 +6,9 @@
         platform = "numeric_state";
         entity_id = "sensor.washing_machine_plug_active_power";
         for = {
-          seconds = 60;
+          seconds = 90;
         };
-        below = 5;
+        below = 3;
       };
       action = [
         {
