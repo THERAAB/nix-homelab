@@ -62,7 +62,7 @@ in {
   };
   virtualisation.oci-containers.containers."${app-name}.box" = {
     autoStart = true;
-    image = "b4bz/${app-name}";
+    image = "docker.io/b4bz/${app-name}";
     volumes = [
       "${box-config-dir}:/www/assets"
     ];
