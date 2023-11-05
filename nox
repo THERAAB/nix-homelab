@@ -27,7 +27,7 @@ status() {
 
 update() {
     inputs
-    update
+    rebuild
 }
 
 gc() {
