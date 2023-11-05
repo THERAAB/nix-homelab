@@ -63,5 +63,8 @@ in {
       UMASK = "022";
       TZ = "America/New_York";
     };
+    extraOptions = [
+      "--label io.containers.autoupdate=registry"
+    ];
   };
 }
