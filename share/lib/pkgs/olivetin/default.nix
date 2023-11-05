@@ -4,10 +4,10 @@
 }:
 stdenv.mkDerivation rec {
   pname = "OliveTin";
-  version = "2023.03.25";
+  version = "2023.10.25";
   src = fetchurl {
     url = "https://github.com/OliveTin/OliveTin/releases/download/${version}/OliveTin-linux-amd64.tar.gz";
-    sha256 = "sha256-s+6Em0r03dicTO4BrgfuaJYog2+USJlvFOGnAw9bD3E=";
+    sha256 = "";
   };
   installPhase = ''
     install -m755 -D ./OliveTin $out/bin/olivetin
