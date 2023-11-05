@@ -14,5 +14,6 @@
     ./sops.nix
     ./photoprism.nix
     ./unifi.nix
+    ./podman.nix
   ];
 }
