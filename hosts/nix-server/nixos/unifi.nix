@@ -41,17 +41,6 @@ in {
     "d    ${local-config-dir}     -       -             -        -   - "
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
-  services.caddy.virtualHosts = {
-    "https://${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port} {
-        transport http {
-          tls
-          tls_insecure_skip_verify
-        }
-        header_up - Authorization
-      }
-    '';
-  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "lscr.io/linuxserver/${app-name}";
