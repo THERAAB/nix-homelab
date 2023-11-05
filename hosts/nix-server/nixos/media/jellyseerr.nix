@@ -46,7 +46,7 @@ in {
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "fallenbagel/${app-name}";
+    image = "docker.io/fallenbagel/${app-name}";
     volumes = [
       "${local-config-dir}:/app/config"
       "${media.dir.movies}:/movies"
