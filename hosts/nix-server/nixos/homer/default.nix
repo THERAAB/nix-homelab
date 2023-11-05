@@ -69,5 +69,8 @@ in {
     ports = ["${toString box-port}:8080"];
     user = "${toString uid}";
     environment = environment;
+    extraOptions = [
+      "-l=io.containers.autoupdate=registry"
+    ];
   };
 }
