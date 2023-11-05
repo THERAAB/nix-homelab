@@ -9,7 +9,7 @@ inputs() {
     sudo nix flake update $dir
 }
 
-update() {
+rebuild() {
     git -C $dir pull
     sudo nixos-rebuild switch --flake $dir#
 }
@@ -25,7 +25,7 @@ status() {
     git -C $dir status
 }
 
-update_full() {
+update() {
     inputs
     update
 }
@@ -41,12 +41,12 @@ pull() {
 case "$1" in
     inputs)
         inputs;;
-    update)
-        update;;
+    rebuild)
+        rebuild;;
     commit)
         commit;;
-    update-full)
-        update_full;;
+    update)
+        update;;
     gc)
         gc;;
     status)
