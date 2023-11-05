@@ -45,7 +45,7 @@ in {
     "https://${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy 127.0.0.1:${toString port} {
         transport http {
-          tls internal
+          tls
           tls_insecure_skip_verify
         }
         header_up - Authorization
