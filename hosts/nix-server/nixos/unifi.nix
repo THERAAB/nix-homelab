@@ -43,11 +43,10 @@ in {
   ];
   services.caddy.virtualHosts = {
     "${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port} {
+      reverse_proxy https://127.0.0.1:${toString port} {
         transport http {
           tls_insecure_skip_verify
         }
-        header_up - Authorization
       }
     '';
   };
