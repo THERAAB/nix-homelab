@@ -42,8 +42,13 @@ in {
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
   services.caddy.virtualHosts = {
-    "https://${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy https://127.0.0.1:${toString port}
+    "${app-name}.${network.domain.local}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port} {
+        transport http {
+          tls_insecure_skip_verify
+        }
+        header_up - Authorization
+      }
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
