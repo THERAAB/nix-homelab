@@ -46,7 +46,7 @@ in {
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "linuxserver/${app-name}:develop";
+    image = "lscr.io/linuxserver/${app-name}:develop";
     volumes = [
       "${local-config-dir}:/config"
       "${media.dir.audiobooks}:/books"
