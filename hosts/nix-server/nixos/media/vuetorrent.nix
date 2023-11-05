@@ -73,6 +73,7 @@ in {
       "--cap-add=NET_ADMIN"
       ''--sysctl="net.ipv4.conf.all.src_valid_mark=1"''
       ''--sysctl="net.ipv6.conf.all.disable_ipv6=1"''
+      "-l=io.containers.autoupdate=registry"
     ];
   };
 }

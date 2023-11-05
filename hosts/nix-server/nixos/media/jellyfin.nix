@@ -73,6 +73,7 @@ in {
     extraOptions = [
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
       "--device=/dev/dri/card0:/dev/dri/card0"
+      "-l=io.containers.autoupdate=registry"
     ];
   };
 }
