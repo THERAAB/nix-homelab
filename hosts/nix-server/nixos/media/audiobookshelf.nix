@@ -64,7 +64,7 @@ in {
       TZ = "America/New_York";
     };
     extraOptions = [
-      "--label io.containers.autoupdate=registry"
+      "--l=io.containers.autoupdate=registry"
     ];
   };
 }
