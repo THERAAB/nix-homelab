@@ -11,7 +11,7 @@ in {
       name = "Radarr";
       url = "http://${app-name}.${network.domain.local}/health";
       conditions = [
-        "[STATUS] == 200"
+        "[STATUS] == 401"
       ];
       alerts = [
         {
