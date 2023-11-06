@@ -22,7 +22,7 @@ in {
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "https://jellyfin.${network.domain.local}";
+          url = "http://jellyfin.${network.domain.local}";
           target = "_blank";
         }
         {

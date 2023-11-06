@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Jellyfin";
-      url = "https://${app-name}.${network.domain.local}/health";
+      url = "http://${app-name}.${network.domain.local}/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -51,8 +51,8 @@ in {
     };
   };
   services.caddy.virtualHosts = {
-    "${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port}
+    "http://${app-name}.${network.domain.local}".extraConfig = ''
+      reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
