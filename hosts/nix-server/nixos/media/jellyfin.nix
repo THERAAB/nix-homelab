@@ -51,7 +51,7 @@ in {
   };
   services.caddy.virtualHosts = {
     "https://${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy https://127.0.0.1:${toString port}
+      reverse_proxy https://localhost:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
