@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Unifi Controller";
-      url = "https://${network.nix-server.local.ip}:${toString port}";
+      url = "https://${app-name}.${network.domain.local}:${toString port}";
       conditions = [
         "[STATUS] == 200"
       ];
