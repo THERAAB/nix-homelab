@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "VueTorrent";
-      url = "http://${app-name}.${network.domain.local}/";
+      url = "https://${app-name}.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>qBittorrent</title>*)''

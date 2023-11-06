@@ -22,7 +22,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Homer.box";
-      url = "http://${homer-hostname}.${network.domain.local}/";
+      url = "https://${homer-hostname}.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<div id="app-mount"></div>*)''

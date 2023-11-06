@@ -22,7 +22,7 @@ in {
           subtitle = "Watch Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyfin.${network.domain.local}";
+          url = "https://jellyfin.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -31,7 +31,7 @@ in {
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyseerr.${network.domain.local}";
+          url = "https://jellyseerr.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -40,7 +40,7 @@ in {
           subtitle = "Listen to Audiobooks and Podcasts";
           tag = "audiobook";
           keywords = "audiobook podcast media";
-          url = "http://audiobookshelf.${network.domain.local}";
+          url = "https://audiobookshelf.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -49,7 +49,7 @@ in {
           subtitle = "View & Manage Photos";
           tag = "photos";
           keywords = "photos media";
-          url = "http://photoprism.${network.domain.local}";
+          url = "https://photoprism.${network.domain.local}";
           target = "_blank";
         }
       ];
@@ -64,7 +64,7 @@ in {
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
-          url = "http://prowlarr.${network.domain.local}";
+          url = "https://prowlarr.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -73,7 +73,7 @@ in {
           subtitle = "Manage Torrents";
           tag = "download";
           keywords = "torrent download";
-          url = "http://vuetorrent.${network.domain.local}";
+          url = "https://vuetorrent.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -82,7 +82,7 @@ in {
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
-          url = "http://radarr.${network.domain.local}";
+          url = "https://radarr.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -91,7 +91,7 @@ in {
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
-          url = "http://sonarr.${network.domain.local}";
+          url = "https://sonarr.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -100,7 +100,7 @@ in {
           subtitle = "Manage Books";
           tag = "books";
           keywords = "books audiobooks media";
-          url = "http://readarr.${network.domain.local}";
+          url = "https://readarr.${network.domain.local}";
           target = "_blank";
         }
       ];
@@ -133,7 +133,7 @@ in {
           subtitle = "DNS Ad Blocking";
           tag = "dns";
           keywords = "dns adblock";
-          url = "http://adguard.${network.domain.local}";
+          url = "https://adguard.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -142,7 +142,7 @@ in {
           subtitle = "Smart Home Automation";
           tag = "smart-home";
           keywords = "smart home assistant automation";
-          url = "http://home-assistant.${network.domain.local}";
+          url = "https://home-assistant.${network.domain.local}";
           target = "_blank";
         }
       ];
@@ -157,7 +157,7 @@ in {
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://netdata.${network.domain.local}";
+          url = "https://netdata.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -166,7 +166,7 @@ in {
           subtitle = "Monitor Services";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://gatus.${network.domain.local}";
+          url = "https://gatus.${network.domain.local}";
           target = "_blank";
         }
       ];
@@ -181,7 +181,7 @@ in {
           subtitle = "Execute Commands";
           tag = "exec";
           keywords = "exec";
-          url = "http://olivetin.${network.domain.local}";
+          url = "https://olivetin.${network.domain.local}";
           target = "_blank";
         }
       ];

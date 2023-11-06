@@ -6,7 +6,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "NetData";
-      url = "http://${app-name}.${network.domain.local}/";
+      url = "https://${app-name}.${network.domain.local}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>netdata dashboard</title>*)''
