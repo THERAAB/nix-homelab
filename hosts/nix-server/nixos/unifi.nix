@@ -45,6 +45,7 @@ in {
     "${app-name}.${network.domain.local}".extraConfig = ''
       reverse_proxy 127.0.0.1:${toString port}
     '';
+  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "lscr.io/linuxserver/${app-name}";
