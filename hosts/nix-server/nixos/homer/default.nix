@@ -32,6 +32,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [
@@ -56,8 +57,8 @@ in {
     };
   };
   services.caddy.virtualHosts = {
-    "http://${homer-hostname}.${network.domain.local}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString box-port}
+    "${homer-hostname}.${network.domain.local}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString box-port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}.box" = {

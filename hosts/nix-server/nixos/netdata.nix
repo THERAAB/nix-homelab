@@ -16,6 +16,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [
@@ -27,8 +28,8 @@ in {
     }
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain.local}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+    "${app-name}.${network.domain.local}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   networking.firewall.allowedTCPPorts = [port];
