@@ -49,6 +49,11 @@ in {
       Unit = "podman-${app-name}.service";
     };
   };
+  services.caddy.virtualHosts = {
+    "http://${app-name}.${network.domain.local}".extraConfig = ''
+      reverse_proxy http://127.0.0.1:${toString port}
+    '';
+  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = false;
     image = "lscr.io/linuxserver/${app-name}";
