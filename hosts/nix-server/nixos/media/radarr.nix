@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Radarr";
-      url = "https://${app-name}.${network.domain}/health";
+      url = "http://${app-name}.${network.domain}/health";
       conditions = [
         "[STATUS] == 401"
       ];
@@ -41,8 +41,8 @@ in {
     "Z    ${local-config-dir}     740     ${app-name}   media    -   - "
   ];
   services.caddy.virtualHosts = {
-    "${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port}
+    "http://${app-name}.${network.domain}".extraConfig = ''
+      http://reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {

@@ -19,7 +19,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Home Assistant";
-      url = "https://${app-name}.${network.domain}/";
+      url = "http://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>Home Assistant</title>*)''
@@ -48,8 +48,8 @@ in {
     "Z  /var/lib/hass/custom_components     770     hass    hass    -   -                           "
   ];
   services.caddy.virtualHosts = {
-    "${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port}
+    "http://${app-name}.${network.domain}".extraConfig = ''
+      reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
   networking.firewall.allowedTCPPorts = [port];

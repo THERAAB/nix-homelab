@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Audiobookshelf";
-      url = "https://${app-name}.${network.domain}/";
+      url = "http://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -43,9 +43,9 @@ in {
     "Z    ${local-config-dir}           740     ${app-name}   media    -   - "
   ];
   services.caddy.virtualHosts = {
-    "${app-name}.${network.domain}".extraConfig = ''
+    "http://${app-name}.${network.domain}".extraConfig = ''
       encode gzip zstd
-      reverse_proxy 127.0.0.1:${toString port}
+      http://reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
