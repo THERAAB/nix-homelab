@@ -4,6 +4,7 @@
     directories = [
       ".config/sops/age"
       ".config/fish"
+      ".cloudflared"
       ".cache.tealdeer"
       ".cache/nvim"
       ".local/share/fish"

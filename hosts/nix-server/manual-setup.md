@@ -74,3 +74,9 @@ Add below services & their devices:
 - Android tv
 - Zigbee devices (water alarms)
 - Shopping List
+
+# Cloudflare
+
+```console
+cloudflared tunnel login
+```
