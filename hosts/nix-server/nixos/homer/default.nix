@@ -57,8 +57,8 @@ in {
     };
   };
   services.caddy.virtualHosts = {
-    "${homer-hostname}.${network.domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port}
+    "http://${network.domain}".extraConfig = ''
+      reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
