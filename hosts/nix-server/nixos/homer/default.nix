@@ -8,7 +8,6 @@
   config = import ./config.nix;
   config-dir = local-config-dir + "/box/";
   network = import ../../../../share/network.properties.nix;
-  homer-hostname = "server";
   environment = {
     UMASK = "022";
     INIT_ASSETS = "0";
@@ -22,7 +21,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Homer";
-      url = "https://${homer-hostname}.${network.domain}/";
+      url = "http://${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<div id="app-mount"></div>*)''
