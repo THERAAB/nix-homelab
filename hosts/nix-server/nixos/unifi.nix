@@ -42,7 +42,7 @@ in {
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
   services.caddy.virtualHosts = {
-    "${app-name}.${network.domain.local}".extraConfig = ''
+    "${app-name}.${network.domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${toString port} {
         transport http {
           tls_insecure_skip_verify
