@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Unifi Controller";
-      url = "https://${network.nix-server.local.ip}:${toString port}";
+      url = "https://${app-name}.${network.domain}:${toString port}";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -41,9 +41,18 @@ in {
     "d    ${local-config-dir}     -       -             -        -   - "
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
+  services.caddy.virtualHosts = {
+    "${app-name}.${network.domain.local}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port} {
+        transport http {
+          tls_insecure_skip_verify
+        }
+      }
+    '';
+  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "linuxserver/${app-name}";
+    image = "lscr.io/linuxserver/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
     ];

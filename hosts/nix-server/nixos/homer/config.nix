@@ -31,7 +31,7 @@ in {
           subtitle = "Request Movies & TV";
           tag = "media";
           keywords = "movies tv shows media";
-          url = "http://jellyseerr.${network.domain}";
+          url = "https://jellyseerr.${network.domain}";
           target = "_blank";
         }
         {
@@ -40,7 +40,7 @@ in {
           subtitle = "Listen to Audiobooks and Podcasts";
           tag = "audiobook";
           keywords = "audiobook podcast media";
-          url = "http://audiobookshelf.${network.domain}";
+          url = "https://audiobookshelf.${network.domain}";
           target = "_blank";
         }
         {
@@ -49,7 +49,7 @@ in {
           subtitle = "View & Manage Photos";
           tag = "photos";
           keywords = "photos media";
-          url = "http://photoprism.${network.domain}";
+          url = "https://photoprism.${network.domain}";
           target = "_blank";
         }
       ];
@@ -64,7 +64,7 @@ in {
           subtitle = "Manage Indexers";
           tag = "media";
           keywords = "indexer media torrent download";
-          url = "http://prowlarr.${network.domain}";
+          url = "https://prowlarr.${network.domain}";
           target = "_blank";
         }
         {
@@ -73,7 +73,7 @@ in {
           subtitle = "Manage Torrents";
           tag = "download";
           keywords = "torrent download";
-          url = "http://vuetorrent.${network.domain}";
+          url = "https://vuetorrent.${network.domain}";
           target = "_blank";
         }
         {
@@ -82,7 +82,7 @@ in {
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
-          url = "http://radarr.${network.domain}";
+          url = "https://radarr.${network.domain}";
           target = "_blank";
         }
         {
@@ -91,7 +91,7 @@ in {
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
-          url = "http://sonarr.${network.domain}";
+          url = "https://sonarr.${network.domain}";
           target = "_blank";
         }
         {
@@ -100,7 +100,7 @@ in {
           subtitle = "Manage Books";
           tag = "books";
           keywords = "books audiobooks media";
-          url = "http://readarr.${network.domain}";
+          url = "https://readarr.${network.domain}";
           target = "_blank";
         }
       ];
@@ -124,7 +124,7 @@ in {
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
-          url = "https://${network.nix-server.local.ip}:8443/";
+          url = "https://unifi-controller.${network.domain.local}";
           target = "_blank";
         }
         {
@@ -133,7 +133,7 @@ in {
           subtitle = "DNS Ad Blocking";
           tag = "dns";
           keywords = "dns adblock";
-          url = "http://adguard.${network.domain}";
+          url = "https://adguard.${network.domain}";
           target = "_blank";
         }
         {
@@ -142,7 +142,7 @@ in {
           subtitle = "Smart Home Automation";
           tag = "smart-home";
           keywords = "smart home assistant automation";
-          url = "http://home-assistant.${network.domain}";
+          url = "https://home-assistant.${network.domain}";
           target = "_blank";
         }
       ];
@@ -157,7 +157,7 @@ in {
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://netdata.${network.domain}";
+          url = "https://netdata.${network.domain}";
           target = "_blank";
         }
         {
@@ -166,7 +166,7 @@ in {
           subtitle = "Monitor Services";
           tag = "monitor";
           keywords = "monitor";
-          url = "http://gatus.${network.domain}";
+          url = "https://gatus.${network.domain}";
           target = "_blank";
         }
       ];
@@ -181,7 +181,7 @@ in {
           subtitle = "Execute Commands";
           tag = "exec";
           keywords = "exec";
-          url = "http://olivetin.${network.domain}";
+          url = "https://olivetin.${network.domain}";
           target = "_blank";
         }
       ];

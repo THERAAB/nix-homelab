@@ -56,13 +56,13 @@ in {
   };
 
   services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+    "${app-name}.${network.domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = false;
-    image = "twinproduction/${app-name}";
+    image = "docker.io/twinproduction/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
     ];
@@ -73,5 +73,8 @@ in {
       UMASK = "022";
       TZ = "America/New_York";
     };
+    extraOptions = [
+      "-l=io.containers.autoupdate=registry"
+    ];
   };
 }

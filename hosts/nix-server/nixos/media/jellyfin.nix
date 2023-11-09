@@ -18,6 +18,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [
@@ -56,7 +57,7 @@ in {
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = false;
-    image = "linuxserver/${app-name}";
+    image = "lscr.io/linuxserver/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
       "${media.dir.movies}:/movies"
@@ -73,6 +74,7 @@ in {
     extraOptions = [
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
       "--device=/dev/dri/card0:/dev/dri/card0"
+      "-l=io.containers.autoupdate=registry"
     ];
   };
 }

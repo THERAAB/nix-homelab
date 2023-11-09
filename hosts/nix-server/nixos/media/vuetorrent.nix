@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "VueTorrent";
-      url = "http://${app-name}.${network.domain}/";
+      url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>qBittorrent</title>*)''
@@ -19,6 +19,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [
@@ -43,8 +44,8 @@ in {
     "Z    ${local-config-dir}                       740     ${app-name}     media   -   -                               "
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+    "${app-name}.${network.domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
@@ -73,6 +74,7 @@ in {
       "--cap-add=NET_ADMIN"
       ''--sysctl="net.ipv4.conf.all.src_valid_mark=1"''
       ''--sysctl="net.ipv6.conf.all.disable_ipv6=1"''
+      "-l=io.containers.autoupdate=registry"
     ];
   };
 }

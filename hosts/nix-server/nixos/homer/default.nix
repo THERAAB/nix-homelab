@@ -22,7 +22,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Homer";
-      url = "http://${homer-hostname}.${network.domain}/";
+      url = "https://${homer-hostname}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<div id="app-mount"></div>*)''
@@ -32,6 +32,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [
@@ -56,18 +57,21 @@ in {
     };
   };
   services.caddy.virtualHosts = {
-    "http://${homer-hostname}.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+    "${homer-hostname}.${network.domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "b4bz/${app-name}";
+    image = "docker.io/b4bz/${app-name}";
     volumes = [
       "${config-dir}:/www/assets"
     ];
     ports = ["${toString port}:8080"];
     user = "${toString uid}";
     environment = environment;
+    extraOptions = [
+      "-l=io.containers.autoupdate=registry"
+    ];
   };
 }

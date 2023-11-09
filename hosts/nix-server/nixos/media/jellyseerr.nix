@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Jellyseerr";
-      url = "http://${app-name}.${network.domain}/health";
+      url = "https://${app-name}.${network.domain}/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -18,6 +18,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [
@@ -40,13 +41,13 @@ in {
     "Z    ${local-config-dir}     740     ${app-name} media       -   - "
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+    "${app-name}.${network.domain}".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "fallenbagel/${app-name}";
+    image = "docker.io/fallenbagel/${app-name}";
     volumes = [
       "${local-config-dir}:/app/config"
       "${media.dir.movies}:/movies"
@@ -59,5 +60,8 @@ in {
       UMASK = "022";
       TZ = "America/New_York";
     };
+    extraOptions = [
+      "-l=io.containers.autoupdate=registry"
+    ];
   };
 }
