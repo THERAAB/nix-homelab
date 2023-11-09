@@ -124,7 +124,7 @@ in {
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
-          url = "https://unifi-controller.${network.domain.local}";
+          url = "https://unifi-controller.${network.domain}";
           target = "_blank";
         }
         {
