@@ -80,4 +80,5 @@ Add below services & their devices:
 ```console
 cloudflared tunnel login
 cloudflared tunnel create <tunnel-name>
+mv /home/raab/.cloudflared /nix/persist/cloudflared
 ```
