@@ -18,4 +18,5 @@ in {
       };
     };
   };
+  environment.sessionVariables.TUNNEL_ORIGIN_CERT = "${local-config-dir}/cert.pem";
 }
