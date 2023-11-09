@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "VueTorrent";
-      url = "http://${app-name}.${network.domain.local}/";
+      url = "http://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>qBittorrent</title>*)''
@@ -43,7 +43,7 @@ in {
     "Z    ${local-config-dir}                       740     ${app-name}     media   -   -                               "
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain.local}".extraConfig = ''
+    "http://${app-name}.${network.domain}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };

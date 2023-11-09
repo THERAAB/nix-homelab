@@ -6,7 +6,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "NetData";
-      url = "http://${app-name}.${network.domain.local}/";
+      url = "http://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>netdata dashboard</title>*)''
@@ -27,7 +27,7 @@ in {
     }
   ];
   services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain.local}".extraConfig = ''
+    "http://${app-name}.${network.domain}".extraConfig = ''
       reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
