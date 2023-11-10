@@ -74,3 +74,12 @@ Add below services & their devices:
 - Android tv
 - Zigbee devices (water alarms)
 - Shopping List
+
+# Cloudflare
+
+```console
+cloudflared tunnel login
+cloudflared tunnel create <tunnel-name>
+mv /home/raab/.cloudflared /nix/persist/cloudflared
+sudo cloudflared tunnel route dns <name> <hostname>
+```
