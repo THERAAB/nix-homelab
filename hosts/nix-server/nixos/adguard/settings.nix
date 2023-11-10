@@ -29,12 +29,8 @@ in {
           answer = "${network.nix-server.local.ip}";
         }
         {
-          domain = "*.${network.domain}.pumpkin";
+          domain = "*.${network.domain}";
           answer = "${network.nix-server.local.ip}";
-        }
-        {
-          domain = "*.${network.domain}.tail";
-          answer = "${network.nix-server.tailscale.ip}";
         }
       ];
     };
