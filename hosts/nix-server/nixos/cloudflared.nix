@@ -7,8 +7,8 @@ in {
   ];
   services.cloudflared = {
     enable = true;
-    tunnels."fe83e38e-87b3-4a77-9d4a-d808ff67178d" = {
-      credentialsFile = "${local-config-dir}/fe83e38e-87b3-4a77-9d4a-d808ff67178d.json";
+    tunnels."efedc805-364b-4ea1-adb1-7b85b3dd417c" = {
+      credentialsFile = "${local-config-dir}/efedc805-364b-4ea1-adb1-7b85b3dd417c.json";
       default = "http_status:404";
       originRequest.noTLSVerify = true;
       ingress = {
