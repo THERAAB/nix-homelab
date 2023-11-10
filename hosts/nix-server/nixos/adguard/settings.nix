@@ -25,12 +25,8 @@ in {
       bootstrap_dns = ["9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10"];
       rewrites = [
         {
-          domain = "${network.domain}.pumpkin";
+          domain = "${network.domain}";
           answer = "${network.nix-server.local.ip}";
-        }
-        {
-          domain = "${network.domain}.tail";
-          answer = "${network.nix-server.tailscale.ip}";
         }
         {
           domain = "*.${network.domain}.pumpkin";
