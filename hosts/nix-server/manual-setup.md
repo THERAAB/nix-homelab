@@ -79,7 +79,7 @@ Add below services & their devices:
 
 ```console
 cloudflared tunnel login
+cp -r /home/raab/.cloudflared /nix/persist/cloudflared
 cloudflared tunnel create <tunnel-name>
-mv /home/raab/.cloudflared /nix/persist/cloudflared
 sudo cloudflared tunnel route dns <name> <hostname>
 ```
