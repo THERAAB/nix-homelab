@@ -35,7 +35,7 @@
     {
       name = "GitHub";
       icon = "fab fa-github";
-      url = "https://github.com/THERAAB/nix-homelab";
+      url = "https://github.com/";
       target = "_blank";
     }
     {
