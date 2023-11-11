@@ -12,7 +12,6 @@ in {
       url = "http://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
-        ''[BODY] == pat(*<title>qBittorrent</title>*)''
       ];
       alerts = [
         {
