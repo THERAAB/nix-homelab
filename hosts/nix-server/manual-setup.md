@@ -86,8 +86,10 @@ sudo cloudflared tunnel route dns <name> <hostname>
 
 ```
 # Create cloudflare secret
+sudo mkdir /var/lib/secrets
+sudo chmod 644 /var/lib/secrets
 sudo vi /var/lib/secrets/cloudflare.secret
 
-CLOUDFLARE_DNS_API_TOKEN=$key
-CLOUDFLARE_EMAIL=$email
+> CF_DNS_API_TOKEN=$key
+> CLOUDFLARE_EMAIL=$email
 ```
