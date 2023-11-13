@@ -10,7 +10,6 @@ in {
   security.acme = {
     acceptTerms = true;
     defaults = {
-      webroot = "/var/lib/acme/acme-challenge";
       email = "rob_lago@live.com";
       credentialsFile = "/var/lib/secrets/cloudflare.secret";
       dnsProvider = "cloudflare";
