@@ -50,10 +50,9 @@ in {
       Unit = "podman-${app-name}.service";
     };
   };
-  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
-    useACMEHost = "${network.domain}";
+  services.caddy.virtualHosts."http://${app-name}.${network.domain}" = {
     extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port}
+      reverse_proxy http://127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
