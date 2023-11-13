@@ -10,7 +10,7 @@ in {
     tunnels."efedc805-364b-4ea1-adb1-7b85b3dd417c" = {
       credentialsFile = "${local-config-dir}/efedc805-364b-4ea1-adb1-7b85b3dd417c.json";
       default = "http_status:404";
-      originRequest.noTLSVerify = true;
+      # originRequest.noTLSVerify = true;
       ingress = {
         "${network.domain}" = {
           service = "http://localhost:8082";
