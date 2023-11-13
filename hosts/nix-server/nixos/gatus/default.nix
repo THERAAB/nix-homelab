@@ -55,8 +55,7 @@ in {
     after = ["yamlPatcher-${app-name}.service" "adguardhome.service"];
   };
 
-  services.caddy.virtualHosts = {
-    "${app-name}.${network.domain}" = {
+  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         reverse_proxy 127.0.0.1:${toString port}

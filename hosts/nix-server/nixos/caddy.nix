@@ -15,5 +15,6 @@ in {
       dnsResolver = "1.1.1.1:53";
     };
     certs.${network.domain}.domain = "*.${network.domain}";
+    certs."${network.domain}-tld".domain = "${network.domain}";
   };
 }

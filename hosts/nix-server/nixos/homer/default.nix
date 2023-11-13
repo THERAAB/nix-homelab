@@ -55,9 +55,10 @@ in {
       isSystemUser = true;
     };
   };
-  services.caddy.virtualHosts = {
-    "http://${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+  services.caddy.virtualHosts."${network.domain}" = {
+    useACMEHost = "${network.domain}-tld";
+    extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
