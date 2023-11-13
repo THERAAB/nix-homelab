@@ -71,7 +71,7 @@ in {
       TZ = "America/New_York";
       MONGO_USER = "unifi";
       MONGO_PASS = "MONGO_PASS";
-      MONGO_HOST = "unifi-db";
+      MONGO_HOST = "${network.nix-server.local-ip}";
       MONGO_PORT = "27017";
       MONGO_DBNAME = "MONGO_DBNAME";
     };
@@ -84,6 +84,9 @@ in {
       "${local-config-dir}/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro"
     ];
     user = "${toString uid}";
+    ports = [
+      "27017:27017"
+    ];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString gid}";
