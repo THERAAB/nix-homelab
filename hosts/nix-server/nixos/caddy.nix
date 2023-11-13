@@ -14,6 +14,6 @@ in {
       credentialsFile = "/var/lib/secrets/cloudflare.secret";
       dnsProvider = "cloudflare";
     };
-    certs.${network.domain}.domain = "pumpkin.rodeo";
+    certs.${network.domain}.domain = "*.${network.domain}";
   };
 }
