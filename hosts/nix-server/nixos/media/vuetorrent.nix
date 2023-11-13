@@ -42,9 +42,10 @@ in {
     "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -       -   /run/secrets/wireguard_mullvad  "
     "Z    ${local-config-dir}                       740     ${app-name}     media   -   -                               "
   ];
-  services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+    useACMEHost = "${network.domain}";
+    extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {

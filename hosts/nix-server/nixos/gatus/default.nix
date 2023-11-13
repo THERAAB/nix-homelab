@@ -54,7 +54,6 @@ in {
     wantedBy = ["yamlPatcher-${app-name}.service"];
     after = ["yamlPatcher-${app-name}.service" "adguardhome.service"];
   };
-
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''

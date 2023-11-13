@@ -47,9 +47,10 @@ in {
     "Z  /var/lib/hass/blueprints            770     hass    hass    -   -                           "
     "Z  /var/lib/hass/custom_components     770     hass    hass    -   -                           "
   ];
-  services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+    useACMEHost = "${network.domain}";
+    extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   networking.firewall.allowedTCPPorts = [port];

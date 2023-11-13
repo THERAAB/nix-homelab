@@ -28,9 +28,10 @@ in {
       timeout = 20;
     }
   ];
-  services.caddy.virtualHosts = {
-    "http://adguard.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+    useACMEHost = "${network.domain}";
+    extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
   networking.firewall.allowedTCPPorts = [port];

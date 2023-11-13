@@ -56,9 +56,10 @@ in {
     "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -                         "
   ];
   networking.firewall.allowedTCPPorts = [port];
-  services.caddy.virtualHosts = {
-    "http://${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy http://127.0.0.1:${toString port}
+  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+    useACMEHost = "${network.domain}";
+    extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
     '';
   };
 }
