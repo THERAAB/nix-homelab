@@ -22,8 +22,8 @@ in {
     environmentFiles = [
       "${local-config-dir}/env.secret"
     ];
-    extraOptions = [
-      "cmd=tunnel run"
+    cmd = [
+      "tunnel run"
     ];
   };
 }
