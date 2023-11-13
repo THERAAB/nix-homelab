@@ -1,7 +1,7 @@
 {...}: let
-  uid = 17812;
-  gid = 17813;
-  port = 18443;
+  uid = 7812;
+  gid = 7813;
+  port = 8443;
   app-name = "unifi";
   local-config-dir = "/nix/persist/${app-name}/";
   network = import ../../../share/network.properties.nix;
