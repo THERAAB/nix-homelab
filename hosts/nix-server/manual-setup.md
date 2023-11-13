@@ -75,7 +75,7 @@ Add below services & their devices:
 - Zigbee devices (water alarms)
 - Shopping List
 
-# Cloudflare
+## Cloudflare
 
 ```console
 cloudflared tunnel login
@@ -92,4 +92,12 @@ sudo vi /var/lib/secrets/cloudflare.secret
 
 > CF_DNS_API_TOKEN=$key
 > CLOUDFLARE_EMAIL=$email
+```
+
+## Unifi
+
+Create init.js as per: https://hub.docker.com/r/linuxserver/unifi-network-application
+
+```console
+sudo nvim /nix/persist/unifi/init-mongo.js
 ```
