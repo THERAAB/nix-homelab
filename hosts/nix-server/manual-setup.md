@@ -96,8 +96,15 @@ sudo vi /var/lib/secrets/cloudflare.secret
 
 ## Unifi
 
-Create init.js as per: https://hub.docker.com/r/linuxserver/unifi-network-application
+Create init.js and env.secret as per: https://hub.docker.com/r/linuxserver/unifi-network-application
 
 ```console
 sudo nvim /nix/persist/unifi/init-mongo.js
+
+sudo nvim /nix/persist/unifi/env.secret
+
+MONGO_USER=$user
+MONGO_PASS=$pass
+MONGO_DBNAME=$dbname
+
 ```

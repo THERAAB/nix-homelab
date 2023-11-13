@@ -69,12 +69,12 @@ in {
       PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
-      MONGO_USER = "unifi";
-      MONGO_PASS = "MONGO_PASS";
       MONGO_HOST = "${network.nix-server.local.ip}";
       MONGO_PORT = "27017";
-      MONGO_DBNAME = "MONGO_DBNAME";
     };
+    environmentFiles = [
+      "${local-config-dir}/env.secret"
+    ];
   };
   virtualisation.oci-containers.containers."unifi-db" = {
     autoStart = true;
@@ -85,7 +85,7 @@ in {
     ];
     user = "${toString uid}";
     ports = [
-      "27017:27017"
+      "27017:27017" #TODO: use docker network instead of exposing this port
     ];
     environment = {
       PUID = "${toString uid}";
