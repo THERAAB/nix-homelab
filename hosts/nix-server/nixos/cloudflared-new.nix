@@ -23,7 +23,7 @@ in {
       "${local-config-dir}/env.secret"
     ];
     extraOptions = [
-      "tunnel run"
+      "cmd=tunnel run"
     ];
   };
 }
