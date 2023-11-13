@@ -38,7 +38,7 @@ in {
   };
   networking.firewall.allowedTCPPorts = [port];
   services.unifi = {
-    enable = false;
+    enable = true;
     unifiPackage = pkgs.unifi;
     mongodbPackage = pkgs.mongodb-6_0;
   };
