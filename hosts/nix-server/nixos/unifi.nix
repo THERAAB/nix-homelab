@@ -53,7 +53,7 @@ in {
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "lscr.io/linuxserver/${app-name}:mongoless";
+    image = "lscr.io/linuxserver/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
     ];
