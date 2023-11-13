@@ -1,6 +1,6 @@
 {...}: let
-  uid = 88812;
-  gid = 88813;
+  uid = 999;
+  gid = 999;
   local-config-dir = "/nix/persist/cloudflared";
   app-name = "cloudflared";
 in {
