@@ -14,6 +14,7 @@
     ./sops.nix
     ./photoprism.nix
     ./unifi.nix
+    ./unifi-new.nix
     ./podman.nix
     ./cloudflared.nix
   ];
