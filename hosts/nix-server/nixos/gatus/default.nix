@@ -56,10 +56,12 @@ in {
   };
 
   services.caddy.virtualHosts = {
-    useACMEHost = "${network.domain}";
-    "${app-name}.${network.domain}".extraConfig = ''
-      reverse_proxy 127.0.0.1:${toString port}
-    '';
+    "${app-name}.${network.domain}" = {
+      useACMEHost = "${network.domain}";
+      extraConfig = ''
+        reverse_proxy 127.0.0.1:${toString port}
+      '';
+    };
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = false;
