@@ -39,8 +39,8 @@ in {
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}     -       -             -        -   - "
+    "d    ${local-config-dir}/db  -       -             -        -   - "
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
-    "f    ${local-config-dir}/db  -       -             -        -   - "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
