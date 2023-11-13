@@ -56,6 +56,7 @@ in {
   };
 
   services.caddy.virtualHosts = {
+    useACMEHost = "${network.domain}";
     "${app-name}.${network.domain}".extraConfig = ''
       reverse_proxy 127.0.0.1:${toString port}
     '';
