@@ -83,3 +83,10 @@ cp -r /home/raab/.cloudflared /nix/persist/cloudflared
 cloudflared tunnel create <tunnel-name>
 sudo cloudflared tunnel route dns <name> <hostname>
 ```
+
+```
+# Create cloudflare secret
+sudo vi /var/lib/secrets/cloudflare.secret
+
+CLOUDFLARE_API_KEY=$key
+```
