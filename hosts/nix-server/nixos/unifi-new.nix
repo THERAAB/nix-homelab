@@ -71,7 +71,7 @@ in {
       TZ = "America/New_York";
       MONGO_USER = "unifi";
       MONGO_PASS = "MONGO_PASS";
-      MONGO_HOST = "${network.nix-server.local-ip}";
+      MONGO_HOST = "${network.nix-server.local.ip}";
       MONGO_PORT = "27017";
       MONGO_DBNAME = "MONGO_DBNAME";
     };
