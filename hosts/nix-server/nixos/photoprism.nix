@@ -6,7 +6,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Photoprism";
-      url = "http://${app-name}.${network.domain}/";
+      url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>PhotoPrism</title>*)''
@@ -16,7 +16,6 @@ in {
           type = "custom";
         }
       ];
-      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [

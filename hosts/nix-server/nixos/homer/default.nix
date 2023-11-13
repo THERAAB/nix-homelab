@@ -21,7 +21,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Homer";
-      url = "http://${network.domain}/";
+      url = "https://${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<div id="app-mount"></div>*)''
@@ -31,7 +31,6 @@ in {
           type = "custom";
         }
       ];
-      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [

@@ -12,7 +12,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "OliveTin";
-      url = "http://${app-name}.${network.domain}/";
+      url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>OliveTin</title>*)''
@@ -22,7 +22,6 @@ in {
           type = "custom";
         }
       ];
-      client.insecure = true;
     }
   ];
   services.olivetin = {

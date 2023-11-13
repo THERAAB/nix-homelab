@@ -6,7 +6,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "NetData";
-      url = "http://${app-name}.${network.domain}/";
+      url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>netdata dashboard</title>*)''
@@ -16,7 +16,6 @@ in {
           type = "custom";
         }
       ];
-      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [

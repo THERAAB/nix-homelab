@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Prowlarr";
-      url = "http://${app-name}.${network.domain}/health";
+      url = "https://${app-name}.${network.domain}/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -18,7 +18,6 @@ in {
           type = "custom";
         }
       ];
-      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [
