@@ -13,6 +13,7 @@ in {
       email = "rob_lago@live.com";
       credentialsFile = "/var/lib/secrets/cloudflare.secret";
       dnsProvider = "cloudflare";
+      dnsResolver = "1.1.1.1:53";
     };
     certs.${network.domain}.domain = "*.${network.domain}";
   };
