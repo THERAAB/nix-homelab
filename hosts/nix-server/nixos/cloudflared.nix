@@ -1,22 +1,30 @@
 {...}: let
-  network = import ../../../share/network.properties.nix;
+  uid = 88812;
+  gid = 88813;
   local-config-dir = "/nix/persist/cloudflared";
+  app-name = "cloudflared";
 in {
+  users = {
+    users."${app-name}" = {
+      uid = uid;
+      group = app-name;
+      isSystemUser = true;
+    };
+    groups.${app-name}.gid = gid;
+  };
   systemd.tmpfiles.rules = [
     "Z  ${local-config-dir} 740 cloudflared cloudflared - - "
   ];
-  services.cloudflared = {
-    enable = true;
-    tunnels."efedc805-364b-4ea1-adb1-7b85b3dd417c" = {
-      credentialsFile = "${local-config-dir}/efedc805-364b-4ea1-adb1-7b85b3dd417c.json";
-      default = "http_status:404";
-      # originRequest.noTLSVerify = true;
-      ingress = {
-        "${network.domain}" = {
-          service = "http://localhost:8082";
-        };
-      };
-    };
+  virtualisation.oci-containers.containers."${app-name}" = {
+    autoStart = true;
+    image = "docker.io/cloudflare/${app-name}";
+    user = "${toString uid}";
+    environmentFiles = [
+      "${local-config-dir}/env.secret"
+    ];
+    cmd = [
+      "tunnel"
+      "run"
+    ];
   };
-  environment.sessionVariables.TUNNEL_ORIGIN_CERT = "${local-config-dir}/cert.pem";
 }
