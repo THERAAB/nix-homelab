@@ -1,7 +1,12 @@
 {pkgs, ...}: {
-  virtualisation.podman.autoPrune = {
-    enable = true;
-    flags = ["--all"];
+  virtualisation.podman = {
+    defaultNetwork.settings = {
+      dns_enabled = true;
+    };
+    autoPrune = {
+      enable = true;
+      flags = ["--all"];
+    };
   };
   systemd.services.podman-auto-update = {
     script = ''
