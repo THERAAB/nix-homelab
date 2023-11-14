@@ -1,4 +1,4 @@
-{json, ...}: let
+{pkgs, ...}: let
   uid = 999;
   gid = 999;
   local-config-dir = "/nix/persist/cloudflared";
@@ -28,7 +28,7 @@ in {
     ];
   };
   environment.etc."containers/networks/cloudflare-network.json" = {
-    source = json.generate "cloudflare-network.json" {
+    source = pkgs.formats.json.generate "cloudflare-network.json" {
       dns_enabled = false;
       driver = "macvlan";
       id = "1100000000000000000000000000000000000000000000000000000000000000";
