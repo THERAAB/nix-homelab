@@ -3,6 +3,7 @@
   gid = 999;
   local-config-dir = "/nix/persist/cloudflared";
   app-name = "cloudflared";
+  json = pkgs.formats.json {};
 in {
   users = {
     users."${app-name}" = {
@@ -28,7 +29,7 @@ in {
     ];
   };
   environment.etc."containers/networks/cloudflare-network.json" = {
-    source = pkgs.formats.json.generate "cloudflare-network.json" {
+    source = json.generate "cloudflare-network.json" {
       dns_enabled = false;
       driver = "macvlan";
       id = "1100000000000000000000000000000000000000000000000000000000000000";
