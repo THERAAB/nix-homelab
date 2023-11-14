@@ -14,4 +14,6 @@
   b-hyve.local.ip = "192.168.127.7";
   ecobee.local.ip = "192.168.127.8";
   domain = "pumpkin.rodeo";
+  cloudflare.ip = "10.0.0.2";
+  dmz.subnet = "10.0.0.0/24";
 }

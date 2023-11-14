@@ -75,6 +75,9 @@ in {
     environmentFiles = [
       "${local-config-dir}/env.secret"
     ];
+    extraOptions = [
+      "-l=io.containers.autoupdate=registry"
+    ];
   };
   virtualisation.oci-containers.containers."unifi-db" = {
     autoStart = true;
@@ -93,5 +96,8 @@ in {
       UMASK = "022";
       TZ = "America/New_York";
     };
+    extraOptions = [
+      "-l=io.containers.autoupdate=registry"
+    ];
   };
 }
