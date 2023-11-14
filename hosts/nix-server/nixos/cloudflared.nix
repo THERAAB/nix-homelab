@@ -46,7 +46,7 @@ in {
       network_interface = "enp3s0";
       subnets = [
         {
-          gateway = "10.0.0.1";
+          gateway = "10.0.0.0";
           subnet = "${network.dmz.subnet}";
         }
       ];
