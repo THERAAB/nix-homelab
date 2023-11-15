@@ -14,7 +14,7 @@
   };
   systemd.services.docker-auto-update = {
     script = ''
-      ${pkgs.docker}/bin/podman auto-update
+      ${pkgs.docker}/bin/docker auto-update
     '';
     after = ["docker.service"];
     requires = ["docker.service"];

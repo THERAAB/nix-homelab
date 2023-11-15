@@ -30,7 +30,7 @@ in {
     ];
     extraOptions = [
       "--network=dmz-macvlan"
-      "--ip=${network.cloudflare.ip}"
+      # "--ip=${network.cloudflare.ip}"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -40,7 +40,7 @@ in {
       driver = "macvlan";
       id = "1123000000000000000000000000000000000000000000000000000000000000";
       internal = false;
-      ipam_options.driver = "host-local";
+      ipam_options.driver = "dchp";
       ipv6_enabled = false;
       name = "dmz-macvlan";
       network_interface = "enp3s0";
