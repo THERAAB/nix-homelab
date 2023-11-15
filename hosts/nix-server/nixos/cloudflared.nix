@@ -30,7 +30,7 @@ in {
     ];
     extraOptions = [
       "--network=dmz-macvlan"
-      # "--ip=${network.cloudflare.ip}"
+      "--ip=${network.cloudflare.ip}"
       "-l=io.containers.autoupdate=registry"
     ];
   };
