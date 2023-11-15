@@ -1,4 +1,4 @@
-{pkgs,...}: {
+{pkgs, ...}: {
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";
@@ -23,5 +23,4 @@
       Unit = "docker-auto-update.service";
     };
   };
-}
 }
