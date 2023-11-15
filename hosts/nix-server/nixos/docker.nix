@@ -7,6 +7,10 @@
       enable = true;
       flags = ["--all"];
     };
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
   systemd.services.docker-auto-update = {
     script = ''
