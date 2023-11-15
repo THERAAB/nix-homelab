@@ -30,7 +30,7 @@ in {
     ];
     extraOptions = [
       "--network=dmz-macvlan"
-      "--ip=${network.cloudflare.ip}"
+      "--ip=192.168.3.9"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -46,8 +46,8 @@ in {
       network_interface = "enp3s0";
       subnets = [
         {
-          gateway = "10.0.0.1";
-          subnet = "${network.dmz.subnet}";
+          gateway = "192.168.3.1";
+          subnet = "192.168.3.0/24";
         }
       ];
     };
