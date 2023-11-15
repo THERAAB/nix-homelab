@@ -29,8 +29,6 @@ in {
       "run"
     ];
     extraOptions = [
-      "--network=dmz-macvlan"
-      "--ip=10.0.0.9"
       "-l=io.containers.autoupdate=registry"
     ];
   };
