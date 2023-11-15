@@ -40,7 +40,7 @@ in {
       driver = "macvlan";
       id = "1123000000000000000000000000000000000000000000000000000000000000";
       internal = false;
-      ipam_options.driver = "dhcp";
+      ipam_options.driver = "host-local";
       ipv6_enabled = false;
       name = "dmz-macvlan";
       network_interface = "enp3s0";
