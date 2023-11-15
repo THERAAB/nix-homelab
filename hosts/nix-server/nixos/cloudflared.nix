@@ -44,7 +44,7 @@ in {
       ipv6_enabled = false;
       name = "dmz-macvlan";
       network_interface = "enp3s0";
-      network_dns_servers = ["192.168.1.1"];
+      network_dns_servers = ["1.1.1.1"];
       subnets = [
         {
           gateway = "192.168.3.1";
