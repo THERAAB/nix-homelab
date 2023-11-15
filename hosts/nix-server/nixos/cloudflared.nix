@@ -29,6 +29,8 @@ in {
       "run"
     ];
     extraOptions = [
+      "--ip=192.168.3.9"
+      "--network=dmz-macvlan"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -42,10 +44,11 @@ in {
       ipv6_enabled = false;
       name = "dmz-macvlan";
       network_interface = "enp3s0";
+      network_dns_servers = ["192.168.3.2"];
       subnets = [
         {
-          gateway = "10.0.0.1";
-          subnet = "10.0.0.0/24";
+          gateway = "192.168.3.1";
+          subnet = "192.168.3.0/24";
         }
       ];
     };
