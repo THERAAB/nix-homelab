@@ -8,6 +8,7 @@
       ".cache/nvim"
       ".local/share/fish"
       ".local/share/zoxide"
+      ".local/share/atuin"
     ];
     files = [
       ".ssh/known_hosts"

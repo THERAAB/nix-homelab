@@ -3,7 +3,7 @@
     fish = {
       enable = true;
       shellAliases = {
-        nox = "/nix/persist/nix-dotfiles/nox";
+        nox = "/nix/persist/nix-homelab/nox";
         cat = "bat --theme=base16-256";
         grep = "rg";
         ps = "procs";
