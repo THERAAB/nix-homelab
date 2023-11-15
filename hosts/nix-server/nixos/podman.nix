@@ -1,8 +1,6 @@
 {pkgs, ...}: {
   virtualisation.podman = {
-    defaultNetwork.settings = {
-      dns_enabled = true;
-    };
+    defaultNetwork.settings.dns_enabled = true;
     autoPrune = {
       enable = true;
       flags = ["--all"];
