@@ -29,20 +29,20 @@ in {
       "run"
     ];
     extraOptions = [
-      "--network=dmz-ipvlan"
+      "--network=dmz-macvlan"
       "--ip=${network.cloudflare.ip}"
       "-l=io.containers.autoupdate=registry"
     ];
   };
-  environment.etc."containers/networks/dmz-ipvlan.json" = {
-    source = json.generate "dmz-ipvlan.json" {
+  environment.etc."containers/networks/dmz-macvlan.json" = {
+    source = json.generate "dmz-macvlan.json" {
       dns_enabled = false;
-      driver = "ipvlan";
+      driver = "macvlan";
       id = "1120000000000000000000000000000000000000000000000000000000000000";
       internal = false;
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
-      name = "dmz-ipvlan";
+      name = "dmz-macvlan";
       network_interface = "enp3s0";
       subnets = [
         {
