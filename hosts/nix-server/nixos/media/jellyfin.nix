@@ -46,7 +46,7 @@ in {
     wantedBy = ["timers.target"];
     timerConfig = {
       OnBootSec = "60s";
-      Unit = "docker-${app-name}.service";
+      Unit = "podman-${app-name}.service";
     };
   };
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {

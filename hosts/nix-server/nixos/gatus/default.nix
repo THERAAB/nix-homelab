@@ -50,7 +50,7 @@ in {
   };
   # Delay gatus start because it needs adguard to setup first
   # Otherwise local DNS record lookups will fail.
-  systemd.services."docker-${app-name}" = {
+  systemd.services."podman-${app-name}" = {
     wantedBy = ["yamlPatcher-${app-name}.service"];
     after = ["yamlPatcher-${app-name}.service" "adguardhome.service"];
   };
