@@ -43,7 +43,7 @@ in {
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
       name = "dmz-macvlan";
-      network_interface = "enp3s0";
+      network_interface = "enp3s0.10";
       subnets = [
         {
           gateway = "10.0.0.1";
