@@ -20,7 +20,7 @@ in {
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "docker.io/cloudflare/${app-name}";
-    # user = "${toString uid}";
+    user = "${toString uid}";
     environmentFiles = [
       "${local-config-dir}/env.secret"
     ];
@@ -31,12 +31,12 @@ in {
     extraOptions = [
       "--network=dmz-macvlan"
       "--ip=${network.cloudflare.ip}"
-      # "-l=io.containers.autoupdate=registry"
+      "-l=io.containers.autoupdate=registry"
     ];
   };
   environment.etc."containers/networks/dmz-macvlan.json" = {
     source = json.generate "dmz-macvlan.json" {
-      dns_enabled = true;
+      dns_enabled = false;
       driver = "macvlan";
       id = "1123000000000000000000000000000000000000000000000000000000000000";
       internal = false;

@@ -14,7 +14,7 @@
     ./sops.nix
     ./photoprism.nix
     ./unifi.nix
-    ./podman.nix
+    ./docker.nix
     ./cloudflared.nix
   ];
 }
