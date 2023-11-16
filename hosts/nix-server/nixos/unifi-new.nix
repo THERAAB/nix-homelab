@@ -77,7 +77,7 @@ in {
       "${local-config-dir}/env.secret"
     ];
     extraOptions = [
-      "--network=unifi-network"
+      "--network=test"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -99,7 +99,7 @@ in {
       TZ = "America/New_York";
     };
     extraOptions = [
-      "--network=unifi-network"
+      "--network=test"
       "-l=io.containers.autoupdate=registry"
     ];
   };
