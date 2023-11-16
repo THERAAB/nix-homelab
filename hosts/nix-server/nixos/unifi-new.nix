@@ -89,9 +89,6 @@ in {
       "${local-config-dir}/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro"
     ];
     user = "${toString uid}";
-    ports = [
-      "27017:27017"
-    ];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString gid}";
@@ -103,13 +100,12 @@ in {
       "-l=io.containers.autoupdate=registry"
     ];
   };
-  networking.firewall.allowedTCPPorts = [27017];
   environment.etc."containers/networks/unifi-network.json" = {
     source = json.generate "unifi-network.json" {
       dns_enabled = true;
       driver = "bridge";
       id = "4f72ec37e6860f72e48285f65f3e1bad7e5933cb939426e4ad6874200339353a";
-      internal = false;
+      internal = true;
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
       name = "unifi-network";
