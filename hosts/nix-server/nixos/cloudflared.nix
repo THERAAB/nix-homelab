@@ -29,8 +29,7 @@ in {
       "run"
     ];
     extraOptions = [
-      "--ip=192.168.3.9"
-      "--dns=1.1.1.1"
+      "--ip=100.64.0.200"
       "--network=dmz-macvlan"
       "-l=io.containers.autoupdate=registry"
     ];
@@ -44,12 +43,11 @@ in {
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
       name = "dmz-macvlan";
-      network_interface = "enp3s0";
-      network_dns_servers = ["1.1.1.1"];
+      network_interface = "tailscale0";
       subnets = [
         {
-          gateway = "192.168.3.1";
-          subnet = "192.168.3.0/24";
+          gateway = "100.64.0.1";
+          subnet = "100.64.0.0/10";
         }
       ];
     };
