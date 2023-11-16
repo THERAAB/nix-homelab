@@ -1,10 +1,11 @@
-{...}: let
+{pkgs, ...}: let
   uid = 7812;
   gid = 7813;
   port = 8443;
   app-name = "unifi";
   local-config-dir = "/nix/persist/${app-name}/";
   network = import ../../../share/network.properties.nix;
+  json = pkgs.formats.json {};
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
@@ -69,13 +70,14 @@ in {
       PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
-      MONGO_HOST = "${network.nix-server.local.ip}";
+      MONGO_HOST = "unifi-db";
       MONGO_PORT = "27017";
     };
     environmentFiles = [
       "${local-config-dir}/env.secret"
     ];
     extraOptions = [
+      "network=unifi-network"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -87,9 +89,9 @@ in {
       "${local-config-dir}/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro"
     ];
     user = "${toString uid}";
-    ports = [
-      "27017:27017" #TODO: use docker network instead of exposing this port
-    ];
+    #ports = [
+    #  "27017:27017" #TODO: use docker network instead of exposing this port
+    #];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString gid}";
@@ -97,7 +99,20 @@ in {
       TZ = "America/New_York";
     };
     extraOptions = [
+      "network=unifi-network"
       "-l=io.containers.autoupdate=registry"
     ];
+  };
+  environment.etc."containers/networks/unifi-network.json" = {
+    source = json.generate "unifi-network.json" {
+      dns_enabled = true;
+      driver = "bridge";
+      id = "1123400000000000000000000000000000000000000000000000000000000000";
+      internal = false;
+      ipam_options.driver = "host-local";
+      ipv6_enabled = false;
+      name = "unifi-network";
+      network_interface = "enp3s0";
+    };
   };
 }

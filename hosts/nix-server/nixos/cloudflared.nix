@@ -1,10 +1,8 @@
-{pkgs, ...}: let
+{...}: let
   uid = 999;
   gid = 999;
   local-config-dir = "/nix/persist/cloudflared";
   app-name = "cloudflared";
-  json = pkgs.formats.json {};
-  network = import ../../../share/network.properties.nix;
 in {
   users = {
     users."${app-name}" = {
@@ -29,27 +27,7 @@ in {
       "run"
     ];
     extraOptions = [
-      "--ip=100.64.0.200"
-      "--network=dmz-macvlan"
       "-l=io.containers.autoupdate=registry"
     ];
-  };
-  environment.etc."containers/networks/dmz-macvlan.json" = {
-    source = json.generate "dmz-macvlan.json" {
-      dns_enabled = false;
-      driver = "macvlan";
-      id = "1123000000000000000000000000000000000000000000000000000000000000";
-      internal = false;
-      ipam_options.driver = "host-local";
-      ipv6_enabled = false;
-      name = "dmz-macvlan";
-      network_interface = "tailscale0";
-      subnets = [
-        {
-          gateway = "100.64.0.1";
-          subnet = "100.64.0.0/10";
-        }
-      ];
-    };
   };
 }
