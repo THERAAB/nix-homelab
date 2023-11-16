@@ -96,14 +96,13 @@ in {
       TZ = "America/New_York";
     };
     ports = [
-      # "27017:27017"
+      "27017:27017"
     ];
     extraOptions = [
       "--network=unifi-network"
       "-l=io.containers.autoupdate=registry"
     ];
   };
-  networking.firewall.allowedTCPPorts = [27017];
   environment.etc."containers/networks/unifi-network.json" = {
     source = json.generate "unifi-network.json" {
       dns_enabled = true;
