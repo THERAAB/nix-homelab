@@ -36,7 +36,7 @@ in {
     source = json.generate "cloudflare-network.json" {
       dns_enabled = true;
       driver = "bridge";
-      id = "4f72ec37e6860f72e48285f65f3e1bad7e5933cb939426e4ad6874200339353a";
+      id = "dd72ec37e6860f72e48285f65f3e1bad7e5933cb939426e4ad6874200339353a";
       internal = false;
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
