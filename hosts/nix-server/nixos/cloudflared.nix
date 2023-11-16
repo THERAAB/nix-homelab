@@ -30,6 +30,7 @@ in {
     ];
     extraOptions = [
       "--ip=192.168.3.9"
+      "--dns=1.1.1.1"
       "--network=dmz-macvlan"
       "-l=io.containers.autoupdate=registry"
     ];
