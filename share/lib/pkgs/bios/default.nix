@@ -1,9 +1,9 @@
 {
   lib,
-  python310Packages,
+  pythonPackages,
   fetchPypi,
 }:
-python310Packages.buildPythonPackage rec {
+pythonPackages.buildPythonPackage rec {
   pname = "bios";
   version = "0.1.2";
   src = fetchPypi {
@@ -14,8 +14,8 @@ python310Packages.buildPythonPackage rec {
   doCheck = false;
 
   propagatedBuildInputs = [
-    python310Packages.oyaml
-    python310Packages.pyyaml
+    pythonPackages.oyaml
+    pythonPackages.pyyaml
   ];
 
   meta = with lib; {
