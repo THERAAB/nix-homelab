@@ -13,7 +13,7 @@
     ./hardware.nix
     ./sops.nix
     ./photoprism.nix
-    ./unifi-new.nix
+    ./unifi.nix
     ./podman.nix
     ./cloudflared.nix
   ];
