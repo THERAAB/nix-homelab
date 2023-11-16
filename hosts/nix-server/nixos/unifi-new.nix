@@ -95,9 +95,6 @@ in {
       UMASK = "022";
       TZ = "America/New_York";
     };
-    ports = [
-      "27017:27017"
-    ];
     extraOptions = [
       "--network=unifi-network"
       "-l=io.containers.autoupdate=registry"
@@ -112,7 +109,7 @@ in {
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
       name = "unifi-network";
-      network_interface = "podman1";
+      network_interface = "podman0";
       subnets = [
         {
           gateway = "10.89.0.1";
