@@ -77,7 +77,7 @@ in {
       "${local-config-dir}/env.secret"
     ];
     extraOptions = [
-      "--network=test"
+      "--network=unifi-network"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -89,9 +89,9 @@ in {
       "${local-config-dir}/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro"
     ];
     user = "${toString uid}";
-    #ports = [
-    #  "27017:27017" #TODO: use docker network instead of exposing this port
-    #];
+    ports = [
+      "27017:27017" #TODO: use docker network instead of exposing this port
+    ];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString gid}";
@@ -99,7 +99,7 @@ in {
       TZ = "America/New_York";
     };
     extraOptions = [
-      "--network=test"
+      "--network=unifi-network"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -107,16 +107,16 @@ in {
     source = json.generate "unifi-network.json" {
       dns_enabled = true;
       driver = "bridge";
-      id = "1123400000000000000000000000000000000000000000000000000000000000";
+      id = "4f72ec37e6860f72e48285f65f3e1bad7e5933cb939426e4ad6874200339353a";
       internal = false;
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
       name = "unifi-network";
-      network_interface = "enp3s0";
+      network_interface = "podman1";
       subnets = [
         {
-          gateway = "10.0.0.1";
-          subnet = "10.0.0.0/16";
+          gateway = "10.89.0.1";
+          subnet = "10.89.0.0/24";
         }
       ];
     };
