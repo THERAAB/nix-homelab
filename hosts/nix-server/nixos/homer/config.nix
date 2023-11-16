@@ -119,12 +119,12 @@ in {
           target = "_blank";
         }
         {
-          name = "Unifi Controller";
+          name = "Unifi Network Application";
           logo = "assets/icons/unifi.png";
           subtitle = "Wireless Access Point";
           tag = "wireless";
           keywords = "wireless router access point";
-          url = "https://unifi-controller.${network.domain}";
+          url = "https://unifi.${network.domain}";
           target = "_blank";
         }
         {

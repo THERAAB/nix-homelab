@@ -75,14 +75,7 @@ Add below services & their devices:
 - Zigbee devices (water alarms)
 - Shopping List
 
-## Cloudflare
-
-```console
-cloudflared tunnel login
-cp -r /home/raab/.cloudflared /nix/persist/cloudflared
-cloudflared tunnel create <tunnel-name>
-sudo cloudflared tunnel route dns <name> <hostname>
-```
+## Cloudflare SSL Certs
 
 ```
 # Create cloudflare secret
