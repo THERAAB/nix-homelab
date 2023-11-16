@@ -96,7 +96,7 @@ in {
       TZ = "America/New_York";
     };
     ports = [
-      "27017:27017"
+      # "27017:27017"
     ];
     extraOptions = [
       "--network=unifi-network"
