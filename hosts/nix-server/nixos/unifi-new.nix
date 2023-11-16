@@ -100,6 +100,7 @@ in {
       "-l=io.containers.autoupdate=registry"
     ];
   };
+  networking.firewall.allowedTCPPorts = [27017];
   environment.etc."containers/networks/unifi-network.json" = {
     source = json.generate "unifi-network.json" {
       dns_enabled = true;
