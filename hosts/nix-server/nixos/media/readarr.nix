@@ -61,6 +61,7 @@ in {
       TZ = "America/New_York";
     };
     extraOptions = [
+      "--network=media-network"
       "-l=io.containers.autoupdate=registry"
     ];
   };

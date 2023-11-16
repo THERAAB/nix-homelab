@@ -72,6 +72,7 @@ in {
       DOCKER_MODS = "linuxserver/mods:jellyfin-opencl-intel";
     };
     extraOptions = [
+      "--network=media-network"
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
       "--device=/dev/dri/card0:/dev/dri/card0"
       "-l=io.containers.autoupdate=registry"
