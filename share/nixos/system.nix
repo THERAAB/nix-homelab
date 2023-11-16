@@ -14,7 +14,7 @@
 
   services.locate = {
     enable = true;
-    package = pkgs.plocate;
+    locate = pkgs.plocate;
     localuser = null;
   };
 
