@@ -15,7 +15,7 @@
       enable = true;
       options = ["--cmd cd"];
     };
-    atuin.enable = true;
+    # atuin.enable = true;
     exa = {
       enable = true;
       enableAliases = true;

@@ -109,7 +109,7 @@ in {
       ipam_options.driver = "host-local";
       ipv6_enabled = false;
       name = "unifi-network";
-      network_interface = "podman0";
+      network_interface = "podman1";
       subnets = [
         {
           gateway = "10.89.0.1";
