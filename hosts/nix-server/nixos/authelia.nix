@@ -2,6 +2,7 @@
   app-name = "authelia-pumpkin-rodeo";
   local-config-dir = "/var/lib" + "/${app-name}";
   port = 9091;
+  network = import ../../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}                     -       -             -               -   - "
@@ -11,6 +12,12 @@ in {
     "Z    ${local-config-dir}                     740     ${app-name}   ${app-name}     -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
+  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+    useACMEHost = "${network.domain}";
+    extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
+    '';
+  };
   services.authelia.instances.pumpkin-rodeo = {
     enable = true;
     secrets.storageEncryptionKeyFile = config.sops.secrets.authelia_storage_secret.path;
