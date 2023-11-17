@@ -5,9 +5,9 @@
 in {
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}                     -       -             -               -   - "
-    "f    ${local-config-dir}/db.sqlite3          -       -             -               -   - "
-    "f    ${local-config-dir}/users_database.yml  -       -             -               -   - "
-    "f    ${local-config-dir}/notification.txt    -       -             -               -   - "
+    #"f    ${local-config-dir}/db.sqlite3          -       -             -               -   - "
+    #"f    ${local-config-dir}/users_database.yml  -       -             -               -   - "
+    #"f    ${local-config-dir}/notification.txt    -       -             -               -   - "
     "Z    ${local-config-dir}                     740     ${app-name}   ${app-name}     -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
