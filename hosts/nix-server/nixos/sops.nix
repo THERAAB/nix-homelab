@@ -8,8 +8,8 @@
       owner = "vuetorrent";
     };
     df_password = {};
-    authelia_jwt_secret = {};
-    authelia_storage_secret = {};
+    authelia_jwt_secret.owner = "authelia-pumpkin-rodeo";
+    authelia_storage_secret = "authelia-pumpkin-rodeo";
     cloudflare_secret = {
       owner = "cloudflared";
       path = "/var/lib/secrets/cloudflare.secret";
