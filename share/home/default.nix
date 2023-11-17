@@ -5,5 +5,6 @@
     ./pkgs.nix
     ./home.nix
     ./fish.nix
+    ./neovim.nix
   ];
 }
