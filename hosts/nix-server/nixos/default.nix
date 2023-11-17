@@ -16,5 +16,6 @@
     ./unifi.nix
     ./podman.nix
     ./cloudflared.nix
+    ./authelia.nix
   ];
 }
