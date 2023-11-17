@@ -1,11 +1,13 @@
 {config, ...}: let
   app-name = "authelia-pumpkin-rodeo";
   local-config-dir = "/nix/persist/" + "/${app-name}/";
+  port = 9091;
 in {
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}   -       -             -               -   - "
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
+  networking.firewall.allowedTCPPorts = [port];
   services.authelia.instances.pumpkin-rodeo = {
     enable = true;
     secrets.storageEncryptionKeyFile = config.sops.secrets.authelia_storage_secret.path;
