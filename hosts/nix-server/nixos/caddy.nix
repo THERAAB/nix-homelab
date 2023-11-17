@@ -6,11 +6,7 @@ in {
     "d    ${secrets-dir}     -       -      -    -   - "
     "Z    ${secrets-dir}     644     root   -    -   - "
   ];
-  services.caddy = {
-    enable = true;
-    globalConfig = ''
-    '';
-  };
+  services.caddy.enable = true;
   security.acme = {
     acceptTerms = true;
     defaults = {
