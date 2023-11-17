@@ -28,7 +28,6 @@ in {
         remember_me_duration = "1M";
         domain = "pumpkin.rodeo";
       };
-
       regulation = {
         max_retries = 3;
         find_time = "5m";
@@ -47,9 +46,15 @@ in {
           }
         ];
       };
-      disable_startup_check = false;
-      filesystem = {
-        filename = "${local-config-dir}/notification.txt";
+      storage = {
+        local = {
+          path = "${local-config-dir}/db.sqlite3";
+        };
+      };
+      notifier = {
+        filesystem = {
+          filename = "${local-config-dir}/notification.txt";
+        };
       };
     };
   };
