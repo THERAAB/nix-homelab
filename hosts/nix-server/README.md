@@ -15,6 +15,7 @@ and the installation instructions below.
 - Reverse Proxy with [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [netdata](https://www.netdata.cloud/) and [gatus](https://github.com/TwiN/gatus)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
+- Secure Tunnel and SSL Certs with [Cloudflare] (https://www.cloudflare.com/)
 
 ## Installation
 
