@@ -1,6 +1,11 @@
 {...}: let
   network = import ../../../share/network.properties.nix;
+  secrets-dir = "/var/lib/secrets";
 in {
+  systemd.tmpfiles.rules = [
+    "d    ${secrets-dir}     -       -      -    -   - "
+    "Z    ${secrets-dir}     644     root   -    -   - "
+  ];
   services.caddy = {
     enable = true;
     globalConfig = ''

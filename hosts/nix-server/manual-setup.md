@@ -81,8 +81,6 @@ Add below services & their devices:
 
 ```
 # Create cloudflare secret
-sudo mkdir /var/lib/secrets
-sudo chmod 644 /var/lib/secrets
 sudo vi /var/lib/secrets/cloudflare.secret
 
 > CF_DNS_API_TOKEN=$key
