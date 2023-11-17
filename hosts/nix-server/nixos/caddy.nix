@@ -14,7 +14,7 @@ in {
   security.acme = {
     acceptTerms = true;
     defaults = {
-      email = "example@example.com";
+      email = "example@aol.com";
       credentialsFile = "/var/lib/secrets/cloudflare.secret";
       dnsProvider = "cloudflare";
       dnsResolver = "1.1.1.1:53";
