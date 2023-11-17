@@ -9,7 +9,7 @@ in {
   security.acme = {
     acceptTerms = true;
     defaults = {
-      email = "jletum@aol.com";
+      email = "example@example.com";
       credentialsFile = "/var/lib/secrets/cloudflare.secret";
       dnsProvider = "cloudflare";
       dnsResolver = "1.1.1.1:53";

@@ -74,6 +74,8 @@ Add below services & their devices:
 - Android tv
 - Zigbee devices (water alarms)
 - Shopping List
+- WiZ
+- TP-Link Tapo
 
 ## Cloudflare SSL Certs
 
