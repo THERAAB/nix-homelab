@@ -18,5 +18,5 @@
     localuser = null;
   };
 
-  environment.variables.EDITOR = "hx";
+  environment.variables.EDITOR = "nvim";
 }

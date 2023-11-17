@@ -26,7 +26,6 @@
     du-dust
     bottom
     zoxide
-    helix
     ethtool
     kitty
     s0ix-selftest-tool

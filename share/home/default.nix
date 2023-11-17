@@ -5,6 +5,5 @@
     ./pkgs.nix
     ./home.nix
     ./fish.nix
-    ./helix.nix
   ];
 }
