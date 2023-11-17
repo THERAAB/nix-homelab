@@ -4,8 +4,9 @@
   port = 9091;
 in {
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}   -       -             -               -   - "
-    "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
+    "d    ${local-config-dir}             -       -             -               -   - "
+    "f    ${local-config-dir}/db.sqlite3  -       -             -               -   - "
+    "Z    ${local-config-dir}             740     ${app-name}   ${app-name}     -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
   services.authelia.instances.pumpkin-rodeo = {
