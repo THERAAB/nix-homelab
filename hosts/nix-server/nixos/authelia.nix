@@ -7,7 +7,6 @@ in {
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}                     -       -             -               -   - "
     "f    ${local-config-dir}/db.sqlite3          -       -             -               -   - "
-    # "f    ${local-config-dir}/users_database.yml  -       -             -               -   - "
     "f    ${local-config-dir}/notification.txt    -       -             -               -   - "
     "Z    ${local-config-dir}                     740     ${app-name}   ${app-name}     -   - "
   ];
@@ -37,9 +36,9 @@ in {
         domain = "pumpkin.rodeo";
       };
       regulation = {
-        max_retries = 3;
+        max_retries = 5;
         find_time = "5m";
-        ban_time = "15m";
+        ban_time = "1h";
       };
       access_control = {
         default_policy = "deny";
