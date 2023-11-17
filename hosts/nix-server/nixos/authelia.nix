@@ -12,7 +12,7 @@ in {
     "Z    ${local-config-dir}                     740     ${app-name}   ${app-name}     -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
-  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+  services.caddy.virtualHosts."auth.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''
       reverse_proxy 127.0.0.1:${toString port}
