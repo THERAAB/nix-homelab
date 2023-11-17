@@ -1,6 +1,6 @@
 {config, ...}: let
   app-name = "authelia-pumpkin-rodeo";
-  local-config-dir = "/nix/persist" + "/${app-name}";
+  local-config-dir = "/var/lib" + "/${app-name}";
   port = 9091;
 in {
   systemd.tmpfiles.rules = [
