@@ -3,6 +3,7 @@
   local-config-dir = "/var/lib" + "/${app-name}";
   port = 9091;
   network = import ../../../share/network.properties.nix;
+  health-endpoint = "'^/health$'";
 in {
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}                     -       -             -               -   - "
@@ -48,7 +49,7 @@ in {
           {
             domain = ["jellyseerr.pumpkin.rodeo"];
             resources = [
-              "^/health$"
+              health-endpoint
             ];
             policy = "bypass";
           }
