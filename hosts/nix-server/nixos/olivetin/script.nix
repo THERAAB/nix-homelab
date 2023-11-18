@@ -25,7 +25,7 @@ pkgs.writeShellScript "commands.sh" ''
   
   function stop_podman_container() {
     echo stopping $1
-    podman stop $1
+    systemctl stop podman-$1
     sleep 1
     return 0
   }
