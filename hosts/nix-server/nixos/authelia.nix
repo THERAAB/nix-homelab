@@ -25,8 +25,6 @@ in {
       theme = "dark";
       default_redirection_url = "https://pumpkin.rodeo";
       default_2fa_method = "totp";
-      log.level = "debug";
-      server.disable_healthcheck = true;
       authentication_backend.file.path = config.sops.secrets.authelia_users_db.path;
       session = {
         name = "authelia_pumpkin_rodeo";
@@ -48,7 +46,7 @@ in {
             policy = "bypass";
           }
           {
-            domain = ["jellyfin.pumpkin.rodeo"];
+            domain = ["*.pumpkin.rodeo"];
             policy = "one_factor";
           }
         ];
