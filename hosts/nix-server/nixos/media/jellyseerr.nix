@@ -6,6 +6,20 @@
   local-config-dir = media.dir.config + "/${app-name}/";
   network = import ../../../../share/network.properties.nix;
 in {
+  services.yamlConfigMaker.gatus.settings.endpoints = [
+    {
+      name = "Jellyseerr";
+      url = "https://${app-name}.${network.domain}/health";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "custom";
+        }
+      ];
+    }
+  ];
   services.olivetin.settings.actions = [
     {
       title = "Restart Jellyseerr";
