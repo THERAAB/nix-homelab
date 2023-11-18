@@ -7,7 +7,7 @@
   gid = 901;
   port = 7000;
   app-name = "gatus";
-  local-config-dir = "/nix/persist/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}/";
   cfg = import ./config.nix;
   network = import ../../../../share/network.properties.nix;
 in {
@@ -22,7 +22,7 @@ in {
     {
       title = "Restart Gatus";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
+      shell = "sudo /var/lib/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];

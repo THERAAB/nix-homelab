@@ -10,17 +10,8 @@
     df_password = {};
     authelia_jwt_secret.owner = "authelia-pumpkin-rodeo";
     authelia_storage_secret.owner = "authelia-pumpkin-rodeo";
-    cloudflare_secret = {
-      owner = "cloudflared";
-      path = "/var/lib/secrets/cloudflare.secret";
-    };
-    mongo_init = {
-      owner = "unifi";
-      path = "/nix/persist/unifi/init-mongo.js";
-    };
-    mongo_secret = {
-      owner = "unifi";
-      path = "/nix/persist/unifi/env.secret";
-    };
+    cloudflare_secret.owner = "cloudflared";
+    mongo_init.owner = "unifi";
+    mongo_secret.owner = "unifi";
   };
 }

@@ -1,9 +1,9 @@
-{pkgs, ...}: let
+{config, pkgs, ...}: let
   uid = 7812;
   gid = 7813;
   port = 8443;
   app-name = "unifi";
-  local-config-dir = "/nix/persist/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../share/network.properties.nix;
   json = pkgs.formats.json {};
 in {
@@ -26,7 +26,7 @@ in {
     {
       title = "Restart Unifi Network Application";
       icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p ${app-name}";
+      shell = "sudo /var/lib/olivetin/scripts/commands.sh -p ${app-name}";
       timeout = 20;
     }
   ];
@@ -74,7 +74,7 @@ in {
       MONGO_PORT = "27017";
     };
     environmentFiles = [
-      "${local-config-dir}/env.secret"
+      config.sops.mongo_secret.path
     ];
     extraOptions = [
       "--network=unifi-network"
@@ -86,7 +86,7 @@ in {
     image = "docker.io/mongo:4.4";
     volumes = [
       "${local-config-dir}/db:/data/db"
-      "${local-config-dir}/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro"
+      "${toString config.sops.mongo_init.path}:/docker-entrypoint-initdb.d/init-mongo.js:ro"
     ];
     user = "${toString uid}";
     environment = {

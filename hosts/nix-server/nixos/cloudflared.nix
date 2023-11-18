@@ -1,7 +1,7 @@
-{pkgs, ...}: let
+{config, pkgs, ...}: let
   uid = 999;
   gid = 999;
-  local-config-dir = "/nix/persist/cloudflared";
+  local-config-dir = "/var/lib/cloudflared";
   app-name = "cloudflared";
   json = pkgs.formats.json {};
 in {
@@ -21,7 +21,7 @@ in {
     image = "docker.io/cloudflare/${app-name}";
     user = "${toString uid}";
     environmentFiles = [
-      "${local-config-dir}/env.secret"
+      config.sops.cloudflare_secret.path
     ];
     cmd = [
       "tunnel"

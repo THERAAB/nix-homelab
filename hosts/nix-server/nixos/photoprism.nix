@@ -22,7 +22,7 @@ in {
     {
       title = "Restart PhotoPrism";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -s ${app-name}";
+      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
       timeout = 20;
     }
   ];

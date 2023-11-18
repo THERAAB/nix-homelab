@@ -4,7 +4,7 @@
   gid = 62893;
   app-name = "olivetin";
   www-dir = "/var/www/${app-name}";
-  scripts-dir = "/nix/persist/${app-name}/scripts";
+  scripts-dir = "/var/lib/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   network = import ../../../../share/network.properties.nix;
@@ -30,7 +30,7 @@ in {
       {
         title = "Reboot Server";
         icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
-        shell = "sudo /nix/persist/olivetin/scripts/commands.sh -r";
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
         timeout = 20;
       }
     ];

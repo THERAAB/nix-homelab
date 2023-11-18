@@ -4,7 +4,7 @@
   port = 8082;
   app-name = "homer";
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
-  local-config-dir = "/nix/persist/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}/";
   config = import ./config.nix;
   config-dir = local-config-dir + "/box/";
   network = import ../../../../share/network.properties.nix;
@@ -37,7 +37,7 @@ in {
     {
       title = "Restart Homer";
       icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
-      shell = "sudo /nix/persist/olivetin/scripts/commands.sh -p homer";
+      shell = "sudo /var/lib/olivetin/scripts/commands.sh -p homer";
       timeout = 20;
     }
   ];
