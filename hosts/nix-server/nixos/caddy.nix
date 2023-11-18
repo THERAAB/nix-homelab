@@ -1,4 +1,4 @@
-{...}: let
+{config, ...}: let
   network = import ../../../share/network.properties.nix;
   secrets-dir = "/var/lib/secrets";
 in {
@@ -11,7 +11,7 @@ in {
     acceptTerms = true;
     defaults = {
       email = "example@aol.com";
-      credentialsFile = "/var/lib/secrets/cloudflare.secret";
+      credentialsFile = config.sops.secrets.cloudflare_dns_secret.path;
       dnsProvider = "cloudflare";
       dnsResolver = "1.1.1.1:53";
     };
