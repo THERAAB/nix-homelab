@@ -37,6 +37,7 @@ in {
     ];
     extraOptions = [
       "--network=cloudflare-network"
+      "--restart=unless-stopped"
       "-l=io.containers.autoupdate=registry"
     ];
   };
