@@ -27,7 +27,7 @@ in {
       default_2fa_method = "totp";
       log.level = "debug";
       server.disable_healthcheck = true;
-      authentication_backend.file.path = "${local-config-dir}/users_database.yml";
+      authentication_backend.file.path = config.sops.secrets.authelia_users_db.path;
       session = {
         name = "authelia_pumpkin_rodeo";
         expiration = "12h";
