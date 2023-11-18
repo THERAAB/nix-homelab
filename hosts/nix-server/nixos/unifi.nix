@@ -74,7 +74,7 @@ in {
       MONGO_PORT = "27017";
     };
     environmentFiles = [
-      config.sops.mongo_secret.path
+      config.sops.secrets.mongo_secret.path
     ];
     extraOptions = [
       "--network=unifi-network"
@@ -86,7 +86,7 @@ in {
     image = "docker.io/mongo:4.4";
     volumes = [
       "${local-config-dir}/db:/data/db"
-      "${toString config.sops.mongo_init.path}:/docker-entrypoint-initdb.d/init-mongo.js:ro"
+      "${toString config.sops.secrets.mongo_init.path}:/docker-entrypoint-initdb.d/init-mongo.js:ro"
     ];
     user = "${toString uid}";
     environment = {

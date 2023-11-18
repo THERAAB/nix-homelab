@@ -1,4 +1,8 @@
-{config, pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   uid = 999;
   gid = 999;
   local-config-dir = "/var/lib/cloudflared";
@@ -21,7 +25,7 @@ in {
     image = "docker.io/cloudflare/${app-name}";
     user = "${toString uid}";
     environmentFiles = [
-      "${toString config.sops.cloudflare_secret.path}"
+      config.sops.secrets.cloudflare_secret.path
     ];
     cmd = [
       "tunnel"
