@@ -35,7 +35,7 @@ in {
       };
       regulation = {
         max_retries = 5;
-        find_time = "5m";
+        find_time = "10m";
         ban_time = "1h";
       };
       access_control = {
@@ -46,8 +46,19 @@ in {
             policy = "bypass";
           }
           {
+            domain = ["jellyseerr.pumpkin.rodeo"];
+            resources = [
+              "'^/health$'"
+            ];
+            policy = "bypass";
+          }
+          {
+            domain = ["pumpkin.rodeo"];
+            policy = "two_factor";
+          }
+          {
             domain = ["*.pumpkin.rodeo"];
-            policy = "one_factor";
+            policy = "two_factor";
           }
         ];
       };
