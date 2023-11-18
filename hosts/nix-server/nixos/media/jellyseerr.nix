@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Jellyseerr";
-      url = "http://192.168.3.2/health";
+      url = "http://192.168.3.2/login";
       conditions = [
         "[STATUS] == 200"
       ];
