@@ -7,7 +7,7 @@
     wireguard_mullvad = {
       owner = "vuetorrent";
     };
-    df_password = {};
+    df_password.owner = "photoprism";
     authelia_jwt_secret.owner = "authelia-pumpkin-rodeo";
     authelia_storage_secret.owner = "authelia-pumpkin-rodeo";
     cloudflare_secret.owner = "cloudflared";
