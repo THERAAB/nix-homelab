@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Jellyseerr";
-      url = "https://${app-name}.${network.domain}/health";
+      url = "http://127.0.0.1/health";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -18,6 +18,7 @@ in {
           type = "custom";
         }
       ];
+      client.insecure = true;
     }
   ];
   services.olivetin.settings.actions = [

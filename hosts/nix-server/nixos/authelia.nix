@@ -46,10 +46,6 @@ in {
             policy = "bypass";
           }
           {
-            domain = ["jellyseerr.pumpkin.rodeo/health"];
-            policy = "bypass";
-          }
-          {
             domain = ["pumpkin.rodeo"];
             policy = "two_factor";
           }
