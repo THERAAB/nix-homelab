@@ -48,7 +48,7 @@ in {
           {
             domain = ["jellyseerr.pumpkin.rodeo"];
             resources = [
-              "\'^/health$\'"
+              '''^/health$'''
             ];
             policy = "bypass";
           }
