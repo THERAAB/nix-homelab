@@ -21,7 +21,7 @@ in {
     image = "docker.io/cloudflare/${app-name}";
     user = "${toString uid}";
     environmentFiles = [
-      # config.sops.secrets.cloudflare_tunnel_secret.path TODO
+      config.sops.secrets.cloudflare_tunnel_secret.path
     ];
     cmd = [
       "tunnel"
