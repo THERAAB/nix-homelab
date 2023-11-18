@@ -21,11 +21,12 @@ in {
     image = "docker.io/cloudflare/${app-name}";
     user = "${toString uid}";
     environmentFiles = [
-      config.sops.secrets.cloudflare_secret.path
+      "${toString config.sops.secrets.cloudflare_secret.path}"
     ];
     cmd = [
       "tunnel"
       "run"
+      # "homepage"
     ];
     extraOptions = [
       "--network=cloudflare-network"
