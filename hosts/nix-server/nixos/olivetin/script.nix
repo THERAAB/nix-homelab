@@ -22,6 +22,13 @@ pkgs.writeShellScript "commands.sh" ''
     echo restarted container $1
     return 0
   }
+  
+  function stop_podman_container() {
+    echo stopping $1
+    podman stop $1
+    sleep 1
+    return 0
+  }
 
   function restart_service() {
     echo stopping $1
@@ -49,6 +56,8 @@ pkgs.writeShellScript "commands.sh" ''
     show_usage
   elif [[ "$1" == "-p" ]] || [[ "$1" == "--podman" ]]; then
     restart_podman_container $2
+  elif [[ "$1" == "-x" ]] || [[ "$1" == "--stop-podman" ]]; then
+    stop_podman_container $2
   elif [[ $1 == "-s" ]] || [[ "$1" == "--service" ]]; then
     restart_service $2
   elif [[ $1 == "-r" ]] || [[ "$1" == "--reboot" ]]; then
