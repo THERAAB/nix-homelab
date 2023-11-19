@@ -17,6 +17,4 @@
   b-hyve.local.ip = "192.168.127.7";
   ecobee.local.ip = "192.168.127.8";
   domain = "pumpkin.rodeo";
-  ap-lan.subnet = "192.168.1.1/24";
-  podman.subnet = "10.88.0.1/16";
 }
