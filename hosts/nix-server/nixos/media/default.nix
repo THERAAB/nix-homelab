@@ -1,6 +1,5 @@
 {pkgs, ...}: let
   media = import ./media.properties.nix;
-  json = pkgs.formats.json {};
 in {
   imports = [
     ./jellyfin.nix

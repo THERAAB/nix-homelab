@@ -6,7 +6,6 @@
   uid = 999;
   gid = 999;
   app-name = "cloudflared";
-  json = pkgs.formats.json {};
 in {
   users = {
     users."${app-name}" = {

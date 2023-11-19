@@ -5,7 +5,6 @@
   app-name = "unifi";
   local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../share/network.properties.nix;
-  json = pkgs.formats.json {};
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
