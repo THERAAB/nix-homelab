@@ -46,7 +46,6 @@ in {
             networks = [
               "${network.ap-lan.subnet}"
               "${network.podman.subnet}"
-              "${network.android-tv.local.ip}"
               "${network.nix-server.tailscale.ip}"
               "${network.nix-server.local.ip}"
               "${network.nix-desktop.subnet}"
