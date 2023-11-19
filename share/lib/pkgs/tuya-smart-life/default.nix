@@ -11,7 +11,7 @@ stdenv.mkDerivation rec {
     repo = pname;
     rev = version;
     owner = "tuya";
-    sha256 = "";
+    sha256 = "sha256-kTT0WglMOx7Gsnh81YvZBMtQBdMvjctJPZ8aGoAxQdg=";
   };
   installPhase = ''
     mkdir -p $out/custom_components
