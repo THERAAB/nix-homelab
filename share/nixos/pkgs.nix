@@ -29,7 +29,6 @@
     ethtool
     kitty
     s0ix-selftest-tool
-    cloudflared
     openssl
   ];
 }

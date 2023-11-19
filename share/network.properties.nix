@@ -3,7 +3,7 @@
     tailscale.ip = "100.121.108.123";
     local.ip = "192.168.3.2";
   };
-  desktop.subnet = "192.168.2.0/24";
+  nix-desktop.subnet = "192.168.2.0/24";
   pfSense.local.ip = "192.168.1.1";
   unifi-u6-plus.local.ip = "192.168.1.2";
   unifi-usw-lite-8.local.ip = "192.168.1.3";
@@ -14,4 +14,6 @@
   b-hyve.local.ip = "192.168.127.7";
   ecobee.local.ip = "192.168.127.8";
   domain = "pumpkin.rodeo";
+  ap-lan.subnet = "192.168.1.1/24";
+  podman.subnet = "10.88.0.1/16";
 }

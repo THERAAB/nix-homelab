@@ -44,12 +44,12 @@ in {
           {
             name = "internal";
             networks = [
-              "192.168.3.2/32" # nix-server
-              "192.168.2.20/32" # nix-desktop
-              "192.168.1.1/24" # AP Lan
-              "192.168.127.5/32" # Android TV (for Jellyfin)
-              "10.88.0.1/16" # Podman default
-              "100.64.0.0/10" # Tailscale
+              "${network.ap-lan.subnet}"
+              "${network.podman.subnet}"
+              "${network.android-tv.local.ip}/32"
+              "${network.nix-server.tailscale.ip}/32"
+              "${network.nix-server.local.ip}/32"
+              "${network.nix-desktop.subnet}"
             ];
           }
         ];
@@ -59,12 +59,12 @@ in {
             policy = "bypass";
           }
           {
-            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo" ];
+            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo"];
             policy = "bypass";
             networks = ["internal"];
           }
           {
-            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo" ];
+            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo"];
             policy = "two_factor";
           }
         ];
