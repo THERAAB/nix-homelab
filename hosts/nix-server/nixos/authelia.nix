@@ -40,10 +40,28 @@ in {
       };
       access_control = {
         default_policy = "deny";
+        networks = [
+          {
+            name = "internal";
+            networks = [
+              "192.168.3.2/32"
+            ];
+          }
+        ];
         rules = [
           {
             domain = ["auth.pumpkin.rodeo"];
             policy = "bypass";
+          }
+          {
+            domain = ["pumpkin.rodeo"];
+            policy = "bypass";
+            networks = ["internal"];
+          }
+          {
+            domain = ["*.pumpkin.rodeo"];
+            policy = "bypass";
+            networks = ["internal"];
           }
           {
             domain = ["pumpkin.rodeo"];
