@@ -35,9 +35,6 @@ in {
       "--no-autoupdate"
       "run"
     ];
-    ports = [
-      "9091:9091" # Authelia
-    ];
     extraOptions = [
       "-l=io.containers.autoupdate=registry"
     ];
