@@ -33,6 +33,7 @@ in {
     ];
     cmd = [
       "tunnel"
+      "--no-autoupdate"
       "run"
     ];
     extraOptions = [
