@@ -15,6 +15,5 @@
     ./photoprism.nix
     ./unifi.nix
     ./podman.nix
-    ./authelia.nix
   ];
 }

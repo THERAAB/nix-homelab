@@ -8,9 +8,6 @@
       owner = "vuetorrent";
     };
     df_password = {};
-    authelia_jwt_secret.owner = "authelia-pumpkin-rodeo";
-    authelia_storage_secret.owner = "authelia-pumpkin-rodeo";
-    authelia_users_db.owner = "authelia-pumpkin-rodeo";
     cloudflare_dns_secret = {};
     mongo_init.owner = "unifi";
     mongo_secret.owner = "unifi";
