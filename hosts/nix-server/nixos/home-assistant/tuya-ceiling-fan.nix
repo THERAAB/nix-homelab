@@ -9,10 +9,13 @@
         (
           buildPythonPackage rec {
             pname = "tuya-device-sharing-sdk";
-            version = "0.1.8";
-            src = fetchPypi {
+            version = "ababca70879ac103bfe12662753e0b7a1bd4f80a";
+            src = fetchfromGithub {
               inherit version pname;
-              hash = "sha256-GR6iraccib0vlKaTugzpkSBiVQXLrXwmkIX7wsfuuyQ=";
+              repo = pname;
+              rev = version;
+              owner = "tuya";
+              sha256 = "";
             };
             propagatedBuildInputs = [
               paho-mqtt
