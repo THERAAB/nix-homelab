@@ -12,7 +12,7 @@
             version = "0.1.8";
             src = fetchPypi {
               inherit version pname;
-              hash = "";
+              hash = "sha256-GR6iraccib0vlKaTugzpkSBiVQXLrXwmkIX7wsfuuyQ=";
             };
             propagatedBuildInputs = [
               paho-mqtt
