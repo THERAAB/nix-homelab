@@ -61,21 +61,12 @@ in {
             policy = "bypass";
           }
           {
-            domain = ["pumpkin.rodeo"];
+            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo" ];
             policy = "bypass";
             networks = ["internal"];
           }
           {
-            domain = ["*.pumpkin.rodeo"];
-            policy = "bypass";
-            networks = ["internal"];
-          }
-          {
-            domain = ["pumpkin.rodeo"];
-            policy = "two_factor";
-          }
-          {
-            domain = ["*.pumpkin.rodeo"];
+            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo" ];
             policy = "two_factor";
           }
         ];
