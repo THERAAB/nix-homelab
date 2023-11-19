@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{config, ...}: let
   uid = 999;
   gid = 999;
   app-name = "cloudflared";

@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{...}: let
   media = import ./media.properties.nix;
 in {
   imports = [
