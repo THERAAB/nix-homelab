@@ -18,6 +18,7 @@
               paho-mqtt
               requests
               cryptography
+              tuyaha
             ];
           }
         )
