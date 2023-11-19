@@ -68,6 +68,7 @@ in {
       "androidtv"
       "pushbullet"
       "wiz"
+      "haffmpeg"
     ];
     config = {
       default_config = {};
