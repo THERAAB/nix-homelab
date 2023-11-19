@@ -8,21 +8,15 @@
       with pythonPackages; [
         (
           buildPythonPackage rec {
-            pname = "plugp100";
-            version = "3.12.0";
+            pname = "tuya-device-sharing-sdk";
+            version = "0.1.8";
             src = fetchPypi {
               inherit version pname;
-              hash = "sha256-jfitt8qCq8nRbCgv81qz3Wtwp0R9fXQ7TjP88Sh2oIY=";
+              hash = "";
             };
-
             propagatedBuildInputs = [
-              certifi
-              cryptography
-              jsons
+              paho-mqtt
               requests
-              aiohttp
-              semantic-version
-              scapy
             ];
           }
         )

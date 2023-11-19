@@ -70,7 +70,6 @@ in {
       "wiz"
       "assist_pipeline"
       "ffmpeg"
-      "tuya"
     ];
     config = {
       default_config = {};
