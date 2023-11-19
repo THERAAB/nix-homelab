@@ -10,7 +10,7 @@
           buildPythonPackage rec {
             pname = "tuya-device-sharing-sdk";
             version = "ababca70879ac103bfe12662753e0b7a1bd4f80a";
-            src = fetchfromGithub {
+            src = fetchFromGitHub {
               inherit version pname;
               repo = pname;
               rev = version;
