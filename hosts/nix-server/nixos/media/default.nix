@@ -28,22 +28,4 @@ in {
       isSystemUser = true;
     };
   };
-  environment.etc."containers/networks/media-network.json" = {
-    source = json.generate "media-network.json" {
-      dns_enabled = true;
-      driver = "bridge";
-      id = "5d72ec37e6860f72e48285f65f3e1bad7e5933cb939426e4ad6874200339353a";
-      internal = false;
-      ipam_options.driver = "host-local";
-      ipv6_enabled = false;
-      name = "media-network";
-      network_interface = "podman2";
-      subnets = [
-        {
-          gateway = "10.99.0.1";
-          subnet = "10.99.0.0/24";
-        }
-      ];
-    };
-  };
 }

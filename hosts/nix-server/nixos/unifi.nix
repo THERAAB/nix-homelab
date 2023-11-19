@@ -77,7 +77,6 @@ in {
       config.sops.secrets.mongo_secret.path
     ];
     extraOptions = [
-      "--network=unifi-network"
       "-l=io.containers.autoupdate=registry"
     ];
   };
@@ -99,26 +98,7 @@ in {
      "27017:27017"
     ];
     extraOptions = [
-      "--network=unifi-network"
       "-l=io.containers.autoupdate=registry"
     ];
-  };
-  environment.etc."containers/networks/unifi-network.json" = {
-    source = json.generate "unifi-network.json" {
-      dns_enabled = true;
-      driver = "bridge";
-      id = "4f72ec37e6860f72e48285f65f3e1bad7e5933cb939426e4ad6874200339353a";
-      internal = false;
-      ipam_options.driver = "host-local";
-      ipv6_enabled = false;
-      name = "unifi-network";
-      network_interface = "podman1";
-      subnets = [
-        {
-          gateway = "10.89.0.1";
-          subnet = "10.89.0.0/24";
-        }
-      ];
-    };
   };
 }

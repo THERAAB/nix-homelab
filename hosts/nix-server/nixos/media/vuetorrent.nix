@@ -69,7 +69,6 @@ in {
       PRIVOXY_ENABLED = "true";
     };
     extraOptions = [
-      "--network=media-network"
       "--privileged"
       "--cap-add=NET_ADMIN"
       ''--sysctl="net.ipv4.conf.all.src_valid_mark=1"''
