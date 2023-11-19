@@ -49,7 +49,7 @@ in {
               "192.168.1.1/24" # AP Lan
               "192.168.127.5/32" # Android TV (for Jellyfin)
               "10.88.0.1/16" # Podman
-              "100.64.0.0/10" # Tailscale
+              # "100.64.0.0/10" # Tailscale
             ];
           }
         ];
