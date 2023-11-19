@@ -46,9 +46,9 @@ in {
             networks = [
               "${network.ap-lan.subnet}"
               "${network.podman.subnet}"
-              "${network.android-tv.local.ip}/32"
-              "${network.nix-server.tailscale.ip}/32"
-              "${network.nix-server.local.ip}/32"
+              "${network.android-tv.local.ip}"
+              "${network.nix-server.tailscale.ip}"
+              "${network.nix-server.local.ip}"
               "${network.nix-desktop.subnet}"
               "${network.nix-desktop.tailscale.ip}"
             ];
@@ -65,9 +65,9 @@ in {
             networks = ["internal"];
           }
           {
-            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo"];
+            domain = ["jellyfin.pumpkin.rodeo"];
             policy = "bypass";
-            networks = ["internal"];
+            networks = ["${network.android-tv.local.ip}"];
           }
           {
             domain = ["pumpkin.rodeo" "*.pumpkin.rodeo"];

@@ -57,6 +57,11 @@ in {
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''
+      # Enable Authelia
+      forward_auth 127.0.0.1:9091 {
+        uri /api/verify?rd=https://auth.pumpkin.rodeo/
+        copy_headers Remote-User Remote-Groups Remote-Name Remote-Email
+      }
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
