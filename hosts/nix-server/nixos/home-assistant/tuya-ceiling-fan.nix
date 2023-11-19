@@ -17,6 +17,7 @@
             propagatedBuildInputs = [
               paho-mqtt
               requests
+              cryptography
             ];
           }
         )
