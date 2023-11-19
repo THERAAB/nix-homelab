@@ -15,7 +15,7 @@
               repo = pname;
               rev = version;
               owner = "tuya";
-              sha256 = "";
+              sha256 = "sha256-qMogMIZyQM/Dw3audRxUA6OECrFfOo9Jcww40e0RBIw=";
             };
             propagatedBuildInputs = [
               paho-mqtt
