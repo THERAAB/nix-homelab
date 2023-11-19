@@ -50,6 +50,7 @@ in {
               "${network.nix-server.tailscale.ip}/32"
               "${network.nix-server.local.ip}/32"
               "${network.nix-desktop.subnet}"
+              "${network.nix-desktop.tailscale.ip}"
             ];
           }
         ];
@@ -57,6 +58,11 @@ in {
           {
             domain = ["auth.pumpkin.rodeo"];
             policy = "bypass";
+          }
+          {
+            domain = ["pumpkin.rodeo" "*.pumpkin.rodeo"];
+            policy = "bypass";
+            networks = ["internal"];
           }
           {
             domain = ["pumpkin.rodeo" "*.pumpkin.rodeo"];
