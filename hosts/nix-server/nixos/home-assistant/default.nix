@@ -14,7 +14,6 @@ in {
     ./tapo-light-strip.nix
     ./bathroom-lights.nix
     ./washer-dryer.nix
-    ./tuya-ceiling-fan.nix
   ];
 
   services.yamlConfigMaker.gatus.settings.endpoints = [
