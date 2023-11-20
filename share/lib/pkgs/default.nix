@@ -4,6 +4,6 @@
   olivetin = pkgs.callPackage ./olivetin {};
   hacs-govee = pkgs.callPackage ./hacs-govee {};
   home-assistant-tapo-p100 = pkgs.callPackage ./home-assistant-tapo-p100 {};
-  tuya-smart-life = pkgs.callPackage ./tuya-smart-life {};
+  localtuya = pkgs.callPackage ./localtuya {};
   bios = pkgs.python3Packages.callPackage ./bios {};
 }
