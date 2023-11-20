@@ -21,6 +21,7 @@
               paho-mqtt
               requests
               cryptography
+              runtests
             ];
           }
         )
