@@ -21,7 +21,7 @@
               paho-mqtt
               requests
               cryptography
-              runtests
+              nose
             ];
           }
         )
