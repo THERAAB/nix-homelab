@@ -18,7 +18,7 @@
     dos2unix
     hping
     fwts
-    exa
+    eza
     bat
     ripgrep
     tealdeer
