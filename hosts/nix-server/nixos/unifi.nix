@@ -81,7 +81,7 @@ in {
   };
   virtualisation.oci-containers.containers."unifi-db" = {
     autoStart = true;
-    image = "docker.io/mongo:4.4";
+    image = "docker.io/mongo:6.0";
     volumes = [
       "${local-config-dir}/db:/data/db"
       "${toString config.sops.secrets.mongo_init.path}:/docker-entrypoint-initdb.d/init-mongo.js:ro"
