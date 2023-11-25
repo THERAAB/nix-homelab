@@ -36,31 +36,37 @@
       name = "GitHub";
       icon = "fab fa-github";
       url = "https://github.com/";
+      target = "_blank";
     }
     {
       name = "YouTube";
       icon = "fab fa-youtube";
       url = "https://www.youtube.com/";
+      target = "_blank";
     }
     {
       name = "Gmail";
       icon = "fas fa-envelope";
       url = "https://mail.google.com/mail/u/0/#inbox";
+      target = "_blank";
     }
     {
       name = "Outlook";
       icon = "fas fa-at";
       url = "https://outlook.live.com/mail/0/";
+      target = "_blank";
     }
     {
       name = "Raindrop.io";
       icon = "fas fa-cloud";
       url = "https://app.raindrop.io/my/-1";
+      target = "_blank";
     }
     {
       name = "Dropbox";
       icon = "fab fa-dropbox";
       url = "https://www.dropbox.com/home";
+      target = "_blank";
     }
   ];
 }

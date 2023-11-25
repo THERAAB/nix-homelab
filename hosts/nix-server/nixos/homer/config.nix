@@ -23,6 +23,7 @@ in {
           tag = "media";
           keywords = "movies tv shows media";
           url = "https://jellyfin.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Jellyseerr";
@@ -31,6 +32,7 @@ in {
           tag = "media";
           keywords = "movies tv shows media";
           url = "https://jellyseerr.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Audiobookshelf";
@@ -39,6 +41,7 @@ in {
           tag = "audiobook";
           keywords = "audiobook podcast media";
           url = "https://audiobookshelf.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Photoprism";
@@ -47,6 +50,7 @@ in {
           tag = "photos";
           keywords = "photos media";
           url = "https://photoprism.${network.domain}";
+          target = "_blank";
         }
       ];
     }
@@ -61,6 +65,7 @@ in {
           tag = "media";
           keywords = "indexer media torrent download";
           url = "https://prowlarr.${network.domain}";
+          target = "_blank";
         }
         {
           name = "VueTorrent";
@@ -69,6 +74,7 @@ in {
           tag = "download";
           keywords = "torrent download";
           url = "https://vuetorrent.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Radarr";
@@ -77,6 +83,7 @@ in {
           tag = "movies";
           keywords = "movies media";
           url = "https://radarr.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Sonarr";
@@ -85,6 +92,7 @@ in {
           tag = "tv";
           keywords = "tv shows media";
           url = "https://sonarr.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Readarr";
@@ -93,6 +101,7 @@ in {
           tag = "books";
           keywords = "books audiobooks media";
           url = "https://readarr.${network.domain}";
+          target = "_blank";
         }
       ];
     }
@@ -107,6 +116,7 @@ in {
           tag = "wireless";
           keywords = "router firewall";
           url = "https://pfsense.pumpkin/";
+          target = "_blank";
         }
         {
           name = "Unifi Network Application";
@@ -115,6 +125,7 @@ in {
           tag = "wireless";
           keywords = "wireless router access point";
           url = "https://unifi.${network.domain}";
+          target = "_blank";
         }
         {
           name = "AdGuard";
@@ -123,6 +134,7 @@ in {
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Home Assistant";
@@ -131,6 +143,7 @@ in {
           tag = "smart-home";
           keywords = "smart home assistant automation";
           url = "https://home-assistant.${network.domain}";
+          target = "_blank";
         }
       ];
     }
@@ -145,6 +158,7 @@ in {
           tag = "monitor";
           keywords = "monitor";
           url = "https://netdata.${network.domain}";
+          target = "_blank";
         }
         {
           name = "Gatus";
@@ -153,6 +167,7 @@ in {
           tag = "monitor";
           keywords = "monitor";
           url = "https://gatus.${network.domain}";
+          target = "_blank";
         }
       ];
     }
@@ -167,6 +182,7 @@ in {
           tag = "exec";
           keywords = "exec";
           url = "https://olivetin.${network.domain}";
+          target = "_blank";
         }
       ];
     }
