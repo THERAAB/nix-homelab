@@ -15,7 +15,8 @@ and the installation instructions below.
 - Reverse Proxy with [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [netdata](https://www.netdata.cloud/) and [gatus](https://github.com/TwiN/gatus)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
-- SSL Certs with [Cloudflare] (https://www.cloudflare.com/)
+- SSL Certs with [Cloudflare](https://www.cloudflare.com/)
+- Nix store cache sharing with [harmonia](https://github.com/nix-community/harmonia)
 
 ## Installation
 
