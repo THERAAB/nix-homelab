@@ -11,6 +11,7 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
   };
 
   outputs = {
@@ -19,6 +20,7 @@
     home-manager,
     impermanence,
     sops-nix,
+    vscode-server,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -66,6 +68,7 @@
             home-manager.users.raab = {pkgs, ...}: {
               imports = [
                 impermanence.nixosModules.home-manager.impermanence
+                vscode-server.homeModules.default
                 ./share/home
                 ./hosts/nix-server/home
               ];
