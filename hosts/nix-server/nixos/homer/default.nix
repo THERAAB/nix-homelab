@@ -57,6 +57,7 @@ in {
   services.caddy.virtualHosts."${network.domain}" = {
     useACMEHost = "${network.domain}-tld";
     extraConfig = ''
+      encode zstd gzip
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
