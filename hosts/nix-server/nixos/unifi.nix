@@ -69,7 +69,7 @@ in {
       PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
-      MONGO_HOST = "unifi-db";
+      MONGO_HOST = "${network.nix-server.local.ip}";
       MONGO_PORT = "27017";
     };
     environmentFiles = [
