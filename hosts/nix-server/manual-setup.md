@@ -51,12 +51,17 @@ Settings -> Client Settings -> Video Player type -> Integrated Player
 - Add sonar & radarr
 - Add qbittorent
 
-### Sonar, Radarr, Readarr
+### Sonar, Radarr
 
 - Add qbittorrent
 - Add movies/tv paths in sonarr/radarr and request something (needed for Jellyseerr to work)
-- Add books path in readarr
-- Readarr, add Standard Book Format: {Author Name}/{Book Title}/{Book Title}{ (PartNumber)}
+
+### Readarr
+- Add books path
+- Add Standard Book Format: {Author Name}/{Book Title}/{Book Title}{ (PartNumber)}
+
+### Audiobookshelf
+- Add Schedule for automatic library scanning (Every 2 hours)
 
 ### Jellyseerr
 
