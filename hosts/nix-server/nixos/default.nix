@@ -15,5 +15,6 @@
     ./photoprism.nix
     ./unifi.nix
     ./podman.nix
+    ./harmonia.nix
   ];
 }
