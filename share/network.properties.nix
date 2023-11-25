@@ -17,4 +17,5 @@
   b-hyve.local.ip = "192.168.127.7";
   ecobee.local.ip = "192.168.127.8";
   domain = "pumpkin.rodeo";
+  ap.subnet = "192.168.1.0/24";
 }
