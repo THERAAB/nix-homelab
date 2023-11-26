@@ -2,6 +2,7 @@
   services.syncthing = {
     enable = true;
     user = "raab";
+    configDir = "/nix/persist/home/raab/.config/syncthing";
     openDefaultPorts = true;
     overrideDevices = true;
     overrideFolders = true;
