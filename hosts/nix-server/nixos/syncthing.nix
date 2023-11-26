@@ -8,7 +8,7 @@ in {
       name = "SyncThing";
       url = "https://${app-name}.${network.domain}/";
       conditions = [
-        "[STATUS] == 200"
+        "[STATUS] == 401"
       ];
       alerts = [
         {
