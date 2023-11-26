@@ -1,6 +1,7 @@
 {...}: {
   services.syncthing = {
     enable = true;
+    user = "raab";
     openDefaultPorts = true;
     overrideDevices = true;
     overrideFolders = true;
@@ -8,7 +9,7 @@
       nix-zenbook.id = "M3OWV56-LFY5O5S-AYUOLEL-AOJN6FS-E3LA3XY-6QUG5MV-TIDRRNY-C3YS7AT";
     };
     folders = {
-      "Share" = {
+      Share = {
         path = "/home/raab/Documents";
         devices = ["nix-zenbook"];
       };
