@@ -16,5 +16,6 @@
     ./unifi.nix
     ./podman.nix
     ./harmonia.nix
+    ./syncthing.nix
   ];
 }
