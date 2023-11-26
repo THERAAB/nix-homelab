@@ -43,7 +43,7 @@ in {
     devices = {
       nix-zenbook = {
         id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
-        addresses = [ "tcp://192.168.1.48:22000" ];
+        addresses = [ "tcp://${network.nix-zenbook.tailscale.ip}:22000" ];
       };
     };
     folders = {
