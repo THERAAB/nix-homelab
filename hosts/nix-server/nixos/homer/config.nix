@@ -44,6 +44,15 @@ in {
           target = "_blank";
         }
         {
+          name = "SyncThing";
+          logo = "assets/icons/syncthing.png";
+          subtitle = "Shared Data & Folders";
+          tag = "sync";
+          keywords = "sync backup share data media";
+          url = "https://syncthing.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "Photoprism";
           logo = "assets/icons/photoprism.png";
           subtitle = "View & Manage Photos";
