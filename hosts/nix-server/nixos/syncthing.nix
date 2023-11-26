@@ -53,7 +53,7 @@ in {
       };
     };
     folders = {
-      Share = {
+      Share2 = {
         path = "${share-dir}";
         devices = ["nix-zenbook"];
       };
