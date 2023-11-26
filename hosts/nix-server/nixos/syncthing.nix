@@ -41,7 +41,10 @@ in {
     overrideFolders = true;
     guiAddress = "0.0.0.0:${toString port}";
     devices = {
-      nix-zenbook.id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
+      nix-zenbook = {
+        id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
+        addresses = [ "${network.nix-zenbook.local.ip}" "${network.nix-zenbook.tailscale.ip}" ];
+      };
     };
     folders = {
       Share = {

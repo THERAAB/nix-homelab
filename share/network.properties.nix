@@ -3,6 +3,10 @@
     tailscale.ip = "100.121.108.123";
     local.ip = "192.168.3.2";
   };
+  nix-zenbook = {
+    local.ip = "192.168.1.4";
+    tailscale.ip = "100.85.214.18";
+  };
   nix-desktop = {
     subnet = "192.168.2.0/24";
     tailscale.ip = "100.126.231.47";
