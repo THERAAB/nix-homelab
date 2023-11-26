@@ -34,6 +34,7 @@ in {
   };
   services.syncthing = {
     enable = true;
+    relay.enable = false;
     user = "raab";
     configDir = "/nix/persist/home/raab/.config/syncthing";
     openDefaultPorts = true;
