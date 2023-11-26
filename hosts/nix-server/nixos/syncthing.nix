@@ -49,7 +49,7 @@ in {
     };
     folders = {
       Share = {
-        path = "/home/raab/Documents";
+        path = "/nix/persist/syncthing";
         devices = ["nix-zenbook"];
       };
     };
