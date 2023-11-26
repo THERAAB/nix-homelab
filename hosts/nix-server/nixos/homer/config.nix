@@ -110,7 +110,7 @@ in {
           subtitle = "Shared Data & Folders";
           tag = "sync";
           keywords = "sync backup share data media";
-          url = "https://syncthing.${network.domain}";
+          url = "https://sync.${network.domain}";
           target = "_blank";
         }
         {

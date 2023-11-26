@@ -2,12 +2,12 @@
   app-name = "syncthing";
   network = import ../../../share/network.properties.nix;
   port = 8384;
-  share-dir = "/nix/persist/syncthing";
+  share-dir = "/nix/persist/dropbox";
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "SyncThing";
-      url = "https://${app-name}.${network.domain}/";
+      url = "https://sync.${network.domain}/";
       conditions = [
         "[STATUS] == 401"
       ];
@@ -26,7 +26,7 @@ in {
       timeout = 20;
     }
   ];
-  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+  services.caddy.virtualHosts."sync.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''
       encode zstd gzip
@@ -53,7 +53,7 @@ in {
       };
     };
     folders = {
-      Share = {
+      Dropbox = {
         path = "${share-dir}";
         devices = ["nix-zenbook"];
         versioning = {
