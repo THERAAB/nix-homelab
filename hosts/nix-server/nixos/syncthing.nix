@@ -2,7 +2,8 @@
   app-name = "syncthing";
   network = import ../../../share/network.properties.nix;
   port = 8384;
-  share-dir = "/nix/persist/dropbox";
+  local-dir = "/nix/persist/dropbox";
+  share-dir = local-dir + "/share";
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
@@ -57,7 +58,7 @@ in {
       };
     };
     folders = {
-      Dropbox = {
+      Share = {
         path = "${share-dir}";
         devices = ["nix-zenbook" "nix-desktop"];
         versioning = {
