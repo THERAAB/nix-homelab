@@ -39,6 +39,7 @@ in {
     openDefaultPorts = true;
     overrideDevices = true;
     overrideFolders = true;
+    guiAddress = "0.0.0.0:${toString port}";
     devices = {
       nix-zenbook.id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
     };
