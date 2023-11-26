@@ -2,6 +2,7 @@
   app-name = "syncthing";
   network = import ../../../share/network.properties.nix;
   port = 8384;
+  share-dir = "/nix/persist/syncthing";
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
@@ -32,6 +33,10 @@ in {
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
+  systemd.tmpfiles.rules = [
+    "d    ${share-dir}   -       -             -               -   - "
+    "Z    ${share-dir}   740     raab          ${app-name}     -   - "
+  ];
   services.syncthing = {
     enable = true;
     relay.enable = false;
@@ -49,7 +54,7 @@ in {
     };
     folders = {
       Share = {
-        path = "/nix/persist/syncthing";
+        path = "${share-dir}";
         devices = ["nix-zenbook"];
       };
     };
