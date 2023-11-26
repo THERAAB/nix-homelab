@@ -4,9 +4,8 @@
   port = 8082;
   app-name = "homer";
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
-  local-config-dir = "/var/lib/${app-name}/";
+  config-dir = "/var/lib/${app-name}/";
   config = import ./config.nix;
-  config-dir = local-config-dir + "/box/";
   network = import ../../../../share/network.properties.nix;
   environment = {
     UMASK = "022";
@@ -44,7 +43,7 @@ in {
   systemd.tmpfiles.rules = [
     "R    ${config-dir}/icons           -   -               -               -   -                     "
     "C    ${config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
-    "Z    ${local-config-dir}               -   ${app-name}     ${app-name}     -   -                     "
+    "Z    ${config-dir}               -   ${app-name}     ${app-name}       -   -                     "
   ];
   users = {
     groups.${app-name}.gid = gid;
