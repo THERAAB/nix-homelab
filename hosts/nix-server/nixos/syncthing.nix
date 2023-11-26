@@ -7,7 +7,7 @@
     overrideDevices = true;
     overrideFolders = true;
     devices = {
-      nix-zenbook.id = "M3OWV56-LFY5O5S-AYUOLEL-AOJN6FS-E3LA3XY-6QUG5MV-TIDRRNY-C3YS7AT";
+      nix-zenbook.id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
     };
     folders = {
       Share = {
