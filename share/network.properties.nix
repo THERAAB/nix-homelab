@@ -10,6 +10,7 @@
   nix-desktop = {
     subnet = "192.168.2.0/24";
     tailscale.ip = "100.126.231.47";
+    local.ip = "192.168.2.2";
   };
   pfSense.local.ip = "192.168.1.1";
   unifi-u6-plus.local.ip = "192.168.1.2";
