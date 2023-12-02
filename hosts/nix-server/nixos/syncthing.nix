@@ -59,7 +59,7 @@ in {
       folders = {
         "${local-dir}/share" = {
           id = "share";
-          devices = ["nix-zenbook"];
+          devices = ["nix-zenbook" "nix-desktop"];
           versioning = {
             type = "staggered";
             params.maxAge = "7776000"; # 90 days
