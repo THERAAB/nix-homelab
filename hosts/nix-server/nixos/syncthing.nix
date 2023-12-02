@@ -3,7 +3,6 @@
   network = import ../../../share/network.properties.nix;
   port = 8384;
   local-dir = "/nix/persist/dropbox";
-  share-dir = local-dir + "/share";
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
@@ -35,8 +34,9 @@ in {
     '';
   };
   systemd.tmpfiles.rules = [
-    "d    ${share-dir}   -       -             -               -   - "
-    "Z    ${share-dir}   770     syncthing     ${app-name}     -   - "
+    "d    ${local-dir}/share  -       -             -               -   - "
+    "Z    ${local-dir}        770     syncthing     ${app-name}     -   - "
+    "Z    ${local-dir}/share  770     syncthing     ${app-name}     -   - "
   ];
   services.syncthing = {
     enable = true;
@@ -53,7 +53,7 @@ in {
         };
       };
       folders = {
-        "${share-dir}" = {
+        "${local-dir}/share" = {
           id = "share";
           devices = ["nix-zenbook"];
           versioning = {
