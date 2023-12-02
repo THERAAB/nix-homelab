@@ -71,6 +71,7 @@ Set up last, make sure to do above before trying to set up
 
 ### Home Assistant
 
+Zigbee Channel 26
 Add below services & their devices:
 
 - Govee
