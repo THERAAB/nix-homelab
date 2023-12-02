@@ -47,27 +47,29 @@ in {
     overrideDevices = true;
     overrideFolders = true;
     guiAddress = "0.0.0.0:${toString port}";
-    devices = {
-      nix-zenbook = {
-        id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
-        addresses = [ "tcp://${network.nix-zenbook.tailscale.ip}:22000" "tcp://${network.nix-zenbook.local.ip}:22000" ];
+    settings = {
+      devices = {
+        nix-zenbook = {
+          id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
+          addresses = ["tcp://${network.nix-zenbook.tailscale.ip}:22000" "tcp://${network.nix-zenbook.local.ip}:22000"];
+        };
+        nix-desktop = {
+          id = "4M2BE3E-NS374SE-YFOEGQZ-KDOWHHK-SG4W5QG-TDKQPBI-RF3SYDP-PDMLVAJ";
+          addresses = ["tcp://${network.nix-desktop.tailscale.ip}:22000" "tcp://${network.nix-desktop.local.ip}:22000"];
+        };
+        galaxy-tab = {
+          id = "LYRX4BK-OXATK4G-UKSLKED-RR6HO4L-VQ2P2U4-S6NTCPQ-OHZBKSV-NH24XQU";
+          addresses = ["tcp://192.168.1.36:22000"];
+        };
       };
-      nix-desktop = {
-        id = "4M2BE3E-NS374SE-YFOEGQZ-KDOWHHK-SG4W5QG-TDKQPBI-RF3SYDP-PDMLVAJ";
-        addresses = [ "tcp://${network.nix-desktop.tailscale.ip}:22000" "tcp://${network.nix-desktop.local.ip}:22000" ];
-      };
-      galaxy-tab = {
-        id = "LYRX4BK-OXATK4G-UKSLKED-RR6HO4L-VQ2P2U4-S6NTCPQ-OHZBKSV-NH24XQU";
-        addresses = ["tcp://192.168.1.36:22000"];
-      };
-    };
-    folders = {
-      Share = {
-        path = "${share-dir}";
-        devices = ["nix-zenbook" "nix-desktop" "galaxy-tab"];
-        versioning = {
-          type = "staggered";
-          params.maxAge = "7776000"; # 90 days
+      folders = {
+        Share = {
+          path = "${share-dir}";
+          devices = ["nix-zenbook" "nix-desktop" "galaxy-tab"];
+          versioning = {
+            type = "staggered";
+            params.maxAge = "7776000"; # 90 days
+          };
         };
       };
     };
