@@ -54,7 +54,7 @@ in {
         nix-desktop = {
           id = "YEUHTJT-HKSDRRS-FPPJCUU-ZWHQJTR-ZRP3LVM-BYFNSH7-MJ7BGPJ-C6PMFA6";
           addresses = ["tcp://${network.nix-desktop.tailscale.ip}:22000" "tcp://${network.nix-desktop.local.ip}:22000"];
-        }
+        };
       };
       folders = {
         "${local-dir}/share" = {
