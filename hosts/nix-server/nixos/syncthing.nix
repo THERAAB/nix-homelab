@@ -36,13 +36,11 @@ in {
   };
   systemd.tmpfiles.rules = [
     "d    ${share-dir}   -       -             -               -   - "
-    "Z    ${share-dir}   740     raab          ${app-name}     -   - "
+    "Z    ${share-dir}   770     syncthing          ${app-name}     -   - "
   ];
   services.syncthing = {
     enable = true;
     relay.enable = false;
-    user = "raab";
-    configDir = "/nix/persist/home/raab/.config/syncthing";
     openDefaultPorts = true;
     overrideDevices = true;
     overrideFolders = true;
@@ -50,22 +48,14 @@ in {
     settings = {
       devices = {
         nix-zenbook = {
-          id = "H46DP2U-MISHKSS-EC64UUM-F65VNK4-QTQ2AHP-BO6CRLK-55OAZ2V-QWMGAQS";
+          id = "M3OWV56-LFY5O5S-AYUOLEL-AOJN6FS-E3LA3XY-6QUG5MV-TIDRRNY-C3YS7AT";
           addresses = ["tcp://${network.nix-zenbook.tailscale.ip}:22000" "tcp://${network.nix-zenbook.local.ip}:22000"];
-        };
-        nix-desktop = {
-          id = "4M2BE3E-NS374SE-YFOEGQZ-KDOWHHK-SG4W5QG-TDKQPBI-RF3SYDP-PDMLVAJ";
-          addresses = ["tcp://${network.nix-desktop.tailscale.ip}:22000" "tcp://${network.nix-desktop.local.ip}:22000"];
-        };
-        galaxy-tab = {
-          id = "LYRX4BK-OXATK4G-UKSLKED-RR6HO4L-VQ2P2U4-S6NTCPQ-OHZBKSV-NH24XQU";
-          addresses = ["tcp://192.168.1.36:22000"];
         };
       };
       folders = {
-        Share = {
-          path = "${share-dir}";
-          devices = ["nix-zenbook" "nix-desktop" "galaxy-tab"];
+        "${share-dir}" = {
+          id = "share";
+          devices = ["nix-zenbook"];
           versioning = {
             type = "staggered";
             params.maxAge = "7776000"; # 90 days
