@@ -46,7 +46,7 @@ in {
     overrideFolders = true;
     guiAddress = "0.0.0.0:${toString port}";
     settings = {
-      toptions.urAccepted = -1;
+      options.urAccepted = -1;
       devices = {
         nix-zenbook = {
           id = "M3OWV56-LFY5O5S-AYUOLEL-AOJN6FS-E3LA3XY-6QUG5MV-TIDRRNY-C3YS7AT";
