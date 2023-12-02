@@ -9,7 +9,7 @@ in {
       name = "SyncThing";
       url = "https://sync.${network.domain}/";
       conditions = [
-        "[STATUS] == 401"
+        "[STATUS] == 200"
       ];
       alerts = [
         {
