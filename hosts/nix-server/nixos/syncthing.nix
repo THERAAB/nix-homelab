@@ -51,6 +51,10 @@ in {
           id = "M3OWV56-LFY5O5S-AYUOLEL-AOJN6FS-E3LA3XY-6QUG5MV-TIDRRNY-C3YS7AT";
           addresses = ["tcp://${network.nix-zenbook.tailscale.ip}:22000" "tcp://${network.nix-zenbook.local.ip}:22000"];
         };
+        nix-desktop = {
+          id = "YEUHTJT-HKSDRRS-FPPJCUU-ZWHQJTR-ZRP3LVM-BYFNSH7-MJ7BGPJ-C6PMFA6";
+          addresses = ["tcp://${network.nix-desktop.tailscale.ip}:22000" "tcp://${network.nix-desktop.local.ip}:22000"];
+        }
       };
       folders = {
         "${local-dir}/share" = {
