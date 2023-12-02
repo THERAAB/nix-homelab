@@ -36,7 +36,7 @@ in {
   };
   systemd.tmpfiles.rules = [
     "d    ${share-dir}   -       -             -               -   - "
-    "Z    ${share-dir}   770     syncthing          ${app-name}     -   - "
+    "Z    ${share-dir}   770     syncthing     ${app-name}     -   - "
   ];
   services.syncthing = {
     enable = true;
