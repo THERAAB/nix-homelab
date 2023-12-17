@@ -34,8 +34,9 @@ in {
     '';
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-dir}/share  -       -             -               -   - "
+    "d    ${local-dir}        -       -             -               -   - "
     "Z    ${local-dir}        770     syncthing     ${app-name}     -   - "
+    "d    ${local-dir}/share  -       -             -               -   - "
     "Z    ${local-dir}/share  770     syncthing     ${app-name}     -   - "
   ];
   services.syncthing = {
@@ -46,6 +47,7 @@ in {
     overrideFolders = true;
     guiAddress = "0.0.0.0:${toString port}";
     settings = {
+      options.urAccepted = -1;
       devices = {
         nix-zenbook = {
           id = "M3OWV56-LFY5O5S-AYUOLEL-AOJN6FS-E3LA3XY-6QUG5MV-TIDRRNY-C3YS7AT";
@@ -55,11 +57,13 @@ in {
           id = "YEUHTJT-HKSDRRS-FPPJCUU-ZWHQJTR-ZRP3LVM-BYFNSH7-MJ7BGPJ-C6PMFA6";
           addresses = ["tcp://${network.nix-desktop.tailscale.ip}:22000" "tcp://${network.nix-desktop.local.ip}:22000"];
         };
+        galaxy-s7-tab.id = "STQ62IM-HAMN7JJ-AXKOFPA-MLQC73I-KFOEPI4-MBMS44D-VWTFFAF-WAWNSQ3";
+        pixel-6a.id = "MCGDVOM-VJQ3IHA-HHLCELL-ABFIJT7-BFHHWMX-V77WXIF-OTEVLZH-F76I5Q6";
       };
       folders = {
         "${local-dir}/share" = {
           id = "share";
-          devices = ["nix-zenbook" "nix-desktop"];
+          devices = ["nix-zenbook" "nix-desktop" "galaxy-s7-tab" "pixel-6a"];
           versioning = {
             type = "staggered";
             params.maxAge = "7776000"; # 90 days

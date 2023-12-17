@@ -239,6 +239,15 @@ in {
           url = "https://gatus.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Gotify";
+          logo = "assets/icons/gotify.png";
+          subtitle = "Send Notifications";
+          tag = "notify";
+          keywords = "notify alert";
+          url = "https://gotify.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
     {

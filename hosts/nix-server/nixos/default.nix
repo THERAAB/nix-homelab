@@ -17,5 +17,6 @@
     ./podman.nix
     ./harmonia.nix
     ./syncthing.nix
+    ./gotify.nix
   ];
 }
