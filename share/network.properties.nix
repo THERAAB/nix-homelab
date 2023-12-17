@@ -8,7 +8,6 @@
     tailscale.ip = "100.85.214.18";
   };
   nix-desktop = {
-    subnet = "192.168.2.0/24";
     tailscale.ip = "100.126.231.47";
     local.ip = "192.168.2.2";
   };
