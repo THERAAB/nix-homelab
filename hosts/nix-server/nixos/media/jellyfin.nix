@@ -3,7 +3,7 @@
   uid = 9992;
   port = 8096;
   app-name = "jellyfin";
-  local-config-dir = media.dir.config + "/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../../share/network.properties.nix;
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
@@ -38,7 +38,7 @@ in {
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}     -       -             -        -   - "
-    "Z    ${local-config-dir}     740     ${app-name}   media    -   - "
+    "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
   # Delay jellyfin start for 60s because hardware encoding fails if run on boot
   # I suspect because jellyfin tries to load before hardware devices become available

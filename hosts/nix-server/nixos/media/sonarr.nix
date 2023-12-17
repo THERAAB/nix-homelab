@@ -3,7 +3,7 @@
   uid = 9995;
   port = 8989;
   app-name = "sonarr";
-  local-config-dir = media.dir.config + "/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../../share/network.properties.nix;
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
@@ -36,8 +36,8 @@ in {
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -             -        -   - "
-    "Z    ${local-config-dir}     740     ${app-name}   media    -   - "
+    "d    ${local-config-dir}     -       -             -     -   - "
+    "Z    ${local-config-dir}     740     ${app-name}   -     -   - "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";

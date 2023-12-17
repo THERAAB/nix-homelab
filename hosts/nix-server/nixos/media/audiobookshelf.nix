@@ -3,7 +3,7 @@
   uid = 9996;
   port = 13379;
   app-name = "audiobookshelf";
-  local-config-dir = media.dir.config + "/${app-name}";
+  local-config-dir = "/var/lib/${app-name}";
   network = import ../../../../share/network.properties.nix;
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
@@ -39,7 +39,7 @@ in {
     "d    ${local-config-dir}           -       -             -        -   - "
     "d    ${local-config-dir}/config    -       -             -        -   - "
     "d    ${local-config-dir}/metadata  -       -             -        -   - "
-    "Z    ${local-config-dir}           740     ${app-name}   media    -   - "
+    "Z    ${local-config-dir}           740     ${app-name}   -        -   - "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";

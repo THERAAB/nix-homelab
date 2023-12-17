@@ -17,14 +17,7 @@ in {
     "d    ${media.dir.tv}           -       -       -       -   - "
     "d    ${media.dir.audiobooks}   -       -       -       -   - "
     "d    ${media.dir.podcasts}     -       -       -       -   - "
-    "Z    /media                    770     media   media   -   - "
+    "Z    /media                    770     -       media   -   - "
   ];
-  users = {
-    groups.media.gid = media.gid;
-    users.media = {
-      group = "media";
-      uid = media.uid;
-      isSystemUser = true;
-    };
-  };
+  users.groups.media.gid = media.gid;
 }

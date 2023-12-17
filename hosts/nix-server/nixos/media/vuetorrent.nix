@@ -3,7 +3,7 @@
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
-  local-config-dir = media.dir.config + "/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../../share/network.properties.nix;
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
@@ -39,7 +39,7 @@ in {
     "d    ${local-config-dir}/wireguard             -       -               -       -   -                               "
     "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -       -   -                               "
     "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -       -   /run/secrets/wireguard_mullvad  "
-    "Z    ${local-config-dir}                       740     ${app-name}     media   -   -                               "
+    "Z    ${local-config-dir}                       740     ${app-name}     -       -   -                               "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
