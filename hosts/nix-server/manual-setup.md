@@ -57,10 +57,12 @@ Settings -> Client Settings -> Video Player type -> Integrated Player
 - Add movies/tv paths in sonarr/radarr and request something (needed for Jellyseerr to work)
 
 ### Readarr
+
 - Add books path
 - Add Standard Book Format: {Author Name}/{Book Title}/{Book Title}{ (PartNumber)}
 
 ### Audiobookshelf
+
 - Add Schedule for automatic library scanning (Every 2 hours)
 
 ### Jellyseerr
@@ -83,3 +85,11 @@ Add below services & their devices:
 - Shopping List
 - WiZ
 - TP-Link Tapo
+
+## Linkding
+
+Password setup
+
+```
+sudo podman exec -it linkding python manage.py createsuperuser --username=raab --email=raab@example.com
+```
