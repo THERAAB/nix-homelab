@@ -278,6 +278,15 @@ in {
           url = "https://linkding.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Flatnotes";
+          logo = "assets/icons/flatnotes.png";
+          subtitle = "Notes";
+          tag = "notes";
+          keywords = "notes";
+          url = "https://flatnotes.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
   ];
