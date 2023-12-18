@@ -11,7 +11,7 @@ in {
       name = "Linkding";
       url = "https://${app-name}.${network.domain}";
       conditions = [
-        "[STATUS] == 200"
+        "[STATUS] == 500"
       ];
       alerts = [
         {
