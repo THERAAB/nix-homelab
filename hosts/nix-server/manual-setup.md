@@ -88,8 +88,10 @@ Add below services & their devices:
 
 ## Linkding
 
-Password setup
+- Password setup
 
 ```
 sudo podman exec -it linkding python manage.py createsuperuser --username=raab --email=raab@example.com
 ```
+
+- Add API Key
