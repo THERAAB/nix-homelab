@@ -18,5 +18,6 @@
     ./harmonia.nix
     ./syncthing.nix
     ./gotify.nix
+    ./linkding.nix
   ];
 }

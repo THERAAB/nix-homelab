@@ -265,5 +265,20 @@ in {
         }
       ];
     }
+    {
+      name = "Productivity";
+      icon = "fas fa-wrench";
+      items = [
+        {
+          name = "Linkding";
+          logo = "assets/icons/linkding.png";
+          subtitle = "Bookmark Manager";
+          tag = "bookmark";
+          keywords = "bookmark manager";
+          url = "https://linkding.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
   ];
 }
