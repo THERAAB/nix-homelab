@@ -9,7 +9,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Linkding";
-      url = "https://${app-name}.${network.domain}:${toString port}";
+      url = "https://${app-name}.${network.domain}";
       conditions = [
         "[STATUS] == 200"
       ];
