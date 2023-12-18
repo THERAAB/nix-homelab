@@ -9,9 +9,9 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "Linkding";
-      url = "https://${app-name}.${network.domain}";
+      url = "https://${app-name}.${network.domain}/health";
       conditions = [
-        "[STATUS] == 500"
+        "[STATUS] == 200"
       ];
       alerts = [
         {
