@@ -19,5 +19,6 @@
     ./syncthing.nix
     ./gotify.nix
     ./linkding.nix
+    ./flatnotes.nix
   ];
 }
