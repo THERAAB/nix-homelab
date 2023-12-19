@@ -65,42 +65,42 @@ in {
     type = with types; attrsOf (submodule configOpts);
   };
   config = {
-    #services.yamlConfigMaker.gatus.settings.endpoints =
-    #  mapAttrs' (app-name: value: [
-    #    {
-    #      name = value.displayName;
-    #      url = "https://${app-name}.${network.domain}";
-    #      conditions = [
-    #        "[STATUS] == ${value.statusCode}"
-    #      ];
-    #      alerts = [
-    #        {
-    #          type = "gotify";
-    #        }
-    #      ];
-    #    }
-    #  ])
-    #  cfg;
-    #services.olivetin.settings.actions =
-    #  mapAttrs' (app-name: value: [
-    #    {
-    #      title = "Restart ${value.displayName}";
-    #      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-    #      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-    #      timeout = 20;
-    #    }
-    #  ])
-    #  cfg;
-    #users =
-    #  mapAttrs' (app-name: value: {
-    #    users."${app-name}" = {
-    #      uid = value.uid;
-    #      group = app-name;
-    #      isSystemUser = true;
-    #    };
-    #    groups.${app-name}.gid = value.gid;
-    #  })
-    #  cfg;
+    services.yamlConfigMaker.gatus.settings =
+      mapAttrs' (app-name: value: nameValuePair "endpoints" [
+        {
+          name = value.displayName;
+          url = "https://${app-name}.${network.domain}";
+          conditions = [
+            "[STATUS] == ${value.statusCode}"
+          ];
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+        }
+      ])
+      cfg;
+    services.olivetin.settings =
+      mapAttrs' (app-name: value: nameValuePair "actions" [
+        {
+          title = "Restart ${value.displayName}";
+          icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+          shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
+          timeout = 20;
+        }
+      ])
+      cfg;
+    users =
+      mapAttrs' (app-name: value: nameValuePair "users" {
+        "${app-name}" = {
+          uid = value.uid;
+          group = app-name;
+          isSystemUser = true;
+        };
+        groups.${app-name}.gid = value.gid;
+      })
+      cfg;
     systemd =
       mapAttrs' (app-name: value: nameValuePair "tmpfiles" {
         rules = [
@@ -109,39 +109,39 @@ in {
         ];
       })
       cfg;
-    #services.caddy.virtualHosts =
-    #  mapAttrs' (app-name: value: {
-    #    "${app-name}.${network.domain}" = {
-    #      useACMEHost = "${network.domain}";
-    #      extraConfig = ''
-    #        encode zstd gzip
-    #        reverse_proxy 127.0.0.1:${toString value.port}
-    #      '';
-    #    };
-    #  })
-    #  cfg;
-    #virtualisation.oci-containers.containers =
-    #  mapAttrs' (app-name: value: {
-    #    "${app-name}" = {
-    #      autoStart = true;
-    #      image = "${value.dockerImage}";
-    #      volumes = [
-    #        "/var/lib/${app-name}:${value.internalMountDir}"
-    #      ];
-    #      ports = [
-    #        "${toString value.port}:${toString value.internalPort}"
-    #      ];
-    #      environment = {
-    #        PUID = "${toString value.uid}";
-    #        PGID = "${toString value.gid}";
-    #        UMASK = "022";
-    #        TZ = "America/New_York";
-    #      };
-    #      extraOptions = mkIf value.autoUpdate [
-    #        "-l=io.containers.autoupdate=registry"
-    #      ];
-    #    };
-    #  })
-    #  cfg;
+    services.caddy.virtualHosts =
+      mapAttrs' (app-name: value: {
+        "${app-name}.${network.domain}" = {
+          useACMEHost = "${network.domain}";
+          extraConfig = ''
+            encode zstd gzip
+            reverse_proxy 127.0.0.1:${toString value.port}
+          '';
+        };
+      })
+      cfg;
+    virtualisation.oci-containers =
+      mapAttrs' (app-name: value: nameValuePair "containers" {
+        "${app-name}" = {
+          autoStart = true;
+          image = "${value.dockerImage}";
+          volumes = [
+            "/var/lib/${app-name}:${value.internalMountDir}"
+          ];
+          ports = [
+            "${toString value.port}:${toString value.internalPort}"
+          ];
+          environment = {
+            PUID = "${toString value.uid}";
+            PGID = "${toString value.gid}";
+            UMASK = "022";
+            TZ = "America/New_York";
+          };
+          extraOptions = mkIf value.autoUpdate [
+            "-l=io.containers.autoupdate=registry"
+          ];
+        };
+      })
+      cfg;
   };
 }
