@@ -24,7 +24,7 @@ in {
   services.olivetin.settings.actions = [
     {
       title = "Restart Unifi Network Application";
-      icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
       timeout = 20;
     }
@@ -53,7 +53,7 @@ in {
       }
     '';
   };
-  virtualisation.oci-containers.containers."unifi-network-application" = {
+  virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "lscr.io/linuxserver/unifi-network-application";
     volumes = [
