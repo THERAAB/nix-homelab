@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  network = import ../../../network.properties.nix;
+  network = import ../network.properties.nix;
   cfg = config.services.podman-application;
   configOpts = {app-name, ...}: {
     options = {
