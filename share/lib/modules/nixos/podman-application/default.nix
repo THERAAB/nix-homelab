@@ -93,15 +93,13 @@ in {
       ])
       cfg;
     users =
-      mapAttrs (app-name: value: {
-        #users = {
-        #  "${app-name}" = {
-        #    uid = value.uid;
-        #    group = app-name;
-        #    isSystemUser = true;
-        #  };
-          groups.${app-name}.gid = value.gid;
-        #};
+      mapAttrs' (app-name: value: {
+        users."${app-name}" = {
+          uid = value.uid;
+          group = app-name;
+          isSystemUser = true;
+        };
+        groups.${app-name}.gid = value.gid;
       })
       cfg;
     systemd.tmpfiles.rules =
