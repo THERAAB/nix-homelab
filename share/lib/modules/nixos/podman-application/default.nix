@@ -71,7 +71,7 @@ in {
           name = value.displayName;
           url = "https://${app-name}.${network.domain}";
           conditions = [
-            "[STATUS] == ${value.statusCode}"
+            "[STATUS] == ${toString value.statusCode}"
           ];
           alerts = [
             {
