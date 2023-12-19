@@ -65,22 +65,22 @@ in {
     type = with types; attrsOf (submodule configOpts);
   };
   config = {
-    services.yamlConfigMaker.gatus.settings.endpoints =
-      mapAttrs' (app-name: value: [
-        {
-          name = value.displayName;
-          url = "https://${app-name}.${network.domain}";
-          conditions = [
-            "[STATUS] == ${value.statusCode}"
-          ];
-          alerts = [
-            {
-              type = "gotify";
-            }
-          ];
-        }
-      ])
-      cfg;
+    #services.yamlConfigMaker.gatus.settings.endpoints =
+    #  mapAttrs' (app-name: value: [
+    #    {
+    #      name = value.displayName;
+    #      url = "https://${app-name}.${network.domain}";
+    #      conditions = [
+    #        "[STATUS] == ${value.statusCode}"
+    #      ];
+    #      alerts = [
+    #        {
+    #          type = "gotify";
+    #        }
+    #      ];
+    #    }
+    #  ])
+    #  cfg;
     services.olivetin.settings.actions =
       mapAttrs' (app-name: value: [
         {
