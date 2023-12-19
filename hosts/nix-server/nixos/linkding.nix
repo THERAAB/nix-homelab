@@ -3,15 +3,12 @@
   gid = 7663;
   port = 9090;
 in {
-  services.podman-application = [
-    {
-      app-name = "linkding";
-      displayName = "LinkDing";
-      port = port;
-      uid = uid;
-      gid = gid;
-      dockerImage = "docker.io/sissbruecker/linkding";
-      internalMountDir = "/etc/linkding/data";
-    }
-  ];
+  services.podman-application.linkding = {
+    displayName = "LinkDing";
+    port = port;
+    uid = uid;
+    gid = gid;
+    dockerImage = "docker.io/sissbruecker/linkding";
+    internalMountDir = "/etc/linkding/data";
+  };
 }

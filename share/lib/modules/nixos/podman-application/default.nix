@@ -6,7 +6,7 @@
 with lib; let
   network = import ../../network.properties.nix;
   cfg = config.services.podman-application;
-  configOpts = {
+  configOpts = {app-name, ...}: {
     options = {
       app-name = mkOption {
         default = null;
@@ -63,7 +63,7 @@ with lib; let
   local-config-dir = "/var/lib/${cfg.app-name}/";
 in {
   options.services.podman-application = mkOption {
-    type = with types; listOf (submodule configOpts);
+    type = with types; attrsOf submodule configOpts;
   };
   config = {
     services.yamlConfigMaker.gatus.settings.endpoints = [
