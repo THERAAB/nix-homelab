@@ -8,7 +8,7 @@ in {
       name = "Microbin";
       url = "https://${app-name}.${network.domain}";
       conditions = [
-        "[STATUS] == 2001"
+        "[STATUS] == 200"
       ];
       alerts = [
         {
