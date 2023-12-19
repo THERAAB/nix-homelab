@@ -66,7 +66,7 @@ in {
     default = {};
     type = types.attrsOf (types.submodule configOpts);
   };
-  config = lib.mkIf (cfg != {}) mkMerge [
+  config = lib.mkIf (cfg != {}) (mkMerge [
     {
       app-name = mkDefault app-name;
     }
@@ -132,5 +132,5 @@ in {
         ];
       };
     }
-  ];
+  ]);
 }
