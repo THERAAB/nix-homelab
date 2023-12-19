@@ -66,66 +66,71 @@ in {
     default = {};
     type = types.attrsOf (types.submodule configOpts);
   };
-  config = lib.mkIf (cfg != {}) {
-    services.yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = cfg.displayName;
-        url = "https://${cfg.app-name}.${network.domain}";
-        conditions = [
-          "[STATUS] == ${cfg.statusCode}"
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
-    services.olivetin.settings.actions = [
-      {
-        title = "Restart ${cfg.displayName}";
-        icon = ''<img src = "customIcons/${cfg.app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${cfg.app-name}";
-        timeout = 20;
-      }
-    ];
-    users = {
-      users."${cfg.app-name}" = {
-        uid = cfg.uid;
-        group = cfg.app-name;
-        isSystemUser = true;
+  config = lib.mkIf (cfg != {}) mkMerge [
+    {
+      app-name = mkDefault app-name;
+    }
+    {
+      services.yamlConfigMaker.gatus.settings.endpoints = [
+        {
+          name = cfg.displayName;
+          url = "https://${cfg.app-name}.${network.domain}";
+          conditions = [
+            "[STATUS] == ${cfg.statusCode}"
+          ];
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+        }
+      ];
+      services.olivetin.settings.actions = [
+        {
+          title = "Restart ${cfg.displayName}";
+          icon = ''<img src = "customIcons/${cfg.app-name}.png" width = "48px"/>'';
+          shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${cfg.app-name}";
+          timeout = 20;
+        }
+      ];
+      users = {
+        users."${cfg.app-name}" = {
+          uid = cfg.uid;
+          group = cfg.app-name;
+          isSystemUser = true;
+        };
+        groups.${cfg.app-name}.gid = cfg.gid;
       };
-      groups.${cfg.app-name}.gid = cfg.gid;
-    };
-    systemd.tmpfiles.rules = [
-      "d    ${local-config-dir}     -       -               - -   - "
-      "Z    ${local-config-dir}     740     ${cfg.app-name} - -   - "
-    ];
-    services.caddy.virtualHosts."${cfg.app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString cfg.port}
-      '';
-    };
-    virtualisation.oci-containers.containers.${cfg.app-name} = {
-      autoStart = true;
-      image = "${cfg.dockerImage}";
-      volumes = [
-        "${local-config-dir}:${internalMountDir}"
+      systemd.tmpfiles.rules = [
+        "d    ${local-config-dir}     -       -               - -   - "
+        "Z    ${local-config-dir}     740     ${cfg.app-name} - -   - "
       ];
-      ports = [
-        "${toString cfg.port}:${toString cfg.internalPort}"
-      ];
-      environment = {
-        PUID = "${toString cfg.uid}";
-        PGID = "${toString cfg.gid}";
-        UMASK = "022";
-        TZ = "America/New_York";
+      services.caddy.virtualHosts."${cfg.app-name}.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy 127.0.0.1:${toString cfg.port}
+        '';
       };
-      extraOptions = mkIf cfg.autoUpdate [
-        "-l=io.containers.autoupdate=registry"
-      ];
-    };
-  };
+      virtualisation.oci-containers.containers.${cfg.app-name} = {
+        autoStart = true;
+        image = "${cfg.dockerImage}";
+        volumes = [
+          "${local-config-dir}:${internalMountDir}"
+        ];
+        ports = [
+          "${toString cfg.port}:${toString cfg.internalPort}"
+        ];
+        environment = {
+          PUID = "${toString cfg.uid}";
+          PGID = "${toString cfg.gid}";
+          UMASK = "022";
+          TZ = "America/New_York";
+        };
+        extraOptions = mkIf cfg.autoUpdate [
+          "-l=io.containers.autoupdate=registry"
+        ];
+      };
+    }
+  ];
 }
