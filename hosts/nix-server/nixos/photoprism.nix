@@ -13,7 +13,7 @@ in {
       ];
       alerts = [
         {
-          type = "custom";
+          type = "gotify";
         }
       ];
     }

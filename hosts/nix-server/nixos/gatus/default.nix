@@ -38,11 +38,10 @@ in {
     "d    ${local-config-dir}   -       -             -               -   - "
     "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
   ];
-  # Add secret for pushbullet
+  # Add secret for gotify
   systemd.services."yamlPatcher-${app-name}" = {
     script = ''
-      # Update pushbullet api key
-      TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
+      TOKEN=`cat ${config.sops.secrets.gotify_token.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
     '';
     wantedBy = ["yamlConfigMaker-gatus.service"];

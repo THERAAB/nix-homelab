@@ -15,7 +15,7 @@ in {
       ];
       alerts = [
         {
-          type = "custom";
+          type = "gotify";
         }
       ];
       client.insecure = true;
