@@ -81,26 +81,26 @@ in {
     #    }
     #  ])
     #  cfg;
-    services.olivetin.settings.actions =
-      mapAttrs' (app-name: value: [
-        {
-          title = "Restart ${value.displayName}";
-          icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-          shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-          timeout = 20;
-        }
-      ])
-      cfg;
-    users =
-      mapAttrs' (app-name: value: {
-        users."${app-name}" = {
-          uid = value.uid;
-          group = app-name;
-          isSystemUser = true;
-        };
-        groups.${app-name}.gid = value.gid;
-      })
-      cfg;
+    #services.olivetin.settings.actions =
+    #  mapAttrs' (app-name: value: [
+    #    {
+    #      title = "Restart ${value.displayName}";
+    #      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+    #      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
+    #      timeout = 20;
+    #    }
+    #  ])
+    #  cfg;
+    #users =
+    #  mapAttrs' (app-name: value: {
+    #    users."${app-name}" = {
+    #      uid = value.uid;
+    #      group = app-name;
+    #      isSystemUser = true;
+    #    };
+    #    groups.${app-name}.gid = value.gid;
+    #  })
+    #  cfg;
     systemd.tmpfiles.rules =
       mapAttrs' (app-name: value: [
         "d    /var/lib/${app-name}/     -       -             - -   - "
