@@ -40,14 +40,9 @@ in {
     "d    ${local-config-dir}     -       -             -        -   - "
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
-  # Delay jellyfin start for 60s because hardware encoding fails if run on boot
-  # I suspect because jellyfin tries to load before hardware devices become available
-  systemd.timers."start-${app-name}" = {
-    wantedBy = ["timers.target"];
-    timerConfig = {
-      OnBootSec = "60s";
-      Unit = "podman-${app-name}.service";
-    };
+  # Delay jellyfin start because hardware encoding fails if run on boot
+  systemd.services."podman-${app-name}" = {
+    after = ["multi-user.target"];
   };
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
