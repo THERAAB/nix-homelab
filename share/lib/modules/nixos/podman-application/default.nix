@@ -4,7 +4,6 @@
   ...
 }:
 with lib; let
-  network.domain = "pumpkin.rodeo";
   cfg = config.services.podman-application;
   configOpts = {app-name, ...}: {
     options = {
@@ -58,6 +57,11 @@ with lib; let
         type = with types; nullOr str;
         description = lib.mdDoc "InternalMountDir";
       };
+      networkDomain = mkOption {
+        default = "pumpkin.rodeo";
+        type = with types; str;
+        description = lib.mdDoc "network tld";
+      };
     };
   };
 in {
@@ -69,7 +73,7 @@ in {
       nameValuePair "endpoints" [
         {
           name = value.displayName;
-          url = "https://${app-name}.${network.domain}";
+          url = "https://${app-name}.${value.networkDomain}";
           conditions = [
             "[STATUS] == ${toString value.statusCode}"
           ];
@@ -110,8 +114,8 @@ in {
     cfg;
     services.caddy = mapAttrs' (app-name: value:
       nameValuePair "virtualHosts" {
-        "${app-name}.${network.domain}" = {
-          useACMEHost = "${network.domain}";
+        "${app-name}.${value.networkDomain}" = {
+          useACMEHost = "${value.networkDomain}";
           extraConfig = ''
             encode zstd gzip
             reverse_proxy 127.0.0.1:${toString value.port}
