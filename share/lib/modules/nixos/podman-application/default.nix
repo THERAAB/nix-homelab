@@ -69,7 +69,7 @@ in {
     services.yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = cfg.displayName;
-        url = "https://${cfg.app-name}.${network.domain}";
+        url = "https://${app-name}.${network.domain}";
         conditions = [
           "[STATUS] == ${cfg.statusCode}"
         ];
@@ -83,7 +83,7 @@ in {
     services.olivetin.settings.actions = [
       {
         title = "Restart ${cfg.displayName}";
-        icon = ''<img src = "customIcons/${cfg.app-name}.png" width = "48px"/>'';
+        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
         shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${cfg.app-name}";
         timeout = 20;
       }
