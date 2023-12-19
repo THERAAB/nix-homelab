@@ -117,15 +117,6 @@ in {
       icon = "fas fa-wrench";
       items = [
         {
-          name = "Linkding";
-          logo = "assets/icons/linkding.png";
-          subtitle = "Bookmark Manager";
-          tag = "bookmark";
-          keywords = "bookmark manager";
-          url = "https://linkding.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "Flatnotes";
           logo = "assets/icons/flatnotes.png";
           subtitle = "Notes";
@@ -135,12 +126,12 @@ in {
           target = "_blank";
         }
         {
-          name = "Microbin";
-          logo = "assets/icons/microbin.png";
-          subtitle = "Pastebin server";
-          tag = "pastebin";
-          keywords = "pastebin";
-          url = "https://microbin.${network.domain}";
+          name = "Linkding";
+          logo = "assets/icons/linkding.png";
+          subtitle = "Bookmark Manager";
+          tag = "bookmark";
+          keywords = "bookmark manager";
+          url = "https://linkding.${network.domain}";
           target = "_blank";
         }
         {
@@ -152,30 +143,21 @@ in {
           url = "https://sync.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Microbin";
+          logo = "assets/icons/microbin.png";
+          subtitle = "Pastebin server";
+          tag = "pastebin";
+          keywords = "pastebin";
+          url = "https://microbin.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
     {
       name = "Devices";
       icon = "fas fa-house-signal";
       items = [
-        {
-          name = "PfSense";
-          logo = "assets/icons/pfsense.png";
-          subtitle = "Firewall Router";
-          tag = "wireless";
-          keywords = "router firewall";
-          url = "https://pfsense.pumpkin/";
-          target = "_blank";
-        }
-        {
-          name = "Unifi Network Application";
-          logo = "assets/icons/unifi.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "https://unifi.${network.domain}";
-          target = "_blank";
-        }
         {
           name = "AdGuard";
           logo = "assets/icons/adguard.png";
@@ -192,6 +174,24 @@ in {
           tag = "smart-home";
           keywords = "smart home assistant automation";
           url = "https://home-assistant.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "PfSense";
+          logo = "assets/icons/pfsense.png";
+          subtitle = "Firewall Router";
+          tag = "wireless";
+          keywords = "router firewall";
+          url = "https://pfsense.pumpkin/";
+          target = "_blank";
+        }
+        {
+          name = "Unifi Network Application";
+          logo = "assets/icons/unifi.png";
+          subtitle = "Wireless Access Point";
+          tag = "wireless";
+          keywords = "wireless router access point";
+          url = "https://unifi.${network.domain}";
           target = "_blank";
         }
       ];
@@ -243,15 +243,6 @@ in {
       icon = "fas fa-download";
       items = [
         {
-          name = "Prowlarr";
-          logo = "assets/icons/prowlarr.png";
-          subtitle = "Manage Indexers";
-          tag = "media";
-          keywords = "indexer media torrent download";
-          url = "https://prowlarr.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "Radarr";
           logo = "assets/icons/radarr.png";
           subtitle = "Manage Movies";
@@ -276,6 +267,15 @@ in {
           tag = "books";
           keywords = "books audiobooks media";
           url = "https://readarr.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Prowlarr";
+          logo = "assets/icons/prowlarr.png";
+          subtitle = "Manage Indexers";
+          tag = "media";
+          keywords = "indexer media torrent download";
+          url = "https://prowlarr.${network.domain}";
           target = "_blank";
         }
       ];
