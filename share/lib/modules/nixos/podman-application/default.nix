@@ -67,7 +67,7 @@ in {
   };
   config = {
     services.yamlConfigMaker.gatus.settings.endpoints =
-      mapAttrs (app-name: value: [
+      mapAttrs' (app-name: value: [
         {
           name = value.displayName;
           url = "https://${app-name}.${network.domain}";
@@ -83,7 +83,7 @@ in {
       ])
       cfg;
     services.olivetin.settings.actions =
-      mapAttrs (app-name: value: [
+      mapAttrs' (app-name: value: [
         {
           title = "Restart ${value.displayName}";
           icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
@@ -103,13 +103,13 @@ in {
       })
       cfg;
     systemd.tmpfiles.rules =
-      mapAttrs (app-name: value: [
+      mapAttrs' (app-name: value: [
         "d    ${local-config-dir}     -       -             - -   - "
         "Z    ${local-config-dir}     740     ${app-name}   - -   - "
       ])
       cfg;
     services.caddy.virtualHosts =
-      mapAttrs (app-name: value: {
+      mapAttrs' (app-name: value: {
         "${app-name}.${network.domain}" = {
           useACMEHost = "${network.domain}";
           extraConfig = ''
@@ -120,7 +120,7 @@ in {
       })
       cfg;
     virtualisation.oci-containers.containers =
-      mapAttrs (app-name: value: {
+      mapAttrs' (app-name: value: {
         "${app-name}" = {
           autoStart = true;
           image = "${value.dockerImage}";
