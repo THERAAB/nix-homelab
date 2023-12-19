@@ -107,17 +107,17 @@ in {
     #    "Z    /var/lib/${app-name}/     740     ${app-name}   - -   - "
     #  ])
     #  cfg;
-    #services.caddy.virtualHosts =
-    #  mapAttrs' (app-name: value: {
-    #    "${app-name}.${network.domain}" = {
-    #      useACMEHost = "${network.domain}";
-    #      extraConfig = ''
-    #        encode zstd gzip
-    #        reverse_proxy 127.0.0.1:${toString value.port}
-    #      '';
-    #    };
-    #  })
-    #  cfg;
+    services.caddy.virtualHosts =
+      mapAttrs' (app-name: value: {
+        "${app-name}.${network.domain}" = {
+          useACMEHost = "${network.domain}";
+          extraConfig = ''
+            encode zstd gzip
+            reverse_proxy 127.0.0.1:${toString value.port}
+          '';
+        };
+      })
+      cfg;
     #virtualisation.oci-containers.containers =
     #  mapAttrs' (app-name: value: {
     #    "${app-name}" = {
