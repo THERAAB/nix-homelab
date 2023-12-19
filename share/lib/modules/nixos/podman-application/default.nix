@@ -102,7 +102,7 @@ in {
     #  })
     #  cfg;
     systemd.tmpfiles =
-      mapAttrs' (app-name: value: rules {
+      mapAttrs' (app-name: value: "rules" {
         rules = [
           "d    /var/lib/${app-name}/     -       -             - -   - "
           "Z    /var/lib/${app-name}/     740     ${app-name}   - -   - "
