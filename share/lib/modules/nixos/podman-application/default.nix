@@ -118,28 +118,28 @@ in {
     #    };
     #  })
     #  cfg;
-    virtualisation.oci-containers.containers =
-      mapAttrs' (app-name: value: {
-        "${app-name}" = {
-          autoStart = true;
-          image = "${value.dockerImage}";
-          volumes = [
-            "/var/lib/${app-name}:${value.internalMountDir}"
-          ];
-          ports = [
-            "${toString value.port}:${toString value.internalPort}"
-          ];
-          environment = {
-            PUID = "${toString value.uid}";
-            PGID = "${toString value.gid}";
-            UMASK = "022";
-            TZ = "America/New_York";
-          };
-          extraOptions = mkIf value.autoUpdate [
-            "-l=io.containers.autoupdate=registry"
-          ];
-        };
-      })
-      cfg;
+    #virtualisation.oci-containers.containers =
+    #  mapAttrs' (app-name: value: {
+    #    "${app-name}" = {
+    #      autoStart = true;
+    #      image = "${value.dockerImage}";
+    #      volumes = [
+    #        "/var/lib/${app-name}:${value.internalMountDir}"
+    #      ];
+    #      ports = [
+    #        "${toString value.port}:${toString value.internalPort}"
+    #      ];
+    #      environment = {
+    #        PUID = "${toString value.uid}";
+    #        PGID = "${toString value.gid}";
+    #        UMASK = "022";
+    #        TZ = "America/New_York";
+    #      };
+    #      extraOptions = mkIf value.autoUpdate [
+    #        "-l=io.containers.autoupdate=registry"
+    #      ];
+    #    };
+    #  })
+    #  cfg;
   };
 }
