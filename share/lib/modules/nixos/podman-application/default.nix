@@ -6,18 +6,14 @@
 with lib; let
   network = import ../../network.properties.nix;
   cfg = config.services.podman-application;
-  configOpts = {name, ...}: {
+  configOpts = {app-name, ...}: {
     options = {
-      name = mkOption {
+      app-name = mkOption {
         default = null;
         type = with types; nullOr str;
       };
-      app-name = mkOption {
-        default = name;
-        type = with types; nullOr str;
-      };
       displayName = mkOption {
-        default = app-name;
+        default = name;
         type = with types; nullOr str;
       };
       port = mkOption {
@@ -65,7 +61,6 @@ with lib; let
     };
   };
   local-config-dir = "/var/lib/${cfg.app-name}/";
-  app-name = "cfg.app-name";
 in {
   options.services.podman-application = mkOption {
     default = {};
