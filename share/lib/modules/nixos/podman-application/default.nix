@@ -66,65 +66,81 @@ in {
     type = with types; attrsOf (submodule configOpts);
   };
   config = {
-    services.yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = cfg.displayName;
-        url = "https://${app-name}.${network.domain}";
-        conditions = [
-          "[STATUS] == ${cfg.statusCode}"
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
-    services.olivetin.settings.actions = [
-      {
-        title = "Restart ${cfg.displayName}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${cfg.app-name}";
-        timeout = 20;
-      }
-    ];
-    users = {
-      users."${cfg.app-name}" = {
-        uid = cfg.uid;
-        group = cfg.app-name;
-        isSystemUser = true;
-      };
-      groups.${cfg.app-name}.gid = cfg.gid;
-    };
-    systemd.tmpfiles.rules = [
-      "d    ${local-config-dir}     -       -               - -   - "
-      "Z    ${local-config-dir}     740     ${cfg.app-name} - -   - "
-    ];
-    services.caddy.virtualHosts."${cfg.app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString cfg.port}
-      '';
-    };
-    virtualisation.oci-containers.containers.${cfg} = {
-      autoStart = true;
-      image = "${cfg.dockerImage}";
-      volumes = [
-        "${local-config-dir}:${internalMountDir}"
-      ];
-      ports = [
-        "${toString cfg.port}:${toString cfg.internalPort}"
-      ];
-      environment = {
-        PUID = "${toString cfg.uid}";
-        PGID = "${toString cfg.gid}";
-        UMASK = "022";
-        TZ = "America/New_York";
-      };
-      extraOptions = mkIf cfg.autoUpdate [
-        "-l=io.containers.autoupdate=registry"
-      ];
-    };
+    services.yamlConfigMaker.gatus.settings.endpoints =
+      mapAttrs (app-name: value: [
+        {
+          name = value.displayName;
+          url = "https://${app-name}.${network.domain}";
+          conditions = [
+            "[STATUS] == ${value.statusCode}"
+          ];
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+        }
+      ])
+      cfg;
+    services.olivetin.settings.actions =
+      mapAttrs (app-name: value: [
+        {
+          title = "Restart ${value.displayName}";
+          icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+          shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
+          timeout = 20;
+        }
+      ])
+      cfg;
+    users =
+      mapAttrs (app-name: value: {
+        users."${app-name}" = {
+          uid = value.uid;
+          group = app-name;
+          isSystemUser = true;
+        };
+        groups.${app-name}.gid = value.gid;
+      })
+      cfg;
+    systemd.tmpfiles.rules =
+      mapAttrs (app-name: value: [
+        "d    ${local-config-dir}     -       -             - -   - "
+        "Z    ${local-config-dir}     740     ${app-name}   - -   - "
+      ])
+      cfg;
+    services.caddy.virtualHosts =
+      mapAttrs (app-name: value: {
+        "${app-name}.${network.domain}" = {
+          useACMEHost = "${network.domain}";
+          extraConfig = ''
+            encode zstd gzip
+            reverse_proxy 127.0.0.1:${toString value.port}
+          '';
+        };
+      })
+      cfg;
+    virtualisation.oci-containers.containers =
+      mapAttrs (app-name: value: {
+        "${app-name}" = {
+          autoStart = true;
+          image = "${value.dockerImage}";
+          volumes = [
+            "${local-config-dir}:${internalMountDir}"
+          ];
+          ports = [
+            "${toString value.port}:${toString value.internalPort}"
+          ];
+          environment = {
+            PUID = "${toString value.uid}";
+            PGID = "${toString value.gid}";
+            UMASK = "022";
+            TZ = "America/New_York";
+          };
+          extraOptions = mkIf value.autoUpdate [
+            "-l=io.containers.autoupdate=registry"
+          ];
+        };
+      })
+      cfg;
   };
 }
