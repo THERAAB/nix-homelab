@@ -65,6 +65,7 @@ with lib; let
     };
   };
   local-config-dir = "/var/lib/${cfg.app-name}/";
+  app-name = cfg.app-name;
 in {
   options.services.podman-application = mkOption {
     default = {};
@@ -112,7 +113,7 @@ in {
         reverse_proxy 127.0.0.1:${toString cfg.port}
       '';
     };
-    virtualisation.oci-containers.containers.${cfg.app-name} = {
+    virtualisation.oci-containers.containers.${app-name} = {
       autoStart = true;
       image = "${cfg.dockerImage}";
       volumes = [
