@@ -101,8 +101,8 @@ in {
     #    groups.${app-name}.gid = value.gid;
     #  })
     #  cfg;
-    systemd.tmpfiles =
-      mapAttrs' (app-name: value: "rules" {
+    systemd =
+      mapAttrs' (app-name: value: nameValuePair "tmpfiles" {
         rules = [
           "d    /var/lib/${app-name}/     -       -             - -   - "
           "Z    /var/lib/${app-name}/     740     ${app-name}   - -   - "
