@@ -1,4 +1,8 @@
-{lib, ...}:
+{
+  config,
+  lib,
+  ...
+}:
 with lib; let
   network = import ../../network.properties.nix;
   cfg = config.services.podman-application;
