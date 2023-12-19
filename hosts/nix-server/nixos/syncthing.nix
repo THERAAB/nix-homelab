@@ -70,6 +70,14 @@ in {
           };
         };
       };
+      "${local-dir}/Camera" = {
+        id = "share";
+        devices = ["pixel-6a"];
+        versioning = {
+          type = "staggered";
+          params.maxAge = "7776000"; # 90 days
+        };
+      };
     };
   };
 }
