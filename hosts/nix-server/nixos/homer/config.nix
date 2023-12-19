@@ -59,18 +59,6 @@ in {
       url = "https://outlook.live.com/mail/0/";
       target = "_blank";
     }
-    {
-      name = "Raindrop.io";
-      icon = "fas fa-cloud";
-      url = "https://app.raindrop.io/my/-1";
-      target = "_blank";
-    }
-    {
-      name = "Dropbox";
-      icon = "fab fa-dropbox";
-      url = "https://www.dropbox.com/home";
-      target = "_blank";
-    }
   ];
   services = [
     {
@@ -102,15 +90,6 @@ in {
           tag = "audiobook";
           keywords = "audiobook podcast media";
           url = "https://audiobookshelf.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "SyncThing";
-          logo = "assets/icons/syncthing.png";
-          subtitle = "Shared Data & Folders";
-          tag = "sync";
-          keywords = "sync backup share data media";
-          url = "https://sync.${network.domain}";
           target = "_blank";
         }
         {
@@ -162,6 +141,15 @@ in {
           tag = "pastebin";
           keywords = "pastebin";
           url = "https://microbin.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "SyncThing";
+          logo = "assets/icons/syncthing.png";
+          subtitle = "Shared Data & Folders";
+          tag = "sync";
+          keywords = "sync backup share data media";
+          url = "https://sync.${network.domain}";
           target = "_blank";
         }
       ];
