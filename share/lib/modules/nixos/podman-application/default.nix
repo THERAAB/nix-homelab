@@ -108,7 +108,7 @@ in {
         reverse_proxy 127.0.0.1:${toString cfg.port}
       '';
     };
-    virtualisation.oci-containers.containers.${app-name} = {
+    virtualisation.oci-containers.containers.${cfg.app-name} = {
       autoStart = true;
       image = "${cfg.dockerImage}";
       volumes = [
