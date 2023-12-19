@@ -65,7 +65,7 @@ with lib; let
     };
   };
   local-config-dir = "/var/lib/${cfg.app-name}/";
-  app-name = cfg.app-name;
+  app-name = "cfg.app-name";
 in {
   options.services.podman-application = mkOption {
     default = {};
