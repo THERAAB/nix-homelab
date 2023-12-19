@@ -66,7 +66,7 @@ in {
     default = {};
     type = types.attrsOf (types.submodule configOpts);
   };
-  config = {
+  config = lib.mkIf (cfg != {}) {
     services.yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = cfg.displayName;
