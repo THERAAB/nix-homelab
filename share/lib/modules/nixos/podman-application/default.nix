@@ -13,7 +13,7 @@ with lib; let
         type = with types; nullOr str;
       };
       displayName = mkOption {
-        default = app-name;
+        default = cfg.app-name;
         type = with types; nullOr str;
       };
       port = mkOption {
