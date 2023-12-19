@@ -20,5 +20,6 @@
     ./gotify.nix
     ./linkding.nix
     ./flatnotes.nix
+    ./microbin.nix
   ];
 }
