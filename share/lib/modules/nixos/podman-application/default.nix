@@ -60,7 +60,6 @@ with lib; let
       };
     };
   };
-  local-config-dir = "/var/lib/${cfg.app-name}/";
 in {
   options.services.podman-application = mkOption {
     type = with types; attrsOf (submodule configOpts);
@@ -104,8 +103,8 @@ in {
       cfg;
     systemd.tmpfiles.rules =
       mapAttrs' (app-name: value: [
-        "d    ${local-config-dir}     -       -             - -   - "
-        "Z    ${local-config-dir}     740     ${app-name}   - -   - "
+        "d    /var/lib/${app-name}/     -       -             - -   - "
+        "Z    /var/lib/${app-name}/     740     ${app-name}   - -   - "
       ])
       cfg;
     services.caddy.virtualHosts =
@@ -125,7 +124,7 @@ in {
           autoStart = true;
           image = "${value.dockerImage}";
           volumes = [
-            "${local-config-dir}:${internalMountDir}"
+            "/var/lib/${app-name}:${value.internalMountDir}"
           ];
           ports = [
             "${toString value.port}:${toString value.internalPort}"
