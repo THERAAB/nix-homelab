@@ -21,7 +21,7 @@ in {
     {
       title = "Restart Microbin";
       icon = ''<img src = "customIcons/microbin.png" width = "48px"/>'';
-      shell = "sudo /var/lib/olivetin/scripts/commands.sh -p ${app-name}";
+      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
       timeout = 20;
     }
   ];

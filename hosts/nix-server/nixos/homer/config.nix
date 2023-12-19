@@ -287,6 +287,15 @@ in {
           url = "https://flatnotes.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Microbin";
+          logo = "assets/icons/microbin.png";
+          subtitle = "Pastebin server";
+          tag = "pastebin";
+          keywords = "pastebin";
+          url = "https://microbin.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
   ];
