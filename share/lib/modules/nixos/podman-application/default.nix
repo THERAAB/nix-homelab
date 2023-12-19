@@ -4,7 +4,7 @@
   ...
 }:
 with lib; let
-  network = import ../../../network.properties.nix;
+  network.domain = "pumpkin.rodeo";
   cfg = config.services.podman-application;
   configOpts = {app-name, ...}: {
     options = {
