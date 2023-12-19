@@ -64,7 +64,7 @@ in {
       "${media.dir.movies}:/movies"
       "${media.dir.tv}:/tv"
     ];
-    ports = ["${toString port}:${toString port}"];
+    ports = ["${toString port}:8096"];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString media.gid}";

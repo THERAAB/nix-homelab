@@ -52,7 +52,7 @@ in {
     volumes = [
       "${local-config-dir}:/config"
     ];
-    ports = ["${toString port}:${toString port}"];
+    ports = ["${toString port}:9696"];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString media.gid}";

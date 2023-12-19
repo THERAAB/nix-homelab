@@ -60,7 +60,7 @@ in {
       "${local-config-dir}:/config"
     ];
     ports = [
-      "${toString port}:${toString port}"
+      "${toString port}:8443"
       "3478:3478/udp"
       "1001:1001/udp"
       "8080:8080"

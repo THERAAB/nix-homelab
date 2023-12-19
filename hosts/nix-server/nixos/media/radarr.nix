@@ -54,7 +54,7 @@ in {
       "${media.dir.movies}:/movies"
       "${media.dir.downloads}:/app/qBittorrent/downloads"
     ];
-    ports = ["${toString port}:${toString port}"];
+    ports = ["${toString port}:7878"];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString media.gid}";
