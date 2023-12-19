@@ -8,8 +8,9 @@ in {
     port = port;
     uid = uid;
     gid = gid;
+    internalPort = 9090;
     dockerImage = "docker.io/sissbruecker/linkding";
     internalMountDir = "/etc/linkding/data";
   };
-  users.extraGroups.linkding.gid = gid;
+  users.groups.linkding.gid = gid;
 }
