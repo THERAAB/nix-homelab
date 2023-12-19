@@ -65,8 +65,8 @@ in {
     type = with types; attrsOf (submodule configOpts);
   };
   config = {
-    services.yamlConfigMaker.gatus.settings =
-      mapAttrs' (app-name: value: nameValuePair "endpoints" [
+    services.yamlConfigMaker.gatus.settings = mapAttrs' (app-name: value:
+      nameValuePair "endpoints" [
         {
           name = value.displayName;
           url = "https://${app-name}.${network.domain}";
@@ -80,9 +80,9 @@ in {
           ];
         }
       ])
-      cfg;
-    services.olivetin.settings =
-      mapAttrs' (app-name: value: nameValuePair "actions" [
+    cfg;
+    services.olivetin.settings = mapAttrs' (app-name: value:
+      nameValuePair "actions" [
         {
           title = "Restart ${value.displayName}";
           icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
@@ -90,27 +90,26 @@ in {
           timeout = 20;
         }
       ])
-      cfg;
-    users =
-      mapAttrs' (app-name: value: nameValuePair "users" {
+    cfg;
+    users = mapAttrs' (app-name: value:
+      nameValuePair "users" {
         "${app-name}" = {
           uid = value.uid;
           group = app-name;
           isSystemUser = true;
         };
-        groups.${app-name}.gid = value.gid;
       })
-      cfg;
-    systemd =
-      mapAttrs' (app-name: value: nameValuePair "tmpfiles" {
+    cfg;
+    systemd = mapAttrs' (app-name: value:
+      nameValuePair "tmpfiles" {
         rules = [
           "d    /var/lib/${app-name}/     -       -             - -   - "
           "Z    /var/lib/${app-name}/     740     ${app-name}   - -   - "
         ];
       })
-      cfg;
-    services.caddy =
-      mapAttrs' (app-name: value: nameValuePair "virtualHosts" {
+    cfg;
+    services.caddy = mapAttrs' (app-name: value:
+      nameValuePair "virtualHosts" {
         "${app-name}.${network.domain}" = {
           useACMEHost = "${network.domain}";
           extraConfig = ''
@@ -119,9 +118,9 @@ in {
           '';
         };
       })
-      cfg;
-    virtualisation.oci-containers =
-      mapAttrs' (app-name: value: nameValuePair "containers" {
+    cfg;
+    virtualisation.oci-containers = mapAttrs' (app-name: value:
+      nameValuePair "containers" {
         "${app-name}" = {
           autoStart = true;
           image = "${value.dockerImage}";
@@ -142,6 +141,6 @@ in {
           ];
         };
       })
-      cfg;
+    cfg;
   };
 }
