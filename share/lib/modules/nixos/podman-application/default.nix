@@ -6,10 +6,14 @@
 with lib; let
   network = import ../../network.properties.nix;
   cfg = config.services.podman-application;
-  configOpts = {app-name, ...}: {
+  configOpts = {name, ...}: {
     options = {
-      app-name = mkOption {
+      name = mkOption {
         default = null;
+        type = with types; nullOr str;
+      };
+      app-name = mkOption {
+        default = name;
         type = with types; nullOr str;
       };
       displayName = mkOption {
