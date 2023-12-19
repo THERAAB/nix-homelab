@@ -63,7 +63,7 @@ with lib; let
   local-config-dir = "/var/lib/${cfg.app-name}/";
 in {
   options.services.podman-application = mkOption {
-    type = with types; attrsOf submodule configOpts;
+    type = with types; attrsOf (submodule configOpts);
   };
   config = {
     services.yamlConfigMaker.gatus.settings.endpoints = [
