@@ -122,21 +122,6 @@ in {
           url = "https://photoprism.${network.domain}";
           target = "_blank";
         }
-      ];
-    }
-    {
-      name = "Downloads";
-      icon = "fas fa-download";
-      items = [
-        {
-          name = "Prowlarr";
-          logo = "assets/icons/prowlarr.png";
-          subtitle = "Manage Indexers";
-          tag = "media";
-          keywords = "indexer media torrent download";
-          url = "https://prowlarr.${network.domain}";
-          target = "_blank";
-        }
         {
           name = "VueTorrent";
           logo = "assets/icons/vuetorrent.png";
@@ -146,31 +131,37 @@ in {
           url = "https://vuetorrent.${network.domain}";
           target = "_blank";
         }
+      ];
+    }
+    {
+      name = "Productivity";
+      icon = "fas fa-wrench";
+      items = [
         {
-          name = "Radarr";
-          logo = "assets/icons/radarr.png";
-          subtitle = "Manage Movies";
-          tag = "movies";
-          keywords = "movies media";
-          url = "https://radarr.${network.domain}";
+          name = "Linkding";
+          logo = "assets/icons/linkding.png";
+          subtitle = "Bookmark Manager";
+          tag = "bookmark";
+          keywords = "bookmark manager";
+          url = "https://linkding.${network.domain}";
           target = "_blank";
         }
         {
-          name = "Sonarr";
-          logo = "assets/icons/sonarr.png";
-          subtitle = "Manage TV Shows";
-          tag = "tv";
-          keywords = "tv shows media";
-          url = "https://sonarr.${network.domain}";
+          name = "Flatnotes";
+          logo = "assets/icons/flatnotes.png";
+          subtitle = "Notes";
+          tag = "notes";
+          keywords = "notes";
+          url = "https://flatnotes.${network.domain}";
           target = "_blank";
         }
         {
-          name = "Readarr";
-          logo = "assets/icons/readarr.png";
-          subtitle = "Manage Books";
-          tag = "books";
-          keywords = "books audiobooks media";
-          url = "https://readarr.${network.domain}";
+          name = "Microbin";
+          logo = "assets/icons/microbin.png";
+          subtitle = "Pastebin server";
+          tag = "pastebin";
+          keywords = "pastebin";
+          url = "https://microbin.${network.domain}";
           target = "_blank";
         }
       ];
@@ -248,12 +239,6 @@ in {
           url = "https://gotify.${network.domain}";
           target = "_blank";
         }
-      ];
-    }
-    {
-      name = "Maintenance";
-      icon = "fas fa-cogs";
-      items = [
         {
           name = "OliveTin";
           logo = "assets/icons/olivetin.png";
@@ -266,34 +251,43 @@ in {
       ];
     }
     {
-      name = "Productivity";
-      icon = "fas fa-wrench";
+      name = "Downloads";
+      icon = "fas fa-download";
       items = [
         {
-          name = "Linkding";
-          logo = "assets/icons/linkding.png";
-          subtitle = "Bookmark Manager";
-          tag = "bookmark";
-          keywords = "bookmark manager";
-          url = "https://linkding.${network.domain}";
+          name = "Prowlarr";
+          logo = "assets/icons/prowlarr.png";
+          subtitle = "Manage Indexers";
+          tag = "media";
+          keywords = "indexer media torrent download";
+          url = "https://prowlarr.${network.domain}";
           target = "_blank";
         }
         {
-          name = "Flatnotes";
-          logo = "assets/icons/flatnotes.png";
-          subtitle = "Notes";
-          tag = "notes";
-          keywords = "notes";
-          url = "https://flatnotes.${network.domain}";
+          name = "Radarr";
+          logo = "assets/icons/radarr.png";
+          subtitle = "Manage Movies";
+          tag = "movies";
+          keywords = "movies media";
+          url = "https://radarr.${network.domain}";
           target = "_blank";
         }
         {
-          name = "Microbin";
-          logo = "assets/icons/microbin.png";
-          subtitle = "Pastebin server";
-          tag = "pastebin";
-          keywords = "pastebin";
-          url = "https://microbin.${network.domain}";
+          name = "Sonarr";
+          logo = "assets/icons/sonarr.png";
+          subtitle = "Manage TV Shows";
+          tag = "tv";
+          keywords = "tv shows media";
+          url = "https://sonarr.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Readarr";
+          logo = "assets/icons/readarr.png";
+          subtitle = "Manage Books";
+          tag = "books";
+          keywords = "books audiobooks media";
+          url = "https://readarr.${network.domain}";
           target = "_blank";
         }
       ];
