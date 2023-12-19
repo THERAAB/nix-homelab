@@ -2,13 +2,6 @@
 
 Some apps can't be managed declaratively, so additional setup needed for them is described here.
 
-## Networking
-
-### Use Adguard Home
-
-- pfSense -> DHCP Server -> DNS Servers -> nix-server local ip
-- tailscale -> DNS settings -> override local DNS
-
 ## Privacy VPN
 
 ### VueTorrent
@@ -81,7 +74,7 @@ Add below services & their devices:
 - Kasa
 - Pushbullet
 - Android tv
-- Zigbee devices (water alarms)
+- Zigbee devices
 - Shopping List
 - WiZ
 - TP-Link Tapo

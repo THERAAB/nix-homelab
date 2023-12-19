@@ -13,7 +13,7 @@
     TZ = "America/New_York";
   };
 in {
-  services.yamlConfigMaker."homer" = {
+  services.yamlConfigMaker."${app-name}" = {
     path = "${config-dir}/config.yml";
     settings = config;
   };
