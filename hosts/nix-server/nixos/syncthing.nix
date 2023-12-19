@@ -71,7 +71,7 @@ in {
         };
       };
       "${local-dir}/Camera" = {
-        id = "share";
+        id = "Camera";
         devices = ["pixel-6a"];
         versioning = {
           type = "staggered";
