@@ -95,7 +95,6 @@ in {
       nameValuePair "users" {
         "${app-name}" = {
           uid = value.uid;
-          group = app-name;
           isSystemUser = true;
         };
       })
