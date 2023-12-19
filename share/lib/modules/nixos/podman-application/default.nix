@@ -109,8 +109,8 @@ in {
         ];
       })
       cfg;
-    services.caddy.virtualHosts =
-      mapAttrs' (app-name: value: {
+    services.caddy =
+      mapAttrs' (app-name: value: nameValuePair "virtualHosts" {
         "${app-name}.${network.domain}" = {
           useACMEHost = "${network.domain}";
           extraConfig = ''
