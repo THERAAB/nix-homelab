@@ -102,10 +102,10 @@ in {
     #  })
     #  cfg;
     systemd.tmpfiles.rules =
-      mapAttrs' (app-name: value: [
+      mapAttrs' (app-name: value: {[
         "d    /var/lib/${app-name}/     -       -             - -   - "
         "Z    /var/lib/${app-name}/     740     ${app-name}   - -   - "
-      ])
+      ]})
       cfg;
     #services.caddy.virtualHosts =
     #  mapAttrs' (app-name: value: {
