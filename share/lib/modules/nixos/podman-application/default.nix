@@ -64,7 +64,7 @@ with lib; let
 in {
   options.services.podman-application = mkOption {
     default = {};
-    type = types.attrsOf (types.submodule configOpts);
+    type = types.listOf (types.submodule configOpts);
   };
   config = lib.mkIf (cfg != {}) {
     services.yamlConfigMaker.gatus.settings.endpoints = [
