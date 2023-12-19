@@ -6,27 +6,9 @@ pkgs.writeShellScript "commands.sh" ''
     printf "Usage: [option] [parameter]]\n"
     printf "\n"
     printf "Options:\n"
-    printf " -p|--podman [container name], restart container\n"
     printf " -s|--service [service name], restart systemd service\n"
     printf " -r|--reboot, Reboot system\n"
     printf " -h|--help, Print this menu\n"
-    return 0
-  }
-
-  function restart_podman_container() {
-    echo stopping $1
-    podman stop $1
-    sleep 1
-    echo starting $1
-    podman start $1
-    echo restarted container $1
-    return 0
-  }
-  
-  function stop_podman_container() {
-    echo stopping $1
-    systemctl stop podman-$1
-    sleep 1
     return 0
   }
 
@@ -54,10 +36,6 @@ pkgs.writeShellScript "commands.sh" ''
 
   if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
     show_usage
-  elif [[ "$1" == "-p" ]] || [[ "$1" == "--podman" ]]; then
-    restart_podman_container $2
-  elif [[ "$1" == "-x" ]] || [[ "$1" == "--stop-podman" ]]; then
-    stop_podman_container $2
   elif [[ $1 == "-s" ]] || [[ "$1" == "--service" ]]; then
     restart_service $2
   elif [[ $1 == "-r" ]] || [[ "$1" == "--reboot" ]]; then

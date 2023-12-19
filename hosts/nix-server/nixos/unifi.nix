@@ -25,7 +25,7 @@ in {
     {
       title = "Restart Unifi Network Application";
       icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
-      shell = "sudo /var/lib/olivetin/scripts/commands.sh -p ${app-name}";
+      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
       timeout = 20;
     }
   ];

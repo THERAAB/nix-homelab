@@ -24,7 +24,7 @@ in {
     {
       title = "Restart Sonarr";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-      shell = "sudo /var/lib/olivetin/scripts/commands.sh -p ${app-name}";
+      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
       timeout = 20;
     }
   ];
