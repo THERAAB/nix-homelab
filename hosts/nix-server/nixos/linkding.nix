@@ -2,7 +2,6 @@
   uid = 7662;
   gid = 7663;
   port = 9090;
-  network = 
 in {
   services.podman-application.linkding = {
     displayName = "LinkDing";
