@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{...}: let
   port = 8238;
   app-name = "gotify";
   network = import ../../../share/network.properties.nix;
@@ -36,7 +36,4 @@ in {
     enable = true;
     port = port;
   };
-  environment.systemPackages = with pkgs; [
-    gotify-cli
-  ];
 }
