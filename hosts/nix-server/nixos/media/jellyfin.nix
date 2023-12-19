@@ -40,8 +40,7 @@ in {
     "d    ${local-config-dir}     -       -             -        -   - "
     "Z    ${local-config-dir}     740     ${app-name}   -        -   - "
   ];
-  # Delay jellyfin start because hardware encoding fails if run on boot
-  systemd.services."podman-${app-name}".after = ["multi-user.target"];
+  systemd.services."podman-${app-name}".after = ["multi-user.target"]; # Delay jellyfin start for hardware encoding
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''
