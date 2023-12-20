@@ -12,7 +12,7 @@ with lib; let
         type = with types; nullOr str;
       };
       displayName = mkOption {
-        default = cfg.${app-name};
+        default = null;
         type = with types; nullOr str;
       };
       port = mkOption {
@@ -22,7 +22,7 @@ with lib; let
         example = "80";
       };
       internalPort = mkOption {
-        default = cfg.${app-name}.port;
+        default = null;
         type = with types; nullOr int;
         description = lib.mdDoc "Port inside image to map to config.port";
         example = "80";
