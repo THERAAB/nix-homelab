@@ -54,7 +54,6 @@
         modules = [
           impermanence.nixosModules.impermanence
           ./share/lib/modules/nixos/yamlConfigMaker
-          ./share/lib/modules/nixos/podman-application
           ./share/lib/modules/nixos/olivetin
           ./share/nixos
           ./hosts/nix-server/nixos
