@@ -23,7 +23,7 @@ in {
   services.olivetin.settings.actions = [
     {
       title = "Restart Linkding";
-      icon = ''<img src = "customIcons/linkding.png" width = "48px"/>'';
+      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
       timeout = 20;
     }
