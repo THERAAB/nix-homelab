@@ -23,7 +23,7 @@ with lib; let
         example = "80";
       };
       internalPort = mkOption {
-        default = null;
+        default = cfg.${app-name}.port;
         type = with types; nullOr int;
         description = lib.mdDoc "Port inside image to map to config.port";
         example = "80";
@@ -70,6 +70,7 @@ in {
     type = with types; attrsOf (submodule configOpts);
   };
   config = {
+    app-name = mkDefault app-name;
     services.yamlConfigMaker.gatus.settings = mapAttrs' (app-name: value:
       nameValuePair "endpoints" [
         {
