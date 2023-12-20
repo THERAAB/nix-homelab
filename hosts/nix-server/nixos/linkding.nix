@@ -4,6 +4,7 @@
   port = 9090;
 in {
   services.podman-application.linkding = {
+    displayName = "LinkDing";
     port = port;
     uid = uid;
     gid = gid;
