@@ -12,5 +12,4 @@ in {
     dockerImage = "docker.io/sissbruecker/linkding";
     internalMountDir = "/etc/linkding/data";
   };
-  users.groups.linkding.gid = gid;
 }
