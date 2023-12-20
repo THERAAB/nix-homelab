@@ -96,7 +96,8 @@ in {
         }
       ])
     cfg;
-    users = mapAttrs' (app-name: value:
+    users = (lib.mkMerge [
+      ( mapAttrs' (app-name: value:
       nameValuePair "users" {
         "${app-name}" = {
           uid = value.uid;
@@ -104,7 +105,16 @@ in {
           isSystemUser = true;
         };
       })
-    cfg;
+    cfg)
+      ( mapAttrs' (app-name: value:
+      nameValuePair "groups" {
+        "${app-name}" = {
+          gid = value.gid;
+        };
+      })
+    cfg)
+    ]);
+
     systemd = mapAttrs' (app-name: value:
       nameValuePair "tmpfiles" {
         rules = [
