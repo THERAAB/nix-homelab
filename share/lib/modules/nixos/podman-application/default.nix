@@ -5,7 +5,7 @@
 }:
 with lib; let
   cfg = config.services.podman-application;
-  network = import network.properties.nix;
+  network = import ../network.properties.nix;
   configOpts = {app-name, ...}: {
     options = {
       app-name = mkOption {
