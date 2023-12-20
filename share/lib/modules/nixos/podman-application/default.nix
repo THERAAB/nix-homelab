@@ -5,6 +5,7 @@
 }:
 with lib; let
   cfg = config.services.podman-application;
+  network = import network.properties.nix;
   configOpts = {app-name, ...}: {
     options = {
       app-name = mkOption {
@@ -58,7 +59,7 @@ with lib; let
         description = lib.mdDoc "InternalMountDir";
       };
       networkDomain = mkOption {
-        default = "pumpkin.rodeo";
+        default = network.domain;
         type = with types; str;
         description = lib.mdDoc "network tld";
       };
