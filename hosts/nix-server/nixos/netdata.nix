@@ -1,11 +1,12 @@
 {...}: let
   port = 19999;
   app-name = "netdata";
+  display-name = "NetData";
   network = import ../../../share/network.properties.nix;
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
-      name = "NetData";
+      name = "${display-name}";
       url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
@@ -20,7 +21,7 @@ in {
   ];
   services.olivetin.settings.actions = [
     {
-      title = "Restart NetData";
+      title = "Restart ${display-name}";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
       timeout = 20;

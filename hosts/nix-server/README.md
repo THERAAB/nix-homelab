@@ -17,6 +17,14 @@ and the installation instructions below.
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Nix store cache sharing with [harmonia](https://github.com/nix-community/harmonia)
+- Backups with [SyncThing](https://syncthing.net/)
+- Notifications with [Gotify](https://gotify.net/)
+- Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
+- Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
+- [Microbin](https://microbin.eu/) locally hosted pastebin
+- [Photoprism](https://www.photoprism.app/) for locally hosted photos
+- Self-Hosted [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
+
 
 ## Installation
 

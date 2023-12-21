@@ -7,6 +7,7 @@
   config-dir = "/var/lib/${app-name}/";
   config = import ./config.nix;
   network = import ../../../../share/network.properties.nix;
+  display-name = "Homer";
   environment = {
     UMASK = "022";
     INIT_ASSETS = "0";
@@ -19,7 +20,7 @@ in {
   };
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
-      name = "Homer";
+      name = "${display-name}";
       url = "https://${network.domain}/";
       conditions = [
         "[STATUS] == 200"
@@ -34,7 +35,7 @@ in {
   ];
   services.olivetin.settings.actions = [
     {
-      title = "Restart Homer";
+      title = "Restart ${display-name}";
       icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
       shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
       timeout = 20;

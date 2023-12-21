@@ -3,6 +3,7 @@
   system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-server/nixos/home-assistant/blueprints";
   port = 8123;
   app-name = "home-assistant";
+  display-name = "Home Assistant";
   network = import ../../../../share/network.properties.nix;
 in {
   imports = [
@@ -18,7 +19,7 @@ in {
 
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
-      name = "Home Assistant";
+      name = "${display-name}";
       url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
@@ -33,7 +34,7 @@ in {
   ];
   services.olivetin.settings.actions = [
     {
-      title = "Restart Home Assistant";
+      title = "Restart ${display-name}";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
       timeout = 20;

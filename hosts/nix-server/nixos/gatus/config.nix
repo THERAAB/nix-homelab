@@ -3,7 +3,7 @@ let
 in {
   alerting = {
     gotify = {
-      server-url = "https://gotify.pumpkin.rodeo";
+      server-url = "https://gotify.${network.domain}";
       token = "<PLACEHOLDER>";
       body = ''{"type":"note","title":"Gatus [ALERT_TRIGGERED_OR_RESOLVED]: [ENDPOINT_NAME]","body":"[ALERT_DESCRIPTION] - [ENDPOINT_URL]"}'';
       default-alert = {

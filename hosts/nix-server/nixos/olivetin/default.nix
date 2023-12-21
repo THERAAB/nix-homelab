@@ -3,6 +3,7 @@
   uid = 62893;
   gid = 62893;
   app-name = "olivetin";
+  display-name = "Olivetin";
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/var/lib/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
@@ -11,7 +12,7 @@
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
-      name = "OliveTin";
+      name = "${display-name}";
       url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"

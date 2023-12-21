@@ -3,12 +3,13 @@
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
+  display-name = "Vuetorrent";
   local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../../share/network.properties.nix;
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
-      name = "VueTorrent";
+      name = "${display-name}";
       url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
@@ -22,7 +23,7 @@ in {
   ];
   services.olivetin.settings.actions = [
     {
-      title = "Restart Vuetorrent";
+      title = "Restart ${display-name}";
       icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
       shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
       timeout = 20;
