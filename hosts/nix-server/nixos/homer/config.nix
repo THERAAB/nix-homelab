@@ -135,21 +135,21 @@ in {
           target = "_blank";
         }
         {
-          name = "SyncThing";
-          logo = "assets/icons/syncthing.png";
-          subtitle = "Shared Data & Folders";
-          tag = "sync";
-          keywords = "sync backup share data media";
-          url = "https://sync.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "Microbin";
           logo = "assets/icons/microbin.png";
           subtitle = "Pastebin server";
           tag = "pastebin";
           keywords = "pastebin";
           url = "https://microbin.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "SyncThing";
+          logo = "assets/icons/syncthing.png";
+          subtitle = "Shared Data & Folders";
+          tag = "sync";
+          keywords = "sync backup share data media";
+          url = "https://sync.${network.domain}";
           target = "_blank";
         }
       ];
