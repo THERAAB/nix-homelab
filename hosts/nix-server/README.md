@@ -12,18 +12,18 @@ and the installation instructions below.
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
 - Mesh VPN with [Tailscale](https://tailscale.com/)
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
-- Reverse Proxy with [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
-- Monitoring/Statistics with [netdata](https://www.netdata.cloud/) and [gatus](https://github.com/TwiN/gatus)
+- Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
+- Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
-- Nix store cache sharing with [harmonia](https://github.com/nix-community/harmonia)
+- Nix store cache sharing with [Harmonia](https://github.com/nix-community/harmonia)
 - Backups with [SyncThing](https://syncthing.net/)
 - Notifications with [Gotify](https://gotify.net/)
 - Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
 - Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
 - [Microbin](https://microbin.eu/) locally hosted pastebin
 - [Photoprism](https://www.photoprism.app/) for locally hosted photos
-- Self-Hosted [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
+- [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
 
 
 ## Installation
