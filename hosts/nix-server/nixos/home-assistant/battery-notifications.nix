@@ -21,6 +21,13 @@ in {
                 };
               }
               {
+                service = "notify.gotify";
+                data = {
+                  message = "{{sensors}} Low Battery!";
+                  title = "The battery of the sensor(s) {{sensors}} is low.";
+                };
+              }
+              {
                 service = "notify.notify";
                 data_template.message = "{{sensors}} Low Battery!";
               }

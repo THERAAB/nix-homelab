@@ -19,6 +19,13 @@
           };
         }
         {
+          service = "notify.gotify";
+          data = {
+            message = "Washing Machine Done";
+            title = "Washing Machine Cycle finished";
+          };
+        }
+        {
           service = "notify.notify";
           data_template.message = "Washing Machine Done";
         }
@@ -37,6 +44,13 @@
       action = [
         {
           service = "notify.pushbullet";
+          data = {
+            message = "Dryer Done";
+            title = "Dryer Cycle finished";
+          };
+        }
+        {
+          service = "notify.gotify";
           data = {
             message = "Dryer Done";
             title = "Dryer Cycle finished";

@@ -24,6 +24,13 @@ in {
               title = "Water Detected!";
             };
           }
+          {
+            service = "notify.gotify";
+            data = {
+              message = "${triggered-entities-name} is wet!";
+              title = "Water Detected!";
+            };
+          }
         ];
       }
       {
@@ -43,6 +50,13 @@ in {
           }
           {
             service = "notify.pushbullet";
+            data = {
+              message = "${triggered-entities-name} is Offline!";
+              title = "Device ${triggered-entities-name} unavailable!";
+            };
+          }
+          {
+            service = "notify.gotify";
             data = {
               message = "${triggered-entities-name} is Offline!";
               title = "Device ${triggered-entities-name} unavailable!";
