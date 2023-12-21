@@ -7,16 +7,13 @@
     nixos-upgrade.onFailure = ["nixos-upgrade-on-failure.service"];
     nixos-upgrade-on-failure = {
       script = ''
-        TOKEN=`cat ${config.sops.secrets.pushbullet_api_key.path}`
+        TOKEN=`cat ${config.sops.secrets.gotify_homelab_token.path}`
         HOSTNAME=`${pkgs.nettools}/bin/hostname`
 
-        echo '{"type":"note","title":"'$HOSTNAME' Upgrade Failed","body":"Upgrade failed on '$HOSTNAME', run journalctl -u nixos-upgrade for details"}' > body.json
-
-        ${pkgs.curl}/bin/curl   -H "Access-Token: $TOKEN"               \
-                                -H "Content-Type: application/json"     \
-                                -X POST                                 \
-                                -d @body.json                           \
-                                https://api.pushbullet.com/v2/pushes
+        ${pkgs.curl}/bin/curl   https://gotify.pumpkin.rodeo/message?token=$TOKEN                                       \
+                                -F "title='$HOSTNAME' Upgrade Failed"                                                   \
+                                -F "message=Upgrade failed on '$HOSTNAME', run journalctl -u nixos-upgrade for details" \
+                                -F "priority=5"                                                                         \
       '';
     };
   };

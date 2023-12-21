@@ -9,7 +9,7 @@
     };
     df_password = {};
     cloudflare_dns_secret = {};
-    harmonia-key = {};
+    harmonia_secret = {};
     microbin_secret = {};
     mongo_init.owner = "unifi";
     mongo_secret.owner = "unifi";

@@ -42,7 +42,7 @@ in {
   # Add secret for gotify
   systemd.services."yamlPatcher-${app-name}" = {
     script = ''
-      TOKEN=`cat ${config.sops.secrets.gotify_token.path}`
+      TOKEN=`cat ${config.sops.secrets.gotify_gatus_token.path}`
       ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
     '';
     wantedBy = ["yamlConfigMaker-gatus.service"];
