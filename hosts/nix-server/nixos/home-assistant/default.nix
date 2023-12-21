@@ -87,6 +87,17 @@ in {
         longitude = "!secret home_longitude";
         latitude = "!secret home_latitude";
       };
+      notify = [
+        {
+          name = "gotify";
+          platform = "rest";
+          resource = "https://gotify.pumpkin.rodeo/message";
+          method = "POST_JSON";
+          headers.X-Gotify-Key = "!secret gotify_ha_token";
+          message_param_name = "message";
+          title_param_name = "title";
+        }
+      ];
     };
   };
 }
