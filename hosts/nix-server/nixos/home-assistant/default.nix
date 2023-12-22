@@ -72,6 +72,8 @@ in {
       "assist_pipeline"
       "ffmpeg"
       "tuya"
+      "ecobee"
+      "sharkiq"
     ];
     config = {
       default_config = {};
