@@ -35,10 +35,10 @@ in {
     '';
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-dir}        -       -             -               -   - "
-    "d    ${local-dir}/share  -       -             -               -   - "
+    "d    ${local-dir}         -       -             -               -   - "
+    "d    ${local-dir}/share   -       -             -               -   - "
     "d    ${local-dir}/Camera  -       -             -               -   - "
-    "Z    ${local-dir}        770     syncthing     ${app-name}     -   - "
+    "Z    ${local-dir}         770     syncthing     ${app-name}     -   - "
   ];
   services.syncthing = {
     enable = true;

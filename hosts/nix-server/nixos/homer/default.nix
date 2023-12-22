@@ -44,7 +44,7 @@ in {
   systemd.tmpfiles.rules = [
     "R    ${config-dir}/icons           -   -               -               -   -                     "
     "C    ${config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
-    "Z    ${config-dir}               -   ${app-name}     ${app-name}       -   -                     "
+    "Z    ${config-dir}                 -   ${app-name}     ${app-name}     -   -                     "
   ];
   users = {
     groups.${app-name}.gid = gid;
