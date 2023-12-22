@@ -55,7 +55,7 @@ in {
     image = "docker.io/${app-name}/${app-name}";
     volumes = [
       "${dir-to-share}:/srv"
-      "${local-config-dir}:/database.db"
+      "${local-config-dir}/database.db:/database.db"
     ];
     ports = [
       "${toString port}:80"
