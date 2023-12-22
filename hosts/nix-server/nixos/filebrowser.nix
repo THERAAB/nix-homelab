@@ -35,9 +35,9 @@ in {
       uid = uid;
       group = app-name;
       isSystemUser = true;
+      extraGroups = ["syncthing"];
     };
     groups.${app-name}.gid = gid;
-    extraGroups = ["syncthing"];
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}     -       -             -        -   - "
