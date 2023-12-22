@@ -21,5 +21,6 @@
     ./linkding.nix
     ./flatnotes.nix
     ./microbin.nix
+    ./filebrowser.nix
   ];
 }
