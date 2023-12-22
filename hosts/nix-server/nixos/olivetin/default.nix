@@ -53,7 +53,7 @@ in {
     "r  ${www-dir}/customIcons        -           -               -               -   -                         "
     "L  ${www-dir}/customIcons        -           -               -               -   ${system-icons-dir}       "
     "Z  ${scripts-dir}                700         root            root            -   -                         "
-    "Z  ${www-dir}                    770         ${app-name}     ${app-name}     -   -                         "
+    "Z  ${www-dir}                    740         ${app-name}     ${app-name}     -   -                         "
   ];
   networking.firewall.allowedTCPPorts = [port];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
