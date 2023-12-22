@@ -135,6 +135,15 @@ in {
           target = "_blank";
         }
         {
+          name = "File Browser";
+          logo = "assets/icons/filebrowser.png";
+          subtitle = "File Management";
+          tag = "file";
+          keywords = "file manager";
+          url = "https://files.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "Microbin";
           logo = "assets/icons/microbin.png";
           subtitle = "Pastebin server";
