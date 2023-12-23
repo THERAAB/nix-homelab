@@ -52,7 +52,7 @@ in {
     "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}            "
     "r  ${www-dir}/customIcons        -           -               -               -   -                         "
     "L  ${www-dir}/customIcons        -           -               -               -   ${system-icons-dir}       "
-    "Z  ${scripts-dir}                700         root            root            -   -                         "
+    "Z  ${scripts-dir}                500         root            root            -   -                         "
     "Z  ${www-dir}                    740         ${app-name}     ${app-name}     -   -                         "
   ];
   networking.firewall.allowedTCPPorts = [port];
