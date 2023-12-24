@@ -8,7 +8,8 @@ Some apps can't be managed declaratively, so additional setup needed for them is
 
 - admin/adminadmin
 - change user & password
-- Settings > WebUi > Enable alternate UI
+- Settings -> WebUi -> Enable alternate UI
+- Settings -> Bittorrent -> Seed Limits -> When Ratio reaches 2
 
 ### Check IP Leakage
 
@@ -26,15 +27,17 @@ curl https://am.i.mullvad.net/json
 
 ## ARR Stack
 
-### Jellyfin hardware acceleration
+### Jellyfin
+
+Hardware acceleration
 
 - Dashboard -> Playback
 - Intel QuickSync
 - Enable Tone mapping (non VPP option)
 
-### Jellyfin Android client
+(Android Client) Settings -> Client Settings -> Video Player type -> Integrated Player
 
-Settings -> Client Settings -> Video Player type -> Integrated Player
+Settings -> Subtitles -> English, only forced
 
 ### Prowlarr
 
@@ -62,6 +65,10 @@ Settings -> Client Settings -> Video Player type -> Integrated Player
 
 Set up last, make sure to do above before trying to set up
 
+Settings -> enable CSRF protection
+
+Settings -> Discover language -> English
+
 ## Home Automation
 
 ### Home Assistant
@@ -79,12 +86,20 @@ Add below services & their devices:
 - WiZ
 - TP-Link Tapo
 
-## Linkding
+## Others
 
-- Password setup
+### Linkding
+
+Password setup
 
 ```
 sudo podman exec -it linkding python manage.py createsuperuser --username=raab --email=raab@example.com
 ```
 
-- Add API Key
+Add API Key
+
+Settings -> Show bookmark url
+
+### Gotify
+
+Setup applications, change app keys
