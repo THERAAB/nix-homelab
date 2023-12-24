@@ -29,15 +29,12 @@ curl https://am.i.mullvad.net/json
 
 ### Jellyfin
 
-Hardware acceleration
-
-- Dashboard -> Playback
-- Intel QuickSync
-- Enable Tone mapping (non VPP option)
-
-(Android Client) Settings -> Client Settings -> Video Player type -> Integrated Player
-
-Settings -> Subtitles -> English, only forced
+- Hardware acceleration
+  - Dashboard -> Playback
+  - Intel QuickSync
+  - Enable Tone mapping (non VPP option)
+- (Android Client) Settings -> Client Settings -> Video  Player type -> Integrated Player
+- Settings -> Subtitles -> English, only forced
 
 ### Prowlarr
 
@@ -64,42 +61,39 @@ Settings -> Subtitles -> English, only forced
 ### Jellyseerr
 
 Set up last, make sure to do above before trying to set up
-
-Settings -> enable CSRF protection
-
-Settings -> Discover language -> English
+- Settings -> enable CSRF protection
+- Settings -> Discover language -> English
 
 ## Home Automation
 
 ### Home Assistant
 
-Zigbee Channel 26
-Add below services & their devices:
-
-- Govee
-- Sonoff
-- Kasa
-- Pushbullet
-- Android tv
-- Zigbee devices
-- Shopping List
-- WiZ
-- TP-Link Tapo
+- Add below services & their devices:
+  - Govee
+  - Sonoff
+  - Kasa
+  - Pushbullet
+  - Android tv
+  - Zigbee devices
+  - Shopping List
+  - WiZ
+  - TP-Link Tapo
+- Zigbee Channel 26
 
 ## Others
 
 ### Linkding
 
-Password setup
+- Password setup
 
 ```
 sudo podman exec -it linkding python manage.py createsuperuser --username=raab --email=raab@example.com
 ```
 
-Add API Key
-
-Settings -> Show bookmark url
+- Add API Key
+- Settings -> Show bookmark url
 
 ### Gotify
 
-Setup applications, change app keys
+- Setup applications
+- Change app keys
