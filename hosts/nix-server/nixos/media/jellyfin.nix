@@ -81,12 +81,10 @@ in {
       PGID = "${toString media.gid}";
       UMASK = "022";
       TZ = "America/New_York";
-      DEFAULT_SERVERS = "jellyfin.pumpkin.rodeo";
-      HISTORY_ROUTER_MODE = "0";
     };
     extraOptions = [
-      "--device=/dev/dri/renderD128:/dev/dri/renderD128"
-      "--device=/dev/dri/card0:/dev/dri/card0"
+      "--privileged"
+      "--cap-add=NET_ADMIN"
       "-l=io.containers.autoupdate=registry"
     ];
   };
