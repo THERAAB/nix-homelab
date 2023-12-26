@@ -81,7 +81,7 @@ in {
   };
   virtualisation.oci-containers.containers."jellyfin-vue" = {
     autoStart = true;
-    image = "ghcr.io/jellyfin/jellyfin-vue";
+    image = "ghcr.io/jellyfin/jellyfin-vue:unstable";
     ports = ["${toString vue-port}:80"];
     environment = {
       PUID = "${toString uid}";
