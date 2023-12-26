@@ -81,8 +81,8 @@ in {
       PGID = "${toString media.gid}";
       UMASK = "022";
       TZ = "America/New_York";
-      DOCKER_MODS = "linuxserver/mods:jellyfin-opencl-intel";
       DEFAULT_SERVERS = "jellyfin.pumpkin.rodeo";
+      HISTORY_ROUTER_MODE = "0";
     };
     extraOptions = [
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
