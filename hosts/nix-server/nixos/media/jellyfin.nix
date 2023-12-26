@@ -64,6 +64,7 @@ in {
       UMASK = "022";
       TZ = "America/New_York";
       DOCKER_MODS = "linuxserver/mods:jellyfin-opencl-intel";
+      JELLYFIN_PublishedServerUrl = "https://${app-name}.${network.domain}";
     };
     extraOptions = [
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
