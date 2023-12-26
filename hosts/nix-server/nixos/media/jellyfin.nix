@@ -77,9 +77,16 @@ in {
     image = "ghcr.io/jellyfin/${app-name}-vue:unstable";
     ports = ["5099:80"];
     environment = {
+      PUID = "${toString uid}";
+      PGID = "${toString media.gid}";
+      UMASK = "022";
+      TZ = "America/New_York";
+      DOCKER_MODS = "linuxserver/mods:jellyfin-opencl-intel";
       DEFAULT_SERVERS = "jellyfin.pumpkin.rodeo";
     };
     extraOptions = [
+      "--device=/dev/dri/renderD128:/dev/dri/renderD128"
+      "--device=/dev/dri/card0:/dev/dri/card0"
       "-l=io.containers.autoupdate=registry"
     ];
   };
