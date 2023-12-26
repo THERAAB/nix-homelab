@@ -77,9 +77,6 @@ in {
     image = "ghcr.io/jellyfin/${app-name}-vue:unstable";
     ports = ["5099:80"];
     environment = {
-      PUID = "${toString uid}";
-      PGID = "${toString media.gid}";
-      UMASK = "022";
       TZ = "America/New_York";
     };
     extraOptions = [
