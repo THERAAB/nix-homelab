@@ -35,6 +35,9 @@ curl https://am.i.mullvad.net/json
   - Enable Tone mapping (non VPP option)
 - (Android Client) Settings -> Client Settings -> Video  Player type -> Integrated Player
 - Settings -> Subtitles -> English, only forced
+- Add plugins
+  - Jellyscrub
+  - Intro Skipper
 
 ### Prowlarr
 
