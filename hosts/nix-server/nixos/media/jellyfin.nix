@@ -72,4 +72,9 @@ in {
       "-l=io.containers.autoupdate=registry"
     ];
   };
+  virtualisation.oci-containers.containers."${app-name}-vue" = {
+    autoStart = true;
+    image = "ghcr.io/jellyfin/${app-name}-vue:unstable";
+    ports = ["8084:80/tcp"];
+  };
 }
