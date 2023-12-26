@@ -75,13 +75,8 @@ in {
   virtualisation.oci-containers.containers."${app-name}-vue" = {
     autoStart = true;
     image = "ghcr.io/jellyfin/${app-name}-vue:unstable";
-    ports = ["5099:80"];
-    environment = {
-      TZ = "America/New_York";
-    };
+    ports = ["8084:80"];
     extraOptions = [
-      "--privileged"
-      "--cap-add=NET_ADMIN"
       "-l=io.containers.autoupdate=registry"
     ];
   };
