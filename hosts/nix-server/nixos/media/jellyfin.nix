@@ -2,6 +2,7 @@
   media = import ./media.properties.nix;
   uid = 9992;
   port = 8096;
+  vue-port = 8865;
   app-name = "jellyfin";
   display-name = "Jellyfin";
   local-config-dir = "/var/lib/${app-name}/";
@@ -68,6 +69,27 @@ in {
     extraOptions = [
       "--device=/dev/dri/renderD128:/dev/dri/renderD128"
       "--device=/dev/dri/card0:/dev/dri/card0"
+      "-l=io.containers.autoupdate=registry"
+    ];
+  };
+  services.caddy.virtualHosts."jellyfin-vue.${network.domain}" = {
+    useACMEHost = "${network.domain}";
+    extraConfig = ''
+      encode zstd gzip
+      reverse_proxy 127.0.0.1:${toString vue-port}
+    '';
+  };
+  virtualisation.oci-containers.containers."jellyfin-vue" = {
+    autoStart = true;
+    image = "ghcr.io/jellyfin/jellyfin-vue";
+    ports = ["${toString vue-port}:80"];
+    environment = {
+      PUID = "${toString uid}";
+      PGID = "${toString media.gid}";
+      UMASK = "022";
+      TZ = "America/New_York";
+    };
+    extraOptions = [
       "-l=io.containers.autoupdate=registry"
     ];
   };
