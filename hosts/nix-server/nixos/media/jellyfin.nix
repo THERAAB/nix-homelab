@@ -76,6 +76,9 @@ in {
     autoStart = true;
     image = "ghcr.io/jellyfin/${app-name}-vue:unstable";
     ports = ["5099:80"];
+    environment = {
+      DEFAULT_SERVERS = "https://jellyfin.pumpkin.rodeo";
+    };
     extraOptions = [
       "-l=io.containers.autoupdate=registry"
     ];
