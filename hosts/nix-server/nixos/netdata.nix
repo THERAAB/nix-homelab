@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   port = 19999;
   app-name = "netdata";
   display-name = "NetData";
@@ -44,6 +44,7 @@ in {
   networking.firewall.allowedTCPPorts = [port];
   services.netdata = {
     enable = true;
+    package = pkgs.netdataCloud;
     configText = ''
       [global]
         update every = 5
