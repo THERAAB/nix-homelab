@@ -4,10 +4,10 @@
 }: let
   devices = import ./devices.properties.nix;
 in {
-  systemd.tmpfiles.rules = [
-    "R  /var/lib/hass/custom_components/govee   -       -       -       -   -                                          "
-    "L  /var/lib/hass/custom_components/govee   740     hass    hass    -   ${pkgs.hacs-govee}/custom_components/govee "
-  ];
+  #systemd.tmpfiles.rules = [
+  #  "R  /var/lib/hass/custom_components/govee   -       -       -       -   -                                          "
+  #  "L  /var/lib/hass/custom_components/govee   740     hass    hass    -   ${pkgs.hacs-govee}/custom_components/govee "
+  #];
   services.home-assistant = {
     extraPackages = pythonPackages:
       with pythonPackages; [
