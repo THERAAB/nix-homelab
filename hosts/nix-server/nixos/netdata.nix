@@ -46,11 +46,6 @@ in {
         debug log = none
         error log = none
         access log = none
-      [registry]
-        enabled = yes
-        registry to announce = https://${app-name}.${network.domain}/
-        allow from = *
-        enable cookies SameSite and Secure = no
     '';
   };
 }
