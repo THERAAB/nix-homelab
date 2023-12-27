@@ -67,7 +67,7 @@ git remote set-url origin git@github.com:THERAAB/nix-homelab.git
 Finally, update, optimize store, and reboot
 
 ```console
-update-full-with-git
+nox update
 nix-store --optimise
 sudo reboot
 ```
