@@ -15,7 +15,7 @@ in {
         access log = none
       [registry]
         enabled = no
-        registry to announce = https://netdata.pumpkin.rodeo
+        registry to announce = http://pumpkin.rodeo:19999
     '';
   };
 }
