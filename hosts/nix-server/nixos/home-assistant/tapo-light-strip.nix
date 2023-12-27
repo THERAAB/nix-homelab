@@ -1,31 +1,34 @@
 {pkgs, ...}: {
-  systemd.tmpfiles.rules = [
-    "R  /var/lib/hass/custom_components/tapo   -       -       -       -   -                                                        "
-    "L  /var/lib/hass/custom_components/tapo   740     hass    hass    -   ${pkgs.home-assistant-tapo-p100}/custom_components/tapo  "
-  ];
+  #systemd.tmpfiles.rules = [
+  #  "R  /var/lib/hass/custom_components/tapo   -       -       -       -   -                                                        "
+  #  "L  /var/lib/hass/custom_components/tapo   740     hass    hass    -   ${pkgs.home-assistant-tapo-p100}/custom_components/tapo  "
+  #];
   services.home-assistant = {
-    extraPackages = pythonPackages:
-      with pythonPackages; [
-        (
-          buildPythonPackage rec {
-            pname = "plugp100";
-            version = "3.12.0";
-            src = fetchPypi {
-              inherit version pname;
-              hash = "sha256-jfitt8qCq8nRbCgv81qz3Wtwp0R9fXQ7TjP88Sh2oIY=";
-            };
-            propagatedBuildInputs = [
-              certifi
-              cryptography
-              jsons
-              requests
-              aiohttp
-              semantic-version
-              scapy
-            ];
-          }
-        )
-      ];
+    customComponents = [
+      pkgs.home-assistant-tapo-p100
+    ];
+    #extraPackages = pythonPackages:
+    #  with pythonPackages; [
+    #    (
+    #      buildPythonPackage rec {
+    #        pname = "plugp100";
+    #        version = "3.12.0";
+    #        src = fetchPypi {
+    #          inherit version pname;
+    #          hash = "sha256-jfitt8qCq8nRbCgv81qz3Wtwp0R9fXQ7TjP88Sh2oIY=";
+    #        };
+    #        propagatedBuildInputs = [
+    #          certifi
+    #          cryptography
+    #          jsons
+    #          requests
+    #          aiohttp
+    #          semantic-version
+    #          scapy
+    #        ];
+    #      }
+    #    )
+    #  ];
     config.automation = [
       {
         alias = "Turn on Kitchen Cabinet LEDs when Motion Detected";

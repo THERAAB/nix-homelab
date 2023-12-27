@@ -1,19 +1,25 @@
 {
-  stdenv,
   fetchFromGitHub,
+  buildHomeAssistantComponent,
+  plugp100,
 }:
-stdenv.mkDerivation rec {
-  pname = "home-assistant-tapo-p100";
+buildHomeAssistantComponent {
   version = "v2.10.0";
+  owner = "petretiandrea";
+  domain = "tapo";
+
   src = fetchFromGitHub {
-    inherit pname version;
-    repo = pname;
-    rev = version;
     owner = "petretiandrea";
+    repo = "home-assistant-tapo-p100";
+    rev = "v2.10.0";
     sha256 = "sha256-vpF9QFu3LA/XFtDM0ZdmZq6FFsZvCCOJ10alLf+iWVA=";
   };
-  installPhase = ''
-    mkdir -p $out/custom_components
-    cp -r ./custom_components/tapo $out/custom_components/tapo
-  '';
+
+  dontBuild = true;
+
+  propogatedBuildInputs = [
+    plugp100
+  ];
+
+  doCheck = false;
 }
