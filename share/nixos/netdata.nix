@@ -1,7 +1,7 @@
 {pkgs, ...}: let
   port = 19999;
   app-name = "netdata";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   networking.firewall.allowedTCPPorts = [port];
   services.netdata = {
