@@ -73,29 +73,28 @@
           }
         ];
       };
-    
-    nix-nas = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs outputs;};
-      modules = [
-        impermanence.nixosModules.impermanence
-        ./share/nixos
-        ./hosts/nix-nas/nixos
-        sops-nix.nixosModules.sops
+      nix-nas = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          impermanence.nixosModules.impermanence
+          ./share/nixos
+          ./hosts/nix-nas/nixos
+          sops-nix.nixosModules.sops
 
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.raab = {pkgs, ...}: {
-            imports = [
-              impermanence.nixosModules.home-manager.impermanence
-              ./share/home
-              ./hosts/nix-nas/home
-            ];
-          };
-        }
-      ];
-    };
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.raab = {pkgs, ...}: {
+              imports = [
+                impermanence.nixosModules.home-manager.impermanence
+                ./share/home
+                ./hosts/nix-nas/home
+              ];
+            };
+          }
+        ];
+      };
     };
   };
 }
