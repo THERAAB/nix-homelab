@@ -1,5 +1,7 @@
 {pkgs, ...}: let
   port = 19999;
+  app-name = "netdata";
+  network = import ../../../share/network.properties.nix;
 in {
   networking.firewall.allowedTCPPorts = [port];
   services.netdata = {
@@ -14,6 +16,9 @@ in {
         debug log = none
         error log = none
         access log = none
+      [registry]
+        enabled = no
+        registry to announce = https://${app-name}.${network.domain}/
     '';
   };
 }
