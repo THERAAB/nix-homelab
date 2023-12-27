@@ -4,6 +4,10 @@
     "L  /var/lib/hass/custom_components/tapo   740     hass    hass    -   ${pkgs.home-assistant-tapo-p100}/custom_components/tapo  "
   ];
   services.home-assistant = {
+    customComponents = [
+      pkgs.home-assistant-tapo-p100
+      pkgs.hacs-govee
+    ];
     extraPackages = pythonPackages:
       with pythonPackages; [
         (
