@@ -77,6 +77,8 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           impermanence.nixosModules.impermanence
+          ./share/lib/modules/nixos/yamlConfigMaker
+          ./share/lib/modules/nixos/olivetin
           ./share/nixos
           ./hosts/nix-nas/nixos
           sops-nix.nixosModules.sops

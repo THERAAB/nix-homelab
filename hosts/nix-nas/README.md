@@ -6,7 +6,7 @@ and the installation instructions below.
 
 ## What's inside
 
-#TODO: Add
+A NAS
 
 ## Installation
 
