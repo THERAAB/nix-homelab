@@ -21,6 +21,10 @@ My NixOS Homelab, with each machine having some shared configuration
 
 See [The Nix-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/README.md)
 
+## Nix-Nas
+
+See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-nas/README.md)
+
 ## Maintenance
 
 These commands might help with some common maintenance tasks
