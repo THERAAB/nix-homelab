@@ -10,7 +10,6 @@ in {
       url = "https://${app-name}.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
-        ''[BODY] == pat(*<title>netdata dashboard</title>*)''
       ];
       alerts = [
         {
@@ -32,13 +31,6 @@ in {
     extraConfig = ''
       encode zstd gzip
       reverse_proxy 127.0.0.1:${toString port}
-    '';
-  };
-  services.caddy.virtualHosts."${app-name}.nas.${network.domain}" = {
-    useACMEHost = "${network.domain}";
-    extraConfig = ''
-      encode zstd gzip
-      reverse_proxy 192.168.2.2:19999
     '';
   };
   networking.firewall.allowedTCPPorts = [port];
