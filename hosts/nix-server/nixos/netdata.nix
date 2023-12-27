@@ -48,7 +48,8 @@ in {
         access log = none
       [registry]
         enabled = yes
-        registry to announce = http://pumpkin.rodeo:19999
+        registry to announce = https://${app-name}.${network.domain}/
+        allow from = *
     '';
   };
 }

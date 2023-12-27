@@ -1,5 +1,7 @@
 {...}: let
   port = 19999;
+  app-name = "netdata";
+  network = import ../../../share/network.properties.nix;
 in {
   networking.firewall.allowedTCPPorts = [port];
   services.netdata = {
@@ -15,7 +17,7 @@ in {
         access log = none
       [registry]
         enabled = no
-        registry to announce = http://pumpkin.rodeo:19999
+        registry to announce = https://${app-name}.${network.domain}/
     '';
   };
 }
