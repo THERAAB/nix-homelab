@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   services = {
     fstrim.enable = true;
-    irqbalance.enable = true;
     fwupd.enable = true;
     smartd.enable = true;
     tailscale.enable = true;

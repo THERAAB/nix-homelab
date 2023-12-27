@@ -2,6 +2,7 @@
   networking.hostName = "nix-server";
   networking.networkmanager.enable = true;
 
+  services.irqbalance.enable = true;
   # Hardware acceleration for intel
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
