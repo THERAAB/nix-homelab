@@ -46,6 +46,9 @@ in {
         debug log = none
         error log = none
         access log = none
+      [registry]
+        enabled = yes
+        registry to announce = https://netdata.pumpkin.rodeo
     '';
   };
 }
