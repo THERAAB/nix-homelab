@@ -18,6 +18,7 @@ in {
       [registry]
         enabled = no
         registry to announce = https://${app-name}.${network.domain}/
+        enable cookies SameSite and Secure = no
     '';
   };
 }
