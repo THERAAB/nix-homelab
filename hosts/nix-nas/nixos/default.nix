@@ -3,5 +3,6 @@
     ./hardware-configuration.nix
     ./hardware.nix
     ./system.nix
+    ./netdata.nix
   ];
 }
