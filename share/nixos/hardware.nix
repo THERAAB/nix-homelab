@@ -13,7 +13,6 @@
       allowedTCPPorts = [80 443];
       allowedUDPPorts = [53];
     };
-    networkmanager.enable = true;
   };
   powerManagement = {
     # Sata power management
