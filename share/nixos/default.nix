@@ -11,5 +11,6 @@
     ./boot.nix
     ./fish.nix
     ./starship.nix
+    ./netdata.nix
   ];
 }

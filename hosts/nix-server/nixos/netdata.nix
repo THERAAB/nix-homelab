@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{...}: let
   port = 19999;
   app-name = "netdata";
   display-name = "NetData";
@@ -33,22 +33,5 @@ in {
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
-  networking.firewall.allowedTCPPorts = [port];
-  services.netdata = {
-    enable = true;
-    package = pkgs.netdataCloud;
-    configText = ''
-      [global]
-        update every = 5
-      [ml]
-        enabled = no
-      [logs]
-        debug log = none
-        error log = none
-        access log = none
-      [registry]
-        enabled = yes
-        registry to announce = https://${app-name}.${network.domain}/
-    '';
-  };
+  services.netdata.config.registry.enabled = "yes";
 }
