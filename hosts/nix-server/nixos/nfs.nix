@@ -2,7 +2,7 @@
   network = import ../../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
-    "Z /nfs  - raab  raab  -   - "
+    "Z /nfs  - raab  users  -   - "
   ];
   fileSystems."/nfs" = {
     device = "${network.nix-nas.tailscale.ip}:/nfs/media";
