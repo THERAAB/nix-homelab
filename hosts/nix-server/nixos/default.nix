@@ -22,5 +22,6 @@
     ./flatnotes.nix
     ./microbin.nix
     ./filebrowser.nix
+    ./nfs.nix
   ];
 }
