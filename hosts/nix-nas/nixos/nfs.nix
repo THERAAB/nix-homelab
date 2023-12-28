@@ -5,7 +5,7 @@ in {
   systemd.tmpfiles.rules = [
     "d    ${nfs-dir}        -  -        -        -   - "
     "d    ${nfs-dir}/media  -  -        -        -   - "
-    # "Z    ${nfs-dir}   -  nobody   nogroup  -   - "
+    "Z    ${nfs-dir}        -  nobody   nogroup  -   - "
   ];
   #fileSystems."${nfs-dir}/media" = {
   #  device = "/media";
