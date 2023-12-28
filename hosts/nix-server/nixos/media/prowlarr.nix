@@ -1,5 +1,4 @@
 {...}: let
-  media = import ./media.properties.nix;
   uid = 9993;
   gid = 7129;
   port = 9696;
