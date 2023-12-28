@@ -7,10 +7,6 @@ in {
     "d    ${nfs-dir}  -    -        -        -   - "
     "Z    ${nfs-dir}  777  nobody   nogroup  -   - "
   ];
-  #fileSystems."${nfs-dir}" = {
-  #  device = "/nix/persist${nfs-dir}";
-  #  options = ["bind"];
-  #};
   fileSystems."${media-dir}" = {
     device = "/dev/disk/by-label/media";
     fsType = "btrfs";
