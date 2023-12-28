@@ -4,5 +4,6 @@
     ./hardware.nix
     ./system.nix
     ./netdata.nix
+    ./nfs.nix
   ];
 }
