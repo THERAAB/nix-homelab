@@ -3,9 +3,9 @@
   network = import ../../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
-    "d    ${nfs-dir}        -  -        -        -   - "
-    "d    ${nfs-dir}/media  -  -        -        -   - "
-    "Z    ${nfs-dir}        -  nobody   nogroup  -   - "
+    "d    ${nfs-dir}        -    -        -        -   - "
+    "d    ${nfs-dir}/media  -    -        -        -   - "
+    "Z    ${nfs-dir}        777  nobody   nogroup  -   - "
   ];
   #fileSystems."${nfs-dir}/media" = {
   #  device = "/media";
