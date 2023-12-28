@@ -4,13 +4,13 @@
   network = import ../../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
-    "d    /nix/persist${nfs-dir}  -    -        -        -   - "
-    "Z    /nix/persist${nfs-dir}  777  nobody   nogroup  -   - "
+    "d    ${nfs-dir}  -    -        -        -   - "
+    "Z    ${nfs-dir}  777  nobody   nogroup  -   - "
   ];
-  fileSystems."${nfs-dir}" = {
-    device = "/nix/persist${nfs-dir}";
-    options = ["bind"];
-  };
+  #fileSystems."${nfs-dir}" = {
+  #  device = "/nix/persist${nfs-dir}";
+  #  options = ["bind"];
+  #};
   fileSystems."${media-dir}" = {
     device = "/dev/disk/by-label/media";
     fsType = "btrfs";
