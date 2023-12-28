@@ -89,7 +89,7 @@ in {
     }
     {
       name = "Nix-Nas";
-      url = "tcp://${network.nix-nas.local.ip}:53";
+      url = "udp://${network.nix-nas.local.ip}:53";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
