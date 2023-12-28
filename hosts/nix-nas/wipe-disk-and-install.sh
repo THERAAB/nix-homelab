@@ -33,6 +33,25 @@ sudo umount /mnt
 # ----------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------
+# Wipe /dev/sda (media HDD) and reformat
+# Don't do this unless you want to wipe your media drive
+# ----------------------------------------------------------------------------------------------------------------------
+# Make partitions for /dev/sda
+# sudo parted /dev/sda -- mklabel gpt
+# sudo parted /dev/sda -- mkpart primary btrfs 4MiB 100%
+
+# Format /dev/sda fs
+# sudo mkfs.btrfs -L media /dev/sda1 -f
+
+# Create btrfs subvolumes for /dev/sda
+# sudo mount /dev/disk/by-label/media /mnt
+# cd /mnt
+# sudo btrfs subvolume create media
+# cd ..
+# sudo umount /mnt
+# ----------------------------------------------------------------------------------------------------------------------
+
+# ----------------------------------------------------------------------------------------------------------------------
 # NixOs Setup and Install
 # ----------------------------------------------------------------------------------------------------------------------
 # Verify disk formatting worked
@@ -40,11 +59,12 @@ sudo fdisk -l
 
 # Create temp dirs, Mount tmpfs & subvolumes
 sudo mount -t tmpfs none /mnt
-sudo mkdir -p /mnt/{home/raab,nix,boot,etc/nixos}
+sudo mkdir -p /mnt/{home/raab,nix,boot,nfs/media,etc/nixos}
 sudo mount -t tmpfs none /mnt/home/raab
 sudo mount -o compress=zstd,noatime,subvol=nix /dev/disk/by-label/nixos /mnt/nix
 sudo mkdir -p /mnt/nix/persist
 sudo mount -o compress=zstd,noatime,subvol=persist /dev/disk/by-label/nixos /mnt/nix/persist
+sudo mount -o compress=zstd,noatime,subvol=media /dev/disk/by-label/media /mnt/nfs/media
 sudo mkdir -p /mnt/nix/persist/system/etc/nixos
 sudo mkdir -p /mnt/nix/persist/home/raab
 sudo mount -o bind /mnt/nix/persist/system/etc/nixos /mnt/etc/nixos

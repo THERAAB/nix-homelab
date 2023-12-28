@@ -33,7 +33,7 @@ curl https://am.i.mullvad.net/json
   - Dashboard -> Playback
   - Intel QuickSync
   - Enable Tone mapping (non VPP option)
-- (Android Client) Settings -> Client Settings -> Video  Player type -> Integrated Player
+- (Android Client) Settings -> Client Settings -> Video Player type -> Integrated Player
 - Settings -> Subtitles -> English, only forced
 - Add plugins
   - Jellyscrub
@@ -64,6 +64,7 @@ curl https://am.i.mullvad.net/json
 ### Jellyseerr
 
 Set up last, make sure to do above before trying to set up
+
 - Settings -> enable CSRF protection
 - Settings -> Discover language -> English
 
@@ -105,3 +106,7 @@ sudo podman exec -it linkding python manage.py createsuperuser --username=raab -
 ### File Browser
 
 - Change default user/password
+
+## NetData
+
+Add to NetData Cloud
