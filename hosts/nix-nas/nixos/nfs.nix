@@ -5,7 +5,7 @@
 in {
   systemd.tmpfiles.rules = [
     "d    /nix/persist${nfs-dir}  -    -        -        -   - "
-    "Z    ${nfs-dir}              777  nobody   nogroup  -   - "
+    "Z    /nix/persist${nfs-dir}  777  nobody   nogroup  -   - "
   ];
   fileSystems."${nfs-dir}" = {
     device = "/nix/persist${nfs-dir}";
