@@ -1,6 +1,7 @@
 {...}: let
   media = import ./media.properties.nix;
   uid = 9996;
+  gid = 9112;
   port = 13379;
   app-name = "audiobookshelf";
   display-name = "Audiobookshelf";
@@ -31,16 +32,17 @@ in {
   ];
   users = {
     users."${app-name}" = {
-      group = "media";
       uid = uid;
+      group = app-name;
       isSystemUser = true;
     };
+    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}           -       -             -        -   - "
-    "d    ${local-config-dir}/config    -       -             -        -   - "
-    "d    ${local-config-dir}/metadata  -       -             -        -   - "
-    "Z    ${local-config-dir}           740     ${app-name}   -        -   - "
+    "d    ${local-config-dir}           -       -             -           -   - "
+    "d    ${local-config-dir}/config    -       -             -           -   - "
+    "d    ${local-config-dir}/metadata  -       -             -           -   - "
+    "Z    ${local-config-dir}           740     ${app-name}   ${app-name} -   - "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
@@ -61,7 +63,7 @@ in {
     ports = ["${toString port}:80"];
     environment = {
       AUDIOBOOKSHELF_UID = "${toString uid}";
-      AUDIOBOOKSHELF_GID = "${toString media.gid}";
+      AUDIOBOOKSHELF_GID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
     };

@@ -1,6 +1,7 @@
 {...}: let
   media = import ./media.properties.nix;
   uid = 9990;
+  gid = 2116;
   port = 8112;
   app-name = "vuetorrent";
   display-name = "Vuetorrent";
@@ -31,16 +32,17 @@ in {
   ];
   users = {
     users."${app-name}" = {
-      group = "media";
       uid = uid;
+      group = app-name;
       isSystemUser = true;
     };
+    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}/wireguard             -       -               -       -   -                               "
-    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -       -   -                               "
-    "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -       -   /run/secrets/wireguard_mullvad  "
-    "Z    ${local-config-dir}                       740     ${app-name}     -       -   -                               "
+    "d    ${local-config-dir}/wireguard             -       -               -           -   -                               "
+    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -           -   -                               "
+    "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -           -   /run/secrets/wireguard_mullvad  "
+    "Z    ${local-config-dir}                       740     ${app-name}     ${app-name} -   -                               "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
@@ -59,7 +61,7 @@ in {
     ports = ["${toString port}:8080" "8118:8118"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString media.gid}";
+      PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
       VPN_ENABLED = "true";

@@ -1,6 +1,7 @@
 {...}: let
   media = import ./media.properties.nix;
   uid = 9993;
+  gid = 7129;
   port = 9696;
   app-name = "prowlarr";
   display-name = "Prowlarr";
@@ -31,14 +32,15 @@ in {
   ];
   users = {
     users."${app-name}" = {
-      group = "media";
       uid = uid;
+      group = app-name;
       isSystemUser = true;
     };
+    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -             -    -   - "
-    "Z    ${local-config-dir}     740     ${app-name}   -    -   - "
+    "d    ${local-config-dir}     -       -             -           -   - "
+    "Z    ${local-config-dir}     740     ${app-name}   ${app-name} -   - "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
@@ -56,7 +58,7 @@ in {
     ports = ["${toString port}:9696"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString media.gid}";
+      PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
     };

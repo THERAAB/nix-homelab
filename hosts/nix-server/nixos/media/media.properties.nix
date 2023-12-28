@@ -1,5 +1,4 @@
 {
-  gid = 1234;
   dir = {
     movies = "/media/movies/";
     tv = "/media/tv/";
