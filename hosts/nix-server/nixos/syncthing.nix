@@ -3,7 +3,7 @@
   display-name = "SyncThing";
   network = import ../../../share/network.properties.nix;
   port = 8384;
-  local-dir = "/nix/persist/dropbox";
+  local-dir = "/sync";
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
