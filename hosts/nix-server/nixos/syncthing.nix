@@ -68,7 +68,7 @@ in {
       folders = {
         "${local-dir}/share" = {
           id = "share";
-          devices = ["nix-zenbook" "nix-desktop" "galaxy-s7-tab" "pixel-6a"];
+          devices = ["nix-zenbook" "nix-desktop" "galaxy-s7-tab" "pixel-6a" "nix-nas"];
         };
       };
     };
