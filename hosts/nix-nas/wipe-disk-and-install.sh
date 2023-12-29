@@ -77,7 +77,6 @@ sudo mkdir -p /mnt/nix/persist/system/etc/nixos
 sudo mkdir -p /mnt/nix/persist/home/raab
 sudo mount -o bind /mnt/nix/persist/system/etc/nixos /mnt/etc/nixos
 sudo mount /dev/disk/by-label/BOOT /mnt/boot
-cd /mnt/sync
 
 # Place git repo in the right spot
 sudo git clone https://github.com/THERAAB/nix-homelab /mnt/nix/persist/nix-homelab
