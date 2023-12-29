@@ -23,5 +23,6 @@
     ./microbin.nix
     ./filebrowser.nix
     ./nfs.nix
+    ./pkgs.nix
   ];
 }

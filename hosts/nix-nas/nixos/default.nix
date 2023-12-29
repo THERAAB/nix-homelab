@@ -7,5 +7,6 @@
     ./nfs.nix
     ./media.nix
     ./pkgs.nix
+    ./snapper.nix
   ];
 }
