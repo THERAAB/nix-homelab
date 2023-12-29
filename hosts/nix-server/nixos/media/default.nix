@@ -1,5 +1,4 @@
 {...}: let
-  media = import ./media.properties.nix;
 in {
   imports = [
     ./jellyfin.nix
@@ -10,12 +9,5 @@ in {
     ./sonarr.nix
     ./audiobookshelf.nix
     ./readarr.nix
-  ];
-  systemd.tmpfiles.rules = [
-    "d    ${media.dir.downloads}    -       -       -       -   - "
-    "d    ${media.dir.movies}       -       -       -       -   - "
-    "d    ${media.dir.tv}           -       -       -       -   - "
-    "d    ${media.dir.audiobooks}   -       -       -       -   - "
-    "d    ${media.dir.podcasts}     -       -       -       -   - "
   ];
 }
