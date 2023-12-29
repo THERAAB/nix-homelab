@@ -28,6 +28,12 @@ sudo mount /dev/disk/by-label/nixos /mnt
 cd /mnt
 sudo btrfs subvolume create nix
 sudo btrfs subvolume create persist
+cd ..
+sudo umount /mnt
+
+# Create btrfs subvolumes for /dev/sda
+sudo mount /dev/disk/by-label/media /mnt
+cd /mnt
 sudo btrfs subvolume create sync
 cd ..
 sudo umount /mnt
@@ -66,11 +72,13 @@ sudo mount -o compress=zstd,noatime,subvol=nix /dev/disk/by-label/nixos /mnt/nix
 sudo mkdir -p /mnt/nix/persist
 sudo mount -o compress=zstd,noatime,subvol=persist /dev/disk/by-label/nixos /mnt/nix/persist
 sudo mount -o compress=zstd,noatime,subvol=media /dev/disk/by-label/media /mnt/nfs/media
-sudo mount -o compress=zstd,noatime,subvol=sync /dev/disk/by-label/nixos /mnt/sync
+sudo mount -o compress=zstd,noatime,subvol=sync /dev/disk/by-label/media /mnt/sync
 sudo mkdir -p /mnt/nix/persist/system/etc/nixos
 sudo mkdir -p /mnt/nix/persist/home/raab
 sudo mount -o bind /mnt/nix/persist/system/etc/nixos /mnt/etc/nixos
 sudo mount /dev/disk/by-label/BOOT /mnt/boot
+cd /mnt/sync
+sudo btrfs subvolume create .snapshots
 
 # Place git repo in the right spot
 sudo git clone https://github.com/THERAAB/nix-homelab /mnt/nix/persist/nix-homelab

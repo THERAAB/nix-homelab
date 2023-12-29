@@ -6,5 +6,6 @@
     ./netdata.nix
     ./nfs.nix
     ./media.nix
+    ./syncthing.nix
   ];
 }

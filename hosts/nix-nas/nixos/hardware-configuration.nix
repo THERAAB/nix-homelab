@@ -35,7 +35,7 @@
     neededForBoot = true;
   };
   fileSystems."/sync" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-label/media";
     fsType = "btrfs";
     options = ["subvol=sync" "compress=zstd" "noatime"];
   };
