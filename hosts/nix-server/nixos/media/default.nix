@@ -1,5 +1,4 @@
-{...}: let
-in {
+{...}: {
   imports = [
     ./jellyfin.nix
     ./vuetorrent.nix
