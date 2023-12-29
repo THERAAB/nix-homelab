@@ -65,10 +65,6 @@ in {
         "${local-dir}/share" = {
           id = "share";
           devices = ["nix-zenbook" "nix-desktop" "galaxy-s7-tab" "pixel-6a"];
-          versioning = {
-            type = "staggered";
-            params.maxAge = "7776000"; # 90 days
-          };
         };
       };
     };
