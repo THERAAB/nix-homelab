@@ -21,6 +21,7 @@
     eza
     bat
     ripgrep
+    tealdeer
     procs
     du-dust
     bottom
