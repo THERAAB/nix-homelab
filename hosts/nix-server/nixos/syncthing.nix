@@ -72,7 +72,7 @@ in {
         };
       };
       "${local-dir}/Camera" = {
-        id = "Camera";
+        id = "pixel_6_ydp9-photos";
         devices = ["pixel-6a"];
         versioning = {
           type = "staggered";
