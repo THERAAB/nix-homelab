@@ -45,7 +45,7 @@ in {
     relay.enable = false;
     openDefaultPorts = true;
     overrideDevices = true;
-    overrideFolders = true;
+    overrideFolders = false;
     guiAddress = "0.0.0.0:${toString port}";
     settings = {
       options.urAccepted = -1;
@@ -69,14 +69,6 @@ in {
             type = "staggered";
             params.maxAge = "7776000"; # 90 days
           };
-        };
-      };
-      "${local-dir}/Camera" = {
-        id = "pixel_6_ydp9-photos";
-        devices = ["pixel-6a"];
-        versioning = {
-          type = "staggered";
-          params.maxAge = "7776000"; # 90 days
         };
       };
     };
