@@ -1,6 +1,7 @@
 {...}: 
 let
   network = import ../../../share/network.properties.nix;
+  port = 8384;
 in
 {
   services.syncthing = {
@@ -9,6 +10,7 @@ in
     openDefaultPorts = true;
     overrideDevices = false;
     overrideFolders = false;
+    guiAddress = "0.0.0.0:${toString port}";
     settings = {
       options.urAccepted = -1;
       devices = {

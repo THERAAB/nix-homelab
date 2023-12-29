@@ -7,5 +7,6 @@
     ./nfs.nix
     ./media.nix
     ./syncthing.nix
+    ./snapper.nix
   ];
 }
