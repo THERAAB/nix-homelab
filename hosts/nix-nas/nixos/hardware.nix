@@ -4,17 +4,20 @@
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
   '';
   systemd.services = {
+    # disable interrupt which uses high CPU for ACPI (IRQ 9)
+    # Found it from highest number in below command:
+    # sudo grep . -r /sys/firmware/acpi/interrupts | grep -v "  0"
     disable-interrupt-gpe6F = {
       wantedBy = ["network-online.target"];
       after = ["network-online.target"];
       description = "Disable CPU consuming interrupt";
-      startLimitBurst = 20;
-      startLimitIntervalSec = 120;
+      startLimitBurst = 5;
+      startLimitIntervalSec = 60;
       serviceConfig = {
         Type = "oneshot";
         Restart = "on-failure";
         ExecStart = toString (pkgs.writeShellScript "disable-interrupt-gpe6F" ''
-          ${pkgs.coreutils-full}/bin/sleep 1
+          ${pkgs.coreutils-full}/bin/sleep 10
           echo disable >/sys/firmware/acpi/interrupts/gpe6F
         '');
       };
