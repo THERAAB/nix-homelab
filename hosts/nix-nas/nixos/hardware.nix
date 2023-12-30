@@ -13,7 +13,7 @@
       serviceConfig = {
         Type = "oneshot";
         Restart = "on-failure";
-        ExecStart = "${pkgs.coreutils-full}/bin/echo disable >/sys/firmware/acpi/interrupts/gpe6F";
+        ExecStart = ''${pkgs.coreutils-full}/bin/echo "disable" >/sys/firmware/acpi/interrupts/gpe6F'';
       };
     };
   };
