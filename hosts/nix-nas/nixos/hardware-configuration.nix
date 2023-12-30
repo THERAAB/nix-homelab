@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-  boot.kernelParams = ["nolapic"];
+  boot.kernelParams = ["pci=noacpi"];
 
   fileSystems."/" = {
     device = "none";
