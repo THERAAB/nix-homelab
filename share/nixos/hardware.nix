@@ -14,10 +14,9 @@
     };
   };
   powerManagement = {
+    enable = true;
     # Sata power management
     scsiLinkPolicy = "med_power_with_dipm";
-    # Spin down HDD after 1 hour
-    powerUpCommands = "${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda";
     powertop.enable = true;
   };
   hardware = {
