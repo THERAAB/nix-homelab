@@ -13,9 +13,7 @@
       serviceConfig = {
         Type = "oneshot";
         Restart = "on-failure";
-        ExecStart = "
-          echo disable >/sys/firmware/acpi/interrupts/gpe6F
-        ";
+        ExecStart = "echo disable >/sys/firmware/acpi/interrupts/gpe6F";
       };
     };
   };
