@@ -8,13 +8,13 @@
       wantedBy = ["network-online.target"];
       after = ["network-online.target"];
       description = "Disable CPU consuming interrupt";
-      startLimitBurst = 5;
+      startLimitBurst = 20;
       startLimitIntervalSec = 120;
       serviceConfig = {
         Type = "oneshot";
         Restart = "on-failure";
         ExecStart = toString (pkgs.writeShellScript "disable-interrupt-gpe6F" ''
-          ${pkgs.coreutils-full}/bin/sleep 10
+          ${pkgs.coreutils-full}/bin/sleep 1
           echo disable >/sys/firmware/acpi/interrupts/gpe6F
         '');
       };
