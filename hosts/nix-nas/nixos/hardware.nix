@@ -14,8 +14,7 @@
         Type = "oneshot";
         Restart = "on-failure";
         ExecStart = ''
-        ${pkgs.coreutils-full}/bin/sleep 10
-        ${pkgs.runtimeShell} -c 'echo disable >/sys/firmware/acpi/interrupts/gpe6F'
+        ${pkgs.coreutils-full}/bin/sleep 10 && ${pkgs.runtimeShell} -c 'echo disable >/sys/firmware/acpi/interrupts/gpe6F'
         '';
       };
     };
