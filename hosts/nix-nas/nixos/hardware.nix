@@ -3,7 +3,7 @@
   powerManagement.powerUpCommands = ''
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
   '';
-  services = {
+  systemd.services = {
     disable-interrupt-gpe6F = {
       wantedBy = ["local-fs.target"];
       after = ["local-fs.target"];
