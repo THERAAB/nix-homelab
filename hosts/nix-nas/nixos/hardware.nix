@@ -5,8 +5,8 @@
   '';
   systemd.services = {
     disable-interrupt-gpe6F = {
-      wantedBy = ["local-fs.target"];
-      after = ["local-fs.target"];
+      wantedBy = ["network.target"];
+      after = ["network.target"];
       description = "Disable CPU consuming interrupt";
       startLimitBurst = 5;
       startLimitIntervalSec = 1;
