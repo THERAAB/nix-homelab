@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-  # boot.kernelParams = ["i915.force_probe=4692" "i915.enable_guc=3"];
+  boot.kernelParams = ["noapic"];
 
   fileSystems."/" = {
     device = "none";
