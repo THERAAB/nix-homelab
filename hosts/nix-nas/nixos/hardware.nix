@@ -9,7 +9,7 @@
       after = ["network-online.target"];
       description = "Disable CPU consuming interrupt";
       startLimitBurst = 5;
-      startLimitIntervalSec = 10;
+      startLimitIntervalSec = 120;
       serviceConfig = {
         Type = "oneshot";
         Restart = "on-failure";
