@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-  boot.kernelParams = ["acpi=off"];
+  boot.kernelParams = ["acpi=ht"];
 
   fileSystems."/" = {
     device = "none";
