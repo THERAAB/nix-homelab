@@ -12,7 +12,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
-  boot.kernelParams = ["acpi=noirq"]; # Disable ACPI for IRQ routing (acpi_9 interrupts consume ~20% CPU otherwise)
+  # boot.kernelParams = ["acpi=noirq"]; # Disable ACPI for IRQ routing (acpi_9 interrupts consume ~20% CPU otherwise)
 
   fileSystems."/" = {
     device = "none";
