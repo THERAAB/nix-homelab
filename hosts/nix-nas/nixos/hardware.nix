@@ -5,11 +5,11 @@
   '';
   systemd.services = {
     disable-interrupt-gpe6F = {
-      wantedBy = ["network.target"];
-      after = ["network.target"];
+      wantedBy = ["multi-user.target"];
+      after = ["multi-user.target"];
       description = "Disable CPU consuming interrupt";
       startLimitBurst = 5;
-      startLimitIntervalSec = 1;
+      startLimitIntervalSec = 10;
       serviceConfig = {
         Type = "oneshot";
         Restart = "on-failure";
