@@ -2,6 +2,7 @@
   networking.hostName = "nix-nas"; # Define your hostname.
   powerManagement.powerUpCommands = ''
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
+    ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sdb
   '';
   systemd.services = {
     # disable interrupt which uses high CPU for ACPI (IRQ 9)

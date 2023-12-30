@@ -31,7 +31,7 @@ and the installation instructions below.
 This repo contains some customizations for my specific setup, and you likely won't be able to follow these instructions exactly
 if you're not me for 3 reasons:
 
-- You probably don't have my hardware (Intel 12th Gen CPU, 1 nvme, 1 sda device)
+- You probably don't have my hardware (Intel 12th Gen CPU, 1 nvme (system files), sd[a,b] devices for media/storage)
 - You probably don't have my sops keys (shoutout to my FBI agent!)
 - You likely won't have same IPs and network, firewall (pfSense), and tailscale setup
 
@@ -53,8 +53,7 @@ sudo git clone https://github.com/THERAAB/nix-homelab instructions
 gnome-text-editor instructions/hosts/nix-server/wipe-disk-and-install.sh &
 ```
 
-I recommend copy-pasting what commands you need because this script is dangerous (will wipe entire system). It also
-expects you to have 1 nvme and 1 sda device
+I recommend copy-pasting what commands you need because this script is dangerous (will wipe entire system). It also expects you to have 1 nvme device
 
 ### Reboot into console, activate SSH
 

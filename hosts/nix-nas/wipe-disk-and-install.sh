@@ -4,7 +4,7 @@
 #                                   ---------- READ HERE FIRST ---------
 #   NOTE: I recommend copy-pasting what commands you need because this script is dangerous.
 #   If run fully, it will wipe entire system.
-#   It also expects you to have /dev/nvme0n1 device formatted as per below sections
+#   It also expects you to have /dev/nvme0n1 and some /dev/sd[a,b] devices formatted as per below sections
 ########################################################################################################################
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -31,32 +31,13 @@ sudo btrfs subvolume create persist
 cd ..
 sudo umount /mnt
 
-# Create btrfs subvolumes for /dev/sda
-sudo mount /dev/disk/by-label/media /mnt
-cd /mnt
-sudo btrfs subvolume create sync
-cd ..
-sudo umount /mnt
-# ----------------------------------------------------------------------------------------------------------------------
-
-# ----------------------------------------------------------------------------------------------------------------------
-# Wipe /dev/sda (media HDD) and reformat
-# Don't do this unless you want to wipe your media drive
-# ----------------------------------------------------------------------------------------------------------------------
-# Make partitions for /dev/sda
-# sudo parted /dev/sda -- mklabel gpt
-# sudo parted /dev/sda -- mkpart primary btrfs 4MiB 100%
-
-# Format /dev/sda fs
-# sudo mkfs.btrfs -L media /dev/sda1 -f
-
-# Create btrfs subvolumes for /dev/sda
-# sudo mount /dev/disk/by-label/media /mnt
-# cd /mnt
-# sudo btrfs subvolume create media
-# cd ..
-# sudo umount /mnt
-# ----------------------------------------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------------------------------------
+#
+# Note: I'm not putting how to format /dev/sd[a,b] devices here as I shouldn't ever have to do it
+# But it's a btrfs filesystem in raid1 (data + metadata) with label=media and subvolumes media & sync
+# Don't destroy it, future me!
+# 
+#----------------------------------------------------------------------------------------------------------------------
 
 # ----------------------------------------------------------------------------------------------------------------------
 # NixOs Setup and Install

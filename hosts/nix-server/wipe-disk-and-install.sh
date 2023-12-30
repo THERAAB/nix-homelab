@@ -4,7 +4,7 @@
 #                                   ---------- READ HERE FIRST ---------
 #   NOTE: I recommend copy-pasting what commands you need because this script is dangerous.
 #   If run fully, it will wipe entire system.
-#   It also expects you to have /dev/nvme0n1 and /dev/sda devices formatted as per below sections
+#   It also expects you to have /dev/nvme0n1 device formatted as per below sections
 ########################################################################################################################
 
 # ----------------------------------------------------------------------------------------------------------------------
