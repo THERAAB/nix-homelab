@@ -13,7 +13,7 @@
   boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
   # boot.kernelParams = ["acpi=noirq"];
-  boot.kernelParams = ["acpi_irq_isa=9"];
+  boot.kernelParams = ["acpi_irq_balance"];
 
   fileSystems."/" = {
     device = "none";
