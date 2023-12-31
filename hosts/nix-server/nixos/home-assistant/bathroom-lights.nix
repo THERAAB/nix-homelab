@@ -12,8 +12,8 @@
         {
           "if" = {
             condition = "time";
-            after = "8:00:00";
-            before = "20:00:00";
+            before = "8:00:00";
+            after = "20:00:00";
           };
           "then" = {
             service = "light.turn_on";
