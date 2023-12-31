@@ -23,7 +23,7 @@
             };
             target.entity_id = [
               "light.bathroom_tradfri1_light"
-              "light.bathroom_tradfri2_light2"
+              "light.bathroom_tradfri2_light_2"
             ];
           };
           "else" = {
@@ -34,7 +34,7 @@
             };
             target.entity_id = [
               "light.bathroom_tradfri1_light"
-              "light.bathroom_tradfri2_light2"
+              "light.bathroom_tradfri2_light_2"
             ];
           };
         }
@@ -67,7 +67,7 @@
           service = "light.turn_off";
           target.entity_id = [
             "light.bathroom_tradfri1_light"
-            "light.bathroom_tradfri2_light2"
+            "light.bathroom_tradfri2_light_2"
           ];
         }
       ];
