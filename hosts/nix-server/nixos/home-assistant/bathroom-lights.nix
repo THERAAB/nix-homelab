@@ -22,8 +22,7 @@
               color_temp = "400";
             };
             target.entity_id = [
-              "light.bathroom_tradfri1_light"
-              "light.bathroom_tradfri2_light_2"
+              "light.silicon_labs_ezsp_bathroom_lights"
             ];
           };
           "else" = {
@@ -33,8 +32,7 @@
               color_temp = "100";
             };
             target.entity_id = [
-              "light.bathroom_tradfri1_light"
-              "light.bathroom_tradfri2_light_2"
+              "light.silicon_labs_ezsp_bathroom_lights"
             ];
           };
         }
@@ -66,8 +64,7 @@
         {
           service = "light.turn_off";
           target.entity_id = [
-            "light.bathroom_tradfri1_light"
-            "light.bathroom_tradfri2_light_2"
+              "light.silicon_labs_ezsp_bathroom_lights"
           ];
         }
       ];
