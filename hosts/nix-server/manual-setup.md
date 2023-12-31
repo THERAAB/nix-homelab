@@ -84,6 +84,13 @@ Set up last, make sure to do above before trying to set up
   - TP-Link Tapo
 - Zigbee Channel 26
 
+- Add Zigbee Binding to Inovelli switch
+  - Create group
+    - Devices & Services -> ZHA configure -> groups -> Create group
+  - Bind Switch
+    - Devices & Services -> ZHA devices -> Inovelli switch -> 3 dots under device info -> Manage
+    - Bindings -> Bindable groups -> Bathroom lights -> OnOff -> Bind group
+
 ## Others
 
 ### Linkding
