@@ -80,7 +80,6 @@ Set up last, make sure to do above before trying to set up
   - Android tv
   - Zigbee devices
   - Shopping List
-  - WiZ
   - TP-Link Tapo
 - Zigbee Channel 26
 

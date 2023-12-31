@@ -22,8 +22,8 @@
               color_temp = "400";
             };
             target.entity_id = [
-              "light.wiz_tunable_white_df9586"
-              "light.wiz_tunable_white_1ade1e"
+              "light.bathroom_tradfri1_light"
+              "light.bathroom_tradfri2_light2"
             ];
           };
           "else" = {
@@ -33,8 +33,8 @@
               color_temp = "100";
             };
             target.entity_id = [
-              "light.wiz_tunable_white_df9586"
-              "light.wiz_tunable_white_1ade1e"
+              "light.bathroom_tradfri1_light"
+              "light.bathroom_tradfri2_light2"
             ];
           };
         }
@@ -66,8 +66,8 @@
         {
           service = "light.turn_off";
           target.entity_id = [
-            "light.wiz_tunable_white_df9586"
-            "light.wiz_tunable_white_1ade1e"
+            "light.bathroom_tradfri1_light"
+            "light.bathroom_tradfri2_light2"
           ];
         }
       ];
