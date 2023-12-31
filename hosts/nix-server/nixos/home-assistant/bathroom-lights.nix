@@ -12,13 +12,13 @@
         {
           "if" = {
             condition = "time";
-            before = "8:00:00";
-            after = "20:00:00";
+            after = "8:00:00";
+            before = "20:00:00";
           };
           "then" = {
             service = "light.turn_on";
             data = {
-              brightness_pct = 35;
+              brightness_pct = 25;
               color_temp = "400";
             };
             target.entity_id = [
