@@ -2,7 +2,13 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
-    smartd.enable = true;
+    smartd = {
+      enable = true;
+      extraOptions = [
+        "-A /var/log/smartd/"
+        "--interval=3600"
+      ];
+    };
     tailscale.enable = true;
   };
   networking = {
