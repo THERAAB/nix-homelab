@@ -18,13 +18,6 @@ in {
             data_template.message = "Water Detected! ${triggered-entities-name} is wet!";
           }
           {
-            service = "notify.pushbullet";
-            data = {
-              message = "${triggered-entities-name} is wet!";
-              title = "Water Detected!";
-            };
-          }
-          {
             service = "notify.gotify";
             data = {
               message = "${triggered-entities-name} is wet!";
@@ -47,13 +40,6 @@ in {
           {
             service = "notify.notify";
             data_template.message = "Device ${triggered-entities-name} is offline!";
-          }
-          {
-            service = "notify.pushbullet";
-            data = {
-              message = "${triggered-entities-name} is Offline!";
-              title = "Device ${triggered-entities-name} unavailable!";
-            };
           }
           {
             service = "notify.gotify";

@@ -14,13 +14,6 @@ in {
             time = check-time;
             actions = [
               {
-                service = "notify.pushbullet";
-                data = {
-                  message = "{{sensors}} Low Battery!";
-                  title = "The battery of the sensor(s) {{sensors}} is low.";
-                };
-              }
-              {
                 service = "notify.gotify";
                 data = {
                   message = "{{sensors}} Low Battery!";

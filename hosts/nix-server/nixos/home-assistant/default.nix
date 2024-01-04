@@ -67,7 +67,6 @@ in {
       "github"
       "ifttt"
       "androidtv"
-      "pushbullet"
       "assist_pipeline"
       "ffmpeg"
       "tuya"
