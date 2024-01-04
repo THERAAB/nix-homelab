@@ -12,13 +12,6 @@
       };
       action = [
         {
-          service = "notify.gotify";
-          data = {
-            message = "Washing Machine Done";
-            title = "Washing Machine Cycle finished";
-          };
-        }
-        {
           service = "notify.notify";
           data_template.message = "Washing Machine Done";
         }
