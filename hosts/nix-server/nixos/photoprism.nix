@@ -41,7 +41,7 @@ in {
   fileSystems."/sync/photos" = {
     device = "/var/lib/private/photoprism/originals";
     options = ["bind"];
-#};
+  };
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
     enable = true;
