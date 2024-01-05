@@ -51,7 +51,7 @@ in {
       PHOTOPRISM_ORIGINALS_LIMIT = "-1";
     };
     address = "0.0.0.0";
-    originalsPath = "/var/lib/private/photoprism/originals";
+    originalsPath = "${originals-dir}";
     passwordFile = config.sops.secrets.df_password.path;
   };
 }
