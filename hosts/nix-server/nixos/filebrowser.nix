@@ -35,7 +35,7 @@ in {
       uid = uid;
       group = app-name;
       isSystemUser = true;
-      extraGroups = ["syncthing"];
+      extraGroups = ["syncthing" "photoprism"];
     };
     groups.${app-name}.gid = gid;
   };
