@@ -34,6 +34,10 @@ in {
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
+  fileSystems."/var/lib/private/photoprism/originals" = {
+    device = "/sync/photos";
+    options = ["bind"];
+  };
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
     enable = true;
