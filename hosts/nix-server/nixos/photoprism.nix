@@ -35,16 +35,12 @@ in {
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
-  #fileSystems."/var/lib/private/photoprism/originals" = {
-  #  device = "/sync/photos";
-  #  options = ["bind"];
-  #};
   fileSystems."/sync/photos" = {
     device = "${originals-dir}";
     options = ["bind"];
   };
   systemd.tmpfiles.rules = [
-    "Z  ${originals-dir}  740  photoprism  photoprism   -   - "
+    "Z  ${originals-dir}  740  -  -   -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
