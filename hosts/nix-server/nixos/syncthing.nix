@@ -38,7 +38,8 @@ in {
     "d    ${local-dir}         -       -             -               -   - "
     "d    ${local-dir}/share   -       -             -               -   - "
     "d    ${local-dir}/Camera  -       -             -               -   - "
-    "Z    ${local-dir}         770     ${app-name}   ${app-name}     -   - "
+    "Z    ${local-dir}/share   770     ${app-name}   ${app-name}     -   - "
+    "Z    ${local-dir}/Camera  770     ${app-name}   ${app-name}     -   - "
   ];
   services.syncthing = {
     enable = true;

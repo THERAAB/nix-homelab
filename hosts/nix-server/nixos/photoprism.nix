@@ -44,7 +44,7 @@ in {
     options = ["bind"];
   };
   systemd.tmpfiles.rules = [
-    "Z  ${originals-dir}  740  -  -   -   - "
+    "Z  ${originals-dir}  740  photoprism  photoprism   -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
