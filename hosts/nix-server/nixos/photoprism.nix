@@ -3,6 +3,7 @@
   app-name = "photoprism";
   display-name = "Photoprism";
   network = import ../../../share/network.properties.nix;
+  originals-dir = "/var/lib/private/photoprism/originals";
 in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
@@ -39,9 +40,12 @@ in {
   #  options = ["bind"];
   #};
   fileSystems."/sync/photos" = {
-    device = "/var/lib/private/photoprism/originals";
+    device = "${originals-dir}";
     options = ["bind"];
   };
+  systemd.tmpfiles.rules = [
+    "Z  ${originals-dir}  740  -  -   -   - "
+  ];
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
     enable = true;
