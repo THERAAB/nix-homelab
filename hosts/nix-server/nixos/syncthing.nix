@@ -41,7 +41,7 @@ in {
     "Z    ${local-dir}/share   770     ${app-name}   ${app-name}     -   - "
     "Z    ${local-dir}/Camera  770     ${app-name}   ${app-name}     -   - "
   ];
-  users.users.extraGroups = ["photoprism"];
+  users.users.${app-name}.extraGroups = ["photoprism"];
   services.syncthing = {
     enable = true;
     relay.enable = false;
