@@ -35,12 +35,12 @@ in {
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
-  fileSystems."/sync/photos" = {
-    device = "${originals-dir}";
+  fileSystems."${originals-dir}" = {
+    device = "/sync/Camera";
     options = ["bind"];
   };
   systemd.tmpfiles.rules = [
-    "Z  ${originals-dir}  740  -  -   -   - "
+    "Z  ${originals-dir}  770  -  -   -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
