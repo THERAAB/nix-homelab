@@ -13,7 +13,7 @@ in {
       name = "${display-name}";
       url = "https://movies.${network.domain}/health";
       conditions = [
-        "[STATUS] == 401"
+        "[STATUS] == 200"
       ];
       alerts = [
         {
