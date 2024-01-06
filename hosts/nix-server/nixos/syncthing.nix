@@ -39,7 +39,7 @@ in {
     "d    ${local-dir}/share   -       -             -               -   - "
     "d    ${local-dir}/Camera  -       -             -               -   - "
     "Z    ${local-dir}/share   770     ${app-name}   ${app-name}     -   - "
-    "Z    ${local-dir}/Camera  770     ${app-name}   ${app-name}     -   - "
+    # "Z    ${local-dir}/Camera  770     ${app-name}   ${app-name}     -   - "
   ];
   users.users.${app-name}.extraGroups = ["photoprism"];
   services.syncthing = {
