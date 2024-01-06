@@ -39,9 +39,7 @@ in {
     device = "/sync/Camera";
     options = ["bind"];
   };
-  systemd.tmpfiles.rules = [
-    "Z  ${originals-dir}  770  ${app-name}  ${app-name}   -   - "
-  ];
+  users.users.${app-name}.extraGroups = ["syncthing"];
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
     enable = true;
