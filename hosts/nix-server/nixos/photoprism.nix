@@ -39,10 +39,13 @@ in {
     device = "/sync/Camera";
     options = ["bind"];
   };
-  users.users.${app-name} = {
-    group = app-name;
-    isSystemUser = true;
-    extraGroups = ["syncthing"];
+  users = {
+    groups.photoprism = {};
+    users.${app-name} = {
+      group = app-name;
+      isSystemUser = true;
+      extraGroups = ["syncthing"];
+    };
   };
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
