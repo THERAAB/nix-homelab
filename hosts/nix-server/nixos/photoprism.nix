@@ -39,7 +39,11 @@ in {
     device = "/sync/Camera";
     options = ["bind"];
   };
-  users.users.${app-name}.extraGroups = ["syncthing"];
+  users.users.${app-name} = {
+    group = app-name;
+    isSystemUser = true;
+    extraGroups = ["syncthing"];
+  };
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
     enable = true;
