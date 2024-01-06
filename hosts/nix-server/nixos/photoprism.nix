@@ -49,6 +49,7 @@ in {
       PHOTOPRISM_ADMIN_USER = "raab";
       PHOTOPRISM_UPLOAD_NSFW = "true";
       PHOTOPRISM_ORIGINALS_LIMIT = "-1";
+      PHOTOPRISM_READONLY = "true";
     };
     address = "0.0.0.0";
     originalsPath = "${originals-dir}";
