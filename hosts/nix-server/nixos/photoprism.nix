@@ -40,7 +40,7 @@ in {
     options = ["bind"];
   };
   systemd.tmpfiles.rules = [
-    "Z  ${originals-dir}  770  -  -   -   - "
+    "Z  ${originals-dir}  770  ${app-name}  ${app-name}   -   - "
   ];
   networking.firewall.allowedTCPPorts = [port];
   services.${app-name} = {
