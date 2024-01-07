@@ -1,11 +1,11 @@
 {...}: {
-  services = {
-    fstrim.enable = true;
-    fwupd.enable = true;
   systemd.tmpfiles.rules = [
     "d    /var/log/smartd  -    smartd smartd  -   - "
     "Z    /var/log/smartd  740  smartd smartd  -   - "
   ];
+  services = {
+    fstrim.enable = true;
+    fwupd.enable = true;
     smartd = {
       enable = true;
       extraOptions = [
