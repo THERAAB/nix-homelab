@@ -1,7 +1,7 @@
 {...}: {
   systemd.tmpfiles.rules = [
-    "d    /var/log/smartd  -    smartd smartd  -   - "
-    "Z    /var/log/smartd  740  smartd smartd  -   - "
+    "d    /var/log/smartd  -    - -  -   - "
+    "Z    /var/log/smartd  777  - -  -   - "
   ];
   services = {
     fstrim.enable = true;
