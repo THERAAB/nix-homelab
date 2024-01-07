@@ -5,7 +5,8 @@
     smartd = {
       enable = true;
       extraOptions = [
-        "-A /var/log/smartd/"
+        "-A"
+        "/var/log/smartd/"
         "--interval=3600"
       ];
     };
