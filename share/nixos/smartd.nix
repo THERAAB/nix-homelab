@@ -3,7 +3,7 @@
 in {
   systemd.tmpfiles.rules = [
     "d    ${log-dir}  -    - -        -   - "
-    "Z    ${log-dir}  750  - netdata  -   - "
+    "Z    ${log-dir}  770  - netdata  -   - "
   ];
   services.smartd = {
     enable = true;
