@@ -2,8 +2,8 @@
   log-dir = "/var/log/smartd/";
 in {
   systemd.tmpfiles.rules = [
-    "d    ${log-dir}  -    - -  -   - "
-    "Z    ${log-dir}  777  - -  -   - "
+    "d    ${log-dir}  -    - -        -   - "
+    "Z    ${log-dir}  740  - netdata  -   - "
   ];
   services.smartd = {
     enable = true;
