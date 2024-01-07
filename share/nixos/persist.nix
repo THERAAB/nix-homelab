@@ -3,7 +3,7 @@
     "d  /nix/persist/home/raab                      -   raab    -   -   -"
     "d  /nix/persist/home/raab/.config/sops/age     700 raab    -   -   -"
     "d  /nix/persist/nix-homelab                    -   raab    -   -   -"
-    "Z  /nix/persist/nix-homelab                    755 raab    -   -   -"
+    "Z  /nix/persist/nix-homelab                    -   raab    -   -   -"
     "Z  /nix/persist/home/raab                      740 raab    -   -   -"
     "Z  /nix/persist/home/raab/.ssh                 700 raab    -   -   -"
     "Z  /nix/persist/home/raab/.config/sops         700 raab    -   -   -"

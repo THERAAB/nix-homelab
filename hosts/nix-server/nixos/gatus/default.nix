@@ -37,7 +37,7 @@ in {
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}   -       -             -               -   - "
-    "Z    ${local-config-dir}   740     ${app-name}   ${app-name}     -   - "
+    "Z    ${local-config-dir}   -       ${app-name}   ${app-name}     -   - "
   ];
   # Add secret for gotify
   systemd.services."yamlPatcher-${app-name}" = {

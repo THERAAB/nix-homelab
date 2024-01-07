@@ -43,9 +43,9 @@ in {
   systemd.tmpfiles.rules = [
     "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
     "L  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
-    "Z  ${custom-blueprints-dir}            740     hass    hass    -   -                           "
-    "Z  /var/lib/hass/blueprints            740     hass    hass    -   -                           "
-    "Z  /var/lib/hass/custom_components     740     hass    hass    -   -                           "
+    "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
+    "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
+    "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";

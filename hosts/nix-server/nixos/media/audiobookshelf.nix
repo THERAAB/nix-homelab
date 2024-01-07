@@ -42,7 +42,7 @@ in {
     "d    ${local-config-dir}           -       -             -           -   - "
     "d    ${local-config-dir}/config    -       -             -           -   - "
     "d    ${local-config-dir}/metadata  -       -             -           -   - "
-    "Z    ${local-config-dir}           740     ${app-name}   ${app-name} -   - "
+    "Z    ${local-config-dir}           -       ${app-name}   ${app-name} -   - "
   ];
   services.caddy.virtualHosts."audiobooks.${network.domain}" = {
     useACMEHost = "${network.domain}";

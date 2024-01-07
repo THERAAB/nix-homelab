@@ -40,7 +40,7 @@ in {
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}     -       -             -           -   - "
-    "Z    ${local-config-dir}     740     ${app-name}   ${app-name} -   - "
+    "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
   ];
   systemd.services."podman-${app-name}".after = ["multi-user.target"]; # Delay jellyfin start for hardware encoding
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {

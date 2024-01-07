@@ -40,9 +40,9 @@ in {
     groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}             -       -     -           -   - "
-    "f    ${local-config-dir}/database.db -       -     -           -   - "
-    "Z    ${local-config-dir}     740     ${app-name}   ${app-name} -   - "
+    "d    ${local-config-dir}             -       -             -           -   - "
+    "f    ${local-config-dir}/database.db -       -             -           -   - "
+    "Z    ${local-config-dir}             -       ${app-name}   ${app-name} -   - "
   ];
   services.caddy.virtualHosts."files.${network.domain}" = {
     useACMEHost = "${network.domain}";
