@@ -10,7 +10,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "${display-name}";
-      url = "https://${app-name}.${network.domain}";
+      url = "https://notes.${network.domain}";
       conditions = [
         "[STATUS] == 200"
       ];
@@ -41,7 +41,7 @@ in {
     "d    ${local-config-dir}     -       -             -           -   - "
     "Z    ${local-config-dir}     740     ${app-name}   ${app-name} -   - "
   ];
-  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+  services.caddy.virtualHosts."notes.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''
       encode zstd gzip

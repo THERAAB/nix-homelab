@@ -89,7 +89,7 @@ in {
           subtitle = "Listen to Audiobooks and Podcasts";
           tag = "audiobook";
           keywords = "audiobook podcast media";
-          url = "https://audiobookshelf.${network.domain}";
+          url = "https://audiobooks.${network.domain}";
           target = "_blank";
         }
         {
@@ -98,7 +98,7 @@ in {
           subtitle = "View & Manage Photos";
           tag = "photos";
           keywords = "photos media";
-          url = "https://photoprism.${network.domain}";
+          url = "https://photos.${network.domain}";
           target = "_blank";
         }
         {
@@ -122,7 +122,7 @@ in {
           subtitle = "Notes";
           tag = "notes";
           keywords = "notes";
-          url = "https://flatnotes.${network.domain}";
+          url = "https://notes.${network.domain}";
           target = "_blank";
         }
         {
@@ -131,7 +131,7 @@ in {
           subtitle = "Bookmark Manager";
           tag = "bookmark";
           keywords = "bookmark manager";
-          url = "https://linkding.${network.domain}";
+          url = "https://bookmarks.${network.domain}";
           target = "_blank";
         }
         {
@@ -257,7 +257,7 @@ in {
           subtitle = "Manage Movies";
           tag = "movies";
           keywords = "movies media";
-          url = "https://radarr.${network.domain}";
+          url = "https://movies.${network.domain}";
           target = "_blank";
         }
         {
@@ -266,7 +266,7 @@ in {
           subtitle = "Manage TV Shows";
           tag = "tv";
           keywords = "tv shows media";
-          url = "https://sonarr.${network.domain}";
+          url = "https://tv.${network.domain}";
           target = "_blank";
         }
         {

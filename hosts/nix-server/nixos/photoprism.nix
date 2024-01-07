@@ -8,7 +8,7 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "${display-name}";
-      url = "https://${app-name}.${network.domain}/";
+      url = "https://photos.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>PhotoPrism</title>*)''
@@ -28,7 +28,7 @@ in {
       timeout = 20;
     }
   ];
-  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+  services.caddy.virtualHosts."photos.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''
       encode zstd gzip

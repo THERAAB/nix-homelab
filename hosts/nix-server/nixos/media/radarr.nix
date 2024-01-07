@@ -11,9 +11,9 @@ in {
   services.yamlConfigMaker.gatus.settings.endpoints = [
     {
       name = "${display-name}";
-      url = "https://${app-name}.${network.domain}/health";
+      url = "https://movies.${network.domain}/health";
       conditions = [
-        "[STATUS] == 401"
+        "[STATUS] == 200"
       ];
       alerts = [
         {
@@ -42,7 +42,7 @@ in {
     "d    ${local-config-dir}     -       -             -           -   - "
     "Z    ${local-config-dir}     740     ${app-name}   ${app-name} -   - "
   ];
-  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
+  services.caddy.virtualHosts."movies.${network.domain}" = {
     useACMEHost = "${network.domain}";
     extraConfig = ''
       encode zstd gzip
