@@ -25,6 +25,7 @@
     randomizedDelaySec = "45min";
     flags = [
       "--recreate-lock-file"
+      "--commit-lock-file"
     ];
     allowReboot = true;
   };
