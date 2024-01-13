@@ -22,6 +22,7 @@
     enable = true;
     dates = "Sun *-*-* 04:00:00";
     flake = "/nix/persist/nix-homelab";
+    randomizedDelaySec = "45min";
     flags = [
       "--recreate-lock-file"
     ];
