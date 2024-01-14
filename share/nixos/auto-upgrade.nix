@@ -25,7 +25,7 @@
     flake = "github:THERAAB/nix-homelab/main";
     persistent = true;
     flags = [
-      "--recreate-lock-file"
+      "--no-write-lock-file"
     ];
     allowReboot = true;
   };
