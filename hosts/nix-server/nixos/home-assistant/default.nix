@@ -91,7 +91,7 @@ in {
         {
           name = "gotify";
           platform = "rest";
-          resource = "https://gotify.pumpkin.rodeo/message";
+          resource = "https://gotify.${network.domain}/message";
           method = "POST_JSON";
           headers.X-Gotify-Key = "!secret gotify_ha_token";
           message_param_name = "message";

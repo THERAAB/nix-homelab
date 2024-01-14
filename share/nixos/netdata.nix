@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   port = 19999;
   app-name = "netdata";
   network = import ../../share/network.properties.nix;
@@ -23,5 +27,9 @@ in {
         "registry to announce" = "https://${app-name}.${network.domain}/";
       };
     };
+    configDir."health_alarm_notify.conf" = pkgs.writeText "health_alarm_notify.conf" ''
+      SEND_GOTIFY="NO"
+      GOTIFY_APP_URL="https://gotify.${network.domain}/"
+    '';
   };
 }
