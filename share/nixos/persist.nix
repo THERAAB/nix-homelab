@@ -5,7 +5,6 @@
     "d  /nix/persist/nix-homelab                    -   raab    -   -   -               "
     "Z  /nix/persist/nix-homelab                    -   raab    -   -   -               "
     "z  /nix/persist/nix-homelab/nox                744 raab    -   -   -               "
-    "Z  /nix/persist/home/raab                      740 raab    -   -   -               "
     "Z  /nix/persist/home/raab/.ssh                 700 raab    -   -   -               "
     "Z  /nix/persist/home/raab/.config/sops         700 raab    -   -   -               "
     "L  /nix/persist/home/raab/.config/.gitconfig   -   -       -   -   /etc/gitconfig  "
