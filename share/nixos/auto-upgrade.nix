@@ -26,7 +26,6 @@
     persistent = true;
     flags = [
       "--recreate-lock-file"
-      "--commit-lock-file"
     ];
     allowReboot = true;
   };
