@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   systemd.services = {
@@ -20,12 +21,11 @@
 
   system.autoUpgrade = {
     enable = true;
-    dates = "Sun *-*-* 04:00:00";
+    dates = lib.mkDefault "Sun *-*-* 04:00:00";
     flake = "github:THERAAB/nix-homelab/main";
-    randomizedDelaySec = "45min";
     persistent = true;
     flags = [
-      # "--recreate-lock-file"
+      "--recreate-lock-file"
       "--commit-lock-file"
     ];
     allowReboot = true;
