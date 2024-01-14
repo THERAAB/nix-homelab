@@ -22,7 +22,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = lib.mkDefault "Sun *-*-* 04:30:00";
-    flake = "/nix/persist/nix-homelab";
+    flake = "github:THERAAB/nix-homelab/main";
     persistent = true;
     flags = [
       "--recreate-lock-file"
