@@ -42,7 +42,8 @@ in {
     "d    ${local-config-dir}/wireguard             -       -               -           -   -                               "
     "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -           -   -                               "
     "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -           -   /run/secrets/wireguard_mullvad  "
-    "Z    ${local-config-dir}                       740     ${app-name}     ${app-name} -   -                               "
+    "Z    ${local-config-dir}                       -       ${app-name}     ${app-name} -   -                               "
+    "Z    ${local-config-dir}/wireguard/wg0.conf    700     -               -           -   -                               "
   ];
   services.caddy.virtualHosts."${app-name}.${network.domain}" = {
     useACMEHost = "${network.domain}";
