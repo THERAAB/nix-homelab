@@ -1,13 +1,13 @@
 {...}: {
   systemd.tmpfiles.rules = [
-    "d  /nix/persist/home/raab                      -   raab    -   -   -               "
-    "d  /nix/persist/home/raab/.config/sops/age     700 raab    -   -   -               "
-    "d  /nix/persist/nix-homelab                    -   raab    -   -   -               "
-    "Z  /nix/persist/nix-homelab                    -   raab    -   -   -               "
-    "z  /nix/persist/nix-homelab/nox                744 raab    -   -   -               "
-    "Z  /nix/persist/home/raab/.ssh                 700 raab    -   -   -               "
-    "Z  /nix/persist/home/raab/.config/sops         700 raab    -   -   -               "
-    "L  /nix/persist/home/raab/.config/.gitconfig   -   -       -   -   /etc/gitconfig  "
+    "d  /nix/persist/home/raab                      -   raab    -   -   -                               "
+    "d  /nix/persist/home/raab/.config/sops/age     700 raab    -   -   -                               "
+    "d  /nix/persist/nix-homelab                    -   raab    -   -   -                               "
+    "Z  /nix/persist/nix-homelab                    -   raab    -   -   -                               "
+    "z  /nix/persist/nix-homelab/nox                744 raab    -   -   -                               "
+    "Z  /nix/persist/home/raab/.ssh                 700 raab    -   -   -                               "
+    "Z  /nix/persist/home/raab/.config/sops         700 raab    -   -   -                               "
+    "L  /etc/gitconfig                              -   -       -   -   /home/raab/.config/git/config   "
   ];
   programs.fuse.userAllowOther = true;
   environment.persistence."/nix/persist/system" = {
