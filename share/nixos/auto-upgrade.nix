@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  network = import ../../../../share/network.properties.nix;
+  network = import ../network.properties.nix;
 in {
   systemd.services = {
     nixos-upgrade.onFailure = ["nixos-upgrade-on-failure.service"];
