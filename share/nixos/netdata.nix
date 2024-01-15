@@ -30,11 +30,11 @@ in {
   };
   systemd.services.netdata-write-gotify-conf = {
     script = ''
-      NOTIFY_CONF_DIR=/etc/netdata/conf.d
+      NOTIFY_CONF=/etc/netdata/conf.d/health_alarm_notify.conf 
       GOTIFY_TOKEN=`cat ${config.sops.secrets.gotify_gatus_token.path}`
-      echo SEND_GOTIFY="YES" > $NOTIFY_CONF_DIR
-      echo GOTIFY_APP_URL="https://gotify.${network.domain}/" >> $NOTIFY_CONF_DIR
-      echo GOTIFY_TOKEN="$GOTIFY_TOKEN" >> $NOTIFY_CONF_DIR
+      echo SEND_GOTIFY="YES" > $NOTIFY_CONF
+      echo GOTIFY_APP_URL="https://gotify.${network.domain}/" >> $NOTIFY_CONF
+      echo GOTIFY_TOKEN="$GOTIFY_TOKEN" >> $NOTIFY_CONF
     '';
     wantedBy = ["netdata.service"];
     after = ["netdata.service"];
