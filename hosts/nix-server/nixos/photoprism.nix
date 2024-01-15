@@ -1,4 +1,4 @@
-{config, ...}: let
+{pkgs, config, ...}: let
   port = 2342;
   app-name = "photoprism";
   display-name = "Photoprism";
@@ -45,6 +45,23 @@ in {
       group = app-name;
       isSystemUser = true;
       extraGroups = ["syncthing"];
+    };
+  };
+  systemd = {
+    services."${app-name}-index-refresh" = {
+      script = ''
+        ${pkgs.photoprism}/bin/${app-name} index --cleanup
+      '';
+      after = ["${app-name}.service"];
+      requires = ["${app-name}.service"];
+    };
+    timers."${app-name}-index-refresh" = {
+      wantedBy = ["timers.target"];
+      timerConfig = {
+        OnCalendar = "midnight";
+        Persistent = "true";
+        Unit = "${app-name}-index-refresh.service";
+      };
     };
   };
   networking.firewall.allowedTCPPorts = [port];
