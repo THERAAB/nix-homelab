@@ -13,6 +13,7 @@
       pushbullet_api_key.neededForUsers = true;
       gotify_gatus_token.neededForUsers = true;
       gotify_homelab_token.neededForUsers = true;
+      netdata_alarm = {};
       git_ssh_key = {
         owner = "raab";
         path = "/nix/persist/home/raab/.ssh/id_rsa";
