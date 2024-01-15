@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   nix-flake-update = {
     script = ''
       sleep 10
