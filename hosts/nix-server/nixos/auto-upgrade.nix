@@ -8,6 +8,7 @@
       script = ''
         sleep 10
         dir=/nix/persist/nix-homelab
+        su -c "git -C $dir pull" raab
         nix flake update $dir --commit-lock-file
         su -c "git -C $dir push" raab
       '';
