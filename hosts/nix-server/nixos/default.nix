@@ -24,6 +24,6 @@
     ./filebrowser.nix
     ./nfs.nix
     ./pkgs.nix
-    ./system.nix
+    ./auto-upgrade.nix
   ];
 }
