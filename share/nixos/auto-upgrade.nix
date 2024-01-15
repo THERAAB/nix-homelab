@@ -38,7 +38,7 @@ in {
     timers.nix-flake-update = {
       wantedBy = ["timers.target"];
       timerConfig = {
-        OnCalendar = "Sun *-*-* 04:10:00";
+        OnCalendar = lib.mkDefault "Sun *-*-* 04:40:00";
         Persistent = "true";
         Unit = "nix-flake-update.service";
       };
@@ -46,7 +46,7 @@ in {
   };
   system.autoUpgrade = {
     enable = true;
-    dates = lib.mkDefault "Sun *-*-* 04:30:00";
+    dates = lib.mkDefault "Sun *-*-* 04:50:00";
     flake = "github:THERAAB/nix-homelab/main";
     persistent = true;
     flags = [
