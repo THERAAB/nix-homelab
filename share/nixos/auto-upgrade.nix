@@ -17,15 +17,15 @@ in {
                               -F "message=Upgrade failed on '$HOSTNAME', run journalctl -u nixos-upgrade for details" \
                               -F "priority=5"                                                                         \
     '';
-    system.autoUpgrade = {
-      enable = true;
-      dates = lib.mkDefault "Sun *-*-* 04:30:00";
-      flake = "github:THERAAB/nix-homelab/main";
-      persistent = true;
-      flags = [
-        "--no-write-lock-file"
-      ];
-      allowReboot = true;
-    };
+  };
+  system.autoUpgrade = {
+    enable = true;
+    dates = lib.mkDefault "Sun *-*-* 04:30:00";
+    flake = "github:THERAAB/nix-homelab/main";
+    persistent = true;
+    flags = [
+      "--no-write-lock-file"
+    ];
+    allowReboot = true;
   };
 }
