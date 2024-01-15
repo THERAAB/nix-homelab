@@ -24,5 +24,6 @@
     ./filebrowser.nix
     ./nfs.nix
     ./pkgs.nix
+    ./system.nix
   ];
 }
