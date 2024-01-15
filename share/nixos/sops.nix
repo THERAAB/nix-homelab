@@ -10,9 +10,8 @@
         owner = "raab";
         path = "/nix/persist/home/raab/.config/.gitconfig";
       };
-      pushbullet_api_key.neededForUsers = true;
-      gotify_gatus_token.neededForUsers = true;
-      gotify_homelab_token.neededForUsers = true;
+      gotify_gatus_token = {};
+      gotify_homelab_token = {};
       netdata_alarm = {};
       git_ssh_key = {
         owner = "raab";

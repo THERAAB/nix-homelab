@@ -76,7 +76,6 @@ Set up last, make sure to do above before trying to set up
   - Govee
   - Sonoff
   - Kasa
-  - Pushbullet
   - Android tv
   - Zigbee devices
   - Shopping List
