@@ -1,5 +1,5 @@
 {config, pkgs, ...}: {
-  nix-flake-update = {
+  systemd.services.nix-flake-update = {
     script = ''
       sleep 10
       dir=/nix/persist/nix-homelab
