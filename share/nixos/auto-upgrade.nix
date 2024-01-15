@@ -12,7 +12,7 @@ in {
       TOKEN=`cat ${config.sops.secrets.gotify_homelab_token.path}`
       HOSTNAME=`${pkgs.nettools}/bin/hostname`
 
-      ${pkgs.curl}/bin/curl   https://gotify.${network.domain}/message?token=$TOKEN                                       \
+      ${pkgs.curl}/bin/curl   https://gotify.${network.domain}/message?token=$TOKEN                                   \
                               -F "title='$HOSTNAME' Upgrade Failed"                                                   \
                               -F "message=Upgrade failed on '$HOSTNAME', run journalctl -u nixos-upgrade for details" \
                               -F "priority=5"                                                                         \
