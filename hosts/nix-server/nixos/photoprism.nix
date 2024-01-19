@@ -58,7 +58,7 @@ in {
     timers."${app-name}-index-refresh" = {
       wantedBy = ["timers.target"];
       timerConfig = {
-        OnCalendar = "midnight";
+        OnCalendar = "daily";
         Persistent = "true";
         Unit = "${app-name}-index-refresh.service";
       };
