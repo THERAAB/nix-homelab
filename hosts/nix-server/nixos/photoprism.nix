@@ -54,7 +54,7 @@ in {
   systemd = {
     services."${app-name}-index-refresh" = {
       script = ''
-        su -c "${pkgs.photoprism}/bin/${app-name} index --cleanup" photoprism
+        su -c "${app-name} index --cleanup" photoprism
       '';
       after = ["${app-name}.service"];
       requires = ["${app-name}.service"];
