@@ -1,4 +1,8 @@
-{pkgs, config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   port = 2342;
   app-name = "photoprism";
   display-name = "Photoprism";
@@ -54,6 +58,9 @@ in {
       '';
       after = ["${app-name}.service"];
       requires = ["${app-name}.service"];
+      path = with pkgs; [
+        su
+      ];
     };
     timers."${app-name}-index-refresh" = {
       wantedBy = ["timers.target"];
