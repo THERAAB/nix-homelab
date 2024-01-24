@@ -14,6 +14,7 @@
         notify = "notify.mobile_app_pixel_6";
       };
       galaxy-tab-s7.battery = "sensor.sm_t870_battery_level";
+      stephanie.iphone.battery = "sensor.stephanies_phone_battery_level";
     };
     living-room = {
       android-tv = "media_player.android_tv_192_168_127_5";
