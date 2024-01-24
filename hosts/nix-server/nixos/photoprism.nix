@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: let
+{pkgs, config, ...}: let
   port = 2342;
   app-name = "photoprism";
   display-name = "Photoprism";
@@ -54,13 +50,10 @@ in {
   systemd = {
     services."${app-name}-index-refresh" = {
       script = ''
-        su -c "${app-name} index --cleanup" photoprism
+        ${pkgs.photoprism}/bin/${app-name} index --cleanup
       '';
       after = ["${app-name}.service"];
       requires = ["${app-name}.service"];
-      path = with pkgs; [
-        su
-      ];
     };
     timers."${app-name}-index-refresh" = {
       wantedBy = ["timers.target"];
