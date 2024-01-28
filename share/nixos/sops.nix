@@ -12,6 +12,7 @@
       };
       gotify_gatus_token = {};
       gotify_homelab_token = {};
+      restic_password = {};
       netdata_alarm = {};
       git_ssh_key = {
         owner = "raab";
