@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  network = import ../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
 in {
   #TODO: enable in default.nix
   services.restic.backups."nix-server" = {
