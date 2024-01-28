@@ -50,7 +50,7 @@ in {
   systemd = {
     services."${app-name}-index-refresh" = {
       script = ''
-        ${pkgs.photoprism}/bin/${app-name} --read-only index --cleanup
+        ${pkgs.photoprism}/bin/${app-name} --read-only --originals-path ${originals-dir} --originals-limit -1 --upload-nsfw index --cleanup
       '';
       after = ["${app-name}.service"];
       requires = ["${app-name}.service"];
