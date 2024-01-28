@@ -48,6 +48,10 @@ in {
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
+  fileSystems."/sync/share/${app-name}" = {
+    device = "${local-config-dir}";
+    options = ["bind"];
+  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "docker.io/dullage/${app-name}";
