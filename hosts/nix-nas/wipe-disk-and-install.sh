@@ -34,7 +34,7 @@ sudo umount /mnt
 #----------------------------------------------------------------------------------------------------------------------
 #
 # Note: I'm not putting how to format /dev/sd[a,b] devices here as I shouldn't ever have to do it
-# But it's a btrfs filesystem in raid1 (data + metadata) with label=media and subvolumes media & sync
+# But it's a btrfs filesystem in raid1 (data + metadata) with label=media and subvolumes media & backups
 # Don't destroy it, future me!
 # 
 #----------------------------------------------------------------------------------------------------------------------
@@ -47,13 +47,13 @@ sudo fdisk -l
 
 # Create temp dirs, Mount tmpfs & subvolumes
 sudo mount -t tmpfs none /mnt
-sudo mkdir -p /mnt/{home/raab,nix,boot,sync,nfs/media,etc/nixos}
+sudo mkdir -p /mnt/{home/raab,nix,boot,nfs/media,nfs/backups,etc/nixos}
 sudo mount -t tmpfs none /mnt/home/raab
 sudo mount -o compress=zstd,noatime,subvol=nix /dev/disk/by-label/nixos /mnt/nix
 sudo mkdir -p /mnt/nix/persist
 sudo mount -o compress=zstd,noatime,subvol=persist /dev/disk/by-label/nixos /mnt/nix/persist
 sudo mount -o compress=zstd,noatime,subvol=media /dev/disk/by-label/media /mnt/nfs/media
-sudo mount -o compress=zstd,noatime,subvol=sync /dev/disk/by-label/media /mnt/sync
+sudo mount -o compress=zstd,noatime,subvol=backups /dev/disk/by-label/media /mnt/nfs/backups
 sudo mkdir -p /mnt/nix/persist/system/etc/nixos
 sudo mkdir -p /mnt/nix/persist/home/raab
 sudo mount -o bind /mnt/nix/persist/system/etc/nixos /mnt/etc/nixos

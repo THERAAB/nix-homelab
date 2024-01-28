@@ -34,11 +34,6 @@
     options = ["subvol=persist" "compress=zstd" "noatime"];
     neededForBoot = true;
   };
-  fileSystems."/sync" = {
-    device = "/dev/disk/by-label/media";
-    fsType = "btrfs";
-    options = ["subvol=sync" "compress=zstd" "noatime"];
-  };
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/BOOT";
     fsType = "vfat";

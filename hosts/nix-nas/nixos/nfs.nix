@@ -1,6 +1,7 @@
 {...}: let
   nfs-dir = "/nfs";
   media-dir = "${nfs-dir}/media";
+  backups-dir = "${nfs-dir}/backups";
   network = import ../../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
@@ -12,12 +13,18 @@ in {
     fsType = "btrfs";
     options = ["subvol=media" "compress=zstd" "noatime"];
   };
+  fileSystems."${backups-dir}" = {
+    device = "/dev/disk/by-label/media";
+    fsType = "btrfs";
+    options = ["subvol=backups" "compress=zstd" "noatime"];
+  };
   networking.firewall.allowedTCPPorts = [2049];
   services.nfs.server = {
     enable = true;
     exports = ''
       ${nfs-dir}    ${network.nix-server.local.ip}(rw,fsid=0,no_subtree_check) ${network.nix-server.tailscale.ip}(rw,fsid=0,no_subtree_check)
       ${media-dir}  ${network.nix-server.local.ip}(rw,nohide,insecure,no_subtree_check) ${network.nix-server.tailscale.ip}(rw,nohide,insecure,no_subtree_check)
+      ${backups-dir}  ${network.nix-server.local.ip}(rw,nohide,insecure,no_subtree_check) ${network.nix-server.tailscale.ip}(rw,nohide,insecure,no_subtree_check)
     '';
   };
 }

@@ -25,5 +25,6 @@
     ./nfs.nix
     ./pkgs.nix
     ./auto-upgrade.nix
+    ./restic.nix
   ];
 }
