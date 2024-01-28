@@ -1,7 +1,11 @@
 {...}: {
   users = {
     mutableUsers = false;
-    groups.users.gid = 100;
+    groups = {
+      users.gid = 100;
+      media.gid = 11201;
+      restic.gid = 11202;
+    };
     users = {
       # $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd
       root.initialHashedPassword = "$6$89oRObq6lBVqE6Pz$lsm8TXKsGsYZ3HsmbshaTRbecNRMtRQmUUWZS2fubs6y8vF9lLp01dbrhgjGvGPco7qLdEN.hRQ0uisscBanM1";

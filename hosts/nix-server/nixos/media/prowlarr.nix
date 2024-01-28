@@ -34,6 +34,7 @@ in {
       uid = uid;
       group = app-name;
       isSystemUser = true;
+      extraGroups = ["media"];
     };
     groups.${app-name}.gid = gid;
   };

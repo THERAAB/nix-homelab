@@ -5,8 +5,9 @@
   network = import ../../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
-    "d    ${nfs-dir}  -    -        -        -   - "
-    "Z    ${nfs-dir}  777  nobody   nogroup  -   - "
+    "d    ${nfs-dir}      755  root     root    -   - "
+    "Z    ${media-dir}    775  root     media   -   - "
+    "Z    ${backups-dir}  775  root     restic  -   - "
   ];
   fileSystems."${media-dir}" = {
     device = "/dev/disk/by-label/media";
