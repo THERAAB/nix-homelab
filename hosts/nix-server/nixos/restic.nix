@@ -1,4 +1,10 @@
-{config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: let
+  network = import ../../share/network.properties.nix;
+in {
   #TODO: enable in default.nix
   services.restic.backups."nix-server" = {
     exclude = [
@@ -32,5 +38,19 @@
       "--keep-monthly 12"
       "--keep-yearly 75"
     ];
+  };
+  systemd = {
+    services = {
+      restic-backups-nix-server.onFailure = ["restic-on-failure.service"];
+      restic-on-failure.script = ''
+        TOKEN=`cat ${config.sops.secrets.gotify_homelab_token.path}`
+        HOSTNAME=`${pkgs.nettools}/bin/hostname`
+
+        ${pkgs.curl}/bin/curl   https://gotify.${network.domain}/message?token=$TOKEN                                                     \
+                                -F "title='$HOSTNAME' Upgrade Failed"                                                                     \
+                                -F "message=Restic backup failed on '$HOSTNAME', run journalctl -u restic-backups-nix-server for details" \
+                                -F "priority=5"                                                                                           \
+      '';
+    };
   };
 }
