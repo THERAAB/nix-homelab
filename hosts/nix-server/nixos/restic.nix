@@ -2,7 +2,7 @@
   #TODO: enable in default.nix
   services.restic.backups.server = {
     exclude = [
-      "*/.git"
+      "**/.git"
     ];
     initialize = true;
     passwordFile = config.sops.secrets.restic_password.path;
