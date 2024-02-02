@@ -24,21 +24,21 @@ in {
           ];
         }
       ];
-      olivetin.settings.actions = [
-        {
-          title = "Restart ${display-name}";
-          icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-          shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-          timeout = 20;
-        }
-      ];
-      caddy.virtualHosts."${app-name}.${network.domain}" = {
-        useACMEHost = "${network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy 127.0.0.1:${toString port}
-        '';
-      };
+    };
+    olivetin.settings.actions = [
+      {
+        title = "Restart ${display-name}";
+        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
+        timeout = 20;
+      }
+    ];
+    caddy.virtualHosts."${app-name}.${network.domain}" = {
+      useACMEHost = "${network.domain}";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy 127.0.0.1:${toString port}
+      '';
     };
   };
   users = {
