@@ -8,43 +8,48 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
+  boot = {
+    initrd = {
+      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+      kernelModules = [];
+    };
+    kernelModules = ["kvm-intel"];
+    extraModulePackages = [];
+    # Force kernel to use the right CPU driver & use graphics controller
+    kernelParams = ["i915.force_probe=4692" "i915.enable_guc=3"];
+  };
 
-  # Force kernel to use the right CPU driver & use graphics controller
-  boot.kernelParams = ["i915.force_probe=4692" "i915.enable_guc=3"];
-
-  fileSystems."/" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = ["size=10G" "mode=755"];
-  };
-  fileSystems."/home/raab" = {
-    device = "none";
-    fsType = "tmpfs";
-    options = ["size=4G" "mode=777"];
-  };
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "btrfs";
-    options = ["subvol=nix" "compress=zstd" "noatime"];
-  };
-  fileSystems."/nix/persist" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "btrfs";
-    options = ["subvol=persist" "compress=zstd" "noatime"];
-    neededForBoot = true;
-  };
-  fileSystems."/sync" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "btrfs";
-    options = ["subvol=sync" "compress=zstd" "noatime"];
-  };
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/BOOT";
-    fsType = "vfat";
+  fileSystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = ["size=10G" "mode=755"];
+    };
+    "/home/raab" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = ["size=4G" "mode=777"];
+    };
+    "/nix" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = ["subvol=nix" "compress=zstd" "noatime"];
+    };
+    "/nix/persist" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = ["subvol=persist" "compress=zstd" "noatime"];
+      neededForBoot = true;
+    };
+    "/sync" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = ["subvol=sync" "compress=zstd" "noatime"];
+    };
+    "/boot" = {
+      device = "/dev/disk/by-label/BOOT";
+      fsType = "vfat";
+    };
   };
 
   swapDevices = [];

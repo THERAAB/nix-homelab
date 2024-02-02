@@ -9,15 +9,17 @@ in {
     "Z    ${media-dir}    775  -  media   -   - "
     "Z    ${backups-dir}  755  -  restic  -   - "
   ];
-  fileSystems."${media-dir}" = {
-    device = "/dev/disk/by-label/media";
-    fsType = "btrfs";
-    options = ["subvol=media" "compress=zstd" "noatime"];
-  };
-  fileSystems."${backups-dir}" = {
-    device = "/dev/disk/by-label/media";
-    fsType = "btrfs";
-    options = ["subvol=backups" "compress=zstd" "noatime"];
+  fileSystems = {
+    "${media-dir}" = {
+      device = "/dev/disk/by-label/media";
+      fsType = "btrfs";
+      options = ["subvol=media" "compress=zstd" "noatime"];
+    };
+    "${backups-dir}" = {
+      device = "/dev/disk/by-label/media";
+      fsType = "btrfs";
+      options = ["subvol=backups" "compress=zstd" "noatime"];
+    };
   };
   networking.firewall.allowedTCPPorts = [2049];
   services.nfs.server = {

@@ -10,31 +10,40 @@
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   network = import ../../../../share/network.properties.nix;
 in {
-  services.yamlConfigMaker.gatus.settings.endpoints = [
-    {
-      name = "${display-name}";
-      url = "https://${app-name}.${network.domain}/";
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<title>OliveTin</title>*)''
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-  ];
-  services.olivetin = {
-    enable = true;
-    settings.actions = [
+  services = {
+    yamlConfigMaker.gatus.settings.endpoints = [
       {
-        title = "Reboot Server";
-        icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
-        timeout = 20;
+        name = "${display-name}";
+        url = "https://${app-name}.${network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+          ''[BODY] == pat(*<title>OliveTin</title>*)''
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
       }
     ];
+    caddy.virtualHosts."${app-name}.${network.domain}" = {
+      useACMEHost = "${network.domain}";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy 127.0.0.1:${toString port}
+      '';
+    };
+    olivetin = {
+      enable = true;
+      settings.actions = [
+        {
+          title = "Reboot Server";
+          icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
+          shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
+          timeout = 20;
+        }
+      ];
+    };
   };
   users = {
     groups.${app-name}.gid = gid;
@@ -56,11 +65,4 @@ in {
     "Z  ${www-dir}                    -           ${app-name}     ${app-name}     -   -                         "
   ];
   networking.firewall.allowedTCPPorts = [port];
-  services.caddy.virtualHosts."${app-name}.${network.domain}" = {
-    useACMEHost = "${network.domain}";
-    extraConfig = ''
-      encode zstd gzip
-      reverse_proxy 127.0.0.1:${toString port}
-    '';
-  };
 }

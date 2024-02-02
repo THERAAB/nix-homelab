@@ -14,33 +14,44 @@
     TZ = "America/New_York";
   };
 in {
-  services.yamlConfigMaker."${app-name}" = {
-    path = "${config-dir}/config.yml";
-    settings = config;
-  };
-  services.yamlConfigMaker.gatus.settings.endpoints = [
-    {
-      name = "${display-name}";
-      url = "https://${network.domain}/";
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<div id="app-mount"></div>*)''
-      ];
-      alerts = [
+  services = {
+    yamlConfigMaker = {
+      "${app-name}" = {
+        path = "${config-dir}/config.yml";
+        settings = config;
+      };
+      gatus.settings.endpoints = [
         {
-          type = "gotify";
+          name = "${display-name}";
+          url = "https://${network.domain}/";
+          conditions = [
+            "[STATUS] == 200"
+            ''[BODY] == pat(*<div id="app-mount"></div>*)''
+          ];
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
         }
       ];
-    }
-  ];
-  services.olivetin.settings.actions = [
-    {
-      title = "Restart ${display-name}";
-      icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
-      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-      timeout = 20;
-    }
-  ];
+    };
+    olivetin.settings.actions = [
+      {
+        title = "Restart ${display-name}";
+        icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
+        timeout = 20;
+      }
+    ];
+    caddy.virtualHosts."${network.domain}" = {
+      useACMEHost = "${network.domain}-tld";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy 127.0.0.1:${toString port}
+      '';
+    };
+  };
   systemd.tmpfiles.rules = [
     "R    ${config-dir}/icons           -   -               -               -   -                     "
     "C    ${config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
@@ -53,13 +64,6 @@ in {
       uid = uid;
       isSystemUser = true;
     };
-  };
-  services.caddy.virtualHosts."${network.domain}" = {
-    useACMEHost = "${network.domain}-tld";
-    extraConfig = ''
-      encode zstd gzip
-      reverse_proxy 127.0.0.1:${toString port}
-    '';
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;

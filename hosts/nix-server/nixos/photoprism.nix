@@ -5,35 +5,49 @@
   network = import ../../../share/network.properties.nix;
   originals-dir = "/var/lib/private/photoprism/originals";
 in {
-  services.yamlConfigMaker.gatus.settings.endpoints = [
-    {
-      name = "${display-name}";
-      url = "https://photos.${network.domain}/";
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<title>PhotoPrism</title>*)''
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-  ];
-  services.olivetin.settings.actions = [
-    {
-      title = "Restart ${display-name}";
-      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
-      timeout = 20;
-    }
-  ];
-  services.caddy.virtualHosts."photos.${network.domain}" = {
-    useACMEHost = "${network.domain}";
-    extraConfig = ''
-      encode zstd gzip
-      reverse_proxy 127.0.0.1:${toString port}
-    '';
+  services = {
+    yamlConfigMaker.gatus.settings.endpoints = [
+      {
+        name = "${display-name}";
+        url = "https://photos.${network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+          ''[BODY] == pat(*<title>PhotoPrism</title>*)''
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
+    olivetin.settings.actions = [
+      {
+        title = "Restart ${display-name}";
+        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
+        timeout = 20;
+      }
+    ];
+    caddy.virtualHosts."photos.${network.domain}" = {
+      useACMEHost = "${network.domain}";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy 127.0.0.1:${toString port}
+      '';
+    };
+    ${app-name} = {
+      enable = true;
+      settings = {
+        PHOTOPRISM_ADMIN_USER = "raab";
+        PHOTOPRISM_UPLOAD_NSFW = "true";
+        PHOTOPRISM_ORIGINALS_LIMIT = "-1";
+        PHOTOPRISM_READONLY = "true";
+      };
+      address = "0.0.0.0";
+      originalsPath = "${originals-dir}";
+      passwordFile = config.sops.secrets.df_password.path;
+    };
   };
   fileSystems."${originals-dir}" = {
     device = "/sync/Camera";
@@ -65,16 +79,4 @@ in {
     };
   };
   networking.firewall.allowedTCPPorts = [port];
-  services.${app-name} = {
-    enable = true;
-    settings = {
-      PHOTOPRISM_ADMIN_USER = "raab";
-      PHOTOPRISM_UPLOAD_NSFW = "true";
-      PHOTOPRISM_ORIGINALS_LIMIT = "-1";
-      PHOTOPRISM_READONLY = "true";
-    };
-    address = "0.0.0.0";
-    originalsPath = "${originals-dir}";
-    passwordFile = config.sops.secrets.df_password.path;
-  };
 }

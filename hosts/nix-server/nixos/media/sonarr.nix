@@ -8,28 +8,37 @@
   local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../../share/network.properties.nix;
 in {
-  services.yamlConfigMaker.gatus.settings.endpoints = [
-    {
-      name = "${display-name}";
-      url = "https://tv.${network.domain}/health";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-  ];
-  services.olivetin.settings.actions = [
-    {
-      title = "Restart ${display-name}";
-      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-      timeout = 20;
-    }
-  ];
+  services = {
+    yamlConfigMaker.gatus.settings.endpoints = [
+      {
+        name = "${display-name}";
+        url = "https://tv.${network.domain}/health";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
+    olivetin.settings.actions = [
+      {
+        title = "Restart ${display-name}";
+        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
+        timeout = 20;
+      }
+    ];
+    caddy.virtualHosts."tv.${network.domain}" = {
+      useACMEHost = "${network.domain}";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy 127.0.0.1:${toString port}
+      '';
+    };
+  };
   users = {
     users."${app-name}" = {
       uid = uid;
@@ -43,13 +52,6 @@ in {
     "d    ${local-config-dir}     -       -             -           -   - "
     "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
   ];
-  services.caddy.virtualHosts."tv.${network.domain}" = {
-    useACMEHost = "${network.domain}";
-    extraConfig = ''
-      encode zstd gzip
-      reverse_proxy 127.0.0.1:${toString port}
-    '';
-  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "lscr.io/linuxserver/${app-name}";

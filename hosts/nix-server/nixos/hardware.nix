@@ -1,7 +1,8 @@
 {pkgs, ...}: {
-  networking.hostName = "nix-server";
-  networking.networkmanager.enable = true;
-
+  networking = {
+    hostName = "nix-server";
+    networkmanager.enable = true;
+  };
   services.irqbalance.enable = true;
   # Hardware acceleration for intel
   nixpkgs.config.packageOverrides = pkgs: {
