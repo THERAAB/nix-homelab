@@ -2,7 +2,7 @@
   imports = [
     #./home-assistant
     #./homer
-    ./media
+    #./media
     #./gatus
     #./olivetin
     #./adguard
@@ -20,7 +20,7 @@
     #./gotify.nix
     #./linkding.nix
     #./flatnotes.nix
-    #./microbin.nix
+    ./microbin.nix
     #./filebrowser.nix
     #./nfs.nix
     #./pkgs.nix
