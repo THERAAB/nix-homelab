@@ -6,7 +6,7 @@
     ./gatus
     ./olivetin
     ./adguard
-    ./hardware-configuration.nix
+    #./hardware-configuration.nix
     ./caddy.nix
     ./netdata.nix
     ./users.nix
