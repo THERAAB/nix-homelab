@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     #./home-assistant
-    ./homer
+    #./homer
     ./media
     #./gatus
     #./olivetin
