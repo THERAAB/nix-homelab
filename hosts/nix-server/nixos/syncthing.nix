@@ -34,6 +34,7 @@ in {
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
+  users.users."${app-name}".extraGroups = ["flatnotes"];
   systemd.tmpfiles.rules = [
     "d    ${local-dir}         -       -             -               -   - "
     "d    ${local-dir}/share   -       -             -               -   - "
