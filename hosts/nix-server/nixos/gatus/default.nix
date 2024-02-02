@@ -12,32 +12,32 @@
   cfg = import ./config.nix;
   network = import ../../../../share/network.properties.nix;
 in {
-  services = {
-    yamlConfigMaker = {
-      gatus = {
-        path = "${local-config-dir}/config.yaml";
-        settings = {
-          alerting = cfg.alerting;
-          endpoints = cfg.endpoints;
-        };
-      };
-      olivetin.settings.actions = [
-        {
-          title = "Restart ${display-name}";
-          icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-          shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-          timeout = 20;
-        }
-      ];
-    };
-    caddy.virtualHosts."${app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
-      '';
-    };
-  };
+  #services = {
+  #yamlConfigMaker = {
+  #  gatus = {
+  #    path = "${local-config-dir}/config.yaml";
+  #    settings = {
+  #      alerting = cfg.alerting;
+  #      endpoints = cfg.endpoints;
+  #    };
+  #  };
+  #  olivetin.settings.actions = [
+  #    {
+  #      title = "Restart ${display-name}";
+  #      icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
+  #      shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
+  #      timeout = 20;
+  #    }
+  #  ];
+  #};
+  #caddy.virtualHosts."${app-name}.${network.domain}" = {
+  #  useACMEHost = "${network.domain}";
+  #  extraConfig = ''
+  #    encode zstd gzip
+  #    reverse_proxy 127.0.0.1:${toString port}
+  #  '';
+  #};
+  #};
   users = {
     groups.${app-name}.gid = gid;
     users.${app-name} = {
