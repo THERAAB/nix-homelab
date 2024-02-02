@@ -13,14 +13,15 @@
   network = import ../../../../share/network.properties.nix;
 in {
   services = {
-    #yamlConfigMaker = {
-    #  gatus = {
-    #    path = "${local-config-dir}/config.yaml";
-    #    settings = {
-    #      alerting = cfg.alerting;
-    #      endpoints = cfg.endpoints;
-    #    };
-    #  };
+    yamlConfigMaker = {
+      gatus = {
+        path = "${local-config-dir}/config.yaml";
+        settings = {
+          alerting = cfg.alerting;
+          endpoints = cfg.endpoints;
+        };
+      };
+    };
     olivetin.settings.actions = [
       {
         title = "Restart ${display-name}";
