@@ -14,7 +14,7 @@
     ./sops.nix
     #./photoprism.nix
     #./unifi.nix
-    #./podman.nix
+    ./podman.nix
     #./harmonia.nix
     #./syncthing.nix
     #./gotify.nix
@@ -22,9 +22,9 @@
     #./flatnotes.nix
     #./microbin.nix
     #./filebrowser.nix
-    #./nfs.nix
-    #./pkgs.nix
-    #./auto-upgrade.nix
-    #./restic.nix
+    ./nfs.nix
+    ./pkgs.nix
+    ./auto-upgrade.nix
+    ./restic.nix
   ];
 }
