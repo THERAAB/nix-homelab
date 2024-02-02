@@ -5,20 +5,20 @@
   network = import ../../../share/network.properties.nix;
 in {
   networking.firewall.allowedTCPPorts = [port];
-  services.yamlConfigMaker.gatus.settings.endpoints = [
-    {
-      name = "${display-name}";
-      url = "https://${app-name}.${network.domain}";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-  ];
+  #services.yamlConfigMaker.gatus.settings.endpoints = [
+  #  {
+  #    name = "${display-name}";
+  #    url = "https://${app-name}.${network.domain}";
+  #    conditions = [
+  #      "[STATUS] == 200"
+  #    ];
+  #    alerts = [
+  #      {
+  #        type = "gotify";
+  #      }
+  #    ];
+  #  }
+  #];
   #services.olivetin.settings.actions = [
   #  {
   #    title = "Restart ${display-name}";
