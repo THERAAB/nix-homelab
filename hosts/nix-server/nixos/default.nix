@@ -7,7 +7,7 @@
     ./olivetin
     #./adguard
     ./hardware-configuration.nix
-    #./caddy.nix
+    ./caddy.nix
     #./netdata.nix
     #./users.nix
     ./hardware.nix
