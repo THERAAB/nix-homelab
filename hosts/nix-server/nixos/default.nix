@@ -11,7 +11,7 @@
     #./netdata.nix
     #./users.nix
     ./hardware.nix
-    #./sops.nix
+    ./sops.nix
     ./photoprism.nix
     ./unifi.nix
     ./podman.nix
