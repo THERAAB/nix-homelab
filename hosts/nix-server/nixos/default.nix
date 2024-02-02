@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    #./home-assistant
+    ./home-assistant
     #./homer
     #./media
     #./gatus
