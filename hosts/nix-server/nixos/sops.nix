@@ -4,14 +4,14 @@
     #  owner = "hass";
     #  path = "/var/lib/hass/secrets.yaml";
     #};
-    wireguard_mullvad = {
-      owner = "vuetorrent";
-    };
+    #wireguard_mullvad = {
+    #  owner = "vuetorrent";
+    #};
     df_password = {};
     cloudflare_dns_secret = {};
     harmonia_secret = {};
     microbin_secret = {};
-    mongo_init.owner = "unifi";
-    mongo_secret.owner = "unifi";
+    #mongo_init.owner = "unifi";
+    #mongo_secret.owner = "unifi";
   };
 }
