@@ -11,21 +11,21 @@
   network = import ../../../../share/network.properties.nix;
 in {
   services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://${app-name}.${network.domain}/";
-        conditions = [
-          "[STATUS] == 200"
-          ''[BODY] == pat(*<title>OliveTin</title>*)''
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
+    #yamlConfigMaker.gatus.settings.endpoints = [
+    #  {
+    #    name = "${display-name}";
+    #    url = "https://${app-name}.${network.domain}/";
+    #    conditions = [
+    #      "[STATUS] == 200"
+    #      ''[BODY] == pat(*<title>OliveTin</title>*)''
+    #    ];
+    #    alerts = [
+    #      {
+    #        type = "gotify";
+    #      }
+    #    ];
+    #  }
+    #];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
