@@ -10,7 +10,7 @@
     ./caddy.nix
     ./netdata.nix
     ./users.nix
-    #./hardware.nix
+    ./hardware.nix
     ./sops.nix
     ./photoprism.nix
     ./unifi.nix
