@@ -21,6 +21,7 @@ in {
       "logs"
       "metadata"
       "*.log"
+      "sync/share/flatnotes/.flatnotes"
       "/nix/persist/system/var/lib/containers/storage"
       "/nix/persist/system/var/lib/private/AdGuardHome/data"
       "/nix/persist/system/var/lib/private/photoprism/cache"
