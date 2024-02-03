@@ -5,7 +5,6 @@
   port = 8384;
   local-dir = "/sync";
 in {
-  users.users."${app-name}".extraGroups = ["flatnotes"];
   systemd.tmpfiles.rules = [
     "d    ${local-dir}         -       -             -               -   - "
     "d    ${local-dir}/share   -       -             -               -   - "
