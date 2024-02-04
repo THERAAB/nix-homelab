@@ -50,7 +50,7 @@ in {
     "d    ${local-config-dir}     -       -             -           -   - "
     "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
   ];
-  fileSystems."/${app-name}" = {
+  fileSystems."/sync/share/${app-name}" = {
     device = "${local-config-dir}";
     options = ["bind"];
   };
