@@ -76,7 +76,7 @@ in {
         export PHOTOPRISM_READONLY='true'
         export PHOTOPRISM_STORAGE_PATH='/var/lib/photoprism'
         export PHOTOPRISM_UPLOAD_NSFW='true'
-        exec ${pkgs.photoprism}/bin/photoprism/photoprism index --cleanup
+        exec ${pkgs.photoprism}/bin/photoprism index --cleanup
       '';
       after = ["${app-name}.service"];
       requires = ["${app-name}.service"];
