@@ -1,7 +1,6 @@
 {...}: let
   media = import ./media.properties.nix;
   uid = 9996;
-  gid = 9112;
   port = 13379;
   app-name = "audiobookshelf";
   display-name = "Audiobookshelf";
@@ -42,17 +41,15 @@ in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = app-name;
+      group = media.group.name;
       isSystemUser = true;
-      extraGroups = ["media"];
     };
-    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}           -       -             -           -   - "
-    "d    ${local-config-dir}/config    -       -             -           -   - "
-    "d    ${local-config-dir}/metadata  -       -             -           -   - "
-    "Z    ${local-config-dir}           -       ${app-name}   ${app-name} -   - "
+    "d    ${local-config-dir}           -       -             -                   -   - "
+    "d    ${local-config-dir}/config    -       -             -                   -   - "
+    "d    ${local-config-dir}/metadata  -       -             -                   -   - "
+    "Z    ${local-config-dir}           -       ${app-name}   ${media.group.name} -   - "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
@@ -66,7 +63,7 @@ in {
     ports = ["${toString port}:80"];
     environment = {
       AUDIOBOOKSHELF_UID = "${toString uid}";
-      AUDIOBOOKSHELF_GID = "${toString gid}";
+      AUDIOBOOKSHELF_GID = "${toString media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
     };

@@ -2,7 +2,6 @@
   media = import ./media.properties.nix;
   uid = 9992;
   port = 8096;
-  gid = 7117;
   app-name = "jellyfin";
   display-name = "Jellyfin";
   local-config-dir = "/var/lib/${app-name}/";
@@ -42,16 +41,14 @@ in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = app-name;
+      group = media.group.name;
       isSystemUser = true;
-      extraGroups = ["media"];
     };
-    groups.${app-name}.gid = gid;
   };
   systemd = {
     tmpfiles.rules = [
       "d    ${local-config-dir}     -       -             -           -   - "
-      "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
+      "Z    ${local-config-dir}     -       ${app-name}   ${media.group.name} -   - "
     ];
     services."podman-${app-name}".after = ["multi-user.target"]; # Delay jellyfin start for hardware encoding
   };
@@ -66,7 +63,7 @@ in {
     ports = ["${toString port}:8096"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString gid}";
+      PGID = "${toString media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
       DOCKER_MODS = "linuxserver/mods:jellyfin-opencl-intel";

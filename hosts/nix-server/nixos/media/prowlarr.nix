@@ -1,11 +1,11 @@
 {...}: let
   uid = 9993;
-  gid = 7129;
   port = 9696;
   app-name = "prowlarr";
   display-name = "Prowlarr";
   local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../../share/network.properties.nix;
+  media = import ./media.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
@@ -41,15 +41,13 @@ in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = app-name;
+      group = media.group.name;
       isSystemUser = true;
-      extraGroups = ["media"];
     };
-    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}     -       -             -           -   - "
-    "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
+    "Z    ${local-config-dir}     -       ${app-name}   ${media.group.name} -   - "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
@@ -60,7 +58,7 @@ in {
     ports = ["${toString port}:9696"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString gid}";
+      PGID = "${toString media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
     };

@@ -1,7 +1,6 @@
 {...}: let
   media = import ./media.properties.nix;
   uid = 9991;
-  gid = 9114;
   port = 5055;
   app-name = "jellyseerr";
   display-name = "Jellyseerr";
@@ -44,15 +43,13 @@ in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = app-name;
+      group = media.group.name;
       isSystemUser = true;
-      extraGroups = ["media"];
     };
-    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -           -             -   - "
-    "Z    ${local-config-dir}     -       ${app-name} ${app-name}   -   - "
+    "d    ${local-config-dir}     -       -           -                     -   - "
+    "Z    ${local-config-dir}     -       ${app-name} ${media.group.name}   -   - "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
@@ -65,7 +62,7 @@ in {
     ports = ["${toString port}:5055"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString gid}";
+      PGID = "${toString media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
     };

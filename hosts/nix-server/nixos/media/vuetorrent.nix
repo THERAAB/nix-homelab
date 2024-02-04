@@ -1,7 +1,6 @@
 {...}: let
   media = import ./media.properties.nix;
   uid = 9990;
-  gid = 2116;
   port = 8112;
   app-name = "vuetorrent";
   display-name = "Vuetorrent";
@@ -42,18 +41,16 @@ in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = app-name;
+      group = media.group.name;
       isSystemUser = true;
-      extraGroups = ["media"];
     };
-    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}/wireguard             -       -               -           -   -                               "
-    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -           -   -                               "
-    "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -           -   /run/secrets/wireguard_mullvad  "
-    "Z    ${local-config-dir}                       -       ${app-name}     ${app-name} -   -                               "
-    "Z    ${local-config-dir}/wireguard/wg0.conf    700     -               -           -   -                               "
+    "d    ${local-config-dir}/wireguard             -       -               -                   -   -                               "
+    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -                   -   -                               "
+    "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -                   -   /run/secrets/wireguard_mullvad  "
+    "Z    ${local-config-dir}                       -       ${app-name}     ${media.group.name} -   -                               "
+    "Z    ${local-config-dir}/wireguard/wg0.conf    700     -               -                   -   -                               "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
@@ -65,7 +62,7 @@ in {
     ports = ["${toString port}:8080" "8118:8118"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString gid}";
+      PGID = "${toString media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
       VPN_ENABLED = "true";

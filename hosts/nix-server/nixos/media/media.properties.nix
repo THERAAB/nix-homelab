@@ -6,4 +6,8 @@
     audiobooks = "/media/audiobooks";
     podcasts = "/media/podcasts";
   };
+  group = {
+    name = "media";
+    id = 11201;
+  };
 }
