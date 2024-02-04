@@ -58,7 +58,6 @@ in {
     users.${app-name} = {
       group = app-name;
       isSystemUser = true;
-      extraGroups = ["syncthing"];
     };
   };
   systemd = {
