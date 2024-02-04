@@ -47,8 +47,8 @@ in {
     groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -             -   -   - "
-    "Z    ${local-config-dir}     -       ${app-name}   -   -   - "
+    "d    ${local-config-dir}     -       -             -           -   - "
+    "Z    ${local-config-dir}     -       ${app-name}   syncthing   -   - "
   ];
   fileSystems."/sync/share/${app-name}" = {
     device = "${local-config-dir}";
