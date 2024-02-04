@@ -11,8 +11,8 @@ in {
     "d    ${local-dir}/Camera  -       -             -               -   - "
     "Z    ${local-dir}/share   770     -             ${app-name}     -   - "
     "Z    ${local-dir}/Camera  -       -             ${app-name}     -   - "
-  ];  
-  users.users."${app-name}".extraGroups = ["flatnotes"];
+  ];
+  users.users."${app-name}".extraGroups = ["photoprism"];
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
