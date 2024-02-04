@@ -65,6 +65,7 @@ in {
     ];
     environment = {
       PUID = "${toString uid}";
+      PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
       FLATNOTES_AUTH_TYPE = "none";
