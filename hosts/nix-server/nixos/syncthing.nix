@@ -10,7 +10,7 @@ in {
     "d    ${local-dir}/share   -       -             -               -   - "
     "d    ${local-dir}/Camera  -       -             -               -   - "
     "Z    ${local-dir}/share   770     -             ${app-name}     -   - "
-    "Z    ${local-dir}/Camera  -       ${app-name}   ${app-name}     -   - "
+    "Z    ${local-dir}/Camera  -       -             ${app-name}     -   - "
   ];  
   users.users."${app-name}".extraGroups = ["flatnotes"];
   services = {
