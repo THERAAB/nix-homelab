@@ -6,7 +6,7 @@
   local-dir = "/sync";
 in {
   systemd.tmpfiles.rules = [
-    # "d    ${local-dir}         -       -             -               -   - "
+    "d    ${local-dir}         -       -             -               -   - "
     # "d    ${local-dir}/share   -       -             -               -   - "
     "d    ${local-dir}/Camera  -       -             -               -   - "
     # "Z    ${local-dir}/share   770     ${app-name}   ${app-name}     -   - "
