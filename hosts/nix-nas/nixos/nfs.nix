@@ -6,7 +6,7 @@
 in {
   systemd.tmpfiles.rules = [
     "d    ${nfs-dir}      755  -  -       -   - "
-    "Z    ${media-dir}    777  -  media   -   - "
+    "Z    ${media-dir}    770  -  media   -   - "
     "Z    ${backups-dir}  755  -  restic  -   - "
   ];
   fileSystems = {
