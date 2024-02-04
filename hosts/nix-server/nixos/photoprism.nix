@@ -1,4 +1,8 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   port = 2342;
   app-name = "photoprism";
   display-name = "Photoprism";
@@ -63,7 +67,16 @@ in {
   systemd = {
     services."${app-name}-index-refresh" = {
       script = ''
-        /var/lib/private/photoprism/photoprism-manage index --cleanup
+        export PHOTOPRISM_ADMIN_USER='raab'
+        export PHOTOPRISM_HTTP_HOST='0.0.0.0'
+        export PHOTOPRISM_HTTP_PORT='2342'
+        export PHOTOPRISM_IMPORT_PATH='import'
+        export PHOTOPRISM_ORIGINALS_LIMIT='-1'
+        export PHOTOPRISM_ORIGINALS_PATH='/var/lib/private/photoprism/originals'
+        export PHOTOPRISM_READONLY='true'
+        export PHOTOPRISM_STORAGE_PATH='/var/lib/photoprism'
+        export PHOTOPRISM_UPLOAD_NSFW='true'
+        exec ${pkgs.photoprism}/bin/photoprism/photoprism index --cleanup
       '';
       after = ["${app-name}.service"];
       requires = ["${app-name}.service"];
