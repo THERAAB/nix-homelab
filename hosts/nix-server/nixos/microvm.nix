@@ -1,10 +1,10 @@
-{system, ...}: {
+{...}: {
   microvm.autostart = [
     "my-microvm"
   ];
   microvm.vms = {
     my-microvm = {
-      inherit system;
+      #inherit system;
       #microvm = {
       #  mem = 2048;
       #  vcpu = 1;
