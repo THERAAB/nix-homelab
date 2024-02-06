@@ -2,12 +2,12 @@
   microvm.autostart = [
     "my-microvm"
   ];
-  microvm = {
-    mem = 2048;
-    vcpu = 1;
-  };
   microvm.vms = {
     my-microvm = {
+      microvm = {
+        mem = 2048;
+        vcpu = 1;
+      };
       # The package set to use for the microvm. This also determines the microvm's architecture.
       # Defaults to the host system's package set if not given.
       # pkgs = import nixpkgs {system = "x86_64-linux";};
