@@ -29,6 +29,10 @@
             proto = "virtiofs";
           }
         ];
+        microvm = {
+          mem = 2048;
+          vcpu = 1;
+        };
 
         # Any other configuration for your MicroVM
         # [...]
