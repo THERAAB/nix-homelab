@@ -15,7 +15,9 @@
 
       # (Optional) A set of special arguments to be passed to the MicroVM's NixOS modules.
       #specialArgs = {};
-
+      system.stateVersion = "23.11";
+      users.users.root.password = "";
+      networking.hostName = "my-microvm";
       # The configuration for the MicroVM.
       # Multiple definitions will be merged as expected.
       config = {
