@@ -11,6 +11,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -19,6 +23,7 @@
     home-manager,
     impermanence,
     sops-nix,
+    microvm,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -58,7 +63,7 @@
           ./share/nixos
           ./hosts/nix-server/nixos
           sops-nix.nixosModules.sops
-
+          microvm.nixosModules.host
           home-manager.nixosModules.home-manager
           {
             home-manager = {
