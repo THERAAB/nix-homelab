@@ -1,4 +1,4 @@
-# Nix-Server
+# Nix-Nas
 
 A [NixOS](https://nixos.org/) configuration for my [selfhosted](https://www.reddit.com/r/selfhosted/) Network Attached Storage (NAS).
 This repo contains everything needed to rebuild my server from scratch, with the only manual steps being in [manual-setup.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-nas/manual-setup.md)
