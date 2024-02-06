@@ -1,9 +1,7 @@
 {...}: {
-  microvm.autostart = [
-    "my-microvm"
-  ];
-  microvm.vms = {
-    my-microvm.config = {
+  microvm = {
+    autostart = ["my-microvm"];
+    vms.my-microvm.config = {
       microvm = {
         shares = [
           {
