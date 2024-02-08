@@ -13,6 +13,7 @@
         ];
         mem = 2048;
         vcpu = 1;
+        hypervisor = "firecracker";
       };
       system.stateVersion = "23.11";
       users.users.root.password = "";
@@ -30,6 +31,7 @@
         ];
         mem = 2048;
         vcpu = 1;
+        hypervisor = "firecracker";
       };
       system.stateVersion = "23.11";
       users.users.root.password = "";
