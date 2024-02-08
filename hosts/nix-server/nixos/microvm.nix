@@ -13,7 +13,7 @@
         ];
         mem = 2048;
         vcpu = 1;
-        hypervisor = "cloud-hypervisor";
+        hypervisor = "crosvm";
       };
       system.stateVersion = "23.11";
       users.users.root.password = "";
@@ -31,7 +31,7 @@
         ];
         mem = 2048;
         vcpu = 1;
-        hypervisor = "cloud-hypervisor";
+        hypervisor = "crosvm";
       };
       system.stateVersion = "23.11";
       users.users.root.password = "";
