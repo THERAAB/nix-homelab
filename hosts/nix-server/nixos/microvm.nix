@@ -3,7 +3,7 @@
   systemd.network.enable = true;
 
   systemd.network.networks."10-lan" = {
-    matchConfig.Name = ["enp3s0" "vm-1"];
+    matchConfig.Name = ["enp3s0" "vm-*"];
     networkConfig = {
       Bridge = "br0";
     };
