@@ -3,17 +3,17 @@
     autostart = ["my-microvm"];
     vms.my-microvm.config = {
       microvm = {
-        shares = [
-          {
-            source = "/nix/store";
-            mountPoint = "/nix/.ro-store";
-            tag = "ro-store";
-            proto = "virtiofs";
-          }
-        ];
+        #shares = [
+        #  {
+        #    source = "/nix/store";
+        #    mountPoint = "/nix/.ro-store";
+        #    tag = "ro-store";
+        #    proto = "virtiofs";
+        #  }
+        #];
         mem = 2048;
         vcpu = 1;
-        hypervisor = "crosvm";
+        hypervisor = "firecracker";
       };
       system.stateVersion = "23.11";
       users.users.root.password = "";
@@ -21,17 +21,17 @@
     };
     vms.my-microvm2.config = {
       microvm = {
-        shares = [
-          {
-            source = "/nix/store";
-            mountPoint = "/nix/.ro-store";
-            tag = "ro-store";
-            proto = "virtiofs";
-          }
-        ];
+       # shares = [
+       #   {
+       #     source = "/nix/store";
+       #     mountPoint = "/nix/.ro-store";
+       #     tag = "ro-store";
+       #     proto = "virtiofs";
+       #   }
+       # ];
         mem = 2048;
         vcpu = 1;
-        hypervisor = "crosvm";
+        hypervisor = "firecracker";
       };
       system.stateVersion = "23.11";
       users.users.root.password = "";
