@@ -3,14 +3,14 @@
     autostart = ["my-microvm"];
     vms.my-microvm.config = {
       microvm = {
-        #shares = [
-        #  {
-        #    source = "/nix/store";
-        #    mountPoint = "/nix/.ro-store";
-        #    tag = "ro-store";
-        #    proto = "virtiofs";
-        #  }
-        #];
+        shares = [
+          {
+            source = "/nix/store";
+            mountPoint = "/nix/.ro-store";
+            tag = "ro-store";
+            proto = "virtiofs";
+          }
+        ];
         mem = 2048;
         vcpu = 1;
         hypervisor = "qemu";
@@ -21,14 +21,14 @@
     };
     vms.my-microvm2.config = {
       microvm = {
-       # shares = [
-       #   {
-       #     source = "/nix/store";
-       #     mountPoint = "/nix/.ro-store";
-       #     tag = "ro-store";
-       #     proto = "virtiofs";
-       #   }
-       # ];
+        shares = [
+          {
+            source = "/nix/store";
+            mountPoint = "/nix/.ro-store";
+            tag = "ro-store";
+            proto = "virtiofs";
+          }
+        ];
         mem = 2048;
         vcpu = 1;
         hypervisor = "qemu";
