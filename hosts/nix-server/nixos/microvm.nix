@@ -19,7 +19,7 @@
   systemd.network.networks."10-lan-bridge" = {
     matchConfig.Name = "br0";
     networkConfig = {
-      Address = ["192.168.3.3/24"];
+      Address = ["192.168.3.100/24"];
       Gateway = "192.168.3.1";
       DNS = ["192.168.3.2"];
       # IPv6AcceptRA = true;
@@ -57,7 +57,7 @@
       systemd.network.networks."20-lan" = {
         matchConfig.Type = "ether";
         networkConfig = {
-          Address = ["192.168.3.4/24"];
+          Address = ["192.168.3.100/24"];
           Gateway = "192.168.3.1";
           DNS = ["192.168.3.2"];
           #IPv6AcceptRA = true;
