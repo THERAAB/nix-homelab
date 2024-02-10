@@ -42,7 +42,7 @@
         settings.PermitRootLogin = "yes";
       };
       networking.nameservers = ["1.1.1.1"];
-      adguardhome = {
+      services.adguardhome = {
         mutableSettings = true;
         enable = true;
       };
