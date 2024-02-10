@@ -1,16 +1,4 @@
 {...}: {
-  systemd.network = {
-    enable = true;
-  };
-  # Allow DHCP server
-  networking.firewall.allowedUDPPorts = [67];
-  # Allow Internet access
-  networking.nat = {
-    enable = true;
-    enableIPv6 = true;
-    externalInterface = "enp3s0";
-    internalInterfaces = ["microvm"];
-  };
   microvm = {
     autostart = ["my-microvm"];
     vms.my-microvm.config = {
@@ -28,12 +16,14 @@
         hypervisor = "cloud-hypervisor";
         interfaces = [
           {
-            type = "tap";
+            type = "macvtap";
+            mode = "passthrough";
             id = "microvm";
             mac = "02:00:00:00:00:01";
           }
         ];
       };
+      
       system.stateVersion = "23.11";
       users.users.root.password = "";
       networking.hostName = "my-microvm";
