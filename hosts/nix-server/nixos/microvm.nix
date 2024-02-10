@@ -1,5 +1,5 @@
 {...}: {
-  caddy.virtualHosts."ag2.pumpkin.rodeo" = {
+  services.caddy.virtualHosts."ag2.pumpkin.rodeo" = {
     useACMEHost = "pumpkin.rodeo";
     extraConfig = ''
       encode zstd gzip
