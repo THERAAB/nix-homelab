@@ -1,4 +1,11 @@
 {...}: {
+  caddy.virtualHosts."ag2.pumpkin.rodeo" = {
+    useACMEHost = "pumpkin.rodeo";
+    extraConfig = ''
+      encode zstd gzip
+      reverse_proxy 192.168.3.100:3000
+    '';
+  };
   microvm = {
     autostart = ["my-microvm" "my-microvm2"];
     vms.my-microvm.config = {
@@ -34,6 +41,12 @@
         enable = true;
         settings.PermitRootLogin = "yes";
       };
+      networking.nameservers = ["1.1.1.1"];
+      adguardhome = {
+        mutableSettings = true;
+        enable = true;
+      };
+      networking.firewall.allowedTCPPorts = [3000];
     };
     vms.my-microvm2.config = {
       microvm = {
@@ -67,6 +80,7 @@
         enable = true;
         settings.PermitRootLogin = "yes";
       };
+      networking.nameservers = ["1.1.1.1"];
     };
   };
 }
