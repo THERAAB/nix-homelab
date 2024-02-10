@@ -1,6 +1,6 @@
 {...}: {
   microvm = {
-    autostart = ["my-microvm"];
+    autostart = ["my-microvm" "my-microvm2"];
     vms.my-microvm.config = {
       microvm = {
         shares = [
@@ -55,7 +55,7 @@
               mode = "bridge";
               link = "enp3s0";
             };
-            id = "microvm";
+            id = "microvm2";
             mac = "02:00:00:00:00:02";
           }
         ];
