@@ -26,7 +26,7 @@
           }
         ];
       };
-      
+
       system.stateVersion = "23.11";
       users.users.root.password = "";
       networking.hostName = "my-microvm";
@@ -48,10 +48,25 @@
         mem = 2048;
         vcpu = 1;
         hypervisor = "cloud-hypervisor";
+        interfaces = [
+          {
+            type = "macvtap";
+            macvtap = {
+              mode = "bridge";
+              link = "enp3s0";
+            };
+            id = "microvm";
+            mac = "02:00:00:00:00:02";
+          }
+        ];
       };
       system.stateVersion = "23.11";
       users.users.root.password = "";
       networking.hostName = "my-microvm2";
+      services.openssh = {
+        enable = true;
+        settings.PermitRootLogin = "yes";
+      };
     };
   };
 }
