@@ -25,7 +25,7 @@
           {
             type = "macvtap";
             macvtap = {
-              mode = "private";
+              mode = "source";
               link = "enp3s0";
             };
             id = "microvm";
