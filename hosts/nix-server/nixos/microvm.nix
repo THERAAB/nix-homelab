@@ -49,10 +49,11 @@
           }
         ];
       };
+      networking.interfaces.eth0.useDHCP = true;
       system.stateVersion = "23.11";
       users.users.root.password = "";
       networking.hostName = "my-microvm";
-      systemd.network.enable = true;
+      # systemd.network.enable = true;
 
       #systemd.network.networks."20-lan" = {
       #  matchConfig.Type = "ether";
