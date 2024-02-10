@@ -53,6 +53,11 @@
       system.stateVersion = "23.11";
       users.users.root.password = "";
       networking.hostName = "my-microvm";
+      networking.firewall.allowedTCPPorts = [22];
+      services.openssh = {
+        enable = true;
+        settings.PermitRootLogin = "yes";
+      };
       # systemd.network.enable = true;
 
       #systemd.network.networks."20-lan" = {
