@@ -21,7 +21,7 @@
     networkConfig = {
       Address = ["192.168.3.2/24"];
       Gateway = "192.168.3.1";
-      DNS = ["192.168.3.2"];
+      DNS = ["1.1.1.1"];
       # IPv6AcceptRA = true;
     };
     linkConfig.RequiredForOnline = "routable";
@@ -44,7 +44,7 @@
         interfaces = [
           {
             type = "tap";
-            id = "vm-1";
+            id = "vm-test1";
             mac = "02:00:00:00:00:01";
           }
         ];
@@ -59,7 +59,7 @@
         networkConfig = {
           Address = ["192.168.3.3/24"];
           Gateway = "192.168.3.1";
-          DNS = ["192.168.3.2"];
+          DNS = ["1.1.1.1"];
           #IPv6AcceptRA = true;
           DHCP = "no";
         };
