@@ -17,7 +17,10 @@
         interfaces = [
           {
             type = "macvtap";
-            mode = "passthrough";
+            macvtap = {
+              mode = "passthru";
+              link = "enp3s0";
+            };
             id = "microvm";
             mac = "02:00:00:00:00:01";
           }
