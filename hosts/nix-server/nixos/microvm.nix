@@ -68,7 +68,7 @@
               mode = "bridge";
               link = "enp3s0";
             };
-            id = "microvm";
+            id = "microvm2";
             mac = "02:00:00:00:00:02";
           }
         ];
