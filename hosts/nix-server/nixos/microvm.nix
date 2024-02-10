@@ -2,29 +2,31 @@
   #networking.useNetworkd = true;
   systemd.network.enable = true;
 
-  systemd.network.networks."10-lan" = {
-    matchConfig.Name = ["enp3s0" "vm-*"];
-    networkConfig = {
-      Bridge = "br0";
-    };
-  };
-
-  systemd.network.netdevs."br0" = {
-    netdevConfig = {
-      Name = "br0";
+  systemd.network = {
+    netdevs."10-microvm".netdevConfig = {
       Kind = "bridge";
+      Name = "microvm";
     };
-  };
-
-  systemd.network.networks."10-lan-bridge" = {
-    matchConfig.Name = "br0";
-    networkConfig = {
-      Address = ["192.168.3.2/24"];
-      Gateway = "192.168.3.1";
-      DNS = ["1.1.1.1"];
-      IPv6AcceptRA = true;
+    networks."10-microvm" = {
+      matchConfig.Name = "microvm";
+      networkConfig = {
+        DHCPServer = true;
+        IPv6SendRA = true;
+      };
+      addresses = [
+        {
+          addressConfig.Address = "10.0.0.1/24";
+        }
+        {
+          addressConfig.Address = "fd12:3456:789a::1/64";
+        }
+      ];
+      ipv6Prefixes = [
+        {
+          ipv6PrefixConfig.Prefix = "fd12:3456:789a::/64";
+        }
+      ];
     };
-    linkConfig.RequiredForOnline = "routable";
   };
   microvm = {
     autostart = ["my-microvm"];
@@ -49,7 +51,7 @@
           }
         ];
       };
-    #  networking.interfaces.eth0.useDHCP = true;
+      #  networking.interfaces.eth0.useDHCP = true;
       system.stateVersion = "23.11";
       users.users.root.password = "";
       networking.hostName = "my-microvm";
@@ -58,16 +60,12 @@
         enable = true;
         settings.PermitRootLogin = "yes";
       };
-       systemd.network.enable = true;
-
-      systemd.network.networks."20-lan" = {
-        matchConfig.Type = "ether";
-        networkConfig = {
-          Address = ["192.168.3.3/24"];
-          Gateway = "192.168.3.1";
-          DNS = ["1.1.1.1"];
-          IPv6AcceptRA = true;
-          DHCP = "no";
+      systemd.network.enable = true;
+      systemd.network = {
+        networks."11-microvm" = {
+          matchConfig.Name = "vm-*";
+          # Attach to the bridge that was configured above
+          networkConfig.Bridge = "microvm";
         };
       };
     };
