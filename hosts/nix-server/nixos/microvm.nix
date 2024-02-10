@@ -3,7 +3,7 @@
     useACMEHost = "pumpkin.rodeo";
     extraConfig = ''
       encode zstd gzip
-      reverse_proxy 192.168.3.100:3000
+      reverse_proxy 192.168.3.3:3000
     '';
   };
   microvm = {
