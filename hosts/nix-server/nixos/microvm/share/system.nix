@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   microvm = {
     shares = [
       {
@@ -35,4 +39,14 @@
     enable = true;
   };
   networking.nameservers = ["1.1.1.1"];
+  time.timeZone = "America/New_York";
+  i18n.defaultLocale = "en_US.utf8";
+  environment.shells = with pkgs; [fish];
+  users.defaultUserShell = pkgs.fish;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+    '';
+  };
 }
