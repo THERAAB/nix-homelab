@@ -41,7 +41,6 @@
   networking.nameservers = ["1.1.1.1"];
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.utf8";
-  environment.shells = with pkgs; [fish];
   users.defaultUserShell = pkgs.fish;
   programs.fish = {
     enable = true;
@@ -49,4 +48,14 @@
       set fish_greeting # Disable greeting
     '';
   };
+  environment = {
+    variables = {
+      EDITOR = "nvim";
+      term = "xterm-256color";
+    };
+    shells = with pkgs; [fish];
+  };
+  environment.systemPackages = with pkgs; [
+    neovim
+  ];
 }
