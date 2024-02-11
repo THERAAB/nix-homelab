@@ -51,7 +51,7 @@
   environment = {
     variables = {
       EDITOR = "nvim";
-      term = "xterm-256color";
+      TERM = "xterm-256color";
     };
     shells = with pkgs; [fish];
   };
