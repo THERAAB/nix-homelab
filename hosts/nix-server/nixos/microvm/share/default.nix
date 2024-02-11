@@ -1,6 +1,5 @@
 {...}: {
   imports = [
     ./system.nix
-    ./adguard.nix
   ];
 }

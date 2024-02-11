@@ -85,6 +85,7 @@
         modules = [
           microvm.nixosModules.microvm
           ./hosts/nix-server/nixos/microvm/micro1
+          ./hosts/nix-server/nixos/microvm/share
         ];
       };
       nix-nas = nixpkgs.lib.nixosSystem {
