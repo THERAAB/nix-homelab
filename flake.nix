@@ -55,7 +55,7 @@
     overlays = import ./share/lib/overlays;
     nixosConfigurations = {
       nix-server = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs self;};
         modules = [
           impermanence.nixosModules.impermanence
           ./share/lib/modules/nixos/yamlConfigMaker
@@ -85,9 +85,6 @@
         modules = [
           microvm.nixosModules.microvm
           ./hosts/nix-server/nixos/microvm/micro1
-          {
-            specialArgs = {inherit inputs outputs;};
-          }
         ];
       };
       nix-nas = nixpkgs.lib.nixosSystem {
