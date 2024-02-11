@@ -26,6 +26,6 @@
     ./pkgs.nix
     ./auto-upgrade.nix
     ./restic.nix
-    ./microvm.nix
+    ./microvm
   ];
 }

@@ -80,6 +80,13 @@
           }
         ];
       };
+      micro1 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./hosts/nix-server/nixos/microvm/micro1
+          microvm.nixosModules.microvm
+        ];
+      };
       nix-nas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
