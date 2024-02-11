@@ -88,6 +88,14 @@
           ./hosts/nix-server/nixos/microvm/share
         ];
       };
+      micro2 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          microvm.nixosModules.microvm
+          ./hosts/nix-server/nixos/microvm/micro2
+          ./hosts/nix-server/nixos/microvm/share
+        ];
+      };
       nix-nas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
