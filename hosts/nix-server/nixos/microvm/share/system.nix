@@ -16,7 +16,6 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   system.stateVersion = "23.11";
   users.users.root.password = "";
-  networking.hostName = "micro1";
   services.openssh = {
     enable = true;
     settings.PermitRootLogin = "yes";
