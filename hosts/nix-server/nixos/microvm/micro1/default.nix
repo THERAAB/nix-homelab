@@ -11,7 +11,6 @@
     #./photoprism.nix
     ./unifi.nix
     ./podman.nix
-    ./harmonia.nix
     ./gotify.nix
     ./linkding.nix
     ./flatnotes.nix
