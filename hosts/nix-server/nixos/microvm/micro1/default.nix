@@ -11,12 +11,12 @@
     #./photoprism.nix
     ./unifi.nix
     ./podman.nix
-    #./harmonia.nix
-    #./gotify.nix
-    #./linkding.nix
-    #./flatnotes.nix
-    #./microbin.nix
-    #./filebrowser.nix
+    ./harmonia.nix
+    ./gotify.nix
+    ./linkding.nix
+    ./flatnotes.nix
+    ./microbin.nix
+    ./filebrowser.nix
     ./system.nix
     ./configuration.nix
     ./media.nix
