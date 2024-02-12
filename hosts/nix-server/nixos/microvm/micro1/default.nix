@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    #./home-assistant
+    ./home-assistant
     ./homer
     ./media
     ./gatus
@@ -8,8 +8,8 @@
     ./adguard
     #./caddy.nix
     ./users.nix
-    #./photoprism.nix
-    #./unifi.nix
+    ./photoprism.nix
+    ./unifi.nix
     ./podman.nix
     #./harmonia.nix
     #./gotify.nix
