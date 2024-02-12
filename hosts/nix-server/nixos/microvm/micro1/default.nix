@@ -18,5 +18,6 @@
     #./microbin.nix
     #./filebrowser.nix
     ./system.nix
+    ./configuration.nix
   ];
 }
