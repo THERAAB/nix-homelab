@@ -1,11 +1,11 @@
 {...}: {
   imports = [
     #./home-assistant
-    #./homer
+    ./homer
     ./media
     ./gatus
     ./olivetin
-    #./adguard
+    ./adguard
     #./caddy.nix
     ./users.nix
     #./photoprism.nix
