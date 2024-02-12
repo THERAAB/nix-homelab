@@ -40,7 +40,7 @@
   services.openssh = {
     enable = true;
   };
-  networking.nameservers = ["1.1.1.1"];
+  #networking.nameservers = ["1.1.1.1"];
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.utf8";
   environment = {
