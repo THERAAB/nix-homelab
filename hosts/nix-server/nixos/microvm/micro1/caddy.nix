@@ -11,7 +11,7 @@ in {
     acceptTerms = true;
     defaults = {
       email = "example@aol.com";
-      credentialsFile = config.sops.secrets.cloudflare_dns_secret.path;
+      #credentialsFile = config.sops.secrets.cloudflare_dns_secret.path;
       dnsProvider = "cloudflare";
       dnsResolver = "1.1.1.1:53";
     };

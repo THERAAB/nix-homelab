@@ -6,7 +6,7 @@
     ./gatus
     ./olivetin
     ./adguard
-    #./caddy.nix
+    ./caddy.nix
     ./users.nix
     #./photoprism.nix
     ./unifi.nix
