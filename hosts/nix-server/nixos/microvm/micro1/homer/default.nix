@@ -53,6 +53,7 @@ in {
     };
   };
   systemd.tmpfiles.rules = [
+    "d    ${config-dir}                 -   -               -               -   -                     "
     "R    ${config-dir}/icons           -   -               -               -   -                     "
     "C    ${config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
     "Z    ${config-dir}                 -   ${app-name}     ${app-name}     -   -                     "
