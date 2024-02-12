@@ -84,6 +84,8 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           microvm.nixosModules.microvm
+          ./share/lib/modules/nixos/yamlConfigMaker
+          ./share/lib/modules/nixos/olivetin
           ./hosts/nix-server/nixos/microvm/micro1
           ./hosts/nix-server/nixos/microvm/share
         ];
