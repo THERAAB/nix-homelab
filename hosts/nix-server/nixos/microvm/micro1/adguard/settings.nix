@@ -1,5 +1,5 @@
 let
-  network = import ../../../../share/network.properties.nix;
+  network = import ../../../../../share/network.properties.nix;
   port = 3000;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
