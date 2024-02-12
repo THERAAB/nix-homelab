@@ -19,5 +19,6 @@
     #./filebrowser.nix
     ./system.nix
     ./configuration.nix
+    ./media.nix
   ];
 }
