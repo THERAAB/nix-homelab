@@ -37,7 +37,7 @@ in {
     };
     microbin = {
       enable = true;
-      passwordFile = config.sops.secrets.df_password.path;
+      # passwordFile = config.sops.secrets.df_password.path;
       settings = {
         MICROBIN_PORT = port;
       };
