@@ -12,8 +12,10 @@
         proto = "virtiofs";
       }
     ];
-    mem = 2048;
-    vcpu = 1;
+    #mem = 2048;
+    mem = 16384;
+    #vcpu = 1;
+    vcpu = 2;
     hypervisor = "cloud-hypervisor";
   };
 
