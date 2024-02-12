@@ -50,7 +50,7 @@ in {
       };
       address = "0.0.0.0";
       originalsPath = "${originals-dir}";
-      passwordFile = config.sops.secrets.df_password.path;
+      # passwordFile = config.sops.secrets.df_password.path;
     };
   };
   fileSystems."${originals-dir}" = {
