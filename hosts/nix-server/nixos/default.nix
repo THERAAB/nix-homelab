@@ -12,7 +12,7 @@
     ./users.nix
     ./hardware.nix
     ./sops.nix
-    #./photoprism.nix
+    ./photoprism.nix
     ./unifi.nix
     ./podman.nix
     ./harmonia.nix
