@@ -1,21 +1,21 @@
 {...}: {
   imports = [
-    ./home-assistant
-    ./homer
-    ./media
-    ./gatus
+    #./home-assistant
+    #./homer
+    #./media
+    #./gatus
     ./adguard
-    ./caddy.nix
-    ./users.nix
+    #./caddy.nix
+    #./users.nix
     #./photoprism.nix
-    ./unifi.nix
-    ./podman.nix
-    ./gotify.nix
-    ./linkding.nix
-    ./flatnotes.nix
-    ./microbin.nix
-    ./filebrowser.nix
+    #./unifi.nix
+    #./podman.nix
+    #./gotify.nix
+    #./linkding.nix
+    #./flatnotes.nix
+    #./microbin.nix
+    #./filebrowser.nix
     ./system.nix
-    ./media.nix
+    #./media.nix
   ];
 }
