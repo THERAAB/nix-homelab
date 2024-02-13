@@ -12,11 +12,9 @@
         proto = "virtiofs";
       }
     ];
-    #mem = 2048;
     mem = 16384;
-    #vcpu = 1;
     vcpu = 2;
-    hypervisor = "cloud-hypervisor";
+    hypervisor = lib.mkDefault "cloud-hypervisor";
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
@@ -40,7 +38,6 @@
   services.openssh = {
     enable = true;
   };
-  #networking.nameservers = ["1.1.1.1"];
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.utf8";
   environment = {
@@ -48,8 +45,9 @@
       EDITOR = "nvim";
       TERM = "xterm-256color";
     };
+    environment.systemPackages = with pkgs; [
+      neovim
+    ];
   };
-  environment.systemPackages = with pkgs; [
-    neovim
-  ];
+  networking.firewall.enable = true;
 }

@@ -4,7 +4,6 @@
     ./homer
     ./media
     ./gatus
-    ./olivetin
     ./adguard
     ./caddy.nix
     ./users.nix
@@ -17,7 +16,6 @@
     ./microbin.nix
     ./filebrowser.nix
     ./system.nix
-    ./configuration.nix
     ./media.nix
   ];
 }
