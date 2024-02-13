@@ -7,7 +7,7 @@
     ./adguard
     ./caddy.nix
     ./users.nix
-    #./photoprism.nix
+    ./photoprism.nix
     ./unifi.nix
     ./podman.nix
     ./gotify.nix
