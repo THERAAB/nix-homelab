@@ -49,7 +49,7 @@ in {
       #    PHOTOPRISM_READONLY = "true";
       #  };
       #  address = "0.0.0.0";
-      #  originalsPath = "${originals-dir}";
+      originalsPath = "${originals-dir}";
       # passwordFile = config.sops.secrets.df_password.path;
     };
   };
