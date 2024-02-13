@@ -41,7 +41,7 @@ in {
       '';
     };
     ${app-name} = {
-      enable = true;
+      enable = false;
       settings = {
         PHOTOPRISM_ADMIN_USER = "raab";
         PHOTOPRISM_UPLOAD_NSFW = "true";
