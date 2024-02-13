@@ -9,7 +9,7 @@
   network = import ../../../../../share/network.properties.nix;
   originals-dir = "/var/lib/private/photoprism/originals";
 in {
-  config.environment.noXlibs = false;
+  environment.noXlibs = false;
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
