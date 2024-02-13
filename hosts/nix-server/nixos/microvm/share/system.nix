@@ -45,7 +45,7 @@
       EDITOR = "nvim";
       TERM = "xterm-256color";
     };
-    environment.systemPackages = with pkgs; [
+    systemPackages = with pkgs; [
       neovim
     ];
   };
