@@ -37,9 +37,9 @@ in {
       '';
     };
     adguardhome = {
-      #mutableSettings = false;
+      mutableSettings = false;
       enable = true;
-      #settings = settings;
+      settings = settings;
     };
   };
   networking.firewall.allowedTCPPorts = [port];

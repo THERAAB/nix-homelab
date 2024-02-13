@@ -2,9 +2,10 @@ let
   network = import ../../../../../../share/network.properties.nix;
   port = 3000;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
+  bind-host = "192.168.3.115";
 in {
   settings = {
-    bind_host = "0.0.0.0";
+    bind_host = bind-host;
     bind_port = port;
     users = [
       {
@@ -15,7 +16,7 @@ in {
     theme = "auto";
     dns = {
       ratelimit = 0;
-      bind_hosts = ["0.0.0.0"];
+      bind_hosts = [bind-host];
       port = 53;
       upstream_dns = ["${network.pfSense.local.ip}"];
       protection_enabled = true;
