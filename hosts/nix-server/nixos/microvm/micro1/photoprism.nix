@@ -40,23 +40,23 @@ in {
         reverse_proxy 127.0.0.1:${toString port}
       '';
     };
-    #${app-name} = {
-    #  enable = true;
-    #  settings = {
-    #    PHOTOPRISM_ADMIN_USER = "raab";
-    #    PHOTOPRISM_UPLOAD_NSFW = "true";
-    #    PHOTOPRISM_ORIGINALS_LIMIT = "-1";
-    #    PHOTOPRISM_READONLY = "true";
-    #  };
-    #  address = "0.0.0.0";
-    #  originalsPath = "${originals-dir}";
+    ${app-name} = {
+      enable = true;
+      settings = {
+        PHOTOPRISM_ADMIN_USER = "raab";
+        PHOTOPRISM_UPLOAD_NSFW = "true";
+        PHOTOPRISM_ORIGINALS_LIMIT = "-1";
+        PHOTOPRISM_READONLY = "true";
+      };
+      address = "0.0.0.0";
+      originalsPath = "${originals-dir}";
       # passwordFile = config.sops.secrets.df_password.path;
-    #};
+    };
   };
-  fileSystems."${originals-dir}" = {
-    device = "/sync/Camera";
-    options = ["bind"];
-  };
+  #fileSystems."${originals-dir}" = {
+  #  device = "/sync/Camera";
+  #  options = ["bind"];
+  #};
   users = {
     groups.photoprism = {};
     users.${app-name} = {
