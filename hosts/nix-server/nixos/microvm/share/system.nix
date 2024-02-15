@@ -14,7 +14,7 @@
     ];
     mem = 16384;
     vcpu = 2;
-    hypervisor = lib.mkDefault "cloud-hypervisor";
+    # hypervisor = lib.mkDefault "cloud-hypervisor";
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
