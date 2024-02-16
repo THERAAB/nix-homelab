@@ -1,4 +1,4 @@
-{config, ...}: let
+{...}: let
   uid = 7812;
   gid = 7813;
   port = 8443;
