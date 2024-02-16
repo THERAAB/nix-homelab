@@ -1,4 +1,4 @@
-{config, ...}: let
+{...}: let
   port = 9080;
   app-name = "microbin";
   display-name = "Microbin";
@@ -37,7 +37,7 @@ in {
     };
     microbin = {
       enable = true;
-      # passwordFile = config.sops.secrets.df_password.path;
+      passwordFile = "/run/secrets/df_password";
       settings = {
         MICROBIN_PORT = port;
       };

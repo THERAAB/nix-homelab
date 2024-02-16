@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   port = 2342;
   app-name = "photoprism";
   display-name = "Photoprism";
@@ -51,7 +47,7 @@ in {
       };
       address = "0.0.0.0";
       originalsPath = "${originals-dir}";
-      # passwordFile = config.sops.secrets.df_password.path;
+      passwordFile = "/run/secrets/df_password";
     };
   };
   fileSystems."${originals-dir}" = {

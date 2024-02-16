@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   uid = 901;
   gid = 901;
   port = 7000;
@@ -53,14 +49,14 @@ in {
     ];
     services = {
       # Add secret for gotify
-      #"yamlPatcher-${app-name}" = {
-      #  script = ''
-      #    TOKEN=`cat ${config.sops.secrets.gotify_gatus_token.path}`
-      #    ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
-      #  '';
-      #  wantedBy = ["yamlConfigMaker-gatus.service"];
-      #  after = ["yamlConfigMaker-gatus.service"];
-      #};
+      "yamlPatcher-${app-name}" = {
+        script = ''
+          TOKEN=`cat /run/secrets/gotify_gatus_token`
+          ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
+        '';
+        wantedBy = ["yamlConfigMaker-gatus.service"];
+        after = ["yamlConfigMaker-gatus.service"];
+      };
       # Delay gatus start because it needs adguard to setup first
       # Otherwise local DNS record lookups will fail.
       "podman-${app-name}" = {

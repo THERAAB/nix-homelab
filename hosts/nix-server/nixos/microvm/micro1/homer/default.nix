@@ -58,6 +58,11 @@ in {
     "C    ${config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
     "Z    ${config-dir}                 -   ${app-name}     ${app-name}     -   -                     "
   ];
+  microvm.shares = {
+    proto = "virtiofs";
+    source = "${config-dir}/icons";
+    mountPoint = "${config-dir}/icons";
+  };
   users = {
     groups.${app-name}.gid = gid;
     users.${app-name} = {

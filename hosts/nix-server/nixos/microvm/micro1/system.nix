@@ -21,6 +21,11 @@
         path = "vendorid=0x1a86,productid=0x55d4";
       }
     ];
+    shares = {
+      proto = "virtiofs";
+      source = "/run/secrets/";
+      mountPoint = "/run/secrets/";
+    };
   };
   networking = {
     hostName = "micro1";
