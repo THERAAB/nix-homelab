@@ -24,8 +24,8 @@
     shares = [
       {
         proto = "virtiofs";
-        source = "/run/secrets/";
-        mountPoint = "/run/secrets/";
+        source = "/run/secrets";
+        mountPoint = "/run/secrets";
       }
     ];
   };
