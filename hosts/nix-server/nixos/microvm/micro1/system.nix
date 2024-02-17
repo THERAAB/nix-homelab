@@ -32,7 +32,7 @@
         proto = "virtiofs";
         source = "/var/lib/microvms/micro1/storage/etc/ssh";
         mountPoint = "/etc/ssh";
-        tag = "secrets";
+        tag = "ssh";
       }
     ];
   };
