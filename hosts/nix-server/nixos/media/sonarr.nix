@@ -3,33 +3,10 @@
   uid = 9995;
   port = 8989;
   app-name = "sonarr";
-  display-name = "Sonarr";
   local-config-dir = "/var/lib/${app-name}/";
   network = import ../../../../share/network.properties.nix;
 in {
   services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://tv.${network.domain}/health";
-        conditions = [
-          "[STATUS] == 200"
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."tv.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''

@@ -3,8 +3,8 @@
     #./home-assistant
     #./homer
     #./media
-    ./gatus
-    ./olivetin
+    #./gatus
+    #./olivetin
     #./adguard
     ./hardware-configuration.nix
     #./caddy.nix

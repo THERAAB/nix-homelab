@@ -20,30 +20,7 @@ in {
         path = "${config-dir}/config.yml";
         settings = config;
       };
-      gatus.settings.endpoints = [
-        {
-          name = "${display-name}";
-          url = "https://${network.domain}/";
-          conditions = [
-            "[STATUS] == 200"
-            ''[BODY] == pat(*<div id="app-mount"></div>*)''
-          ];
-          alerts = [
-            {
-              type = "gotify";
-            }
-          ];
-        }
-      ];
     };
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/pwa-192x192.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."${network.domain}" = {
       useACMEHost = "${network.domain}-tld";
       extraConfig = ''

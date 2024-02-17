@@ -3,34 +3,11 @@
   gid = 7643;
   port = 9940;
   app-name = "filebrowser";
-  display-name = "File Browser";
   local-config-dir = "/var/lib/${app-name}/";
   dir-to-share = "/sync";
   network = import ../../../share/network.properties.nix;
 in {
   services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://files.${network.domain}";
-        conditions = [
-          "[STATUS] == 200"
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."files.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
