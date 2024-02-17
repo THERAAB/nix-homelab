@@ -38,6 +38,14 @@ in {
       '';
     };
   };
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = local-config-dir;
+      mountPoint = local-config-dir;
+      tag = app-name;
+    }
+  ];
   users = {
     users."${app-name}" = {
       uid = uid;
