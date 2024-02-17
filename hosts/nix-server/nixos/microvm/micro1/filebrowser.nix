@@ -23,14 +23,6 @@ in {
         ];
       }
     ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."files.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''

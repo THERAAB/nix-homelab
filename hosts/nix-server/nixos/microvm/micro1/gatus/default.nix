@@ -3,7 +3,6 @@
   gid = 901;
   port = 7000;
   app-name = "gatus";
-  display-name = "Gatus";
   local-config-dir = "/var/lib/${app-name}/";
   cfg = import ./config.nix;
   network = import ../../../../../../share/network.properties.nix;
@@ -18,14 +17,6 @@ in {
         };
       };
     };
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
