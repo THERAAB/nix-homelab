@@ -81,7 +81,7 @@
         ];
       };
       micro1 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs self;};
         modules = [
           microvm.nixosModules.microvm
           ./share/lib/modules/nixos/yamlConfigMaker
