@@ -1,4 +1,8 @@
-{...}: {
+{
+  self,
+  config,
+  ...
+}: {
   microvm = {
     interfaces = [
       {
@@ -28,6 +32,13 @@
         mountPoint = "/run/secrets";
         tag = "secrets";
       }
+      {
+        source = "/var/lib/microvms/${config.networking.hostName}/journal";
+        mountPoint = "/var/log/journal";
+        tag = "journal";
+        proto = "virtiofs";
+        socket = "journal.sock";
+      }
     ];
   };
   networking = {
@@ -37,6 +48,11 @@
       allowedTCPPorts = [80 443];
       allowedUDPPorts = [53];
     };
+  };
+  environment.etc."machine-id" = {
+    mode = "0644";
+    text =
+      self.lib.addresses.machineId.${config.networking.hostName} + "\n";
   };
   #services.tailscale = {
   #  enable = true;
