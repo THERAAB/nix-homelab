@@ -20,7 +20,7 @@ curl https://am.i.mullvad.net/json
 
 ### Check privoxy
 
-- Set firefox proxy to https://${network.nix-server.local.ip}:8118
+- Set firefox proxy to https://${network.micro1.local.ip}:8118
 - Verify with these:
   - https://iknowwhatyoudownload.com
   - https://mullvad.net/en/check/

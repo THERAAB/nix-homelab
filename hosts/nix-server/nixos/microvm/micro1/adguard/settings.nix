@@ -2,10 +2,9 @@ let
   network = import ../../../../../../share/network.properties.nix;
   port = 3000;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
-  bind-host = "192.168.3.115";
 in {
   settings = {
-    bind_host = bind-host;
+    bind_host = network.micro1.local.ip;
     bind_port = port;
     users = [
       {
@@ -16,7 +15,7 @@ in {
     theme = "auto";
     dns = {
       ratelimit = 0;
-      bind_hosts = [bind-host];
+      bind_hosts = [network.micro1.local.ip];
       port = 53;
       upstream_dns = ["${network.pfSense.local.ip}"];
       protection_enabled = true;
@@ -27,11 +26,11 @@ in {
       rewrites = [
         {
           domain = "${network.domain}";
-          answer = "${network.nix-server.local.ip}";
+          answer = "${network.micro1.local.ip}";
         }
         {
           domain = "*.${network.domain}";
-          answer = "${network.nix-server.local.ip}";
+          answer = "${network.micro1.local.ip}";
         }
       ];
     };
