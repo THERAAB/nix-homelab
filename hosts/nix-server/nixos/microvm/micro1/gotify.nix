@@ -3,7 +3,16 @@
   app-name = "gotify";
   display-name = "Gotify";
   network = import ../../../../../share/network.properties.nix;
+  local-config-dir = "/var/lib/private/gotify-server";
 in {
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = local-config-dir;
+      mountPoint = local-config-dir;
+      tag = app-name;
+    }
+  ];
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {

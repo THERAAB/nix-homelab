@@ -5,6 +5,7 @@
   app-name = "home-assistant";
   display-name = "Home Assistant";
   network = import ../../../../../../share/network.properties.nix;
+  local-config-dir = "/var/lib/haas";
 in {
   imports = [
     ./kasa-living-room-light.nix
@@ -22,6 +23,14 @@ in {
     "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
+  ];
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = local-config-dir;
+      mountPoint = local-config-dir;
+      tag = app-name;
+    }
   ];
   networking.firewall.allowedTCPPorts = [port];
   services = {

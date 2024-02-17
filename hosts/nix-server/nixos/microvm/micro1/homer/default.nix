@@ -4,7 +4,7 @@
   port = 8082;
   app-name = "homer";
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
-  config-dir = "/var/lib/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}";
   config = import ./config.nix;
   network = import ../../../../../../share/network.properties.nix;
   display-name = "Homer";
@@ -14,10 +14,24 @@
     TZ = "America/New_York";
   };
 in {
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = local-config-dir;
+      mountPoint = local-config-dir;
+      tag = app-name;
+    }
+    {
+      proto = "virtiofs";
+      source = system-icons-dir;
+      mountPoint = "${local-config-dir}/icons";
+      tag = "${app-name}-icons";
+    }
+  ];
   services = {
     yamlConfigMaker = {
       "${app-name}" = {
-        path = "${config-dir}/config.yml";
+        path = "${local-config-dir}/config.yml";
         settings = config;
       };
       gatus.settings.endpoints = [
@@ -45,10 +59,8 @@ in {
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${config-dir}                 -   -               -               -   -                     "
-    "R    ${config-dir}/icons           -   -               -               -   -                     "
-    "C    ${config-dir}/icons           -   -               -               -   ${system-icons-dir}   "
-    "Z    ${config-dir}                 -   ${app-name}     ${app-name}     -   -                     "
+    "d    ${local-config-dir}                 -   -               -               -   -                     "
+    "Z    ${local-config-dir}                 -   ${app-name}     ${app-name}     -   -                     "
   ];
   users = {
     groups.${app-name}.gid = gid;
@@ -62,7 +74,7 @@ in {
     autoStart = true;
     image = "docker.io/b4bz/${app-name}";
     volumes = [
-      "${config-dir}:/www/assets"
+      "${local-config-dir}:/www/assets"
     ];
     ports = ["${toString port}:8080"];
     user = "${toString uid}";

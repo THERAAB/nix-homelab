@@ -3,10 +3,18 @@
   gid = 901;
   port = 7000;
   app-name = "gatus";
-  local-config-dir = "/var/lib/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}";
   cfg = import ./config.nix;
   network = import ../../../../../../share/network.properties.nix;
 in {
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = local-config-dir;
+      mountPoint = local-config-dir;
+      tag = app-name;
+    }
+  ];
   services = {
     yamlConfigMaker = {
       gatus = {

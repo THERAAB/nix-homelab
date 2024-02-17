@@ -3,7 +3,16 @@
   app-name = "microbin";
   display-name = "Microbin";
   network = import ../../../../../share/network.properties.nix;
+  local-config-dir = "/var/lib/private/microbin";
 in {
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = local-config-dir;
+      mountPoint = local-config-dir;
+      tag = app-name;
+    }
+  ];
   networking.firewall.allowedTCPPorts = [port];
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [

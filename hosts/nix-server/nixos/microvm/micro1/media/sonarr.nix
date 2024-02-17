@@ -4,9 +4,17 @@
   port = 8989;
   app-name = "sonarr";
   display-name = "Sonarr";
-  local-config-dir = "/var/lib/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}";
   network = import ../../../../../../share/network.properties.nix;
 in {
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = local-config-dir;
+      mountPoint = local-config-dir;
+      tag = app-name;
+    }
+  ];
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {

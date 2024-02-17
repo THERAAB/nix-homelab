@@ -60,6 +60,7 @@
     mode = "0644";
     text = "2bac078a34d34a28bf782462b102720a\n";
   };
+  environment.noXlibs = false;
   #services.tailscale = {
   #  enable = true;
   #  extraUpFlags = ["--ssh"];
