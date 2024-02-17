@@ -1,5 +1,5 @@
 {
-  self,
+  lib,
   config,
   ...
 }: {
@@ -52,7 +52,7 @@
   environment.etc."machine-id" = {
     mode = "0644";
     text =
-      self.lib.addresses.machineId.${config.networking.hostName} + "\n";
+      lib.addresses.machineId.${config.networking.hostName} + "\n";
   };
   #services.tailscale = {
   #  enable = true;
