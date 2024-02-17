@@ -28,6 +28,12 @@
         mountPoint = "/run/secrets";
         tag = "secrets";
       }
+      {
+        proto = "virtiofs";
+        source = "/var/lib/acme";
+        mountPoint = "/var/lib/acme";
+        tag = "acme";
+      }
       #{
       #  proto = "virtiofs";
       #  source = "/var/lib/microvms/micro1/storage/etc/ssh";
