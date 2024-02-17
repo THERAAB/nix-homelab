@@ -34,6 +34,12 @@
         mountPoint = "/var/lib/acme";
         tag = "acme";
       }
+      {
+        proto = "virtiofs";
+        source = "/var/lib/containers";
+        mountPoint = "/var/lib/containers";
+        tag = "containers";
+      }
       #{
       #  proto = "virtiofs";
       #  source = "/var/lib/microvms/micro1/storage/etc/ssh";
