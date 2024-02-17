@@ -1,8 +1,4 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{config, ...}: {
   microvm = {
     interfaces = [
       {
@@ -51,8 +47,7 @@
   };
   environment.etc."machine-id" = {
     mode = "0644";
-    text =
-      lib.addresses.machineId.${config.networking.hostName} + "\n";
+    text = "micro1\n";
   };
   #services.tailscale = {
   #  enable = true;
