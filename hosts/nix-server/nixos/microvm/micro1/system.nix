@@ -1,4 +1,4 @@
-{config, ...}: {
+{...}: {
   microvm = {
     interfaces = [
       {
@@ -29,11 +29,10 @@
         tag = "secrets";
       }
       {
-        source = "/var/lib/microvms/${config.networking.hostName}/journal";
-        mountPoint = "/var/log/journal";
-        tag = "journal";
         proto = "virtiofs";
-        socket = "journal.sock";
+        source = "/var/lib/microvms/micro1/storage/etc/ssh";
+        mountPoint = "/etc/ssh";
+        tag = "secrets";
       }
     ];
   };
@@ -47,7 +46,7 @@
   };
   environment.etc."machine-id" = {
     mode = "0644";
-    text = "2bac078a34d34a28bf782462b102720a\n"; # 
+    text = "2bac078a34d34a28bf782462b102720a\n"; #
   };
   #services.tailscale = {
   #  enable = true;
