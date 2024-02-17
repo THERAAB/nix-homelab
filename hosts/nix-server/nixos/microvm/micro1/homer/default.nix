@@ -48,7 +48,7 @@ in {
       useACMEHost = "${network.domain}-tld";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
   };

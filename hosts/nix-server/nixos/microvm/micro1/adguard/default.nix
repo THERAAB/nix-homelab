@@ -33,7 +33,7 @@ in {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 192.168.3.3:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
     adguardhome = {
