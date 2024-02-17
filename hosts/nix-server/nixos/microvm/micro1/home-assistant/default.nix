@@ -5,7 +5,7 @@
   app-name = "home-assistant";
   display-name = "Home Assistant";
   network = import ../../../../../../share/network.properties.nix;
-  local-config-dir = "/var/lib/haas";
+  local-config-dir = "/var/lib/hass";
 in {
   imports = [
     ./kasa-living-room-light.nix
