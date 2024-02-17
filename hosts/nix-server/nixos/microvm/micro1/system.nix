@@ -46,7 +46,7 @@
   };
   environment.etc."machine-id" = {
     mode = "0644";
-    text = "2bac078a34d34a28bf782462b102720a\n"; #
+    text = "2bac078a34d34a28bf782462b102720a\n";
   };
   #services.tailscale = {
   #  enable = true;
