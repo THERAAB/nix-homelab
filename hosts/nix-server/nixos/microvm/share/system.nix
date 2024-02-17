@@ -46,6 +46,7 @@
       TERM = "xterm-256color";
     };
     systemPackages = with pkgs; [
+      fuse-overlayfs
       neovim
     ];
   };
