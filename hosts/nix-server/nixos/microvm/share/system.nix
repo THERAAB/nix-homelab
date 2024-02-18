@@ -37,6 +37,11 @@
   };
   services.openssh = {
     enable = true;
+    ports = [22];
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+    };
   };
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.utf8";
