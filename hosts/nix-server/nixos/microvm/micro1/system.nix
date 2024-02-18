@@ -40,12 +40,12 @@
       #  mountPoint = "/var/lib/containers";
       #  tag = "containers";
       #}
-      #{
-      #  proto = "virtiofs";
-      #  source = "/var/lib/microvms/micro1/storage/etc/ssh";
-      #  mountPoint = "/etc/ssh";
-      #  tag = "ssh";
-      #}
+      {
+        proto = "virtiofs";
+        source = "/var/lib/microvms/micro1/storage/var/lib/NetworkManager";
+        mountPoint = "/var/lib/NetworkManager";
+        tag = "networkmanager";
+      }
     ];
   };
   networking = {
@@ -56,10 +56,10 @@
       allowedUDPPorts = [53];
     };
   };
-  environment.etc."machine-id" = {
-    mode = "0644";
-    text = "2bac078a34d34a28bf782462b102720a\n";
-  };
+  #environment.etc."machine-id" = {
+  #  mode = "0644";
+  #  text = "2bac078a34d34a28bf782462b102720a\n";
+  #};
   environment.noXlibs = false;
   #services.tailscale = {
   #  enable = true;
