@@ -46,24 +46,25 @@
         mountPoint = "/var/lib/NetworkManager";
         tag = "networkmanager";
       }
+      {
+        proto = "virtiofs";
+        source = "/var/lib/microvms/micro1/storage/var/lib/tailscale";
+        mountPoint = "/var/lib/tailscale";
+        tag = "tailscale";
+      }
     ];
   };
   networking = {
     hostName = "micro1";
     firewall = {
-      #  trustedInterfaces = ["tailscale0"];
+      trustedInterfaces = ["tailscale0"];
       allowedTCPPorts = [80 443];
       allowedUDPPorts = [53];
     };
   };
-  #environment.etc."machine-id" = {
-  #  mode = "0644";
-  #  text = "2bac078a34d34a28bf782462b102720a\n";
-  #};
   environment.noXlibs = false;
-  #services.tailscale = {
-  #  enable = true;
-  #  extraUpFlags = ["--ssh"];
-  #  authKeyFile = "";
-  #};
+  services.tailscale = {
+    enable = true;
+    extraUpFlags = ["--ssh"];
+  };
 }
