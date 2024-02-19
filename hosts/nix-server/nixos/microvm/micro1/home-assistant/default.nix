@@ -23,6 +23,7 @@ in {
     "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
+    "Z  /var/lib/hass/                      -       hass    hass    -   -                           "
   ];
   microvm.shares = [
     {
