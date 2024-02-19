@@ -53,6 +53,8 @@
     systemPackages = with pkgs; [
       fuse-overlayfs
       neovim
+      pciutils
+      usbutils
     ];
   };
   networking.firewall.enable = true;
