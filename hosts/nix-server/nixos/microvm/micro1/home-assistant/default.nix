@@ -20,7 +20,7 @@ in {
   systemd.tmpfiles.rules = [
     "r  /var/lib/hass/secrets.yaml          -       -       -       -   -                           "
     "C  /var/lib/hass/secrets.yaml          -       -       -       -   /run/secrets/home_assistant "
-    "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
+    "z  /var/lib/hass/secrets.yaml          -       hass    hass    -   -                           "
     "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
     "L  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
     "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
