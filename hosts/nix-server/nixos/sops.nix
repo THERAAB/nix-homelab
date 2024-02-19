@@ -1,8 +1,6 @@
 {...}: {
   sops.secrets = {
-    home_assistant = {
-      owner = "hass";
-    };
+    home_assistant.owner = "hass";
     wireguard_mullvad = {};
     df_password = {};
     cloudflare_dns_secret = {};
