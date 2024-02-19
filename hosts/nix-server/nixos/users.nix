@@ -5,6 +5,7 @@
   '';
   users.users."hass" = {
     uid = 286;
+    group = "hass";
     isSystemUser = true;
   };
 }
