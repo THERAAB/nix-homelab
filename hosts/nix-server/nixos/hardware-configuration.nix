@@ -16,7 +16,7 @@
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
     # Force kernel to use iommu (GPU passthrough)
-    kernelParams = ["intel_iommu=on" "iommu=pt" "i915.max_vfs=7" "i915.enable_guc=3"];
+    kernelParams = ["intel_iommu=on" "iommu=pt"];
   };
 
   fileSystems = {
