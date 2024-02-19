@@ -74,7 +74,7 @@ in {
         PGID = "${toString gid}";
         UMASK = "022";
         TZ = "America/New_York";
-        MONGO_HOST = "127.0.0.1";
+        MONGO_HOST = "192.168.3.3";
         MONGO_PORT = "27017";
       };
       environmentFiles = [
