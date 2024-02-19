@@ -12,10 +12,10 @@
       }
     ];
     devices = [
-      #{
-      #  bus = "pci";
-      #  path = "0000:00:02.0";
-      #}
+      {
+        bus = "pci";
+        path = "0000:00:02.0";
+      }
       {
         bus = "usb";
         path = "vendorid=0x1a86,productid=0x55d4";
