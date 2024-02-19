@@ -21,6 +21,10 @@
         bus = "usb";
         path = "vendorid=0x1a86,productid=0x55d4";
       }
+      {
+        bus = "usb";
+        path = "vendorid=0x1d6b,productid=0x0002";
+      }
     ];
     shares = [
       {
