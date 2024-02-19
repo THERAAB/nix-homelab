@@ -1,7 +1,7 @@
 {...}: {
   sops.secrets = {
     home_assistant = {
-      owner = "haas";
+      owner = "hass";
     };
     wireguard_mullvad = {};
     df_password = {};
