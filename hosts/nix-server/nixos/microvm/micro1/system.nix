@@ -52,8 +52,15 @@
         mountPoint = "/var/lib/tailscale";
         tag = "tailscale";
       }
+      {
+        proto = "virtiofs";
+        source = "/var/lib/microvms/micro1/storage/etc/ssh";
+        mountPoint = "/etc/ssh";
+        tag = "ssh";
+      }
     ];
   };
+  fileSystems."/etc/ssh".neededForBoot = true;
   networking = {
     hostName = "micro1";
     firewall = {
