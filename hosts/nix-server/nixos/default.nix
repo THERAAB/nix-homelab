@@ -12,5 +12,6 @@
     ./auto-upgrade.nix
     ./restic.nix
     ./microvm
+    ./caddy.nix
   ];
 }
