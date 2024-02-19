@@ -66,7 +66,7 @@ in {
       UMASK = "022";
       TZ = "America/New_York";
       VPN_ENABLED = "true";
-      VPN_LAN_NETWORK = "${network.nix-desktop.local.ip},${network.ap.subnet}";
+      VPN_LAN_NETWORK = "${network.nix-desktop.local.ip},${network.ap.subnet},${network.micro1.local.ip}";
       VPN_CONF = "wg0";
       VPN_ADDITIONAL_PORTS = "";
       VPN_IP_CHECK_DELAY = "5";
