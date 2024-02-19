@@ -3,4 +3,8 @@
   security.sudo.extraConfig = ''
     olivetin ALL=(root) NOPASSWD:/var/lib/olivetin/scripts/commands.sh
   '';
+  users.users."hass" = {
+    uid = 286;
+    isSystemUser = true;
+  };
 }
