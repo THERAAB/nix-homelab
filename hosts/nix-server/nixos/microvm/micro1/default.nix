@@ -16,6 +16,6 @@
     ./microbin.nix
     ./filebrowser.nix
     ./system.nix
-    ./media.nix
+    ./nfs.nix
   ];
 }
