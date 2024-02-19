@@ -10,7 +10,15 @@
         group = "hass";
         isSystemUser = true;
       };
+      unifi = {
+        uid = 7812;
+        group = "unifi";
+        isSystemUser = true;
+      };
     };
-    groups.hass = {};
+    groups = {
+      hass = {};
+      unifi = {};
+    };
   };
 }
