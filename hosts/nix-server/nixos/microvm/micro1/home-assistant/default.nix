@@ -33,6 +33,10 @@ in {
       tag = app-name;
     }
   ];
+  users.users."hass" = {
+    uid = 286;
+    isSystemUser = true;
+  };
   networking.firewall.allowedTCPPorts = [port];
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [

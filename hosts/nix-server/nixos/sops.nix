@@ -1,7 +1,7 @@
 {...}: {
   sops.secrets = {
     home_assistant = {
-      #owner = "hass";
+      owner = "hass";
       path = "/var/lib/hass/secrets.yaml";
     };
     wireguard_mullvad = {};
