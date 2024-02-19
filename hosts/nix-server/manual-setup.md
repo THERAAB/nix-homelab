@@ -10,6 +10,7 @@ Some apps can't be managed declaratively, so additional setup needed for them is
 - change user & password
 - Settings -> WebUi -> Enable alternate UI
 - Settings -> Bittorrent -> Seed Limits -> When Ratio reaches 2
+- Settings -> WebUI -> Enable Trusted Proxy Support -> Add IP
 
 ### Check IP Leakage
 
