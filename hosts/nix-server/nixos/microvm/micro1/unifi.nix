@@ -78,7 +78,7 @@ in {
         MONGO_PORT = "27017";
       };
       environmentFiles = [
-        "${local-config-dir}/mongo_secret"
+        "/run/secrets/mongo_secret"
       ];
       extraOptions = [
         "-l=io.containers.autoupdate=registry"
@@ -89,7 +89,7 @@ in {
       image = "docker.io/mongo:6.0";
       volumes = [
         "${local-config-dir}/db:/data/db"
-        "/${local-config-dir}/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
+        "/run/secrets/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
       ];
       user = "${toString uid}";
       environment = {

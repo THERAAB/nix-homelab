@@ -1,6 +1,7 @@
 {...}: {
   imports = [
     ./adguard
+    ./home-assistant
     ./hardware-configuration.nix
     ./netdata.nix
     ./users.nix
