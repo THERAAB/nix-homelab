@@ -18,10 +18,8 @@ in {
     ./washer-dryer.nix
   ];
   systemd.tmpfiles.rules = [
-    #"r  /var/lib/hass/secrets.yaml          -       -       -       -   -                           "
-    #"C  /var/lib/hass/secrets.yaml          -       -       -       -   /run/secrets/home_assistant "
     "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
-    "L  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
+    "C  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
     "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
