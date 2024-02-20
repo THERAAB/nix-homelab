@@ -60,7 +60,7 @@ in {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy ${network.micro1.local.ip}:${toString port}
+        reverse_proxy 127.0.0.1:${toString port}
       '';
     };
     home-assistant = {
@@ -84,7 +84,7 @@ in {
       config = {
         default_config = {};
         http = {
-          trusted_proxies = ["127.0.0.1" "192.168.3.2" "192.168.3.3"];
+          trusted_proxies = ["127.0.0.1"];
           use_x_forwarded_for = true;
         };
         homeassistant = {
