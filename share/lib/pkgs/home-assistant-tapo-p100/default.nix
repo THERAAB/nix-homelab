@@ -4,13 +4,13 @@
 }:
 stdenv.mkDerivation rec {
   pname = "home-assistant-tapo-p100";
-  version = "v2.10.0";
+  version = "v2.13.0";
   src = fetchFromGitHub {
     inherit pname version;
     repo = pname;
     rev = version;
     owner = "petretiandrea";
-    sha256 = "sha256-vpF9QFu3LA/XFtDM0ZdmZq6FFsZvCCOJ10alLf+iWVA=";
+    sha256 = "";
   };
   installPhase = ''
     mkdir -p $out/custom_components
