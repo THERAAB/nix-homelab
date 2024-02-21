@@ -30,8 +30,10 @@
                     inherit pname version;
                     hash = "sha256-jxNfZQJ1a95rKpsomJ31++h8mXDOyqaQQe3M5/BYmxQ=";
                   };
-                  propagatedBuildInputs = [
-                    pytest
+                  propagatedBuildInputs =
+                    passthru.optional-dependencies.brotli
+                    ++ passthru.optional-dependencies.socks;
+                  nativeCheckInputs = [
                     tornado
                     trustme
                     mock
@@ -41,6 +43,32 @@
                     pytestCheckHook
                   ];
                   doCheck = false;
+                  preCheck = ''
+                    export CI
+                  '';
+                  pythonImportsCheck = [
+                    "urllib3"
+                  ];
+
+                  passthru.optional-dependencies = {
+                    brotli =
+                      if isPyPy
+                      then [
+                        brotlicffi
+                      ]
+                      else [
+                        brotli
+                      ];
+                    secure = [
+                      certifi
+                      cryptography
+                      idna
+                      pyopenssl
+                    ];
+                    socks = [
+                      pysocks
+                    ];
+                  };
                 }
               )
               pip
