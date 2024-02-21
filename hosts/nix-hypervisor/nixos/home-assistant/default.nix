@@ -3,9 +3,7 @@
   system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-hypervisor/nixos/home-assistant/blueprints";
   port = 8123;
   app-name = "home-assistant";
-  display-name = "Home Assistant";
   network = import ../../../../share/network.properties.nix;
-  local-config-dir = "/var/lib/hass";
 in {
   imports = [
     ./kasa-living-room-light.nix
@@ -25,18 +23,6 @@ in {
     "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
     "Z  /var/lib/hass/                      -       hass    hass    -   -                           "
   ];
-  #microvm.shares = [
-  #  {
-  #    proto = "virtiofs";
-  #    source = local-config-dir;
-  #    mountPoint = local-config-dir;
-  #    tag = app-name;
-  #  }
-  #];
-  #users.users."hass" = {
-  #  uid = 286;
-  #  isSystemUser = true;
-  #};
   networking.firewall.allowedTCPPorts = [port];
   services = {
     #yamlConfigMaker.gatus.settings.endpoints = [
