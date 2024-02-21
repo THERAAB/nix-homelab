@@ -6,8 +6,6 @@
         flake = self;
         updateFlake = "git+file:///nix/persist/nix-homelab";
       };
-    };
-    vms = {
       micro-server = {
         flake = self;
         updateFlake = "git+file:///nix/persist/nix-homelab";
