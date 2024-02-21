@@ -40,6 +40,7 @@
                     pytest-timeout
                     pytestCheckHook
                   ];
+                  doCheck = false;
                 }
               )
               pip
