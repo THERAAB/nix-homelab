@@ -34,6 +34,11 @@
                     pytest
                     tornado
                     trustme
+                    mock
+                    python-dateutil
+                    pytest-freezegun
+                    pytest-timeout
+                    pytestCheckHook
                   ];
                 }
               )
