@@ -1,0 +1,6 @@
+{...}: {
+  imports = [
+    ./adguard
+    ./system.nix
+  ];
+}
