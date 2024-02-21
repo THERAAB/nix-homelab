@@ -33,6 +33,7 @@
                   propagatedBuildInputs = [
                     pytest
                     tornado
+                    trustme
                   ];
                 }
               )
