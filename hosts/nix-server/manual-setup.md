@@ -10,6 +10,7 @@ Some apps can't be managed declaratively, so additional setup needed for them is
 - change user & password
 - Settings -> WebUi -> Enable alternate UI
 - Settings -> Bittorrent -> Seed Limits -> When Ratio reaches 2
+- Settings -> WebUI -> Enable Trusted Proxy Support -> Add IP
 
 ### Check IP Leakage
 
@@ -20,7 +21,7 @@ curl https://am.i.mullvad.net/json
 
 ### Check privoxy
 
-- Set firefox proxy to https://${network.nix-server.local.ip}:8118
+- Set firefox proxy to https://${network.micro1.local.ip}:8118
 - Verify with these:
   - https://iknowwhatyoudownload.com
   - https://mullvad.net/en/check/

@@ -15,8 +15,8 @@
     };
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
-    # Force kernel to use the right CPU driver & use graphics controller
-    kernelParams = ["i915.force_probe=4692" "i915.enable_guc=3"];
+    # Force kernel to use iommu (GPU passthrough)
+    kernelParams = ["intel_iommu=on" "iommu=pt"];
   };
 
   fileSystems = {

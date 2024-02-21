@@ -11,6 +11,10 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    microvm = {
+      url = "github:astro/microvm.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -19,6 +23,7 @@
     home-manager,
     impermanence,
     sops-nix,
+    microvm,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -50,7 +55,7 @@
     overlays = import ./share/lib/overlays;
     nixosConfigurations = {
       nix-server = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs self;};
         modules = [
           impermanence.nixosModules.impermanence
           ./share/lib/modules/nixos/yamlConfigMaker
@@ -58,7 +63,7 @@
           ./share/nixos
           ./hosts/nix-server/nixos
           sops-nix.nixosModules.sops
-
+          microvm.nixosModules.host
           home-manager.nixosModules.home-manager
           {
             home-manager = {
@@ -73,6 +78,15 @@
               };
             };
           }
+        ];
+      };
+      micro1 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          microvm.nixosModules.microvm
+          ./share/lib/modules/nixos/yamlConfigMaker
+          ./hosts/micro1
+          ./share/microvm
         ];
       };
       nix-nas = nixpkgs.lib.nixosSystem {

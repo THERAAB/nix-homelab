@@ -5,6 +5,7 @@
   app-name = "home-assistant";
   display-name = "Home Assistant";
   network = import ../../../../share/network.properties.nix;
+  local-config-dir = "/var/lib/hass";
 in {
   imports = [
     ./kasa-living-room-light.nix
@@ -18,36 +19,41 @@ in {
   ];
   systemd.tmpfiles.rules = [
     "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
-    "L  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
+    "C  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
     "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
     "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
+    "Z  /var/lib/hass/                      -       hass    hass    -   -                           "
   ];
+  #microvm.shares = [
+  #  {
+  #    proto = "virtiofs";
+  #    source = local-config-dir;
+  #    mountPoint = local-config-dir;
+  #    tag = app-name;
+  #  }
+  #];
+  #users.users."hass" = {
+  #  uid = 286;
+  #  isSystemUser = true;
+  #};
   networking.firewall.allowedTCPPorts = [port];
   services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://${app-name}.${network.domain}/";
-        conditions = [
-          "[STATUS] == 200"
-          ''[BODY] == pat(*<title>Home Assistant</title>*)''
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
-        timeout = 20;
-      }
-    ];
+    #yamlConfigMaker.gatus.settings.endpoints = [
+    #  {
+    #    name = "${display-name}";
+    #    url = "https://${app-name}.${network.domain}/";
+    #    conditions = [
+    #      "[STATUS] == 200"
+    #      ''[BODY] == pat(*<title>Home Assistant</title>*)''
+    #    ];
+    #    alerts = [
+    #      {
+    #        type = "gotify";
+    #      }
+    #    ];
+    #  }
+    #];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''

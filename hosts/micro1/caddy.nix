@@ -1,5 +1,5 @@
 {...}: let
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
   secrets-dir = "/var/lib/secrets";
 in {
   systemd.tmpfiles.rules = [

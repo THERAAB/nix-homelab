@@ -1,12 +1,8 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   port = 2342;
   app-name = "photoprism";
   display-name = "Photoprism";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
   originals-dir = "/var/lib/private/photoprism/originals";
 in {
   services = {
@@ -25,19 +21,11 @@ in {
         ];
       }
     ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."photos.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
     ${app-name} = {
@@ -50,13 +38,13 @@ in {
       };
       address = "0.0.0.0";
       originalsPath = "${originals-dir}";
-      passwordFile = config.sops.secrets.df_password.path;
+      passwordFile = "/run/secrets/df_password";
     };
   };
-  fileSystems."${originals-dir}" = {
-    device = "/sync/Camera";
-    options = ["bind"];
-  };
+  #fileSystems."${originals-dir}" = {
+  #  device = "/sync/Camera";
+  #  options = ["bind"];
+  #};
   users = {
     groups.photoprism = {};
     users.${app-name} = {

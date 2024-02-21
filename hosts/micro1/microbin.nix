@@ -1,8 +1,8 @@
-{config, ...}: let
+{...}: let
   port = 9080;
   app-name = "microbin";
   display-name = "Microbin";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   networking.firewall.allowedTCPPorts = [port];
   services = {
@@ -20,24 +20,16 @@ in {
         ];
       }
     ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s ${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
     microbin = {
       enable = true;
-      passwordFile = config.sops.secrets.df_password.path;
+      passwordFile = "/run/secrets/df_password";
       settings = {
         MICROBIN_PORT = port;
       };

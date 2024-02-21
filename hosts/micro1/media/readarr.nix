@@ -1,11 +1,11 @@
 {...}: let
-  uid = 9993;
-  port = 9696;
-  app-name = "prowlarr";
-  display-name = "Prowlarr";
-  local-config-dir = "/var/lib/${app-name}/";
-  network = import ../../../../share/network.properties.nix;
   media = import ./media.properties.nix;
+  uid = 9997;
+  port = 8787;
+  app-name = "readarr";
+  display-name = "Readarr";
+  local-config-dir = "/var/lib/${app-name}/";
+  network = import ../../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
@@ -22,19 +22,11 @@ in {
         ];
       }
     ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
   };
@@ -54,8 +46,10 @@ in {
     image = "lscr.io/linuxserver/${app-name}:develop";
     volumes = [
       "${local-config-dir}:/config"
+      "${media.dir.audiobooks}:/books"
+      "${media.dir.downloads}:/app/qBittorrent/downloads"
     ];
-    ports = ["${toString port}:9696"];
+    ports = ["${toString port}:8787"];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString media.group.id}";

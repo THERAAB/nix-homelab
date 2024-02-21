@@ -1,17 +1,17 @@
 {...}: let
-  uid = 7662;
-  gid = 7663;
-  port = 9090;
-  app-name = "linkding";
-  display-name = "Linkding";
-  local-config-dir = "/var/lib/${app-name}/";
-  network = import ../../../share/network.properties.nix;
+  uid = 7762;
+  gid = 7763;
+  port = 9092;
+  app-name = "flatnotes";
+  display-name = "Flatnotes";
+  local-config-dir = "/var/lib/${app-name}";
+  network = import ../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = "${display-name}";
-        url = "https://bookmarks.${network.domain}/health";
+        url = "https://notes.${network.domain}";
         conditions = [
           "[STATUS] == 200"
         ];
@@ -22,19 +22,11 @@ in {
         ];
       }
     ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
-    caddy.virtualHosts."bookmarks.${network.domain}" = {
+    caddy.virtualHosts."notes.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
   };
@@ -47,23 +39,28 @@ in {
     groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -             -           -   - "
-    "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
+    "d    ${local-config-dir}     -       -             -   -   - "
+    "Z    ${local-config-dir}     -       ${app-name}   -   -   - "
   ];
+  #fileSystems."/sync/share/${app-name}" = {
+  #  device = "${local-config-dir}";
+  #  options = ["bind"];
+  #};
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "docker.io/sissbruecker/${app-name}";
+    image = "docker.io/dullage/${app-name}";
     volumes = [
-      "${local-config-dir}:/etc/linkding/data"
+      "${local-config-dir}:/data"
     ];
     ports = [
-      "${toString port}:9090"
+      "${toString port}:8080"
     ];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";
+      FLATNOTES_AUTH_TYPE = "none";
     };
     extraOptions = [
       "-l=io.containers.autoupdate=registry"

@@ -1,16 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   uid = 901;
   gid = 901;
   port = 7000;
   app-name = "gatus";
-  display-name = "Gatus";
-  local-config-dir = "/var/lib/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}";
   cfg = import ./config.nix;
-  network = import ../../../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker = {
@@ -22,19 +17,11 @@ in {
         };
       };
     };
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
   };
@@ -55,7 +42,7 @@ in {
       # Add secret for gotify
       "yamlPatcher-${app-name}" = {
         script = ''
-          TOKEN=`cat ${config.sops.secrets.gotify_gatus_token.path}`
+          TOKEN=`cat /run/secrets/gotify_gatus_token`
           ${pkgs.gnused}/bin/sed -i "s|<PLACEHOLDER>|$TOKEN|" ${local-config-dir}/config.yaml
         '';
         wantedBy = ["yamlConfigMaker-gatus.service"];

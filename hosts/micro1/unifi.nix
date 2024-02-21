@@ -1,11 +1,11 @@
-{config, ...}: let
+{...}: let
   uid = 7812;
   gid = 7813;
   port = 8443;
   app-name = "unifi";
   display-name = "Unifi Network Application";
-  local-config-dir = "/var/lib/${app-name}/";
-  network = import ../../../share/network.properties.nix;
+  local-config-dir = "/var/lib/${app-name}";
+  network = import ../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
@@ -23,19 +23,11 @@ in {
         client.insecure = true;
       }
     ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port} {
+        reverse_proxy ${network.micro1.local.ip}:${toString port} {
           transport http {
             tls_insecure_skip_verify
           }
@@ -74,11 +66,11 @@ in {
         PGID = "${toString gid}";
         UMASK = "022";
         TZ = "America/New_York";
-        MONGO_HOST = "${network.nix-server.local.ip}";
+        MONGO_HOST = "${network.micro1.local.ip}";
         MONGO_PORT = "27017";
       };
       environmentFiles = [
-        config.sops.secrets.mongo_secret.path
+        "/run/secrets/mongo_secret"
       ];
       extraOptions = [
         "-l=io.containers.autoupdate=registry"
@@ -89,7 +81,7 @@ in {
       image = "docker.io/mongo:6.0";
       volumes = [
         "${local-config-dir}/db:/data/db"
-        "${toString config.sops.secrets.mongo_init.path}:/docker-entrypoint-initdb.d/init-mongo.js:ro"
+        "/run/secrets/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
       ];
       user = "${toString uid}";
       environment = {

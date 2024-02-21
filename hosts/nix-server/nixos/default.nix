@@ -1,30 +1,18 @@
 {...}: {
   imports = [
-    ./home-assistant
-    ./homer
-    ./media
-    ./gatus
-    ./olivetin
     ./adguard
+    ./home-assistant
     ./hardware-configuration.nix
-    ./caddy.nix
     ./netdata.nix
     ./users.nix
     ./hardware.nix
     ./sops.nix
-    ./photoprism.nix
-    ./unifi.nix
-    ./podman.nix
     ./harmonia.nix
     ./syncthing.nix
-    ./gotify.nix
-    ./linkding.nix
-    ./flatnotes.nix
-    ./microbin.nix
-    ./filebrowser.nix
     ./nfs.nix
-    ./pkgs.nix
     ./auto-upgrade.nix
     ./restic.nix
+    ./microvm.nix
+    ./caddy.nix
   ];
 }

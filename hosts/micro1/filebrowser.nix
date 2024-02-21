@@ -4,9 +4,9 @@
   port = 9940;
   app-name = "filebrowser";
   display-name = "File Browser";
-  local-config-dir = "/var/lib/${app-name}/";
+  local-config-dir = "/var/lib/${app-name}";
   dir-to-share = "/sync";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
@@ -23,19 +23,11 @@ in {
         ];
       }
     ];
-    olivetin.settings.actions = [
-      {
-        title = "Restart ${display-name}";
-        icon = ''<img src = "customIcons/${app-name}.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -s podman-${app-name}";
-        timeout = 20;
-      }
-    ];
     caddy.virtualHosts."files.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
   };
@@ -49,6 +41,7 @@ in {
     groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
+    "d    ${dir-to-share}                 -       -             -           -   - "
     "d    ${local-config-dir}             -       -             -           -   - "
     "f    ${local-config-dir}/database.db -       -             -           -   - "
     "Z    ${local-config-dir}             -       ${app-name}   ${app-name} -   - "

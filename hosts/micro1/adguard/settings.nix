@@ -1,10 +1,10 @@
 let
-  network = import ../../../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
   port = 3000;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
   settings = {
-    bind_host = "0.0.0.0";
+    bind_host = network.micro1.local.ip;
     bind_port = port;
     users = [
       {
@@ -15,7 +15,7 @@ in {
     theme = "auto";
     dns = {
       ratelimit = 0;
-      bind_hosts = ["0.0.0.0"];
+      bind_hosts = [network.micro1.local.ip];
       port = 53;
       upstream_dns = ["${network.pfSense.local.ip}"];
       protection_enabled = true;
@@ -26,31 +26,31 @@ in {
       rewrites = [
         {
           domain = "cache.${network.domain}";
-          answer = "${network.nix-server.tailscale.ip}";
+          answer = "${network.nix-server.local.ip}";
         }
         {
           domain = "netdata.${network.domain}";
-          answer = "${network.nix-server.tailscale.ip}";
+          answer = "${network.nix-server.local.ip}";
         }
         {
           domain = "sync.${network.domain}";
-          answer = "${network.nix-server.tailscale.ip}";
+          answer = "${network.nix-server.local.ip}";
         }
         {
           domain = "home-assistant.${network.domain}";
-          answer = "${network.nix-server.tailscale.ip}";
+          answer = "${network.nix-server.local.ip}";
         }
         {
           domain = "adguard-tailscale.${network.domain}";
-          answer = "${network.nix-server.tailscale.ip}";
+          answer = "${network.nix-server.local.ip}";
         }
         {
           domain = "${network.domain}";
-          answer = "${network.micro1.tailscale.ip}";
+          answer = "${network.micro1.local.ip}";
         }
         {
           domain = "*.${network.domain}";
-          answer = "${network.micro1.tailscale.ip}";
+          answer = "${network.micro1.local.ip}";
         }
       ];
     };
