@@ -25,12 +25,28 @@ in {
       bootstrap_dns = ["9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10"];
       rewrites = [
         {
+          domain = "cache.${network.domain}";
+          answer = "${network.nix-server.tailscale.ip}";
+        }
+        {
+          domain = "netdata.${network.domain}";
+          answer = "${network.nix-server.tailscale.ip}";
+        }
+        {
+          domain = "sync.${network.domain}";
+          answer = "${network.nix-server.tailscale.ip}";
+        }
+        {
+          domain = "home-assistant.${network.domain}";
+          answer = "${network.nix-server.tailscale.ip}";
+        }
+        {
           domain = "${network.domain}";
-          answer = "${network.nix-server.local.ip}";
+          answer = "${network.micro1.tailscale.ip}";
         }
         {
           domain = "*.${network.domain}";
-          answer = "${network.nix-server.local.ip}";
+          answer = "${network.micro1.tailscale.ip}";
         }
       ];
     };
