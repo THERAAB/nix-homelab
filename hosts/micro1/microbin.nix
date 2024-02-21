@@ -1,18 +1,17 @@
 {...}: let
-  port = 3000;
-  settings = (import ./settings.nix).settings;
-  app-name = "adguard";
-  display-name = "Adguard";
-  network = import ../../../../../../share/network.properties.nix;
+  port = 9080;
+  app-name = "microbin";
+  display-name = "Microbin";
+  network = import ../../../share/network.properties.nix;
 in {
+  networking.firewall.allowedTCPPorts = [port];
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = "${display-name}";
-        url = "https://${app-name}.${network.domain}/";
+        url = "https://${app-name}.${network.domain}";
         conditions = [
           "[STATUS] == 200"
-          ''[BODY] == pat(*<title>Login</title>*)''
         ];
         alerts = [
           {
@@ -28,11 +27,12 @@ in {
         reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
-    adguardhome = {
-      mutableSettings = false;
+    microbin = {
       enable = true;
-      settings = settings;
+      passwordFile = "/run/secrets/df_password";
+      settings = {
+        MICROBIN_PORT = port;
+      };
     };
   };
-  networking.firewall.allowedTCPPorts = [port];
 }

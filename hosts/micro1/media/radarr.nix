@@ -1,17 +1,17 @@
 {...}: let
   media = import ./media.properties.nix;
-  uid = 9995;
-  port = 8989;
-  app-name = "sonarr";
-  display-name = "Sonarr";
+  uid = 9994;
+  port = 7878;
+  app-name = "radarr";
+  display-name = "Radarr";
   local-config-dir = "/var/lib/${app-name}";
-  network = import ../../../../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = "${display-name}";
-        url = "https://tv.${network.domain}/health";
+        url = "https://movies.${network.domain}/health";
         conditions = [
           "[STATUS] == 200"
         ];
@@ -22,7 +22,7 @@ in {
         ];
       }
     ];
-    caddy.virtualHosts."tv.${network.domain}" = {
+    caddy.virtualHosts."movies.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
@@ -46,10 +46,10 @@ in {
     image = "lscr.io/linuxserver/${app-name}";
     volumes = [
       "${local-config-dir}:/config"
-      "${media.dir.tv}:/tv"
+      "${media.dir.movies}:/movies"
       "${media.dir.downloads}:/app/qBittorrent/downloads"
     ];
-    ports = ["${toString port}:8989"];
+    ports = ["${toString port}:7878"];
     environment = {
       PUID = "${toString uid}";
       PGID = "${toString media.group.id}";

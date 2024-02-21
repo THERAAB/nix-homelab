@@ -4,7 +4,7 @@
   app-name = "prowlarr";
   display-name = "Prowlarr";
   local-config-dir = "/var/lib/${app-name}";
-  network = import ../../../../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
   media = import ./media.properties.nix;
 in {
   services = {

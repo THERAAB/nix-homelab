@@ -1,17 +1,17 @@
 {...}: let
-  uid = 7662;
-  gid = 7663;
-  port = 9090;
-  app-name = "linkding";
-  display-name = "Linkding";
-  local-config-dir = "/var/lib/${app-name}";
-  network = import ../../../../../share/network.properties.nix;
+  media = import ./media.properties.nix;
+  uid = 9997;
+  port = 8787;
+  app-name = "readarr";
+  display-name = "Readarr";
+  local-config-dir = "/var/lib/${app-name}/";
+  network = import ../../../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = "${display-name}";
-        url = "https://bookmarks.${network.domain}/health";
+        url = "https://${app-name}.${network.domain}/health";
         conditions = [
           "[STATUS] == 200"
         ];
@@ -22,7 +22,7 @@ in {
         ];
       }
     ];
-    caddy.virtualHosts."bookmarks.${network.domain}" = {
+    caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
@@ -33,27 +33,26 @@ in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = app-name;
+      group = media.group.name;
       isSystemUser = true;
     };
-    groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}     -       -             -           -   - "
-    "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
+    "Z    ${local-config-dir}     -       ${app-name}   ${media.group.name} -   - "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "docker.io/sissbruecker/${app-name}";
+    image = "lscr.io/linuxserver/${app-name}:develop";
     volumes = [
-      "${local-config-dir}:/etc/linkding/data"
+      "${local-config-dir}:/config"
+      "${media.dir.audiobooks}:/books"
+      "${media.dir.downloads}:/app/qBittorrent/downloads"
     ];
-    ports = [
-      "${toString port}:9090"
-    ];
+    ports = ["${toString port}:8787"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString gid}";
+      PGID = "${toString media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
     };

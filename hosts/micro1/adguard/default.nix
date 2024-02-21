@@ -1,8 +1,9 @@
 {...}: let
-  port = 8238;
-  app-name = "gotify";
-  display-name = "Gotify";
-  network = import ../../../../../share/network.properties.nix;
+  port = 3000;
+  settings = (import ./settings.nix).settings;
+  app-name = "adguard";
+  display-name = "Adguard";
+  network = import ../../../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
@@ -11,6 +12,7 @@ in {
         url = "https://${app-name}.${network.domain}/";
         conditions = [
           "[STATUS] == 200"
+          ''[BODY] == pat(*<title>Login</title>*)''
         ];
         alerts = [
           {
@@ -26,9 +28,11 @@ in {
         reverse_proxy ${network.micro1.local.ip}:${toString port}
       '';
     };
-    ${app-name} = {
+    adguardhome = {
+      mutableSettings = false;
       enable = true;
-      port = port;
+      settings = settings;
     };
   };
+  networking.firewall.allowedTCPPorts = [port];
 }

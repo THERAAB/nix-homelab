@@ -1,5 +1,5 @@
 let
-  network = import ../../../../../../share/network.properties.nix;
+  network = import ../../../../share/network.properties.nix;
 in {
   # See https://fontawesome.com/v5/search for icons options
   title = "Nix Homelab Server";
