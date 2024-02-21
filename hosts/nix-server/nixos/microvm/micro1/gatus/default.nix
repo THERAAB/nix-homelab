@@ -7,14 +7,6 @@
   cfg = import ./config.nix;
   network = import ../../../../../../share/network.properties.nix;
 in {
-  microvm.shares = [
-    {
-      proto = "virtiofs";
-      source = local-config-dir;
-      mountPoint = local-config-dir;
-      tag = app-name;
-    }
-  ];
   services = {
     yamlConfigMaker = {
       gatus = {

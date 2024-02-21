@@ -11,11 +11,11 @@
     microbin_secret = {};
     mongo_init = {
       owner = "unifi";
-      path = "/var/lib/unifi/mongo_init";
+      path = "/var/lib/microvms/micro1/storage/var/lib/unifi/mongo_init";
     };
     mongo_secret = {
       owner = "unifi";
-      path = "/var/lib/unifi/mongo_secret";
+      path = "/var/lib/microvms/micro1/storage/var/lib/unifi/mongo_secret";
     };
   };
 }

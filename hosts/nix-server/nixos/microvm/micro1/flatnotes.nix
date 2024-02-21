@@ -7,15 +7,7 @@
   local-config-dir = "/var/lib/${app-name}";
   network = import ../../../../../share/network.properties.nix;
 in {
-  microvm.shares = [
-    {
-      proto = "virtiofs";
-      source = local-config-dir;
-      mountPoint = local-config-dir;
-      tag = app-name;
-    }
-  ];
-  services = {
+  servces = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = "${display-name}";
@@ -50,10 +42,10 @@ in {
     "d    ${local-config-dir}     -       -             -   -   - "
     "Z    ${local-config-dir}     -       ${app-name}   -   -   - "
   ];
-  fileSystems."/sync/share/${app-name}" = {
-    device = "${local-config-dir}";
-    options = ["bind"];
-  };
+  #fileSystems."/sync/share/${app-name}" = {
+  #  device = "${local-config-dir}";
+  #  options = ["bind"];
+  #};
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "docker.io/dullage/${app-name}";

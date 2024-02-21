@@ -17,12 +17,6 @@ in {
   microvm.shares = [
     {
       proto = "virtiofs";
-      source = local-config-dir;
-      mountPoint = local-config-dir;
-      tag = app-name;
-    }
-    {
-      proto = "virtiofs";
       source = system-icons-dir;
       mountPoint = "${local-config-dir}/icons";
       tag = "${app-name}-icons";

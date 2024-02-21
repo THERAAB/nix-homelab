@@ -4,16 +4,7 @@
   display-name = "Photoprism";
   network = import ../../../../../share/network.properties.nix;
   originals-dir = "/var/lib/private/photoprism/originals";
-  local-config-dir = "/var/lib/private/photoprism";
 in {
-  microvm.shares = [
-    {
-      proto = "virtiofs";
-      source = local-config-dir;
-      mountPoint = local-config-dir;
-      tag = app-name;
-    }
-  ];
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
@@ -50,10 +41,10 @@ in {
       passwordFile = "/run/secrets/df_password";
     };
   };
-  fileSystems."${originals-dir}" = {
-    device = "/sync/Camera";
-    options = ["bind"];
-  };
+  #fileSystems."${originals-dir}" = {
+  #  device = "/sync/Camera";
+  #  options = ["bind"];
+  #};
   users = {
     groups.photoprism = {};
     users.${app-name} = {

@@ -11,7 +11,7 @@ in {
     "Z    ${local-dir}/share   770     -             ${app-name}     -   - "
     "Z    ${local-dir}/Camera  770     -             ${app-name}     -   - "
   ];
-  users.users.syncthing.extraGroups = ["flatnotes"];
+  #users.users.syncthing.extraGroups = ["flatnotes"];
   services = {
     caddy.virtualHosts."sync.${network.domain}" = {
       useACMEHost = "${network.domain}";

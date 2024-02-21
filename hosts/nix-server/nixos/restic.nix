@@ -21,13 +21,12 @@ in {
       "metadata"
       "*.log"
       "flatnotes/.flatnotes"
-      "/nix/persist/system/var/lib/containers/storage"
-      "/nix/persist/system/var/lib/private/AdGuardHome/data"
-      "/nix/persist/system/var/lib/private/photoprism/cache"
-      "/nix/persist/system/var/lib/jellyfin/data/metadata/library"
-      "/nix/persist/system/var/log/"
-      "/nix/persist/system/var/cache/"
-      "/nix/persist/system/etc/"
+      "var/lib/containers/storage"
+      "var/lib/private/AdGuardHome/data"
+      "var/lib/private/photoprism/cache"
+      "var/lib/jellyfin/data/metadata/library"
+      "var/log/"
+      "var/cache/"
     ];
     initialize = true;
     passwordFile = config.sops.secrets.restic_password.path;
