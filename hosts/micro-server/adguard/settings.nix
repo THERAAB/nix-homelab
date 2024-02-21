@@ -17,7 +17,7 @@ in {
       ratelimit = 0;
       bind_hosts = [network.micro-server.local.ip];
       port = 53;
-      upstream_dns = ["${network.pfSense.local.ip}"];
+      upstream_dns = ["${network.pfSense.tailscale.ip}"];
       protection_enabled = true;
       blocked_hosts = ["version.bind" "id.server" "hostname.bind"];
       trusted_proxies = ["127.0.0.0/8" "::1/128"];
