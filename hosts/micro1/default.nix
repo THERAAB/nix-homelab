@@ -2,7 +2,7 @@
   imports = [
     #./homer
     #./media
-    #./gatus
+    ./gatus
     #./adguard
     #./caddy.nix
     #./users.nix
