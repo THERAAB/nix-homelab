@@ -41,6 +41,10 @@ in {
           answer = "${network.nix-server.local.ip}";
         }
         {
+          domain = "adguard-tailscale.${network.domain}";
+          answer = "${network.nix-server.local.ip}";
+        }
+        {
           domain = "${network.domain}";
           answer = "${network.micro1.local.ip}";
         }

@@ -20,6 +20,36 @@ in {
           }
         ];
       }
+      {
+        name = "${display-name}-tailscale";
+        url = "https://${app-name}-tailscale.${network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+          ''[BODY] == pat(*<title>Login</title>*)''
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
+    caddy.virtualHosts."${app-name}.${network.domain}" = {
+      useACMEHost = "${network.domain}";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy ${network.micro1.local.ip}:${toString port}
+      '';
+    };
+    adguardhome = {
+      mutableSettings = false;
+      enable = true;
+      settings = settings;
+    };
+  };
+  networking.firewall.allowedTCPPorts = [port];
+}
+
     ];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";

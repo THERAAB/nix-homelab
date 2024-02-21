@@ -168,12 +168,21 @@ in {
       icon = "fas fa-house-signal";
       items = [
         {
-          name = "AdGuard";
+          name = "AdGuard Local";
           logo = "assets/icons/adguard.png";
-          subtitle = "DNS Ad Blocking";
+          subtitle = "DNS Ad Blocking on Local Network";
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "AdGuard Tailscale";
+          logo = "assets/icons/tailscale.png";
+          subtitle = "DNS Ad Blocking on Tailscale";
+          tag = "dns";
+          keywords = "dns adblock";
+          url = "https://adguard-tailscale.${network.domain}";
           target = "_blank";
         }
         {

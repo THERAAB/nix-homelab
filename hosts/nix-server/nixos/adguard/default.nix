@@ -1,7 +1,7 @@
 {...}: let
   port = 3000;
   settings = (import ./settings.nix).settings;
-  app-name = "adguard";
+  app-name = "adguard-tailscale";
   network = import ../../../../share/network.properties.nix;
 in {
   services = {
