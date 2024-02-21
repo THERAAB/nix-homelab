@@ -32,6 +32,7 @@
                   };
                   propagatedBuildInputs = [
                     pytest
+                    tornado
                   ];
                 }
               )
