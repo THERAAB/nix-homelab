@@ -21,7 +21,18 @@
               aiohttp
               semantic-version
               scapy
-              urllib3
+              (
+                buildPythonPackage rec {
+                  pname = "urllib3";
+                  version = "1.26.16";
+
+                  src = fetchPypi {
+                    inherit pname version;
+                    hash = "sha256-jxNfZQJ1a95rKpsomJ31++h8mXDOyqaQQe3M5/BYmxQ=";
+                  };
+                }
+              )
+              pip
             ];
           }
         )
