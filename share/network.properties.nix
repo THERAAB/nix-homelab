@@ -1,9 +1,9 @@
 {
-  nix-server = {
+  nix-hypervisor = {
     tailscale.ip = "100.121.108.123";
     local.ip = "192.168.3.2";
   };
-  micro1 = {
+  micro-media = {
     tailscale.ip = "100.115.102.19";
     local.ip = "192.168.3.3";
   };

@@ -54,14 +54,14 @@
     # Your custom packages and modifications, exported as overlays
     overlays = import ./share/lib/overlays;
     nixosConfigurations = {
-      nix-server = nixpkgs.lib.nixosSystem {
+      nix-hypervisor = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs self;};
         modules = [
           impermanence.nixosModules.impermanence
           ./share/lib/modules/nixos/yamlConfigMaker
           ./share/lib/modules/nixos/olivetin
           ./share/nixos
-          ./hosts/nix-server/nixos
+          ./hosts/nix-hypervisor/nixos
           sops-nix.nixosModules.sops
           microvm.nixosModules.host
           home-manager.nixosModules.home-manager
@@ -73,19 +73,19 @@
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
                   ./share/home
-                  ./hosts/nix-server/home
+                  ./hosts/nix-hypervisor/home
                 ];
               };
             };
           }
         ];
       };
-      micro1 = nixpkgs.lib.nixosSystem {
+      micro-media = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs self;};
         modules = [
           microvm.nixosModules.microvm
           ./share/lib/modules/nixos/yamlConfigMaker
-          ./hosts/micro1
+          ./hosts/micro-media
           ./share/microvm
         ];
       };

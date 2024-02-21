@@ -17,13 +17,18 @@ My NixOS Homelab, with each machine having some shared configuration
 - Local user declarative setup with [Home Manager](https://github.com/nix-community/home-manager)
 - [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
 
-## Nix-Server
+## Nix-Hypervisor
 
-See [The Nix-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-server/README.md)
+See [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-hypervisor/README.md)
 
 ## Nix-Nas
 
 See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-nas/README.md)
+
+## Micro-Media
+
+
+See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-media/README.md)
 
 ## Maintenance
 
