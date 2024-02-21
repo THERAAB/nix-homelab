@@ -1,6 +1,7 @@
 {...}: {
   microvm = {
-    hypervisor = "cloud-hypervisor";
+    mem = 8192;
+    vcpu = 1;
     kernelParams = ["i915.force_probe=4692"];
     interfaces = [
       {

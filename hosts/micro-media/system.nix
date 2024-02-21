@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   microvm = {
     kernelParams = ["i915.force_probe=4692"];
-    mem = 16384;
-    vcpu = 2;
+    mem = 8192;
+    vcpu = 1;
     # hypervisor = lib.mkDefault "cloud-hypervisor";
     interfaces = [
       {
