@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./homer
+    #./homer
     #./media
     ./gatus
     ./adguard
