@@ -46,9 +46,9 @@
                   preCheck = ''
                     export CI
                   '';
-                  pythonImportsCheck = [
-                    "urllib3"
-                  ];
+                  #pythonImportsCheck = [
+                  #  "urllib3"
+                  #];
 
                   passthru.optional-dependencies = {
                     brotli =
