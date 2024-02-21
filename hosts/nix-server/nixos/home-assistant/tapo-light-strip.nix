@@ -22,7 +22,6 @@
               semantic-version
               scapy
               urllib3
-              pip
             ];
           }
         )
