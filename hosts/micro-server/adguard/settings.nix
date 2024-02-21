@@ -26,31 +26,31 @@ in {
       rewrites = [
         {
           domain = "cache.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
+          answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
           domain = "netdata.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
+          answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
           domain = "sync.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
+          answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
           domain = "home-assistant.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
+          answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
           domain = "adguard-tailscale.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
+          answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
           domain = "${network.domain}";
-          answer = "${network.micro-server.local.ip}";
+          answer = "${network.micro-media.tailscale.ip}";
         }
         {
           domain = "*.${network.domain}";
-          answer = "${network.micro-server.local.ip}";
+          answer = "${network.micro-media.tailscale.ip}";
         }
       ];
     };
