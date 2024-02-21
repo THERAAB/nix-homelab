@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./homer
-    ./media
+    #./media
     ./gatus
     ./adguard
     ./caddy.nix
