@@ -46,7 +46,7 @@
       allowedTCPPorts = [80 443];
       allowedUDPPorts = [53];
     };
-    #networkmanager.enable = true;
+    networkmanager.enable = true;
   };
   #environment.noXlibs = false;
   #services.tailscale = {
