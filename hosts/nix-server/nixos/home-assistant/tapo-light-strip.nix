@@ -21,6 +21,7 @@
               aiohttp
               semantic-version
               scapy
+              urllib3
             ];
           }
         )
