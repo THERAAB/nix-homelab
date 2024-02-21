@@ -56,7 +56,6 @@
       pciutils
       usbutils
       linux-firmware
-      ncdu_2
     ];
   };
   networking.firewall.enable = true;
