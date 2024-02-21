@@ -7,7 +7,7 @@
   local-config-dir = "/var/lib/${app-name}";
   network = import ../../../../../share/network.properties.nix;
 in {
-  servces = {
+  services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {
         name = "${display-name}";
