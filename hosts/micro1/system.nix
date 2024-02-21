@@ -1,6 +1,9 @@
 {...}: {
   microvm = {
     kernelParams = ["i915.force_probe=4692"];
+    mem = 16384;
+    vcpu = 2;
+    # hypervisor = lib.mkDefault "cloud-hypervisor";
     interfaces = [
       {
         type = "macvtap";

@@ -12,8 +12,8 @@
         proto = "virtiofs";
       }
     ];
-    mem = 16384;
-    vcpu = 2;
+    mem = lib.mkDefault 2048;
+    vcpu = lib.mkDefault 1;
     # hypervisor = lib.mkDefault "cloud-hypervisor";
   };
 
