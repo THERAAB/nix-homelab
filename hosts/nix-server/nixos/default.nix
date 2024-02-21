@@ -12,7 +12,7 @@
     ./nfs.nix
     ./auto-upgrade.nix
     ./restic.nix
-    ./microvm
+    ./microvm.nix
     ./caddy.nix
   ];
 }

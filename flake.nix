@@ -85,9 +85,8 @@
         modules = [
           microvm.nixosModules.microvm
           ./share/lib/modules/nixos/yamlConfigMaker
-          ./share/lib/modules/nixos/olivetin
           ./hosts/micro1
-          ./hosts/nix-server/nixos/microvm/share
+          ./share/microvm
         ];
       };
       nix-nas = nixpkgs.lib.nixosSystem {
