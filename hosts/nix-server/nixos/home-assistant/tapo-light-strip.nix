@@ -8,10 +8,10 @@
         (
           buildPythonPackage rec {
             pname = "plugp100";
-            version = "4.0.3";
+            version = "3.12.0";
             src = fetchPypi {
               inherit version pname;
-              hash = "sha256-zeK1ij3F6Ot+EBrXvHzoyGgJFEesTrzjksQP9N4Y4IM=";
+              hash = "sha256-jfitt8qCq8nRbCgv81qz3Wtwp0R9fXQ7TjP88Sh2oIY=";
             };
             propagatedBuildInputs = [
               certifi
@@ -21,56 +21,6 @@
               aiohttp
               semantic-version
               scapy
-              (
-                buildPythonPackage rec {
-                  pname = "urllib3";
-                  version = "1.26.16";
-
-                  src = fetchPypi {
-                    inherit pname version;
-                    hash = "sha256-jxNfZQJ1a95rKpsomJ31++h8mXDOyqaQQe3M5/BYmxQ=";
-                  };
-                  propagatedBuildInputs =
-                    passthru.optional-dependencies.brotli
-                    ++ passthru.optional-dependencies.socks;
-                  nativeCheckInputs = [
-                    tornado
-                    trustme
-                    mock
-                    python-dateutil
-                    pytest-freezegun
-                    pytest-timeout
-                    pytestCheckHook
-                  ];
-                  doCheck = false;
-                  preCheck = ''
-                    export CI
-                  '';
-                  #pythonImportsCheck = [
-                  #  "urllib3"
-                  #];
-
-                  passthru.optional-dependencies = {
-                    brotli =
-                      if isPyPy
-                      then [
-                        brotlicffi
-                      ]
-                      else [
-                        brotli
-                      ];
-                    secure = [
-                      certifi
-                      cryptography
-                      idna
-                      pyopenssl
-                    ];
-                    socks = [
-                      pysocks
-                    ];
-                  };
-                }
-              )
             ];
           }
         )
