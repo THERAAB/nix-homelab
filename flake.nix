@@ -89,6 +89,15 @@
           ./share/microvm
         ];
       };
+      micro-server = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          microvm.nixosModules.microvm
+          ./share/lib/modules/nixos/yamlConfigMaker
+          ./hosts/micro-server
+          ./share/microvm
+        ];
+      };
       nix-nas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
