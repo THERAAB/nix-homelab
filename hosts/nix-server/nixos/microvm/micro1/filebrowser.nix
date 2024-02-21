@@ -41,6 +41,7 @@ in {
     groups.${app-name}.gid = gid;
   };
   systemd.tmpfiles.rules = [
+    "d    /sync                           -       -             -           -   - "
     "d    ${local-config-dir}             -       -             -           -   - "
     "f    ${local-config-dir}/database.db -       -             -           -   - "
     "Z    ${local-config-dir}             -       ${app-name}   ${app-name} -   - "
