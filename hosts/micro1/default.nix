@@ -3,7 +3,7 @@
     #./homer
     #./media
     ./gatus
-    ./adguard
+    #./adguard
     ./caddy.nix
     #./users.nix
     #./photoprism.nix
