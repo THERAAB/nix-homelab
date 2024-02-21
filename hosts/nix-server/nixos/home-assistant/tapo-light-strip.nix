@@ -30,6 +30,9 @@
                     inherit pname version;
                     hash = "sha256-jxNfZQJ1a95rKpsomJ31++h8mXDOyqaQQe3M5/BYmxQ=";
                   };
+                  propagatedBuildInputs = [
+                    pytest
+                  ];
                 }
               )
               pip
