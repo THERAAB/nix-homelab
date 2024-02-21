@@ -2,7 +2,7 @@
   port = 9080;
   app-name = "microbin";
   display-name = "Microbin";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   networking.firewall.allowedTCPPorts = [port];
   services = {

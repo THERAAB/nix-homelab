@@ -6,7 +6,7 @@
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   local-config-dir = "/var/lib/${app-name}";
   config = import ./config.nix;
-  network = import ../../../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
   display-name = "Homer";
   environment = {
     UMASK = "022";

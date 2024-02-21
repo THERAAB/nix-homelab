@@ -2,7 +2,7 @@
   port = 8238;
   app-name = "gotify";
   display-name = "Gotify";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [

@@ -3,7 +3,7 @@
   settings = (import ./settings.nix).settings;
   app-name = "adguard";
   display-name = "Adguard";
-  network = import ../../../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [

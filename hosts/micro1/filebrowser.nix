@@ -6,7 +6,7 @@
   display-name = "File Browser";
   local-config-dir = "/var/lib/${app-name}";
   dir-to-share = "/sync";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [

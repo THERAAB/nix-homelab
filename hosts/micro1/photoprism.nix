@@ -2,7 +2,7 @@
   port = 2342;
   app-name = "photoprism";
   display-name = "Photoprism";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
   originals-dir = "/var/lib/private/photoprism/originals";
 in {
   services = {

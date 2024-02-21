@@ -5,7 +5,7 @@
   app-name = "flatnotes";
   display-name = "Flatnotes";
   local-config-dir = "/var/lib/${app-name}";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
