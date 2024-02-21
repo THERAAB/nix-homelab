@@ -1,6 +1,6 @@
 {self, ...}: {
   microvm = {
-    autostart = ["micro-media"];
+    autostart = ["micro-media" "micro-server"];
     vms = {
       micro-media = {
         flake = self;

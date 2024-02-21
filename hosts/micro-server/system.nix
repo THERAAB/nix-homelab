@@ -1,4 +1,8 @@
-{...}: {
+{...}: 
+let
+  hostname = "micro-server";
+in
+{
   microvm = {
     mem = 8192;
     vcpu = 1;
@@ -9,7 +13,7 @@
           mode = "bridge";
           link = "enp3s0";
         };
-        id = "micro-server";
+        id = hostname;
         mac = "02:00:00:00:00:02";
       }
     ];
@@ -22,13 +26,13 @@
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/micro-server/storage/etc/ssh";
+        source = "/var/lib/microvms/${hostname}/storage/etc/ssh";
         mountPoint = "/etc/ssh";
         tag = "ssh";
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/micro-server/storage/var/lib";
+        source = "/var/lib/microvms/${hostname}/storage/var/lib";
         mountPoint = "/var/lib";
         tag = "var-lib";
       }
@@ -39,7 +43,7 @@
     "/var/lib".neededForBoot = true;
   };
   networking = {
-    hostName = "micro-server";
+    hostName = "${hostname}";
     firewall = {
       trustedInterfaces = ["tailscale0"];
       allowedTCPPorts = [80 443];

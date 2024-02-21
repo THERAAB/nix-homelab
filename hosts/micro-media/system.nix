@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{pkgs, ...}: 
+let
+  hostname = "micro-media";
+in
+{
   microvm = {
     kernelParams = ["i915.force_probe=4692"];
     mem = 8192;
@@ -11,7 +15,7 @@
           mode = "bridge";
           link = "enp3s0";
         };
-        id = "micro-media";
+        id = hostname;
         mac = "02:00:00:00:00:01";
       }
     ];
@@ -30,13 +34,13 @@
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/micro-media/storage/etc/ssh";
+        source = "/var/lib/microvms/${hostname}/storage/etc/ssh";
         mountPoint = "/etc/ssh";
         tag = "ssh";
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/micro-media/storage/var/lib";
+        source = "/var/lib/microvms/${hostname}/storage/var/lib";
         mountPoint = "/var/lib";
         tag = "var-lib";
       }
@@ -47,7 +51,7 @@
     "/var/lib".neededForBoot = true;
   };
   networking = {
-    hostName = "micro-media";
+    hostName = "${hostname}";
     firewall = {
       trustedInterfaces = ["tailscale0"];
       allowedTCPPorts = [80 443];

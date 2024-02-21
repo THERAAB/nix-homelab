@@ -8,7 +8,7 @@
     local.ip = "192.168.3.3";
   };
   micro-server = {
-    tailscale.ip = "";
+    tailscale.ip = "100.114.35.103";
     local.ip = "192.168.3.4";
   };
   nix-zenbook = {
