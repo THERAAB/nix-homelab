@@ -29,7 +29,7 @@ in {
       ];
     }
     {
-      name = "NetData";
+      name = "Netdata";
       url = "https://netdata.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
