@@ -12,5 +12,6 @@
     ./microbin.nix
     ./filebrowser.nix
     ./photoprism.nix
+    ./microvm.nix
   ];
 }

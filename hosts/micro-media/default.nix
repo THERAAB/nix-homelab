@@ -16,6 +16,7 @@ in
     ./sonarr.nix
     ./audiobookshelf.nix
     ./readarr.nix
+    ./microvm.nix
   ];
   users.groups.media.gid = media.group.id;
 }
