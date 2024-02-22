@@ -41,6 +41,10 @@ in {
           answer = "${network.nix-hypervisor.local.ip}";
         }
         {
+          domain = "vuetorrent.${network.domain}";
+          answer = "${network.micro-media.local.ip}";
+        }
+        {
           domain = "${network.domain}";
           answer = "${network.micro-server.local.ip}";
         }

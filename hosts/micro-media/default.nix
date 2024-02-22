@@ -12,5 +12,6 @@
     ./filebrowser.nix
     ./system.nix
     ./nfs.nix
+    ./caddy.nix
   ];
 }

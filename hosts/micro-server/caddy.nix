@@ -139,13 +139,6 @@ in {
           reverse_proxy ${network.micro-media.local.ip}:8989
         '';
       };
-      "vuetorrent.${network.domain}" = {
-        useACMEHost = "${network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:8112
-        '';
-      };
     };
   };
   security.acme = {

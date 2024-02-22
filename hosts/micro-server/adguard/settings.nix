@@ -41,6 +41,10 @@ in {
           answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
+          domain = "vuetorrent.${network.domain}";
+          answer = "${network.micro-media.tailscale.ip}";
+        }
+        {
           domain = "${network.domain}";
           answer = "${network.micro-server.tailscale.ip}";
         }
