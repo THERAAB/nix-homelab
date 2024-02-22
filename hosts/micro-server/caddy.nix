@@ -38,21 +38,21 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:2342
+          reverse_proxy ${network.micro-server.local.ip}:2342
         '';
       };
       "microbin.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:9080
+          reverse_proxy ${network.micro-server.local.ip}:9080
         '';
       };
       "bookmarks.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:9090
+          reverse_proxy ${network.micro-server.local.ip}:9090
         '';
       };
       "gotify.${network.domain}" = {
@@ -66,14 +66,14 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:9092
+          reverse_proxy ${network.micro-server.local.ip}:9092
         '';
       };
       "files.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:9940
+          reverse_proxy ${network.micro-server.local.ip}:9940
         '';
       };
       "jellyseerr.${network.domain}" = {
@@ -94,7 +94,7 @@ in {
         useACMEHost = "${network.domain}-tld";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:8082
+          reverse_proxy ${network.micro-server.local.ip}:8082
         '';
       };
       "audiobooks.${network.domain}" = {

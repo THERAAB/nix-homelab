@@ -1,17 +1,17 @@
 {...}: {
   imports = [
-    ./homer
-    ./media
     ./adguard
-    ./users.nix
-    ./photoprism.nix
-    ./podman.nix
-    ./linkding.nix
-    ./flatnotes.nix
-    ./microbin.nix
-    ./filebrowser.nix
     ./system.nix
     ./nfs.nix
     ./caddy.nix
+    ./jellyfin.nix
+    ./vuetorrent.nix
+    ./jellyseerr.nix
+    ./prowlarr.nix
+    ./radarr.nix
+    ./sonarr.nix
+    ./audiobookshelf.nix
+    ./readarr.nix
   ];
+  users.groups.media.gid = 11201;
 }

@@ -4,7 +4,7 @@
   port = 8112;
   app-name = "vuetorrent";
   local-config-dir = "/var/lib/${app-name}";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   users = {
     users."${app-name}" = {
