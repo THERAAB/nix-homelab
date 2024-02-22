@@ -22,7 +22,7 @@ in {
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
-    image = "ghcr.io/hotio/qbittorrent:latest"; 
+    image = "ghcr.io/hotio/qbittorrent:release-30ab467"; #TODO: unpin
     volumes = [
       "${local-config-dir}:/config"
       "${media.dir.downloads}:/app/qBittorrent/downloads"
