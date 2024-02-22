@@ -46,11 +46,11 @@ in {
         }
         {
           domain = "${network.domain}";
-          answer = "${network.micro-media.local.ip}";
+          answer = "${network.micro-server.local.ip}";
         }
         {
           domain = "*.${network.domain}";
-          answer = "${network.micro-media.local.ip}";
+          answer = "${network.micro-server.local.ip}";
         }
       ];
     };
