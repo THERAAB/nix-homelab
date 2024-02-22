@@ -1,45 +1,19 @@
 {pkgs, ...}: let
   port = 2342;
   app-name = "photoprism";
-  display-name = "Photoprism";
-  network = import ../../share/network.properties.nix;
   originals-dir = "/var/lib/private/photoprism/originals";
 in {
-  services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://photos.${network.domain}/";
-        conditions = [
-          "[STATUS] == 200"
-          ''[BODY] == pat(*<title>PhotoPrism</title>*)''
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
-    caddy.virtualHosts."photos.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy ${network.micro-media.local.ip}:${toString port}
-      '';
+  services.${app-name} = {
+    enable = true;
+    settings = {
+      PHOTOPRISM_ADMIN_USER = "raab";
+      PHOTOPRISM_UPLOAD_NSFW = "true";
+      PHOTOPRISM_ORIGINALS_LIMIT = "-1";
+      PHOTOPRISM_READONLY = "true";
     };
-    ${app-name} = {
-      enable = true;
-      settings = {
-        PHOTOPRISM_ADMIN_USER = "raab";
-        PHOTOPRISM_UPLOAD_NSFW = "true";
-        PHOTOPRISM_ORIGINALS_LIMIT = "-1";
-        PHOTOPRISM_READONLY = "true";
-      };
-      address = "0.0.0.0";
-      originalsPath = "${originals-dir}";
-      passwordFile = "/run/secrets/df_password";
-    };
+    address = "0.0.0.0";
+    originalsPath = "${originals-dir}";
+    passwordFile = "/run/secrets/df_password";
   };
   #fileSystems."${originals-dir}" = {
   #  device = "/sync/Camera";

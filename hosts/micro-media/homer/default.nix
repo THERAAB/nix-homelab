@@ -6,8 +6,6 @@
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   local-config-dir = "/var/lib/${app-name}";
   config = import ./config.nix;
-  network = import ../../../share/network.properties.nix;
-  display-name = "Homer";
   environment = {
     UMASK = "022";
     INIT_ASSETS = "0";
@@ -23,33 +21,9 @@ in {
     }
   ];
   services = {
-    yamlConfigMaker = {
-      "${app-name}" = {
-        path = "${local-config-dir}/config.yml";
-        settings = config;
-      };
-      gatus.settings.endpoints = [
-        {
-          name = "${display-name}";
-          url = "https://${network.domain}/";
-          conditions = [
-            "[STATUS] == 200"
-            ''[BODY] == pat(*<div id="app-mount"></div>*)''
-          ];
-          alerts = [
-            {
-              type = "gotify";
-            }
-          ];
-        }
-      ];
-    };
-    caddy.virtualHosts."${network.domain}" = {
-      useACMEHost = "${network.domain}-tld";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy ${network.micro-media.local.ip}:${toString port}
-      '';
+    yamlConfigMaker."${app-name}" = {
+      path = "${local-config-dir}/config.yml";
+      settings = config;
     };
   };
   systemd.tmpfiles.rules = [

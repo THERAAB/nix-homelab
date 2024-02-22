@@ -5,10 +5,8 @@
   app-name = "gatus";
   local-config-dir = "/var/lib/${app-name}";
   cfg = import ./config.nix;
-  network = import ../../../share/network.properties.nix;
 in {
-  services = {
-    yamlConfigMaker = {
+  services.yamlConfigMaker = {
       gatus = {
         path = "${local-config-dir}/config.yaml";
         settings = {
@@ -17,14 +15,6 @@ in {
         };
       };
     };
-    caddy.virtualHosts."${app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy ${network.micro-media.local.ip}:${toString port}
-      '';
-    };
-  };
   users = {
     groups.${app-name}.gid = gid;
     users.${app-name} = {

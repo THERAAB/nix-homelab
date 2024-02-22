@@ -3,33 +3,9 @@
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
-  display-name = "Vuetorrent";
   local-config-dir = "/var/lib/${app-name}";
   network = import ../../../share/network.properties.nix;
 in {
-  services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://${app-name}.${network.domain}/";
-        conditions = [
-          "[STATUS] == 200"
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
-    caddy.virtualHosts."${app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy ${network.micro-media.local.ip}:${toString port}
-      '';
-    };
-  };
   users = {
     users."${app-name}" = {
       uid = uid;

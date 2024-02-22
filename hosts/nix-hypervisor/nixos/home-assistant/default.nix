@@ -25,21 +25,6 @@ in {
   ];
   networking.firewall.allowedTCPPorts = [port];
   services = {
-    #yamlConfigMaker.gatus.settings.endpoints = [
-    #  {
-    #    name = "${display-name}";
-    #    url = "https://${app-name}.${network.domain}/";
-    #    conditions = [
-    #      "[STATUS] == 200"
-    #      ''[BODY] == pat(*<title>Home Assistant</title>*)''
-    #    ];
-    #    alerts = [
-    #      {
-    #        type = "gotify";
-    #      }
-    #    ];
-    #  }
-    #];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''

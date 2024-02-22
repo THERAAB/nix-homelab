@@ -3,38 +3,9 @@
   gid = 7813;
   port = 8443;
   app-name = "unifi";
-  display-name = "Unifi Network Application";
   local-config-dir = "/var/lib/${app-name}";
   network = import ../../share/network.properties.nix;
 in {
-  services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://${app-name}.${network.domain}:${toString port}";
-        conditions = [
-          "[STATUS] == 200"
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-        client.insecure = true;
-      }
-    ];
-    caddy.virtualHosts."${app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy ${network.micro-media.local.ip}:${toString port} {
-          transport http {
-            tls_insecure_skip_verify
-          }
-        }
-      '';
-    };
-  };
   users = {
     users."${app-name}" = {
       uid = uid;
