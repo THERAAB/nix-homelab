@@ -1,4 +1,8 @@
-{...}: {
+{...}:
+let
+media = import ./media.properties;
+in 
+ {
   imports = [
     ./adguard
     ./system.nix
@@ -13,5 +17,5 @@
     ./audiobookshelf.nix
     ./readarr.nix
   ];
-  users.groups.media.gid = 11201;
+  users.groups.media.gid = media.group.id;
 }

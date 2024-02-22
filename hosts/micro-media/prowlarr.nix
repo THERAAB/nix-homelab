@@ -13,7 +13,7 @@ in {
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -             -           -   - "
+    "d    ${local-config-dir}     -       -             -                   -   - "
     "Z    ${local-config-dir}     -       ${app-name}   ${media.group.name} -   - "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {

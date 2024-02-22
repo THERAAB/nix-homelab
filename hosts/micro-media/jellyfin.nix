@@ -1,4 +1,4 @@
-{...}: let
+{pkgs, ...}: let
   media = import ./media.properties.nix;
   uid = 9992;
   port = 8096;
@@ -19,6 +19,18 @@ in {
       "Z    ${local-config-dir}     -       ${app-name}   ${media.group.name} -   - "
     ];
     services."podman-${app-name}".after = ["multi-user.target"]; # Delay jellyfin start for hardware encoding
+  };
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
+  };
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;

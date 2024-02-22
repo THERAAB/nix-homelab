@@ -1,13 +1,9 @@
-{pkgs, ...}: 
-let
+{...}: let
   hostname = "micro-media";
-in
-{
+in {
   microvm = {
-    kernelParams = ["i915.force_probe=4692"];
     mem = 8192;
     vcpu = 1;
-    # hypervisor = lib.mkDefault "cloud-hypervisor";
     interfaces = [
       {
         type = "macvtap";
@@ -46,10 +42,6 @@ in
       }
     ];
   };
-  fileSystems = {
-    "/etc/ssh".neededForBoot = true;
-    "/var/lib".neededForBoot = true;
-  };
   networking = {
     hostName = "${hostname}";
     firewall = {
@@ -59,21 +51,8 @@ in
     };
     networkmanager.enable = true;
   };
-  environment.noXlibs = false;
   services.tailscale = {
     enable = true;
     extraUpFlags = ["--ssh"];
-  };
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
-  };
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
   };
 }

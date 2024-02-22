@@ -14,9 +14,7 @@
     ];
     mem = lib.mkDefault 2048;
     vcpu = lib.mkDefault 1;
-    # hypervisor = lib.mkDefault "cloud-hypervisor";
   };
-
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   system.stateVersion = lib.mkDefault "23.11";
   users = {
@@ -58,5 +56,13 @@
       linux-firmware
     ];
   };
-  networking.firewall.enable = true;
+  networking = {
+    firewall.enable = true;
+    networkmanager.enable = true;
+  };
+  fileSystems = {
+    "/etc/ssh".neededForBoot = true;
+    "/var/lib".neededForBoot = true;
+  };
+  environment.noXlibs = false;
 }

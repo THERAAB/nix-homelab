@@ -38,10 +38,6 @@ in
       }
     ];
   };
-  fileSystems = {
-    "/etc/ssh".neededForBoot = true;
-    "/var/lib".neededForBoot = true;
-  };
   networking = {
     hostName = "${hostname}";
     firewall = {
@@ -49,9 +45,7 @@ in
       allowedTCPPorts = [80 443];
       allowedUDPPorts = [53];
     };
-    networkmanager.enable = true;
   };
-  environment.noXlibs = false;
   services.tailscale = {
     enable = true;
     extraUpFlags = ["--ssh"];
