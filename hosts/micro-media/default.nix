@@ -1,6 +1,6 @@
 {...}:
 let
-media = import ./media.properties;
+media = import ./media.properties.nix;
 in 
  {
   imports = [
