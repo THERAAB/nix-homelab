@@ -16,6 +16,43 @@ in {
   };
   endpoints = [
     {
+      name = "Harmonia Cache";
+      url = "https://cache.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>*harmonia*</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
+      name = "NetData";
+      url = "https://netdata.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
+      name = "SyncThing";
+      url = "https://sync.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
       name = "Home Assistant";
       url = "https://home-assistant.${network.domain}/";
       conditions = [
