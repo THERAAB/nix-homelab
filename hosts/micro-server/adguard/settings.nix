@@ -15,7 +15,7 @@ in {
     theme = "auto";
     dns = {
       ratelimit = 0;
-      bind_hosts = [network.micro-server.tailscale.ip];
+      bind_hosts = [network.micro-server.tailscale.ip network.micro-server.local.ip];
       port = 53;
       upstream_dns = ["${network.pfSense.local.ip}"];
       protection_enabled = true;
