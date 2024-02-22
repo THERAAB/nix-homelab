@@ -41,10 +41,6 @@ in {
           answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
-          domain = "adguard-tailscale.${network.domain}";
-          answer = "${network.nix-hypervisor.tailscale.ip}";
-        }
-        {
           domain = "${network.domain}";
           answer = "${network.micro-server.tailscale.ip}";
         }

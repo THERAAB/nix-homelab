@@ -9,6 +9,13 @@ in {
   services.caddy = {
     enable = true;
     virtualHosts = {
+      "adguard-tailscale.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${network.micro-server.local.ip}:3000
+        '';
+      };
       "gatus.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
