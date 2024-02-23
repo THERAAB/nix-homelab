@@ -3,7 +3,8 @@
   uid = 4444;
   port = 8082;
   app-name = "homer";
-  system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
+  hypervisor-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
+  mount-icons-dir = "/icons";
   local-config-dir = "/var/lib/${app-name}";
   config = import ./config.nix;
   environment = {
@@ -15,8 +16,8 @@ in {
   microvm.shares = [
     {
       proto = "virtiofs";
-      source = system-icons-dir;
-      mountPoint = "${local-config-dir}/icons"; #TODO: fix permissions
+      source = hypervisor-icons-dir;
+      mountPoint = mount-icons-dir;
       tag = "${app-name}-icons";
     }
   ];
@@ -27,8 +28,10 @@ in {
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}                 -   -               -               -   -                     "
-    "Z    ${local-config-dir}                 -   ${app-name}     ${app-name}     -   -                     "
+    "d    ${local-config-dir}            -   -               -               -   -                     "
+    "R    ${local-config-dir}/icons      -   -               -               -   -                     "
+    "C    ${local-config-dir}/icons      -   -               -               -   ${mount-icons-dir}    "
+    "Z    ${local-config-dir}            -   ${app-name}     ${app-name}     -   -                     "
   ];
   users = {
     groups.${app-name}.gid = gid;
