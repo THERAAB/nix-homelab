@@ -30,6 +30,10 @@ in {
           answer = "${network.micro-media.tailscale.ip}";
         }
         {
+          domain = "olivetin.${network.domain}";
+          answer = "${network.micro-media.tailscale.ip}";
+        }
+        {
           domain = "${network.domain}";
           answer = "${network.micro-server.tailscale.ip}";
         }
