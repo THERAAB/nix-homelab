@@ -2,12 +2,9 @@
   services = {
     fstrim.enable = true;
     fwupd.enable = true;
-    tailscale.enable = true;
   };
   networking = {
     firewall = {
-      enable = true;
-      trustedInterfaces = ["tailscale0"];
       allowedTCPPorts = [80 443];
       allowedUDPPorts = [53];
     };
@@ -22,6 +19,4 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
-  time.timeZone = "America/New_York";
-  i18n.defaultLocale = "en_US.utf8";
 }

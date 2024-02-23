@@ -3,8 +3,6 @@
     mutableUsers = false;
     groups = {
       users.gid = 100;
-      media.gid = 11201;
-      restic.gid = 11202;
     };
     users = {
       # $ nix-shell --run 'mkpasswd -m SHA-512 -s' -p mkpasswd

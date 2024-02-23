@@ -60,7 +60,8 @@
           impermanence.nixosModules.impermanence
           ./share/lib/modules/nixos/yamlConfigMaker
           ./share/lib/modules/nixos/olivetin
-          ./share/nixos
+          ./share/physical/nixos
+          ./share/all
           ./hosts/nix-hypervisor/nixos
           sops-nix.nixosModules.sops
           microvm.nixosModules.host
@@ -72,7 +73,7 @@
               users.raab = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
-                  ./share/home
+                  ./share/physical/home
                   ./hosts/nix-hypervisor/home
                 ];
               };
@@ -87,6 +88,7 @@
           ./share/lib/modules/nixos/yamlConfigMaker
           ./hosts/micro-media
           ./share/microvm
+          ./share/all
         ];
       };
       micro-server = nixpkgs.lib.nixosSystem {
@@ -96,6 +98,7 @@
           ./share/lib/modules/nixos/yamlConfigMaker
           ./hosts/micro-server
           ./share/microvm
+          ./share/all
         ];
       };
       nix-nas = nixpkgs.lib.nixosSystem {
@@ -104,8 +107,9 @@
           impermanence.nixosModules.impermanence
           ./share/lib/modules/nixos/yamlConfigMaker
           ./share/lib/modules/nixos/olivetin
-          ./share/nixos
+          ./share/physical/nixos
           ./hosts/nix-nas/nixos
+          ./share/all
           sops-nix.nixosModules.sops
 
           home-manager.nixosModules.home-manager
@@ -116,7 +120,7 @@
               users.raab = {pkgs, ...}: {
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
-                  ./share/home
+                  ./share/physical/home
                   ./hosts/nix-nas/home
                 ];
               };

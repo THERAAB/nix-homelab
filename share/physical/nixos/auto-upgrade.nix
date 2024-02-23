@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  network = import ../network.properties.nix;
+  network = import ../../network.properties.nix;
 in {
   systemd = {
     services = {
