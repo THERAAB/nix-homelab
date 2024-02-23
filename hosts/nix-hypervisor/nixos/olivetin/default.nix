@@ -15,7 +15,7 @@ in {
       useACMEHost = "${network.domain}";
       extraConfig = ''
         encode zstd gzip
-        reverse_proxy ${network.micro-media.local.ip}:${toString port}
+        reverse_proxy 127.0.0.1:${toString port}
       '';
     };
     olivetin = {
