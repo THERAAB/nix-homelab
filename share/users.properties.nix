@@ -1,3 +1,3 @@
 {
-  media.gid = "11201";
+  media.gid = 11201;
 }
