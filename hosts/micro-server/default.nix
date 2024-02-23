@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./adguard
+    ./adguard.nix
     ./homer
     ./gatus
     ./system.nix
