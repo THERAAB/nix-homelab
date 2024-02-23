@@ -1,6 +1,4 @@
-{...}: let
-  hostname = "micro-media";
-in {
+{config, ...}: {
   microvm = {
     mem = 8192;
     interfaces = [
@@ -10,7 +8,7 @@ in {
           mode = "bridge";
           link = "enp3s0";
         };
-        id = hostname;
+        id = config.networking.hostName;
         mac = "02:00:00:00:00:01";
       }
     ];
@@ -29,13 +27,13 @@ in {
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/${hostname}/storage/etc/ssh"; #TODO: share
+        source = "/var/lib/microvms/${config.networking.hostName}/storage/etc/ssh"; #TODO: share
         mountPoint = "/etc/ssh";
         tag = "ssh";
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/${hostname}/storage/var/lib";
+        source = "/var/lib/microvms/${config.networking.hostName}/storage/var/lib";
         mountPoint = "/var/lib";
         tag = "var-lib";
       }
