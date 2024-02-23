@@ -16,14 +16,17 @@ in {
     ./bathroom-lights.nix
     ./washer-dryer.nix
   ];
-  systemd.tmpfiles.rules = [
-    "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
-    "C  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
-    "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
-    "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
-    "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
-    "Z  /var/lib/hass/                      -       hass    hass    -   -                           "
-  ];
+  systemd = {
+    services."${app-name}".after = ["multi-user.target"]; # Delay start
+    tmpfiles.rules = [
+      "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
+      "C  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
+      "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
+      "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
+      "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
+      "Z  /var/lib/hass/                      -       hass    hass    -   -                           "
+    ];
+  };
   networking.firewall.allowedTCPPorts = [port];
   services = {
     caddy.virtualHosts."${app-name}.${network.domain}" = {

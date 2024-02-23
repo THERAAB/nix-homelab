@@ -1,7 +1,6 @@
 let
   users = import ../../share/users.properties.nix;
-in
-{
+in {
   dir = {
     movies = "/media/movies/";
     tv = "/media/tv/";
@@ -11,6 +10,6 @@ in
   };
   group = {
     name = "media";
-    id = users.media.gid; #TODO: move to share
+    id = users.media.gid;
   };
 }
