@@ -17,7 +17,6 @@ in {
     ./washer-dryer.nix
   ];
   systemd = {
-    services."${app-name}".after = ["multi-user.target"]; # Delay start
     tmpfiles.rules = [
       "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
       "C  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
