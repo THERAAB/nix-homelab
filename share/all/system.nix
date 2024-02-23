@@ -25,7 +25,6 @@
     ];
   };
   networking = {
-    hostName = "${config.networking.hostName}";
     firewall = {
       enable = true;
       trustedInterfaces = ["tailscale0"];

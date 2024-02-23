@@ -3,6 +3,7 @@
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sdb
   '';
+  networking.hostName = "nix-nas";
   systemd.services = {
     # disable interrupt which uses high CPU for ACPI (IRQ 9)
     # Found it from highest number in below command:
