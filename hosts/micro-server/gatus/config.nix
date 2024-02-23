@@ -16,6 +16,19 @@ in {
   };
   endpoints = [
     {
+      name = "Olivetin";
+      url = "https://olivetin.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>OliveTin</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
       name = "Harmonia Cache";
       url = "https://cache.${network.domain}/";
       conditions = [

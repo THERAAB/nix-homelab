@@ -3,30 +3,14 @@
   uid = 62893;
   gid = 62893;
   app-name = "olivetin";
-  display-name = "Olivetin";
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/var/lib/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   network = import ../../../../share/network.properties.nix;
 in {
-  #TODO: refactor
+  #TODO: restart micro-servers
   services = {
-    yamlConfigMaker.gatus.settings.endpoints = [
-      {
-        name = "${display-name}";
-        url = "https://${app-name}.${network.domain}/";
-        conditions = [
-          "[STATUS] == 200"
-          ''[BODY] == pat(*<title>OliveTin</title>*)''
-        ];
-        alerts = [
-          {
-            type = "gotify";
-          }
-        ];
-      }
-    ];
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
       extraConfig = ''
