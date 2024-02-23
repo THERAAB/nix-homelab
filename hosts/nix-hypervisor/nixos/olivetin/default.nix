@@ -10,6 +10,16 @@
   network = import ../../../../share/network.properties.nix;
 in {
   #TODO: restart micro-servers
+  systemd.tmpfiles.rules = [
+    "R  ${www-dir}                    -           -               -               -   -                         "
+    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www      "
+    "r  ${scripts-dir}/commands.sh    -           -               -               -   -                         "
+    "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}            "
+    "R  ${www-dir}/customIcons        -           -               -               -   -                         "
+    "C  ${www-dir}/customIcons        -           -               -               -   ${system-icons-dir}       "
+    "Z  ${scripts-dir}                500         root            root            -   -                         "
+    "Z  ${www-dir}                    -           ${app-name}     ${app-name}     -   -                         "
+  ];
   services = {
     caddy.virtualHosts."${app-name}.${network.domain}" = {
       useACMEHost = "${network.domain}";
@@ -39,15 +49,5 @@ in {
     };
   };
 
-  systemd.tmpfiles.rules = [
-    "R  ${www-dir}                    -           -               -               -   -                         "
-    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www      "
-    "r  ${scripts-dir}/commands.sh    -           -               -               -   -                         "
-    "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}            "
-    "r  ${www-dir}/customIcons        -           -               -               -   -                         "
-    "L  ${www-dir}/customIcons        -           -               -               -   ${system-icons-dir}       "
-    "Z  ${scripts-dir}                500         root            root            -   -                         "
-    "Z  ${www-dir}                    -           ${app-name}     ${app-name}     -   -                         "
-  ];
   networking.firewall.allowedTCPPorts = [port];
 }
