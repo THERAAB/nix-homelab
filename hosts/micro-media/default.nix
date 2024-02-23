@@ -1,10 +1,8 @@
-{...}:
-let
-media = import ./media.properties.nix;
-in 
- {
+{...}: let
+  media = import ./media.properties.nix;
+in {
   imports = [
-    ./adguard
+    ./adguard.nix
     ./system.nix
     ./nfs.nix
     ./caddy.nix

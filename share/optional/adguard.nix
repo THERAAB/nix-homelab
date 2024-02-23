@@ -1,6 +1,6 @@
 {...}: let
   port = 3000;
-  network = import ../../../share/network.properties.nix;
+  network = import ../network.properties.nix;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
   networking.firewall.allowedTCPPorts = [port];
@@ -8,7 +8,6 @@ in {
     mutableSettings = false;
     enable = true;
     settings = {
-      bind_host = network.micro-media.local.ip;
       bind_port = port;
       users = [
         {
@@ -19,7 +18,6 @@ in {
       theme = "auto";
       dns = {
         ratelimit = 0;
-        bind_hosts = [network.micro-media.local.ip network.micro-media.tailscale.ip];
         port = 53;
         upstream_dns = ["${network.pfSense.local.ip}"];
         protection_enabled = true;
@@ -27,36 +25,6 @@ in {
         trusted_proxies = ["127.0.0.0/8" "::1/128"];
         cache_size = 4194304;
         bootstrap_dns = ["9.9.9.0" "149.112.112.10" "2620:fe::10" "2620:fe::fe:10"];
-        rewrites = [
-          {
-            domain = "cache.${network.domain}";
-            answer = "${network.nix-hypervisor.local.ip}";
-          }
-          {
-            domain = "netdata.${network.domain}";
-            answer = "${network.nix-hypervisor.local.ip}";
-          }
-          {
-            domain = "sync.${network.domain}";
-            answer = "${network.nix-hypervisor.local.ip}";
-          }
-          {
-            domain = "home-assistant.${network.domain}";
-            answer = "${network.nix-hypervisor.local.ip}";
-          }
-          {
-            domain = "vuetorrent.${network.domain}";
-            answer = "${network.micro-media.local.ip}";
-          }
-          {
-            domain = "${network.domain}";
-            answer = "${network.micro-server.local.ip}";
-          }
-          {
-            domain = "*.${network.domain}";
-            answer = "${network.micro-server.local.ip}";
-          }
-        ];
       };
       filters = [
         {
