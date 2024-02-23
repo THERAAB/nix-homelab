@@ -31,7 +31,7 @@ in {
         }
         {
           domain = "olivetin.${network.domain}";
-          answer = "${network.micro-media.tailscale.ip}";
+          answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
           domain = "${network.domain}";
