@@ -25,11 +25,11 @@ in {
         proto = "virtiofs";
         source = "/run/secrets";
         mountPoint = "/run/secrets";
-        tag = "secrets";
+        tag = "secrets"; #TODO: remove
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/${hostname}/storage/etc/ssh";
+        source = "/var/lib/microvms/${hostname}/storage/etc/ssh"; #TODO: share
         mountPoint = "/etc/ssh";
         tag = "ssh";
       }

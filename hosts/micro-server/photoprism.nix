@@ -15,6 +15,7 @@ in {
     originalsPath = "${originals-dir}";
     passwordFile = "/run/secrets/df_password";
   };
+  #TODO
   #fileSystems."${originals-dir}" = {
   #  device = "/sync/Camera";
   #  options = ["bind"];

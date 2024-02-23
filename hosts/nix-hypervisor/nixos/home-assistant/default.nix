@@ -5,6 +5,7 @@
   app-name = "home-assistant";
   network = import ../../../../share/network.properties.nix;
 in {
+  #TODO: move to micro-server
   imports = [
     ./kasa-living-room-light.nix
     ./aqara-water-alarms.nix

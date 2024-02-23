@@ -6,7 +6,7 @@
     users = {
       raab.extraGroups = ["syncthing"];
       hass = {
-        uid = 286;
+        uid = 286; #TODO: move to share
         group = "hass";
         isSystemUser = true;
       };

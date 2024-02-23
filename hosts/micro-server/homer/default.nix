@@ -16,7 +16,7 @@ in {
     {
       proto = "virtiofs";
       source = system-icons-dir;
-      mountPoint = "${local-config-dir}/icons";
+      mountPoint = "${local-config-dir}/icons"; #TODO: fix permissions
       tag = "${app-name}-icons";
     }
   ];

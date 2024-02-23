@@ -10,6 +10,7 @@
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   network = import ../../../../share/network.properties.nix;
 in {
+  #TODO: refactor
   services = {
     yamlConfigMaker.gatus.settings.endpoints = [
       {

@@ -5,7 +5,7 @@ in {
   services.adguardhome = {
     mutableSettings = false;
     enable = true;
-    settings = settings;
+    settings = settings; #TODO: move to share
   };
   networking.firewall.allowedTCPPorts = [port];
 }

@@ -7,7 +7,7 @@ in {
     "Z    ${secrets-dir}     644     root   -    -   - "
   ];
   services.caddy.enable = true;
-  security.acme = {
+  security.acme = { #TODO: separate acme, move to shared
     acceptTerms = true;
     defaults = {
       email = "example@aol.com";
