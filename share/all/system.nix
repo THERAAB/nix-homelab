@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.openssh = {
     enable = true;
     ports = [22];
@@ -21,6 +25,7 @@
     ];
   };
   networking = {
+    hostName = "${config.networking.hostName}";
     firewall = {
       enable = true;
       trustedInterfaces = ["tailscale0"];

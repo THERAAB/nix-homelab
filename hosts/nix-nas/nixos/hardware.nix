@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  networking.hostName = "nix-nas"; # Define your hostname.
   powerManagement.powerUpCommands = ''
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sdb
