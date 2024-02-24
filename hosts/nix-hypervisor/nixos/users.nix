@@ -15,11 +15,11 @@
         group = "unifi";
         isSystemUser = true;
       };
-    };
-    flatnotes = {
-      uid = 7762;
-      group = "flatnotes";
-      isSystemUser = true;
+      flatnotes = {
+        uid = 7762;
+        group = "flatnotes";
+        isSystemUser = true;
+      };
     };
     groups = {
       hass = {};
