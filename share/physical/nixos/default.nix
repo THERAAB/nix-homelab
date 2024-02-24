@@ -6,7 +6,6 @@
     ./sops.nix
     ./auto-upgrade.nix
     ./configuration.nix
-    ./users.nix
     ./hardware.nix
     ./boot.nix
     ./fish.nix
