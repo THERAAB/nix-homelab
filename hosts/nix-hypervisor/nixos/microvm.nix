@@ -8,7 +8,7 @@
       };
       micro-server = {
         flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
+        #updateFlake = "git+file:///nix/persist/nix-homelab";
       };
     };
   };
