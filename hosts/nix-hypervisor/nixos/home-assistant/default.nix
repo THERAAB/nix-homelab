@@ -17,7 +17,7 @@ in {
     ./bathroom-lights.nix
     ./washer-dryer.nix
   ];
-  users.users.hass.uid = users.haas.uid;
+  users.users.hass.uid = users.hass.uid;
   systemd = {
     tmpfiles.rules = [
       "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
