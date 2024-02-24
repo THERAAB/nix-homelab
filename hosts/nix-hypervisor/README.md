@@ -6,24 +6,14 @@ and the installation instructions below.
 
 ## What's inside
 
-- Declarative Home Assistant with [NixOS Home Assistant Module](https://nixos.wiki/wiki/Home_Assistant)
-- Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [JellySeerr](https://github.com/Fallenbagel/jellyseerr), and [linuxserver.io](https://www.linuxserver.io/) podman images
-- VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
-- [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
+- [MicroVM host](https://astro.github.io/microvm.nix/)
 - Mesh VPN with [Tailscale](https://tailscale.com/)
-- [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Nix store cache sharing with [Harmonia](https://github.com/nix-community/harmonia)
 - Backups with [SyncThing](https://syncthing.net/)
-- Notifications with [Gotify](https://gotify.net/)
-- Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
-- Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
-- [Microbin](https://microbin.eu/) locally hosted pastebin
-- [Photoprism](https://www.photoprism.app/) for locally hosted photos
-- [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
 
 
 ## Installation
