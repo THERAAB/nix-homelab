@@ -4,7 +4,7 @@
   port = 8123;
   app-name = "home-assistant";
   network = import ../../../../share/network.properties.nix;
-  users = import ../../../share/users.properties.nix;
+  users = import ../../../../share/users.properties.nix;
 in {
   #TODO: move to micro-server, delay start
   imports = [
