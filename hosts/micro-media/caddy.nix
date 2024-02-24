@@ -1,6 +1,9 @@
 {...}: let
   network = import ../../share/network.properties.nix;
 in {
+  imports = [
+    ../../share/optional/acme.nix
+  ];
   services.caddy = {
     enable = true;
     virtualHosts = {
