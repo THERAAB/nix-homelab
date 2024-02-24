@@ -31,7 +31,7 @@ A Microvm for my media setup, see [The Micro-Media README.md](https://github.com
 
 ## Micro-Server
 
-A Microvm for my server setup, see [The Micro-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-media/README.md)
+A Microvm for my server setup, see [The Micro-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-server/README.md)
 
 ## Maintenance
 
