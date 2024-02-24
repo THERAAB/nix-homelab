@@ -9,18 +9,14 @@ in {
       nfsnobody = {
         uid = users.nfsnobody.uid; 
         group = "nfsnobody";
-        extraGroups = "";
+        extraGroups = "nfsnobody";
         isSystemUser = true;
       };
     };
     groups = {
       nfsnobody = {};
-      media = {
-        id = users.media.gid;
-      };
-      restic = {
-        id = users.restic.gid;
-      };
+      media.gid = users.media.gid;
+      restic.gid = users.restic.gid;
     };
   };
 }
