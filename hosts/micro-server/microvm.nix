@@ -16,7 +16,7 @@
       {
         proto = "virtiofs";
         source = "/sync";
-        mountPoint = "/sync";
+        mountPoint = "/sync"; #TODO: fix share
         tag = "sync";
       }
     ];

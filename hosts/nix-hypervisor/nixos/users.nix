@@ -1,4 +1,6 @@
-{...}: {
+{...}: let
+  users = import ../../../share/users.properties.nix;
+in {
   security.sudo.extraConfig = ''
     olivetin ALL=(root) NOPASSWD:/var/lib/olivetin/scripts/commands.sh
   '';
@@ -6,17 +8,17 @@
     users = {
       raab.extraGroups = ["syncthing"];
       hass = {
-        uid = 286; #TODO: move to share
+        uid = users.hass.uid; 
         group = "hass";
         isSystemUser = true;
       };
       unifi = {
-        uid = 7812;
+        uid = users.unifi.uid;
         group = "unifi";
         isSystemUser = true;
       };
       flatnotes = {
-        uid = 7762;
+        uid = users.flatnotes.uid;
         group = "flatnotes";
         isSystemUser = true;
       };
