@@ -6,7 +6,7 @@ and the installation instructions below.
 
 ## What's inside
 
-- [MicroVM host](https://astro.github.io/microvm.nix/)
+- [Microvm host](https://astro.github.io/microvm.nix/)
 - Mesh VPN with [Tailscale](https://tailscale.com/)
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)

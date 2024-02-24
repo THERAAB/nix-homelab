@@ -19,8 +19,7 @@ My NixOS Homelab, with each machine having some shared configuration
 
 ## Nix-Hypervisor
 
-Hypervisor for various Microvms
-See [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-hypervisor/README.md)
+Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-hypervisor/README.md)
 
 ## Nix-Nas
 
@@ -28,13 +27,11 @@ See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/hos
 
 ## Micro-Media
 
-A Microvm for my media setup
-See [The Micro-Media README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-media/README.md)
+A Microvm for my media setup, see [The Micro-Media README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-media/README.md)
 
 ## Micro-Server
 
-A Microvm for my server setup
-See [The Micro-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-media/README.md)
+A Microvm for my server setup, see [The Micro-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-media/README.md)
 
 ## Maintenance
 
