@@ -26,8 +26,8 @@ in {
     enable = true;
     exports = ''
       ${nfs-dir}    ${network.nix-hypervisor.local.ip}(rw,fsid=0,no_subtree_check) ${network.nix-hypervisor.tailscale.ip}(rw,fsid=0,no_subtree_check)
-      ${media-dir}  ${network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,no_root_squash,no_all_squash) ${network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check,no_root_squash,no_all_squash) ${network.micro-media.local.ip}(rw,nohide,insecure,no_subtree_check,no_root_squash,no_all_squash) ${network.micro-media.tailscale.ip}(rw,nohide,insecure,no_subtree_check,no_root_squash,no_all_squash)
-      ${backups-dir}  ${network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,no_root_squash) ${network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check,no_root_squash)
+      ${media-dir}  ${network.micro-media.local.ip}(rw,nohide,insecure,no_subtree_check) ${network.micro-media.tailscale.ip}(rw,nohide,insecure,no_subtree_check)
+      ${backups-dir}  ${network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check) ${network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check)
     ''; #TODO: remove no_root_squash
   };
 }

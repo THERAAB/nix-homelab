@@ -22,6 +22,7 @@ in {
         group = "flatnotes";
         isSystemUser = true;
       };
+      nfsnobody.extraGroups = ["restic" "media"];
     };
     groups = {
       hass = {};
