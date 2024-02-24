@@ -3,6 +3,7 @@
   media-dir = "${nfs-dir}/media";
   backups-dir = "${nfs-dir}/backups";
   network = import ../../../share/network.properties.nix;
+  users = import ../../../share/users.properties.nix;
 in {
   systemd.tmpfiles.rules = [
     "d    ${nfs-dir}      755  -  -       -   - "
@@ -26,8 +27,8 @@ in {
     enable = true;
     exports = ''
       ${nfs-dir}    ${network.nix-hypervisor.local.ip}(rw,fsid=0,no_subtree_check) ${network.nix-hypervisor.tailscale.ip}(rw,fsid=0,no_subtree_check)
-      ${media-dir}  ${network.micro-media.local.ip}(rw,nohide,insecure,no_subtree_check) ${network.micro-media.tailscale.ip}(rw,nohide,insecure,no_subtree_check)
-      ${backups-dir}  ${network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check) ${network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check)
+      ${media-dir}  ${network.micro-media.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${users.nfsnobody.uid}) ${network.micro-media.tailscale.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${users.nfsnobody.uid})
+      ${backups-dir}  ${network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${users.nfsnobody.uid}) ${network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${users.nfsnobody.uid})
     ''; #TODO: remove no_root_squash
   };
 }

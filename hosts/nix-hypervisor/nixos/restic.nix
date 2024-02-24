@@ -4,7 +4,9 @@
   ...
 }: let
   network = import ../../../share/network.properties.nix;
+  users = import ../../../share/users.properties.nix;
 in {
+  users.groups.restic.gid = users.restic.gid;
   services.restic.backups."nix-server" = {
     exclude = [
       ".git"
