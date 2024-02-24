@@ -9,7 +9,7 @@ in {
       nfsnobody = {
         uid = users.nfsnobody.uid; 
         group = "nfsnobody";
-        extraGroups = "nfsnobody";
+        extraGroups = ["media" "restic"];
         isSystemUser = true;
       };
     };
