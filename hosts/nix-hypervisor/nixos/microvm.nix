@@ -4,7 +4,7 @@
     vms = {
       micro-media = {
         flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
+        updateFlake = "git+file:///nix/persist/nix-homelab"; #TODO: remove imperative updates
       };
       micro-server = {
         flake = self;

@@ -15,11 +15,10 @@ in {
     originalsPath = "${originals-dir}";
     passwordFile = "/run/secrets/df_password";
   };
-  #TODO
-  #fileSystems."${originals-dir}" = {
-  #  device = "/sync/Camera";
-  #  options = ["bind"];
-  #};
+  fileSystems."${originals-dir}" = {
+    device = "/sync/Camera";
+    options = ["bind"];
+  };
   users = {
     groups.photoprism = {};
     users.${app-name} = {

@@ -17,11 +17,10 @@ in {
     "d    ${local-config-dir}     -       -             -   -   - "
     "Z    ${local-config-dir}     -       ${app-name}   -   -   - "
   ];
-  #TODO
-  #fileSystems."/sync/share/${app-name}" = {
-  #  device = "${local-config-dir}";
-  #  options = ["bind"];
-  #};
+  fileSystems."/sync/share/${app-name}" = {
+    device = "${local-config-dir}";
+    options = ["bind"];
+  };
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "docker.io/dullage/${app-name}";

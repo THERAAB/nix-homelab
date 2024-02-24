@@ -3,7 +3,7 @@
     ./adguard.nix
     ./homer
     ./gatus
-    ./system.nix
+    ./hardware.nix
     ./caddy.nix
     ./gotify.nix
     ./unifi.nix

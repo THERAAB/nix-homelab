@@ -12,5 +12,13 @@
         mac = "02:00:00:00:00:02";
       }
     ];
+    shares = [
+      {
+        proto = "virtiofs";
+        source = "/sync";
+        mountPoint = "/sync";
+        tag = "sync";
+      }
+    ];
   };
 }

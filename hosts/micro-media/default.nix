@@ -3,7 +3,7 @@
 in {
   imports = [
     ./adguard.nix
-    ./system.nix
+    ./hardware.nix
     ./nfs.nix
     ./caddy.nix
     ./jellyfin.nix

@@ -4,7 +4,7 @@
   port = 9940;
   app-name = "filebrowser";
   local-config-dir = "/var/lib/${app-name}";
-  dir-to-share = "/sync"; #TODO: mount sync
+  dir-to-share = "/sync"; 
 in {
   users = {
     users."${app-name}" = {
