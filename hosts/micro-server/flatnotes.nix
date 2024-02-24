@@ -1,13 +1,13 @@
 {...}: let
-  uid = 7762;
   gid = 7763;
   port = 9092;
   app-name = "flatnotes";
   local-config-dir = "/var/lib/${app-name}";
+  users = import ../../share/users.properties.nix;
 in {
   users = {
     users."${app-name}" = {
-      uid = uid;
+      uid = users.flatnotes.uid;
       group = app-name;
       isSystemUser = true;
     };
@@ -31,7 +31,7 @@ in {
       "${toString port}:8080"
     ];
     environment = {
-      PUID = "${toString uid}";
+      PUID = "${toString users.flatnotes.uid}";
       PGID = "${toString gid}";
       UMASK = "022";
       TZ = "America/New_York";

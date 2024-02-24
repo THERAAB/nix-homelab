@@ -1,14 +1,14 @@
 {...}: let
-  uid = 7812;
   gid = 7813;
   port = 8443;
   app-name = "unifi";
   local-config-dir = "/var/lib/${app-name}";
   network = import ../../share/network.properties.nix;
+  users = import ../../share/users.properties.nix;
 in {
   users = {
     users."${app-name}" = {
-      uid = uid;
+      uid = users.unifi.uid;
       group = app-name;
       isSystemUser = true;
     };
@@ -33,7 +33,7 @@ in {
         "8080:8080"
       ];
       environment = {
-        PUID = "${toString uid}";
+        PUID = "${toString users.unifi.uid}";
         PGID = "${toString gid}";
         UMASK = "022";
         TZ = "America/New_York";
@@ -54,9 +54,9 @@ in {
         "${local-config-dir}/db:/data/db"
         "/run/secrets/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
       ];
-      user = "${toString uid}";
+      user = "${toString users.unifi.uid}";
       environment = {
-        PUID = "${toString uid}";
+        PUID = "${toString users.unifi.uid}";
         PGID = "${toString gid}";
         UMASK = "022";
         TZ = "America/New_York";

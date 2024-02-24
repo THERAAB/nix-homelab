@@ -4,6 +4,7 @@
   port = 8123;
   app-name = "home-assistant";
   network = import ../../../../share/network.properties.nix;
+  users = import ../../../share/users.properties.nix;
 in {
   #TODO: move to micro-server, delay start
   imports = [
@@ -16,6 +17,7 @@ in {
     ./bathroom-lights.nix
     ./washer-dryer.nix
   ];
+  users.users.hass.uid = users.haas.uid;
   systemd = {
     tmpfiles.rules = [
       "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
