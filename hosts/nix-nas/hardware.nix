@@ -10,7 +10,10 @@ in {
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sdb
   '';
-  networking.hostName = "nix-nas";
+  networking = {
+    hostName = "nix-nas";
+    enableIPv6 = false;
+  };
   # disable interrupt which uses high CPU for ACPI (IRQ 9)
   # Found it from highest number in below command:
   # sudo grep . -r /sys/firmware/acpi/interrupts | grep -v "  0"
