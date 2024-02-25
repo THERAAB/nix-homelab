@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, mkDefault, ...}: {
   services = {
     openssh = {
       enable = true;
@@ -31,6 +31,6 @@
       enable = true;
       trustedInterfaces = ["tailscale0"];
     };
-    networkmanager.enable = true;
+    networkmanager.enable = mkDefault true;
   };
 }
