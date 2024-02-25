@@ -1,6 +1,6 @@
 {...}: let
   media-dir = "/nfs/media";
-  users = import ../../../users.properties.nix;
+  users = import ../../../share/users.properties.nix;
 in {
   systemd.tmpfiles.rules = [
     "d    ${media-dir}/downloads    -       -       -       -   - "
