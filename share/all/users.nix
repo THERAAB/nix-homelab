@@ -25,7 +25,7 @@ in {
       nfsnobody = {
         uid = users.nfsnobody.uid;
         group = "nfsnobody";
-        extraGroups = ["media" "restic"];
+        extraGroups = ["restic"];
         isSystemUser = true;
       };
     };
