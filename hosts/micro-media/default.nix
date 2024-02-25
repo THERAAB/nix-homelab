@@ -1,6 +1,4 @@
-{...}: let
-  media = import ./media.properties.nix;
-in {
+{...}: {
   imports = [
     ./adguard.nix
     ./hardware.nix
@@ -15,6 +13,6 @@ in {
     ./audiobookshelf.nix
     ./readarr.nix
     ./microvm.nix
+    ./users.nix
   ];
-  users.groups.media.gid = media.group.id;
 }
