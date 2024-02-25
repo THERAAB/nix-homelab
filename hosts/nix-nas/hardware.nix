@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  boot.initrd.availableKernelModules = ["sdhci_pci"];
   powerManagement.powerUpCommands = ''
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sdb

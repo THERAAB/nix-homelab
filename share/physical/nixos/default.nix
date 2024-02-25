@@ -13,5 +13,6 @@
     ./netdata.nix
     ./smartd.nix
     ./users.nix
+    ./hardware-configuration.nix
   ];
 }

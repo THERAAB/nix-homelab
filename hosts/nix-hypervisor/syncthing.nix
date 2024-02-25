@@ -4,6 +4,11 @@
   port = 8384;
   local-dir = "/sync";
 in {
+  fileSystems."/sync" = {
+    device = "/dev/disk/by-label/nixos";
+    fsType = "btrfs";
+    options = ["subvol=sync" "compress=zstd" "noatime"];
+  };
   systemd.tmpfiles.rules = [
     "d    ${local-dir}         -       -             -               -   - "
     "d    ${local-dir}/share   -       -             -               -   - "

@@ -2,7 +2,6 @@
   imports = [
     ./home-assistant
     ./olivetin
-    ./hardware-configuration.nix
     ./netdata.nix
     ./users.nix
     ./hardware.nix
