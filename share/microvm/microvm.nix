@@ -30,7 +30,7 @@
         tag = "var-lib";
       }
     ];
-    mem = lib.mkDefault 2048;
+    mem = lib.mkDefault 4096;
     vcpu = lib.mkDefault 1;
   };
 }

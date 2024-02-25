@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   environment = {
     variables.TERM = "xterm-256color";
+    noXlibs = false;
     systemPackages = with pkgs; [
       fuse-overlayfs
     ];
-    noXlibs = false;
   };
   fileSystems = {
     "/etc/ssh".neededForBoot = true;

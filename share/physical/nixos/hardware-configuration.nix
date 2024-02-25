@@ -7,7 +7,6 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
-
   boot = {
     initrd = {
       availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
@@ -15,10 +14,7 @@
     };
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
-    # Force kernel to use iommu (GPU passthrough)
-    kernelParams = ["intel_iommu=on" "iommu=pt"];
   };
-
   fileSystems = {
     "/" = {
       device = "none";
@@ -46,9 +42,7 @@
       fsType = "vfat";
     };
   };
-
   swapDevices = [];
-
   networking.useDHCP = lib.mkDefault true;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
