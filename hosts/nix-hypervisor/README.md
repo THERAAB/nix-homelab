@@ -21,7 +21,7 @@ and the installation instructions below.
 This repo contains some customizations for my specific setup, and you likely won't be able to follow these instructions exactly
 if you're not me for 3 reasons:
 
-- You probably don't have my hardware (Intel 12th Gen CPU, 1 nvme (system files), 16GB RAM, nix-nas device for media/storage)
+- You probably don't have my hardware (Intel i3 12100, 1 nvme (system files), 32GB RAM, nix-nas device for media/storage)
 - You probably don't have my sops keys (shoutout to my FBI agent!)
 - You likely won't have same IPs and network, firewall (pfSense), and tailscale setup
 
@@ -30,7 +30,7 @@ if you're not me for 3 reasons:
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
 - If you previously used this setup and have hardcoded DNS server in pfSense, remove it. Otherwise, you will have no DNS during install
-- Tailscale cleanup of old device
+- Tailscale cleanup of old devices
   - Disable Override local DNS
   - delete old tailscale "nix-hypervisor" device
 - Boot into flash drive (Fn + F12 to load boot menu on startup)
@@ -55,7 +55,7 @@ ssh nix-hypervisor
 ```
 
 - Disable expiry from tailscale console.
-- Update tailscale IP in
+- Update tailscale IPs in
   - share/network.properties.nix
   - tailscale DNS server settings
 
