@@ -1,6 +1,6 @@
 {...}: let
   app-name = "syncthing";
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
   port = 8384;
   local-dir = "/sync";
 in {

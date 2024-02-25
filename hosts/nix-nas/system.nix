@@ -1,5 +1,5 @@
 {...}: let
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
 in {
   nix.settings = {
     substituters = ["https://cache.${network.domain}"];

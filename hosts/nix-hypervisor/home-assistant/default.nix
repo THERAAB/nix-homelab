@@ -3,8 +3,8 @@
   system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-hypervisor/nixos/home-assistant/blueprints";
   port = 8123;
   app-name = "home-assistant";
-  network = import ../../../../share/network.properties.nix;
-  users = import ../../../../share/users.properties.nix;
+  network = import ../../../share/network.properties.nix;
+  users = import ../../../share/users.properties.nix;
 in {
   #TODO: move to micro-server, delay start
   imports = [

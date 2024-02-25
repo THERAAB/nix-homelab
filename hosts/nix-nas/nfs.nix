@@ -2,8 +2,8 @@
   nfs-dir = "/nfs";
   media-dir = "${nfs-dir}/media";
   backups-dir = "${nfs-dir}/backups";
-  network = import ../../../share/network.properties.nix;
-  users = import ../../../share/users.properties.nix;
+  network = import ../../share/network.properties.nix;
+  users = import ../../share/users.properties.nix;
 in {
   systemd.tmpfiles.rules = [
     "d    ${nfs-dir}      755  -  -       -   - "

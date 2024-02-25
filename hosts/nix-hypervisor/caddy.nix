@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ../../../share/optional/acme.nix
+    ../../share/optional/acme.nix
   ];
   services.caddy.enable = true;
 }

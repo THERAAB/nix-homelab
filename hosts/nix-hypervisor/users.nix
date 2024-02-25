@@ -1,5 +1,5 @@
 {...}: let
-  users = import ../../../share/users.properties.nix;
+  users = import ../../share/users.properties.nix;
 in {
   security.sudo.extraConfig = ''
     olivetin ALL=(root) NOPASSWD:/var/lib/olivetin/scripts/commands.sh

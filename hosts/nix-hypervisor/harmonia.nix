@@ -1,5 +1,5 @@
 {config, ...}: let
-  network = import ../../../share/network.properties.nix;
+  network = import ../../share/network.properties.nix;
   port = 5000;
 in {
   services = {

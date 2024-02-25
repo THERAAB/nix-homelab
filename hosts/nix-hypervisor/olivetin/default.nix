@@ -7,7 +7,7 @@
   scripts-dir = "/var/lib/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
-  network = import ../../../../share/network.properties.nix;
+  network = import ../../../share/network.properties.nix;
 in {
   #TODO: restart micro-servers
   systemd.tmpfiles.rules = [

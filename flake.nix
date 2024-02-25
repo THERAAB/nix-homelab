@@ -62,7 +62,7 @@
           ./share/lib/modules/nixos/olivetin
           ./share/physical/nixos
           ./share/all
-          ./hosts/nix-hypervisor/nixos
+          ./hosts/nix-hypervisor
           sops-nix.nixosModules.sops
           microvm.nixosModules.host
           home-manager.nixosModules.home-manager
@@ -74,7 +74,6 @@
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
                   ./share/physical/home
-                  ./hosts/nix-hypervisor/home
                 ];
               };
             };
@@ -108,7 +107,7 @@
           ./share/lib/modules/nixos/yamlConfigMaker
           ./share/lib/modules/nixos/olivetin
           ./share/physical/nixos
-          ./hosts/nix-nas/nixos
+          ./hosts/nix-nas
           ./share/all
           sops-nix.nixosModules.sops
 
@@ -121,7 +120,6 @@
                 imports = [
                   impermanence.nixosModules.home-manager.impermanence
                   ./share/physical/home
-                  ./hosts/nix-nas/home
                 ];
               };
             };
