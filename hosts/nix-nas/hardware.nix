@@ -12,7 +12,6 @@ in {
   '';
   networking = {
     hostName = "nix-nas";
-    enableIPv6 = false;
     networkmanager.enable = false;
   };
   # disable interrupt which uses high CPU for ACPI (IRQ 9)
