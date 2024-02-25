@@ -12,13 +12,10 @@ pkgs.writeShellScript "commands.sh" ''
     return 0
   }
 
-  function restart_service() {
-    echo stopping $1
-    systemctl stop $1
-    sleep 1
-    echo starting $1
-    systemctl start $1
-    echo restarted service $1
+  function restart_microvm() {
+    echo restarting microvm $1
+    systemctl restart microvm@$1
+    echo restarted microvm $1
     return 0
   }
 
@@ -36,9 +33,9 @@ pkgs.writeShellScript "commands.sh" ''
 
   if [[ "$1" == "--help" ]] || [[ "$1" == "-h" ]]; then
     show_usage
-  elif [[ $1 == "-s" ]] || [[ "$1" == "--service" ]]; then
-    restart_service $2
-  elif [[ $1 == "-r" ]] || [[ "$1" == "--reboot" ]]; then
+  elif [[ $1 == "-m" ]]; then
+    restart_microvm $2
+  elif [[ $1 == "-r" ]]; then
     restart_server
   else
     echo "Incorrect input provided $1"

@@ -9,7 +9,6 @@
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
   network = import ../../../share/network.properties.nix;
 in {
-  #TODO: restart micro-servers
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                         "
     "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www      "
@@ -35,6 +34,18 @@ in {
           title = "Reboot Server";
           icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
           shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
+          timeout = 20;
+        }
+        {
+          title = "Reboot Micro-Server";
+          icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
+          shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-server";
+          timeout = 20;
+        }
+        {
+          title = "Reboot Micro-Media";
+          icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
+          shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-media";
           timeout = 20;
         }
       ];
