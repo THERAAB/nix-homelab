@@ -3,8 +3,8 @@
   config,
   ...
 }: let
-  network = import ../../../share/network.properties.nix;
-  users = import ../../../share/users.properties.nix;
+  network = import ../../share/network.properties.nix;
+  users = import ../../share/users.properties.nix;
 in {
   #TODO: make sure still works
   users.groups.restic.gid = users.restic.gid;
