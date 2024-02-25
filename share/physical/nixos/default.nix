@@ -12,5 +12,6 @@
     ./starship.nix
     ./netdata.nix
     ./smartd.nix
+    ./users.nix
   ];
 }
