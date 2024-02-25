@@ -7,6 +7,7 @@ in {
       restic.gid = users.restic.gid;
     };
     users = {
+      root.extraGroups = ["restic"];
       nfsnobody = {
         uid = users.nfsnobody.uid;
         group = "nfsnobody";
