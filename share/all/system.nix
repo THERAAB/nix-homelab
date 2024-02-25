@@ -1,4 +1,8 @@
-{pkgs, mkDefault, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   services = {
     openssh = {
       enable = true;
@@ -31,6 +35,6 @@
       enable = true;
       trustedInterfaces = ["tailscale0"];
     };
-    networkmanager.enable = mkDefault true;
+    networkmanager.enable = lib.mkDefault true;
   };
 }
