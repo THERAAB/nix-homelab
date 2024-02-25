@@ -34,6 +34,7 @@ curl https://am.i.mullvad.net/json
   - Dashboard -> Playback
   - Intel QuickSync
   - Enable Tone mapping (non VPP option)
+  - Don't enable GuC (Low power encoding)
 - (Android Client) Settings -> Client Settings -> Video Player type -> Integrated Player
 - Settings -> Subtitles -> English, only forced
 - Add plugins
@@ -68,3 +69,4 @@ Set up last, make sure to do above before trying to set up
 
 - Settings -> enable CSRF protection
 - Settings -> Discover language -> English
+- Settings -> enable proxy support
