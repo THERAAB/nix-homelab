@@ -12,7 +12,7 @@ in {
   '';
   networking = {
     hostName = "nix-nas";
-    networkmanager.enable = false;
+    networkmanager.enable = false; # networkmanager hangs on poweroff due to some ipv6 issues
   };
   # disable interrupt which uses high CPU for ACPI (IRQ 9)
   # Found it from highest number in below command:
