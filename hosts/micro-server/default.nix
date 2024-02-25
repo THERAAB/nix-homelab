@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./adguard.nix
+    ./adguard-tailscale.nix
     ./homer
     ./gatus
     ./hardware.nix
