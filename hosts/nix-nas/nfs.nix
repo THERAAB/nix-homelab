@@ -28,7 +28,7 @@ in {
     exports = ''
       ${nfs-dir}    ${network.nix-hypervisor.local.ip}(rw,fsid=0,no_subtree_check) ${network.nix-hypervisor.tailscale.ip}(rw,fsid=0,no_subtree_check)
       ${media-dir}  ${network.micro-media.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString users.nfsnobody.uid}) ${network.micro-media.tailscale.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString users.nfsnobody.uid})
-      ${backups-dir}  ${network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString users.nfsnobody.uid}) ${network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString users.nfsnobody.uid})
+      ${backups-dir}  ${network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString users.nfsnobody.uid},no_root_sqaush) ${network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString users.nfsnobody.uid},no_root_squash)
     '';
   };
 }
