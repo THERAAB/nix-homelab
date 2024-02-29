@@ -53,7 +53,7 @@ in {
         HOSTNAME=`${pkgs.nettools}/bin/hostname`
 
         ${pkgs.curl}/bin/curl   https://gotify.${network.domain}/message?token=$TOKEN                                                     \
-                                -F "title='$HOSTNAME' Upgrade Failed"                                                                     \
+                                -F "title='$HOSTNAME' Restic backup Failed"                                                               \
                                 -F "message=Restic backup failed on '$HOSTNAME', run journalctl -u restic-backups-nix-server for details" \
                                 -F "priority=5"                                                                                           \
       '';
