@@ -7,14 +7,14 @@
   cfg = import ./config.nix;
 in {
   services.yamlConfigMaker = {
-      gatus = {
-        path = "${local-config-dir}/config.yaml";
-        settings = {
-          alerting = cfg.alerting;
-          endpoints = cfg.endpoints;
-        };
+    gatus = {
+      path = "${local-config-dir}/config.yaml";
+      settings = {
+        alerting = cfg.alerting;
+        endpoints = cfg.endpoints;
       };
     };
+  };
   users = {
     groups.${app-name}.gid = gid;
     users.${app-name} = {
@@ -38,8 +38,7 @@ in {
         wantedBy = ["yamlConfigMaker-gatus.service"];
         after = ["yamlConfigMaker-gatus.service"];
       };
-      # Delay gatus start because it needs adguard to setup first
-      # Otherwise local DNS record lookups will fail.
+      # TODO: delay gatus for after DNS
       "podman-${app-name}" = {
         wantedBy = ["yamlPatcher-${app-name}.service"];
         after = ["yamlPatcher-${app-name}.service" "adguardhome.service"];
