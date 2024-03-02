@@ -20,9 +20,6 @@ in {
     ];
     services."podman-${app-name}".after = ["multi-user.target"]; # Delay jellyfin start for hardware encoding
   };
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
-  };
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
