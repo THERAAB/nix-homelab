@@ -3,7 +3,8 @@
   network = import ../network.properties.nix;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
-  networking.firewall.allowedUDPPorts = [port 53];
+  networking.firewall.allowedUDPPorts = [53];
+  networking.firewall.allowedTCPPorts = [port];
   services.adguardhome = {
     mutableSettings = false;
     enable = true;
