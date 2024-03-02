@@ -1,4 +1,8 @@
-{self, ...}: {
+{
+  self,
+  outputs,
+  ...
+}: {
   microvm = {
     autostart = ["micro-media" "micro-server" "micro-unifi"];
     vms = {
@@ -12,6 +16,7 @@
       };
       micro-unifi = {
         config = {
+          inherit outputs;
           imports = [
             ../../share/lib/modules/nixos/yamlConfigMaker
             ../../share/microvm
