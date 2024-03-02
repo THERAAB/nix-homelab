@@ -5,5 +5,4 @@
   flatnotes.uid = 7762;
   hass.uid = 286;
   nfsnobody.uid = 6000;
-  vuetorrent.uid = 9990;
 }

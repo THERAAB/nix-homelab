@@ -13,7 +13,13 @@
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/${config.networking.hostName}/storage/etc/ssh";
+        source = "/run/secrets";
+        mountPoint = "/run/secrets";
+        tag = "secrets"; #TODO: remove
+      }
+      {
+        proto = "virtiofs";
+        source = "/var/lib/microvms/${config.networking.hostName}/storage/etc/ssh"; 
         mountPoint = "/etc/ssh";
         tag = "ssh";
       }
