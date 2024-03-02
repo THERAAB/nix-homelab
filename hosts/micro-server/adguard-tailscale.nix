@@ -30,6 +30,10 @@ in {
           answer = "${network.micro-media.tailscale.ip}";
         }
         {
+          domain = "unifi.${network.domain}";
+          answer = "${network.micro-unifi.tailscale.ip}";
+        }
+        {
           domain = "olivetin.${network.domain}";
           answer = "${network.nix-hypervisor.tailscale.ip}";
         }

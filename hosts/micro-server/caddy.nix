@@ -21,17 +21,6 @@ in {
           reverse_proxy ${network.micro-server.local.ip}:7000
         '';
       };
-      "unifi.${network.domain}" = {
-        useACMEHost = "${network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${network.micro-unifi.local.ip}:8443 {
-            transport http {
-              tls_insecure_skip_verify
-            }
-          }
-        '';
-      };
       "photos.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''

@@ -30,6 +30,10 @@ in {
           answer = "${network.micro-media.local.ip}";
         }
         {
+          domain = "unifi.${network.domain}";
+          answer = "${network.unifi.local.ip}";
+        }
+        {
           domain = "olivetin.${network.domain}";
           answer = "${network.nix-hypervisor.local.ip}";
         }
