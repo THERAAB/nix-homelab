@@ -3,7 +3,6 @@
     autostart = ["micro-media" "micro-server" "micro-unifi"];
     vms = {
       micro-media.config.imports = [
-        ../../share/lib/modules/nixos/yamlConfigMaker
         ../../share/microvm
         ../../share/all
         ../micro-media
@@ -15,7 +14,6 @@
         ../micro-server
       ];
       micro-unifi.config.imports = [
-        ../../share/lib/modules/nixos/yamlConfigMaker
         ../../share/microvm
         ../../share/all
         ../micro-unifi

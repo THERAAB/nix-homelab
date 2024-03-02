@@ -48,6 +48,12 @@ in {
           shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-media";
           timeout = 20;
         }
+        {
+          title = "Reboot Micro-Unifi";
+          icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
+          shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-unifi";
+          timeout = 20;
+        }
       ];
     };
   };
