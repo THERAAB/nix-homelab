@@ -18,13 +18,5 @@
         path = "0000:00:02.0";
       }
     ];
-    shares = [
-      {
-        proto = "virtiofs";
-        source = "/var/lib/microvms/${config.networking.hostName}/storage/run/secrets"; #TODO: remove
-        mountPoint = "/run/secrets";
-        tag = "run-secrets";
-      }
-    ];
   };
 }

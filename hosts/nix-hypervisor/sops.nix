@@ -1,6 +1,6 @@
 {...}: {
   systemd.tmpfiles.rules = [
-    "L  /var/lib/microvms/micro-media/storage/run/secrets/cloudflare_dns_secret  -   -   -   -   /run/secrets/cloudflare_dns_secret   "
+    "L  /run/secrets/cloudflare_dns_secret  -   -   -   -   /var/lib/microvms/micro-media/storage/run/secrets/cloudflare_dns_secret   "
   ];
   sops.secrets = {
     home_assistant = {
