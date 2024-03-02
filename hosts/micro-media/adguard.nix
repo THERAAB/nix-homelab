@@ -31,7 +31,7 @@ in {
         }
         {
           domain = "unifi.${network.domain}";
-          answer = "${network.unifi.local.ip}";
+          answer = "${network.micro-unifi.local.ip}";
         }
         {
           domain = "olivetin.${network.domain}";
