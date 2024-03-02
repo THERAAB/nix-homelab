@@ -38,7 +38,6 @@ in {
         wantedBy = ["yamlConfigMaker-gatus.service"];
         after = ["yamlConfigMaker-gatus.service"];
       };
-      # TODO: delay gatus for after DNS
       "podman-${app-name}" = {
         wantedBy = ["yamlPatcher-${app-name}.service"];
         after = ["yamlPatcher-${app-name}.service" "adguardhome.service"];

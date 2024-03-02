@@ -6,6 +6,7 @@ and the installation instructions below.
 
 ## What's inside
 
+- Declarative Home Assistant with [NixOS Home Assistant Module](https://nixos.wiki/wiki/Home_Assistant)
 - [Microvm host](https://astro.github.io/microvm.nix/)
 - Mesh VPN with [Tailscale](https://tailscale.com/)
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
