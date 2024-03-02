@@ -1,6 +1,5 @@
 {
   self,
-  outputs,
   ...
 }: {
   microvm = {
@@ -15,7 +14,6 @@
         updateFlake = "git+file:///nix/persist/nix-homelab";
       };
       micro-unifi = {
-        specialArgs = outputs;
         config = {
           imports = [
             ../../share/lib/modules/nixos/yamlConfigMaker
