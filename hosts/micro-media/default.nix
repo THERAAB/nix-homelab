@@ -1,7 +1,5 @@
 {...}: {
   imports = [
-    #./adguard.nix
-    ./hardware.nix
     ./nfs.nix
     ./caddy.nix
     ./jellyfin.nix

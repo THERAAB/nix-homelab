@@ -1,4 +1,5 @@
 {config, ...}: {
+  networking.hostName = "micro-server";
   microvm = {
     mem = 6144;
     interfaces = [

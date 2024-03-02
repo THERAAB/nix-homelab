@@ -6,7 +6,6 @@ A [NixOS](https://nixos.org/) configuration for my [selfhosted](https://www.redd
 
 - Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [JellySeerr](https://github.com/Fallenbagel/jellyseerr), and [linuxserver.io](https://www.linuxserver.io/) podman images
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
-- [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
 - Mesh VPN with [Tailscale](https://tailscale.com/)
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)

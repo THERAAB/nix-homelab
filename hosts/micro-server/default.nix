@@ -3,7 +3,6 @@
     ./adguard-tailscale.nix
     ./homer
     ./gatus
-    ./hardware.nix
     ./caddy.nix
     ./gotify.nix
     ./linkding.nix
