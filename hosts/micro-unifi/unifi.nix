@@ -37,7 +37,7 @@ in {
         PGID = "${toString gid}";
         UMASK = "022";
         TZ = "America/New_York";
-        MONGO_HOST = "${network.micro-media.local.ip}";
+        MONGO_HOST = "${network.micro-unifi.local.ip}";
         MONGO_PORT = "27017";
       };
       environmentFiles = [
