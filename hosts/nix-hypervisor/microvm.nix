@@ -15,7 +15,7 @@
         updateFlake = "git+file:///nix/persist/nix-homelab";
       };
       micro-unifi = {
-        extraSpecialArgs = outputs;
+        specialArgs = outputs;
         config = {
           imports = [
             ../../share/lib/modules/nixos/yamlConfigMaker
