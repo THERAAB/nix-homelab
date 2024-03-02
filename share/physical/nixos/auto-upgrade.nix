@@ -19,7 +19,6 @@ in {
                                 -F "priority=5"                                                                         \
       '';
       nix-flake-update = {
-        #TODO: microvms
         script = ''
           sleep 10
           dir=/nix/persist/nix-homelab

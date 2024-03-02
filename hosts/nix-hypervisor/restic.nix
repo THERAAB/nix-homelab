@@ -6,7 +6,6 @@
   network = import ../../share/network.properties.nix;
   users = import ../../share/users.properties.nix;
 in {
-  #TODO: make sure still works
   users.groups.restic.gid = users.restic.gid;
   services.restic.backups."nix-server" = {
     exclude = [
