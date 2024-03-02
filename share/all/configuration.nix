@@ -12,7 +12,7 @@
       outputs.overlays.modifications
       outputs.overlays.additions
     ];
-    config = {
+    config = lib.mkDefault {
       allowUnfree = true;
     };
   };

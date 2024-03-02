@@ -23,7 +23,10 @@
             ../../share/all
             ../micro-unifi
           ];
-          nixpkgs.overlays = [];
+          nixpkgs = {
+            overlays = [];
+            pkgs = {};
+          };
         };
       };
     };
