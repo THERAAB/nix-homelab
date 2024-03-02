@@ -12,5 +12,6 @@
     ./smartd.nix
     ./users.nix
     ./hardware-configuration.nix
+    ./configuration.nix
   ];
 }
