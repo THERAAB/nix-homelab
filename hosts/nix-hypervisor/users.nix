@@ -8,7 +8,7 @@ in {
     users = {
       raab.extraGroups = ["syncthing"];
       hass = {
-        uid = users.hass.uid; 
+        uid = users.hass.uid;
         group = "hass";
         isSystemUser = true;
       };
@@ -22,11 +22,17 @@ in {
         group = "flatnotes";
         isSystemUser = true;
       };
+      vuetorrent = {
+        uid = users.vuetorrent.uid;
+        group = "vuetorrent";
+        isSystemUser = true;
+      };
     };
     groups = {
       hass = {};
       unifi = {};
       flatnotes = {};
+      vuetorrent = {};
     };
   };
 }

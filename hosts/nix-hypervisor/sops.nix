@@ -1,10 +1,16 @@
 {...}: {
+  systemd.tmpfiles.rules = [
+    "L  /run/secrets/cloudflare_dns_secret  -   -   -   -   /var/lib/microvms/micro-media/storage/run/secrets/cloudflare_dns_secret   "
+  ];
   sops.secrets = {
     home_assistant = {
       owner = "hass";
       path = "/var/lib/hass/secrets.yaml";
     };
-    wireguard_mullvad = {};
+    wireguard_mullvad = {
+      owner = "vuetorrent";
+      path = "/var/lib/microvms/micro-media/storage/var/lib/vuetorrent/wireguard/wg0.conf";
+    };
     df_password = {};
     cloudflare_dns_secret = {};
     harmonia_secret = {};

@@ -19,6 +19,12 @@
         mountPoint = "/sync"; #TODO: fix share
         tag = "sync";
       }
+      {
+        proto = "virtiofs";
+        source = "/run/secrets";
+        mountPoint = "/run/secrets";
+        tag = "secrets"; #TODO: move
+      }
     ];
   };
 }

@@ -1,22 +1,20 @@
 {...}: let
   media = import ./media.properties.nix;
-  uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
   local-config-dir = "/var/lib/${app-name}";
   network = import ../../share/network.properties.nix;
+  users = import ../../share/users.properties.nix;
 in {
   users = {
     users."${app-name}" = {
-      uid = uid;
+      uid = users.vuetorrent.uid;
       group = media.group.name;
       isSystemUser = true;
     };
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}/wireguard             -       -               -                   -   -                               "
-    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -                   -   -                               "
-    "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -                   -   /run/secrets/wireguard_mullvad  "
     "Z    ${local-config-dir}                       -       ${app-name}     ${media.group.name} -   -                               "
     "Z    ${local-config-dir}/wireguard/wg0.conf    700     -               -                   -   -                               "
   ];
@@ -29,7 +27,7 @@ in {
     ];
     ports = ["${toString port}:8080" "8118:8118"];
     environment = {
-      PUID = "${toString uid}";
+      PUID = "${toString users.vuetorrent.uid}";
       PGID = "${toString media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
