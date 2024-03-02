@@ -4,7 +4,7 @@ in {
   # See https://fontawesome.com/v5/search for icons options
   title = "Nix Homelab Server";
   subtitle = "Homer Dashboard";
-  logo = "logo.png";
+  logo = "nixos.png";
   header = true;
   footer = false;
   theme = "default";
