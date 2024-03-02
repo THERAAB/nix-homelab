@@ -1,6 +1,6 @@
 {...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom/";
-  system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-hypervisor/nixos/home-assistant/blueprints";
+  system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-hypervisor/home-assistant/blueprints";
   port = 8123;
   app-name = "home-assistant";
   network = import ../../../share/network.properties.nix;

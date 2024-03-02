@@ -15,11 +15,11 @@
         proto = "virtiofs";
         source = "/run/secrets";
         mountPoint = "/run/secrets";
-        tag = "secrets"; #TODO: remove
+        tag = "secrets"; #TODO: migrate to individual sops.yamls
       }
       {
         proto = "virtiofs";
-        source = "/var/lib/microvms/${config.networking.hostName}/storage/etc/ssh"; 
+        source = "/var/lib/microvms/${config.networking.hostName}/storage/etc/ssh";
         mountPoint = "/etc/ssh";
         tag = "ssh";
       }
