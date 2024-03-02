@@ -6,7 +6,6 @@
     ./hardware.nix
     ./caddy.nix
     ./gotify.nix
-    ./unifi.nix
     ./linkding.nix
     ./flatnotes.nix
     ./microbin.nix
