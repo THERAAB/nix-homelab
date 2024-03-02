@@ -21,7 +21,7 @@
           imports = [
             ../../share/lib/modules/nixos/yamlConfigMaker
             ../../share/microvm
-            ../../share/all
+            #../../share/all
             ../micro-unifi
           ];
         };
