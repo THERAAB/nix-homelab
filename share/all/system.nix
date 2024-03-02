@@ -7,7 +7,7 @@
     openssh = {
       enable = true;
       ports = [22];
-      settings = {
+      settings = lib.mkDefault {
         PasswordAuthentication = false;
         KbdInteractiveAuthentication = false;
       };

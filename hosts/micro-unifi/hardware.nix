@@ -6,4 +6,8 @@
       allowedUDPPorts = [53];
     };
   };
+  services.openssh.settings = {
+    PasswordAuthentication = true;
+    KbdInteractiveAuthentication = true;
+  };
 }
