@@ -25,7 +25,6 @@
           ];
           nixpkgs = {
             overlays = [];
-            pkgs = {};
           };
         };
       };
