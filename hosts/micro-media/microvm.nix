@@ -18,7 +18,7 @@
         path = "0000:00:02.0";
       }
     ];
-    storage = [
+    shares = [
       {
         proto = "virtiofs";
         source = "/var/lib/microvms/${config.networking.hostName}/storage/run/secrets"; #TODO: remove
