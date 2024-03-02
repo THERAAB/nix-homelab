@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./adguard.nix
+    #./adguard.nix
     ./hardware.nix
     ./nfs.nix
     ./caddy.nix
