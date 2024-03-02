@@ -1,6 +1,6 @@
 {self, ...}: {
   microvm = {
-    autostart = ["micro-media" "micro-server"];
+    autostart = ["micro-media" "micro-server" "micro-unifi"];
     vms = {
       micro-media = {
         flake = self;
@@ -9,6 +9,16 @@
       micro-server = {
         flake = self;
         updateFlake = "git+file:///nix/persist/nix-homelab";
+      };
+      micro-unifi = {
+        config = {
+          modules = [
+            ../../share/lib/modules/nixos/yamlConfigMaker
+            ../../share/microvm
+            ../../share/all
+            ../micro-unifi
+          ];
+        };
       };
     };
   };

@@ -1,6 +1,6 @@
 {config, ...}: {
   microvm = {
-    mem = 8192;
+    mem = 6144;
     interfaces = [
       {
         type = "macvtap";
