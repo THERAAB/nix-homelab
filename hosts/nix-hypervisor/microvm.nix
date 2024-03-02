@@ -12,7 +12,7 @@
       };
       micro-unifi = {
         config = {
-          modules = [
+          imports = [
             ../../share/lib/modules/nixos/yamlConfigMaker
             ../../share/microvm
             ../../share/all
