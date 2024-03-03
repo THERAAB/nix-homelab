@@ -62,7 +62,7 @@ in {
   ];
   services = [
     {
-      name = "Media";
+      name = "Micro-Media";
       icon = "fas fa-play";
       items = [
         {
@@ -140,7 +140,7 @@ in {
       ];
     }
     {
-      name = "Server";
+      name = "Micro-Server";
       icon = "fas fa-server";
       items = [
         {
@@ -218,7 +218,7 @@ in {
       ];
     }
     {
-      name = "Hypervisor";
+      name = "Nix-Hypervisor";
       icon = "fas fa-desktop";
       items = [
         {
@@ -269,7 +269,7 @@ in {
       ];
     }
     {
-      name = "Network";
+      name = "Micro-Network";
       icon = "fas fa-house-signal";
       items = [
         {
