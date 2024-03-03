@@ -23,13 +23,13 @@ in {
     settings.actions = [
       {
         title = "Reboot Nix-Hypervisor";
-        icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
+        icon = ''<img src = "customIcons/nixos.png" width = "48px"/>'';
         shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
         timeout = 20;
       }
       {
         title = "Reboot Micro-Server";
-        icon = ''<img src = "customIcons/nixos.png" width = "48px"/>'';
+        icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
         shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-server";
         timeout = 20;
       }
