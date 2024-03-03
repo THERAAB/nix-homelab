@@ -8,13 +8,6 @@ in {
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "jellyfin.${network.domain}" = { #TODO: migrate
-        useACMEHost = "${network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:8096
-        '';
-      };
     };
   };
 }

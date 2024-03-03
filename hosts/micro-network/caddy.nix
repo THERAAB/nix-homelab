@@ -75,6 +75,13 @@ in {
           reverse_proxy ${network.micro-server.local.ip}:9940
         '';
       };
+      "jellyfin.${network.domain}" = { #TODO: migrate
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${network.micro-media.local.ip}:8096
+        '';
+      };
       "jellyseerr.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''

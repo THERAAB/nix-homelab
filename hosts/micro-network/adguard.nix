@@ -34,10 +34,6 @@ in {
           answer = "${network.nix-hypervisor.local.ip}";
         }
         {
-          domain = "jellyfin.${network.domain}";
-          answer = "${network.micro-server.local.ip}";
-        }
-        {
           domain = "${network.domain}";
           answer = "${network.micro-network.local.ip}";
         }
