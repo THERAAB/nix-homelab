@@ -191,39 +191,6 @@ in {
       ];
     }
     {
-      name = "Micro-Monitor";
-      icon = "fas fa-chart-area";
-      items = [
-        {
-          name = "AdGuard Tailscale";
-          logo = "assets/icons/tailscale.png";
-          subtitle = "Tailscale DNS Server";
-          tag = "dns";
-          keywords = "dns adblock";
-          url = "https://adguard-tailscale.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Gatus";
-          logo = "assets/icons/gatus.png";
-          subtitle = "Monitor Services";
-          tag = "monitor";
-          keywords = "monitor";
-          url = "https://gatus.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Gotify";
-          logo = "assets/icons/gotify.png";
-          subtitle = "Send Notifications";
-          tag = "notify";
-          keywords = "notify alert";
-          url = "https://gotify.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
       name = "Nix-Hypervisor";
       icon = "fas fa-desktop";
       items = [
@@ -270,6 +237,39 @@ in {
           tag = "exec";
           keywords = "exec";
           url = "https://olivetin.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Micro-Monitor";
+      icon = "fas fa-chart-area";
+      items = [
+        {
+          name = "AdGuard Tailscale";
+          logo = "assets/icons/tailscale.png";
+          subtitle = "Tailscale DNS Server";
+          tag = "dns";
+          keywords = "dns adblock";
+          url = "https://adguard-tailscale.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Gatus";
+          logo = "assets/icons/gatus.png";
+          subtitle = "Monitor Services";
+          tag = "monitor";
+          keywords = "monitor";
+          url = "https://gatus.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Gotify";
+          logo = "assets/icons/gotify.png";
+          subtitle = "Send Notifications";
+          tag = "notify";
+          keywords = "notify alert";
+          url = "https://gotify.${network.domain}";
           target = "_blank";
         }
       ];
