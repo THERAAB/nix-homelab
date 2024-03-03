@@ -146,7 +146,7 @@ in {
         {
           name = "Flatnotes";
           logo = "assets/icons/flatnotes.png";
-          subtitle = "Notes";
+          subtitle = "Edit/View Notes";
           tag = "notes";
           keywords = "notes";
           url = "https://notes.${network.domain}";
@@ -191,7 +191,7 @@ in {
         {
           name = "AdGuard Tailscale";
           logo = "assets/icons/tailscale.png";
-          subtitle = "DNS Ad Blocking on Tailscale";
+          subtitle = "Tailscale DNS Server";
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard-tailscale.${network.domain}";
@@ -284,7 +284,7 @@ in {
         {
           name = "AdGuard Local";
           logo = "assets/icons/adguard.png";
-          subtitle = "DNS Ad Blocking on Local Network";
+          subtitle = "Local Network DNS Server";
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard.${network.domain}";
