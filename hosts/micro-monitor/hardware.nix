@@ -14,4 +14,10 @@
       }
     ];
   };
+  services.openssh = {
+    settings = {
+      PasswordAuthentication = true;
+      KbdInteractiveAuthentication = true;
+    };
+  };
 }
