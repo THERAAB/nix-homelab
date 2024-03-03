@@ -8,7 +8,7 @@ in {
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "gotify.${network.domain}" = { #TODO: move
+      "gotify.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip

@@ -9,6 +9,7 @@ in {
     dns = {
       bind_hosts = [network.micro-server.tailscale.ip network.micro-server.local.ip];
       rewrites = [
+        ##TODO: move caddy to micro-network
         {
           domain = "home-assistant.${network.domain}";
           answer = "${network.nix-hypervisor.tailscale.ip}";

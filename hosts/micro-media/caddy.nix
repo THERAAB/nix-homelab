@@ -8,7 +8,6 @@ in {
   services.caddy = {
     enable = true;
     virtualHosts = {
-      #TODO: move to micro-server
       "vuetorrent.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
