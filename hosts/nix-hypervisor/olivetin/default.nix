@@ -47,7 +47,7 @@ in {
       }
       {
         title = "Reboot Micro-Monitor";
-        icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
+        icon = ''<img src = "customIcons/gatus.png" width = "48px"/>'';
         shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-monitor";
         timeout = 20;
       }
