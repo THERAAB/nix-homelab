@@ -78,6 +78,8 @@ curl https://am.i.mullvad.net/json
 
 - Add qbittorrent
 - Add movies/tv paths in sonarr/radarr and request something (needed for Jellyseerr to work)
+- Forms auth
+- Disable auth for local addr
 
 ### Readarr
 
