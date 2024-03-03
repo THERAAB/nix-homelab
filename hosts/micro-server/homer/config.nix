@@ -141,7 +141,7 @@ in {
     }
     {
       name = "Server";
-      icon = "fas fa-wrench";
+      icon = "fas fa-server";
       items = [
         {
           name = "Flatnotes";
@@ -219,7 +219,7 @@ in {
     }
     {
       name = "Hypervisor";
-      icon = "fas fa-house-signal";
+      icon = "fas fa-desktop";
       items = [
         {
           name = "Home Assistant";
@@ -270,7 +270,7 @@ in {
     }
     {
       name = "Network";
-      icon = "fas fa-chart-area";
+      icon = "fas fa-ethernet";
       items = [
         {
           name = "Unifi Network Application";
