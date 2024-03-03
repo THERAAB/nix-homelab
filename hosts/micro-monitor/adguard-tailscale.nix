@@ -9,7 +9,6 @@ in {
     dns = {
       bind_hosts = [network.micro-monitor.tailscale.ip network.micro-monitor.local.ip];
       rewrites = [
-        #TODO: move caddy to micro-network
         {
           domain = "${network.domain}";
           answer = "${network.micro-network.tailscale.ip}";
