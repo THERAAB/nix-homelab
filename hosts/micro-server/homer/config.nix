@@ -270,7 +270,7 @@ in {
     }
     {
       name = "Network";
-      icon = "fas fa-ethernet";
+      icon = "fas fa-house-signal";
       items = [
         {
           name = "Unifi Network Application";
