@@ -10,10 +10,6 @@ in {
       bind_hosts = [network.micro-network.local.ip network.micro-network.tailscale.ip];
       rewrites = [
         {
-          domain = "vuetorrent.${network.domain}";
-          answer = "${network.micro-media.local.ip}";
-        }
-        {
           domain = "${network.domain}";
           answer = "${network.micro-network.local.ip}";
         }

@@ -11,10 +11,6 @@ in {
       rewrites = [
         #TODO: move caddy to micro-network
         {
-          domain = "vuetorrent.${network.domain}";
-          answer = "${network.micro-media.tailscale.ip}";
-        }
-        {
           domain = "${network.domain}";
           answer = "${network.micro-network.tailscale.ip}";
         }

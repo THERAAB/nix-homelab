@@ -13,6 +13,7 @@ in {
       isSystemUser = true;
     };
   };
+  networking.firewall.allowedTCPPorts = [port];
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}/wireguard             -       -               -                   -   -                               "
     "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -                   -   -                               "

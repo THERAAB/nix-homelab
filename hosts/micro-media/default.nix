@@ -1,7 +1,6 @@
 {...}: {
   imports = [
     ./nfs.nix
-    ./caddy.nix
     ./jellyfin.nix
     ./vuetorrent.nix
     ./jellyseerr.nix
