@@ -2,7 +2,6 @@
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom/";
   system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-hypervisor/home-assistant/blueprints";
   port = 8123;
-  app-name = "home-assistant";
   network = import ../../../share/network.properties.nix;
   users = import ../../../share/users.properties.nix;
 in {
@@ -30,13 +29,6 @@ in {
   };
   networking.firewall.allowedTCPPorts = [port];
   services = {
-    caddy.virtualHosts."${app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
-      '';
-    };
     home-assistant = {
       enable = true;
       extraComponents = [
@@ -58,7 +50,7 @@ in {
       config = {
         default_config = {};
         http = {
-          trusted_proxies = ["127.0.0.1"];
+          trusted_proxies = ["127.0.0.1" network.micro-network.tailscale.ip network.micro-network.local.ip];
           use_x_forwarded_for = true;
         };
         homeassistant = {

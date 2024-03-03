@@ -68,6 +68,13 @@ in {
           reverse_proxy ${network.nix-hypervisor.tailscale.ip}:19999
         '';
       };
+      "home-assistant.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:8123
+        '';
+      };
       "sync.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
