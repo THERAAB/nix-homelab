@@ -25,18 +25,6 @@ Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://gith
 
 See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-nas/README.md)
 
-## Micro-Media
-
-A Microvm for my media setup, see [The Micro-Media README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-media/README.md)
-
-## Micro-Server
-
-A Microvm for my server setup, see [The Micro-Server README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-server/README.md)
-
-## Micro-Unifi
-
-A Microvm for unifi controller/adguard, see [The Micro-Unifi README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/micro-unifi/README.md)
-
 ## Maintenance
 
 These commands might help with some common maintenance tasks
