@@ -10,10 +10,6 @@ in {
       bind_hosts = [network.micro-network.local.ip network.micro-network.tailscale.ip];
       rewrites = [
         {
-          domain = "home-assistant.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
-        }
-        {
           domain = "vuetorrent.${network.domain}";
           answer = "${network.micro-media.local.ip}";
         }

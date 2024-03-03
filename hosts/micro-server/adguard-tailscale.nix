@@ -11,10 +11,6 @@ in {
       rewrites = [
         ##TODO: move caddy to micro-network
         {
-          domain = "home-assistant.${network.domain}";
-          answer = "${network.nix-hypervisor.tailscale.ip}";
-        }
-        {
           domain = "vuetorrent.${network.domain}";
           answer = "${network.micro-media.tailscale.ip}";
         }
