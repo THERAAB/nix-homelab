@@ -34,6 +34,10 @@ in {
           answer = "${network.nix-hypervisor.local.ip}";
         }
         {
+          domain = "gotify.${network.domain}";
+          answer = "${network.micro-server.tailscale.ip}";
+        }
+        {
           domain = "${network.domain}";
           answer = "${network.micro-network.local.ip}";
         }

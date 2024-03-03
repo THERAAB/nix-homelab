@@ -54,13 +54,6 @@ in {
           reverse_proxy ${network.micro-server.local.ip}:9090
         '';
       };
-      "gotify.${network.domain}" = {
-        useACMEHost = "${network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:8238
-        '';
-      };
       "notes.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''

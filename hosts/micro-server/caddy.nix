@@ -8,6 +8,13 @@ in {
   services.caddy = {
     enable = true;
     virtualHosts = {
+      "gotify.${network.domain}" = { #TODO: move
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${network.micro-server.local.ip}:8238
+        '';
+      };
     };
   };
 }
