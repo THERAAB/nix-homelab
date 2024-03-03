@@ -16,7 +16,7 @@
     local.ip = "192.168.3.5";
   };
   micro-monitor = {
-    tailscale.ip = "100.115.102.19"; #TODO fix
+    tailscale.ip = "100.103.162.45"; 
     local.ip = "192.168.3.6";
   };
   nix-zenbook = {
