@@ -153,6 +153,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Photoprism";
+          logo = "assets/icons/photoprism.png";
+          subtitle = "View & Manage Photos";
+          tag = "photos";
+          keywords = "photos media";
+          url = "https://photos.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "Linkding";
           logo = "assets/icons/linkding.png";
           subtitle = "Bookmark Manager";
@@ -177,15 +186,6 @@ in {
           tag = "pastebin";
           keywords = "pastebin";
           url = "https://microbin.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Photoprism";
-          logo = "assets/icons/photoprism.png";
-          subtitle = "View & Manage Photos";
-          tag = "photos";
-          keywords = "photos media";
-          url = "https://photos.${network.domain}";
           target = "_blank";
         }
         {
@@ -240,21 +240,21 @@ in {
           target = "_blank";
         }
         {
-          name = "SyncThing";
-          logo = "assets/icons/syncthing.png";
-          subtitle = "Shared Data & Folders";
-          tag = "sync";
-          keywords = "sync backup share data media";
-          url = "https://sync.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "Netdata";
           logo = "assets/icons/netdata.png";
           subtitle = "Monitor Hardware";
           tag = "monitor";
           keywords = "monitor";
           url = "https://netdata.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "SyncThing";
+          logo = "assets/icons/syncthing.png";
+          subtitle = "Shared Data & Folders";
+          tag = "sync";
+          keywords = "sync backup share data media";
+          url = "https://sync.${network.domain}";
           target = "_blank";
         }
         {
