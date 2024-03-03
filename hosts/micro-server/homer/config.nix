@@ -93,15 +93,6 @@ in {
           target = "_blank";
         }
         {
-          name = "Photoprism";
-          logo = "assets/icons/photoprism.png";
-          subtitle = "View & Manage Photos";
-          tag = "photos";
-          keywords = "photos media";
-          url = "https://photos.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "VueTorrent";
           logo = "assets/icons/vuetorrent.png";
           subtitle = "Manage Torrents";
@@ -110,10 +101,46 @@ in {
           url = "https://vuetorrent.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Radarr";
+          logo = "assets/icons/radarr.png";
+          subtitle = "Manage Movies";
+          tag = "movies";
+          keywords = "movies media";
+          url = "https://movies.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Sonarr";
+          logo = "assets/icons/sonarr.png";
+          subtitle = "Manage TV Shows";
+          tag = "tv";
+          keywords = "tv shows media";
+          url = "https://tv.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Readarr";
+          logo = "assets/icons/readarr.png";
+          subtitle = "Manage Books";
+          tag = "books";
+          keywords = "books audiobooks media";
+          url = "https://readarr.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Prowlarr";
+          logo = "assets/icons/prowlarr.png";
+          subtitle = "Manage Indexers";
+          tag = "media";
+          keywords = "indexer media torrent download";
+          url = "https://prowlarr.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
     {
-      name = "Productivity";
+      name = "Server";
       icon = "fas fa-wrench";
       items = [
         {
@@ -153,27 +180,12 @@ in {
           target = "_blank";
         }
         {
-          name = "SyncThing";
-          logo = "assets/icons/syncthing.png";
-          subtitle = "Shared Data & Folders";
-          tag = "sync";
-          keywords = "sync backup share data media";
-          url = "https://sync.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
-      name = "Devices";
-      icon = "fas fa-house-signal";
-      items = [
-        {
-          name = "AdGuard Local";
-          logo = "assets/icons/adguard.png";
-          subtitle = "DNS Ad Blocking on Local Network";
-          tag = "dns";
-          keywords = "dns adblock";
-          url = "https://adguard.${network.domain}";
+          name = "Photoprism";
+          logo = "assets/icons/photoprism.png";
+          subtitle = "View & Manage Photos";
+          tag = "photos";
+          keywords = "photos media";
+          url = "https://photos.${network.domain}";
           target = "_blank";
         }
         {
@@ -183,48 +195,6 @@ in {
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard-tailscale.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Home Assistant";
-          logo = "assets/icons/home-assistant.png";
-          subtitle = "Smart Home Automation";
-          tag = "smart-home";
-          keywords = "smart home assistant automation";
-          url = "https://home-assistant.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "PfSense";
-          logo = "assets/icons/pfsense.png";
-          subtitle = "Firewall Router";
-          tag = "wireless";
-          keywords = "router firewall";
-          url = "https://pfsense.pumpkin/";
-          target = "_blank";
-        }
-        {
-          name = "Unifi Network Application";
-          logo = "assets/icons/unifi.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "https://unifi.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
-      name = "Monitoring";
-      icon = "fas fa-chart-area";
-      items = [
-        {
-          name = "Netdata";
-          logo = "assets/icons/netdata.png";
-          subtitle = "Monitor Hardware";
-          tag = "monitor";
-          keywords = "monitor";
-          url = "https://netdata.${network.domain}";
           target = "_blank";
         }
         {
@@ -245,6 +215,72 @@ in {
           url = "https://gotify.${network.domain}";
           target = "_blank";
         }
+      ];
+    }
+    {
+      name = "Hypervisor";
+      icon = "fas fa-house-signal";
+      items = [
+        {
+          name = "Home Assistant";
+          logo = "assets/icons/home-assistant.png";
+          subtitle = "Smart Home Automation";
+          tag = "smart-home";
+          keywords = "smart home assistant automation";
+          url = "https://home-assistant.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "PfSense";
+          logo = "assets/icons/pfsense.png";
+          subtitle = "Firewall Router";
+          tag = "wireless";
+          keywords = "router firewall";
+          url = "https://pfsense.pumpkin/";
+          target = "_blank";
+        }
+        {
+          name = "SyncThing";
+          logo = "assets/icons/syncthing.png";
+          subtitle = "Shared Data & Folders";
+          tag = "sync";
+          keywords = "sync backup share data media";
+          url = "https://sync.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Netdata";
+          logo = "assets/icons/netdata.png";
+          subtitle = "Monitor Hardware";
+          tag = "monitor";
+          keywords = "monitor";
+          url = "https://netdata.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Network";
+      icon = "fas fa-chart-area";
+      items = [
+        {
+          name = "Unifi Network Application";
+          logo = "assets/icons/unifi.png";
+          subtitle = "Wireless Access Point";
+          tag = "wireless";
+          keywords = "wireless router access point";
+          url = "https://unifi.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "AdGuard Local";
+          logo = "assets/icons/adguard.png";
+          subtitle = "DNS Ad Blocking on Local Network";
+          tag = "dns";
+          keywords = "dns adblock";
+          url = "https://adguard.${network.domain}";
+          target = "_blank";
+        }
         {
           name = "OliveTin";
           logo = "assets/icons/olivetin.png";
@@ -252,48 +288,6 @@ in {
           tag = "exec";
           keywords = "exec";
           url = "https://olivetin.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
-      name = "Downloads";
-      icon = "fas fa-download";
-      items = [
-        {
-          name = "Radarr";
-          logo = "assets/icons/radarr.png";
-          subtitle = "Manage Movies";
-          tag = "movies";
-          keywords = "movies media";
-          url = "https://movies.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Sonarr";
-          logo = "assets/icons/sonarr.png";
-          subtitle = "Manage TV Shows";
-          tag = "tv";
-          keywords = "tv shows media";
-          url = "https://tv.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Readarr";
-          logo = "assets/icons/readarr.png";
-          subtitle = "Manage Books";
-          tag = "books";
-          keywords = "books audiobooks media";
-          url = "https://readarr.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Prowlarr";
-          logo = "assets/icons/prowlarr.png";
-          subtitle = "Manage Indexers";
-          tag = "media";
-          keywords = "indexer media torrent download";
-          url = "https://prowlarr.${network.domain}";
           target = "_blank";
         }
       ];

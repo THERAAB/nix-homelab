@@ -31,7 +31,7 @@ in {
       enable = true;
       settings.actions = [
         {
-          title = "Reboot Server";
+          title = "Reboot Nix-Hypervisor";
           icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
           shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
           timeout = 20;
