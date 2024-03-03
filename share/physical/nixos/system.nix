@@ -1,11 +1,9 @@
 {pkgs, ...}: {
   security.auditd.enable = true;
-  services = {
-    locate = {
-      enable = true;
-      package = pkgs.plocate;
-      localuser = null;
-    };
+  services.locate = {
+    enable = true;
+    package = pkgs.plocate;
+    localuser = null;
   };
   nix = {
     gc = {

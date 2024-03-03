@@ -28,51 +28,49 @@ in {
     ];
   };
   networking.firewall.allowedTCPPorts = [port];
-  services = {
-    home-assistant = {
-      enable = true;
-      extraComponents = [
-        "met"
-        "radio_browser"
-        "backup"
-        "zha"
-        "zwave_js"
-        "tplink"
-        "github"
-        "ifttt"
-        "androidtv"
-        "assist_pipeline"
-        "ffmpeg"
-        "tuya"
-        "ecobee"
-        "sharkiq"
-      ];
-      config = {
-        default_config = {};
-        http = {
-          trusted_proxies = ["127.0.0.1" network.micro-network.tailscale.ip network.micro-network.local.ip];
-          use_x_forwarded_for = true;
-        };
-        homeassistant = {
-          name = "Home";
-          unit_system = "imperial";
-          time_zone = "America/New_York";
-          temperature_unit = "F";
-          longitude = "!secret home_longitude";
-          latitude = "!secret home_latitude";
-        };
-        notify = [
-          {
-            name = "gotify";
-            platform = "rest";
-            resource = "https://gotify.${network.domain}/message";
-            method = "POST_JSON";
-            headers.X-Gotify-Key = "!secret gotify_ha_token";
-            message_param_name = "message";
-            title_param_name = "title";
-          }
-        ];
+  services.home-assistant = {
+    enable = true;
+    extraComponents = [
+      "met"
+      "radio_browser"
+      "backup"
+      "zha"
+      "zwave_js"
+      "tplink"
+      "github"
+      "ifttt"
+      "androidtv"
+      "assist_pipeline"
+      "ffmpeg"
+      "tuya"
+      "ecobee"
+      "sharkiq"
+    ];
+    config = {
+      default_config = {};
+      http = {
+        trusted_proxies = ["127.0.0.1" network.micro-network.tailscale.ip network.micro-network.local.ip];
+        use_x_forwarded_for = true;
       };
+      homeassistant = {
+        name = "Home";
+        unit_system = "imperial";
+        time_zone = "America/New_York";
+        temperature_unit = "F";
+        longitude = "!secret home_longitude";
+        latitude = "!secret home_latitude";
+      };
+      notify = [
+        {
+          name = "gotify";
+          platform = "rest";
+          resource = "https://gotify.${network.domain}/message";
+          method = "POST_JSON";
+          headers.X-Gotify-Key = "!secret gotify_ha_token";
+          message_param_name = "message";
+          title_param_name = "title";
+        }
+      ];
     };
   };
 }

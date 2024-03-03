@@ -1,5 +1,3 @@
 {...}: {
-  services = {
-    netdata.config.registry.enabled = "yes";
-  };
+  services.netdata.config.registry.enabled = "yes";
 }

@@ -18,36 +18,34 @@ in {
     "Z  ${scripts-dir}                500         root            root            -   -                         "
     "Z  ${www-dir}                    -           ${app-name}     ${app-name}     -   -                         "
   ];
-  services = {
-    olivetin = {
-      enable = true;
-      settings.actions = [
-        {
-          title = "Reboot Nix-Hypervisor";
-          icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
-          shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
-          timeout = 20;
-        }
-        {
-          title = "Reboot Micro-Server";
-          icon = ''<img src = "customIcons/nixos.png" width = "48px"/>'';
-          shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-server";
-          timeout = 20;
-        }
-        {
-          title = "Reboot Micro-Media";
-          icon = ''<img src = "customIcons/jellyfin.png" width = "48px"/>'';
-          shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-media";
-          timeout = 20;
-        }
-        {
-          title = "Reboot Micro-Network";
-          icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
-          shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-network";
-          timeout = 20;
-        }
-      ];
-    };
+  services.olivetin = {
+    enable = true;
+    settings.actions = [
+      {
+        title = "Reboot Nix-Hypervisor";
+        icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -r";
+        timeout = 20;
+      }
+      {
+        title = "Reboot Micro-Server";
+        icon = ''<img src = "customIcons/nixos.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-server";
+        timeout = 20;
+      }
+      {
+        title = "Reboot Micro-Media";
+        icon = ''<img src = "customIcons/jellyfin.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-media";
+        timeout = 20;
+      }
+      {
+        title = "Reboot Micro-Network";
+        icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-network";
+        timeout = 20;
+      }
+    ];
   };
   users = {
     groups.${app-name}.gid = gid;

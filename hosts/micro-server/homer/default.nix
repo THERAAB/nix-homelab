@@ -21,11 +21,9 @@ in {
       tag = "${app-name}-icons";
     }
   ];
-  services = {
-    yamlConfigMaker."${app-name}" = {
-      path = "${local-config-dir}/config.yml";
-      settings = config;
-    };
+  services.yamlConfigMaker."${app-name}" = {
+    path = "${local-config-dir}/config.yml";
+    settings = config;
   };
   systemd.tmpfiles.rules = [
     "d    ${local-config-dir}            -   -               -               -   -                     "
