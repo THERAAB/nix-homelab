@@ -35,7 +35,7 @@ in {
         }
         {
           domain = "jellyfin.${network.domain}";
-          answer = "${network.nix-server.local.ip}";
+          answer = "${network.micro-server.local.ip}";
         }
         {
           domain = "${network.domain}";
