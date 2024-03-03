@@ -9,7 +9,7 @@ in {
     dns = {
       bind_hosts = [network.micro-monitor.tailscale.ip network.micro-monitor.local.ip];
       rewrites = [
-        ##TODO: move caddy to micro-network
+        #TODO: move caddy to micro-network
         {
           domain = "vuetorrent.${network.domain}";
           answer = "${network.micro-media.tailscale.ip}";
