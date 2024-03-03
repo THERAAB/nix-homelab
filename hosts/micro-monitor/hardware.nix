@@ -1,5 +1,5 @@
 {config, ...}: {
-  networking.hostName = "micro-network";
+  networking.hostName = "micro-monitor";
   microvm = {
     mem = 4096;
     interfaces = [
@@ -10,7 +10,7 @@
           link = "enp3s0";
         };
         id = config.networking.hostName;
-        mac = "02:00:00:00:00:03";
+        mac = "02:00:00:00:00:04";
       }
     ];
   };

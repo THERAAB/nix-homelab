@@ -15,6 +15,10 @@
     tailscale.ip = "100.114.76.122";
     local.ip = "192.168.3.5";
   };
+  micro-monitor = {
+    tailscale.ip = "";
+    local.ip = "192.168.3.6";
+  };
   nix-zenbook = {
     local.ip = "192.168.1.4";
     tailscale.ip = "100.85.214.18";

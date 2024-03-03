@@ -12,7 +12,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:8238
+          reverse_proxy ${network.micro-monitor.local.ip}:8238
         '';
       };
     };

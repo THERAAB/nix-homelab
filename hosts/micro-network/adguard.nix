@@ -15,7 +15,7 @@ in {
         }
         {
           domain = "gotify.${network.domain}";
-          answer = "${network.micro-server.tailscale.ip}";
+          answer = "${network.micro-monitor.tailscale.ip}";
         }
         {
           domain = "${network.domain}";

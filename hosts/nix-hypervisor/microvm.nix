@@ -18,6 +18,11 @@
         ../../share/all
         ../micro-network
       ];
+      micro-monitor.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-monitor
+      ];
     };
   };
 }

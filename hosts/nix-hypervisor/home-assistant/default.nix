@@ -5,7 +5,7 @@
   network = import ../../../share/network.properties.nix;
   users = import ../../../share/users.properties.nix;
 in {
-  #TODO: delay start
+  #TODO: delay start, move to micro-server
   imports = [
     ./kasa-living-room-light.nix
     ./aqara-water-alarms.nix

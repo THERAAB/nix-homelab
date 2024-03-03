@@ -10,7 +10,7 @@ and the installation instructions below.
 - [Microvm host](https://astro.github.io/microvm.nix/)
 - Mesh VPN with [Tailscale](https://tailscale.com/)
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
-- Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)
+- Monitoring/Statistics with [NetData](https://www.netdata.cloud/)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Nix store cache sharing with [Harmonia](https://github.com/nix-community/harmonia)
@@ -32,11 +32,18 @@ and the installation instructions below.
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
 - Mesh VPN with [Tailscale](https://tailscale.com/)
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
+- SSL Certs with [Cloudflare](https://www.cloudflare.com/)
+- Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
+- [Microbin](https://microbin.eu/) locally hosted pastebin
+
+### Micro-Monitor
+
+- [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
+- Mesh VPN with [Tailscale](https://tailscale.com/)
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Notifications with [Gotify](https://gotify.net/)
-- Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
-- [Microbin](https://microbin.eu/) locally hosted pastebin
+- Monitoring with [Gatus](https://github.com/TwiN/gatus)
 
 ### Micro-Network
 

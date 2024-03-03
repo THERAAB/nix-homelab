@@ -188,6 +188,12 @@ in {
           url = "https://microbin.${network.domain}";
           target = "_blank";
         }
+      ];
+    }
+    {
+      name = "Micro-Monitor";
+      icon = "fas fa-chart-area";
+      items = [
         {
           name = "AdGuard Tailscale";
           logo = "assets/icons/tailscale.png";
