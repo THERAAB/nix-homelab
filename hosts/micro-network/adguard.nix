@@ -14,10 +14,6 @@ in {
           answer = "${network.micro-media.local.ip}";
         }
         {
-          domain = "gotify.${network.domain}";
-          answer = "${network.micro-monitor.local.ip}";
-        }
-        {
           domain = "${network.domain}";
           answer = "${network.micro-network.local.ip}";
         }

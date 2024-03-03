@@ -26,6 +26,13 @@ in {
           reverse_proxy ${network.micro-monitor.local.ip}:3000
         '';
       };
+      "gotify.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${network.micro-monitor.local.ip}:8238
+        '';
+      };
       "gatus.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
