@@ -38,7 +38,7 @@ and the installation instructions below.
 - Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
 - [Microbin](https://microbin.eu/) locally hosted pastebin
 
-### Micro-Networking
+### Micro-Network
 
 - [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking

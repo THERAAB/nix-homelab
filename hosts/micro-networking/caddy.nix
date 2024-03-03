@@ -13,7 +13,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-networking.local.ip}:8443 {
+          reverse_proxy ${network.micro-network.local.ip}:8443 {
             transport http {
               tls_insecure_skip_verify
             }

@@ -1,6 +1,6 @@
 {...}: {
   microvm = {
-    autostart = ["micro-media" "micro-server" "micro-networking"];
+    autostart = ["micro-media" "micro-server" "micro-network"];
     vms = {
       micro-media.config.imports = [
         ../../share/microvm
@@ -13,10 +13,10 @@
         ../../share/all
         ../micro-server
       ];
-      micro-networking.config.imports = [
+      micro-network.config.imports = [
         ../../share/microvm
         ../../share/all
-        ../micro-networking
+        ../micro-network
       ];
     };
   };
