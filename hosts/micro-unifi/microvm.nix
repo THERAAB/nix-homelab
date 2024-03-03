@@ -1,5 +1,5 @@
 {config, ...}: {
-  networking.hostName = "micro-unifi";
+  networking.hostName = "micro-networking";
   microvm = {
     mem = 6144;
     interfaces = [

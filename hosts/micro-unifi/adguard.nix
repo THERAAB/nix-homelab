@@ -5,9 +5,9 @@ in {
     ../../share/optional/adguard.nix
   ];
   services.adguardhome.settings = {
-    bind_host = network.micro-unifi.local.ip;
+    bind_host = network.micro-networking.local.ip;
     dns = {
-      bind_hosts = [network.micro-unifi.local.ip network.micro-unifi.tailscale.ip];
+      bind_hosts = [network.micro-networking.local.ip network.micro-networking.tailscale.ip];
       rewrites = [
         {
           domain = "cache.${network.domain}";
@@ -31,7 +31,7 @@ in {
         }
         {
           domain = "unifi.${network.domain}";
-          answer = "${network.micro-unifi.local.ip}";
+          answer = "${network.micro-networking.local.ip}";
         }
         {
           domain = "olivetin.${network.domain}";

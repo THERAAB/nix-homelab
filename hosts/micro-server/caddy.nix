@@ -75,7 +75,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-unifi.local.ip}:3000
+          reverse_proxy ${network.micro-networking.local.ip}:3000
         '';
       };
       "${network.domain}" = {
