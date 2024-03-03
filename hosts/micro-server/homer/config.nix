@@ -279,21 +279,21 @@ in {
       icon = "fas fa-house-signal";
       items = [
         {
-          name = "Unifi Network Application";
-          logo = "assets/icons/unifi.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "https://unifi.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "AdGuard Local";
           logo = "assets/icons/adguard.png";
           subtitle = "Local Network DNS Server";
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Unifi Network Application";
+          logo = "assets/icons/unifi.png";
+          subtitle = "Wireless Access Point";
+          tag = "wireless";
+          keywords = "wireless router access point";
+          url = "https://unifi.${network.domain}";
           target = "_blank";
         }
       ];
