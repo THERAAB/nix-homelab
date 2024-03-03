@@ -10,28 +10,12 @@ in {
       bind_hosts = [network.micro-network.local.ip network.micro-network.tailscale.ip];
       rewrites = [
         {
-          domain = "cache.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
-        }
-        {
-          domain = "netdata.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
-        }
-        {
-          domain = "sync.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
-        }
-        {
           domain = "home-assistant.${network.domain}";
           answer = "${network.nix-hypervisor.local.ip}";
         }
         {
           domain = "vuetorrent.${network.domain}";
           answer = "${network.micro-media.local.ip}";
-        }
-        {
-          domain = "olivetin.${network.domain}";
-          answer = "${network.nix-hypervisor.local.ip}";
         }
         {
           domain = "gotify.${network.domain}";

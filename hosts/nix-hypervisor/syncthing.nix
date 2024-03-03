@@ -18,13 +18,6 @@ in {
   ];
   users.users.syncthing.extraGroups = ["flatnotes"];
   services = {
-    caddy.virtualHosts."sync.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
-      '';
-    };
     syncthing = {
       enable = true;
       relay.enable = false;

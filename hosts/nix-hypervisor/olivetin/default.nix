@@ -7,7 +7,6 @@
   scripts-dir = "/var/lib/${app-name}/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
-  network = import ../../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                         "
@@ -20,13 +19,6 @@ in {
     "Z  ${www-dir}                    -           ${app-name}     ${app-name}     -   -                         "
   ];
   services = {
-    caddy.virtualHosts."${app-name}.${network.domain}" = {
-      useACMEHost = "${network.domain}";
-      extraConfig = ''
-        encode zstd gzip
-        reverse_proxy 127.0.0.1:${toString port}
-      '';
-    };
     olivetin = {
       enable = true;
       settings.actions = [

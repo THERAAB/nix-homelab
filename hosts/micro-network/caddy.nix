@@ -54,6 +54,34 @@ in {
           reverse_proxy ${network.micro-server.local.ip}:9090
         '';
       };
+      "cache.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${network.nix-hypervisor.local.ip}:5000
+        '';
+      };
+      "netdata.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${network.nix-hypervisor.local.ip}:19999
+        '';
+      };
+      "sync.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy 127.0.0.1:8384
+        '';
+      };
+      "olivetin.${network.domain}" = {
+        useACMEHost = "${network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy 127.0.0.1:1337
+        '';
+      };
       "notes.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
@@ -68,7 +96,7 @@ in {
           reverse_proxy ${network.micro-server.local.ip}:9940
         '';
       };
-      "jellyfin.${network.domain}" = { #TODO: migrate
+      "jellyfin.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
