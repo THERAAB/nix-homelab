@@ -30,20 +30,20 @@ in {
           answer = "${network.micro-media.tailscale.ip}";
         }
         {
-          domain = "unifi.${network.domain}";
-          answer = "${network.micro-network.tailscale.ip}";
-        }
-        {
           domain = "olivetin.${network.domain}";
           answer = "${network.nix-hypervisor.tailscale.ip}";
         }
         {
+          domain = "jellyfin.${network.domain}";
+          answer = "${network.nix-server.tailscale.ip}";
+        }
+        {
           domain = "${network.domain}";
-          answer = "${network.micro-server.tailscale.ip}";
+          answer = "${network.micro-network.tailscale.ip}";
         }
         {
           domain = "*.${network.domain}";
-          answer = "${network.micro-server.tailscale.ip}";
+          answer = "${network.micro-network.tailscale.ip}";
         }
       ];
     };
