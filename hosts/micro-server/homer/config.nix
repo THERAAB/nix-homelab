@@ -2,8 +2,8 @@ let
   network = import ../../../share/network.properties.nix;
 in {
   # See https://fontawesome.com/v5/search for icons options
-  title = "Nix Homelab Server";
-  subtitle = "Homer Dashboard";
+  title = "Nix Homelab";
+  subtitle = "Services Dashboard";
   logo = "assets/icons/nixos.png";
   header = true;
   footer = false;
