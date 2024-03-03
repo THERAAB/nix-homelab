@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./adguard.nix
-    ./microvm.nix
+    ./hardware.nix
     ./unifi.nix
     ./caddy.nix
   ];

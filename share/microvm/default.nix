@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./system.nix
-    ./microvm.nix
+    ./hardware.nix
     ./podman.nix
   ];
 }

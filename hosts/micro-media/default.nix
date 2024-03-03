@@ -10,7 +10,7 @@
     ./sonarr.nix
     ./audiobookshelf.nix
     ./readarr.nix
-    ./microvm.nix
+    ./hardware.nix
     ./users.nix
   ];
 }
