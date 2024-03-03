@@ -6,7 +6,7 @@ in {
     enable = true;
     port = port;
   };
-  environment.variables = {
+  systemd.services.gotify-server.environment = {
     GOTIFY_SERVER_SSL_ENABLED = "false";
     GOTIFY_SERVER_SSL_REDIRECTTOHTTPS = "false";
     GOTIFY_SERVER_SSL_LETSENCRYPT_ENABLED = "false";
