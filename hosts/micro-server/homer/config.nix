@@ -218,6 +218,30 @@ in {
       ];
     }
     {
+      name = "Network";
+      icon = "fas fa-chart-area";
+      items = [
+        {
+          name = "Unifi Network Application";
+          logo = "assets/icons/unifi.png";
+          subtitle = "Wireless Access Point";
+          tag = "wireless";
+          keywords = "wireless router access point";
+          url = "https://unifi.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "AdGuard Local";
+          logo = "assets/icons/adguard.png";
+          subtitle = "DNS Ad Blocking on Local Network";
+          tag = "dns";
+          keywords = "dns adblock";
+          url = "https://adguard.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
+    {
       name = "Hypervisor";
       icon = "fas fa-house-signal";
       items = [
@@ -255,30 +279,6 @@ in {
           tag = "monitor";
           keywords = "monitor";
           url = "https://netdata.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
-      name = "Network";
-      icon = "fas fa-chart-area";
-      items = [
-        {
-          name = "Unifi Network Application";
-          logo = "assets/icons/unifi.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "https://unifi.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "AdGuard Local";
-          logo = "assets/icons/adguard.png";
-          subtitle = "DNS Ad Blocking on Local Network";
-          tag = "dns";
-          keywords = "dns adblock";
-          url = "https://adguard.${network.domain}";
           target = "_blank";
         }
         {
