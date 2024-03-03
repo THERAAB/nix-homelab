@@ -19,6 +19,7 @@
         ../micro-network
       ];
       micro-monitor.config.imports = [
+        ../../share/lib/modules/nixos/yamlConfigMaker
         ../../share/microvm
         ../../share/all
         ../micro-monitor

@@ -58,7 +58,6 @@
         specialArgs = {inherit inputs outputs self;};
         modules = [
           impermanence.nixosModules.impermanence
-          ./share/lib/modules/nixos/yamlConfigMaker
           ./share/lib/modules/nixos/olivetin
           ./share/physical/nixos
           ./share/all
@@ -84,8 +83,6 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           impermanence.nixosModules.impermanence
-          ./share/lib/modules/nixos/yamlConfigMaker
-          ./share/lib/modules/nixos/olivetin
           ./share/physical/nixos
           ./hosts/nix-nas
           ./share/all
