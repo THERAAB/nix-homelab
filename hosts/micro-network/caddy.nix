@@ -58,28 +58,28 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.nix-hypervisor.local.ip}:5000
+          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:5000
         '';
       };
       "netdata.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.nix-hypervisor.local.ip}:19999
+          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:19999
         '';
       };
       "sync.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy 127.0.0.1:8384
+          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:8384
         '';
       };
       "olivetin.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy 127.0.0.1:1337
+          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:1337
         '';
       };
       "notes.${network.domain}" = {
