@@ -46,9 +46,9 @@ in {
         timeout = 20;
       }
       {
-        title = "Reboot Micro-Monitor";
-        icon = ''<img src = "customIcons/gatus.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-monitor";
+        title = "Reboot Micro-Tailscale";
+        icon = ''<img src = "customIcons/tailscale.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-tailscale";
         timeout = 20;
       }
     ];

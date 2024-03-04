@@ -11,11 +11,11 @@ in {
       rewrites = [
         {
           domain = "${network.domain}";
-          answer = "${network.micro-monitor.local.ip}";
+          answer = "${network.micro-tailscale.local.ip}";
         }
         {
           domain = "*.${network.domain}";
-          answer = "${network.micro-monitor.local.ip}";
+          answer = "${network.micro-tailscale.local.ip}";
         }
       ];
     };

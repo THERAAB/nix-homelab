@@ -242,7 +242,7 @@ in {
       ];
     }
     {
-      name = "Micro-Monitor";
+      name = "Micro-Tailscale";
       icon = "fas fa-chart-area";
       items = [
         {
@@ -252,24 +252,6 @@ in {
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard-tailscale.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Gatus";
-          logo = "assets/icons/gatus.png";
-          subtitle = "Monitor Services";
-          tag = "monitor";
-          keywords = "monitor";
-          url = "https://gatus.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Gotify";
-          logo = "assets/icons/gotify.png";
-          subtitle = "Send Notifications";
-          tag = "notify";
-          keywords = "notify alert";
-          url = "https://gotify.${network.domain}";
           target = "_blank";
         }
       ];
@@ -294,6 +276,24 @@ in {
           tag = "wireless";
           keywords = "wireless router access point";
           url = "https://unifi.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Gatus";
+          logo = "assets/icons/gatus.png";
+          subtitle = "Monitor Services";
+          tag = "monitor";
+          keywords = "monitor";
+          url = "https://gatus.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Gotify";
+          logo = "assets/icons/gotify.png";
+          subtitle = "Send Notifications";
+          tag = "notify";
+          keywords = "notify alert";
+          url = "https://gotify.${network.domain}";
           target = "_blank";
         }
       ];
