@@ -12,7 +12,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-network.local.ip}:8443 {
+          reverse_proxy ${network.micro-utils.local.ip}:8443 {
             transport http {
               tls_insecure_skip_verify
             }
@@ -37,14 +37,14 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-network.local.ip}:8238
+          reverse_proxy ${network.micro-utils.local.ip}:8238
         '';
       };
       "gatus.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-network.local.ip}:7000
+          reverse_proxy ${network.micro-utils.local.ip}:7000
         '';
       };
       "photos.${network.domain}" = {
@@ -135,7 +135,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-network.local.ip}:3000
+          reverse_proxy ${network.micro-utils.local.ip}:3000
         '';
       };
       "${network.domain}" = {

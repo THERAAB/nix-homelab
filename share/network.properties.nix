@@ -11,12 +11,12 @@
     tailscale.ip = "100.114.35.103";
     local.ip = "192.168.3.4";
   };
-  micro-network = {
+  micro-utils = {
     tailscale.ip = "100.114.76.122";
     local.ip = "192.168.3.5";
   };
   micro-tailscale = {
-    tailscale.ip = "100.103.162.45"; 
+    tailscale.ip = "100.103.162.45";
     local.ip = "192.168.3.6";
   };
   nix-zenbook = {

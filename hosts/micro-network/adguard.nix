@@ -5,9 +5,9 @@ in {
     ../../share/optional/adguard.nix
   ];
   services.adguardhome.settings = {
-    bind_host = network.micro-network.local.ip;
+    bind_host = network.micro-utils.local.ip;
     dns = {
-      bind_hosts = [network.micro-network.local.ip network.micro-network.tailscale.ip];
+      bind_hosts = [network.micro-utils.local.ip network.micro-utils.tailscale.ip];
       rewrites = [
         {
           domain = "${network.domain}";

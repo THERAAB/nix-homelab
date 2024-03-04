@@ -242,23 +242,8 @@ in {
       ];
     }
     {
-      name = "Micro-Tailscale";
-      icon = "fas fa-chart-area";
-      items = [
-        {
-          name = "AdGuard Tailscale";
-          logo = "assets/icons/tailscale.png";
-          subtitle = "Tailscale DNS Server";
-          tag = "dns";
-          keywords = "dns adblock";
-          url = "https://adguard-tailscale.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
-      name = "Micro-Network";
-      icon = "fas fa-house-signal";
+      name = "Micro-Utils";
+      icon = "fas fa-wrench";
       items = [
         {
           name = "AdGuard Local";
@@ -294,6 +279,21 @@ in {
           tag = "notify";
           keywords = "notify alert";
           url = "https://gotify.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Micro-Tailscale";
+      icon = "fas fa-border-none";
+      items = [
+        {
+          name = "AdGuard Tailscale";
+          logo = "assets/icons/tailscale.png";
+          subtitle = "Tailscale DNS Server";
+          tag = "dns";
+          keywords = "dns adblock";
+          url = "https://adguard-tailscale.${network.domain}";
           target = "_blank";
         }
       ];
