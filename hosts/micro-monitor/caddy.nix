@@ -37,14 +37,14 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-monitor.local.ip}:8238
+          reverse_proxy ${network.micro-network.local.ip}:8238
         '';
       };
       "gatus.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-monitor.local.ip}:7000
+          reverse_proxy ${network.micro-network.local.ip}:7000
         '';
       };
       "photos.${network.domain}" = {
