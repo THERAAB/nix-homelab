@@ -14,12 +14,12 @@
         ../micro-server
       ];
       micro-network.config.imports = [
+        ../../share/lib/modules/nixos/yamlConfigMaker
         ../../share/microvm
         ../../share/all
         ../micro-network
       ];
       micro-monitor.config.imports = [
-        ../../share/lib/modules/nixos/yamlConfigMaker
         ../../share/microvm
         ../../share/all
         ../micro-monitor
