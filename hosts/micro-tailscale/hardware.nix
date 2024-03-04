@@ -1,5 +1,5 @@
 {config, ...}: {
-  networking.hostName = "micro-monitor";
+  networking.hostName = "micro-tailscale";
   microvm = {
     mem = 4096;
     interfaces = [

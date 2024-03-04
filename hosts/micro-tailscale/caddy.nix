@@ -23,7 +23,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-monitor.local.ip}:3000
+          reverse_proxy ${network.micro-tailscale.local.ip}:3000
         '';
       };
       "vuetorrent.${network.domain}" = {
