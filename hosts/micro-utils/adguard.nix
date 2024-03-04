@@ -7,7 +7,7 @@ in {
   services.adguardhome.settings = {
     bind_host = network.micro-utils.local.ip;
     dns = {
-      bind_hosts = [network.micro-utils.local.ip network.micro-utils.tailscale.ip];
+      bind_hosts = [network.micro-utils.local.ip];
       rewrites = [
         {
           domain = "${network.domain}";
