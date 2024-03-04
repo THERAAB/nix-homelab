@@ -1,4 +1,4 @@
-# Nix-Hypervisor
+# Manual Setup
 
 ## Home Automation
 
@@ -98,8 +98,6 @@ Set up last, make sure to do above before trying to set up
 - Settings -> Discover language -> English
 - Settings -> enable proxy support
 
-# Micro-Server
-
 ## Apps
 
 ### Linkding
@@ -116,8 +114,6 @@ sudo podman exec -it linkding python manage.py createsuperuser --username=raab -
 ### File Browser
 
 - Change default user/password
-
-# Micro-Monitor
 
 ### Gotify
 

@@ -9,48 +9,21 @@ and the installation instructions below.
 - Declarative Home Assistant with [NixOS Home Assistant Module](https://nixos.wiki/wiki/Home_Assistant)
 - [Microvm host](https://astro.github.io/microvm.nix/)
 - Mesh VPN with [Tailscale](https://tailscale.com/)
-- Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
-- Monitoring/Statistics with [NetData](https://www.netdata.cloud/)
+- Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)
 - WebUI for script execution with [OliveTin](https://www.olivetin.app/)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Nix store cache sharing with [Harmonia](https://github.com/nix-community/harmonia)
 - Backups with [SyncThing](https://syncthing.net/)
-
-## MicroVMs
-
-### Micro-Media
-
 - Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [JellySeerr](https://github.com/Fallenbagel/jellyseerr), and [linuxserver.io](https://www.linuxserver.io/) podman images
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
-- Mesh VPN with [Tailscale](https://tailscale.com/)
-- Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
-- SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
-
-### Micro-Server
-
-- [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
-- Mesh VPN with [Tailscale](https://tailscale.com/)
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
-- SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
 - [Microbin](https://microbin.eu/) locally hosted pastebin
-
-### Micro-Monitor
-
-- [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
-- Mesh VPN with [Tailscale](https://tailscale.com/)
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
-- SSL Certs with [Cloudflare](https://www.cloudflare.com/)
-- Notifications with [Gotify](https://gotify.net/)
-- Monitoring with [Gatus](https://github.com/TwiN/gatus)
-
-### Micro-Network
-
 - [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
-- Mesh VPN with [Tailscale](https://tailscale.com/)
-- SSL Certs with [Cloudflare](https://www.cloudflare.com/)
+- Notifications with [Gotify](https://gotify.net/)
 
 ## Installation
 
