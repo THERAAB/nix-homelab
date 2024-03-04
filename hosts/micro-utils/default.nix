@@ -1,11 +1,9 @@
 {...}: {
   imports = [
-    ./homer
-    ./linkding.nix
-    ./flatnotes.nix
-    ./microbin.nix
-    ./filebrowser.nix
-    ./photoprism.nix
+    ./adguard.nix
     ./hardware.nix
+    ./unifi.nix
+    ./gotify.nix
+    ./gatus
   ];
 }

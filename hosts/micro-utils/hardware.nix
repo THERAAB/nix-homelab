@@ -1,7 +1,7 @@
 {config, ...}: {
-  networking.hostName = "micro-server";
+  networking.hostName = "micro-utils";
   microvm = {
-    mem = 6144;
+    mem = 4096;
     interfaces = [
       {
         type = "macvtap";
@@ -10,15 +10,7 @@
           link = "enp3s0";
         };
         id = config.networking.hostName;
-        mac = "02:00:00:00:00:02";
-      }
-    ];
-    shares = [
-      {
-        proto = "virtiofs";
-        source = "/sync";
-        mountPoint = "/sync"; #TODO: fix share
-        tag = "sync";
+        mac = "02:00:00:00:00:03";
       }
     ];
   };
