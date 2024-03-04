@@ -80,7 +80,7 @@ in {
     }
     {
       name = "Unifi Network Application";
-      url = "https://unifi.${network.domain}:8443";
+      url = "https://unifi.${network.domain}";
       conditions = [
         "[STATUS] == 200"
       ];
