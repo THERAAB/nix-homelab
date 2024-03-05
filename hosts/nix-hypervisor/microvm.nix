@@ -7,7 +7,6 @@
         ../micro-media
       ];
       micro-server.config.imports = [
-        ../../share/lib/modules/nixos/yamlConfigMaker
         ../../share/microvm
         ../../share/all
         ../micro-server

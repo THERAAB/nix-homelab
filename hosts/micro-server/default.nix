@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./homer
     ./linkding.nix
     ./flatnotes.nix
     ./microbin.nix

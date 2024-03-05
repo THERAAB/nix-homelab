@@ -1,5 +1,6 @@
 {...}: {
   imports = [
+    ./homer
     ./adguard.nix
     ./hardware.nix
     ./unifi.nix
