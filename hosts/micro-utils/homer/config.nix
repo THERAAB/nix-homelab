@@ -204,15 +204,6 @@ in {
       icon = "fas fa-desktop";
       items = [
         {
-          name = "PfSense";
-          logo = "assets/icons/pfsense.png";
-          subtitle = "Firewall Router";
-          tag = "wireless";
-          keywords = "router firewall";
-          url = "https://pfsense.pumpkin/";
-          target = "_blank";
-        }
-        {
           name = "Netdata";
           logo = "assets/icons/netdata.png";
           subtitle = "Monitor Hardware";
