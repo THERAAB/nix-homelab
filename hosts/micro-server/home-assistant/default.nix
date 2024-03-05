@@ -58,7 +58,7 @@ in {
     config = {
       default_config = {};
       http = {
-        trusted_proxies = ["127.0.0.1" network.micro-tailscale.tailscale.ip];
+        trusted_proxies = ["127.0.0.1" network.micro-tailscale.tailscale.ip network.micro-tailscale.local.ip];
         use_x_forwarded_for = true;
       };
       homeassistant = {
