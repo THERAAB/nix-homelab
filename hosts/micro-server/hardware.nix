@@ -15,7 +15,7 @@
     ];
     shares = [
       {
-        proto = "virtiofs";
+        proto = "9p";
         source = "/sync";
         mountPoint = "/sync"; #TODO: fix share
         tag = "sync";
