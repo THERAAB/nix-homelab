@@ -16,12 +16,22 @@ in {
     ./bathroom-lights.nix
     ./washer-dryer.nix
   ];
-  microvm.devices = [
-    {
-      bus = "usb";
-      path = "vendorid=0x1a86,productid=0x55d4";
-    }
-  ];
+  microvm = {
+    devices = [
+      {
+        bus = "usb";
+        path = "vendorid=0x1a86,productid=0x55d4";
+      }
+    ];
+    shares = [
+      {
+        proto = "virtiofs";
+        source = "/dev/ttyACM0";
+        mountPoint = "/dev/ttyACM0";
+        tag = "ACM0";
+      }
+    ];
+  };
   users.users.hass.uid = users.hass.uid;
   systemd = {
     tmpfiles.rules = [
