@@ -162,6 +162,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Home Assistant";
+          logo = "assets/icons/home-assistant.png";
+          subtitle = "Smart Home Automation";
+          tag = "smart-home";
+          keywords = "smart home assistant automation";
+          url = "https://home-assistant.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "Linkding";
           logo = "assets/icons/linkding.png";
           subtitle = "Bookmark Manager";
@@ -194,15 +203,6 @@ in {
       name = "Nix-Hypervisor";
       icon = "fas fa-desktop";
       items = [
-        {
-          name = "Home Assistant";
-          logo = "assets/icons/home-assistant.png";
-          subtitle = "Smart Home Automation";
-          tag = "smart-home";
-          keywords = "smart home assistant automation";
-          url = "https://home-assistant.${network.domain}";
-          target = "_blank";
-        }
         {
           name = "PfSense";
           logo = "assets/icons/pfsense.png";
@@ -294,6 +294,21 @@ in {
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard-tailscale.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Devices";
+      icon = "fas fa-sd-card";
+      items = [
+        {
+          name = "PfSense";
+          logo = "assets/icons/pfsense.png";
+          subtitle = "Firewall Router";
+          tag = "wireless";
+          keywords = "router firewall";
+          url = "https://pfsense.pumpkin/";
           target = "_blank";
         }
       ];
