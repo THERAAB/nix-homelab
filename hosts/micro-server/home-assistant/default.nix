@@ -29,7 +29,6 @@ in {
       "C  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
       "R  /var/lib/hass/secrets.yaml          -       -       -       -   -                           "
       "C  /var/lib/hass/secrets.yaml          -       -       -       -   /run/secrets/home_assistant "
-      "z  /var/lib/hass/secrets.yaml          -       hass    hass    -   -                           "
       "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
       "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
       "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
