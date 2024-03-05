@@ -7,5 +7,6 @@
     ./filebrowser.nix
     ./photoprism.nix
     ./hardware.nix
+    ./home-assistant.nix
   ];
 }

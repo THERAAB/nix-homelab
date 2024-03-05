@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./home-assistant
     ./olivetin
     ./netdata.nix
     ./users.nix

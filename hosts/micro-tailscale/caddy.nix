@@ -86,7 +86,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:8123
+          reverse_proxy ${network.micro-server.local.ip}:8123
         '';
       };
       "sync.${network.domain}" = {

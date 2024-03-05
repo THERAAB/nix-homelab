@@ -20,6 +20,12 @@ in {
     ];
     services."podman-${app-name}".after = ["multi-user.target"]; # Delay jellyfin start for hardware encoding
   };
+  microvm.devices = [
+    {
+      bus = "pci";
+      path = "0000:00:02.0";
+    }
+  ];
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
