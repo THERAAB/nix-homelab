@@ -19,9 +19,13 @@ in {
   microvm = {
     devices = [
       {
-        bus = "usb";
-        path = "vendorid=0x1a86,productid=0x55d4";
+        bus = "pci";
+        path = "0000:00:14.0";
       }
+      #{
+      #  bus = "usb";
+      #  path = "vendorid=0x1a86,productid=0x55d4";
+      #}
     ];
   };
   users.users.hass.uid = users.hass.uid;
