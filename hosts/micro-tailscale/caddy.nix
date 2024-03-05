@@ -142,7 +142,7 @@ in {
         useACMEHost = "${network.domain}-tld";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:8082
+          reverse_proxy ${network.micro-utils.local.ip}:8082
         '';
       };
       "audiobooks.${network.domain}" = {
