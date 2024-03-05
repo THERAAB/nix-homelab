@@ -5,7 +5,6 @@
   network = import ../../../share/network.properties.nix;
   users = import ../../../share/users.properties.nix;
 in {
-  #TODO: delay start, move to micro-server
   imports = [
     ./kasa-living-room-light.nix
     ./aqara-water-alarms.nix
@@ -20,12 +19,8 @@ in {
     devices = [
       {
         bus = "pci";
-        path = "0000:00:14.0";
+        path = "0000:00:14.0"; # Passthrough whole USB bus because I can't get single usb device passthrough to work
       }
-      #{
-      #  bus = "usb";
-      #  path = "vendorid=0x1a86,productid=0x55d4";
-      #}
     ];
   };
   users.users.hass.uid = users.hass.uid;
@@ -63,7 +58,7 @@ in {
     config = {
       default_config = {};
       http = {
-        trusted_proxies = ["127.0.0.1" network.micro-tailscale.tailscale.ip network.micro-tailscale.local.ip];
+        trusted_proxies = ["127.0.0.1" network.micro-tailscale.local.ip];
         use_x_forwarded_for = true;
       };
       homeassistant = {
