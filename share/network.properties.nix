@@ -7,14 +7,8 @@
     tailscale.ip = "100.115.102.19";
     local.ip = "192.168.3.3";
   };
-  micro-server = {
-    tailscale.ip = "100.114.35.103";
-    local.ip = "192.168.3.4";
-  };
-  micro-utils = {
-    tailscale.ip = "100.114.76.122";
-    local.ip = "192.168.3.5";
-  };
+  micro-server.local.ip = "192.168.3.4";
+  micro-utils.local.ip = "192.168.3.5";
   micro-tailscale = {
     tailscale.ip = "100.103.162.45";
     local.ip = "192.168.3.6";
