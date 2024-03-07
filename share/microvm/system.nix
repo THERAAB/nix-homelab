@@ -9,6 +9,5 @@
   fileSystems = {
     "/etc/ssh".neededForBoot = true;
     "/var/lib".neededForBoot = true;
-    "/var/lib/acme".neededForBoot = true;
   };
 }

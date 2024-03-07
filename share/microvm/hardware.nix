@@ -29,12 +29,6 @@
         mountPoint = "/var/lib";
         tag = "var-lib";
       }
-      {
-        proto = "virtiofs";
-        source = "/var/lib/microvms/${config.networking.hostName}/storage/var/lib/acme";
-        mountPoint = "/var/lib/acme";
-        tag = "var-lib-acme";
-      }
     ];
     mem = lib.mkDefault 4096;
     vcpu = lib.mkDefault 1;
