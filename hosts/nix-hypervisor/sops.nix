@@ -1,4 +1,12 @@
-{...}: {
+{...}: let
+  local-config-dir = "/run/secrets";
+in {
+  systemd.tmpfiles.rules = [
+    "d    ${local-config-dir}/micro-media       -   -             -                   -   - "
+    "d    ${local-config-dir}/micro-server      -   -             -                   -   - "
+    "d    ${local-config-dir}/micro-tailscale   -   -             -                   -   - "
+    "d    ${local-config-dir}/micro-utils       -   -             -                   -   - "
+  ];
   sops.secrets = {
     home_assistant = {
       owner = "hass";
