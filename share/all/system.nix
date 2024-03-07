@@ -20,4 +20,5 @@
     firewall.enable = true;
     networkmanager.enable = lib.mkDefault true;
   };
+  services.openssh.enable = false;
 }
