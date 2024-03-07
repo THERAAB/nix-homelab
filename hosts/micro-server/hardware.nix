@@ -22,4 +22,5 @@
       }
     ];
   };
+  services.tailscale.enable = true; # TODO: remove 
 }
