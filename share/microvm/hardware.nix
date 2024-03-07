@@ -13,9 +13,9 @@
       }
       {
         proto = "virtiofs";
-        source = "/run/secrets";
+        source = "/run/secrets/${config.networking.hostName}";
         mountPoint = "/run/secrets";
-        tag = "secrets"; #TODO: migrate to individual sops.yamls
+        tag = "secrets"; #TODO finish
       }
       {
         proto = "virtiofs";
