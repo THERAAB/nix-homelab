@@ -15,4 +15,5 @@
     ];
   };
   services.tailscale.enable = true; #TODO: remove
+  services.openssh.enable = false;
 }
