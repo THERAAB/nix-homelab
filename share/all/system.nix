@@ -20,5 +20,5 @@
     firewall.enable = true;
     networkmanager.enable = lib.mkDefault true;
   };
-  services.openssh.enable = false;
+  services.openssh.enable = false; # tailscale has it's own ssh agent
 }
