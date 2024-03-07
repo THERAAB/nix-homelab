@@ -11,6 +11,6 @@
     ./auto-upgrade.nix
     ./restic.nix
     ./microvm.nix
-    ./acme.nix
+    ../../share/optional/acme.nix
   ];
 }
