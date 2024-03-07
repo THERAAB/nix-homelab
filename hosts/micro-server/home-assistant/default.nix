@@ -1,9 +1,11 @@
 {...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom/";
-  system-blueprints-dir = "/nix/persist/nix-homelab/hosts/nix-hypervisor/home-assistant/blueprints";
+  local-config-dir = "/var/lib/hass";
+  system-blueprints-dir = "/nix/persist/nix-homelab/hosts/micro-server/home-assistant/blueprints";
   port = 8123;
   network = import ../../../share/network.properties.nix;
   users = import ../../../share/users.properties.nix;
+  app-name = "hass";
 in {
   imports = [
     ./kasa-living-room-light.nix
@@ -19,21 +21,21 @@ in {
     devices = [
       {
         bus = "pci";
-        path = "0000:00:14.0"; # Passthrough whole USB bus because I can't get single usb device passthrough to work
+        path = "0000:00:14.0"; # Passthrough whole USB bus because single usb device passthrough doesn't work
       }
     ];
   };
   users.users.hass.uid = users.hass.uid;
   systemd = {
     tmpfiles.rules = [
-      "R  ${custom-blueprints-dir}            -       -       -       -   -                           "
-      "C  ${custom-blueprints-dir}            -       -       -       -   ${system-blueprints-dir}    "
-      "R  /var/lib/hass/secrets.yaml          -       -       -       -   -                           "
-      "C  /var/lib/hass/secrets.yaml          -       -       -       -   /run/secrets/home_assistant "
-      "Z  ${custom-blueprints-dir}            -       hass    hass    -   -                           "
-      "Z  /var/lib/hass/blueprints            -       hass    hass    -   -                           "
-      "Z  /var/lib/hass/custom_components     -       hass    hass    -   -                           "
-      "Z  /var/lib/hass/                      -       hass    hass    -   -                           "
+      "R  ${custom-blueprints-dir}                  -       -             -              -   -                           "
+      "C  ${custom-blueprints-dir}                  -       -             -              -   ${system-blueprints-dir}    "
+      "R  ${local-config-dir}/secrets.yaml          -       -             -              -   -                           "
+      "C  ${local-config-dir}/secrets.yaml          -       -             -              -   /run/secrets/home_assistant "
+      "Z  ${custom-blueprints-dir}                  -       ${app-name}   ${app-name}    -   -                           "
+      "Z  ${local-config-dir}/blueprints            -       ${app-name}   ${app-name}    -   -                           "
+      "Z  ${local-config-dir}/custom_components     -       ${app-name}   ${app-name}    -   -                           "
+      "Z  ${local-config-dir}                       -       ${app-name}   ${app-name}    -   -                           "
     ];
   };
   networking.firewall.allowedTCPPorts = [port];
