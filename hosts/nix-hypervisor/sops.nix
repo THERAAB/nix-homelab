@@ -33,7 +33,6 @@ in {
     df_password = {};
     cloudflare_dns_secret = {};
     harmonia_secret = {};
-    microbin_secret = {};
     mongo_init = {
       owner = "unifi";
     };

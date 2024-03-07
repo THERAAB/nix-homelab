@@ -15,7 +15,7 @@
         proto = "virtiofs";
         source = "/run/secrets/${config.networking.hostName}";
         mountPoint = "/run/secrets";
-        tag = "secrets"; #TODO finish
+        tag = "secrets";
       }
       {
         proto = "virtiofs";
