@@ -34,7 +34,6 @@ in {
     ];
   };
   users.users.hass.uid = users.hass.uid;
-  #TODO: delay start
   systemd = {
     tmpfiles.rules = [
       "R  ${local-config-dir}/secrets.yaml          -       -             -              -   -                           "
