@@ -26,6 +26,7 @@ in {
     ];
   };
   users.users.hass.uid = users.hass.uid;
+  #TODO: fix low-battery alerts
   systemd = {
     tmpfiles.rules = [
       "R  ${custom-blueprints-dir}                  -       -             -              -   -                           "
