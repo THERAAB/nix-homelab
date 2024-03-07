@@ -3,20 +3,6 @@
   lib,
   ...
 }: {
-  services = {
-    openssh = {
-      enable = true;
-      ports = [22];
-      settings = lib.mkDefault {
-        PasswordAuthentication = false;
-        KbdInteractiveAuthentication = false;
-      };
-    };
-    tailscale = {
-      enable = true;
-      extraUpFlags = ["--ssh"];
-    };
-  };
   nix.settings.allowed-users = ["@wheel"];
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.utf8";

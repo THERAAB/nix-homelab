@@ -1,9 +1,23 @@
 {pkgs, ...}: {
   security.auditd.enable = true;
-  services.locate = {
-    enable = true;
-    package = pkgs.plocate;
-    localuser = null;
+  services = {
+    openssh = {
+      enable = true;
+      ports = [22];
+      settings = {
+        PasswordAuthentication = false;
+        KbdInteractiveAuthentication = false;
+      };
+    };
+    tailscale = {
+      enable = true;
+      extraUpFlags = ["--ssh"];
+    };
+    locate = {
+      enable = true;
+      package = pkgs.plocate;
+      localuser = null;
+    };
   };
   nix = {
     gc = {
