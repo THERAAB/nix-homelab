@@ -200,39 +200,6 @@ in {
       ];
     }
     {
-      name = "Nix-Hypervisor";
-      icon = "fas fa-desktop";
-      items = [
-        {
-          name = "Netdata";
-          logo = "assets/icons/netdata.png";
-          subtitle = "Monitor Hardware";
-          tag = "monitor";
-          keywords = "monitor";
-          url = "https://netdata.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "SyncThing";
-          logo = "assets/icons/syncthing.png";
-          subtitle = "Shared Data & Folders";
-          tag = "sync";
-          keywords = "sync backup share data media";
-          url = "https://sync.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "OliveTin";
-          logo = "assets/icons/olivetin.png";
-          subtitle = "Execute Commands";
-          tag = "exec";
-          keywords = "exec";
-          url = "https://olivetin.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
       name = "Micro-Utils";
       icon = "fas fa-wrench";
       items = [
@@ -270,6 +237,39 @@ in {
           tag = "notify";
           keywords = "notify alert";
           url = "https://gotify.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Nix-Hypervisor";
+      icon = "fas fa-desktop";
+      items = [
+        {
+          name = "Netdata";
+          logo = "assets/icons/netdata.png";
+          subtitle = "Monitor Hardware";
+          tag = "monitor";
+          keywords = "monitor";
+          url = "https://netdata.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "SyncThing";
+          logo = "assets/icons/syncthing.png";
+          subtitle = "Shared Data & Folders";
+          tag = "sync";
+          keywords = "sync backup share data media";
+          url = "https://sync.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "OliveTin";
+          logo = "assets/icons/olivetin.png";
+          subtitle = "Execute Commands";
+          tag = "exec";
+          keywords = "exec";
+          url = "https://olivetin.${network.domain}";
           target = "_blank";
         }
       ];
