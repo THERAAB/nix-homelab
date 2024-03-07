@@ -34,7 +34,7 @@ in {
     ];
   };
   users.users.hass.uid = users.hass.uid;
-  #TODO: fix low-battery alerts, delay start
+  #TODO: delay start
   systemd = {
     tmpfiles.rules = [
       "R  ${local-config-dir}/secrets.yaml          -       -             -              -   -                           "
