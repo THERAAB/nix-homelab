@@ -15,5 +15,6 @@
     ];
   };
   services.tailscale.enable = true; #TODO: remove
+  networking.firewall.trustedInterfaces = ["tailscale0"];
   services.openssh.enable = false;
 }

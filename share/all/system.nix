@@ -17,10 +17,7 @@
     ];
   };
   networking = {
-    firewall = {
-      enable = true;
-      trustedInterfaces = ["tailscale0"];
-    };
+    firewall.enable = true;
     networkmanager.enable = lib.mkDefault true;
   };
 }

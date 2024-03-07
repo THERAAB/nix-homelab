@@ -25,4 +25,5 @@
     enableAllFirmware = true;
     enableRedistributableFirmware = true;
   };
+  networking.firewall.trustedInterfaces = ["tailscale0"];
 }
