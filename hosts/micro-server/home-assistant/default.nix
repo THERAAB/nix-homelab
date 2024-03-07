@@ -1,5 +1,5 @@
 {...}: let
-  custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom/";
+  custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
   local-config-dir = "/var/lib/hass";
   system-blueprints-dir = "/nix/persist/nix-homelab/hosts/micro-server/home-assistant/blueprints";
   port = 8123;
