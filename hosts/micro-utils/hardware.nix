@@ -15,5 +15,5 @@
     ];
   };
   services.tailscale.enable = true; #TODO: remove
-  networking.firewall.trustedInterfaces = ["tailscale0"];
+  #networking.firewall.trustedInterfaces = ["tailscale0"];
 }
