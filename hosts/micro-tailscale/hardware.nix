@@ -14,5 +14,5 @@
       }
     ];
   };
-  services.tailscale.enable = true; #TODO: disable ssh?
+  services.tailscale.enable = true;
 }
