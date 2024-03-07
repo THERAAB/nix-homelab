@@ -1,4 +1,4 @@
-{...}: let
+{config, ...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom/";
   local-config-dir = "/var/lib/hass";
   system-blueprints-dir = "/nix/persist/nix-homelab/hosts/micro-server/home-assistant/blueprints";
@@ -24,13 +24,21 @@ in {
         path = "0000:00:14.0"; # Passthrough whole USB bus because single usb device passthrough doesn't work
       }
     ];
+    shares = [
+      {
+        proto = "virtiofs";
+        source = system-blueprints-dir;
+        mountPoint = "/ha-blueprints";
+        tag = "ha-blueprints";
+      }
+    ];
   };
   users.users.hass.uid = users.hass.uid;
   #TODO: fix low-battery alerts, delay start
   systemd = {
     tmpfiles.rules = [
       "R  ${custom-blueprints-dir}                  -       -             -              -   -                           "
-      "C  ${custom-blueprints-dir}                  -       -             -              -   ${system-blueprints-dir}    "
+      "C  ${custom-blueprints-dir}                  -       -             -              -   /ha-blueprints              "
       "R  ${local-config-dir}/secrets.yaml          -       -             -              -   -                           "
       "C  ${local-config-dir}/secrets.yaml          -       -             -              -   /run/secrets/home_assistant "
       "Z  ${custom-blueprints-dir}                  -       ${app-name}   ${app-name}    -   -                           "
