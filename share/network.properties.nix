@@ -25,10 +25,7 @@
     tailscale.ip = "100.122.29.88";
     local.ip = "192.168.2.2";
   };
-  pfSense = {
-    local.ip = "192.168.1.1";
-    tailscale.ip = "100.122.131.106";
-  };
+  pfSense.local.ip = "192.168.1.1";
   unifi-u6-plus.local.ip = "192.168.1.2";
   unifi-usw-lite-8.local.ip = "192.168.1.3";
   govee-water-alarm.local.ip = "192.168.127.3";
