@@ -40,7 +40,7 @@ in {
       };
       "podman-${app-name}" = {
         wantedBy = ["yamlPatcher-${app-name}.service"];
-        after = ["yamlPatcher-${app-name}.service" "adguardhome.service"]; #TODO: wait longer
+        after = ["yamlPatcher-${app-name}.service" "adguardhome.service"];
       };
     };
   };
