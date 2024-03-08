@@ -22,7 +22,7 @@ in {
       options = ["subvol=backups" "compress=zstd" "noatime"];
     };
   };
-  networking.firewall.allowedTCPPorts = [2049 111 20048 37869];
+  networking.firewall.allowedTCPPorts = [2049 111 20048 37869 35603];
   services.nfs.server = {
     enable = true;
     exports = ''
