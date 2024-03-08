@@ -5,10 +5,8 @@ in {
   environment.etc."machine-id" = {
     mode = "0644";
     text =
-      # change this to suit your flake's interface
       network.micro-media.machine-id + "\n";
   };
-
   microvm = {
     shares = [
       {
