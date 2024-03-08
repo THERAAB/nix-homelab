@@ -4,7 +4,6 @@
     local.ip = "192.168.3.2";
   };
   micro-media = {
-    tailscale.ip = "100.115.102.19";
     local.ip = "192.168.3.3";
     machine-id = "5537b436ea484e698e6c3426f309a4b8";
   };
