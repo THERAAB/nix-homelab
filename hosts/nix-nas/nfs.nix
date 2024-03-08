@@ -22,7 +22,7 @@ in {
       options = ["subvol=backups" "compress=zstd" "noatime"];
     };
   };
-  networking.firewall.allowedTCPPorts = [2049 4001 4000 4002];
+  networking.firewall.allowedTCPPorts = [2049 4001 4000 4002 111];
   services.nfs.server = {
     enable = true;
     lockdPort = 4001;
