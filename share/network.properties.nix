@@ -12,10 +12,14 @@
     local.ip = "192.168.3.4";
     machine-id = "da0ebf2643d6441a81dabcc3620ca368";
   };
-  micro-utils.local.ip = "192.168.3.5";
+  micro-utils = {
+    local.ip = "192.168.3.5";
+    machine-id = "7964eeea619240a9a312ecff2bf3ffe2";
+  };
   micro-tailscale = {
     tailscale.ip = "100.103.162.45";
     local.ip = "192.168.3.6";
+    machine-id = "58ce21dec8db4860b484cdf1ad45ecb4";
   };
   nix-zenbook = {
     local.ip = "192.168.1.4";

@@ -1,21 +1,6 @@
-{config, ...}: let
-  network = import ../../share/network.properties.nix;
-in {
+{config, ...}: {
   networking.hostName = "micro-media";
-  environment.etc."machine-id" = {
-    mode = "0644";
-    text = network.micro-media.machine-id + "\n";
-  };
   microvm = {
-    shares = [
-      {
-        source = "/var/lib/microvms/${config.networking.hostName}/storage/journal";
-        mountPoint = "/var/log/journal";
-        tag = "journal";
-        proto = "virtiofs";
-        socket = "journal.sock";
-      }
-    ];
     mem = 6144;
     interfaces = [
       {

@@ -2,7 +2,11 @@
   network = import ../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
-    "L+ /var/log/journal/${network.micro-media.machine-id} - - - - /var/lib/microvms/micro-media/storage/journal/${network.micro-media.machine-id}"
+    # Share journald logs on nix-hypervisor
+    "L+ /var/log/journal/${network.micro-media.machine-id}      -   -   -   -   /var/lib/microvms/micro-media/storage/journal/${network.micro-media.machine-id}         "
+    "L+ /var/log/journal/${network.micro-server.machine-id}     -   -   -   -   /var/lib/microvms/micro-server/storage/journal/${network.micro-server.machine-id}       "
+    "L+ /var/log/journal/${network.micro-tailscale.machine-id}  -   -   -   -   /var/lib/microvms/micro-tailscale/storage/journal/${network.micro-tailscale.machine-id} "
+    "L+ /var/log/journal/${network.micro-utils.machine-id}      -   -   -   -   /var/lib/microvms/micro-utils/storage/journal/${network.micro-utils.machine-id}         "
   ];
   microvm = {
     vms = {

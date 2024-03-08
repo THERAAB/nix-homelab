@@ -2,7 +2,13 @@
   config,
   lib,
   ...
-}: {
+}: let
+  network = import ../network.properties.nix;
+in {
+  environment.etc."machine-id" = {
+    mode = "0644";
+    text = network.${config.networking.hostName}.machine-id + "\n";
+  };
   microvm = {
     hypervisor = "cloud-hypervisor";
     shares = [
@@ -11,6 +17,13 @@
         mountPoint = "/nix/.ro-store";
         tag = "ro-store";
         proto = "virtiofs";
+      }
+      {
+        source = "/var/lib/microvms/${config.networking.hostName}/storage/journal";
+        mountPoint = "/var/log/journal";
+        tag = "journal";
+        proto = "virtiofs";
+        socket = "journal.sock";
       }
       {
         proto = "virtiofs";
