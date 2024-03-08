@@ -2,7 +2,7 @@
   network = import ../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
-    "L+ /var/log/journal/${network.micro-media.machine-id} - - - - /var/lib/microvms/micro-media/journal/${network.micro-media.machine-id}"
+    "L+ /var/log/journal/${network.micro-media.machine-id} - - - - /var/lib/microvms/micro-media/storage/journal/${network.micro-media.machine-id}"
   ];
   microvm = {
     vms = {
