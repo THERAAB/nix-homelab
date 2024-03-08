@@ -14,5 +14,5 @@
       }
     ];
   };
-  services.tailscale.enable = true; # TODO: remove, merge journal
+  services.tailscale.enable = true; # TODO: remove
 }
