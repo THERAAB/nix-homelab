@@ -29,6 +29,7 @@ in {
       "var/lib/jellyfin/data/metadata/library"
       "var/log/"
       "var/cache/"
+      "microvms/*/storage/journal/"
     ];
     initialize = true;
     passwordFile = config.sops.secrets.restic_password.path;
