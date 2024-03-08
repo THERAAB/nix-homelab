@@ -22,9 +22,12 @@ in {
       options = ["subvol=backups" "compress=zstd" "noatime"];
     };
   };
-  networking.firewall.allowedTCPPorts = [2049 111 20048 37869 35603];
+  networking.firewall.allowedTCPPorts = [2049 4001 4000 4002];
   services.nfs.server = {
     enable = true;
+    lockdPort = 4001;
+    statdPort = 4000;
+    mountdPort = 4002;
     exports = ''
       ${nfs-dir}    ${network.nix-hypervisor.local.ip}(rw,fsid=0,no_subtree_check) ${network.nix-hypervisor.tailscale.ip}(rw,fsid=0,no_subtree_check)
       ${media-dir}  ${network.micro-media.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString users.nfsnobody.uid})
