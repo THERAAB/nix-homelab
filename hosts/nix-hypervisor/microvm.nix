@@ -1,8 +1,8 @@
 {config, ...}: {
-  #systemd.tmpfiles.rules = [
+  systemd.tmpfiles.rules = [
   #  # creates a symlink of each MicroVM's journal under the host's /var/log/journal
-  #  "L+ /var/log/journal/${config.microvm.vms.micro-media.config.} - - - - /var/lib/microvms/${vmHost}/journal/${machineId}"
-  #];
+    "L+ /var/log/journal/${config.microvm.vms.micro-media.config.environment.etc."machine-id"} - - - - /var/lib/microvms/micro-media/journal/${config.microvm.vms.micro-media.config.environment.etc."machine-id"}"
+  ];
   microvm = {
     vms = {
       micro-media.config.imports = [
