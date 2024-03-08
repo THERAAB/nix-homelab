@@ -1,5 +1,5 @@
 {
-  self,
+  lib,
   config,
   ...
 }: {
@@ -8,7 +8,7 @@
     mode = "0644";
     text =
       # change this to suit your flake's interface
-      self.lib.addresses.machineId.${config.networking.hostName} + "\n";
+      lib.addresses.machineId.${config.networking.hostName} + "\n";
   };
 
   microvm = {
