@@ -1,7 +1,8 @@
-{config, ...}: {
+{...}: let
+  network = import ../../share/network.properties.nix;
+in {
   systemd.tmpfiles.rules = [
-  #  # creates a symlink of each MicroVM's journal under the host's /var/log/journal
-    "L+ /var/log/journal/${config.microvm.vms.micro-media.config.environment.etc."machine-id"} - - - - /var/lib/microvms/micro-media/journal/${config.microvm.vms.micro-media.config.environment.etc."machine-id"}"
+    "L+ /var/log/journal/${network.micro-media.machine-id} - - - - /var/lib/microvms/micro-media/journal/${network.micro-media.machine-id}"
   ];
   microvm = {
     vms = {
