@@ -14,5 +14,5 @@
       }
     ];
   };
-  services.tailscale.enable = true; # TODO: remove
+  #services.tailscale.enable = true; # TODO: remove
 }
