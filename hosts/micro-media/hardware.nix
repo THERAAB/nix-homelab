@@ -4,8 +4,7 @@ in {
   networking.hostName = "micro-media";
   environment.etc."machine-id" = {
     mode = "0644";
-    text =
-      network.micro-media.machine-id + "\n";
+    text = network.micro-media.machine-id + "\n";
   };
   microvm = {
     shares = [

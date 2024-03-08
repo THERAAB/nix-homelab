@@ -22,4 +22,5 @@
       }
     ];
   };
+  services.openssh.enable = true; #TODO: remove
 }
