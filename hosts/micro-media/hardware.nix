@@ -1,14 +1,10 @@
-{
-  inputs,
-  config,
-  ...
-}: {
+{config, ...}: {
   networking.hostName = "micro-media";
   environment.etc."machine-id" = {
     mode = "0644";
     text =
       # change this to suit your flake's interface
-      inputs.self.lib.addresses.machineId.${config.networking.hostName} + "\n";
+      "5537b436ea484e698e6c3426f309a4b8\n";
   };
 
   microvm = {
