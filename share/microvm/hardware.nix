@@ -47,4 +47,9 @@ in {
     mem = lib.mkDefault 4096;
     vcpu = lib.mkDefault 1;
   };
+  fileSystems = {
+    "/etc/ssh".neededForBoot = true;
+    "/var/lib".neededForBoot = true;
+    "/var/log/journal".neededForBoot = true;
+  };
 }

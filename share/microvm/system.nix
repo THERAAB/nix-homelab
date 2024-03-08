@@ -6,10 +6,5 @@
       fuse-overlayfs
     ];
   };
-  fileSystems = {
-    "/etc/ssh".neededForBoot = true;
-    "/var/lib".neededForBoot = true;
-    "/var/log/journal".neededForBoot = true;
-  };
   users.allowNoPasswordLogin = true;
 }
