@@ -4,6 +4,7 @@
   ...
 }: {
   microvm = {
+    hypervisor = "cloud-hypervisor";
     shares = [
       {
         source = "/nix/store";
