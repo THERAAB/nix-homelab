@@ -11,4 +11,5 @@
     "/var/lib".neededForBoot = true;
     "/var/log/journal".neededForBoot = true;
   };
+  users.allowNoPasswordLogin = true;
 }
