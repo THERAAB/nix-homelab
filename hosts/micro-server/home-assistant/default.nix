@@ -17,7 +17,6 @@ in {
     ./bathroom-lights.nix
     ./washer-dryer.nix
   ];
-  # TODO: add back ecobee
   microvm = {
     devices = [
       {
