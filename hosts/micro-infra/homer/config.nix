@@ -303,7 +303,7 @@ in {
     }
     {
       name = "Micro-Tailscale";
-      icon = "fas fa-border-none";
+      icon = "fas fa-lock";
       items = [
         {
           name = "AdGuard Tailscale";
