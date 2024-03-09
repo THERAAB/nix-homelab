@@ -4,7 +4,7 @@
   gid = 62893;
   app-name = "olivetin";
   www-dir = "/var/www/${app-name}";
-  scripts-dir = "/var/lib/OliveTin/scripts";
+  scripts-dir = "/var/lib/olivetin/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
   system-icons-dir = "/nix/persist/nix-homelab/share/assets/icons";
 in {
