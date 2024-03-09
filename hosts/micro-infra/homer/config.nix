@@ -43,7 +43,7 @@ in {
     }
     {
       name = "Tailscale";
-      icon = "fas fa-terminal";
+      icon = "fas fa-code";
       url = "https://login.tailscale.com";
       target = "_blank";
     }
