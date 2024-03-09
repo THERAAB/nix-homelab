@@ -27,7 +27,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:8112
+          reverse_proxy ${network.micro-download.local.ip}:8112
         '';
       };
       "gotify.${network.domain}" = {
@@ -153,28 +153,28 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:9696
+          reverse_proxy ${network.micro-download.local.ip}:9696
         '';
       };
       "movies.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:7878
+          reverse_proxy ${network.micro-download.local.ip}:7878
         '';
       };
       "readarr.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:8787
+          reverse_proxy ${network.micro-download.local.ip}:8787
         '';
       };
       "tv.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:8989
+          reverse_proxy ${network.micro-download.local.ip}:8989
         '';
       };
     };

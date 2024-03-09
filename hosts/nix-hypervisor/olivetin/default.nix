@@ -51,6 +51,12 @@ in {
         shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-tailscale";
         timeout = 20;
       }
+      {
+        title = "Reboot Micro-Download";
+        icon = ''<img src = "customIcons/vuetorrent.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-download";
+        timeout = 20;
+      }
     ];
   };
   users = {

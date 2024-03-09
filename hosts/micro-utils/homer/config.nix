@@ -92,6 +92,12 @@ in {
           url = "https://audiobooks.${network.domain}";
           target = "_blank";
         }
+      ];
+    }
+    {
+      name = "Micro-Download";
+      icon = "fas fa-play";
+      items = [
         {
           name = "VueTorrent";
           logo = "assets/icons/vuetorrent.png";

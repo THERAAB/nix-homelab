@@ -46,7 +46,7 @@ curl https://am.i.mullvad.net/json
 
 ### Check privoxy
 
-- Set firefox proxy to https://${network.micro-media.local.ip}:8118
+- Set firefox proxy to https://${network.micro-download.local.ip}:8118
 - Verify with these:
   - https://iknowwhatyoudownload.com
   - https://mullvad.net/en/check/

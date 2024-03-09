@@ -7,6 +7,7 @@ in {
     "L+ /var/log/journal/${network.micro-server.machine-id}     -   -   -   -   /var/lib/microvms/micro-server/storage/journal/${network.micro-server.machine-id}       "
     "L+ /var/log/journal/${network.micro-tailscale.machine-id}  -   -   -   -   /var/lib/microvms/micro-tailscale/storage/journal/${network.micro-tailscale.machine-id} "
     "L+ /var/log/journal/${network.micro-utils.machine-id}      -   -   -   -   /var/lib/microvms/micro-utils/storage/journal/${network.micro-utils.machine-id}         "
+    # "L+ /var/log/journal/${network.micro-utils.machine-id}      -   -   -   -   /var/lib/microvms/micro-utils/storage/journal/${network.micro-utils.machine-id}         " TODO
   ];
   microvm = {
     vms = {
@@ -30,6 +31,11 @@ in {
         ../../share/microvm
         ../../share/all
         ../micro-tailscale
+      ];
+      micro-download.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-download
       ];
     };
   };

@@ -1,5 +1,5 @@
 let
-  users = import ../../share/users.properties.nix;
+  users = import ./users.properties.nix;
 in {
   dir = {
     movies = "/media/movies/";

@@ -1,6 +1,11 @@
 {...}: let
-  network = import ../../share/network.properties.nix;
+  media = import ../media.properties.nix;
+  network = import ../network.properties.nix;
 in {
+  users = {
+    users.root.extraGroups = ["media"];
+    groups.media.gid = media.group.id;
+  };
   fileSystems = {
     "/media" = {
       device = "${network.nix-nas.local.ip}:/nfs/media";
