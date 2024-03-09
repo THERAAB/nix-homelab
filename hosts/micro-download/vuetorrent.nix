@@ -1,5 +1,5 @@
 {...}: let
-  media = import ./media.properties.nix;
+  media = import ../../share/media.properties.nix;
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";

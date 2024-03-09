@@ -1,5 +1,5 @@
 {...}: let
-  media = import ./media.properties.nix;
+  media = import ../../share/media.properties.nix;
   uid = 9997;
   port = 8787;
   app-name = "readarr";

@@ -3,7 +3,7 @@
   port = 9696;
   app-name = "prowlarr";
   local-config-dir = "/var/lib/${app-name}";
-  media = import ./media.properties.nix;
+  media = import ../../share/media.properties.nix;
 in {
   users = {
     users."${app-name}" = {
