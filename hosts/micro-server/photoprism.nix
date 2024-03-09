@@ -26,7 +26,7 @@ in {
     {
       proto = "virtiofs";
       source = "/sync/Camera";
-      mountPoint = "${originals-dir}"; #TODO: fix share
+      mountPoint = "${originals-dir}";
       tag = "Camera";
     }
   ];
