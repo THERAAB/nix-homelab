@@ -59,6 +59,12 @@ in {
       url = "https://outlook.live.com/mail/0/";
       target = "_blank";
     }
+    {
+      name = "Tailscale";
+      icon = "fas fa-terminal";
+      url = "https://login.tailscale.com";
+      target = "_blank";
+    }
   ];
   services = [
     {
