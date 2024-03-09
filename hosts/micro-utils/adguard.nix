@@ -11,7 +11,7 @@ in {
       rewrites = [
         {
           domain = "pfsense.${network.domain}";
-          answer = "${network.pfsense.local.ip}";
+          answer = "${network.pfSense.local.ip}";
         }
         {
           domain = "${network.domain}";
