@@ -13,14 +13,14 @@
         mac = "02:00:00:00:00:02";
       }
     ];
-    shares = [
-      {
-        proto = "virtiofs";
-        source = "/sync";
-        mountPoint = "/sync"; #TODO: fix share
-        tag = "sync";
-      }
-    ];
+    #shares = [
+    #  {
+    #    proto = "virtiofs";
+    #    source = "/sync";
+    #    mountPoint = "/sync"; #TODO: fix share
+    #    tag = "sync";
+    #  }
+    #];
   };
   services.openssh.enable = true; #TODO: remove
   users.users = {

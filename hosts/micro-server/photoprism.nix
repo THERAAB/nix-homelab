@@ -15,10 +15,6 @@ in {
     originalsPath = "${originals-dir}";
     passwordFile = "/run/secrets/df_password";
   };
-  fileSystems."${originals-dir}" = {
-    device = "/sync/Camera";
-    options = ["bind"];
-  };
   users = {
     groups.photoprism = {};
     users.${app-name} = {
@@ -26,6 +22,18 @@ in {
       isSystemUser = true;
     };
   };
+  #fileSystems."${originals-dir}" = {
+  #  device = "/sync/Camera";
+  #  options = ["bind"];
+  #};
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = "/sync/Camera";
+      mountPoint = "${originals-dir}"; #TODO: fix share
+      tag = "Camera";
+    }
+  ];
   systemd = {
     services."${app-name}-index-refresh" = {
       script = ''
