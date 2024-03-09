@@ -162,7 +162,7 @@ in {
     }
     {
       name = "Micro-Infra";
-      icon = "fas fa-network-wired";
+      icon = "fas fa-sitemap";
       items = [
         {
           name = "AdGuard Local";
