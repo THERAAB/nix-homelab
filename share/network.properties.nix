@@ -9,7 +9,7 @@
   };
   micro-download = {
     local.ip = "192.168.3.7";
-    #machine-id = ""; #TODO
+    machine-id = "000ebf2643d6441a81dabcc3620ca888";
   };
   micro-server = {
     local.ip = "192.168.3.4";
