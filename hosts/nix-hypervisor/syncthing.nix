@@ -16,6 +16,10 @@ in {
     "Z    ${local-dir}/share   770     -             ${app-name}     -   - "
     "Z    ${local-dir}/Camera  770     -             ${app-name}     -   - "
   ];
+  fileSystems."${local-dir}/share/flatnotes" = {
+    device = "/var/lib/microvms/micro-server/storage/var/lib/flatnotes";
+    options = ["bind"];
+  };
   users.users.syncthing.extraGroups = ["flatnotes"];
   services.syncthing = {
     enable = true;
