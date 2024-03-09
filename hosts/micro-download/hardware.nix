@@ -15,7 +15,7 @@
     ];
   };
   services.openssh.enable = true; #TODO: remove
-  users = {
+  users.users = {
     root = {
       initialHashedPassword = "$6$89oRObq6lBVqE6Pz$lsm8TXKsGsYZ3HsmbshaTRbecNRMtRQmUUWZS2fubs6y8vF9lLp01dbrhgjGvGPco7qLdEN.hRQ0uisscBanM1";
     };
