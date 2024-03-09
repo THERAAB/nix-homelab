@@ -10,6 +10,10 @@ in {
       bind_hosts = [network.micro-tailscale.tailscale.ip network.micro-tailscale.local.ip];
       rewrites = [
         {
+          domain = "pfsense.${network.domain}";
+          answer = "${network.pfsense.local.ip}";
+        }
+        {
           domain = "${network.domain}";
           answer = "${network.micro-tailscale.tailscale.ip}";
         }
