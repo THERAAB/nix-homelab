@@ -40,9 +40,9 @@ in {
         timeout = 20;
       }
       {
-        title = "Reboot Micro-Utils";
+        title = "Reboot Micro-Infra";
         icon = ''<img src = "customIcons/unifi.png" width = "48px"/>'';
-        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-utils";
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-Infra";
         timeout = 20;
       }
       {

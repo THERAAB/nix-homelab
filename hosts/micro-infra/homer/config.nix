@@ -206,7 +206,7 @@ in {
       ];
     }
     {
-      name = "Micro-Utils";
+      name = "Micro-Infra";
       icon = "fas fa-wrench";
       items = [
         {

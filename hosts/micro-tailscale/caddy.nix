@@ -9,7 +9,7 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-utils.local.ip}:8443 {
+          reverse_proxy ${network.micro-infra.local.ip}:8443 {
             transport http {
               tls_insecure_skip_verify
             }
@@ -34,14 +34,14 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-utils.local.ip}:8238
+          reverse_proxy ${network.micro-infra.local.ip}:8238
         '';
       };
       "gatus.${network.domain}" = {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-utils.local.ip}:7000
+          reverse_proxy ${network.micro-infra.local.ip}:7000
         '';
       };
       "photos.${network.domain}" = {
@@ -132,14 +132,14 @@ in {
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-utils.local.ip}:3000
+          reverse_proxy ${network.micro-infra.local.ip}:3000
         '';
       };
       "${network.domain}" = {
         useACMEHost = "${network.domain}-tld";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-utils.local.ip}:8082
+          reverse_proxy ${network.micro-infra.local.ip}:8082
         '';
       };
       "audiobooks.${network.domain}" = {

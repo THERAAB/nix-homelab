@@ -15,7 +15,7 @@
     local.ip = "192.168.3.4";
     machine-id = "da0ebf2643d6441a81dabcc3620ca368";
   };
-  micro-utils = {
+  micro-infra = {
     local.ip = "192.168.3.5";
     machine-id = "7964eeea619240a9a312ecff2bf3ffe2";
   };

@@ -16,14 +16,14 @@ in {
     "d    ${local-config-dir}/micro-tailscale                         -   -   -   -   -                                           "
     "R    ${local-config-dir}/micro-tailscale/cloudflare_dns_secret   -   -   -   -   -                                           "
     "C    ${local-config-dir}/micro-tailscale/cloudflare_dns_secret   -   -   -   -   ${local-config-dir}/cloudflare_dns_secret   "
-    # Micro-Utils
-    "d    ${local-config-dir}/micro-utils                             -   -   -   -   -                                           "
-    "R    ${local-config-dir}/micro-utils/gotify_gatus_token          -   -   -   -   -                                           "
-    "C    ${local-config-dir}/micro-utils/gotify_gatus_token          -   -   -   -   ${local-config-dir}/gotify_gatus_token      "
-    "R    ${local-config-dir}/micro-utils/mongo_secret                -   -   -   -   -                                           "
-    "C    ${local-config-dir}/micro-utils/mongo_secret                -   -   -   -   ${local-config-dir}/mongo_secret            "
-    "R    ${local-config-dir}/micro-utils/mongo_init                  -   -   -   -   -                                           "
-    "C    ${local-config-dir}/micro-utils/mongo_init                  -   -   -   -   ${local-config-dir}/mongo_init              "
+    # Micro-Infra
+    "d    ${local-config-dir}/micro-infra                             -   -   -   -   -                                           "
+    "R    ${local-config-dir}/micro-infra/gotify_gatus_token          -   -   -   -   -                                           "
+    "C    ${local-config-dir}/micro-infra/gotify_gatus_token          -   -   -   -   ${local-config-dir}/gotify_gatus_token      "
+    "R    ${local-config-dir}/micro-infra/mongo_secret                -   -   -   -   -                                           "
+    "C    ${local-config-dir}/micro-infra/mongo_secret                -   -   -   -   ${local-config-dir}/mongo_secret            "
+    "R    ${local-config-dir}/micro-infra/mongo_init                  -   -   -   -   -                                           "
+    "C    ${local-config-dir}/micro-infra/mongo_init                  -   -   -   -   ${local-config-dir}/mongo_init              "
   ];
   sops.secrets = {
     home_assistant = {

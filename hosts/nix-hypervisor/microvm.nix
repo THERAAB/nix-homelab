@@ -6,7 +6,7 @@ in {
     "L+ /var/log/journal/${network.micro-media.machine-id}      -   -   -   -   /var/lib/microvms/micro-media/storage/journal/${network.micro-media.machine-id}         "
     "L+ /var/log/journal/${network.micro-server.machine-id}     -   -   -   -   /var/lib/microvms/micro-server/storage/journal/${network.micro-server.machine-id}       "
     "L+ /var/log/journal/${network.micro-tailscale.machine-id}  -   -   -   -   /var/lib/microvms/micro-tailscale/storage/journal/${network.micro-tailscale.machine-id} "
-    "L+ /var/log/journal/${network.micro-utils.machine-id}      -   -   -   -   /var/lib/microvms/micro-utils/storage/journal/${network.micro-utils.machine-id}         "
+    "L+ /var/log/journal/${network.micro-infra.machine-id}      -   -   -   -   /var/lib/microvms/micro-infra/storage/journal/${network.micro-infra.machine-id}         "
     "L+ /var/log/journal/${network.micro-download.machine-id}   -   -   -   -   /var/lib/microvms/micro-download/storage/journal/${network.micro-download.machine-id}   "
   ];
   microvm = {
@@ -21,11 +21,11 @@ in {
         ../../share/all
         ../micro-server
       ];
-      micro-utils.config.imports = [
+      micro-infra.config.imports = [
         ../../share/lib/modules/nixos/yamlConfigMaker
         ../../share/microvm
         ../../share/all
-        ../micro-utils
+        ../micro-infra
       ];
       micro-tailscale.config.imports = [
         ../../share/microvm
