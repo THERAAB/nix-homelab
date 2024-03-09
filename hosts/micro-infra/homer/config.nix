@@ -42,6 +42,12 @@ in {
       target = "_blank";
     }
     {
+      name = "Tailscale";
+      icon = "fas fa-terminal";
+      url = "https://login.tailscale.com";
+      target = "_blank";
+    }
+    {
       name = "YouTube";
       icon = "fab fa-youtube";
       url = "https://www.youtube.com/";
@@ -57,12 +63,6 @@ in {
       name = "Outlook";
       icon = "fas fa-at";
       url = "https://outlook.live.com/mail/0/";
-      target = "_blank";
-    }
-    {
-      name = "Tailscale";
-      icon = "fas fa-terminal";
-      url = "https://login.tailscale.com";
       target = "_blank";
     }
   ];
