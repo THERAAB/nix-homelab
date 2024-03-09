@@ -95,57 +95,6 @@ in {
       ];
     }
     {
-      name = "Micro-Download";
-      icon = "fas fa-play";
-      items = [
-        {
-          name = "VueTorrent";
-          logo = "assets/icons/vuetorrent.png";
-          subtitle = "Manage Torrents";
-          tag = "download";
-          keywords = "torrent download";
-          url = "https://vuetorrent.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Radarr";
-          logo = "assets/icons/radarr.png";
-          subtitle = "Manage Movies";
-          tag = "movies";
-          keywords = "movies media";
-          url = "https://movies.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Sonarr";
-          logo = "assets/icons/sonarr.png";
-          subtitle = "Manage TV Shows";
-          tag = "tv";
-          keywords = "tv shows media";
-          url = "https://tv.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Readarr";
-          logo = "assets/icons/readarr.png";
-          subtitle = "Manage Books";
-          tag = "books";
-          keywords = "books audiobooks media";
-          url = "https://readarr.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Prowlarr";
-          logo = "assets/icons/prowlarr.png";
-          subtitle = "Manage Indexers";
-          tag = "media";
-          keywords = "indexer media torrent download";
-          url = "https://prowlarr.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
       name = "Micro-Server";
       icon = "fas fa-server";
       items = [
@@ -207,7 +156,7 @@ in {
     }
     {
       name = "Micro-Infra";
-      icon = "fas fa-wrench";
+      icon = "fas fa-network-wired";
       items = [
         {
           name = "AdGuard Local";
@@ -306,6 +255,57 @@ in {
           tag = "wireless";
           keywords = "router firewall";
           url = "https://pfsense.pumpkin.rodeo/";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Micro-Download";
+      icon = "fas fa-download";
+      items = [
+        {
+          name = "VueTorrent";
+          logo = "assets/icons/vuetorrent.png";
+          subtitle = "Manage Torrents";
+          tag = "download";
+          keywords = "torrent download";
+          url = "https://vuetorrent.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Radarr";
+          logo = "assets/icons/radarr.png";
+          subtitle = "Manage Movies";
+          tag = "movies";
+          keywords = "movies media";
+          url = "https://movies.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Sonarr";
+          logo = "assets/icons/sonarr.png";
+          subtitle = "Manage TV Shows";
+          tag = "tv";
+          keywords = "tv shows media";
+          url = "https://tv.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Readarr";
+          logo = "assets/icons/readarr.png";
+          subtitle = "Manage Books";
+          tag = "books";
+          keywords = "books audiobooks media";
+          url = "https://readarr.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Prowlarr";
+          logo = "assets/icons/prowlarr.png";
+          subtitle = "Manage Indexers";
+          tag = "media";
+          keywords = "indexer media torrent download";
+          url = "https://prowlarr.${network.domain}";
           target = "_blank";
         }
       ];
