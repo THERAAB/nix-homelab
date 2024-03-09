@@ -299,7 +299,7 @@ in {
           subtitle = "Firewall Router";
           tag = "wireless";
           keywords = "router firewall";
-          url = "https://pfsense.pumpkin/";
+          url = "https://pfsense.pumpkin.rodeo/";
           target = "_blank";
         }
       ];
