@@ -22,10 +22,6 @@ in {
       isSystemUser = true;
     };
   };
-  #fileSystems."${originals-dir}" = {
-  #  device = "/sync/Camera";
-  #  options = ["bind"];
-  #};
   microvm.shares = [
     {
       proto = "virtiofs";
