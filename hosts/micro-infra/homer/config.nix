@@ -230,36 +230,6 @@ in {
       ];
     }
     {
-      name = "Micro-Tailscale";
-      icon = "fas fa-border-none";
-      items = [
-        {
-          name = "AdGuard Tailscale";
-          logo = "assets/icons/tailscale.png";
-          subtitle = "Tailscale DNS Server";
-          tag = "dns";
-          keywords = "dns adblock";
-          url = "https://adguard-tailscale.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
-      name = "Devices";
-      icon = "fas fa-sd-card";
-      items = [
-        {
-          name = "PfSense";
-          logo = "assets/icons/pfsense.png";
-          subtitle = "Firewall Router";
-          tag = "wireless";
-          keywords = "router firewall";
-          url = "https://pfsense.pumpkin.rodeo/";
-          target = "_blank";
-        }
-      ];
-    }
-    {
       name = "Micro-Download";
       icon = "fas fa-download";
       items = [
@@ -306,6 +276,36 @@ in {
           tag = "media";
           keywords = "indexer media torrent download";
           url = "https://prowlarr.${network.domain}";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Devices";
+      icon = "fas fa-sd-card";
+      items = [
+        {
+          name = "PfSense";
+          logo = "assets/icons/pfsense.png";
+          subtitle = "Firewall Router";
+          tag = "wireless";
+          keywords = "router firewall";
+          url = "https://pfsense.pumpkin.rodeo/";
+          target = "_blank";
+        }
+      ];
+    }
+    {
+      name = "Micro-Tailscale";
+      icon = "fas fa-border-none";
+      items = [
+        {
+          name = "AdGuard Tailscale";
+          logo = "assets/icons/tailscale.png";
+          subtitle = "Tailscale DNS Server";
+          tag = "dns";
+          keywords = "dns adblock";
+          url = "https://adguard-tailscale.${network.domain}";
           target = "_blank";
         }
       ];
