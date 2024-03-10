@@ -31,5 +31,6 @@
     s0ix-selftest-tool
     openssl
     smartmontools
+    git
   ];
 }
