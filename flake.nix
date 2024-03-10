@@ -131,6 +131,18 @@
           ./hosts/micro-infra
         ];
       };
+      micro-test = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          microvm.nixosModules.microvm
+          ./share/microvm
+          ./share/all
+          {
+            networking.hostName = "micro-test";
+            services.openssh.enable = true;
+          }
+        ];
+      };
       micro-tailscale = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs self;};
         modules = [
