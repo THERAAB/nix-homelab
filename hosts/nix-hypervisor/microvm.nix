@@ -1,8 +1,4 @@
-{
-  pkgs,
-  self,
-  ...
-}: let
+{self, ...}: let
   network = import ../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
@@ -56,7 +52,7 @@ in {
   };
   system.activationScripts = {
     microvm.text = ''
-      ${pkgs.microvm}/bin/microvm -Ru micro-test
+      microvm -Ru micro-test
     '';
   };
 }
