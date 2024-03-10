@@ -11,6 +11,7 @@ in {
   };
   microvm = {
     storeOnDisk = true;
+    storeDiskType = "squashfs";
     hypervisor = "cloud-hypervisor";
     shares = [
       #{ #TODO ?
