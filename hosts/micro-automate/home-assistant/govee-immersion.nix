@@ -19,7 +19,7 @@ in {
               hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
             };
             propagatedBuildInputs = [
-              # pkgs.bios TODO: fix
+              pkgs.bios
               pexpect
               events
               pygatt
