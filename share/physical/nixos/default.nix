@@ -13,5 +13,6 @@
     ./users.nix
     ./hardware-configuration.nix
     ./configuration.nix
+    ./nox.nix
   ];
 }
