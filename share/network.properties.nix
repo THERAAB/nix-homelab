@@ -28,9 +28,6 @@
     local.ip = "192.168.3.6";
     machine-id = "58ce21dec8db4860b484cdf1ad45ecb4";
   };
-  micro-test = {
-    machine-id = "bbce21dec8db4860b484cdf1ad45ecbb";
-  };
   nix-zenbook = {
     local.ip = "192.168.1.4";
     tailscale.ip = "100.85.214.18";
