@@ -1,7 +1,6 @@
 {config, ...}: {
   networking.hostName = "micro-tailscale";
   microvm = {
-    mem = 4096;
     interfaces = [
       {
         type = "macvtap";

@@ -8,8 +8,9 @@ in {
     "L+ /var/log/journal/${network.micro-tailscale.machine-id}  -   -   -   -   /var/lib/microvms/micro-tailscale/storage/journal/${network.micro-tailscale.machine-id} "
     "L+ /var/log/journal/${network.micro-infra.machine-id}      -   -   -   -   /var/lib/microvms/micro-infra/storage/journal/${network.micro-infra.machine-id}         "
     "L+ /var/log/journal/${network.micro-download.machine-id}   -   -   -   -   /var/lib/microvms/micro-download/storage/journal/${network.micro-download.machine-id}   "
+    "L+ /var/log/journal/${network.micro-automate.machine-id}   -   -   -   -   /var/lib/microvms/micro-automate/storage/journal/${network.micro-automate.machine-id}   "
   ];
-  microvm = { #TODO: imperative? Or deploy-rs/colmena?
+  microvm = {
     vms = {
       micro-media.config.imports = [
         ../../share/microvm
@@ -36,6 +37,11 @@ in {
         ../../share/microvm
         ../../share/all
         ../micro-download
+      ];
+      micro-automate.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-automate
       ];
     };
   };

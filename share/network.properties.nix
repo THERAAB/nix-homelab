@@ -11,6 +11,10 @@
     local.ip = "192.168.3.7";
     machine-id = "000ebf2643d6441a81dabcc3620ca888";
   };
+  micro-automate = {
+    local.ip = "192.168.3.8";
+    machine-id = "a99ebf2643d6aa1a67dabcc3450ca778";
+  };
   micro-server = {
     local.ip = "192.168.3.4";
     machine-id = "da0ebf2643d6441a81dabcc3620ca368";

@@ -123,15 +123,6 @@ in {
           target = "_blank";
         }
         {
-          name = "Home Assistant";
-          logo = "assets/icons/home-assistant.png";
-          subtitle = "Smart Home Automation";
-          tag = "smart-home";
-          keywords = "smart home assistant automation";
-          url = "https://home-assistant.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "Linkding";
           logo = "assets/icons/linkding.png";
           subtitle = "Bookmark Manager";
@@ -299,12 +290,15 @@ in {
           url = "https://pfsense.pumpkin.rodeo/";
           target = "_blank";
         }
-      ];
-    }
-    {
-      name = "Micro-Tailscale";
-      icon = "fas fa-lock";
-      items = [
+        {
+          name = "Home Assistant";
+          logo = "assets/icons/home-assistant.png";
+          subtitle = "Smart Home Automation";
+          tag = "smart-home";
+          keywords = "smart home assistant automation";
+          url = "https://home-assistant.${network.domain}";
+          target = "_blank";
+        }
         {
           name = "AdGuard Tailscale";
           logo = "assets/icons/tailscale.png";

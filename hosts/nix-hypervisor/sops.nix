@@ -8,10 +8,12 @@ in {
     "C    ${local-config-dir}/micro-download/wireguard_mullvad        -   -   -   -   ${local-config-dir}/wireguard_mullvad       "
     # Micro-Server
     "d    ${local-config-dir}/micro-server                            -   -   -   -   -                                           "
-    "R    ${local-config-dir}/micro-server/home_assistant             -   -   -   -   -                                           "
-    "C    ${local-config-dir}/micro-server/home_assistant             -   -   -   -   ${local-config-dir}/home_assistant          "
     "R    ${local-config-dir}/micro-server/df_password                -   -   -   -   -                                           "
     "C    ${local-config-dir}/micro-server/df_password                -   -   -   -   ${local-config-dir}/df_password             "
+    # Micro-Automate
+    "d    ${local-config-dir}/micro-automate                          -   -   -   -   -                                           "
+    "R    ${local-config-dir}/micro-automate/home_assistant           -   -   -   -   -                                           "
+    "C    ${local-config-dir}/micro-automate/home_assistant           -   -   -   -   ${local-config-dir}/home_assistant          "
     # Micro-Tailscale
     "d    ${local-config-dir}/micro-tailscale                         -   -   -   -   -                                           "
     "R    ${local-config-dir}/micro-tailscale/cloudflare_dns_secret   -   -   -   -   -                                           "

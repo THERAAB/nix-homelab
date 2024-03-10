@@ -57,6 +57,12 @@ in {
         shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-download";
         timeout = 20;
       }
+      {
+        title = "Reboot Micro-Automate";
+        icon = ''<img src = "customIcons/home-assistant.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-automate";
+        timeout = 20;
+      }
     ];
   };
   users = {

@@ -44,7 +44,7 @@ in {
         tag = "var-lib";
       }
     ];
-    mem = lib.mkDefault 4096;
+    mem = lib.mkDefault 2024;
     vcpu = lib.mkDefault 1;
   };
   fileSystems = {

@@ -1,7 +1,6 @@
 {config, ...}: {
-  networking.hostName = "micro-server";
+  networking.hostName = "micro-automate";
   microvm = {
-    mem = 4096;
     interfaces = [
       {
         type = "macvtap";
@@ -10,7 +9,7 @@
           link = "enp3s0";
         };
         id = config.networking.hostName;
-        mac = "02:00:00:00:00:02";
+        mac = "02:00:00:00:00:06";
       }
     ];
     shares = [
