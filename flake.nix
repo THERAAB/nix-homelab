@@ -79,17 +79,6 @@
           }
         ];
       };
-      micro-test = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs self;};
-        modules = [
-          microvm.nixosModules.microvm
-          ../../share/microvm
-          ../../share/all
-          {
-            networking.hostName = "micro-test";
-          }
-        ];
-      };
       nix-nas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
