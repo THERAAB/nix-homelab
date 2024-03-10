@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment.systemPackages = [
     (
-      pkgs.writeScrpiptBin "nox" ''
+      pkgs.writeScriptBin "nox" ''
 
         #!/bin/sh
         # nox: NixOs eXecute
