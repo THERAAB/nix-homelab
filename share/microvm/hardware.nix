@@ -9,6 +9,7 @@ in {
     mode = "0644";
     text = network.${config.networking.hostName}.machine-id + "\n";
   };
+  systemd.services.nix-daemon.environment.TMPDIR = "/nix/persist/tmp/";
   microvm = {
     hypervisor = "cloud-hypervisor";
     shares = [
