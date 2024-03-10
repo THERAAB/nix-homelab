@@ -14,9 +14,6 @@
   micro-automate = {
     local.ip = "192.168.3.8";
     machine-id = "a99ebf2643d6aa1a67dabcc3450ca778";
-  };  
-  micro-test = { #TODO: remove
-    machine-id = "bbce21dec8db4860b484cdf1ad45ecbb";
   };
   micro-server = {
     local.ip = "192.168.3.4";
