@@ -19,7 +19,6 @@
       "/var/www/"
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
-      "/tmp" # Mount tmp so large builds don't fail
     ];
     files = [
       "/etc/machine-id"
