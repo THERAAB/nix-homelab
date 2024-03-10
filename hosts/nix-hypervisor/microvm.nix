@@ -37,6 +37,10 @@ in {
         flake = self;
         updateFlake = "git+file:///nix/persist/nix-homelab";
       };
+      micro-test = {
+        flake = self;
+        updateFlake = "git+file:///nix/persist/nix-homelab";
+      };
     };
   };
 }
