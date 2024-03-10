@@ -1,9 +1,20 @@
 {
   inputs,
+  outputs,
   lib,
   config,
   ...
 }: {
+  nixpkgs = {
+    overlays = lib.mkDefault [
+      # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.modifications
+      outputs.overlays.additions
+    ];
+    config = lib.mkDefault {
+      allowUnfree = true;
+    };
+  };
 
   nix = {
     # This will add each flake input as a registry

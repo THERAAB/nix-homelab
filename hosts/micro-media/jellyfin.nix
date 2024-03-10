@@ -26,9 +26,6 @@ in {
       path = "0000:00:02.0";
     }
   ];
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override {enableHybridCodec = true;};
-  };
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [

@@ -12,8 +12,7 @@ in {
   microvm = {
     hypervisor = "cloud-hypervisor";
     shares = [
-      {
-        #TODO: remove
+      { #TODO: remove by moving to imperative updates
         source = "/nix/store";
         mountPoint = "/nix/.ro-store";
         tag = "ro-store";
