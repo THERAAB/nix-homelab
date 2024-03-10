@@ -83,8 +83,8 @@
         specialArgs = {inherit inputs outputs self;};
         modules = [
           microvm.nixosModules.microvm
-          ../../share/microvm
-          ../../share/all
+          ./share/microvm
+          ./share/all
           {
             networking.hostName = "micro-test";
           }
