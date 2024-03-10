@@ -87,7 +87,6 @@
           ./share/all
           {
             networking.hostName = "micro-test";
-            services.openssh.enable = true;
           }
         ];
       };
