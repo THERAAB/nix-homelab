@@ -1,8 +1,8 @@
 {pkgs, ...}: {
   services.home-assistant = {
     customComponents = [
-      pkgs.home-assistant-tapo-p100
-    ];
+      # pkgs.home-assistant-tapo-p100
+    ]; #TODO: fix
     extraPackages = pythonPackages:
       with pythonPackages; [
         (
