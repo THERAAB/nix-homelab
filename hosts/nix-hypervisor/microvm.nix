@@ -54,9 +54,4 @@ in {
       };
     };
   };
-  system.activationScripts = {
-    microvm.text = ''
-      /run/current-system/sw/bin/microvm -Ru micro-test
-    '';
-  };
 }

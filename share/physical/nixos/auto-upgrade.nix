@@ -8,6 +8,10 @@
 in {
   systemd = {
     services = {
+      nixos-rebuild-switch-to-configuration.onSuccess = ["update-microvms.service"];
+      update-microvms.script = ''
+        microvm -Ru micro-test
+      '';
       nixos-upgrade.onFailure = ["nixos-upgrade-on-failure.service"];
       nixos-upgrade-on-failure.script = ''
         TOKEN=`cat ${config.sops.secrets.gotify_homelab_token.path}`
