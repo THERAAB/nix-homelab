@@ -56,7 +56,7 @@ in {
   };
   system.activationScripts = {
     microvm.text = ''
-      /run/current-system/sw/bin/microvm -Ru micro-test
+      ${pkgs.microvm}/bin/microvm -Ru micro-test
     '';
   };
 }
