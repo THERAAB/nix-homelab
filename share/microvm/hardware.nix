@@ -10,8 +10,14 @@ in {
     text = network.${config.networking.hostName}.machine-id + "\n";
   };
   microvm = {
-    storeOnDisk = true;
-    storeDiskType = "squashfs";
+    microvm.writableStoreOverlay = "/nix/.rw-store";
+    microvm.volumes = [
+      {
+        image = "nix-store-overlay.img";
+        mountPoint = config.microvm.writableStoreOverlay;
+        size = 2048;
+      }
+    ];
     hypervisor = "cloud-hypervisor";
     shares = [
       #{ #TODO ?
