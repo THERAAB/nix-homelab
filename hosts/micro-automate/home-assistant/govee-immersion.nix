@@ -6,8 +6,8 @@
 in {
   services.home-assistant = {
     customComponents = [
-      # pkgs.hacs-govee
-    ]; #TODO: fix
+      pkgs.hacs-govee
+    ];
     extraPackages = pythonPackages:
       with pythonPackages; [
         (
