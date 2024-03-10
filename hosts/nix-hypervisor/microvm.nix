@@ -1,4 +1,4 @@
-{...}: let
+{self, ...}: let
   network = import ../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
@@ -11,6 +11,7 @@ in {
     "L+ /var/log/journal/${network.micro-automate.machine-id}   -   -   -   -   /var/lib/microvms/micro-automate/storage/journal/${network.micro-automate.machine-id}   "
   ];
   microvm = {
+    autostart = ["micro-test"];
     vms = {
       micro-media.config.imports = [
         ../../share/microvm
@@ -43,6 +44,10 @@ in {
         ../../share/all
         ../micro-automate
       ];
+      micro-test = {
+        flake = self;
+        updateFlake = "git+file:///nix/persist/nix-homelab";
+      };
     };
   };
 }
