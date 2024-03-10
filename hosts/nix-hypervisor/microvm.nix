@@ -9,7 +9,7 @@ in {
     "L+ /var/log/journal/${network.micro-infra.machine-id}      -   -   -   -   /var/lib/microvms/micro-infra/storage/journal/${network.micro-infra.machine-id}         "
     "L+ /var/log/journal/${network.micro-download.machine-id}   -   -   -   -   /var/lib/microvms/micro-download/storage/journal/${network.micro-download.machine-id}   "
   ];
-  microvm = {
+  microvm = { #TODO: imperative? Or deploy-rs/colmena?
     vms = {
       micro-media.config.imports = [
         ../../share/microvm
