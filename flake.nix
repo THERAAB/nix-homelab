@@ -79,6 +79,55 @@
           }
         ];
       };
+      micro-media = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          ./share/microvm
+          ./share/all
+          ./hosts/micro-media
+        ];
+      };
+      micro-server = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          ./share/microvm
+          ./share/all
+          .hosts/micro-server
+        ];
+      };
+      micro-infra = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          ./share/lib/modules/nixos/yamlConfigMaker
+          ./share/microvm
+          ./share/all
+          ./micro-infra
+        ];
+      };
+      micro-tailscale = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          ./share/microvm
+          ./share/all
+          ./micro-tailscale
+        ];
+      };
+      micro-download = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          ./share/microvm
+          ./share/all
+          ./micro-download
+        ];
+      };
+      micro-automate = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs self;};
+        modules = [
+          ./share/microvm
+          ./share/all
+          ./micro-automate
+        ];
+      };
       nix-nas = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
