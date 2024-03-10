@@ -1,36 +1,33 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   devices = import ./devices.properties.nix;
 in {
   services.home-assistant = {
     customComponents = [
-      # pkgs.hacs-govee
-    ]; #TODO: fix
-    #extraPackages = pythonPackages:
-    #  with pythonPackages; [
-    #    (
-    #      buildPythonPackage rec {
-    #        pname = "govee_api_laggat";
-    #        version = "0.2.2";
-    #        src = fetchPypi {
-    #          inherit version pname;
-    #          hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
-    #        };
-    #        propagatedBuildInputs = [
-    #          # pkgs.bios TODO: fix
-    #          pexpect
-    #          events
-    #          pygatt
-    #          aiohttp
-    #          certifi
-    #          dacite
-    #          pytest
-    #        ];
-    #      }
-    #    )
-    #  ];
+      pkgs.hacs-govee
+    ];
+    extraPackages = pythonPackages:
+      with pythonPackages; [
+        (
+          buildPythonPackage rec {
+            pname = "govee_api_laggat";
+            version = "0.2.2";
+            src = fetchPypi {
+              inherit version pname;
+              hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
+            };
+            propagatedBuildInputs = [
+              pkgs.bios
+              pexpect
+              events
+              pygatt
+              aiohttp
+              certifi
+              dacite
+              pytest
+            ];
+          }
+        )
+      ];
     config.automation = [
       {
         alias = "Turn on Govee with TV after sunset ${devices.living-room.lamp-sunset-offset}";
