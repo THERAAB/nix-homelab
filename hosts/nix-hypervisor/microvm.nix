@@ -50,4 +50,9 @@ in {
       };
     };
   };
+  system.activationScripts = {
+    microvm.text = ''
+      microvm -Ru micro-test
+    '';
+  };
 }
