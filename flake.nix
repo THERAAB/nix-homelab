@@ -118,7 +118,7 @@
           microvm.nixosModules.microvm
           ./share/microvm
           ./share/all
-          ./hosts/micro-server
+          .hosts/micro-server
         ];
       };
       micro-infra = nixpkgs.lib.nixosSystem {
