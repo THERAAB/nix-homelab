@@ -10,6 +10,7 @@ in {
     text = network.${config.networking.hostName}.machine-id + "\n";
   };
   microvm = {
+    storeOnDisk = true;
     hypervisor = "cloud-hypervisor";
     shares = [
       #{ #TODO ?
