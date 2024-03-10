@@ -1,4 +1,4 @@
-{self, ...}: let
+{...}: let
   network = import ../../share/network.properties.nix;
 in {
   systemd.tmpfiles.rules = [
@@ -11,32 +11,38 @@ in {
     "L+ /var/log/journal/${network.micro-automate.machine-id}   -   -   -   -   /var/lib/microvms/micro-automate/storage/journal/${network.micro-automate.machine-id}   "
   ];
   microvm = {
-    autostart = ["micro-media" "micro-server" "micro-infra" "micro-tailscale" "micro-download" "micro-automate"];
     vms = {
-      micro-media = {
-        flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
-      };
-      micro-server = {
-        flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
-      };
-      micro-infra = {
-        flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
-      };
-      micro-tailscale = {
-        flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
-      };
-      micro-download = {
-        flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
-      };
-      micro-automate = {
-        flake = self;
-        updateFlake = "git+file:///nix/persist/nix-homelab";
-      };
+      micro-media.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-media
+      ];
+      micro-server.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-server
+      ];
+      micro-infra.config.imports = [
+        ../../share/lib/modules/nixos/yamlConfigMaker
+        ../../share/microvm
+        ../../share/all
+        ../micro-infra
+      ];
+      micro-tailscale.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-tailscale
+      ];
+      micro-download.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-download
+      ];
+      micro-automate.config.imports = [
+        ../../share/microvm
+        ../../share/all
+        ../micro-automate
+      ];
     };
   };
 }
