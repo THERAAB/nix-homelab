@@ -101,7 +101,7 @@
           ./share/lib/modules/nixos/yamlConfigMaker
           ./share/microvm
           ./share/all
-          ./hosts/micro-infra
+          ./micro-infra
         ];
       };
       micro-tailscale = nixpkgs.lib.nixosSystem {
@@ -109,7 +109,7 @@
         modules = [
           ./share/microvm
           ./share/all
-          ./hosts/micro-tailscale
+          ./micro-tailscale
         ];
       };
       micro-download = nixpkgs.lib.nixosSystem {
@@ -117,7 +117,7 @@
         modules = [
           ./share/microvm
           ./share/all
-          ./hosts/micro-download
+          ./micro-download
         ];
       };
       micro-automate = nixpkgs.lib.nixosSystem {
@@ -125,7 +125,7 @@
         modules = [
           ./share/microvm
           ./share/all
-          ./hosts/micro-automate
+          ./micro-automate
         ];
       };
       nix-nas = nixpkgs.lib.nixosSystem {
