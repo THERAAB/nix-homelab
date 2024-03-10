@@ -10,22 +10,15 @@ in {
     text = network.${config.networking.hostName}.machine-id + "\n";
   };
   microvm = {
-    writableStoreOverlay = "/nix/.rw-store";
-    volumes = [
-      {
-        image = "nix-store-overlay.img";
-        mountPoint = config.microvm.writableStoreOverlay;
-        size = 2048;
-      }
-    ];
     hypervisor = "cloud-hypervisor";
     shares = [
-      #{ #TODO ?
-      #  source = "/nix/store";
-      #  mountPoint = "/nix/.ro-store";
-      #  tag = "ro-store";
-      #  proto = "virtiofs";
-      #}
+      {
+        #TODO ?
+        source = "/nix/store";
+        mountPoint = "/nix/.ro-store";
+        tag = "ro-store";
+        proto = "virtiofs";
+      }
       {
         source = "/var/lib/microvms/${config.networking.hostName}/storage/journal";
         mountPoint = "/var/log/journal";
