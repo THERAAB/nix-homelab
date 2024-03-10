@@ -10,8 +10,8 @@ in {
     text = network.${config.networking.hostName}.machine-id + "\n";
   };
   microvm = {
-    microvm.writableStoreOverlay = "/nix/.rw-store";
-    microvm.volumes = [
+    writableStoreOverlay = "/nix/.rw-store";
+    volumes = [
       {
         image = "nix-store-overlay.img";
         mountPoint = config.microvm.writableStoreOverlay;
