@@ -12,13 +12,13 @@ in {
   microvm = {
     hypervisor = "cloud-hypervisor";
     shares = [
-      {
+      #{
         #TODO ?
-        source = "/nix/store";
-        mountPoint = "/nix/.ro-store";
-        tag = "ro-store";
-        proto = "virtiofs";
-      }
+        #source = "/nix/store";
+        #mountPoint = "/nix/.ro-store";
+        #tag = "ro-store";
+        #proto = "virtiofs";
+      #}
       {
         source = "/var/lib/microvms/${config.networking.hostName}/storage/journal";
         mountPoint = "/var/log/journal";
