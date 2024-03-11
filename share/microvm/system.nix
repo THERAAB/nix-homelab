@@ -7,4 +7,5 @@
     ];
   };
   users.allowNoPasswordLogin = true;
+  security.sudo.execWheelOnly = true;
 }
