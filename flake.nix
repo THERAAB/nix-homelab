@@ -15,6 +15,7 @@
       url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixinate.url = "github:matthewcroughan/nixinate";
   };
 
   outputs = {
@@ -24,6 +25,7 @@
     impermanence,
     sops-nix,
     microvm,
+    nixinate,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -53,6 +55,7 @@
     );
     # Your custom packages and modifications, exported as overlays
     overlays = import ./share/lib/overlays;
+    apps = nixinate.nixinate.x86_64-linux self;
     nixosConfigurations = {
       nix-hypervisor = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs self;};
@@ -75,6 +78,13 @@
                   ./share/physical/home
                 ];
               };
+            };
+            _module.args.nixinate = {
+              host = "nix-hypervisor";
+              sshUser = "raab";
+              buildOn = "remote"; # valid args are "local" or "remote"
+              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+              hermetic = false;
             };
           }
         ];
