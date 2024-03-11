@@ -82,8 +82,8 @@
             _module.args.nixinate = {
               host = "nix-hypervisor";
               sshUser = "raab";
-              buildOn = "remote"; # valid args are "local" or "remote"
-              substituteOnTarget = true; # if buildOn is "local" then it will substitute on the target, "-s"
+              buildOn = "remote";
+              substituteOnTarget = true;
               hermetic = false;
             };
           }
@@ -109,6 +109,13 @@
                   ./share/physical/home
                 ];
               };
+            };
+            _module.args.nixinate = {
+              host = "nix-nas";
+              sshUser = "raab";
+              buildOn = "remote";
+              substituteOnTarget = true;
+              hermetic = false;
             };
           }
         ];
