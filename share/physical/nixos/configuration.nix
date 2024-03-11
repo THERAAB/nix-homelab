@@ -3,6 +3,7 @@
   outputs,
   lib,
   config,
+  nixpkgs-unstable,
   ...
 }: {
   nixpkgs = {
@@ -10,6 +11,11 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.modifications
       outputs.overlays.additions
+      (final: prev: {
+        unstable = import nixpkgs-unstable {
+          system = prev.system;
+        };
+      })
     ];
     config = lib.mkDefault {
       allowUnfree = true;
