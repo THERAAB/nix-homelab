@@ -15,7 +15,6 @@
       url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    deploy-rs.url = "github:serokell/deploy-rs";
   };
 
   outputs = {
@@ -25,7 +24,6 @@
     impermanence,
     sops-nix,
     microvm,
-    deploy-rs,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -105,13 +103,6 @@
           }
         ];
       };
-      deploy.nodes = {
-        nix-hypervisor.profiles.system = {
-          user = "root";
-          path = deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nix-hypervisor;
-        };
-      };
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) deploy-rs.lib;
     };
   };
 }
