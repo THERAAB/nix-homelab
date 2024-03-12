@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  network = import ../network.properties.nix;
+  network = import ../../assets/properties/network.properties.nix;
 in {
   environment.etc."machine-id" = {
     mode = "0644";

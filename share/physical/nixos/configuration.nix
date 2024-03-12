@@ -1,27 +1,9 @@
 {
   inputs,
-  outputs,
   lib,
   config,
-  nixpkgs-unstable,
   ...
 }: {
-  nixpkgs = {
-    overlays = lib.mkDefault [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
-      outputs.overlays.modifications
-      outputs.overlays.additions
-      (final: prev: {
-        unstable = import nixpkgs-unstable {
-          system = prev.system;
-        };
-      })
-    ];
-    config = lib.mkDefault {
-      allowUnfree = true;
-    };
-  };
-
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -32,5 +14,9 @@
     nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
     settings.auto-optimise-store = true;
+  };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 }

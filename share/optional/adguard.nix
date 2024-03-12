@@ -1,6 +1,6 @@
 {...}: let
   port = 3000;
-  network = import ../network.properties.nix;
+  network = import ../../assets/properties/network.properties.nix;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
   networking.firewall = {
