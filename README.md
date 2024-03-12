@@ -4,7 +4,7 @@ A [NixOS](https://nixos.org/) configuration repository for my [selfhosted](https
 [NixOS](https://nixos.org/) allows you to create a fully declarative operating system using the [Nix language](https://nixos.wiki/wiki/Overview_of_the_Nix_Language).
 This repo contains everything needed to rebuild my homelab from scratch, with the only manual steps being in the README files below.
 
-![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/share/assets/screenshots/dashboard.png?raw=true "PNG of Dashboard")
+![dashboard-png](https://github.com/THERAAB/nix-homelab/blob/main/assets/screenshots/dashboard.png?raw=true "PNG of Dashboard")
 
 ## What's inside
 
@@ -19,11 +19,11 @@ My NixOS Homelab, with each machine having some shared configuration
 
 ## Nix-Hypervisor
 
-Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-hypervisor/README.md)
+Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-hypervisor/README.md)
 
 ## Nix-Nas
 
-See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/hosts/nix-nas/README.md)
+See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-nas/README.md)
 
 ## Maintenance
 
@@ -37,7 +37,7 @@ sudo nix-env -p /nix/var/nix/profiles/system --list-generations
 journalctl -b -1 -p 0..5
 
 # Add/modify secrets
-sops /nix/persist/nix-homelab/share/secrets/secrets.yaml
+sops /nix/persist/nix-homelab/secrets/secrets.yaml
 
 # See anything not persisted by NixOs Persistence module (non 0B files will be wiped on boot)
 ncdu -x /

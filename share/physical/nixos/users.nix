@@ -1,5 +1,5 @@
 {...}: let
-  users = import ../../users.properties.nix;
+  users = import ../../../assets/properties/users.properties.nix;
 in {
   users = {
     groups = {
