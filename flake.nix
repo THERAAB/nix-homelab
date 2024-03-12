@@ -19,13 +19,18 @@
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixinate.url = "github:matthewcroughan/nixinate";
   };
 
-  outputs = inputs:
-    inputs.snowfall-lib.mkFlake {
+  outputs = inputs: let
+    lib = inputs.snowfall-lib.mkLib {
       inherit inputs;
       src = ./.;
       snowfall.namespace = "nix-homelab";
+    };
+  in
+    lib.mkFlake {
+      apps = inputs.nixinate.nixinate.x86_64-linux inputs.self;
       channels-config.allowUnfree = true;
 
       systems.modules.nixos = with inputs; [

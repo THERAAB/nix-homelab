@@ -128,18 +128,36 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "nixinate": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
       "locked": {
-        "lastModified": 1710021367,
-        "narHash": "sha256-FuMVdWqXMT38u1lcySYyv93A7B8wU0EGzUr4t4jQu8g=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "b94a96839afcc56de3551aa7472b8d9a3e77e05d",
+        "lastModified": 1708891350,
+        "narHash": "sha256-VOQrKK7Df/IVuNki+NshVuGkTa/Tw0GigPjWcZff6kk=",
+        "owner": "matthewcroughan",
+        "repo": "nixinate",
+        "rev": "452f33c60df5b72ad0858f5f2cf224bdf1f17746",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.11",
+        "owner": "matthewcroughan",
+        "repo": "nixinate",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1653060744,
+        "narHash": "sha256-kfRusllRumpt33J1hPV+CeCCylCXEU7e0gn2/cIM7cY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "dfd82985c273aac6eced03625f454b334daae2e8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -176,12 +194,29 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1710021367,
+        "narHash": "sha256-FuMVdWqXMT38u1lcySYyv93A7B8wU0EGzUr4t4jQu8g=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b94a96839afcc56de3551aa7472b8d9a3e77e05d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "microvm": "microvm",
-        "nixpkgs": "nixpkgs",
+        "nixinate": "nixinate",
+        "nixpkgs": "nixpkgs_2",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix"
