@@ -1,9 +1,10 @@
 {
   config,
   lib,
+  inputs,
   ...
 }: let
-  network = import ../../assets/properties/network.properties.nix;
+  network = import (inputs.self + /assets/properties/network.properties.nix);
 in {
   environment.etc."machine-id" = {
     mode = "0644";
