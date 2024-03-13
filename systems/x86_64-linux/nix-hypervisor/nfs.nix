@@ -1,6 +1,4 @@
-{inputs, ...}: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-in {
+{network, ...}: {
   fileSystems = {
     "/backups" = {
       device = "${network.nix-nas.local.ip}:/nfs/backups";

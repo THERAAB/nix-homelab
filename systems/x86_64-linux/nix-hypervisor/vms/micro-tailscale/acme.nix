@@ -1,5 +1,4 @@
-{inputs, ...}: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
+{network, ...}: let
   secrets-dir = "/var/lib/secrets";
 in {
   systemd.tmpfiles.rules = [

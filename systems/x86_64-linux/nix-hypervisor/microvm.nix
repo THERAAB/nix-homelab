@@ -1,6 +1,11 @@
-{inputs, ...}: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-in {
+{
+  inputs,
+  self,
+  network,
+  media,
+  users,
+  ...
+}: {
   systemd.tmpfiles.rules = [
     # Share journald logs on nix-hypervisor
     "L+ /var/log/journal/${network.micro-media.machine-id}      -   -   -   -   /var/lib/microvms/micro-media/storage/journal/${network.micro-media.machine-id}         "
@@ -13,51 +18,87 @@ in {
   microvm = {
     vms = {
       micro-media = {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit self;
+          inherit network;
+          inherit media;
+          inherit users;
+        };
         config.imports = [
-          (inputs.self + /share/microvm)
-          (inputs.self + /share/all)
+          (self + /share/microvm)
+          (self + /share/all)
           ./vms/micro-media
         ];
       };
       micro-server = {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit self;
+          inherit network;
+          inherit media;
+          inherit users;
+        };
         config.imports = [
-          (inputs.self + /share/microvm)
-          (inputs.self + /share/all)
+          (self + /share/microvm)
+          (self + /share/all)
           ./vms/micro-server
         ];
       };
       micro-infra = {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit self;
+          inherit network;
+          inherit media;
+          inherit users;
+        };
         config.imports = [
-          (inputs.self + /modules/nixos/yamlConfigMaker)
-          (inputs.self + /share/microvm)
-          (inputs.self + /share/all)
+          (self + /modules/nixos/yamlConfigMaker)
+          (self + /share/microvm)
+          (self + /share/all)
           ./vms/micro-infra
         ];
       };
       micro-tailscale = {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit self;
+          inherit network;
+          inherit media;
+          inherit users;
+        };
         config.imports = [
-          (inputs.self + /share/microvm)
-          (inputs.self + /share/all)
+          (self + /share/microvm)
+          (self + /share/all)
           ./vms/micro-tailscale
         ];
       };
       micro-download = {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit self;
+          inherit network;
+          inherit media;
+          inherit users;
+        };
         config.imports = [
-          (inputs.self + /share/microvm)
-          (inputs.self + /share/all)
+          (self + /share/microvm)
+          (self + /share/all)
           ./vms/micro-download
         ];
       };
       micro-automate = {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          inherit self;
+          inherit network;
+          inherit media;
+          inherit users;
+        };
         config.imports = [
-          (inputs.self + /share/microvm)
-          (inputs.self + /share/all)
+          (self + /share/microvm)
+          (self + /share/all)
           ./vms/micro-automate
         ];
       };

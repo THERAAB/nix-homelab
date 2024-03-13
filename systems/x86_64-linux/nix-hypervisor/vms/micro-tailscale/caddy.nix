@@ -1,6 +1,4 @@
-{inputs, ...}: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-in {
+{network, ...}: {
   networking.firewall.allowedTCPPorts = [80 443];
   services.caddy = {
     enable = true;

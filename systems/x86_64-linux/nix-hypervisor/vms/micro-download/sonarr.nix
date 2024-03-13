@@ -1,9 +1,8 @@
-{inputs, ...}: let
+{media, ...}: let
   uid = 9995;
   port = 8989;
   app-name = "sonarr";
   local-config-dir = "/var/lib/${app-name}";
-  media = import (inputs.self + /assets/properties/media.properties.nix);
 in {
   users = {
     users."${app-name}" = {

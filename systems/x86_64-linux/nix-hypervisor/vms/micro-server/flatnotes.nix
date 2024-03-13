@@ -1,9 +1,8 @@
-{inputs, ...}: let
+{users, ...}: let
   gid = 7763;
   port = 9092;
   app-name = "flatnotes";
   local-config-dir = "/var/lib/${app-name}";
-  users = import (inputs.self + /assets/properties/users.properties.nix);
 in {
   users = {
     users."${app-name}" = {

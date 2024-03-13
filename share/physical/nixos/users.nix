@@ -1,6 +1,4 @@
-{inputs, ...}: let
-  users = import (inputs.self + /assets/properties/users.properties.nix);
-in {
+{users, ...}: {
   users = {
     groups = {
       users.gid = 100;

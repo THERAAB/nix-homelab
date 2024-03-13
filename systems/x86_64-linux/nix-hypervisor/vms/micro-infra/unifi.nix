@@ -1,10 +1,12 @@
-{inputs, ...}: let
+{
+  network,
+  users,
+  ...
+}: let
   gid = 7813;
   port = 8443;
   app-name = "unifi";
   local-config-dir = "/var/lib/${app-name}";
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-  users = import (inputs.self + /assets/properties/users.properties.nix);
 in {
   users = {
     users."${app-name}" = {

@@ -1,6 +1,6 @@
-{inputs, ...}: {
+{self, ...}: {
   sops = {
-    defaultSopsFile = inputs.self + /secrets/secrets.yaml;
+    defaultSopsFile = self + /secrets/secrets.yaml;
     age = {
       keyFile = "/var/lib/sops-nix/key.txt";
       generateKey = true;

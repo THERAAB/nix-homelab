@@ -1,8 +1,10 @@
-{inputs, ...}: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-in {
+{
+  network,
+  self,
+  ...
+}: {
   imports = [
-    (inputs.self + /share/optional/adguard.nix)
+    (self + /share/optional/adguard.nix)
   ];
   services.adguardhome.settings = {
     bind_host = network.micro-infra.local.ip;

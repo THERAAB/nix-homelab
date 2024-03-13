@@ -22,35 +22,52 @@
     nixinate.url = "github:matthewcroughan/nixinate";
   };
 
-  outputs = inputs: let
-    lib = inputs.snowfall-lib.mkLib {
+  outputs = inputs:
+    inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
       snowfall.namespace = "nix-homelab";
-    };
-  in
-    lib.mkFlake {
-      apps = inputs.nixinate.nixinate.x86_64-linux inputs.self;
       channels-config.allowUnfree = true;
 
-      systems.modules.nixos = with inputs; [
-        impermanence.nixosModules.impermanence
-        sops-nix.nixosModules.sops
-        home-manager.nixosModules.home-manager
-        ./share/physical/nixos
-        ./share/all
-      ];
-      systems.hosts.nix-hypervisor.modules = with inputs; [
-        microvm.nixosModules.host
-      ];
+      apps = inputs.nixinate.nixinate.x86_64-linux inputs.self;
 
-      homes.users."raab@nix-hypervisor".modules = with inputs; [
-        impermanence.nixosModules.home-manager.impermanence
-        ./share/physical/home
-      ];
-      homes.users."raab@nix-nas".modules = with inputs; [
-        impermanence.nixosModules.home-manager.impermanence
-        ./share/physical/home
-      ];
+      systems = {
+        modules.nixos = with inputs; [
+          impermanence.nixosModules.impermanence
+          sops-nix.nixosModules.sops
+          home-manager.nixosModules.home-manager
+          ./share/physical/nixos
+          ./share/all
+        ];
+        hosts = {
+          nix-hypervisor = {
+            modules = with inputs; [
+              microvm.nixosModules.host
+            ];
+            specialArgs = {
+              self = inputs.self;
+              network = import (inputs.self + /assets/properties/network.properties.nix);
+              users = import (inputs.self + /assets/properties/users.properties.nix);
+              media = import (inputs.self + /assets/properties/media.properties.nix);
+            };
+          };
+          nix-nas.specialArgs = {
+            self = inputs.self;
+            network = import (inputs.self + /assets/properties/network.properties.nix);
+            users = import (inputs.self + /assets/properties/users.properties.nix);
+            media = import (inputs.self + /assets/properties/media.properties.nix);
+          };
+        };
+      };
+      homes.users = {
+        "raab@nix-hypervisor".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+          ./share/physical/home
+        ];
+        "raab@nix-nas".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+          ./share/physical/home
+        ];
+      };
     };
 }

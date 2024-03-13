@@ -1,9 +1,11 @@
-{inputs, ...}: let
+{
+  network,
+  users,
+  ...
+}: let
   nfs-dir = "/nfs";
   media-dir = "${nfs-dir}/media";
   backups-dir = "${nfs-dir}/backups";
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-  users = import (inputs.self + /assets/properties/users.properties.nix);
 in {
   systemd.tmpfiles.rules = [
     "d    ${nfs-dir}      755  -  -       -   - "

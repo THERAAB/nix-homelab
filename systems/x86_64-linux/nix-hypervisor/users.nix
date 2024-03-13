@@ -1,6 +1,4 @@
-{inputs, ...}: let
-  users = import (inputs.self + /assets/properties/users.properties.nix);
-in {
+{users, ...}: {
   security.sudo.extraConfig = ''
     olivetin ALL=(root) NOPASSWD:/var/lib/olivetin/scripts/commands.sh
   '';

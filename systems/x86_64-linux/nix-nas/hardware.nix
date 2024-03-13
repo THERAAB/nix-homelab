@@ -1,9 +1,8 @@
 {
-  inputs,
+  network,
   pkgs,
   ...
 }: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
 in {
   nix.settings = {
     substituters = ["https://cache.${network.domain}"];

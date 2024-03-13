@@ -1,6 +1,6 @@
-{inputs, ...}: {
+{self, ...}: {
   imports = [
-    (inputs.self + /share/optional/media.nix)
+    (self + /share/optional/media.nix)
     ./vuetorrent.nix
     ./prowlarr.nix
     ./radarr.nix

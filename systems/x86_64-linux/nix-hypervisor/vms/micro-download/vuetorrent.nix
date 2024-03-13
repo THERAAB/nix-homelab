@@ -1,10 +1,8 @@
-{inputs,...}: let
+{network, media,...}: let
   uid = 9990;
   port = 8112;
   app-name = "vuetorrent";
   local-config-dir = "/var/lib/${app-name}";
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-  media = import (inputs.self + /assets/properties/media.properties.nix);
 in {
   users = {
     users."${app-name}" = {

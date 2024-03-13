@@ -2,11 +2,9 @@
   config,
   pkgs,
   lib,
-  inputs,
+  network,
   ...
-}: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-in {
+}: {
   systemd = {
     services = {
       nixos-upgrade.onFailure = ["nixos-upgrade-on-failure.service"];

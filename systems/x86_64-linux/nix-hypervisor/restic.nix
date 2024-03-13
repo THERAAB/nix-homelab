@@ -1,12 +1,10 @@
 {
   pkgs,
   config,
-  inputs,
+  network,
+  users,
   ...
-}: let
-  network = import (inputs.self + /assets/properties/network.properties.nix);
-  users = import (inputs.self + /assets/properties/users.properties.nix);
-in {
+}: {
   users.groups.restic.gid = users.restic.gid;
   services.restic.backups."nix-server" = {
     exclude = [

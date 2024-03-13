@@ -1,6 +1,6 @@
-{inputs, ...}: {
+{self, ...}: {
   imports = [
-    (inputs.self + /share/optional/media.nix)
+    (self + /share/optional/media.nix)
     ./jellyfin.nix
     ./jellyseerr.nix
     ./audiobookshelf.nix
