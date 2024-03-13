@@ -1,7 +1,7 @@
-{...}: let
+{ports, ...}: let
   gid = 4444;
   uid = 4444;
-  port = 8082;
+  port = ports.homer;
   app-name = "homer";
   hypervisor-icons-dir = "/nix/persist/nix-homelab/assets/icons";
   mount-icons-dir = "/icons";

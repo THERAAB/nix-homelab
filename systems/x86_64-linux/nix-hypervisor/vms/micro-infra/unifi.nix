@@ -1,10 +1,11 @@
 {
   network,
   users,
+  ports,
   ...
 }: let
   gid = 7813;
-  port = 8443;
+  port = ports.unifi;
   app-name = "unifi";
   local-config-dir = "/var/lib/${app-name}";
 in {

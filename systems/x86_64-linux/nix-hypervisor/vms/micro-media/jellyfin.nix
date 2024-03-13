@@ -2,10 +2,11 @@
   pkgs,
   network,
   media,
+  ports,
   ...
 }: let
   uid = 9992;
-  port = 8096;
+  port = ports.jellyfin;
   app-name = "jellyfin";
   local-config-dir = "/var/lib/${app-name}";
 in {

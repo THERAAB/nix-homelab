@@ -1,6 +1,6 @@
-{network, media,...}: let
+{network, media, ports, ...}: let
   uid = 9990;
-  port = 8112;
+  port = ports.vuetorrent;
   app-name = "vuetorrent";
   local-config-dir = "/var/lib/${app-name}";
 in {

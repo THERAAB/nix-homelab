@@ -3,7 +3,7 @@
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
   networking.firewall = {
-    allowedUDPPorts = [53];
+    allowedUDPPorts = [ports.dns];
     allowedTCPPorts = [port];
   };
   services.adguardhome = {
@@ -20,7 +20,7 @@ in {
       theme = "auto";
       dns = {
         ratelimit = 0;
-        port = 53;
+        port = ports.dns;
         upstream_dns = ["${network.pfSense.local.ip}"];
         protection_enabled = true;
         blocked_hosts = ["version.bind" "id.server" "hostname.bind"];

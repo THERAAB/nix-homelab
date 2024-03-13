@@ -1,10 +1,10 @@
-{...}: let
+{ports, ...}: let
   uid = 7642;
   gid = 7643;
-  port = 9940;
+  port = ports.filebrowser;
   app-name = "filebrowser";
   local-config-dir = "/var/lib/${app-name}";
-  dir-to-share = "/sync"; 
+  dir-to-share = "/sync";
 in {
   users = {
     users."${app-name}" = {

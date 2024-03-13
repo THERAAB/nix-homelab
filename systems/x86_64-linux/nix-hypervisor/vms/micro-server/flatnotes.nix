@@ -1,6 +1,10 @@
-{users, ...}: let
+{
+  users,
+  ports,
+  ...
+}: let
   gid = 7763;
-  port = 9092;
+  port = ports.flatnotes;
   app-name = "flatnotes";
   local-config-dir = "/var/lib/${app-name}";
 in {

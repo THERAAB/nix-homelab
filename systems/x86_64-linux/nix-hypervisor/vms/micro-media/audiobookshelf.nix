@@ -1,6 +1,10 @@
-{media, ...}: let
+{
+  media,
+  ports,
+  ...
+}: let
   uid = 9996;
-  port = 13379;
+  port = ports.audiobookshelf;
   app-name = "audiobookshelf";
   local-config-dir = "/var/lib/${app-name}";
 in {

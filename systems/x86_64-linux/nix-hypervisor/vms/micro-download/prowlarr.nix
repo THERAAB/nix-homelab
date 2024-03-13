@@ -1,6 +1,10 @@
-{media, ...}: let
+{
+  media,
+  ports,
+  ...
+}: let
   uid = 9993;
-  port = 9696;
+  port = ports.prowlarr;
   app-name = "prowlarr";
   local-config-dir = "/var/lib/${app-name}";
 in {

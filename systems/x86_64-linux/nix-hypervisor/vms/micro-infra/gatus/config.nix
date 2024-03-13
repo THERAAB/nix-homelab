@@ -1,5 +1,6 @@
 let
   network = import ../../../../../../assets/properties/network.properties.nix;
+  dns-port = 53;
 in {
   alerting = {
     gotify = {
@@ -301,7 +302,7 @@ in {
     }
     {
       name = "Govee Water Alarm";
-      url = "tcp://${network.govee-water-alarm.local.ip}:53";
+      url = "tcp://${network.govee-water-alarm.local.ip}:${toString dns-port}";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
@@ -313,7 +314,7 @@ in {
     }
     {
       name = "Ring Doorbell";
-      url = "tcp://${network.ring-doorbell.local.ip}:53";
+      url = "tcp://${network.ring-doorbell.local.ip}:${toString dns-port}";
       conditions = [
         "[RESPONSE_TIME] < 2500"
       ];
@@ -325,7 +326,7 @@ in {
     }
     {
       name = "B-Hyve Water Pump Hub";
-      url = "tcp://${network.b-hyve.local.ip}:53";
+      url = "tcp://${network.b-hyve.local.ip}:${toString dns-port}";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
@@ -337,7 +338,7 @@ in {
     }
     {
       name = "Ecobee Thermostat";
-      url = "tcp://${network.ecobee.local.ip}:53";
+      url = "tcp://${network.ecobee.local.ip}:${toString dns-port}";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
@@ -349,7 +350,7 @@ in {
     }
     {
       name = "Unifi U6+";
-      url = "tcp://${network.unifi-u6-plus.local.ip}:53";
+      url = "tcp://${network.unifi-u6-plus.local.ip}:${toString dns-port}";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
@@ -361,7 +362,7 @@ in {
     }
     {
       name = "Unifi Lite 8 Switch";
-      url = "tcp://${network.unifi-usw-lite-8.local.ip}:53";
+      url = "tcp://${network.unifi-usw-lite-8.local.ip}:${toString dns-port}";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];
@@ -373,7 +374,7 @@ in {
     }
     {
       name = "Nix-Nas";
-      url = "udp://${network.nix-nas.local.ip}:53";
+      url = "udp://${network.nix-nas.local.ip}:${toString dns-port}";
       conditions = [
         "[RESPONSE_TIME] < 500"
       ];

@@ -1,4 +1,4 @@
-{network, ...}: let
+{network, ports, ...}: let
   secrets-dir = "/var/lib/secrets";
 in {
   systemd.tmpfiles.rules = [
@@ -11,7 +11,7 @@ in {
       email = "example@aol.com";
       credentialsFile = "/run/secrets/cloudflare_dns_secret";
       dnsProvider = "cloudflare";
-      dnsResolver = "1.1.1.1:53";
+      dnsResolver = "1.1.1.1:${toString ports.dns}";
     };
     certs = {
       ${network.domain}.domain = "*.${network.domain}";

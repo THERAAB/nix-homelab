@@ -1,7 +1,11 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  ports,
+  ...
+}: let
   uid = 901;
   gid = 901;
-  port = 7000;
+  port = ports.gatus;
   app-name = "gatus";
   local-config-dir = "/var/lib/${app-name}";
   cfg = import ./config.nix;

@@ -1,6 +1,10 @@
-{network, ...}: let
+{
+  network,
+  ports,
+  ...
+}: let
   app-name = "syncthing";
-  port = 8384;
+  port = ports.syncthing;
   local-dir = "/sync";
 in {
   fileSystems."/sync" = {

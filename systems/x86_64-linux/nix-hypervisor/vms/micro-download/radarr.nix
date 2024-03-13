@@ -1,6 +1,10 @@
-{media, ...}: let
+{
+  media,
+  ports,
+  ...
+}: let
   uid = 9994;
-  port = 7878;
+  port = ports.radarr;
   app-name = "radarr";
   local-config-dir = "/var/lib/${app-name}";
 in {

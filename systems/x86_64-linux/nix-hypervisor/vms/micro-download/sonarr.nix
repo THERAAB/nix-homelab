@@ -1,6 +1,6 @@
-{media, ...}: let
+{media, ports, ...}: let
   uid = 9995;
-  port = 8989;
+  port = ports.sonarr;
   app-name = "sonarr";
   local-config-dir = "/var/lib/${app-name}";
 in {

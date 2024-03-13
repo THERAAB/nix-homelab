@@ -2,9 +2,10 @@
   pkgs,
   config,
   network,
+  ports,
   ...
 }: let
-  port = 19999;
+  port = ports.netdata;
   app-name = "netdata";
 in {
   networking.firewall.allowedTCPPorts = [port];
