@@ -1,10 +1,14 @@
-{pkgs, ...}: let
-  media = import ../../../../../assets/properties/media.properties.nix;
+{
+  inputs,
+  pkgs,
+  ...
+}: let
   uid = 9992;
   port = 8096;
   app-name = "jellyfin";
   local-config-dir = "/var/lib/${app-name}";
-  network = import ../../../../../assets/properties/network.properties.nix;
+  network = import (inputs.self + /assets/properties/network.properties.nix);
+  media = import (inputs.self + /assets/properties/media.properties.nix);
 in {
   users = {
     users."${app-name}" = {

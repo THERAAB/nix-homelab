@@ -1,10 +1,11 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: let
-  network = import ../../../assets/properties/network.properties.nix;
-  users = import ../../../assets/properties/users.properties.nix;
+  network = import (inputs.self + /assets/properties/network.properties.nix);
+  users = import (inputs.self + /assets/properties/users.properties.nix);
 in {
   users.groups.restic.gid = users.restic.gid;
   services.restic.backups."nix-server" = {

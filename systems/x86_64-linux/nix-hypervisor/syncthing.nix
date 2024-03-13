@@ -1,6 +1,6 @@
-{...}: let
+{inputs, ...}: let
   app-name = "syncthing";
-  network = import ../../../assets/properties/network.properties.nix;
+  network = import (inputs.self + /assets/properties/network.properties.nix);
   port = 8384;
   local-dir = "/sync";
 in {

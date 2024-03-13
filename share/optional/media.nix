@@ -1,6 +1,6 @@
-{...}: let
-  network = import ../../assets/properties/network.properties.nix;
-  media = import ../../assets/properties/media.properties.nix;
+{inputs, ...}: let
+  network = import (inputs.self + /assets/properties/network.properties.nix);
+  media = import (inputs.self + /assets/properties/media.properties.nix);
 in {
   users = {
     users.root.extraGroups = ["media"];

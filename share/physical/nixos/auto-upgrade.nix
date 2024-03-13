@@ -2,9 +2,10 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: let
-  network = import ../../../assets/properties/network.properties.nix;
+  network = import (inputs.self + /assets/properties/network.properties.nix);
 in {
   systemd = {
     services = {

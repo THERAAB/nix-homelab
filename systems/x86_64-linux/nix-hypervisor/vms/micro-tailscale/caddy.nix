@@ -1,5 +1,5 @@
-{...}: let
-  network = import ../../../../../assets/properties/network.properties.nix;
+{inputs, ...}: let
+  network = import (inputs.self + /assets/properties/network.properties.nix);
 in {
   networking.firewall.allowedTCPPorts = [80 443];
   services.caddy = {

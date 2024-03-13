@@ -1,10 +1,10 @@
-{...}: let
+{inputs, ...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
   local-config-dir = "/var/lib/hass";
   system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/nix-hypervisor/vms/micro-automate/home-assistant/blueprints";
   port = 8123;
-  network = import ../../../../../../assets/properties/network.properties.nix;
-  users = import ../../../../../../assets/properties/users.properties.nix;
+  network = import (inputs.self + /assets/properties/network.properties.nix);
+  users = import (inputs.self + /assets/properties/users.properties.nix);
   app-name = "hass";
 in {
   imports = [

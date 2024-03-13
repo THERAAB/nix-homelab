@@ -1,9 +1,9 @@
-{...}: let
+{inputs, ...}: let
   uid = 9993;
   port = 9696;
   app-name = "prowlarr";
   local-config-dir = "/var/lib/${app-name}";
-  media = import ../../../../../assets/properties/media.properties.nix;
+  media = import (inputs.self + /assets/properties/media.properties.nix);
 in {
   users = {
     users."${app-name}" = {

@@ -1,5 +1,5 @@
-{...}: let
-  users = import ../../../assets/properties/users.properties.nix;
+{inputs, ...}: let
+  users = import (inputs.self + /assets/properties/users.properties.nix);
 in {
   security.sudo.extraConfig = ''
     olivetin ALL=(root) NOPASSWD:/var/lib/olivetin/scripts/commands.sh
@@ -8,7 +8,7 @@ in {
     users = {
       raab.extraGroups = ["syncthing"];
       hass = {
-        uid = users.hass.uid; 
+        uid = users.hass.uid;
         group = "hass";
         isSystemUser = true;
       };
