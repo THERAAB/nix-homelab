@@ -3,8 +3,7 @@
   lib,
   network,
   ...
-}: let
-in {
+}: {
   environment.etc."machine-id" = {
     mode = "0644";
     text = network.${config.networking.hostName}.machine-id + "\n";

@@ -2,8 +2,7 @@
   network,
   self,
   ...
-}: let
-in {
+}: {
   imports = [
     (self + /share/optional/adguard.nix)
   ];
