@@ -43,7 +43,7 @@
       apps = inputs.nixinate.nixinate.x86_64-linux self;
 
       systems = {
-        modules.nixos = with inputs; [
+        modules.nixos = [
           ./share/all
         ];
         hosts = {
