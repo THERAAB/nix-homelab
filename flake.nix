@@ -24,6 +24,15 @@
   outputs = inputs: let
     self = inputs.self;
     properties = import (self + /assets/properties);
+    microvms = {
+      modules = with inputs; [
+        microvm.nixosModules.microvm
+        ./share/microvm
+      ];
+      specialArgs = {
+        inherit self properties;
+      };
+    };
   in
     inputs.snowfall-lib.mkFlake {
       inherit inputs self;
@@ -35,15 +44,15 @@
 
       systems = {
         modules.nixos = with inputs; [
-          impermanence.nixosModules.impermanence
-          sops-nix.nixosModules.sops
-          home-manager.nixosModules.home-manager
           ./share/all
         ];
         hosts = {
           nix-hypervisor = {
             modules = with inputs; [
               microvm.nixosModules.host
+              home-manager.nixosModules.home-manager
+              impermanence.nixosModules.impermanence
+              sops-nix.nixosModules.sops
               ./share/physical/nixos
             ];
             specialArgs = {
@@ -52,66 +61,21 @@
           };
           nix-nas = {
             modules = with inputs; [
+              home-manager.nixosModules.home-manager
+              impermanence.nixosModules.impermanence
+              sops-nix.nixosModules.sops
               ./share/physical/nixos
             ];
             specialArgs = {
               inherit self properties;
             };
           };
-          micro-media = {
-            modules = with inputs; [
-              microvm.nixosModules.microvm
-              ./share/microvm
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
-          };
-          micro-server = {
-            modules = with inputs; [
-              microvm.nixosModules.microvm
-              ./share/microvm
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
-          };
-          micro-infra = {
-            modules = with inputs; [
-              microvm.nixosModules.microvm
-              ./share/microvm
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
-          };
-          micro-tailscale = {
-            modules = with inputs; [
-              microvm.nixosModules.microvm
-              ./share/microvm
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
-          };
-          micro-download = {
-            modules = with inputs; [
-              microvm.nixosModules.microvm
-              ./share/microvm
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
-          };
-          micro-automate = {
-            modules = with inputs; [
-              microvm.nixosModules.microvm
-              ./share/microvm
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
-          };
+          micro-media = microvms;
+          micro-server = microvms;
+          micro-infra = microvms;
+          micro-tailscale = microvms;
+          micro-download = microvms;
+          micro-automate = microvms;
         };
       };
       homes.users = {
