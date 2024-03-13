@@ -18,7 +18,7 @@ in {
       allowedUDPPorts = [properties.ports.dns];
       allowedTCPPorts = [port];
     };
-    lib.services.adguardhome = {
+    services.adguardhome = {
       mutableSettings = false;
       enable = true;
       settings = {
