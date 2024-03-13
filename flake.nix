@@ -21,15 +21,17 @@
     };
     nixinate.url = "github:matthewcroughan/nixinate";
   };
-
-  outputs = inputs:
+  outputs = inputs: let
+    self = inputs.self;
+  in
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
+      inherit self;
       src = ./.;
       snowfall.namespace = "nix-homelab";
       channels-config.allowUnfree = true;
 
-      apps = inputs.nixinate.nixinate.x86_64-linux inputs.self;
+      apps = inputs.nixinate.nixinate.x86_64-linux self;
 
       systems = {
         modules.nixos = with inputs; [
@@ -45,17 +47,17 @@
               microvm.nixosModules.host
             ];
             specialArgs = {
-              self = inputs.self;
-              network = import (inputs.self + /assets/properties/network.properties.nix);
-              users = import (inputs.self + /assets/properties/users.properties.nix);
-              media = import (inputs.self + /assets/properties/media.properties.nix);
+              inherit self;
+              network = import (self + /assets/properties/network.properties.nix);
+              users = import (self + /assets/properties/users.properties.nix);
+              media = import (self + /assets/properties/media.properties.nix);
             };
           };
           nix-nas.specialArgs = {
-            self = inputs.self;
-            network = import (inputs.self + /assets/properties/network.properties.nix);
-            users = import (inputs.self + /assets/properties/users.properties.nix);
-            media = import (inputs.self + /assets/properties/media.properties.nix);
+            inherit self;
+            network = import (self + /assets/properties/network.properties.nix);
+            users = import (self + /assets/properties/users.properties.nix);
+            media = import (self + /assets/properties/media.properties.nix);
           };
         };
       };
