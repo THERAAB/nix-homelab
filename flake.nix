@@ -38,20 +38,79 @@
           impermanence.nixosModules.impermanence
           sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
-          ./share/physical/nixos
           ./share/all
         ];
         hosts = {
           nix-hypervisor = {
             modules = with inputs; [
               microvm.nixosModules.host
+              ./share/physical/nixos
             ];
             specialArgs = {
               inherit self properties;
             };
           };
-          nix-nas.specialArgs = {
-            inherit self properties;
+          nix-nas = {
+            modules = with inputs; [
+              ./share/physical/nixos
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
+          micro-media = {
+            modules = with inputs; [
+              microvm.nixosModules.microvm
+              ./share/microvm
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
+          micro-server = {
+            modules = with inputs; [
+              microvm.nixosModules.microvm
+              ./share/microvm
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
+          micro-infra = {
+            modules = with inputs; [
+              microvm.nixosModules.microvm
+              ./share/microvm
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
+          micro-tailscale = {
+            modules = with inputs; [
+              microvm.nixosModules.microvm
+              ./share/microvm
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
+          micro-download = {
+            modules = with inputs; [
+              microvm.nixosModules.microvm
+              ./share/microvm
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
+          micro-automate = {
+            modules = with inputs; [
+              microvm.nixosModules.microvm
+              ./share/microvm
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
           };
         };
       };

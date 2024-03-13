@@ -1,5 +1,5 @@
 let
-  network = import ../../../../../../assets/properties/network.nix;
+  network = import ../../../../assets/properties/network.nix;
   dns-port = 53;
 in {
   alerting = {
