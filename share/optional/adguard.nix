@@ -1,5 +1,5 @@
-{network, ...}: let
-  port = 3000;
+{network, ports, ...}: let
+  port = ports.adguard;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
   networking.firewall = {

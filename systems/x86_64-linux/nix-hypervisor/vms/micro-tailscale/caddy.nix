@@ -1,4 +1,8 @@
-{network, ...}: {
+{
+  network,
+  ports,
+  ...
+}: {
   networking.firewall.allowedTCPPorts = [80 443];
   services.caddy = {
     enable = true;
@@ -18,7 +22,7 @@
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-tailscale.local.ip}:3000
+          reverse_proxy ${network.micro-tailscale.local.ip}:${toString ports.adguard}
         '';
       };
       "vuetorrent.${network.domain}" = {
@@ -130,7 +134,7 @@
         useACMEHost = "${network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-infra.local.ip}:3000
+          reverse_proxy ${network.micro-infra.local.ip}:${toString ports.adguard}
         '';
       };
       "${network.domain}" = {

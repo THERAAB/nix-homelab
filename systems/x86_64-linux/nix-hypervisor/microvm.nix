@@ -4,6 +4,7 @@
   network,
   media,
   users,
+  ports,
   ...
 }: {
   systemd.tmpfiles.rules = [
@@ -19,11 +20,7 @@
     vms = {
       micro-media = {
         specialArgs = {
-          inherit inputs;
-          inherit self;
-          inherit network;
-          inherit media;
-          inherit users;
+          inherit inputs self network media users ports;
         };
         config.imports = [
           (self + /share/microvm)
@@ -33,11 +30,7 @@
       };
       micro-server = {
         specialArgs = {
-          inherit inputs;
-          inherit self;
-          inherit network;
-          inherit media;
-          inherit users;
+          inherit inputs self network media users ports;
         };
         config.imports = [
           (self + /share/microvm)
@@ -47,11 +40,7 @@
       };
       micro-infra = {
         specialArgs = {
-          inherit inputs;
-          inherit self;
-          inherit network;
-          inherit media;
-          inherit users;
+          inherit inputs self network media users ports;
         };
         config.imports = [
           (self + /modules/nixos/yamlConfigMaker)
@@ -62,11 +51,7 @@
       };
       micro-tailscale = {
         specialArgs = {
-          inherit inputs;
-          inherit self;
-          inherit network;
-          inherit media;
-          inherit users;
+          inherit inputs self network media users ports;
         };
         config.imports = [
           (self + /share/microvm)
@@ -76,11 +61,7 @@
       };
       micro-download = {
         specialArgs = {
-          inherit inputs;
-          inherit self;
-          inherit network;
-          inherit media;
-          inherit users;
+          inherit inputs self network media users ports;
         };
         config.imports = [
           (self + /share/microvm)
@@ -90,11 +71,7 @@
       };
       micro-automate = {
         specialArgs = {
-          inherit inputs;
-          inherit self;
-          inherit network;
-          inherit media;
-          inherit users;
+          inherit inputs self network media users ports;
         };
         config.imports = [
           (self + /share/microvm)

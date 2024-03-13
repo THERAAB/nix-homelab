@@ -23,10 +23,13 @@
   };
   outputs = inputs: let
     self = inputs.self;
+    network = import (self + /assets/properties/network.properties.nix);
+    users = import (self + /assets/properties/users.properties.nix);
+    media = import (self + /assets/properties/media.properties.nix);
+    ports = import (self + /assets/properties/ports.properties.nix);
   in
     inputs.snowfall-lib.mkFlake {
-      inherit inputs;
-      inherit self;
+      inherit inputs self;
       src = ./.;
       snowfall.namespace = "nix-homelab";
       channels-config.allowUnfree = true;
@@ -47,17 +50,11 @@
               microvm.nixosModules.host
             ];
             specialArgs = {
-              inherit self;
-              network = import (self + /assets/properties/network.properties.nix);
-              users = import (self + /assets/properties/users.properties.nix);
-              media = import (self + /assets/properties/media.properties.nix);
+              inherit self network users media ports;
             };
           };
           nix-nas.specialArgs = {
-            inherit self;
-            network = import (self + /assets/properties/network.properties.nix);
-            users = import (self + /assets/properties/users.properties.nix);
-            media = import (self + /assets/properties/media.properties.nix);
+            inherit self network users media ports;
           };
         };
       };
