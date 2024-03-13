@@ -4,15 +4,16 @@
   config,
   ...
 }:
-with lib; let
-  cfg = config.services.olivetin;
+with lib;
+with lib.nix-homelab; let
+  cfg = config.nix-homelab.services.olivetin;
 
   format = pkgs.formats.yaml {};
   configFile = pkgs.runCommand "config.yaml" {preferLocalBuild = true;} ''
     cp ${format.generate "config.yaml" cfg.settings} $out
   '';
 in {
-  options.services.olivetin = with types; {
+  options.nix-homelab.services.olivetin = with types; {
     enable = mkEnableOption (lib.mdDoc "OliveTin");
     settings = mkOption {
       default = null;

@@ -1,7 +1,6 @@
 {...}: {
-  imports = [
-    ./users.nix
-    ./system.nix
-    ./configuration.nix
-  ];
+  nix-homelab.core = {
+    flakes.enable = true;
+    system.enable = true;
+  };
 }

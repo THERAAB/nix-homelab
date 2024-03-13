@@ -22,7 +22,7 @@ in {
     "Z  ${scripts-dir}                500         root            root            -   -                         "
     "Z  ${www-dir}                    -           ${app-name}     ${app-name}     -   -                         "
   ];
-  services.olivetin = {
+  nix-homelab.services.olivetin = {
     enable = true;
     settings.actions = [
       {

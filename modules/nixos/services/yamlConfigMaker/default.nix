@@ -4,9 +4,10 @@
   config,
   ...
 }:
-with lib; let
+with lib;
+with lib.nix-homelab; let
   format = pkgs.formats.yaml {};
-  cfg = config.services.yamlConfigMaker;
+  cfg = config.nix-homelab.services.yamlConfigMaker;
   configOpts = {name, ...}: {
     options = {
       name = mkOption {
@@ -33,7 +34,7 @@ with lib; let
     script = "cp ${format.generate "${name}" value.settings} ${value.path}";
   };
 in {
-  options.services.yamlConfigMaker = mkOption {
+  options.nix-homelab.services.yamlConfigMaker = mkOption {
     default = {};
     type = types.attrsOf (types.submodule configOpts);
   };

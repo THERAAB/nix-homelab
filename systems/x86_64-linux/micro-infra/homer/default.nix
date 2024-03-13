@@ -21,7 +21,7 @@ in {
       tag = "${app-name}-icons";
     }
   ];
-  services.yamlConfigMaker."${app-name}" = {
+  nix-homelab.services.yamlConfigMaker."${app-name}" = {
     path = "${local-config-dir}/config.yml";
     settings = config;
   };

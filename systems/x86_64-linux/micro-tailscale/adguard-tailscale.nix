@@ -1,11 +1,5 @@
-{
-  properties,
-  self,
-  ...
-}: {
-  imports = [
-    (self + /share/optional/adguard.nix)
-  ];
+{properties, ...}: {
+  nix-homelab.networking.adguard.enable = true;
   services.adguardhome.settings = {
     bind_host = properties.network.micro-tailscale.local.ip;
     dns = {

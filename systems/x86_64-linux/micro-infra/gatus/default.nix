@@ -10,7 +10,7 @@
   local-config-dir = "/var/lib/${app-name}";
   cfg = import ./config.nix;
 in {
-  services.yamlConfigMaker = {
+  nix-homelab.services.yamlConfigMaker = {
     gatus = {
       path = "${local-config-dir}/config.yaml";
       settings = {
