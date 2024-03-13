@@ -19,11 +19,6 @@ in {
       mode = "0644";
       text = properties.network.${cfg.hostName}.machine-id + "\n";
     };
-    lib.microvm = {
-      hypervisor = "cloud-hypervisor";
-      mem = lib.mkDefault 2024;
-      vcpu = lib.mkDefault 1;
-    };
     fileSystems = {
       "/etc/ssh".neededForBoot = true;
       "/var/lib".neededForBoot = true;
