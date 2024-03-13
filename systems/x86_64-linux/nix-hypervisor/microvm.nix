@@ -5,7 +5,7 @@
 }: let
   microvm-config = {
     flake = self;
-    updateFlake = "git+file:///nix/persist/nix-homelab";
+    updateFlake = "github:THERAAB/nix-homelab";
   };
 in {
   systemd.tmpfiles.rules = [
