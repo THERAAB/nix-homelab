@@ -24,7 +24,7 @@
   outputs = inputs: let
     self = inputs.self;
     properties = import (self + /assets/properties);
-    microvms = {
+    microvm-config = {
       modules = with inputs; [
         microvm.nixosModules.microvm
         ./share/microvm
@@ -70,12 +70,12 @@
               inherit self properties;
             };
           };
-          micro-media = microvms;
-          micro-server = microvms;
-          micro-infra = microvms;
-          micro-tailscale = microvms;
-          micro-download = microvms;
-          micro-automate = microvms;
+          micro-media = microvm-config;
+          micro-server = microvm-config;
+          micro-infra = microvm-config;
+          micro-tailscale = microvm-config;
+          micro-download = microvm-config;
+          micro-automate = microvm-config;
         };
       };
       homes.users = {
