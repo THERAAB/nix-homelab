@@ -18,6 +18,14 @@ in {
     "L+ /var/log/journal/${properties.network.micro-automate.machine-id}   -   -   -   -   /var/lib/microvms/micro-automate/storage/journal/${properties.network.micro-automate.machine-id}   "
   ];
   microvm = {
+    autostart = [
+      "micro-media"
+      "micro-server"
+      "micro-infra"
+      "micro-tailscale"
+      "micro-download"
+      "micro-automate"
+    ];
     vms = {
       micro-media = microvm-config;
       micro-server = microvm-config;
