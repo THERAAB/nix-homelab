@@ -1,7 +1,7 @@
 {properties, ...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
   local-config-dir = "/var/lib/hass";
-  system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/nix-hypervisor/vms/micro-automate/home-assistant/blueprints";
+  system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/micro-automate/home-assistant/blueprints";
   port = properties.ports.home-assistant;
   app-name = "hass";
 in {
