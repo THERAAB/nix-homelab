@@ -19,10 +19,5 @@ in {
       mode = "0644";
       text = properties.network.${cfg.hostName}.machine-id + "\n";
     };
-    fileSystems = {
-      "/etc/ssh".neededForBoot = true;
-      "/var/lib".neededForBoot = true;
-      "/var/log/journal".neededForBoot = true;
-    };
   };
 }
