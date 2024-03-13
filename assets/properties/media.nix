@@ -1,5 +1,5 @@
 let
-  users = import ./users.properties.nix;
+  users = import ./users.nix;
 in {
   dir = {
     movies = "/media/movies/";

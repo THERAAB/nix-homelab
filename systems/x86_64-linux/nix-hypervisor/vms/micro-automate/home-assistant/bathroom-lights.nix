@@ -64,7 +64,7 @@
         {
           service = "light.turn_off";
           target.entity_id = [
-              "light.silicon_labs_ezsp_bathroom_lights"
+            "light.silicon_labs_ezsp_bathroom_lights"
           ];
         }
       ];

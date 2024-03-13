@@ -1,12 +1,12 @@
 {
   config,
   lib,
-  network,
+  properties,
   ...
 }: {
   environment.etc."machine-id" = {
     mode = "0644";
-    text = network.${config.networking.hostName}.machine-id + "\n";
+    text = properties.network.${config.networking.hostName}.machine-id + "\n";
   };
   microvm = {
     hypervisor = "cloud-hypervisor";

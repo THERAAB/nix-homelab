@@ -1,38 +1,38 @@
-{network, media, ports, ...}: let
+{properties, ...}: let
   uid = 9990;
-  port = ports.vuetorrent;
+  port = properties.ports.vuetorrent;
   app-name = "vuetorrent";
   local-config-dir = "/var/lib/${app-name}";
 in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = media.group.name;
+      group = properties.media.group.name;
       isSystemUser = true;
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}/wireguard             -       -               -                   -   -                               "
-    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -                   -   -                               "
-    "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -                   -   /run/secrets/wireguard_mullvad  "
-    "Z    ${local-config-dir}                       -       ${app-name}     ${media.group.name} -   -                               "
-    "Z    ${local-config-dir}/wireguard/wg0.conf    700     -               -                   -   -                               "
+    "d    ${local-config-dir}/wireguard             -       -               -                               -   -                               "
+    "r    ${local-config-dir}/wireguard/wg0.conf    -       -               -                               -   -                               "
+    "C    ${local-config-dir}/wireguard/wg0.conf    -       -               -                               -   /run/secrets/wireguard_mullvad  "
+    "Z    ${local-config-dir}                       -       ${app-name}     ${properties.media.group.name}  -   -                               "
+    "Z    ${local-config-dir}/wireguard/wg0.conf    700     -               -                               -   -                               "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
     image = "ghcr.io/hotio/qbittorrent:latest";
     volumes = [
       "${local-config-dir}:/config"
-      "${media.dir.downloads}:/app/qBittorrent/downloads"
+      "${properties.media.dir.downloads}:/app/qBittorrent/downloads"
     ];
     ports = ["${toString port}:8080" "8118:8118"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString media.group.id}";
+      PGID = "${toString properties.media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
       VPN_ENABLED = "true";
-      VPN_LAN_NETWORK = "${network.nix-desktop.local.ip},${network.ap.subnet},${network.micro-media.local.ip},${network.micro-tailscale.local.ip},${network.micro-download.local.ip}";
+      VPN_LAN_NETWORK = "${properties.network.nix-desktop.local.ip},${properties.network.ap.subnet},${properties.network.micro-media.local.ip},${properties.network.micro-tailscale.local.ip},${properties.network.micro-download.local.ip}";
       VPN_CONF = "wg0";
       VPN_ADDITIONAL_PORTS = "";
       VPN_IP_CHECK_DELAY = "5";

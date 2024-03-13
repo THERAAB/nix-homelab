@@ -23,10 +23,7 @@
   };
   outputs = inputs: let
     self = inputs.self;
-    network = import (self + /assets/properties/network.properties.nix);
-    users = import (self + /assets/properties/users.properties.nix);
-    media = import (self + /assets/properties/media.properties.nix);
-    ports = import (self + /assets/properties/ports.properties.nix);
+    properties = import (self + /assets/properties);
   in
     inputs.snowfall-lib.mkFlake {
       inherit inputs self;
@@ -50,11 +47,11 @@
               microvm.nixosModules.host
             ];
             specialArgs = {
-              inherit self network users media ports;
+              inherit self properties;
             };
           };
           nix-nas.specialArgs = {
-            inherit self network users media ports;
+            inherit self properties;
           };
         };
       };

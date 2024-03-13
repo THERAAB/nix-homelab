@@ -7,6 +7,7 @@ and the installation instructions below.
 ## What's inside
 
 My NAS Server with
+
 - Monitoring/Statistics with [NetData](https://www.netdata.cloud/)
 - Network File Sharing using [NFS](https://wiki.archlinux.org/title/NFS) for media drives
 

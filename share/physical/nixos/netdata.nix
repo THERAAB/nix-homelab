@@ -1,11 +1,10 @@
 {
   pkgs,
   config,
-  network,
-  ports,
+  properties,
   ...
 }: let
-  port = ports.netdata;
+  port = properties.ports.netdata;
   app-name = "netdata";
 in {
   networking.firewall.allowedTCPPorts = [port];
@@ -25,7 +24,7 @@ in {
         "access log" = "none";
       };
       registry = {
-        "registry to announce" = "https://${app-name}.${network.domain}/";
+        "registry to announce" = "https://${app-name}.${properties.network.domain}/";
       };
     };
     configDir."health_alarm_notify.conf" = config.sops.secrets.netdata_alarm.path;

@@ -1,182 +1,178 @@
-{
-  network,
-  ports,
-  ...
-}: {
-  networking.firewall.allowedTCPPorts = [ports.http ports.ssl];
+{properties, ...}: {
+  networking.firewall.allowedTCPPorts = [properties.ports.http properties.ports.ssl];
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "unifi.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "unifi.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-infra.local.ip}:${toString ports.unifi} {
+          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.unifi} {
             transport http {
               tls_insecure_skip_verify
             }
           }
         '';
       };
-      "adguard-tailscale.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "adguard-tailscale.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-tailscale.local.ip}:${toString ports.adguard}
+          reverse_proxy ${properties.network.micro-tailscale.local.ip}:${toString properties.ports.adguard}
         '';
       };
-      "vuetorrent.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "vuetorrent.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-download.local.ip}:${toString ports.vuetorrent}
+          reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.vuetorrent}
         '';
       };
-      "gotify.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "gotify.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-infra.local.ip}:${toString ports.gotify}
+          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.gotify}
         '';
       };
-      "gatus.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "gatus.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-infra.local.ip}:${toString ports.gatus}
+          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.gatus}
         '';
       };
-      "photos.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "photos.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:${toString ports.photoprism}
+          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.photoprism}
         '';
       };
-      "microbin.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "microbin.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:${toString ports.microbin}
+          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.microbin}
         '';
       };
-      "bookmarks.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "bookmarks.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:${toString ports.linkding}
+          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.linkding}
         '';
       };
-      "cache.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "cache.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:${toString ports.harmonia}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.harmonia}
         '';
       };
-      "netdata.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "netdata.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:${toString ports.netdata}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.netdata}
         '';
       };
-      "home-assistant.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "home-assistant.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-automate.local.ip}:${toString ports.home-assistant}
+          reverse_proxy ${properties.network.micro-automate.local.ip}:${toString properties.ports.home-assistant}
         '';
       };
-      "sync.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "sync.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:${toString ports.syncthing}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.syncthing}
         '';
       };
-      "olivetin.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "olivetin.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.nix-hypervisor.tailscale.ip}:${toString ports.olivetin}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.olivetin}
         '';
       };
-      "notes.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "notes.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:${toString ports.flatnotes}
+          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.flatnotes}
         '';
       };
-      "files.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "files.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-server.local.ip}:${toString ports.filebrowser}
+          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.filebrowser}
         '';
       };
-      "jellyfin.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "jellyfin.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:${toString ports.jellyfin}
+          reverse_proxy ${properties.network.micro-media.local.ip}:${toString properties.ports.jellyfin}
         '';
       };
-      "jellyseerr.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "jellyseerr.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:${toString ports.jellyseerr}
+          reverse_proxy ${properties.network.micro-media.local.ip}:${toString properties.ports.jellyseerr}
         '';
       };
-      "adguard.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "adguard.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-infra.local.ip}:${toString ports.adguard}
+          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.adguard}
         '';
       };
-      "${network.domain}" = {
-        useACMEHost = "${network.domain}-tld";
+      "${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}-tld";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-infra.local.ip}:${toString ports.homer}
+          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.homer}
         '';
       };
-      "audiobooks.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "audiobooks.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-media.local.ip}:${toString ports.audiobookshelf}
+          reverse_proxy ${properties.network.micro-media.local.ip}:${toString properties.ports.audiobookshelf}
         '';
       };
-      "prowlarr.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "prowlarr.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-download.local.ip}:${toString ports.prowlarr}
+          reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.prowlarr}
         '';
       };
-      "movies.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "movies.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-download.local.ip}:${toString ports.radarr}
+          reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.radarr}
         '';
       };
-      "readarr.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "readarr.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-download.local.ip}:${toString ports.readarr}
+          reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.readarr}
         '';
       };
-      "tv.${network.domain}" = {
-        useACMEHost = "${network.domain}";
+      "tv.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${network.micro-download.local.ip}:${toString ports.sonarr}
+          reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.sonarr}
         '';
       };
     };

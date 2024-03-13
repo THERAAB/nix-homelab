@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: let
+{pkgs, ...}: let
   devices = import ./devices.properties.nix;
 in {
   services.home-assistant = {

@@ -1,9 +1,9 @@
 {
   pkgs,
-  ports,
+  properties,
   ...
 }: let
-  port = ports.photoprism;
+  port = properties.ports.photoprism;
   app-name = "photoprism";
   originals-dir = "/var/lib/private/photoprism/originals";
 in {

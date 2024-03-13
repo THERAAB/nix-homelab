@@ -1,11 +1,10 @@
 {
   pkgs,
   config,
-  network,
-  users,
+  properties,
   ...
 }: {
-  users.groups.restic.gid = users.restic.gid;
+  users.groups.restic.gid = properties.users.restic.gid;
   services.restic.backups."nix-server" = {
     exclude = [
       ".git"
@@ -50,7 +49,7 @@
       TOKEN=`cat ${config.sops.secrets.gotify_homelab_token.path}`
       HOSTNAME=`${pkgs.nettools}/bin/hostname`
 
-      ${pkgs.curl}/bin/curl   https://gotify.${network.domain}/message?token=$TOKEN                                                     \
+      ${pkgs.curl}/bin/curl   https://gotify.${properties.network.domain}/message?token=$TOKEN                                                     \
                               -F "title='$HOSTNAME' Restic backup Failed"                                                               \
                               -F "message=Restic backup failed on '$HOSTNAME', run journalctl -u restic-backups-nix-server for details" \
                               -F "priority=5"                                                                                           \

@@ -1,23 +1,19 @@
-{
-  media,
-  ports,
-  ...
-}: let
+{properties, ...}: let
   uid = 9993;
-  port = ports.prowlarr;
+  port = properties.ports.prowlarr;
   app-name = "prowlarr";
   local-config-dir = "/var/lib/${app-name}";
 in {
   users = {
     users."${app-name}" = {
       uid = uid;
-      group = media.group.name;
+      group = properties.media.group.name;
       isSystemUser = true;
     };
   };
   systemd.tmpfiles.rules = [
-    "d    ${local-config-dir}     -       -             -                   -   - "
-    "Z    ${local-config-dir}     -       ${app-name}   ${media.group.name} -   - "
+    "d    ${local-config-dir}     -       -             -                              -   - "
+    "Z    ${local-config-dir}     -       ${app-name}   ${properties.media.group.name} -   - "
   ];
   virtualisation.oci-containers.containers."${app-name}" = {
     autoStart = true;
@@ -28,7 +24,7 @@ in {
     ports = ["${toString port}:9696"];
     environment = {
       PUID = "${toString uid}";
-      PGID = "${toString media.group.id}";
+      PGID = "${toString properties.media.group.id}";
       UMASK = "022";
       TZ = "America/New_York";
     };

@@ -1,9 +1,9 @@
-{users, ...}: {
+{properties, ...}: {
   users = {
     groups = {
       users.gid = 100;
       nfsnobody = {};
-      restic.gid = users.restic.gid;
+      restic.gid = properties.users.restic.gid;
     };
     users = {
       root = {
@@ -18,7 +18,7 @@
         uid = 1000;
       };
       nfsnobody = {
-        uid = users.nfsnobody.uid;
+        uid = properties.users.nfsnobody.uid;
         group = "nfsnobody";
         extraGroups = ["restic"];
         isSystemUser = true;

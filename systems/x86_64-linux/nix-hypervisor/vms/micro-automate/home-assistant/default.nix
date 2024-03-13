@@ -1,13 +1,8 @@
-{
-  network,
-  users,
-  ports,
-  ...
-}: let
+{properties, ...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
   local-config-dir = "/var/lib/hass";
   system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/nix-hypervisor/vms/micro-automate/home-assistant/blueprints";
-  port = ports.home-assistant;
+  port = properties.ports.home-assistant;
   app-name = "hass";
 in {
   imports = [
@@ -36,7 +31,7 @@ in {
       }
     ];
   };
-  users.users.hass.uid = users.hass.uid;
+  users.users.hass.uid = properties.users.hass.uid;
   systemd = {
     tmpfiles.rules = [
       "R  ${local-config-dir}/secrets.yaml          -       -             -              -   -                           "
@@ -69,7 +64,7 @@ in {
     config = {
       default_config = {};
       http = {
-        trusted_proxies = ["127.0.0.1" network.micro-tailscale.local.ip];
+        trusted_proxies = ["127.0.0.1" properties.network.micro-tailscale.local.ip];
         use_x_forwarded_for = true;
       };
       homeassistant = {
@@ -84,7 +79,7 @@ in {
         {
           name = "gotify";
           platform = "rest";
-          resource = "https://gotify.${network.domain}/message";
+          resource = "https://gotify.${properties.network.domain}/message";
           method = "POST_JSON";
           headers.X-Gotify-Key = "!secret gotify_ha_token";
           message_param_name = "message";

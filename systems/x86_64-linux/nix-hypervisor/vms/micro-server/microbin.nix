@@ -1,5 +1,5 @@
-{ports, ...}: let
-  port = ports.microbin;
+{properties, ...}: let
+  port = properties.ports.microbin;
 in {
   networking.firewall.allowedTCPPorts = [port];
   services.microbin = {

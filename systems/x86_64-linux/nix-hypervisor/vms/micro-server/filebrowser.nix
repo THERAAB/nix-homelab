@@ -1,7 +1,7 @@
-{ports, ...}: let
+{properties, ...}: let
   uid = 7642;
   gid = 7643;
-  port = ports.filebrowser;
+  port = properties.ports.filebrowser;
   app-name = "filebrowser";
   local-config-dir = "/var/lib/${app-name}";
   dir-to-share = "/sync";

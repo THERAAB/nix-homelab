@@ -1,5 +1,5 @@
-{ports, ...}: let
-  port = ports.gotify;
+{properties, ...}: let
+  port = properties.ports.gotify;
   app-name = "gotify";
 in {
   networking.firewall.allowedTCPPorts = [port];

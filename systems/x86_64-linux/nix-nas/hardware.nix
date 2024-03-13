@@ -1,11 +1,11 @@
 {
-  network,
+  properties,
   pkgs,
   ...
 }: {
   nix.settings = {
-    substituters = ["https://cache.${network.domain}"];
-    trusted-public-keys = ["cache.${network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
+    substituters = ["https://cache.${properties.network.domain}"];
+    trusted-public-keys = ["cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
   };
   boot.initrd.availableKernelModules = ["sdhci_pci"];
   powerManagement.powerUpCommands = ''

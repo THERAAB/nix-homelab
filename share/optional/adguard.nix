@@ -1,9 +1,9 @@
-{network, ports, ...}: let
-  port = ports.adguard;
+{properties, ...}: let
+  port = properties.ports.adguard;
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
   networking.firewall = {
-    allowedUDPPorts = [ports.dns];
+    allowedUDPPorts = [properties.ports.dns];
     allowedTCPPorts = [port];
   };
   services.adguardhome = {
@@ -20,8 +20,8 @@ in {
       theme = "auto";
       dns = {
         ratelimit = 0;
-        port = ports.dns;
-        upstream_dns = ["${network.pfSense.local.ip}"];
+        port = properties.ports.dns;
+        upstream_dns = ["${properties.network.pfSense.local.ip}"];
         protection_enabled = true;
         blocked_hosts = ["version.bind" "id.server" "hostname.bind"];
         trusted_proxies = ["127.0.0.0/8" "::1/128"];

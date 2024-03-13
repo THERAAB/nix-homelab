@@ -1,7 +1,7 @@
-{ports, ...}: let
+{properties, ...}: let
   uid = 7662;
   gid = 7663;
-  port = ports.linkding;
+  port = properties.ports.linkding;
   app-name = "linkding";
   local-config-dir = "/var/lib/${app-name}";
 in {

@@ -1,10 +1,6 @@
-{
-  network,
-  ports,
-  ...
-}: let
+{properties, ...}: let
   app-name = "syncthing";
-  port = ports.syncthing;
+  port = properties.ports.syncthing;
   local-dir = "/sync";
 in {
   fileSystems."/sync" = {
@@ -36,11 +32,11 @@ in {
       devices = {
         nix-zenbook = {
           id = "M3OWV56-LFY5O5S-AYUOLEL-AOJN6FS-E3LA3XY-6QUG5MV-TIDRRNY-C3YS7AT";
-          addresses = ["tcp://${network.nix-zenbook.tailscale.ip}:22000" "tcp://${network.nix-zenbook.local.ip}:22000"];
+          addresses = ["tcp://${properties.network.nix-zenbook.tailscale.ip}:22000" "tcp://${properties.network.nix-zenbook.local.ip}:22000"];
         };
         nix-desktop = {
           id = "YEUHTJT-HKSDRRS-FPPJCUU-ZWHQJTR-ZRP3LVM-BYFNSH7-MJ7BGPJ-C6PMFA6";
-          addresses = ["tcp://${network.nix-desktop.tailscale.ip}:22000" "tcp://${network.nix-desktop.local.ip}:22000"];
+          addresses = ["tcp://${properties.network.nix-desktop.tailscale.ip}:22000" "tcp://${properties.network.nix-desktop.local.ip}:22000"];
         };
         galaxy-s7-tab.id = "STQ62IM-HAMN7JJ-AXKOFPA-MLQC73I-KFOEPI4-MBMS44D-VWTFFAF-WAWNSQ3";
         pixel-6a.id = "MCGDVOM-VJQ3IHA-HHLCELL-ABFIJT7-BFHHWMX-V77WXIF-OTEVLZH-F76I5Q6";

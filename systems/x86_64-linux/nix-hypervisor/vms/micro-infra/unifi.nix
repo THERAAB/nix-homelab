@@ -1,17 +1,12 @@
-{
-  network,
-  users,
-  ports,
-  ...
-}: let
+{properties, ...}: let
   gid = 7813;
-  port = ports.unifi;
+  port = properties.ports.unifi;
   app-name = "unifi";
   local-config-dir = "/var/lib/${app-name}";
 in {
   users = {
     users."${app-name}" = {
-      uid = users.unifi.uid;
+      uid = properties.users.unifi.uid;
       group = app-name;
       isSystemUser = true;
     };
@@ -36,11 +31,11 @@ in {
         "8080:8080"
       ];
       environment = {
-        PUID = "${toString users.unifi.uid}";
+        PUID = "${toString properties.users.unifi.uid}";
         PGID = "${toString gid}";
         UMASK = "022";
         TZ = "America/New_York";
-        MONGO_HOST = "${network.micro-infra.local.ip}";
+        MONGO_HOST = "${properties.network.micro-infra.local.ip}";
         MONGO_PORT = "27017";
       };
       environmentFiles = [
@@ -57,9 +52,9 @@ in {
         "${local-config-dir}/db:/data/db"
         "/run/secrets/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
       ];
-      user = "${toString users.unifi.uid}";
+      user = "${toString properties.users.unifi.uid}";
       environment = {
-        PUID = "${toString users.unifi.uid}";
+        PUID = "${toString properties.users.unifi.uid}";
         PGID = "${toString gid}";
         UMASK = "022";
         TZ = "America/New_York";

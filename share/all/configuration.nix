@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   nix = {
     # Flake setup
     package = pkgs.nixVersions.stable;

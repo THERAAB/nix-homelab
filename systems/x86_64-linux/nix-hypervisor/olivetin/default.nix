@@ -1,9 +1,9 @@
 {
   pkgs,
-  ports,
+  properties,
   ...
 }: let
-  port = ports.olivetin;
+  port = properties.ports.olivetin;
   uid = 62893;
   gid = 62893;
   app-name = "olivetin";

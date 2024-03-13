@@ -11,6 +11,7 @@ This repo contains everything needed to rebuild my homelab from scratch, with th
 My NixOS Homelab, with each machine having some shared configuration
 
 - Declarative/Reproducible builds using [NixOS](https://nixos.org/)
+- [Snowfall](https://snowfall.org/guides/lib/quickstart/) project structure
 - An Ephemeral root/home storage scheme (See [Erase your darlings](https://grahamc.com/blog/erase-your-darlings) and [NixOS Impermanence](https://github.com/nix-community/impermanence))
 - Secret management with [sops-nix](https://github.com/Mic92/sops-nix/blob/master/README.md)
 - Dependency pinning with [Nix Flakes](https://nixos.wiki/wiki/Flakes)

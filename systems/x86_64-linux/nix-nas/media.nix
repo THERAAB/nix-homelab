@@ -1,4 +1,4 @@
-{users, ...}: let
+{properties, ...}: let
   media-dir = "/nfs/media";
 in {
   systemd.tmpfiles.rules = [
@@ -8,5 +8,5 @@ in {
     "d    ${media-dir}/audiobooks   -       -       -       -   - "
     "d    ${media-dir}/podcasts     -       -       -       -   - "
   ];
-  users.groups.media.gid = users.media.gid;
+  users.groups.media.gid = properties.users.media.gid;
 }
