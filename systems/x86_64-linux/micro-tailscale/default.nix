@@ -3,6 +3,6 @@
     ./hardware.nix
     ./adguard-tailscale.nix
     ./caddy.nix
-    ./acme.nix
   ];
+  nix-homelab.networking.acme.enable = true;
 }
