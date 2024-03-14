@@ -2,7 +2,11 @@
   properties,
   pkgs,
   ...
-}: {
+}: let
+  nfs-dir = "/nfs";
+  media-dir = "${nfs-dir}/media";
+  backups-dir = "${nfs-dir}/backups";
+in {
   nix.settings = {
     substituters = ["https://cache.${properties.network.domain}"];
     trusted-public-keys = ["cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
@@ -32,6 +36,18 @@
         ${pkgs.coreutils-full}/bin/sleep 10
         echo disable >/sys/firmware/acpi/interrupts/gpe6F
       '');
+    };
+  };
+  fileSystems = {
+    "${media-dir}" = {
+      device = "/dev/disk/by-label/media";
+      fsType = "btrfs";
+      options = ["subvol=media" "compress=zstd" "noatime"];
+    };
+    "${backups-dir}" = {
+      device = "/dev/disk/by-label/media";
+      fsType = "btrfs";
+      options = ["subvol=backups" "compress=zstd" "noatime"];
     };
   };
 }

@@ -2,7 +2,7 @@
   imports = [
     ./hardware.nix
     ./netdata.nix
-    ./nfs.nix
     ./media.nix
   ];
+  nix-homelab.networking.nfs.enable = true;
 }
