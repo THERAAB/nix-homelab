@@ -1,6 +1,4 @@
-{...}: let
-  originals-dir = "/var/lib/private/photoprism/originals";
-in {
+{...}: {
   imports = [
     ./hardware.nix
   ];
@@ -14,12 +12,4 @@ in {
       photoprism.enable = true;
     };
   };
-  microvm.shares = [
-    {
-      proto = "virtiofs";
-      source = "/sync/Camera";
-      mountPoint = "${originals-dir}";
-      tag = "Camera";
-    }
-  ];
 }
