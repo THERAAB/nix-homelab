@@ -1,15 +1,19 @@
 {...}: {
   imports = [
-    ./olivetin
-    ./netdata.nix
     ./users.nix
     ./hardware.nix
     ./sops.nix
     ./harmonia.nix
     ./syncthing.nix
-    ./nfs.nix
-    ./auto-upgrade.nix
     ./restic.nix
     ./microvm.nix
   ];
+  nix-homelab = {
+    wrappers = {
+      olivetin.enable = true;
+    };
+  };
+  systemd.timers.nix-flake-update.timerConfig.OnCalendar = "Sun *-*-* 04:20:00";
+  system.autoUpgrade.dates = "Sun *-*-* 04:30:00";
+  services.netdata.config.registry.enabled = "yes";
 }

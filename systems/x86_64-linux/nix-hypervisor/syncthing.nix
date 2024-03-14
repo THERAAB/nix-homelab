@@ -3,11 +3,6 @@
   port = properties.ports.syncthing;
   local-dir = "/sync";
 in {
-  fileSystems."/sync" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "btrfs";
-    options = ["subvol=sync" "compress=zstd" "noatime"];
-  };
   systemd.tmpfiles.rules = [
     "d    ${local-dir}         -       -             -               -   - "
     "d    ${local-dir}/share   -       -             -               -   - "
@@ -15,10 +10,6 @@ in {
     "Z    ${local-dir}/share   770     -             ${app-name}     -   - "
     "Z    ${local-dir}/Camera  770     -             ${app-name}     -   - "
   ];
-  fileSystems."${local-dir}/share/flatnotes" = {
-    device = "/var/lib/microvms/micro-server/storage/var/lib/flatnotes";
-    options = ["bind"];
-  };
   users.users.syncthing.extraGroups = ["flatnotes"];
   services.syncthing = {
     enable = true;
