@@ -1,4 +1,4 @@
-{...}: let
+{config, ...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
   system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/micro-automate/home-assistant/blueprints";
 in {
@@ -11,6 +11,14 @@ in {
     core = {
       flakes.enable = true;
       system.enable = true;
+    };
+    microvm = {
+      podman.enable = true;
+      system.enable = true;
+      hardware = {
+        enable = true;
+        hostName = config.networking.hostName;
+      };
     };
   };
   microvm = {

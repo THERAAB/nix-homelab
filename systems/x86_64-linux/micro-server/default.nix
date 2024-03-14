@@ -1,4 +1,4 @@
-{...}: let
+{config, ...}: let
   originals-dir = "/var/lib/private/photoprism/originals";
 in {
   imports = [
@@ -15,6 +15,14 @@ in {
       linkding.enable = true;
       microbin.enable = true;
       photoprism.enable = true;
+    };
+    microvm = {
+      podman.enable = true;
+      system.enable = true;
+      hardware = {
+        enable = true;
+        hostName = config.networking.hostName;
+      };
     };
   };
   microvm.shares = [

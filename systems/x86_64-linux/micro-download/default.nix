@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   imports = [
     ./hardware.nix
   ];
@@ -7,6 +7,14 @@
     core = {
       flakes.enable = true;
       system.enable = true;
+    };
+    microvm = {
+      podman.enable = true;
+      system.enable = true;
+      hardware = {
+        enable = true;
+        hostName = config.networking.hostName;
+      };
     };
     wrappers = {
       prowlarr.enable = true;

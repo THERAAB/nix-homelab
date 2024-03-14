@@ -1,4 +1,4 @@
-{...}: let
+{config, ...}: let
   hypervisor-icons-dir = "/nix/persist/nix-homelab/assets/icons";
   mount-icons-dir = "/icons";
 in {
@@ -16,6 +16,14 @@ in {
       homer.enable = true;
       gotify.enable = true;
       unifi.enable = true;
+    };
+    microvm = {
+      podman.enable = true;
+      system.enable = true;
+      hardware = {
+        enable = true;
+        hostName = config.networking.hostName;
+      };
     };
   };
   microvm.shares = [

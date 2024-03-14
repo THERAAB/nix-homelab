@@ -3,14 +3,6 @@
   config,
   ...
 }: {
-  nix-homelab.microvm = {
-    podman.enable = true;
-    system.enable = true;
-    hardware = {
-      enable = true;
-      hostName = config.networking.hostName;
-    };
-  };
   microvm = {
     hypervisor = "cloud-hypervisor";
     mem = lib.mkDefault 2024;

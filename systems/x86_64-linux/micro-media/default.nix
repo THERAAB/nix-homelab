@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   imports = [
     ./hardware.nix
   ];
@@ -12,6 +12,14 @@
       audiobookshelf.enable = true;
       jellyfin.enable = true;
       jellyseerr.enable = true;
+    };
+    microvm = {
+      podman.enable = true;
+      system.enable = true;
+      hardware = {
+        enable = true;
+        hostName = config.networking.hostName;
+      };
     };
   };
   microvm.devices = [
