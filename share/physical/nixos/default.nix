@@ -2,7 +2,6 @@
   imports = [
     ./persist.nix
     ./sops.nix
-    ./hardware-configuration.nix
   ];
   nix-homelab.physical = {
     autoUpgrade.enable = true;
@@ -15,5 +14,6 @@
     starship.enable = true;
     system.enable = true;
     users.enable = true;
+    hardware-configuration.enable = true;
   };
 }
