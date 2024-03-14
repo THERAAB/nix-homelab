@@ -4,7 +4,7 @@
     ./git.nix
     ./pkgs.nix
     ./home.nix
-    ./fish.nix
     ./neovim.nix
   ];
+  nix-homelab.physical.fish.enable = true;
 }
