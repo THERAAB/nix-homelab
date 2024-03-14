@@ -1,12 +1,23 @@
-{...}: {
+{...}: let
+  hypervisor-icons-dir = "/nix/persist/nix-homelab/assets/icons";
+  mount-icons-dir = "/icons";
+in {
   imports = [
-    ./homer
     ./adguard.nix
     ./hardware.nix
-    ./unifi.nix
-    ./gotify.nix
   ];
   nix-homelab.services = {
     gatus.enable = true;
+    homer.enable = true;
+    gotify.enable = true;
+    unifi.enable = true;
   };
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = hypervisor-icons-dir;
+      mountPoint = mount-icons-dir;
+      tag = "homer-icons";
+    }
+  ];
 }
