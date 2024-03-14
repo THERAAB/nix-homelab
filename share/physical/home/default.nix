@@ -1,10 +1,9 @@
 {...}: {
-  imports = [
-    ./persist.nix
-    ./git.nix
-    ./pkgs.nix
-    ./home.nix
-    ./neovim.nix
-  ];
-  nix-homelab.physical.fish.enable = true;
+  nix-homelab.physical = {
+    fish.enable = true;
+    git.enable = true;
+    nvim.enable = true;
+    home.enable = true;
+    persist.enable = true;
+  };
 }
