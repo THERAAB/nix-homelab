@@ -1,10 +1,22 @@
-{...}: {
+{...}: let
+  originals-dir = "/var/lib/private/photoprism/originals";
+in {
   imports = [
-    ./linkding.nix
-    ./flatnotes.nix
-    ./microbin.nix
-    ./filebrowser.nix
-    ./photoprism.nix
     ./hardware.nix
+  ];
+  nix-homelab.services = {
+    filebrowser.enable = true;
+    flatnotes.enable = true;
+    linkding.enable = true;
+    microbin.enable = true;
+    photoprism.enable = true;
+  };
+  microvm.shares = [
+    {
+      proto = "virtiofs";
+      source = "/sync/Camera";
+      mountPoint = "${originals-dir}";
+      tag = "Camera";
+    }
   ];
 }
