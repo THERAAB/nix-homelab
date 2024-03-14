@@ -8,12 +8,8 @@
     core.enable = true;
     networking.acme.enable = true;
     microvm = {
-      podman.enable = true;
-      system.enable = true;
-      hardware = {
-        enable = true;
-        hostName = config.networking.hostName;
-      };
+      enable = true;
+      hostName = config.networking.hostName;
     };
   };
 }

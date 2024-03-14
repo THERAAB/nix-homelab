@@ -10,12 +10,8 @@ in {
     wrappers.home-assistant.enable = true;
     core.enable = true;
     microvm = {
-      podman.enable = true;
-      system.enable = true;
-      hardware = {
-        enable = true;
-        hostName = config.networking.hostName;
-      };
+      enable = true;
+      hostName = config.networking.hostName;
     };
   };
   microvm = {
