@@ -1,18 +1,14 @@
-{config, ...}: {
+{...}: {
   imports = [
     ./hardware.nix
   ];
   nix-homelab = {
-    core.enable = true;
+    microvm.enable = true;
     media.enable = true;
     wrappers = {
       audiobookshelf.enable = true;
       jellyfin.enable = true;
       jellyseerr.enable = true;
-    };
-    microvm = {
-      enable = true;
-      hostName = config.networking.hostName;
     };
   };
   microvm.devices = [

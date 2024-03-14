@@ -9,7 +9,7 @@
     ./microvm.nix
   ];
   nix-homelab = {
-    core.enable = true;
+    physical.enable = true;
     wrappers = {
       olivetin.enable = true;
     };

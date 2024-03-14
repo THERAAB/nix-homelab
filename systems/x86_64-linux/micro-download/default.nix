@@ -1,14 +1,10 @@
-{config, ...}: {
+{...}: {
   imports = [
     ./hardware.nix
   ];
   nix-homelab = {
+    microvm.enable = true;
     media.enable = true;
-    core.enable = true;
-    microvm = {
-      enable = true;
-      hostName = config.networking.hostName;
-    };
     wrappers = {
       prowlarr.enable = true;
       radarr.enable = true;

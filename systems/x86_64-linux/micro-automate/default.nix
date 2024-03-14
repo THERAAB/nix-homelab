@@ -1,4 +1,4 @@
-{config, ...}: let
+{...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
   system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/micro-automate/home-assistant/blueprints";
 in {
@@ -7,12 +7,8 @@ in {
     ./home-assistant
   ];
   nix-homelab = {
+    microvm.enable = true;
     wrappers.home-assistant.enable = true;
-    core.enable = true;
-    microvm = {
-      enable = true;
-      hostName = config.networking.hostName;
-    };
   };
   microvm = {
     devices = [

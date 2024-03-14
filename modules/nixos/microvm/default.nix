@@ -11,15 +11,19 @@ in {
     enable = mkEnableOption (lib.mdDoc "System");
     hostName = mkOption {
       type = str;
+      default = config.networking.hostName;
     };
   };
   config = mkIf cfg.enable {
-    nix-homelab.microvm = {
-      podman.enable = true;
-      system.enable = true;
-      hardware = {
-        enable = true;
-        hostName = cfg.hostName;
+    nix-homelab = {
+      core.enable = true;
+      microvm = {
+        podman.enable = true;
+        system.enable = true;
+        hardware = {
+          enable = true;
+          hostName = cfg.hostName;
+        };
       };
     };
   };

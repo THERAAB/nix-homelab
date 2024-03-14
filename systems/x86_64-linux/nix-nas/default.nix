@@ -5,7 +5,7 @@
     ./media.nix
   ];
   nix-homelab = {
-    core.enable = true;
+    physical.enable = true;
     networking.nfs.enable = true;
   };
 }
