@@ -7,10 +7,7 @@ in {
     ./hardware.nix
   ];
   nix-homelab = {
-    core = {
-      flakes.enable = true;
-      system.enable = true;
-    };
+    core.enable = true;
     wrappers = {
       gatus.enable = true;
       homer.enable = true;

@@ -9,10 +9,7 @@
     ./microvm.nix
   ];
   nix-homelab = {
-    core = {
-      flakes.enable = true;
-      system.enable = true;
-    };
+    core.enable = true;
     wrappers = {
       olivetin.enable = true;
     };

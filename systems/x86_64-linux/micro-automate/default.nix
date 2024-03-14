@@ -8,10 +8,7 @@ in {
   ];
   nix-homelab = {
     wrappers.home-assistant.enable = true;
-    core = {
-      flakes.enable = true;
-      system.enable = true;
-    };
+    core.enable = true;
     microvm = {
       podman.enable = true;
       system.enable = true;

@@ -5,10 +5,7 @@
     ./caddy.nix
   ];
   nix-homelab = {
-    core = {
-      flakes.enable = true;
-      system.enable = true;
-    };
+    core.enable = true;
     networking.acme.enable = true;
     microvm = {
       podman.enable = true;

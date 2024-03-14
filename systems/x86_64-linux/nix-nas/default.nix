@@ -5,10 +5,7 @@
     ./media.nix
   ];
   nix-homelab = {
-    core = {
-      flakes.enable = true;
-      system.enable = true;
-    };
+    core.enable = true;
     networking.nfs.enable = true;
   };
 }
