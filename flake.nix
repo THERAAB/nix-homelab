@@ -78,11 +78,9 @@
       homes.users = {
         "raab@nix-hypervisor".modules = with inputs; [
           impermanence.nixosModules.home-manager.impermanence
-          ./share/physical/home
         ];
         "raab@nix-nas".modules = with inputs; [
           impermanence.nixosModules.home-manager.impermanence
-          ./share/physical/home
         ];
       };
     };
