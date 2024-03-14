@@ -7,7 +7,7 @@ and the installation instructions below.
 ## What's inside
 
 - [Microvm host](https://astro.github.io/microvm.nix/) for Micro-${host} servers
-- Remote Deployment/Upgrade with [Nixinate](https://github.com/MatthewCroughan/nixinate)
+- Remote Deployment/Upgrade with [deploy-rs](https://github.com/serokell/deploy-rs)
 - Declarative Home Assistant with [NixOS Home Assistant Module](https://nixos.wiki/wiki/Home_Assistant)
 - Mesh VPN with [Tailscale](https://tailscale.com/)
 - Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)
