@@ -5,6 +5,8 @@
     ./hardware.nix
     ./unifi.nix
     ./gotify.nix
-    ./gatus
   ];
+  nix-homelab.services = {
+    gatus.enable = true;
+  };
 }
