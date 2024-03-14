@@ -3,6 +3,10 @@
     ./hardware.nix
   ];
   nix-homelab = {
+    core = {
+      flakes.enable = true;
+      system.enable = true;
+    };
     media.enable = true;
     wrappers = {
       audiobookshelf.enable = true;

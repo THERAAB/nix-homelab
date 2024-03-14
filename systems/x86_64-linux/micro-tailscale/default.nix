@@ -4,5 +4,11 @@
     ./adguard-tailscale.nix
     ./caddy.nix
   ];
-  nix-homelab.networking.acme.enable = true;
+  nix-homelab = {
+    core = {
+      flakes.enable = true;
+      system.enable = true;
+    };
+    networking.acme.enable = true;
+  };
 }

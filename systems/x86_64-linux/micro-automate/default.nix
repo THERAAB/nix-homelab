@@ -6,7 +6,13 @@ in {
     ./hardware.nix
     ./home-assistant
   ];
-  nix-homelab.wrappers.home-assistant.enable = true;
+  nix-homelab = {
+    wrappers.home-assistant.enable = true;
+    core = {
+      flakes.enable = true;
+      system.enable = true;
+    };
+  };
   microvm = {
     devices = [
       {

@@ -4,12 +4,18 @@ in {
   imports = [
     ./hardware.nix
   ];
-  nix-homelab.wrappers = {
-    filebrowser.enable = true;
-    flatnotes.enable = true;
-    linkding.enable = true;
-    microbin.enable = true;
-    photoprism.enable = true;
+  nix-homelab = {
+    core = {
+      flakes.enable = true;
+      system.enable = true;
+    };
+    wrappers = {
+      filebrowser.enable = true;
+      flatnotes.enable = true;
+      linkding.enable = true;
+      microbin.enable = true;
+      photoprism.enable = true;
+    };
   };
   microvm.shares = [
     {

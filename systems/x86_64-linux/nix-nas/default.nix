@@ -4,5 +4,11 @@
     ./netdata.nix
     ./media.nix
   ];
-  nix-homelab.networking.nfs.enable = true;
+  nix-homelab = {
+    core = {
+      flakes.enable = true;
+      system.enable = true;
+    };
+    networking.nfs.enable = true;
+  };
 }

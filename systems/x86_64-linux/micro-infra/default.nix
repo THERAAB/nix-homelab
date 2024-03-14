@@ -6,11 +6,17 @@ in {
     ./adguard.nix
     ./hardware.nix
   ];
-  nix-homelab.wrappers = {
-    gatus.enable = true;
-    homer.enable = true;
-    gotify.enable = true;
-    unifi.enable = true;
+  nix-homelab = {
+    core = {
+      flakes.enable = true;
+      system.enable = true;
+    };
+    wrappers = {
+      gatus.enable = true;
+      homer.enable = true;
+      gotify.enable = true;
+      unifi.enable = true;
+    };
   };
   microvm.shares = [
     {

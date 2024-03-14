@@ -43,9 +43,6 @@
       apps = inputs.nixinate.nixinate.x86_64-linux self;
 
       systems = {
-        modules.nixos = [
-          ./share/all
-        ];
         hosts = {
           nix-hypervisor = {
             modules = with inputs; [
