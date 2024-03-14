@@ -1,8 +1,4 @@
 {...}: {
-  imports = [
-    ./persist.nix
-    ./sops.nix
-  ];
   nix-homelab.physical = {
     autoUpgrade.enable = true;
     configuration.enable = true;
@@ -15,5 +11,7 @@
     system.enable = true;
     users.enable = true;
     hardware-configuration.enable = true;
+    persist.enable = true;
+    sops.enable = true;
   };
 }
