@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.users;
 in {
   options.nix-homelab.physical.users = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Shared system users");
   };
   config = mkIf cfg.enable {
     users = {

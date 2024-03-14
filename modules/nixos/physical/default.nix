@@ -8,7 +8,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical;
 in {
   options.nix-homelab.physical = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Physical system core setup");
     hostName = mkOption {
       type = str;
     };

@@ -8,7 +8,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.starship;
 in {
   options.nix-homelab.physical.starship = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Starship prompt");
   };
   config = mkIf cfg.enable {
     programs.starship = {

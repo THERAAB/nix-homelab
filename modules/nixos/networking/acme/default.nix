@@ -10,7 +10,7 @@ with lib.nix-homelab; let
   secrets-dir = "/var/lib/secrets";
 in {
   options.nix-homelab.networking.acme = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Acme setup");
   };
   config = mkIf cfg.enable {
     systemd.tmpfiles.rules = [

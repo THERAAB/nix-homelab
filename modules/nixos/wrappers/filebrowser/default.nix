@@ -15,7 +15,7 @@ with lib.nix-homelab; let
   dir-to-share = "/sync";
 in {
   options.nix-homelab.wrappers.filebrowser = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Filebrowser");
   };
   config = mkIf cfg.enable {
     users = {

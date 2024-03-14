@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.microvm.system;
 in {
   options.nix-homelab.microvm.system = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "System setup for microvms");
   };
   config = mkIf cfg.enable {
     environment = {

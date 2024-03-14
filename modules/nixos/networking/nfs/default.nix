@@ -12,7 +12,7 @@ with lib.nix-homelab; let
   backups-dir = "${nfs-dir}/backups";
 in {
   options.nix-homelab.networking.nfs = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Setup network fileshare permissions");
   };
   config = mkIf cfg.enable {
     systemd.tmpfiles.rules = [

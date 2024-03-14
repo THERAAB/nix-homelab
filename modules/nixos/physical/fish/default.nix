@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.fish;
 in {
   options.nix-homelab.physical.fish = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "System level fish setup");
   };
   config = mkIf cfg.enable {
     environment.shells = with pkgs; [fish];

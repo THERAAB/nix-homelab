@@ -13,7 +13,7 @@ with lib.nix-homelab; let
   local-config-dir = "/var/lib/${app-name}";
 in {
   options.nix-homelab.wrappers.prowlarr = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Prowlarr");
   };
   config = mkIf cfg.enable {
     users = {

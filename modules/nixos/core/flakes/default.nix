@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.core.flakes;
 in {
   options.nix-homelab.core.flakes = with types; {
-    enable = mkEnableOption (lib.mdDoc "Flakes");
+    enable = mkEnableOption (lib.mdDoc "Flakes setup");
   };
   config = mkIf cfg.enable {
     nix = {

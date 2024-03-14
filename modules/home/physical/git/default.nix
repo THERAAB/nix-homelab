@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   local-config-dir = "/nix/persist/home/raab/.config/";
 in {
   options.nix-homelab.physical.git = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Configure git for user");
   };
   config = mkIf cfg.enable {
     programs.git = {

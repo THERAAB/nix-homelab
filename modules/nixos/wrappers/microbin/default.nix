@@ -10,7 +10,7 @@ with lib.nix-homelab; let
   port = properties.ports.microbin;
 in {
   options.nix-homelab.wrappers.microbin = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Microbin");
   };
   config = mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [port];

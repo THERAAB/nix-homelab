@@ -18,7 +18,7 @@ with lib.nix-homelab; let
   system-icons-dir = "/nix/persist/nix-homelab/assets/icons";
 in {
   options.nix-homelab.wrappers.olivetin = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Olivetin");
   };
   config = mkIf cfg.enable {
     systemd.tmpfiles.rules = [

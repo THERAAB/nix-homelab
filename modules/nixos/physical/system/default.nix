@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.system;
 in {
   options.nix-homelab.physical.system = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "System for physical machines");
   };
   config = mkIf cfg.enable {
     security.auditd.enable = true;

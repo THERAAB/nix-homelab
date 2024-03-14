@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.core.system;
 in {
   options.nix-homelab.core.system = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Core shared system config");
   };
   config = mkIf cfg.enable {
     system.stateVersion = "23.11";

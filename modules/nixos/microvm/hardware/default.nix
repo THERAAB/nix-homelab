@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.microvm.hardware;
 in {
   options.nix-homelab.microvm.hardware = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Microvm hardware setup");
     hostName = mkOption {
       type = str;
     };

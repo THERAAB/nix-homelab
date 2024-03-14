@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.nox;
 in {
   options.nix-homelab.physical.nox = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Nox for executing common nixos tasks");
   };
   config = mkIf cfg.enable {
     environment.systemPackages = [

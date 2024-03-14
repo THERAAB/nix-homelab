@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   log-dir = "/var/log/smartd/";
 in {
   options.nix-homelab.physical.smartd = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "SMART monitoring");
   };
   config = mkIf cfg.enable {
     systemd.tmpfiles.rules = [

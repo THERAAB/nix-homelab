@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.microvm.podman;
 in {
   options.nix-homelab.microvm.podman = with types; {
-    enable = mkEnableOption (lib.mdDoc "Podman");
+    enable = mkEnableOption (lib.mdDoc "Podman setup");
   };
   config = mkIf cfg.enable {
     virtualisation.podman = {

@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.home;
 in {
   options.nix-homelab.physical.home = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Default home-manager values");
   };
   config = mkIf cfg.enable {
     home = {

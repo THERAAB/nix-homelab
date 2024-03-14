@@ -10,9 +10,7 @@
   ];
   nix-homelab = {
     physical.enable = true;
-    wrappers = {
-      olivetin.enable = true;
-    };
+    wrappers.olivetin.enable = true;
   };
   services.netdata.config.registry.enabled = "yes";
 }

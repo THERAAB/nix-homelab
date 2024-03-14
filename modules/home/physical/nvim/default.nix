@@ -8,7 +8,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.nvim;
 in {
   options.nix-homelab.physical.nvim = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Configure neovim");
   };
   config = mkIf cfg.enable {
     programs.neovim = {

@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.media;
 in {
   options.nix-homelab.media = with types; {
-    enable = mkEnableOption (lib.mdDoc "Media");
+    enable = mkEnableOption (lib.mdDoc "Media nfs setup");
   };
   config = mkIf cfg.enable {
     users = {

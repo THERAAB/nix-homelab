@@ -10,7 +10,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.autoUpgrade;
 in {
   options.nix-homelab.physical.autoUpgrade = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "System autoupgrade");
   };
   config = mkIf cfg.enable {
     systemd = {

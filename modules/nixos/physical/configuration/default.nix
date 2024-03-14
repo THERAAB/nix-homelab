@@ -10,7 +10,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.configuration;
 in {
   options.nix-homelab.physical.configuration = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Physical System configurations");
   };
   config = mkIf cfg.enable {
     nix = {

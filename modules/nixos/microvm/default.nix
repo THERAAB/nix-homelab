@@ -8,7 +8,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.microvm;
 in {
   options.nix-homelab.microvm = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Default microvm setup");
     hostName = mkOption {
       type = str;
       default = config.networking.hostName;

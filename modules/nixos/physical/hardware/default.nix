@@ -9,7 +9,7 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.hardware;
 in {
   options.nix-homelab.physical.hardware = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Physical system hardware");
   };
   config = mkIf cfg.enable {
     boot = {

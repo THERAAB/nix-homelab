@@ -13,7 +13,7 @@ with lib.nix-homelab; let
   local-config-dir = "/var/lib/${app-name}/";
 in {
   options.nix-homelab.wrappers.readarr = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Readarr");
   };
   config = mkIf cfg.enable {
     users = {

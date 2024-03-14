@@ -14,7 +14,7 @@ with lib.nix-homelab; let
   '';
 in {
   options.nix-homelab.services.olivetin = with types; {
-    enable = mkEnableOption (lib.mdDoc "OliveTin");
+    enable = mkEnableOption (lib.mdDoc "OliveTin command execution");
     settings = mkOption {
       default = null;
       type = nullOr (submodule {

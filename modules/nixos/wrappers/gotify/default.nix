@@ -11,7 +11,7 @@ with lib.nix-homelab; let
   app-name = "gotify";
 in {
   options.nix-homelab.wrappers.gotify = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Gotify");
   };
   config = mkIf cfg.enable {
     networking.firewall.allowedTCPPorts = [port];

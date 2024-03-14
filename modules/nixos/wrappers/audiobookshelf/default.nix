@@ -13,7 +13,7 @@ with lib.nix-homelab; let
   local-config-dir = "/var/lib/${app-name}";
 in {
   options.nix-homelab.wrappers.audiobookshelf = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Audiobookshelf");
   };
   config = mkIf cfg.enable {
     users = {

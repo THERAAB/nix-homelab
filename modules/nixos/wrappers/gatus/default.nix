@@ -16,7 +16,7 @@ with lib.nix-homelab; let
   conf = import ./config.nix;
 in {
   options.nix-homelab.wrappers.gatus = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Gatus");
   };
   config = mkIf cfg.enable {
     nix-homelab.services.yamlConfigMaker = {

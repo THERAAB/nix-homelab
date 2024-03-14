@@ -21,7 +21,7 @@ with lib.nix-homelab; let
   };
 in {
   options.nix-homelab.wrappers.homer = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Homer");
   };
   config = mkIf cfg.enable {
     nix-homelab.services.yamlConfigMaker."${app-name}" = {

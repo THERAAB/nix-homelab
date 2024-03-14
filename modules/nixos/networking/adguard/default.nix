@@ -11,7 +11,7 @@ with lib.nix-homelab; let
   filter-dir = "https://adguardteam.github.io/HostlistsRegistry/assets";
 in {
   options.nix-homelab.networking.adguard = with types; {
-    enable = mkEnableOption (lib.mdDoc "Adguard");
+    enable = mkEnableOption (lib.mdDoc "Adguard setup");
   };
   config = mkIf cfg.enable {
     networking.firewall = {

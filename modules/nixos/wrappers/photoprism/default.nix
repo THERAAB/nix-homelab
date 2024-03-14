@@ -13,7 +13,7 @@ with lib.nix-homelab; let
   originals-dir = "/var/lib/private/photoprism/originals";
 in {
   options.nix-homelab.wrappers.photoprism = with types; {
-    enable = mkEnableOption (lib.mdDoc "System");
+    enable = mkEnableOption (lib.mdDoc "Photoprism");
   };
   config = mkIf cfg.enable {
     services.${app-name} = {
