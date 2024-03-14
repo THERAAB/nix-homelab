@@ -6,7 +6,7 @@ in {
     ./adguard.nix
     ./hardware.nix
   ];
-  nix-homelab.services = {
+  nix-homelab.wrappers = {
     gatus.enable = true;
     homer.enable = true;
     gotify.enable = true;

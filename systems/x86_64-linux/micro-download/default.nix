@@ -4,7 +4,7 @@
   ];
   nix-homelab = {
     media.enable = true;
-    services = {
+    wrappers = {
       prowlarr.enable = true;
       radarr.enable = true;
       sonarr.enable = true;

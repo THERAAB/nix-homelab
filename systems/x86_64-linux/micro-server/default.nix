@@ -4,7 +4,7 @@ in {
   imports = [
     ./hardware.nix
   ];
-  nix-homelab.services = {
+  nix-homelab.wrappers = {
     filebrowser.enable = true;
     flatnotes.enable = true;
     linkding.enable = true;

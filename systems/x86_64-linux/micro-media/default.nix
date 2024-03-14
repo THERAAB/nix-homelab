@@ -4,7 +4,7 @@
   ];
   nix-homelab = {
     media.enable = true;
-    services = {
+    wrappers = {
       audiobookshelf.enable = true;
       jellyfin.enable = true;
       jellyseerr.enable = true;

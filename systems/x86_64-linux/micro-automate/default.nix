@@ -6,7 +6,7 @@ in {
     ./hardware.nix
     ./home-assistant
   ];
-  nix-homelab.services.home-assistant.enable = true;
+  nix-homelab.wrappers.home-assistant.enable = true;
   microvm = {
     devices = [
       {
