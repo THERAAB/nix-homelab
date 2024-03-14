@@ -40,7 +40,7 @@
       snowfall.namespace = "nix-homelab";
       channels-config.allowUnfree = true;
 
-      apps = inputs.nixinate.nixinate.x86_64-linux self;
+      apps = inputs.nixinate.nixinate.x86_64-linux self; #TODO deploy-rs, deploy microvm?
 
       systems = {
         hosts = {
