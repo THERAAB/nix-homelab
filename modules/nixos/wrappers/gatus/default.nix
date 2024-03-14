@@ -13,7 +13,7 @@ with lib.nix-homelab; let
   port = properties.ports.gatus;
   app-name = "gatus";
   local-config-dir = "/var/lib/${app-name}";
-  conf = import ./config.nix;
+  conf = import ./config.nix; #TODO: export
 in {
   options.nix-homelab.wrappers.gatus = with types; {
     enable = mkEnableOption (lib.mdDoc "Gatus");

@@ -1,6 +1,7 @@
 {properties, ...}: {
   nix-homelab.networking.adguard.enable = true;
   services.adguardhome.settings = {
+    #TODO: cleanup
     bind_host = properties.network.micro-infra.local.ip;
     dns = {
       bind_hosts = [properties.network.micro-infra.local.ip];

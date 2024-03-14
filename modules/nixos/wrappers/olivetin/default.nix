@@ -14,7 +14,7 @@ with lib.nix-homelab; let
   app-name = "olivetin";
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/var/lib/olivetin/scripts";
-  shellScript = pkgs.callPackage ./script.nix {};
+  shellScript = pkgs.callPackage ./script.nix {}; #TODO: export
   system-icons-dir = "/nix/persist/nix-homelab/assets/icons";
 in {
   options.nix-homelab.wrappers.olivetin = with types; {
@@ -33,7 +33,7 @@ in {
     ];
     nix-homelab.services.olivetin = {
       enable = true;
-      settings.actions = [
+      settings.actions = [ #TODO: export
         {
           title = "Reboot Nix-Hypervisor";
           icon = ''<img src = "customIcons/nixos.png" width = "48px"/>'';

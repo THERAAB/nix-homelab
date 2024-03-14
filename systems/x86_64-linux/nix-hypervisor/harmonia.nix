@@ -1,5 +1,6 @@
 {config, ...}: {
   services.harmonia = {
+    #TODO: move
     enable = true;
     signKeyPath = config.sops.secrets.harmonia_secret.path;
   };

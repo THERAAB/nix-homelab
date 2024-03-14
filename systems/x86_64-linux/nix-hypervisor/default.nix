@@ -12,5 +12,5 @@
     physical.enable = true;
     wrappers.olivetin.enable = true;
   };
-  services.netdata.config.registry.enabled = "yes";
+  services.netdata.config.registry.enabled = "yes"; #TODO: cleanup
 }

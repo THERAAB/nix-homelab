@@ -7,7 +7,7 @@
 with lib;
 with lib.nix-homelab; let
   cfg = config.nix-homelab.wrappers.home-assistant;
-  custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
+  custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom"; #TODO: export
   local-config-dir = "/var/lib/hass";
   port = properties.ports.home-assistant;
   app-name = "hass";

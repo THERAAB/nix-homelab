@@ -13,7 +13,7 @@ with lib.nix-homelab; let
   app-name = "homer";
   mount-icons-dir = "/icons";
   local-config-dir = "/var/lib/${app-name}";
-  conf = import ./config.nix;
+  conf = import ./config.nix; #TODO: export
   environment = {
     UMASK = "022";
     INIT_ASSETS = "0";

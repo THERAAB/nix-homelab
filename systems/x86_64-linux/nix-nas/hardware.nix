@@ -50,4 +50,12 @@ in {
       options = ["subvol=backups" "compress=zstd" "noatime"];
     };
   };
+  systemd.tmpfiles.rules = [
+    "d    ${media-dir}/downloads    -       -       -       -   - "
+    "d    ${media-dir}/movies       -       -       -       -   - "
+    "d    ${media-dir}/tv           -       -       -       -   - "
+    "d    ${media-dir}/audiobooks   -       -       -       -   - "
+    "d    ${media-dir}/podcasts     -       -       -       -   - "
+  ];
+  users.groups.media.gid = properties.users.media.gid;
 }
