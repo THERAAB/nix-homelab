@@ -13,18 +13,23 @@ with lib.nix-homelab; let
   port = properties.ports.gatus;
   app-name = "gatus";
   local-config-dir = "/var/lib/${app-name}";
-  conf = import ./config.nix; #TODO: export
 in {
   options.nix-homelab.wrappers.gatus = with types; {
     enable = mkEnableOption (lib.mdDoc "Gatus");
+    conf = mkOption {
+      type = with types;
+        nullOr (submodule {
+          freeformType = (pkgs.formats.yaml {}).type;
+        });
+    };
   };
   config = mkIf cfg.enable {
     nix-homelab.services.yamlConfigMaker = {
       gatus = {
         path = "${local-config-dir}/config.yaml";
         settings = {
-          alerting = conf.alerting;
-          endpoints = conf.endpoints;
+          alerting = cfg.conf.alerting;
+          endpoints = cfg.conf.endpoints;
         };
       };
     };
