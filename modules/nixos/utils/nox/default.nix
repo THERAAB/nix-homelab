@@ -68,7 +68,6 @@ in {
                 for NAME in $NAMES; do
                   echo $NAME
                   sudo microvm -Ru $NAME
-                  ${pkgs.coreutils-full}/bin/sleep 5
                 done
           esac
         ''
