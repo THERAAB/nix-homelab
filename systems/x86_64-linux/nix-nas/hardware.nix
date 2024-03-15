@@ -1,4 +1,5 @@
 {
+  config,
   properties,
   pkgs,
   ...
@@ -11,6 +12,9 @@ in {
     substituters = ["https://cache.${properties.network.domain}"];
     trusted-public-keys = ["cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
   };
+  security.sudo.extraConfig = ''
+    raab      ALL=(root)  NOPASSWD:/run/current-system/sw/bin/flock -w 60 /dev/shm/nixinate-${config.networking.hostName} nixos-rebuild switch --flake /nix/store/[a-zA-Z0-9]*-source\#${config.networking.hostName}
+  '';
   boot.initrd.availableKernelModules = ["sdhci_pci"];
   powerManagement.powerUpCommands = ''
     ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
