@@ -6,9 +6,9 @@
 }:
 with lib;
 with lib.nix-homelab; let
-  cfg = config.nix-homelab.physical.nox;
+  cfg = config.nix-homelab.utils.nox;
 in {
-  options.nix-homelab.physical.nox = with types; {
+  options.nix-homelab.utils.nox = with types; {
     enable = mkEnableOption (lib.mdDoc "Nox for executing common nixos tasks");
   };
   config = mkIf cfg.enable {
@@ -50,20 +50,13 @@ in {
               $git -C $dir pull
           }
           case "$1" in
-              inputs)
-                  inputs;;
-              rebuild)
-                  rebuild;;
-              commit)
-                  commit;;
-              update)
-                  update;;
-              gc)
-                  gc;;
-              status)
-                  status;;
-              pull)
-                  pull;;
+              inputs) inputs;;
+              rebuild) rebuild;;
+              commit) commit;;
+              update) update;;
+              gc) gc;;
+              status) status;;
+              pull) pull;;
           esac
         ''
       )

@@ -22,13 +22,13 @@ in {
         fish.enable = true;
         hardware.enable = true;
         netdata.enable = true;
-        nox.enable = true;
         smartd.enable = true;
         starship.enable = true;
         system.enable = true;
         users.enable = true;
         hardware-configuration.enable = true;
       };
+      utils.nox.enable = true;
     };
   };
 }
