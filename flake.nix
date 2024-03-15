@@ -19,7 +19,7 @@
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    deploy-rs.url = "github:serokell/deploy-rs";
+    nixinate.url = "github:matthewcroughan/nixinate";
   };
   outputs = inputs: let
     self = inputs.self;
@@ -39,6 +39,8 @@
       src = ./.;
       snowfall.namespace = "nix-homelab";
       channels-config.allowUnfree = true;
+      #TODO deploy microvm, ssh nopwd
+      apps = inputs.nixinate.nixinate.x86_64-linux self;
 
       systems = {
         hosts = {
@@ -81,34 +83,5 @@
           impermanence.nixosModules.home-manager.impermanence
         ];
       };
-
-      #TODO deploy microvm, ssh nopwd
-      deploy.nodes = {
-        nix-nas = {
-          hostname = "nix-nas";
-          interactiveSudo = true;
-          profiles = {
-            system = {
-              sshUser = "raab";
-              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nix-nas;
-              user = "root";
-              remoteBuild = true;
-            };
-          };
-        };
-        nix-hypervisor = {
-          hostname = "nix-hypervisor";
-          interactiveSudo = true;
-          profiles = {
-            system = {
-              sshUser = "raab";
-              path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos self.nixosConfigurations.nix-hypervisor;
-              user = "root";
-              remoteBuild = true;
-            };
-          };
-        };
-      };
-      checks = builtins.mapAttrs (system: deployLib: deployLib.deployChecks self.deploy) inputs.deploy-rs.lib;
     };
 }

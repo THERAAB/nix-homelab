@@ -61,5 +61,12 @@ in {
       smartmontools
       git
     ];
+    _module.args.nixinate = {
+      host = config.networking.hostName;
+      sshUser = "raab";
+      buildOn = "remote";
+      substituteOnTarget = true;
+      hermetic = false;
+    };
   };
 }
