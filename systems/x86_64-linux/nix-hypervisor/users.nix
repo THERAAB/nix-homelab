@@ -1,6 +1,7 @@
 {properties, ...}: {
   security.sudo.extraConfig = ''
-    olivetin ALL=(root) NOPASSWD:/var/lib/olivetin/scripts/commands.sh
+    olivetin  ALL=(root)  NOPASSWD:/var/lib/olivetin/scripts/commands.sh
+    raab      ALL=(root)  NOPASSWD:/run/current-system/sw/bin/nixos-rebuild
   '';
   users = {
     users = {
