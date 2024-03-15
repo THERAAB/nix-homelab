@@ -2,6 +2,7 @@
   lib,
   config,
   properties,
+  pkgs,
   ...
 }:
 with lib;
@@ -13,7 +14,6 @@ with lib.nix-homelab; let
   app-name = "homer";
   mount-icons-dir = "/icons";
   local-config-dir = "/var/lib/${app-name}";
-  conf = import ./config.nix; #TODO: export
   environment = {
     UMASK = "022";
     INIT_ASSETS = "0";
@@ -22,11 +22,17 @@ with lib.nix-homelab; let
 in {
   options.nix-homelab.wrappers.homer = with types; {
     enable = mkEnableOption (lib.mdDoc "Homer");
+    conf = mkOption {
+      type = with types;
+        nullOr (submodule {
+          freeformType = (pkgs.formats.yaml {}).type;
+        });
+    };
   };
   config = mkIf cfg.enable {
     nix-homelab.services.yamlConfigMaker."${app-name}" = {
       path = "${local-config-dir}/config.yml";
-      settings = conf;
+      settings = cfg.conf;
     };
     systemd.tmpfiles.rules = [
       "d    ${local-config-dir}            -   -               -               -   -                     "

@@ -10,7 +10,10 @@
         enable = true;
         conf = import ./gatus.nix;
       };
-      homer.enable = true;
+      homer = {
+        enable = true;
+        conf = import ./homer.nix;
+      };
       gotify.enable = true;
       unifi.enable = true;
     };
