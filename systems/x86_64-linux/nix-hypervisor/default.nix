@@ -12,5 +12,5 @@
     wrappers.olivetin.enable = true;
     networking.harmonia.enable = true;
   };
-  services.netdata.config.registry.enabled = "yes"; #TODO: cleanup
+  services.netdata.config.registry.enabled = "yes";
 }

@@ -1,6 +1,6 @@
 {config, ...}: let
   custom-blueprints-dir = "/var/lib/hass/blueprints/automation/custom";
-  system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/micro-automate/home-assistant/blueprints"; #TODO: move?
+  system-blueprints-dir = "/nix/persist/nix-homelab/systems/x86_64-linux/micro-automate/home-assistant/blueprints"; 
 in {
   networking.hostName = "micro-automate";
   microvm = {

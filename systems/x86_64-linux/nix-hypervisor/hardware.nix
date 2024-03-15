@@ -3,7 +3,7 @@
   boot.kernelParams = ["intel_iommu=on" "iommu=pt"];
   networking.hostName = "nix-hypervisor";
   services.irqbalance.enable = true;
-  systemd.timers.nix-flake-update.timerConfig.OnCalendar = "Sun *-*-* 04:20:00"; # TODO: move
+  systemd.timers.nix-flake-update.timerConfig.OnCalendar = "Sun *-*-* 04:20:00";
   system.autoUpgrade.dates = "Sun *-*-* 04:30:00";
   fileSystems = {
     "/backups" = {

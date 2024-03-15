@@ -6,5 +6,5 @@
     physical.enable = true;
     networking.nfs.enable = true;
   };
-  services.netdata.config.registry.enabled = "no"; #TODO: move
+  services.netdata.config.registry.enabled = "no";
 }
