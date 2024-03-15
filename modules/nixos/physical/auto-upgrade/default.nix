@@ -10,7 +10,6 @@ with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.autoUpgrade;
 in {
   options.nix-homelab.physical.autoUpgrade = with types; {
-    #TODO: microvm update
     enable = mkEnableOption (lib.mdDoc "System autoupgrade");
   };
   config = mkIf cfg.enable {
