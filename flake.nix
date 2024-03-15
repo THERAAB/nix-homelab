@@ -39,7 +39,7 @@
       src = ./.;
       snowfall.namespace = "nix-homelab";
       channels-config.allowUnfree = true;
-      #TODO deploy microvm, ssh nopwd
+      #TODO deploy microvm
       apps = inputs.nixinate.nixinate.x86_64-linux self;
 
       systems = {
