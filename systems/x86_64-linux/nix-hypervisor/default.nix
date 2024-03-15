@@ -6,10 +6,10 @@
     ./syncthing.nix
     ./restic.nix
     ./microvm.nix
+    ./olivetin
   ];
   nix-homelab = {
     physical.enable = true;
-    wrappers.olivetin.enable = true;
     networking.harmonia.enable = true;
   };
   services.netdata.config.registry.enabled = "yes";
