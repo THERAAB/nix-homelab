@@ -57,6 +57,19 @@ in {
               gc) gc;;
               status) status;;
               pull) pull;;
+              micro)
+                if [ $# -lt 2 ]; then
+                  NAMES="$(ls -1 /var/lib/microvms)"
+                else
+                  shift
+                  NAMES="$@"
+                fi
+
+                for NAME in $NAMES; do
+                  echo $NAME
+                  sudo microvm -Ru $NAME
+                  ${pkgs.coreutils-full}/bin/sleep 5
+                done
           esac
         ''
       )

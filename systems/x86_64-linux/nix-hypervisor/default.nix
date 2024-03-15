@@ -11,7 +11,6 @@
   nix-homelab = {
     physical.enable = true;
     networking.harmonia.enable = true;
-    utils.nox-micro.enable = true;
   };
   services.netdata.config.registry.enabled = "yes";
 }
