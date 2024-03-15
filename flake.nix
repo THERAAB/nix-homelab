@@ -82,7 +82,7 @@
         ];
       };
 
-      #TODO deploy microvm?
+      #TODO deploy microvm, ssh nopwd
       deploy.nodes = {
         nix-nas = {
           hostname = "nix-nas";
