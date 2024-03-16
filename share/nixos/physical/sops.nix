@@ -12,10 +12,7 @@
         owner = "raab";
         path = "/nix/persist/home/raab/.config/.gitconfig";
       };
-      gotify_gatus_token = {};
       gotify_homelab_token = {};
-      restic_password = {};
-      netdata_alarm = {};
       git_ssh_key = {
         owner = "raab";
         path = "/nix/persist/home/raab/.ssh/id_rsa";

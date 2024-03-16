@@ -15,12 +15,12 @@
       "/etc/nixos"
       "/var/log"
       "/var/lib/"
-      "/var/cache/netdata"
-      "/var/www/"
       "/etc/NetworkManager/system-connections"
       "/etc/ssh"
     ];
     files = [
+      "/var/cache/locatedb"
+      "/root/.ssh/known_hosts"
       "/etc/machine-id"
       {
         file = "/etc/nix/id_rsa";
