@@ -13,6 +13,7 @@ in {
   };
   config = mkIf cfg.enable {
     environment.systemPackages = [
+      #TODO improve
       (
         pkgs.writeScriptBin "nox" ''
 
