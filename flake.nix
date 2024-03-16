@@ -41,48 +41,28 @@
       apps = inputs.nixinate.nixinate.x86_64-linux self;
 
       systems = {
+        modules.nixos = with inputs; [
+          home-manager.nixosModules.home-manager
+          impermanence.nixosModules.impermanence
+          sops-nix.nixosModules.sops
+        ];
         hosts = {
           nix-hypervisor = {
-            #TODO: cleanup
             modules = with inputs; [
               microvm.nixosModules.host
-              home-manager.nixosModules.home-manager
-              impermanence.nixosModules.impermanence
-              sops-nix.nixosModules.sops
             ];
             specialArgs = {
               inherit self properties;
             };
           };
-          nix-nas = {
-            modules = with inputs; [
-              home-manager.nixosModules.home-manager
-              impermanence.nixosModules.impermanence
-              sops-nix.nixosModules.sops
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
+          nix-nas.specialArgs = {
+            inherit self properties;
           };
-          nix-zenbook = {
-            modules = with inputs; [
-              home-manager.nixosModules.home-manager
-              impermanence.nixosModules.impermanence
-              sops-nix.nixosModules.sops
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
+          nix-zenbook.specialArgs = {
+            inherit self properties;
           };
-          nix-desktop = {
-            modules = with inputs; [
-              home-manager.nixosModules.home-manager
-              impermanence.nixosModules.impermanence
-              sops-nix.nixosModules.sops
-            ];
-            specialArgs = {
-              inherit self properties;
-            };
+          nix-desktop.specialArgs = {
+            inherit self properties;
           };
           micro-media = microvm-config;
           micro-server = microvm-config;
