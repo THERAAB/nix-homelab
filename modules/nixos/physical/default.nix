@@ -20,13 +20,11 @@ in {
         autoUpgrade.enable = true;
         configuration.enable = true;
         fish.enable = true;
-        hardware.enable = true;
-        netdata.enable = true;
-        smartd.enable = true;
         starship.enable = true;
+        hardware.enable = true;
+        hardware-configuration.enable = true;
         system.enable = true;
         users.enable = true;
-        hardware-configuration.enable = true;
       };
       utils.nox.enable = true;
     };

@@ -17,9 +17,7 @@ in {
     time.timeZone = "America/New_York";
     i18n.defaultLocale = "en_US.utf8";
     environment = {
-      variables = {
-        EDITOR = "nvim";
-      };
+      variables.EDITOR = "nvim";
       systemPackages = with pkgs; [
         neovim
         pciutils

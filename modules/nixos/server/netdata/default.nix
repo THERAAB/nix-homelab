@@ -7,11 +7,11 @@
 }:
 with lib;
 with lib.nix-homelab; let
-  cfg = config.nix-homelab.physical.netdata;
+  cfg = config.nix-homelab.server.netdata;
   port = properties.ports.netdata;
   app-name = "netdata";
 in {
-  options.nix-homelab.physical.netdata = with types; {
+  options.nix-homelab.server.netdata = with types; {
     enable = mkEnableOption (lib.mdDoc "Netdata monitoring/alerting");
   };
   config = mkIf cfg.enable {

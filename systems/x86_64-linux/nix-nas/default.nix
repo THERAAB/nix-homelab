@@ -1,10 +1,10 @@
 {self, ...}: {
   imports = [
-    (self + /share/nixos/physical)
+    (self + /share/nixos/server)
     ./hardware.nix
   ];
   nix-homelab = {
-    physical.enable = true;
+    server.enable = true;
     networking.nfs.enable = true;
   };
   services.netdata.config.registry.enabled = "no";

@@ -1,6 +1,6 @@
 {self, ...}: {
   imports = [
-    (self + /share/nixos/physical)
+    (self + /share/nixos/server)
     ./users.nix
     ./hardware.nix
     ./sops.nix
@@ -8,9 +8,10 @@
     ./restic.nix
     ./microvm.nix
     ./olivetin
+    ./update-flake.nix
   ];
   nix-homelab = {
-    physical.enable = true;
+    server.enable = true;
     networking.harmonia.enable = true;
   };
   services.netdata.config.registry.enabled = "yes";

@@ -13,20 +13,16 @@ in {
   config = mkIf cfg.enable {
     nix-homelab = {
       workstation = {
-        boot.enable = true;
         auto-upgrade.enable = true;
         configuration.enable = true;
         plymouth.enable = true;
-        fish.enable = true;
         gnome.enable = true;
         hardware.enable = true;
-        starship.enable = true;
         syncthing.enable = true;
         system.enable = true;
-        users.enable = true;
         hardware-configuration.enable = true;
       };
-      utils.nox.enable = true;
+      physical.enable = true;
     };
     programs.firefox.enable = true;
   };

@@ -14,10 +14,7 @@ in {
   config = mkIf cfg.enable {
     security.auditd.enable = true;
     services = {
-      tailscale = {
-        enable = true;
-        extraUpFlags = ["--ssh"];
-      };
+      tailscale.enable = true;
       locate = {
         enable = true;
         package = pkgs.plocate;

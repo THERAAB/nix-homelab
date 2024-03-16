@@ -13,23 +13,12 @@ in {
   config = mkIf cfg.enable {
     boot = {
       initrd = {
-        availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+        availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
         kernelModules = [];
       };
-      kernelModules = ["kvm-intel"];
       extraModulePackages = [];
     };
     fileSystems = {
-      "/" = {
-        device = "none";
-        fsType = "tmpfs";
-        options = ["size=8G" "mode=755"];
-      };
-      "/home/raab" = {
-        device = "none";
-        fsType = "tmpfs";
-        options = ["size=4G" "mode=777"];
-      };
       "/nix" = {
         device = "/dev/disk/by-label/nixos";
         fsType = "btrfs";
@@ -46,9 +35,7 @@ in {
         fsType = "vfat";
       };
     };
-    swapDevices = [];
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     networking.useDHCP = lib.mkDefault true;
-    powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-    hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   };
 }
