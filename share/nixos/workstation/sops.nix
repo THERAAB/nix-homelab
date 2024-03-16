@@ -1,5 +1,5 @@
 {self, ...}: {
-  sops = {
+  sops = { #TODO merge
     defaultSopsFile = self + /secrets/secrets.yaml;
     age = {
       keyFile = "/var/lib/sops-nix/key.txt";
