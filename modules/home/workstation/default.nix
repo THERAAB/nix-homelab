@@ -25,5 +25,6 @@ in {
       };
       physical.enable = true;
     };
+    programs.atuin.enable = true;
   };
 }
