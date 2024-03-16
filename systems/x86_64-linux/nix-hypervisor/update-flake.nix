@@ -20,13 +20,13 @@
         coreutils-full
       ];
     };
-    timers.nix-flake-update = {
-      wantedBy = ["timers.target"];
-      timerConfig = {
-        OnCalendar = lib.mkDefault "Sun *-*-* 04:40:00";
-        Persistent = "true";
-        Unit = "nix-flake-update.service";
-      };
+  };
+  timers.nix-flake-update = {
+    wantedBy = ["timers.target"];
+    timerConfig = {
+      OnCalendar = lib.mkDefault "Sun *-*-* 04:40:00";
+      Persistent = "true";
+      Unit = "nix-flake-update.service";
     };
   };
 }
