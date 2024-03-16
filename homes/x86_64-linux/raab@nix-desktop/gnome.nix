@@ -1,8 +1,8 @@
 {...}: {
   dconf.settings = {
     "org/gnome/desktop/background" = {
-      picture-uri = "file:///nix/persist/nix-homelab/systems/x86_64-linux/nix-desktop/assets/wall.jpg";
-      picture-uri-dark = "file:///nix/persist/nix-homelab/systems/x86_64-linux/nix-desktop/assets/wall.jpg";
+      picture-uri = "file:///nix/persist/nix-homelab/assets/wallpapers/desktop/wall.jpg";
+      picture-uri-dark = "file:///nix/persist/nix-homelab/assets/wallpapers/desktop/wall.jpg";
     };
     "org/gnome/desktop/interface" = {
       enable-hot-corners = false;
