@@ -11,19 +11,19 @@ in {
     enable = mkEnableOption (lib.mdDoc "Setup workstation");
   };
   config = mkIf cfg.enable {
-    nix-homelab.workstation = {
-      ulauncher.enable = true;
-      git.enable = true;
-      dconf.enable = true;
-      firefox.enable = true;
-      fish.enable = true;
-      gnome.enable = true;
-      gtk.enable = true;
-      home.enable = true;
-      kitty.enable = true;
-      nvim.enable = true;
-      vscode.enable = true;
-      persist.enable = true;
+    nix-homelab = {
+      workstation = {
+        ulauncher.enable = true;
+        dconf.enable = true;
+        firefox.enable = true;
+        gnome.enable = true;
+        gtk.enable = true;
+        pkgs.enable = true;
+        kitty.enable = true;
+        vscode.enable = true;
+        persist.enable = true;
+      };
+      physical.enable = true;
     };
   };
 }

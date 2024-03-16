@@ -6,18 +6,12 @@
 }:
 with lib;
 with lib.nix-homelab; let
-  cfg = config.nix-homelab.workstation.home;
+  cfg = config.nix-homelab.workstation.pkgs;
 in {
-  options.nix-homelab.workstation.home = with types; {
+  options.nix-homelab.workstation.pkgs = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup home");
   };
   config = mkIf cfg.enable {
-    home = {
-      username = "raab";
-      homeDirectory = "/home/raab";
-      stateVersion = "23.11";
-    };
-    programs.home-manager.enable = true;
     home.packages = with pkgs; [
       gimp
       vmware-horizon-client
@@ -29,11 +23,9 @@ in {
       zoom-us
       glibc
       file
-      ncdu_2
       tree
       strace
       ventoy-full
-      lm_sensors
       ffmpeg
       audible-cli
       aaxtomp3

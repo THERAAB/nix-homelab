@@ -6,15 +6,18 @@
 with lib;
 with lib.nix-homelab; let
   cfg = config.nix-homelab.physical.git;
-  local-config-dir = "/nix/persist/home/raab/.config/";
 in {
   options.nix-homelab.physical.git = with types; {
-    enable = mkEnableOption (lib.mdDoc "Configure git for user");
+    enable = mkEnableOption (lib.mdDoc "Setup git");
+    config-dir = mkOption {
+      type = str;
+      default = "/nix/persist/home/raab/.config";
+    };
   };
   config = mkIf cfg.enable {
     programs.git = {
       includes = [
-        {path = "${local-config-dir}/.gitconfig";}
+        {path = "${cfg.config-dir}/.gitconfig";}
       ];
       enable = true;
       userName = "THERAAB";
