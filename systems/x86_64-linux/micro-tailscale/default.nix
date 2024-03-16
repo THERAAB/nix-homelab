@@ -1,6 +1,6 @@
 {self, ...}: {
   imports = [
-    (self + /share/microvm)
+    (self + /share/nixos/microvm)
     ./hardware.nix
     ./adguard-tailscale.nix
     ./caddy.nix

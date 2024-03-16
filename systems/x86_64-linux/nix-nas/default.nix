@@ -1,6 +1,6 @@
 {self, ...}: {
   imports = [
-    (self + /share/physical/nixos)
+    (self + /share/nixos/physical)
     ./hardware.nix
   ];
   nix-homelab = {

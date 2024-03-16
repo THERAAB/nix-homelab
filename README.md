@@ -16,6 +16,9 @@ My NixOS Homelab, with each machine having some shared configuration
 - Secret management with [sops-nix](https://github.com/Mic92/sops-nix/blob/master/README.md)
 - Dependency pinning with [Nix Flakes](https://nixos.wiki/wiki/Flakes)
 - Local user declarative setup with [Home Manager](https://github.com/nix-community/home-manager)
+- [GNOME](https://www.gnome.org/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
+- [Catppuccin](https://github.com/catppuccin/catppuccin) for theming
+- [Forge](https://github.com/forge-ext/forge) for tiling window management
 - [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
 
 ## Nix-Hypervisor
@@ -25,6 +28,14 @@ Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://gith
 ## Nix-Nas
 
 See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-nas/README.md)
+
+## Nix-Desktop
+
+My desktop. See [Nix-Desktop README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-desktop/README.md)
+
+## Nix-Zenbook
+
+My laptop. See [Nix-Zenbook README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-zenbook/README.md)
 
 ## Maintenance
 

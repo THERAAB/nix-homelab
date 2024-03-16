@@ -63,6 +63,26 @@
               inherit self properties;
             };
           };
+          nix-zenbook = {
+            modules = with inputs; [
+              home-manager.nixosModules.home-manager
+              impermanence.nixosModules.impermanence
+              sops-nix.nixosModules.sops
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
+          nix-desktop = {
+            modules = with inputs; [
+              home-manager.nixosModules.home-manager
+              impermanence.nixosModules.impermanence
+              sops-nix.nixosModules.sops
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
+          };
           micro-media = microvm-config;
           micro-server = microvm-config;
           micro-infra = microvm-config;
@@ -76,6 +96,12 @@
           impermanence.nixosModules.home-manager.impermanence
         ];
         "raab@nix-nas".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+        ];
+        "raab@nix-desktop".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+        ];
+        "raab@nix-zenbook".modules = with inputs; [
           impermanence.nixosModules.home-manager.impermanence
         ];
       };
