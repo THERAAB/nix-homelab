@@ -43,6 +43,7 @@
       systems = {
         hosts = {
           nix-hypervisor = {
+            #TODO: cleanup
             modules = with inputs; [
               microvm.nixosModules.host
               home-manager.nixosModules.home-manager
