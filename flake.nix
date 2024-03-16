@@ -27,7 +27,6 @@
     microvm-config = {
       modules = with inputs; [
         microvm.nixosModules.microvm
-        ./share/microvm
       ];
       specialArgs = {
         inherit self properties;
@@ -49,7 +48,6 @@
               home-manager.nixosModules.home-manager
               impermanence.nixosModules.impermanence
               sops-nix.nixosModules.sops
-              ./share/physical/nixos
             ];
             specialArgs = {
               inherit self properties;
@@ -60,7 +58,6 @@
               home-manager.nixosModules.home-manager
               impermanence.nixosModules.impermanence
               sops-nix.nixosModules.sops
-              ./share/physical/nixos
             ];
             specialArgs = {
               inherit self properties;

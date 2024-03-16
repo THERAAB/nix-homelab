@@ -1,5 +1,6 @@
-{...}: {
+{self, ...}: {
   imports = [
+    (self + /share/physical/nixos)
     ./users.nix
     ./hardware.nix
     ./sops.nix

@@ -1,5 +1,6 @@
-{...}: {
+{self, ...}: {
   imports = [
+    (self + /share/microvm)
     ./hardware.nix
   ];
   nix-homelab = {
