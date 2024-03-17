@@ -224,6 +224,24 @@ in {
           url = "https://olivetin.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Grafana";
+          logo = "assets/icons/grafana.png";
+          subtitle = "View Homelab Metrics";
+          tag = "monitoring";
+          keywords = "metrics monitoring";
+          url = "https://grafana.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Prometheus";
+          logo = "assets/icons/prometheus.png";
+          subtitle = "Query Homelab Metrics";
+          tag = "metrics";
+          keywords = "metrics monitoring";
+          url = "https://prometheus.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
     {

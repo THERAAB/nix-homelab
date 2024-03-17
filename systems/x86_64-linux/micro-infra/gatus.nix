@@ -30,6 +30,32 @@ in {
       ];
     }
     {
+      name = "Grafana";
+      url = "https://grafana.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>Grafana</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
+      name = "Prometheus";
+      url = "https://prometheus.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>Prometheus</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
       name = "Harmonia Cache";
       url = "https://cache.${network.domain}/";
       conditions = [

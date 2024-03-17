@@ -1,11 +1,15 @@
 {properties, ...}: {
-  networking.firewall.allowedTCPPorts = [2344 9001 9002];
+  networking.firewall.allowedTCPPorts = [
+    properties.ports.grafana
+    properties.ports.prometheus
+    properties.ports.prometheus-node
+  ];
   services.grafana = {
     enable = true;
-    domain = "grafana.${properties.network.domain}";
     settings.server = {
+      domain = "grafana.${properties.network.domain}";
       http_port = properties.ports.grafana;
-      http_addr = "127.0.0.1";
+      http_addr = "0.0.0.0";
     };
   };
   services.prometheus = {
