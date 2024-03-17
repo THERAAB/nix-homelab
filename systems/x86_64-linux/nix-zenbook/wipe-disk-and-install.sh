@@ -67,7 +67,7 @@ sudo git clone https://github.com/THERAAB/nix-homelab /mnt/nix/persist/nix-homel
 cd /mnt/nix/persist/nix-homelab
 
 # Before nix-install we need to place ssdt-csc3551 in /boot to fix audio
-sudo cp /mnt/nix/persist/nix-homelab/systems/x86_64-linux/nix-zenbook/ssdt-csc3551.aml /mnt/boot
+sudo cp /mnt/nix/persist/nix-homelab/bin/nix-zenbook/ssdt-csc3551.aml /mnt/boot
 
 # Install NixOs
 sudo nixos-install --flake .#nix-zenbook
