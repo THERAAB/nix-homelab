@@ -1,5 +1,9 @@
-{config, ...}: let
-  hypervisor-icons-dir = "/nix/persist/nix-homelab/assets/icons";
+{
+  config,
+  self,
+  ...
+}: let
+  hypervisor-icons-dir = self + "/assets/icons";
   mount-icons-dir = "/icons";
 in {
   networking.hostName = "micro-infra";

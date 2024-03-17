@@ -1,4 +1,5 @@
 {
+  self,
   properties,
   pkgs,
   ...
@@ -10,7 +11,7 @@
   www-dir = "/var/www/${app-name}";
   scripts-dir = "/var/lib/olivetin/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
-  system-icons-dir = "/nix/persist/nix-homelab/assets/icons";
+  system-icons-dir = self + "/assets/icons";
 in {
   systemd.tmpfiles.rules = [
     "R  ${www-dir}                    -           -               -               -   -                                     "
