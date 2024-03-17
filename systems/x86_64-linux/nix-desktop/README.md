@@ -2,6 +2,12 @@
 
 A [NixOS](https://nixos.org/) configuration repository for my desktop dotfiles.
 
+## What's inside
+
+- [GNOME](https://www.gnome.org/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
+- [Catppuccin](https://github.com/catppuccin/catppuccin) for theming
+- [Forge](https://github.com/forge-ext/forge) for tiling window management
+
 ## Installation
 
 This repo contains some customizations for my specific setup, and you likely won't be able to follow these instructions exactly

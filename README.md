@@ -11,55 +11,29 @@ This repo contains everything needed to rebuild my homelab from scratch, with th
 My NixOS Homelab, with each machine having some shared configuration
 
 - Declarative/Reproducible builds using [NixOS](https://nixos.org/)
+- [Microvm.nix](https://astro.github.io/microvm.nix/) for microvm servers
 - [Snowfall](https://snowfall.org/guides/lib/quickstart/) project structure
 - An Ephemeral root/home storage scheme (See [Erase your darlings](https://grahamc.com/blog/erase-your-darlings) and [NixOS Impermanence](https://github.com/nix-community/impermanence))
 - Secret management with [sops-nix](https://github.com/Mic92/sops-nix/blob/master/README.md)
 - Dependency pinning with [Nix Flakes](https://nixos.wiki/wiki/Flakes)
-- Local user declarative setup with [Home Manager](https://github.com/nix-community/home-manager)
-- [GNOME](https://www.gnome.org/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
-- [Catppuccin](https://github.com/catppuccin/catppuccin) for theming
-- [Forge](https://github.com/forge-ext/forge) for tiling window management
 - [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page) file system (Copy on Write, Compression)
+- Local user declarative setup with [Home Manager](https://github.com/nix-community/home-manager)
+- Check the `nox` command [here](https://github.com/THERAAB/nix-homelab/blob/main/modules/nixos/utils/nox/default.nix) for common maintenance tasks
 
-## Nix-Hypervisor
+### Machines
+
+#### Nix-Hypervisor
 
 Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-hypervisor/README.md)
 
-## Nix-Nas
+#### Nix-Nas
 
-See [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-nas/README.md)
+Nixos config for my nfs/media NAS, see [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-nas/README.md)
 
-## Nix-Desktop
+#### Nix-Desktop
 
-My desktop. See [Nix-Desktop README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-desktop/README.md)
+My desktop, see [Nix-Desktop README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-desktop/README.md)
 
-## Nix-Zenbook
+#### Nix-Zenbook
 
-My laptop. See [Nix-Zenbook README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-zenbook/README.md)
-
-## Maintenance
-
-These commands might help with some common maintenance tasks
-
-```console
-# Check recent NixOs generations
-sudo nix-env -p /nix/var/nix/profiles/system --list-generations
-
-# Check last boot logs of certain priority (0-5)
-journalctl -b -1 -p 0..5
-
-# Add/modify secrets
-sops /nix/persist/nix-homelab/secrets/secrets.yaml
-
-# See anything not persisted by NixOs Persistence module (non 0B files will be wiped on boot)
-ncdu -x /
-
-# List systemd units
-systemctl list-units
-
-# Check unit failures
-journalctl -u ${unit-name}
-
-# Update microvm
-sudo microvm -Ru ${microvm}
-```
+My laptop, see [Nix-Zenbook README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-zenbook/README.md)

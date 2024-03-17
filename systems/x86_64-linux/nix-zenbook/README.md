@@ -1,6 +1,12 @@
 # Nix-Zenbook
 
-A [NixOS](https://nixos.org/) configuration repository for my zenbook.
+A [NixOS](https://nixos.org/) configuration repository for my zenbook laptop.
+
+## What's inside
+
+- [GNOME](https://www.gnome.org/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
+- [Catppuccin](https://github.com/catppuccin/catppuccin) for theming
+- [Forge](https://github.com/forge-ext/forge) for tiling window management
 
 ## Installation
 
