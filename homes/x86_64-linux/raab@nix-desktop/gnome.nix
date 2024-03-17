@@ -1,5 +1,5 @@
 {...}: let
-  background = "file:///nix/persist/nix-homelab/assets/wallpapers/desktop/wall.jpg";
+  background = "file:///nix/persist/nix-homelab/assets/wallpapers/nix-desktop/wall.jpg";
 in {
   dconf.settings = {
     "org/gnome/desktop/background" = {
