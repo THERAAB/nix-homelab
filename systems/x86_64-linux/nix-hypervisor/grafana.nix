@@ -54,16 +54,18 @@
         max_transfer_retries = 0;
       };
       schema_config = {
-        configs = {
-          from = "2020-10-24";
-          store = "boltdb-shipper";
-          object_store = "filesystem";
-          schema = "v11";
-          index = {
-            prefix = "index_";
-            period = "24h";
-          };
-        };
+        configs = [
+          {
+            from = "2020-10-24";
+            store = "boltdb-shipper";
+            object_store = "filesystem";
+            schema = "v11";
+            index = {
+              prefix = "index_";
+              period = "24h";
+            };
+          }
+        ];
       };
       storage_config = {
         boltdb_shipper = {
@@ -93,21 +95,29 @@
         grpc_listen_port = 0;
       };
       positions.filename = "/tmp/positions.yaml";
-      clients.url = "http://127.0.0.1:${toString properties.ports.loki}/loki/api/v1/push";
-      scrape_configs = {
-        job_name = "journal";
-        journal = {
-          max_age = "12h";
-          labels = {
-            job = "systemd-journal";
-            host = "node-exporter";
+      clients = [
+        {
+          url = "http://127.0.0.1:${toString properties.ports.loki}/loki/api/v1/push";
+        }
+      ];
+      scrape_configs = [
+        {
+          job_name = "journal";
+          journal = {
+            max_age = "12h";
+            labels = {
+              job = "systemd-journal";
+              host = "node-exporter";
+            };
           };
-        };
-        relabel_configs = {
-          source_labels = ["__journal__systemd_unit"];
-          target_label = "unit";
-        };
-      };
+          relabel_configs = [
+            {
+              source_labels = ["__journal__systemd_unit"];
+              target_label = "unit";
+            }
+          ];
+        }
+      ];
     };
   };
 }
