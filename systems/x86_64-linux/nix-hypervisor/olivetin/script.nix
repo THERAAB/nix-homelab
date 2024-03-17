@@ -23,6 +23,10 @@ pkgs.writeShellScript "commands.sh" ''
     echo rebooting server
     reboot now
   }
+  function update_microvms() {
+    echo updating microvms
+    nox micro-local
+  }
 
   # Check inputs
   if [[ $# -gt 2 ]] || [[ $# -eq 0 ]];then
@@ -37,6 +41,8 @@ pkgs.writeShellScript "commands.sh" ''
     restart_microvm $2
   elif [[ $1 == "-r" ]]; then
     restart_server
+  elif [[ $1 == "-u" ]]; then
+    update_microvms
   else
     echo "Incorrect input provided $1"
     show_usage

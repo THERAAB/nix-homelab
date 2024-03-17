@@ -32,6 +32,12 @@ in {
         timeout = 20;
       }
       {
+        title = "Update Microvms";
+        icon = ''<img src = "customIcons/update.png" width = "48px"/>'';
+        shell = "sudo /var/lib/olivetin/scripts/commands.sh -u";
+        timeout = 20;
+      }
+      {
         title = "Reboot Micro-Server";
         icon = ''<img src = "customIcons/reboot.png" width = "48px"/>'';
         shell = "sudo /var/lib/olivetin/scripts/commands.sh -m micro-server";
