@@ -20,9 +20,9 @@ My NixOS Homelab, with each machine having some shared configuration
 - Local user declarative setup with [Home Manager](https://github.com/nix-community/home-manager)
 - Check the `nox` command [here](https://github.com/THERAAB/nix-homelab/blob/main/modules/nixos/utils/nox/default.nix) for common maintenance tasks
 
-### Machines
+## Machines
 
-#### Nix-Hypervisor
+### Nix-Hypervisor
 
 Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-hypervisor/README.md)
 
