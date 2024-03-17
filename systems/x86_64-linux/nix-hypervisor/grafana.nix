@@ -4,6 +4,7 @@
     prometheus
     prometheus-node
     loki
+    promtail
   ];
   services.grafana = {
     enable = true;
@@ -88,11 +89,11 @@
     enable = true;
     configuration = {
       server = {
-        http_listen_port = properties.ports.loki;
+        http_listen_port = properties.ports.promtail;
         grpc_listen_port = 0;
       };
       positions.filename = "/tmp/positions.yaml";
-      clients.url = "http://127.0.0.1:3100/loki/api/v1/push";
+      clients.url = "http://127.0.0.1:${toString properties.ports.loki}/loki/api/v1/push";
       scrape_configs = {
         job_name = "journal";
         journal = {
