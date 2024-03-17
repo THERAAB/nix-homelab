@@ -26,14 +26,14 @@ My NixOS Homelab, with each machine having some shared configuration
 
 Hypervisor for various Microvms, see [The Nix-Hypervisor README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-hypervisor/README.md)
 
-#### Nix-Nas
+### Nix-Nas
 
 Nixos config for my nfs/media NAS, see [The Nix-Nas README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-nas/README.md)
 
-#### Nix-Desktop
+### Nix-Desktop
 
 My desktop, see [Nix-Desktop README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-desktop/README.md)
 
-#### Nix-Zenbook
+### Nix-Zenbook
 
 My laptop, see [Nix-Zenbook README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-zenbook/README.md)
