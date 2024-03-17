@@ -154,6 +154,20 @@
           reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.prowlarr}
         '';
       };
+      "grafana.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.grafana}
+        '';
+      };
+      "prometheus.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.prometheus}
+        '';
+      };
       "movies.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''

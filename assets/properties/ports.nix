@@ -25,4 +25,7 @@
   photoprism = 2342;
   syncthing = 8384;
   harmonia = 5000;
+  grafana = 2344;
+  prometheus = 9001;
+  prometheus-node = 9002;
 }
