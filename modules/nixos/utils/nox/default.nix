@@ -57,7 +57,6 @@ in {
             if [ $# -lt 1 ]; then
               NAMES="$(ls -1 /var/lib/microvms)"
             else
-              shift
               NAMES="$@"
             fi
 
@@ -81,7 +80,7 @@ in {
                 micro_local $@;;
               micro)
                 shift
-                sudo ${pkgs.openssh}/bin/ssh -t raab@nix-hypervisor "sudo flock -w 60 /dev/shm/nox-micro nox micro $@";;
+                sudo ${pkgs.openssh}/bin/ssh -t raab@nix-hypervisor "sudo flock -w 60 /dev/shm/nox-micro nox micro-local $@";;
           esac
         ''
       )
