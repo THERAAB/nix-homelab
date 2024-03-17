@@ -1,8 +1,9 @@
 {properties, ...}: {
-  networking.firewall.allowedTCPPorts = [
-    properties.ports.grafana
-    properties.ports.prometheus
-    properties.ports.prometheus-node
+  networking.firewall.allowedTCPPorts = with properties.ports; [
+    grafana
+    prometheus
+    prometheus-node
+    loki
   ];
   services.grafana = {
     enable = true;
@@ -19,6 +20,24 @@
       enable = true;
       enabledCollectors = ["systemd"];
       port = properties.ports.prometheus-node;
+    };
+    scrapeConfigs = [
+      {
+        job_name = "node-exporter";
+        static_configs = [
+          {
+            targets = ["127.0.0.1:${toString properties.ports.prometheus-node}"];
+          }
+        ];
+      }
+    ];
+  };
+  services.loki = {
+    enable = true;
+    configuration = {
+      server = {
+        http_listen_port = properties.ports.loki;
+      };
     };
   };
 }

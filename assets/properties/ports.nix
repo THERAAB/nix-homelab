@@ -28,4 +28,5 @@
   grafana = 2344;
   prometheus = 9001;
   prometheus-node = 9002;
+  loki = 28183;
 }
