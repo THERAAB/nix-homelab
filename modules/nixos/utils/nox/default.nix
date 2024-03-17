@@ -54,7 +54,6 @@ in {
               sudo nix run $dir#apps.nixinate.$1
           }
           micro_local() {
-            $git -C $dir pull
             if [ $# -lt 1 ]; then
               NAMES="$(ls -1 /var/lib/microvms)"
             else
