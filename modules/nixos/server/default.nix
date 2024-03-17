@@ -15,7 +15,6 @@ in {
       physical.enable = true;
       server = {
         hardware.enable = true;
-        hardware-configuration.enable = true;
         netdata.enable = true;
         smartd.enable = true;
         users.enable = true;

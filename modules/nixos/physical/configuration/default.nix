@@ -23,6 +23,20 @@ in {
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
       settings.auto-optimise-store = true;
+      gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 14d";
+      };
+    };
+    security.auditd.enable = true;
+    services = {
+      tailscale.enable = true;
+      locate = {
+        enable = true;
+        package = pkgs.plocate;
+        localuser = null;
+      };
     };
     home-manager = {
       useGlobalPkgs = true;

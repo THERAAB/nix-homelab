@@ -19,8 +19,7 @@ in {
       core.enable = true;
       microvm = {
         podman.enable = true;
-        system.enable = true;
-        hardware = {
+        system = {
           enable = true;
           hostName = cfg.hostName;
         };

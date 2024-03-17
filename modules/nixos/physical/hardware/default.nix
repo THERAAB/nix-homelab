@@ -15,6 +15,11 @@ in {
     boot = {
       kernelPackages = pkgs.linuxPackages_latest;
       loader.efi.canTouchEfiVariables = true;
+      initrd = {
+        availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
+        kernelModules = [];
+      };
+      extraModulePackages = [];
     };
     services = {
       fstrim.enable = true;
@@ -25,5 +30,24 @@ in {
       enableRedistributableFirmware = true;
     };
     networking.firewall.trustedInterfaces = ["tailscale0"];
+    fileSystems = {
+      "/nix" = {
+        device = "/dev/disk/by-label/nixos";
+        fsType = "btrfs";
+        options = ["subvol=nix" "compress=zstd" "noatime"];
+      };
+      "/nix/persist" = {
+        device = "/dev/disk/by-label/nixos";
+        fsType = "btrfs";
+        options = ["subvol=persist" "compress=zstd" "noatime"];
+        neededForBoot = true;
+      };
+      "/boot" = {
+        device = "/dev/disk/by-label/BOOT";
+        fsType = "vfat";
+      };
+    };
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+    networking.useDHCP = lib.mkDefault true;
   };
 }

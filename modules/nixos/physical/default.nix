@@ -22,8 +22,6 @@ in {
         fish.enable = true;
         starship.enable = true;
         hardware.enable = true;
-        hardware-configuration.enable = true;
-        system.enable = true;
         users.enable = true;
       };
       utils.nox.enable = true;

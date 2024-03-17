@@ -14,13 +14,12 @@ in {
     nix-homelab = {
       workstation = {
         auto-upgrade.enable = true;
-        configuration.enable = true;
+        pkgs.enable = true;
         plymouth.enable = true;
         gnome.enable = true;
         hardware.enable = true;
         syncthing.enable = true;
         system.enable = true;
-        hardware-configuration.enable = true;
       };
       physical.enable = true;
     };
