@@ -34,10 +34,10 @@
     ];
   };
   services.loki = {
-    enable = true;
+    # enable = true;
     configuration = {
       auth_enabled = false;
-      server.http_listen_port = 3100;
+      server.http_listen_port = properties.ports.loki;
       ingester = {
         lifecycler = {
           address = "0.0.0.0";
@@ -88,7 +88,7 @@
     };
   };
   services.promtail = {
-    enable = true;
+    # enable = true;
     configuration = {
       server = {
         http_listen_port = properties.ports.promtail;
