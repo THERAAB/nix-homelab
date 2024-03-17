@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./gnome.nix
-    ./wall.nix
   ];
   nix-homelab = {
     workstation.enable = true;

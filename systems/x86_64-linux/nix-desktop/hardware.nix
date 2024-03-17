@@ -1,4 +1,32 @@
 {...}: {
+  boot = {
+    initrd.availableKernelModules = ["ahci" "usbhid"];
+    kernelModules = ["kvm-amd"];
+    loader.grub.extraConfig = ''
+      if keystatus --shift ; then
+        set timeout=-1
+      else
+        set timeout=0
+      fi
+    '';
+  };
+  fileSystems = {
+    "/" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = ["size=10G" "mode=755"];
+    };
+    "/home/raab" = {
+      device = "none";
+      fsType = "tmpfs";
+      options = ["size=10G" "mode=777"];
+    };
+    "/games" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+      options = ["subvol=games" "compress=zstd" "noatime"];
+    };
+  };
   networking.hostName = "nix-desktop"; # Define your hostname.
   services = {
     snapper = {
@@ -35,4 +63,5 @@
     };
     opengl.enable = true;
   };
+  swapDevices = [];
 }
