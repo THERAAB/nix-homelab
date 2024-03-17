@@ -47,7 +47,6 @@ in {
       url = "https://prometheus.${network.domain}/";
       conditions = [
         "[STATUS] == 200"
-        ''[BODY] == pat(*<title>Prometheus</title>*)''
       ];
       alerts = [
         {
