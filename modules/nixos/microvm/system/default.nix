@@ -10,7 +10,7 @@ with lib.nix-homelab; let
 in {
   options.nix-homelab.microvm.system = with types; {
     enable = mkEnableOption (lib.mdDoc "System setup for microvms");
-    hostName = {
+    hostName = mkOption {
       type = str;
     };
   };
