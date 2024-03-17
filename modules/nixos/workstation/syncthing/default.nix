@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  properties,
   ...
 }:
 with lib;
@@ -22,7 +23,7 @@ in {
         devices = {
           nix-server = {
             id = "W33BOU2-KH5UGR6-MLWF3FP-EO4D4MT-QJZHZ44-XGSW54C-JXWMZFB-W5DKMQU";
-            addresses = ["tcp://192.168.3.2:22000" "tcp://100.121.108.123:22000"];
+            addresses = ["tcp://${properties.network.nix-hypervisor.local.ip}:22000" "tcp://${properties.network.nix-hypervisor.tailscale.ip}:22000"];
             introducer = true;
           };
         };

@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  properties,
   ...
 }:
 with lib;
@@ -15,8 +16,8 @@ in {
     users.users.raab.extraGroups = ["audio" "openrazer" "plugdev" "input" "syncthing"];
     nix.settings = {
       allowed-users = ["@wheel"];
-      substituters = ["https://cache.pumpkin.rodeo"];
-      trusted-public-keys = ["cache.pumpkin.rodeo:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
+      substituters = ["https://cache.${properties.network.domain}"];
+      trusted-public-keys = ["cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
     };
     programs.dconf.enable = true;
     fonts.packages = with pkgs; [
