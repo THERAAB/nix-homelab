@@ -33,7 +33,7 @@ in {
           commit() {
               $git -C $dir pull
               $git -C $dir add .
-              $git -C $dir commit -m "$1"
+              $git -C $dir commit -m "$@"
               $git -C $dir push
           }
           status() {
@@ -69,7 +69,9 @@ in {
           case "$1" in
               inputs) inputs;;
               rebuild) rebuild;;
-              commit) commit $2;;
+              commit)
+                shift
+                commit $@;;
               update) update;;
               gc) gc;;
               status) status;;
