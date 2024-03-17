@@ -7,9 +7,9 @@
 }:
 with lib;
 with lib.nix-homelab; let
-  cfg = config.nix-homelab.physical.autoUpgrade;
+  cfg = config.nix-homelab.physical.auto-upgrade;
 in {
-  options.nix-homelab.physical.autoUpgrade = with types; {
+  options.nix-homelab.physical.auto-upgrade = with types; {
     enable = mkEnableOption (lib.mdDoc "System autoupgrade");
   };
   config = mkIf cfg.enable {

@@ -17,7 +17,7 @@ in {
     nix-homelab = {
       core.enable = true;
       physical = {
-        autoUpgrade.enable = true;
+        auto-upgrade.enable = true;
         configuration.enable = true;
         fish.enable = true;
         starship.enable = true;
