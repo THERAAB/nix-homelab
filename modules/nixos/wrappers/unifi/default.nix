@@ -32,7 +32,7 @@ in {
     virtualisation.oci-containers.containers = {
       "${app-name}" = {
         autoStart = true;
-        image = "lscr.io/linuxserver/unifi-network-application:8.0.28";
+        image = "lscr.io/linuxserver/unifi-network-application:8.0.26";
         volumes = [
           "${local-config-dir}:/config"
         ];
