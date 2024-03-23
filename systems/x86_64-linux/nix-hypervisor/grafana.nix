@@ -34,7 +34,7 @@
     ];
   };
   services.loki = {
-    # enable = true; #TODO
+    enable = true; #TODO
     configuration = {
       auth_enabled = false;
       server.http_listen_port = properties.ports.loki;
@@ -56,7 +56,7 @@
       schema_config = {
         configs = [
           {
-            from = "2020-10-24";
+            from = "2022-06-06";
             store = "boltdb-shipper";
             object_store = "filesystem";
             schema = "v11";
@@ -85,10 +85,15 @@
         retention_deletes_enabled = false;
         retention_period = "0s";
       };
+      compactor = {
+        working_directory = "/var/lib/loki";
+        shared_store = "filesystem";
+        compactor_ring.kvstore.store = "inmemory";
+      };
     };
   };
   services.promtail = {
-    # enable = true;
+    enable = true;
     configuration = {
       server = {
         http_listen_port = properties.ports.promtail;
