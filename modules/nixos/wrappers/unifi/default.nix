@@ -32,7 +32,7 @@ in {
     virtualisation.oci-containers.containers = {
       "${app-name}" = {
         autoStart = true;
-        image = "lscr.io/linuxserver/unifi-network-application"; #TODO
+        image = "lscr.io/linuxserver/unifi-network-application";
         volumes = [
           "${local-config-dir}:/config"
         ];
@@ -59,7 +59,7 @@ in {
       };
       "unifi-db" = {
         autoStart = true;
-        image = "docker.io/mongo:6.0";
+        image = "docker.io/mongo:6.0"; #TODO: update to 7
         volumes = [
           "${local-config-dir}/db:/data/db"
           "/run/secrets/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
