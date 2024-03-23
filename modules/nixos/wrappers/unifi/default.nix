@@ -59,7 +59,7 @@ in {
       };
       "unifi-db" = {
         autoStart = true;
-        image = "docker.io/mongo:6.0"; #TODO: update to 7
+        image = "docker.io/mongo:7.0"; #TODO: update to 7
         volumes = [
           "${local-config-dir}/db:/data/db"
           "/run/secrets/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
