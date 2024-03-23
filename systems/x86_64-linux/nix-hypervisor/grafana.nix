@@ -34,7 +34,7 @@
     ];
   };
   services.loki = {
-    # enable = true;
+    # enable = true; #TODO
     configuration = {
       auth_enabled = false;
       server.http_listen_port = properties.ports.loki;
