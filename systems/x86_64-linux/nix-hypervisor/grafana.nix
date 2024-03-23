@@ -13,6 +13,23 @@
       http_port = properties.ports.grafana;
       http_addr = "0.0.0.0";
     };
+    provision = {
+      enable = true;
+      datasources.settings.datasources = [
+        {
+          name = "Prometheus";
+          type = "prometheus";
+          access = "proxy";
+          url = "http://127.0.0.1:${toString properties.ports.prometheus}";
+        }
+        {
+          name = "Loki";
+          type = "loki";
+          access = "proxy";
+          url = "http://127.0.0.1:${toString properties.ports.loki}";
+        }
+      ];
+    };
   };
   services.prometheus = {
     enable = true;
