@@ -3,6 +3,7 @@
     grafana
     prometheus
     prometheus-node
+    prometheus-systemd
     loki
     promtail
   ];
@@ -34,10 +35,20 @@
   services.prometheus = {
     enable = true;
     port = properties.ports.prometheus;
-    exporters.node = {
-      enable = true;
-      enabledCollectors = ["systemd"];
-      port = properties.ports.prometheus-node;
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = ["systemd"];
+        port = properties.ports.prometheus-node;
+      };
+      systemd = {
+        enable = true;
+        extraFlags = [
+          "--systemd.collector.enable-ip-accounting"
+          "--systemd.collector.enable-restart-count"
+        ];
+        port = properties.ports.prometheus-systemd;
+      };
     };
     scrapeConfigs = [
       {
@@ -48,10 +59,18 @@
           }
         ];
       }
+      {
+        job_name = "systemd"; #TODO
+        static_configs = [
+          {
+            targets = ["127.0.0.1:${toString properties.ports.prometheus-systemd}"];
+          }
+        ];
+      }
     ];
   };
   services.loki = {
-    enable = true; #TODO
+    enable = true;
     configuration = {
       auth_enabled = false;
       server.http_listen_port = properties.ports.loki;

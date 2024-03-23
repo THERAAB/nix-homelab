@@ -28,6 +28,7 @@
   grafana = 2344;
   prometheus = 9001;
   prometheus-node = 9002;
+  prometheus-systemd = 9003;
   promtail = 28183;
   loki = 3100;
 }
