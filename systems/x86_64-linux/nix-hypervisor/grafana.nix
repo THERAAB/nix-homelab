@@ -45,8 +45,10 @@
         enable = true;
         extraFlags = [
           "--systemd.collector.enable-ip-accounting"
+          "--systemd.collector.unit-include=microvm@.*\.service"
           "--systemd.collector.enable-restart-count"
         ];
+        user = "root"; #TODO
         port = properties.ports.prometheus-systemd;
       };
     };
@@ -60,7 +62,7 @@
         ];
       }
       {
-        job_name = "systemd"; #TODO
+        job_name = "systemd";
         static_configs = [
           {
             targets = ["127.0.0.1:${toString properties.ports.prometheus-systemd}"];
