@@ -37,3 +37,11 @@ My desktop, see [Nix-Desktop README.md](https://github.com/THERAAB/nix-homelab/b
 ### Nix-Zenbook
 
 My laptop, see [Nix-Zenbook README.md](https://github.com/THERAAB/nix-homelab/blob/main/systems/x86_64-linux/nix-zenbook/README.md)
+
+### Graphical-installer
+
+My custom graphical installer, built with
+
+```
+sudo nix build .#install-isoConfigurations.graphical-installer
+```

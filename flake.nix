@@ -68,7 +68,7 @@
           nix-desktop.specialArgs = {
             inherit self properties;
           };
-          graphical.specialArgs = {
+          graphical-installer.specialArgs = {
             inherit self properties;
           };
           micro-media = microvm-config;
