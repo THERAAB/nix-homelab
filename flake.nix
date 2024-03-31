@@ -20,6 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixinate.url = "github:matthewcroughan/nixinate";
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs: let
     self = inputs.self;
@@ -62,6 +66,9 @@
             inherit self properties;
           };
           nix-desktop.specialArgs = {
+            inherit self properties;
+          };
+          graphical.specialArgs = {
             inherit self properties;
           };
           micro-media = microvm-config;

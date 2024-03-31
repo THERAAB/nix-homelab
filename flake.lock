@@ -146,6 +146,42 @@
         "type": "github"
       }
     },
+    "nixlib": {
+      "locked": {
+        "lastModified": 1711241261,
+        "narHash": "sha256-knrTvpl81yGFHIpm1SsLDApe0thFkw1cl3ISAMPmP/0=",
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "rev": "b2a1eeef8c185f6bd27432b053ff09d773244cbc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixpkgs.lib",
+        "type": "github"
+      }
+    },
+    "nixos-generators": {
+      "inputs": {
+        "nixlib": "nixlib",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1711626141,
+        "narHash": "sha256-0qV1pHeIyUZ18cp8ijQnMf7uV+Uk4+UqTCC6yGSGWvk=",
+        "owner": "nix-community",
+        "repo": "nixos-generators",
+        "rev": "63194fceafbfe583a9eb7d16ab499adc0a6c0bc2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nixos-generators",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1653060744,
@@ -200,6 +236,7 @@
         "impermanence": "impermanence",
         "microvm": "microvm",
         "nixinate": "nixinate",
+        "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_2",
         "snowfall-lib": "snowfall-lib",
         "sops-nix": "sops-nix",
