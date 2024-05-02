@@ -32,6 +32,7 @@ in {
       vim
       hw-probe
       google-chrome
+      chromium
       nvme-cli
       stress
       sysfsutils
