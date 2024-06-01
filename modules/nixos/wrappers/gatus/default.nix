@@ -24,15 +24,16 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    nix-homelab.services.yamlConfigMaker = {
-      gatus = {
-        path = "${local-config-dir}/config.yaml";
-        settings = {
-          alerting = cfg.conf.alerting;
-          endpoints = cfg.conf.endpoints;
-        };
-      };
-    };
+    # TODO: fix
+    #nix-homelab.services.yamlConfigMaker = {
+    #  gatus = {
+    #    path = "${local-config-dir}/config.yaml";
+    #    settings = {
+    #      alerting = cfg.conf.alerting;
+    #      endpoints = cfg.conf.endpoints;
+    #    };
+    #  };
+    #};
     users = {
       groups.${app-name}.gid = gid;
       users.${app-name} = {

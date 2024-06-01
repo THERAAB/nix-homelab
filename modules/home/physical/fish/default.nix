@@ -26,10 +26,7 @@ in {
         enable = true;
         options = ["--cmd cd"];
       };
-      eza = {
-        enable = true;
-        enableAliases = true;
-      };
+      eza.enable = true;
     };
   };
 }

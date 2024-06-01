@@ -30,10 +30,11 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    nix-homelab.services.yamlConfigMaker."${app-name}" = {
-      path = "${local-config-dir}/config.yml";
-      settings = cfg.conf;
-    };
+    # TODO: fix
+    #nix-homelab.services.yamlConfigMaker."${app-name}" = {
+    #  path = "${local-config-dir}/config.yml";
+    #  settings = cfg.conf;
+    #};
     systemd.tmpfiles.rules = [
       "d    ${local-config-dir}            -   -               -               -   -                     "
       "R    ${local-config-dir}/icons      -   -               -               -   -                     "

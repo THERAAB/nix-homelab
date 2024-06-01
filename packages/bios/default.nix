@@ -1,9 +1,9 @@
 {
   lib,
-  python3Packages,
+  python312Packages,
   fetchPypi,
 }:
-python3Packages.buildPythonPackage rec {
+python312Packages.buildPythonPackage rec {
   pname = "bios";
   version = "0.1.2";
   src = fetchPypi {
@@ -14,8 +14,8 @@ python3Packages.buildPythonPackage rec {
   doCheck = false;
 
   propagatedBuildInputs = [
-    python3Packages.oyaml
-    python3Packages.pyyaml
+    python312Packages.oyaml
+    python312Packages.pyyaml
   ];
 
   meta = with lib; {

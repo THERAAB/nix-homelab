@@ -13,14 +13,14 @@ in {
   };
   config = mkIf cfg.enable {
     services = {
+      displayManager.autoLogin = {
+        enable = true;
+        user = "raab";
+      };
       xserver = {
         enable = true;
         displayManager = {
           gdm.enable = true;
-          autoLogin = {
-            enable = true;
-            user = "raab";
-          };
         };
         desktopManager.gnome.enable = true;
       };

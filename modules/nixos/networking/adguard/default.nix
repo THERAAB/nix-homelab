@@ -19,10 +19,10 @@ in {
       allowedTCPPorts = [port];
     };
     services.adguardhome = {
+      port = port;
       mutableSettings = false;
       enable = true;
       settings = {
-        bind_port = port;
         users = [
           {
             name = "raab";

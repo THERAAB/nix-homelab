@@ -9,7 +9,6 @@
     ./microvm.nix
     ./olivetin
     ./update-flake.nix
-    ./grafana.nix
   ];
   nix-homelab = {
     server.enable = true;
