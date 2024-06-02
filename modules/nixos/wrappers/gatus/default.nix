@@ -65,7 +65,7 @@ in {
     };
     virtualisation.oci-containers.containers."${app-name}" = {
       autoStart = false;
-      image = "docker.io/twinproduction/${app-name}";
+      image = "docker.io/twinproduction/${app-name}:v5.10.0"; #TODO: fix
       volumes = [
         "${local-config-dir}:/config"
       ];
