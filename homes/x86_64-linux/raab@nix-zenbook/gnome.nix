@@ -54,7 +54,7 @@ in {
     };
     "org/gnome/shell/extensions/just-perfection" = {
       panel-in-overview = true;
-      panel = false;
+      panel = true; #TODO: put back to false when panel-in-overview works again
     };
   };
   home.packages = with pkgs; [

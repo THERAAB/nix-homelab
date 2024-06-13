@@ -24,6 +24,7 @@ in {
           "forge@jmmaranan.com"
           "gsconnect@andyholmes.github.io"
         ];
+        disable-extension-version-validation = true;
         favorite-apps = [
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
