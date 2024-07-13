@@ -21,7 +21,7 @@ in {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
         monospace-font-name = lib.mkDefault "JetBrainsMono Nerd Font 10";
-        gtk-theme = "Catppuccin-Frappe-Standard-Blue-Dark";
+        gtk-theme = "catppuccin-frappe-blue-standard";
         cursor-theme = "phinger-cursors-light";
       };
       "org/gnome/desktop/wm/preferences" = {

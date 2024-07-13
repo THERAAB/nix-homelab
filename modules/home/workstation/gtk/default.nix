@@ -15,7 +15,7 @@ in {
     gtk = {
       enable = true;
       theme = {
-        name = "Catppuccin-Frappe-Standard-Blue-Dark";
+        name = "catppuccin-frappe-blue-standard";
         package = pkgs.catppuccin-gtk;
       };
       iconTheme = {
@@ -34,7 +34,7 @@ in {
       gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
     };
     home.sessionVariables = {
-      GTK_THEME = "Catppuccin-Frappe-Standard-Blue-Dark";
+      GTK_THEME = "catppuccin-frappe-blue-standard";
       XCURSOR_THEME = "phinger-cursors-light";
       XCURSOR_SIZE = 40;
     };

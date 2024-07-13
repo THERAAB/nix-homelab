@@ -144,7 +144,7 @@ in {
         clock-format = "12h";
       };
       "org/gnome/shell/extensions/user-theme" = {
-        name = "Catppuccin-Frappe-Standard-Blue-Dark";
+        name = "catppuccin-frappe-blue-standard";
       };
     };
 
