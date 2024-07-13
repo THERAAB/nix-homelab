@@ -54,7 +54,10 @@ in {
     };
     "org/gnome/shell/extensions/just-perfection" = {
       panel-in-overview = true;
-      panel = true; #TODO: put back to false when panel-in-overview works again
+      panel = false;
+    };
+    "org/gnome/shell/extensions/blur-my-shell/overview" = {
+      blur = false; #TODO: put back to true when panel-in-overview works with blur my shell again
     };
   };
   home.packages = with pkgs; [
