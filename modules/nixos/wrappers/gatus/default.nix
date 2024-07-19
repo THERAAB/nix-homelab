@@ -24,16 +24,15 @@ in {
     };
   };
   config = mkIf cfg.enable {
-    # TODO: fix
-    #nix-homelab.services.yamlConfigMaker = {
-    #  gatus = {
-    #    path = "${local-config-dir}/config.yaml";
-    #    settings = {
-    #      alerting = cfg.conf.alerting;
-    #      endpoints = cfg.conf.endpoints;
-    #    };
-    #  };
-    #};
+    nix-homelab.services.yamlConfigMaker = {
+      gatus = {
+        path = "${local-config-dir}/config.yaml";
+        settings = {
+          alerting = cfg.conf.alerting;
+          endpoints = cfg.conf.endpoints;
+        };
+      };
+    };
     users = {
       groups.${app-name}.gid = gid;
       users.${app-name} = {
@@ -64,7 +63,7 @@ in {
       };
     };
     virtualisation.oci-containers.containers."${app-name}" = {
-      autoStart = true; #TODO undo once yaml patch back
+      autoStart = false;
       image = "docker.io/twinproduction/${app-name}";
       volumes = [
         "${local-config-dir}:/config"
