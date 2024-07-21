@@ -1,6 +1,6 @@
 {self, ...}: {
   imports = [
-   # (self + /share/nixos/microvm)
+    (self + /share/nixos/microvm)
     ./hardware.nix
   ];
   nix-homelab = {
