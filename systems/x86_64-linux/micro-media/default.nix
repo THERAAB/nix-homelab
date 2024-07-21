@@ -1,7 +1,7 @@
 {self, ...}: {
   imports = [
    # (self + /share/nixos/microvm)
-    ./hardware.nix
+   # ./hardware.nix
   ];
   nix-homelab = {
     microvm.enable = true;
