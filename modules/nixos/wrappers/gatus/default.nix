@@ -63,7 +63,7 @@ in {
       };
     };
     virtualisation.oci-containers.containers."${app-name}" = {
-      autoStart = false;
+      autoStart = true;
       image = "docker.io/twinproduction/${app-name}";
       volumes = [
         "${local-config-dir}:/config"
