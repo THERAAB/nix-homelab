@@ -175,6 +175,13 @@
           reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.sonarr}
         '';
       };
+      "transcode.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.tdarr}
+        '';
+      };
     };
   };
 }

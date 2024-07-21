@@ -275,6 +275,15 @@ in {
           url = "https://prowlarr.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Tdarr";
+          logo = "assets/icons/tdarr.png";
+          subtitle = "Manage Transcoding";
+          tag = "tv";
+          keywords = "transcode media";
+          url = "https://transcode.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
     {

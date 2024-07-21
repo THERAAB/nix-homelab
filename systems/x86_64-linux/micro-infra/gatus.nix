@@ -190,6 +190,18 @@ in {
       ];
     }
     {
+      name = "Tdarr";
+      url = "https://transcode.${network.domain}/health";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
       name = "Readarr";
       url = "https://readarr.${network.domain}/health";
       conditions = [
