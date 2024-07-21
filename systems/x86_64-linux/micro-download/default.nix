@@ -12,7 +12,7 @@
       sonarr.enable = true;
       readarr.enable = true;
       vuetorrent.enable = true;
-      tdarr.enable = true;
+      # TODO tdarr.enable = true;
     };
   };
 }
