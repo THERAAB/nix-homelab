@@ -28,7 +28,7 @@ in {
       "micro-automate"
     ];
     vms = {
-      micro-media.config = micro-media;
+      micro-media = micro-media;
       micro-server = microvm-config;
       micro-infra = microvm-config;
       micro-tailscale = microvm-config;
