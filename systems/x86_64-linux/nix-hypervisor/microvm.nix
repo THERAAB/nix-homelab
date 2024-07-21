@@ -7,7 +7,6 @@
     flake = self;
     updateFlake = "github:THERAAB/nix-homelab";
   };
-  micro-media = import ../micro-media;
 in {
   systemd.tmpfiles.rules = [
     # Share journald logs on nix-hypervisor
@@ -28,7 +27,7 @@ in {
       "micro-automate"
     ];
     vms = {
-      micro-media = micro-media;
+      micro-media = microvm-config;
       micro-server = microvm-config;
       micro-infra = microvm-config;
       micro-tailscale = microvm-config;
