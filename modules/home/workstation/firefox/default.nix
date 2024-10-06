@@ -16,7 +16,7 @@ in {
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
-          CaptivePortal = false;
+          CaptivePortal = true;
           DisableFirefoxStudies = true;
           DisableTelemetry = true;
           DisablePocket = true;
