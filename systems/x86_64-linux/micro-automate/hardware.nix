@@ -26,12 +26,12 @@ in {
       #    mountPoint = "/sync";
       #    tag = "sync";
       #  }
-      {
-        proto = "virtiofs";
-        source = system-blueprints-dir;
-        mountPoint = custom-blueprints-dir;
-        tag = "custom-blueprints";
-      }
+      #{
+      #  proto = "virtiofs";
+      #  source = system-blueprints-dir;
+      #  mountPoint = custom-blueprints-dir;
+      #  tag = "custom-blueprints";
+      #}
     ];
     devices = [
       {
