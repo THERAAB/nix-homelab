@@ -33,12 +33,12 @@
         tag = "ro-store";
         proto = "virtiofs";
       }
-      {
-        proto = "virtiofs";
-        source = "/run/secrets/${config.networking.hostName}";
-        mountPoint = "/run/secrets";
-        tag = "secrets";
-      }
+      #{
+      #  proto = "virtiofs";
+      #  source = "/run/secrets/${config.networking.hostName}";
+      #  mountPoint = "/run/secrets";
+      #  tag = "secrets";
+      #}
     ];
   };
   fileSystems = {
