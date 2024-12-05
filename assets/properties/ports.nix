@@ -10,7 +10,6 @@
   radarr = 7878;
   readarr = 8787;
   sonarr = 8989;
-  tdarr = 8265;
   vuetorrent = 8112;
   gatus = 7000;
   homer = 8082;
