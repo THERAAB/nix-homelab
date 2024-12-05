@@ -19,20 +19,20 @@ in {
         mac = "02:00:00:00:00:06";
       }
     ];
-    #shares = [
-    #  {
-    #    proto = "virtiofs";
-    #    source = "/sync";
-    #    mountPoint = "/sync";
-    #    tag = "sync";
-    #  }
-    #  {
-    #    proto = "virtiofs";
-    #    source = system-blueprints-dir;
-    #    mountPoint = custom-blueprints-dir;
-    #    tag = "custom-blueprints";
-    #  }
-    #];
+    shares = [
+      #  {
+      #    proto = "virtiofs";
+      #    source = "/sync";
+      #    mountPoint = "/sync";
+      #    tag = "sync";
+      #  }
+      {
+        proto = "virtiofs";
+        source = system-blueprints-dir;
+        mountPoint = custom-blueprints-dir;
+        tag = "custom-blueprints";
+      }
+    ];
     devices = [
       {
         bus = "pci";
