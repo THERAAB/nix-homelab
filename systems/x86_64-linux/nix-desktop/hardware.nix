@@ -56,6 +56,7 @@
     '';
   };
   hardware = {
+    amdgpu.initrd.enable = true;
     cpu.amd.updateMicrocode = true;
     openrazer = {
       enable = true;
