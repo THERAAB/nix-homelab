@@ -20,12 +20,12 @@ in {
       }
     ];
     shares = [
-      #  {
-      #    proto = "virtiofs";
-      #    source = "/sync";
-      #    mountPoint = "/sync";
-      #    tag = "sync";
-      #  }
+      {
+        proto = "virtiofs";
+        source = "/sync";
+        mountPoint = "/sync";
+        tag = "sync";
+      }
       {
         proto = "virtiofs";
         source = system-blueprints-dir;
