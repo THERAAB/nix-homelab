@@ -31,7 +31,7 @@ in {
       ];
       services."podman-${app-name}".after = ["multi-user.target"]; # Delay jellyfin start for hardware encoding
     };
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD

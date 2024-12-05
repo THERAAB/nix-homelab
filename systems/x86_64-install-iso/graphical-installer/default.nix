@@ -8,7 +8,7 @@
   networking.wireless.enable = lib.mkForce false;
   environment.systemPackages = with pkgs; [
     gnome-text-editor
-    gnome.nautilus
+    nautilus
     alejandra
     gparted
     acpi

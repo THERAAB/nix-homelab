@@ -18,7 +18,7 @@ in {
         size = lib.mkDefault 12;
       };
       shellIntegration.enableFishIntegration = true;
-      theme = "Catppuccin-Frappe";
+      themeFile = "Catppuccin-Frappe";
       settings = {
         hide_window_decorations = true;
         window_padding_width = 20;

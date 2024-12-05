@@ -45,7 +45,6 @@ in {
       };
     };
     networking.networkmanager.wifi.powersave = true;
-    sound.enable = true;
     security = {
       rtkit.enable = true;
       polkit.enable = true;

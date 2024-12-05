@@ -13,7 +13,7 @@ in {
   config = mkIf cfg.enable {
     services.harmonia = {
       enable = true;
-      signKeyPath = config.sops.secrets.harmonia_secret.path;
+      signKeyPaths = [config.sops.secrets.harmonia_secret.path];
     };
     nix.settings.allowed-users = ["harmonia"];
   };

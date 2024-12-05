@@ -61,7 +61,7 @@
       enable = true;
       users = ["raab"];
     };
-    opengl.enable = true;
+    graphics.enable = true;
   };
   swapDevices = [];
 }

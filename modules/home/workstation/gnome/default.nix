@@ -166,7 +166,6 @@ in {
       gnomeExtensions.unite
       gnomeExtensions.forge
       gnomeExtensions.gsconnect
-      gnome.gnome-tweaks
     ];
   };
 }

@@ -17,7 +17,7 @@ in {
     networking.firewall.allowedTCPPorts = [port];
     services.${app-name} = {
       enable = true;
-      port = port;
+      environment.GOTIFY_SERVER_PORT = port;
     };
   };
 }

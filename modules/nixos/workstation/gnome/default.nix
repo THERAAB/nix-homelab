@@ -32,7 +32,7 @@ in {
           gnome-photos
           gnome-tour
         ])
-        ++ (with pkgs.gnome; [
+        ++ (with pkgs; [
           gnome-music
           epiphany # web browser
           geary # email reader

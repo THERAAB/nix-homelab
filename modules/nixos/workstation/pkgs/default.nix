@@ -18,9 +18,9 @@ in {
       libnotify
       wmctrl
       gnome-text-editor
-      gnome.nautilus
+      nautilus
       helix
-      gnome.ghex
+      ghex
       pavucontrol
       xorg.xlsclients
       nil

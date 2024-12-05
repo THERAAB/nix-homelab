@@ -22,7 +22,6 @@ in {
         text = properties.network.${cfg.hostName}.machine-id + "\n";
       };
       variables.TERM = "xterm-256color";
-      noXlibs = false;
       systemPackages = with pkgs; [
         fuse-overlayfs
       ];
