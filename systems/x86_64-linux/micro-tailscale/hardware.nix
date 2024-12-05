@@ -12,6 +12,14 @@
         mac = "02:00:00:00:00:04";
       }
     ];
+    shares = [
+      {
+        proto = "virtiofs";
+        source = "/run/secrets/${config.networking.hostName}";
+        mountPoint = "/run/secrets";
+        tag = "secrets";
+      }
+    ];
   };
   services.tailscale.enable = true;
 }

@@ -27,6 +27,12 @@ in {
         mountPoint = mount-icons-dir;
         tag = "homer-icons";
       }
+      {
+        proto = "virtiofs";
+        source = "/run/secrets/${config.networking.hostName}";
+        mountPoint = "/run/secrets";
+        tag = "secrets";
+      }
     ];
   };
 }

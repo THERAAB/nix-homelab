@@ -28,6 +28,12 @@ in {
         mountPoint = "${originals-dir}";
         tag = "Camera";
       }
+      {
+        proto = "virtiofs";
+        source = "/run/secrets/${config.networking.hostName}";
+        mountPoint = "/run/secrets";
+        tag = "secrets";
+      }
     ];
   };
 }

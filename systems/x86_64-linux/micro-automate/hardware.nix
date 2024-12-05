@@ -32,6 +32,12 @@ in {
         mountPoint = custom-blueprints-dir;
         tag = "custom-blueprints";
       }
+      {
+        proto = "virtiofs";
+        source = "/run/secrets/${config.networking.hostName}";
+        mountPoint = "/run/secrets";
+        tag = "secrets";
+      }
     ];
     devices = [
       {
