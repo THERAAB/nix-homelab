@@ -75,7 +75,7 @@
     };
   };
   environment.systemPackages = with pkgs; [
-    gnome.gnome-power-manager
+    gnome-power-manager
   ];
   networking.hostName = "nix-zenbook";
   powerManagement = {
