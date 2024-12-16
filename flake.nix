@@ -12,7 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     microvm = {
-      url = "github:astro/microvm.nix/0ab757d2d3e3214b0034b00f9cc3dcdba0b8c563";
+      url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     snowfall-lib = {
