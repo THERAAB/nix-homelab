@@ -4,7 +4,7 @@
   ...
 }: {
   microvm = {
-    hypervisor = "cloud-hypervisor";
+    hypervisor = "qemu";
     mem = lib.mkDefault 2024;
     vcpu = lib.mkDefault 1;
     shares = [
