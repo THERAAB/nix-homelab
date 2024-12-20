@@ -24,7 +24,7 @@ in {
 
           inputs() {
               $git -C $dir pull
-              sudo nix flake update $dir
+              sudo nix flake update --flake $dir
           }
           rebuild() {
               $git -C $dir pull
