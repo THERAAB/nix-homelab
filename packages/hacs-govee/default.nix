@@ -16,5 +16,7 @@ buildHomeAssistantComponent rec {
   propagatedBuildInputs = [
     nix-homelab.govee_api_laggat
   ];
-  dontCheckManifest = true;
+  ignoreVersionRequirement = [
+    "dacite"
+  ];
 }

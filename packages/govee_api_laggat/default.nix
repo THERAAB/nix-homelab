@@ -10,10 +10,6 @@ python312Packages.buildPythonPackage rec {
     inherit version pname;
     hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
   };
-  nativeBuildInputs = with python312Packages; [
-    pythonRelaxDepsHook
-    dacite
-  ];
   propagatedBuildInputs = with python312Packages; [
     nix-homelab.bios
     pexpect
@@ -23,8 +19,5 @@ python312Packages.buildPythonPackage rec {
     certifi
     dacite
     pytest
-  ];
-  pythonRelaxDeps = [
-    "dacite"
   ];
 }
