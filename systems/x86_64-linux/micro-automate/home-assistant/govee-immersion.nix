@@ -2,9 +2,6 @@
   devices = import ./devices.properties.nix;
 in {
   services.home-assistant = {
-    customComponents = [
-      pkgs.nix-homelab.hacs-govee
-    ];
     extraPackages = pythonPackages:
       with pythonPackages; [
         (
