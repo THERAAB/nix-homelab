@@ -21,4 +21,5 @@ python312Packages.buildPythonPackage rec {
     pytest
   ];
   strictDeps = false;
+  pythonRelaxDepsHook = true;
 }
