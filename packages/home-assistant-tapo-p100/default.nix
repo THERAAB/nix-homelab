@@ -4,7 +4,7 @@
   nix-homelab,
 }:
 buildHomeAssistantComponent rec {
-  domain = "home-assistant-tapo-p100";
+  domain = "tapo";
   owner = "petretiandrea";
   version = "v2.10.0";
   src = fetchFromGitHub {
