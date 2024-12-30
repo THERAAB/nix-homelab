@@ -2,6 +2,7 @@
   python312Packages,
   fetchPypi,
   nix-homelab,
+  pythonRelaxDepsHook,
 }:
 python312Packages.buildPythonPackage rec {
   pname = "govee_api_laggat";
@@ -21,5 +22,7 @@ python312Packages.buildPythonPackage rec {
     pytest
   ];
   strictDeps = false;
-  pythonRelaxDepsHook = true;
+  pythonRelaxDeps = [
+    "dacite"
+  ];
 }
