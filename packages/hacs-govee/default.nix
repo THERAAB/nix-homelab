@@ -17,6 +17,6 @@ buildHomeAssistantComponent rec {
     nix-homelab.govee_api_laggat
   ];
   ignoreVersionRequirement = [
-    "dacite"
+    "govee_api_laggat"
   ];
 }
