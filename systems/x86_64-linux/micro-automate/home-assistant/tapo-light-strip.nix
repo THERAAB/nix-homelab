@@ -1,27 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   services.home-assistant = {
-    extraPackages = pythonPackages:
-      with pythonPackages; [
-        (
-          buildPythonPackage rec {
-            pname = "plugp100";
-            version = "3.12.0";
-            src = fetchPypi {
-              inherit version pname;
-              hash = "sha256-jfitt8qCq8nRbCgv81qz3Wtwp0R9fXQ7TjP88Sh2oIY=";
-            };
-            propagatedBuildInputs = [
-              certifi
-              cryptography
-              jsons
-              requests
-              aiohttp
-              semantic-version
-              scapy
-            ];
-          }
-        )
-      ];
+    customComponents = [
+      pkgs.nix-homelab.home-assistant-tapo-p100
+    ];
     config.automation = [
       {
         alias = "Turn on Kitchen Cabinet LEDs when Motion Detected";
