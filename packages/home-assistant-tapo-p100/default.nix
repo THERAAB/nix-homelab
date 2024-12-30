@@ -1,7 +1,7 @@
 {
   fetchFromGitHub,
   buildHomeAssistantComponent,
-  plugp100,
+  nix-homelab,
 }:
 buildHomeAssistantComponent rec {
   domain = "home-assistant-tapo-p100";
@@ -14,6 +14,6 @@ buildHomeAssistantComponent rec {
     sha256 = "sha256-vpF9QFu3LA/XFtDM0ZdmZq6FFsZvCCOJ10alLf+iWVA=";
   };
   propagatedBuildInputs = [
-    plugp100
+    nix-homelab.plugp100
   ];
 }
