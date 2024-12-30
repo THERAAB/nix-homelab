@@ -24,7 +24,6 @@ python312Packages.buildPythonPackage rec {
     dacite
     pytest
   ];
-  strictDeps = false;
   pythonRelaxDeps = [
     "dacite"
   ];
