@@ -2,7 +2,6 @@
   python312Packages,
   fetchPypi,
   nix-homelab,
-  pythonRelaxDepsHook,
 }:
 python312Packages.buildPythonPackage rec {
   pname = "govee_api_laggat";
@@ -11,9 +10,6 @@ python312Packages.buildPythonPackage rec {
     inherit version pname;
     hash = "sha256-6nZzc3zY9UXGFK7r1SeOMzEzIwakW5anbu7lJwWqwI4=";
   };
-  nativeBuildInputs = [
-    pythonRelaxDepsHook
-  ];
   propagatedBuildInputs = with python312Packages; [
     nix-homelab.bios
     pexpect
