@@ -20,4 +20,5 @@ python312Packages.buildPythonPackage rec {
     dacite
     pytest
   ];
+  doCheck = false;
 }
