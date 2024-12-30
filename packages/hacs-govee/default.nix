@@ -13,7 +13,7 @@ buildHomeAssistantComponent rec {
     owner = "LaggAt";
     sha256 = "sha256-vIBx+t+AcWG9z7O5bv4yMMCplpc54N29/QxMUwHjeSU=";
   };
-  propagatedBuildInputs = [
+  dependencies = [
     nix-homelab.govee_api_laggat
   ];
   ignoreVersionRequirement = [
