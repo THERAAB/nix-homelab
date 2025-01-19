@@ -11,7 +11,7 @@
           sleep 10
           dir=/nix/persist/nix-homelab
           su -c "git -C $dir pull" raab
-          nix flake update $dir --commit-lock-file
+          nix flake update --flake $dir --commit-lock-file
           su -c "git -C $dir push" raab
         '';
         path = with pkgs; [
