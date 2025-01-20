@@ -1,10 +1,12 @@
-{...}: {
+{...}: let
+  devices = import ./devices.properties.nix;
+in {
   services.home-assistant.config.automation = [
     {
       alias = "Turn on Bathroom lights when motion detected";
       trigger = {
         platform = "state";
-        entity_id = "binary_sensor.lumi_lumi_motion_ac02_motion_2";
+        entity_id = devices.entity-id.bathroom.motion;
         from = "off";
         to = "on";
       };
@@ -22,7 +24,7 @@
               color_temp = "400";
             };
             target.entity_id = [
-              "light.silicon_labs_ezsp_bathroom_lights"
+              devices.entity-id.bathroom.lights
             ];
           };
           "else" = {
@@ -32,14 +34,14 @@
               color_temp = "100";
             };
             target.entity_id = [
-              "light.silicon_labs_ezsp_bathroom_lights"
+              devices.entity-id.bathroom.lights
             ];
           };
         }
         {
           wait_for_trigger = {
             platform = "state";
-            entity_id = "binary_sensor.lumi_lumi_motion_ac02_motion_2";
+            entity_id = devices.entity-id.bathroom.motion;
             from = "on";
             to = "off";
             for = {
@@ -51,7 +53,7 @@
           repeat = {
             while = {
               condition = "numeric_state";
-              entity_id = "sensor.lumi_lumi_weather_humidity";
+              entity_id = devices.entity-id.bathroom.humidity;
               above = 80;
             };
             sequence = {
@@ -64,7 +66,7 @@
         {
           service = "light.turn_off";
           target.entity_id = [
-            "light.silicon_labs_ezsp_bathroom_lights"
+            devices.entity-id.bathroom.lights
           ];
         }
       ];

@@ -1,10 +1,12 @@
-{...}: {
+{...}: let
+  devices = import ./devices.properties.nix;
+in {
   services.home-assistant.config.automation = [
     {
       alias = "Washing Machine Done Notification";
       trigger = {
         platform = "numeric_state";
-        entity_id = "sensor.washing_machine_plug_active_power";
+        entity_id = devices.washing-machine.power;
         for = {
           seconds = 90;
         };
@@ -21,7 +23,7 @@
       alias = "Dryer Done Notification";
       trigger = {
         platform = "numeric_state";
-        entity_id = "sensor.dryer_plug_active_power_3";
+        entity_id = devices.dryer.power;
         for = {
           seconds = 10;
         };
