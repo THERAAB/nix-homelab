@@ -10,13 +10,13 @@ in {
         alias = "Turn on Kitchen Cabinet LEDs when Motion Detected";
         trigger = {
           platform = "state";
-          entity_id = devices.kitchen.motion;
+          entity_id = devices.entity-id.kitchen.motion;
           from = "off";
           to = "on";
         };
         condition = {
           condition = "numeric_state";
-          entity_id = devices.kitchen.illuminence;
+          entity_id = devices.entity-id.kitchen.illuminence;
           below = "9";
         };
         action = [
@@ -27,13 +27,13 @@ in {
               color_temp = 300;
             };
             target = {
-              entity_id = devices.kitchen.cabinet.light;
+              entity_id = devices.entity-id.kitchen.cabinet.light;
             };
           }
           {
             wait_for_trigger = {
               platform = "state";
-              entity_id = devices.kitchen.motion;
+              entity_id = devices.entity-id.kitchen.motion;
               from = "on";
               to = "off";
               for = {
@@ -44,7 +44,7 @@ in {
           {
             service = "light.turn_off";
             target = {
-              entity_id = devices.kitchen.cabinet.light;
+              entity_id = devices.entity-id.kitchen.cabinet.light;
             };
           }
         ];
