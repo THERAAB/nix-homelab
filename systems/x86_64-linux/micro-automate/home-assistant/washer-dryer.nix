@@ -6,7 +6,7 @@ in {
       alias = "Washing Machine Done Notification";
       trigger = {
         platform = "numeric_state";
-        entity_id = devices.entity-id.bsaement.washing-machine.power;
+        entity_id = devices.entity-id.basement.washing-machine.power;
         for = {
           seconds = 90;
         };
