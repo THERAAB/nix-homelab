@@ -54,7 +54,7 @@ in {
         };
         homeassistant = {
           name = "Home";
-          unit_system = "us_customary";
+          unit_system = "imperial";
           time_zone = "America/New_York";
           temperature_unit = "F";
           longitude = "!secret home_longitude";
