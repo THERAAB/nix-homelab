@@ -1,9 +1,9 @@
 {
   lib,
-  python313Packages,
+  python312Packages,
   fetchPypi,
 }:
-python313Packages.buildPythonPackage rec {
+python312Packages.buildPythonPackage rec {
   pname = "bios";
   version = "0.1.2";
   src = fetchPypi {
@@ -12,8 +12,8 @@ python313Packages.buildPythonPackage rec {
   };
   doCheck = false;
   propagatedBuildInputs = [
-    python313Packages.oyaml
-    python313Packages.pyyaml
+    python312Packages.oyaml
+    python312Packages.pyyaml
   ];
   meta = with lib; {
     description = ''      'bios' is a python library which helps you for operations of I/O.

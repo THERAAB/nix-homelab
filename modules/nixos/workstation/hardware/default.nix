@@ -49,7 +49,10 @@ in {
       rtkit.enable = true;
       polkit.enable = true;
     };
-    hardware.bluetooth.enable = true;
+    hardware = {
+      pulseaudio.enable = false;
+      bluetooth.enable = true;
+    };
     fileSystems = {
       "/sync" = {
         device = "/dev/disk/by-label/nixos";

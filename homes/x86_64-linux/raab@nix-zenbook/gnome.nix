@@ -60,4 +60,7 @@ in {
       blur = false; #TODO: put back to true when panel-in-overview works with blur my shell again
     };
   };
+  home.packages = with pkgs; [
+    gnomeExtensions.swap-finger-gestures-3-to-4
+  ];
 }

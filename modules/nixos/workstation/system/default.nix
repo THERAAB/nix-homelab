@@ -21,8 +21,7 @@ in {
     };
     programs.dconf.enable = true;
     fonts.packages = with pkgs; [
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.noto
+      (nerdfonts.override {fonts = ["JetBrainsMono" "Noto"];})
     ];
   };
 }

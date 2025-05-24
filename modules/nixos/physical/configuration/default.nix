@@ -35,6 +35,7 @@ in {
       locate = {
         enable = true;
         package = pkgs.plocate;
+        localuser = null;
       };
     };
     home-manager = {
