@@ -39,11 +39,11 @@ in {
         tag = "secrets";
       }
     ];
-    #devices = [
-    #  {
-    #    bus = "pci";
-    #    path = "0000:00:14.0"; # Passthrough whole USB bus because single usb device passthrough doesn't work
-    #  }
-    #];
+    devices = [
+      {
+        bus = "pci";
+        path = "0000:00:14.0"; # Passthrough whole USB bus because single usb device passthrough doesn't work
+      }
+    ];
   };
 }
