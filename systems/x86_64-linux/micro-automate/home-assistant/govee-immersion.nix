@@ -3,7 +3,7 @@
 in {
   services.home-assistant = {
     customComponents = [
-      # pkgs.nix-homelab.hacs-govee
+      pkgs.nix-homelab.hacs-govee
     ];
     config.automation = [
       {
