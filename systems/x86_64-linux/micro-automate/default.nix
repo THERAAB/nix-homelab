@@ -6,6 +6,6 @@
   ];
   nix-homelab = {
     microvm.enable = true;
-    # wrappers.home-assistant.enable = true;
+    wrappers.home-assistant.enable = true;
   };
 }
