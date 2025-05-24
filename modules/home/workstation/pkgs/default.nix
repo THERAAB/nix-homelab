@@ -25,7 +25,6 @@ in {
       file
       tree
       strace
-      ventoy-full
       ffmpeg
       audible-cli
       aaxtomp3

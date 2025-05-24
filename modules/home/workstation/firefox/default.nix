@@ -36,7 +36,7 @@ in {
         isDefault = true;
         name = "Default";
         search = {
-          default = "DuckDuckGo";
+          default = "ddg";
           force = true;
         };
         settings = {
