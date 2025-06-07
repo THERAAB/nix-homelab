@@ -3,6 +3,7 @@
 in {
   services.home-assistant = {
     customComponents = [
+      # TODO: add back
       # pkgs.nix-homelab.hacs-govee
     ];
     config.automation = [

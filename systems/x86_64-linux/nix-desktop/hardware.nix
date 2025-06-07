@@ -60,6 +60,7 @@
     cpu.amd.updateMicrocode = true;
     openrazer = {
       # enable = true;
+      # TODO: enable
       users = ["raab"];
     };
     graphics.enable = true;

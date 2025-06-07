@@ -64,6 +64,7 @@ in {
     };
     virtualisation.oci-containers.containers."${app-name}" = {
       autoStart = true;
+      #TODO: unpin
       image = "docker.io/twinproduction/${app-name}:v5.18.0";
       volumes = [
         "${local-config-dir}:/config"
