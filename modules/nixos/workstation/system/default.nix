@@ -20,8 +20,9 @@ in {
       trusted-public-keys = ["cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
     };
     programs.dconf.enable = true;
-    fonts.packages = with pkgs; [
-      (nerdfonts.override {fonts = ["JetBrainsMono" "Noto"];})
+    fonts.packages = with pkgs.nerd-fonts; [
+      jetbrains-mono
+      noto
     ];
   };
 }

@@ -30,9 +30,6 @@ in {
     };
     "org/gnome/shell" = {
       last-selected-power-profile = "power-saver";
-      enabled-extensions = [
-        "swap-finger-gestures-3-4@icedman.github.com"
-      ];
     };
     "org/gnome/desktop/interface" = {
       enable-hot-corners = true;
@@ -60,7 +57,4 @@ in {
       blur = false; #TODO: put back to true when panel-in-overview works with blur my shell again
     };
   };
-  home.packages = with pkgs; [
-    gnomeExtensions.swap-finger-gestures-3-to-4
-  ];
 }
