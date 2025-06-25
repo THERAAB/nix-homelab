@@ -12,8 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     microvm = {
-      #TODO: unpin
-      url = "github:astro/microvm.nix/7f15bac13b41d2e3d33b008195692bdcdc20ec8d";
+      url = "github:astro/microvm.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     snowfall-lib = {
