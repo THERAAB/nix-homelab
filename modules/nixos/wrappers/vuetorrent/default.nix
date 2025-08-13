@@ -47,7 +47,7 @@ in {
         VPN_LAN_NETWORK = "${properties.network.nix-desktop.local.ip},${properties.network.ap.subnet},${properties.network.micro-media.local.ip},${properties.network.micro-tailscale.local.ip},${properties.network.micro-download.local.ip}";
         VPN_CONF = "wg0";
         PRIVOXY_ENABLED = "true";
-        # LIB_TORRENT = "v1";
+        LIB_TORRENT = "v1";
         # WEBUI_PORTS = "${toString port}/tcp,${toString port}/udp";
       };
       extraOptions = [
