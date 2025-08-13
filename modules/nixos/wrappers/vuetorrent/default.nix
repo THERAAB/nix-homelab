@@ -48,7 +48,6 @@ in {
         VPN_CONF = "wg0";
         PRIVOXY_ENABLED = "true";
         LIB_TORRENT = "v1";
-        # WEBUI_PORTS = "${toString port}/tcp,${toString port}/udp";
       };
       extraOptions = [
         "--cap-add=NET_ADMIN"
