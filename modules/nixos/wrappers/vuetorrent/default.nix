@@ -47,6 +47,8 @@ in {
         VPN_LAN_NETWORK = "${properties.network.nix-desktop.local.ip},${properties.network.ap.subnet},${properties.network.micro-media.local.ip},${properties.network.micro-tailscale.local.ip},${properties.network.micro-download.local.ip}";
         VPN_CONF = "wg0";
         VPN_EXPOSE_PORTS_ON_LAN = "8118/tcp,8118/udp";
+        VPN_PROVIDER = "generic";
+        VPN_NAMESERVERS = "wg";
         PRIVOXY_ENABLED = "true";
         LIB_TORRENT = "v1";
       };
