@@ -41,15 +41,14 @@ in {
       environment = {
         PUID = "${toString uid}";
         PGID = "${toString properties.media.group.id}";
-        UMASK = "022";
+        UMASK = "002";
         TZ = "America/New_York";
         VPN_ENABLED = "true";
         VPN_LAN_NETWORK = "${properties.network.nix-desktop.local.ip},${properties.network.ap.subnet},${properties.network.micro-media.local.ip},${properties.network.micro-tailscale.local.ip},${properties.network.micro-download.local.ip}";
         VPN_CONF = "wg0";
-        VPN_ADDITIONAL_PORTS = "";
-        VPN_IP_CHECK_DELAY = "5";
-        VPN_IP_CHECK_EXIT = "true";
         PRIVOXY_ENABLED = "true";
+        LIB_TORRENT = "v1";
+        WEBUI_PORTS = "${toString port}/tcp,${toString port}/udp";
       };
       extraOptions = [
         "--cap-add=NET_ADMIN"
