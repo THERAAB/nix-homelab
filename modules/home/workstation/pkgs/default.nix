@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       gimp
-      vmware-horizon-client
+      omnissa-horizon-client
       discord
       imagemagick
       libreoffice-fresh

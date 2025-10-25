@@ -43,6 +43,7 @@ in {
         ".dropbox-hm"
         ".pki" # Discord
         ".vmware"
+        ".omnissa"
         ".local/share/org.gnome.TextEditor"
         ".local/share/maestral"
         ".local/share/python_keyring" # Maestral

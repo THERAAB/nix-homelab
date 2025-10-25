@@ -20,8 +20,8 @@ in {
         {path = "${cfg.config-dir}/.gitconfig";}
       ];
       enable = true;
-      userName = "THERAAB";
-      extraConfig = {
+      settings = {
+        user.name = "THERAAB";
         push.autoSetupRemote = true;
       };
     };

@@ -28,7 +28,7 @@ in {
         favorite-apps = [
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
-          "vmware-view.desktop"
+          "horizon-client.desktop"
           "kitty.desktop"
           "steam.desktop"
           "codium.desktop"
@@ -56,7 +56,7 @@ in {
       };
       "org/gnome/shell/extensions/auto-move-windows" = {
         application-list = [
-          "vmware-view.desktop:2"
+          "horizon-client.desktop:2"
           "steam.desktop:3"
         ];
       };
