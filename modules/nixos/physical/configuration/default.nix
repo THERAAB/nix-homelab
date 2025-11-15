@@ -65,7 +65,7 @@ in {
       ripgrep
       tealdeer
       procs
-      du-dust
+      dust
       bottom
       zoxide
       ethtool

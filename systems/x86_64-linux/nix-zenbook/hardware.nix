@@ -69,7 +69,7 @@
       enable = true;
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
       ];
     };
@@ -88,7 +88,7 @@
   };
   services = {
     thermald.enable = true;
-    logind.lidSwitch = "suspend-then-hibernate";
+    logind.settings.Login.HandlelidSwitch = "suspend-then-hibernate";
     # Disable ELAN Fingerprint reader
     udev.extraRules = ''ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"'';
   };

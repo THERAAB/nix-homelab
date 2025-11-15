@@ -19,7 +19,7 @@ in {
     };
     programs.home-manager.enable = true;
     home.packages = with pkgs; [
-      ncdu_2
+      ncdu
       lm_sensors
     ];
   };
