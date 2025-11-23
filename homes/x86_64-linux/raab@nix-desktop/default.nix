@@ -9,7 +9,7 @@
   };
   home.packages = with pkgs; [
     heroic
-    protonup
+    protonup-ng
     polychromatic
     snapper-gui
     jetbrains.idea-community
