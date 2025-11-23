@@ -37,7 +37,6 @@ in {
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
         libva-vdpau-driver
         intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-        vaapiVdpau
         libvdpau-va-gl
       ];
     };
