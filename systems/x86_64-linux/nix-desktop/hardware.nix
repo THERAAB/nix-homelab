@@ -53,6 +53,7 @@
       ACTION!="add|change", GOTO="headset_end"
       KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="0ab5", TAG+="uaccess"
       LABEL="headset_end"
+      SUBSYSTEMS=="usb*", ATTRS{idVendor}=="36bc", MODE="0666"
     '';
   };
   hardware = {

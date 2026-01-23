@@ -99,7 +99,7 @@ in {
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
         command = toString (pkgs.writeShellScript "switch-audio" ''
-          ${pkgs.pulseaudio}/bin/pactl set-default-sink alsa_output.usb-Logitech_G733_Gaming_Headset-00.iec958-stereo
+          ${pkgs.pulseaudio}/bin/pactl set-default-sink alsa_output.usb-Fractal_Fractal_Scape_Dongle_00000000911AD5811398-00.iec958-stereo
         '');
         name = "Switch to Headphones";
         binding = "<Shift><Alt>h";
