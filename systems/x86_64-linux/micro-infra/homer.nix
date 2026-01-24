@@ -259,7 +259,7 @@ in {
         }
         {
           name = "Flaresolverr";
-          logo = "assets/icons/sonarr.png";
+          logo = "assets/icons/flaresolverr.png";
           subtitle = "Manage Cloudflare Challenges";
           tag = "cloudflare";
           keywords = "tv shows media";
