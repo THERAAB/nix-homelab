@@ -258,6 +258,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Flaresolverr";
+          logo = "assets/icons/sonarr.png";
+          subtitle = "Manage Cloudflare Challenges";
+          tag = "cloudflare";
+          keywords = "tv shows media";
+          url = "https://flaresolverr.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "Readarr";
           logo = "assets/icons/readarr.png";
           subtitle = "Manage Books";

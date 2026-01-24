@@ -10,6 +10,7 @@
       prowlarr.enable = true;
       radarr.enable = true;
       sonarr.enable = true;
+      flaresolverr.enable = true;
       readarr.enable = true;
       vuetorrent.enable = true;
     };

@@ -73,6 +73,7 @@ curl https://am.i.mullvad.net/json
   - TPB
 - Add sonar & radarr
 - Add qbittorent
+- Add flaresolverr
 
 ### Sonar, Radarr
 
