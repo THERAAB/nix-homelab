@@ -34,7 +34,7 @@ in {
       }
       {
         proto = "virtiofs";
-        source = "/run/secrets/${config.networking.hostName}";
+        source = "/run/secrets";
         mountPoint = "/run/secrets";
         tag = "secrets";
       }
