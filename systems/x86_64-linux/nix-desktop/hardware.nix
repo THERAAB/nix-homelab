@@ -20,6 +20,7 @@
       device = "none";
       fsType = "tmpfs";
       options = ["size=10G" "mode=777"];
+      neededForBoot = true;
     };
     "/games" = {
       device = "/dev/disk/by-label/nixos";

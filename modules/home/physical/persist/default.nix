@@ -11,8 +11,7 @@ in {
     enable = mkEnableOption (lib.mdDoc "Persist files");
   };
   config = mkIf cfg.enable {
-    home.persistence."/nix/persist/home/raab" = {
-      allowOther = true;
+    home.persistence."/nix/persist" = {
       directories = [
         ".config/sops/age"
         ".config/fish"

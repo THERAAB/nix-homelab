@@ -42,6 +42,7 @@ in {
         device = "none";
         fsType = "tmpfs";
         options = ["size=4G" "mode=777"];
+        neededForBoot = true;
       };
     };
     swapDevices = [];
