@@ -12,7 +12,7 @@
     protonup-ng
     polychromatic
     snapper-gui
-    jetbrains.idea-oss
+    jetbrains.idea-community
   ];
   systemd.user.services.steam = {
     Install.WantedBy = ["graphical-session.target"];

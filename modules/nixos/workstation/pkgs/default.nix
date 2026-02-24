@@ -22,7 +22,7 @@ in {
       helix
       ghex
       pavucontrol
-      xlsclients
+      xorg.xlsclients
       nil
       alejandra
       wl-clipboard
