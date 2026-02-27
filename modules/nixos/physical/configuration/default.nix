@@ -59,7 +59,6 @@ in {
       ssh-to-age
       dos2unix
       hping
-      fwts
       eza
       bat
       ripgrep
