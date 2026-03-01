@@ -116,7 +116,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.prowlarr}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.prowlarr}
         '';
       };
       "movies.${properties.network.domain}" = {
