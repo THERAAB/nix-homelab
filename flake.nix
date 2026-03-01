@@ -73,7 +73,6 @@
           };
           micro-infra = microvm-config;
           micro-tailscale = microvm-config;
-          micro-automate = microvm-config;
         };
       };
       homes.users = {

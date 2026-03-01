@@ -60,7 +60,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-automate.local.ip}:${toString properties.ports.home-assistant}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.home-assistant}
         '';
       };
       "sync.${properties.network.domain}" = {
