@@ -14,7 +14,7 @@
     server.enable = true;
     networking.harmonia.enable = true;
     wrappers = {
-      flatnotes.enable = true;
+      # flatnotes.enable = true;
     };
   };
   services.netdata.config.registry.enabled = "yes";
