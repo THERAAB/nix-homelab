@@ -11,7 +11,7 @@ in {
     enable = mkEnableOption (lib.mdDoc "Setup impermanence home manager module");
   };
   config = mkIf cfg.enable {
-    home.persistence."/nix/persist/home/raab" = {
+    home.persistence."/nix/persist" = {
       allowOther = true;
       directories = [
         "Downloads"

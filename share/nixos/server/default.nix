@@ -8,9 +8,12 @@
       "/var/www/"
     ];
   };
-  sops.secrets = {
-    gotify_gatus_token = {};
-    restic_password = {};
-    netdata_alarm = {};
+  sops = {
+    secrets = {
+      keepGenerations = 0;
+      gotify_gatus_token = {};
+      restic_password = {};
+      netdata_alarm = {};
+    };
   };
 }

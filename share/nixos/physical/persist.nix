@@ -9,7 +9,7 @@
     "L  /etc/gitconfig                              -   -       -   -   /home/raab/.config/git/config   "
   ];
   programs.fuse.userAllowOther = true;
-  environment.persistence."/nix/persist/system" = {
+  environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
       "/etc/nixos"
