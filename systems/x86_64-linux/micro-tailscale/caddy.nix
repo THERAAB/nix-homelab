@@ -25,7 +25,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.vuetorrent}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.vuetorrent}
         '';
       };
       "gotify.${properties.network.domain}" = {
@@ -123,28 +123,28 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.radarr}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.radarr}
         '';
       };
       "readarr.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.readarr}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.readarr}
         '';
       };
       "tv.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.sonarr}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.sonarr}
         '';
       };
       "flaresolverr.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.flaresolverr}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.flaresolverr}
         '';
       };
     };
