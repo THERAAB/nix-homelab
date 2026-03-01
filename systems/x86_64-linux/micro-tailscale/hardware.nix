@@ -15,7 +15,7 @@
     shares = [
       {
         proto = "virtiofs";
-        source = "/run/secrets";
+        source = "/run/secrets/${config.networking.hostName}";
         mountPoint = "/run/secrets";
         tag = "secrets";
       }

@@ -78,5 +78,19 @@
           micro-automate = microvm-config;
         };
       };
+      homes.users = {
+        "raab@nix-hypervisor".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+        ];
+        "raab@nix-nas".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+        ];
+        "raab@nix-desktop".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+        ];
+        "raab@nix-zenbook".modules = with inputs; [
+          impermanence.nixosModules.home-manager.impermanence
+        ];
+      };
     };
 }
