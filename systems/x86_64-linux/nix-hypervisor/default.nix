@@ -1,9 +1,9 @@
 {self, ...}: {
   imports = [
     (self + /share/nixos/server)
-    ./users.nix
+    #./users.nix
     ./hardware.nix
-    ./sops.nix
+    #./sops.nix
     #./syncthing.nix
     #./restic.nix
     #./microvm.nix
@@ -11,11 +11,11 @@
     #./update-flake.nix
   ];
   nix-homelab = {
-    server.enable = true;
-    networking.harmonia.enable = true;
-    wrappers = {
-      photoprism.enable = true;
-    };
+    #server.enable = true;
+    #networking.harmonia.enable = true;
+    #wrappers = {
+    #  photoprism.enable = true;
+    #};
   };
   services.netdata.config.registry.enabled = "yes";
 }
