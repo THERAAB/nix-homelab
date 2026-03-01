@@ -47,7 +47,7 @@ in {
           PGID = "${toString gid}";
           UMASK = "022";
           TZ = "America/New_York";
-          MONGO_HOST = "${properties.network.micro-infra.local.ip}";
+          MONGO_HOST = "${properties.network.nix-hypervisor.local.ip}";
           MONGO_PORT = "27017";
         };
         environmentFiles = [

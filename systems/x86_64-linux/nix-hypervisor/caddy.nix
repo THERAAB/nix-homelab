@@ -7,7 +7,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.unifi} {
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.unifi} {
             transport http {
               tls_insecure_skip_verify
             }
@@ -32,14 +32,14 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.gotify}
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.gotify}
         '';
       };
       "gatus.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.gatus}
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.gatus}
         '';
       };
       "cache.${properties.network.domain}" = {
@@ -95,7 +95,7 @@
         useACMEHost = "${properties.network.domain}-tld";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.homer}
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.homer}
         '';
       };
       "audiobooks.${properties.network.domain}" = {

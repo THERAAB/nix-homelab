@@ -27,6 +27,16 @@
       jellyfin.enable = true;
       jellyseerr.enable = true;
       home-assistant.enable = true;
+      gatus = {
+        enable = true;
+        conf = import ./gatus.nix;
+      };
+      homer = {
+        enable = true;
+        conf = import ./homer.nix;
+      };
+      gotify.enable = true;
+      unifi.enable = true;
     };
     media.enable = true;
   };

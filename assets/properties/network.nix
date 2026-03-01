@@ -3,10 +3,6 @@
     tailscale.ip = "100.121.108.123";
     local.ip = "192.168.3.2";
   };
-  micro-infra = {
-    local.ip = "192.168.3.5";
-    machine-id = "7964eeea619240a9a312ecff2bf3ffe2";
-  };
   micro-tailscale = {
     tailscale.ip = "100.103.162.45";
     local.ip = "192.168.3.6";
