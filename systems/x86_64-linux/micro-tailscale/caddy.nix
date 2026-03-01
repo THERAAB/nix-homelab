@@ -102,7 +102,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.flatnotes}
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.flatnotes}
         '';
       };
       "files.${properties.network.domain}" = {

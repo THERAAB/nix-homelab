@@ -25,7 +25,7 @@
       options = ["subvol=sync" "compress=zstd" "noatime"];
     };
     "/sync/share/flatnotes" = {
-      device = "/var/lib/microvms/micro-server/storage/var/lib/flatnotes";
+      device = "/var/lib/flatnotes";
       options = ["bind"];
     };
   };
