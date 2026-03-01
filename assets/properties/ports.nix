@@ -20,7 +20,6 @@
   jellyfin = 8096;
   jellyseerr = 5055;
   filebrowser = 9940;
-  photoprism = 2342;
   syncthing = 8384;
   harmonia = 5000;
 }

@@ -42,13 +42,6 @@
           reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.gatus}
         '';
       };
-      "photos.${properties.network.domain}" = {
-        useACMEHost = "${properties.network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.photoprism}
-        '';
-      };
       "cache.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''

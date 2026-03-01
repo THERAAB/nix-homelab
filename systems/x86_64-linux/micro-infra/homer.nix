@@ -101,21 +101,6 @@ in {
       ];
     }
     {
-      name = "Micro-Server";
-      icon = "fas fa-server";
-      items = [
-        {
-          name = "Photoprism";
-          logo = "assets/icons/photoprism.png";
-          subtitle = "View & Manage Photos";
-          tag = "photos";
-          keywords = "photos media";
-          url = "https://photos.${network.domain}";
-          target = "_blank";
-        }
-      ];
-    }
-    {
       name = "Micro-Infra";
       icon = "fas fa-sitemap";
       items = [

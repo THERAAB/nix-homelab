@@ -8,7 +8,6 @@
   services.restic.backups."nix-server" = {
     exclude = [
       ".git"
-      ".photoprism"
       ".stfolder"
       ".stversions"
       ".ssh"
@@ -22,7 +21,6 @@
       "*.log"
       "var/lib/containers/storage"
       "var/lib/private/AdGuardHome/data"
-      "var/lib/private/photoprism/cache"
       "var/lib/jellyfin/data/metadata/library"
       "var/log/"
       "var/cache/"

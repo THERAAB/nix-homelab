@@ -93,19 +93,6 @@ in {
       client.insecure = true;
     }
     {
-      name = "Photoprism";
-      url = "https://photos.${network.domain}/";
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<title>PhotoPrism</title>*)''
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
       name = "Gotify";
       url = "https://gotify.${network.domain}/";
       conditions = [
