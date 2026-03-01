@@ -11,7 +11,7 @@
     #./update-flake.nix
   ];
   nix-homelab = {
-    #server.enable = true;
+    server.enable = true;
     #networking.harmonia.enable = true;
     #wrappers = {
     #  photoprism.enable = true;
