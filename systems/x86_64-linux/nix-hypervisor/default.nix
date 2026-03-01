@@ -14,6 +14,7 @@
     server.enable = true;
     networking.harmonia.enable = true;
     wrappers = {
+      photoprism.enable = true;
     };
   };
   services.netdata.config.registry.enabled = "yes";

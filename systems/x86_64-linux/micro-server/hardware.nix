@@ -1,6 +1,4 @@
-{config, ...}: let
-  originals-dir = "/var/lib/private/photoprism/originals";
-in {
+{config, ...}: {
   networking.hostName = "micro-server";
   microvm = {
     mem = 4096;
@@ -21,12 +19,6 @@ in {
         source = "/sync";
         mountPoint = "/sync";
         tag = "sync";
-      }
-      {
-        proto = "virtiofs";
-        source = "/sync/Camera";
-        mountPoint = "${originals-dir}";
-        tag = "Camera";
       }
       {
         proto = "virtiofs";

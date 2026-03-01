@@ -6,7 +6,6 @@
   nix-homelab = {
     microvm.enable = true;
     wrappers = {
-      photoprism.enable = true;
     };
   };
 }

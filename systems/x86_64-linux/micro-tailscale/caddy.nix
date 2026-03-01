@@ -46,7 +46,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.photoprism}
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.photoprism}
         '';
       };
       "cache.${properties.network.domain}" = {
