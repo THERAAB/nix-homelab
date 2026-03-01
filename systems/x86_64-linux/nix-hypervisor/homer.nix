@@ -101,7 +101,7 @@ in {
       ];
     }
     {
-      name = "Micro-Infra";
+      name = "Infra";
       icon = "fas fa-sitemap";
       items = [
         {
