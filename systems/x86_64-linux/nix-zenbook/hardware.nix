@@ -43,6 +43,7 @@
       device = "none";
       fsType = "tmpfs";
       options = ["size=2G" "mode=777"];
+      neededForBoot = true;
     };
     "/swap" = {
       device = "/dev/disk/by-label/nixos";
