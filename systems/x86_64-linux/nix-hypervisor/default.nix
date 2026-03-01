@@ -13,6 +13,15 @@
   nix-homelab = {
     server.enable = true;
     networking.harmonia.enable = true;
+    wrappers = {
+      radarr.enable = true;
+      prowlarr.enable = true;
+      sonarr.enable = true;
+      flaresolverr.enable = true;
+      readarr.enable = true;
+      vuetorrent.enable = true;
+    };
+    media.enable = true;
   };
   services.netdata.config.registry.enabled = "yes";
   services.userborn.enable = true;
