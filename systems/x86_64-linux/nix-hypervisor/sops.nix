@@ -1,7 +1,7 @@
 {...}: {
   sops = {
-    keepGenerations = 0;
     secrets = {
+      keepGenerations = 0;
       home_assistant = {
         owner = "hass";
       };
