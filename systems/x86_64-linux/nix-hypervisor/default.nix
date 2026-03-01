@@ -20,6 +20,9 @@
       flaresolverr.enable = true;
       readarr.enable = true;
       vuetorrent.enable = true;
+      audiobookshelf.enable = true;
+      jellyfin.enable = true;
+      jellyseerr.enable = true;
     };
     media.enable = true;
   };

@@ -28,7 +28,7 @@ in {
       mountdPort = 4002;
       exports = ''
         ${nfs-dir}    ${properties.network.nix-hypervisor.local.ip}(rw,fsid=0,no_subtree_check) ${properties.network.nix-hypervisor.tailscale.ip}(rw,fsid=0,no_subtree_check)
-        ${media-dir}  ${properties.network.micro-media.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString properties.users.nfsnobody.uid}) ${properties.network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString properties.users.nfsnobody.uid})
+        ${media-dir}  ${properties.network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString properties.users.nfsnobody.uid}) ${properties.network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString properties.users.nfsnobody.uid})
         ${backups-dir}  ${properties.network.nix-hypervisor.local.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString properties.users.nfsnobody.uid},no_root_squash) ${properties.network.nix-hypervisor.tailscale.ip}(rw,nohide,insecure,no_subtree_check,anonuid=${toString properties.users.nfsnobody.uid},no_root_squash)
       '';
     };

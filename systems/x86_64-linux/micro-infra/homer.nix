@@ -68,7 +68,7 @@ in {
   ];
   services = [
     {
-      name = "Micro-Media";
+      name = "Media";
       icon = "fas fa-play";
       items = [
         {

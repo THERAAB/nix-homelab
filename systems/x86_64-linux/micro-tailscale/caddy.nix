@@ -81,14 +81,14 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-media.local.ip}:${toString properties.ports.jellyfin}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.jellyfin}
         '';
       };
       "jellyseerr.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-media.local.ip}:${toString properties.ports.jellyseerr}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.jellyseerr}
         '';
       };
       "adguard.${properties.network.domain}" = {
@@ -109,7 +109,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-media.local.ip}:${toString properties.ports.audiobookshelf}
+          reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.audiobookshelf}
         '';
       };
       "prowlarr.${properties.network.domain}" = {

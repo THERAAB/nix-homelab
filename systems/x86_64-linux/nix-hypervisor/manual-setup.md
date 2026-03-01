@@ -25,7 +25,6 @@
 
 Add to NetData Cloud
 
-# Micro-Media
 
 ## Privacy VPN
 

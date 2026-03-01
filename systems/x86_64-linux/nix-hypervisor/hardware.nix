@@ -3,8 +3,6 @@
   properties,
   ...
 }: {
-  # Force kernel to use iommu (GPU passthrough)
-  boot.kernelParams = ["intel_iommu=on" "iommu=pt"];
   networking.hostName = "nix-hypervisor";
   services.irqbalance.enable = true;
   systemd.timers.nix-flake-update.timerConfig.OnCalendar = "Sun *-*-* 04:20:00";

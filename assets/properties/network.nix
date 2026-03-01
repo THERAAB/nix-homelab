@@ -3,10 +3,6 @@
     tailscale.ip = "100.121.108.123";
     local.ip = "192.168.3.2";
   };
-  micro-media = {
-    local.ip = "192.168.3.3";
-    machine-id = "5537b436ea484e698e6c3426f309a4b8";
-  };
   micro-automate = {
     local.ip = "192.168.3.8";
     machine-id = "a99ebf2643d6aa1a67dabcc3450ca778";

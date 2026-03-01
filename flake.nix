@@ -71,7 +71,6 @@
           graphical-installer.specialArgs = {
             inherit self properties;
           };
-          micro-media = microvm-config;
           micro-infra = microvm-config;
           micro-tailscale = microvm-config;
           micro-automate = microvm-config;
