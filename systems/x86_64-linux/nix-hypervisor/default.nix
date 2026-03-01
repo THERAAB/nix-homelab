@@ -10,10 +10,12 @@
     ./olivetin
     ./update-flake.nix
     ./home-assistant
+    ./caddy.nix
   ];
   nix-homelab = {
     server.enable = true;
     networking.harmonia.enable = true;
+    networking.acme.enable = true;
     wrappers = {
       radarr.enable = true;
       prowlarr.enable = true;
