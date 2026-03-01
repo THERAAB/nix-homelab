@@ -4,6 +4,7 @@
   ...
 }: {
   microvm = {
+    services.userborn.enable = true;
     hypervisor = "cloud-hypervisor";
     mem = lib.mkDefault 2024;
     vcpu = lib.mkDefault 1;
