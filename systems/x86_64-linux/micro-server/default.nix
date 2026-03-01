@@ -6,9 +6,6 @@
   nix-homelab = {
     microvm.enable = true;
     wrappers = {
-      filebrowser.enable = true;
-      linkding.enable = true;
-      microbin.enable = true;
       photoprism.enable = true;
     };
   };

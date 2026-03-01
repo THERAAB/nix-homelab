@@ -106,56 +106,8 @@ in {
       ];
     }
     {
-      name = "microbin";
-      url = "https://microbin.${network.domain}";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
-      name = "Linkding";
-      url = "https://bookmarks.${network.domain}/health";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
       name = "Gotify";
       url = "https://gotify.${network.domain}/";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
-      name = "Flatnotes";
-      url = "https://notes.${network.domain}";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
-      name = "filebrowser";
-      url = "https://files.${network.domain}";
       conditions = [
         "[STATUS] == 200"
       ];

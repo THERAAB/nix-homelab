@@ -105,48 +105,12 @@ in {
       icon = "fas fa-server";
       items = [
         {
-          name = "Flatnotes";
-          logo = "assets/icons/flatnotes.png";
-          subtitle = "Edit/View Notes";
-          tag = "notes";
-          keywords = "notes";
-          url = "https://notes.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "Photoprism";
           logo = "assets/icons/photoprism.png";
           subtitle = "View & Manage Photos";
           tag = "photos";
           keywords = "photos media";
           url = "https://photos.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Linkding";
-          logo = "assets/icons/linkding.png";
-          subtitle = "Bookmark Manager";
-          tag = "bookmark";
-          keywords = "bookmark manager";
-          url = "https://bookmarks.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "File Browser";
-          logo = "assets/icons/filebrowser.png";
-          subtitle = "File Management";
-          tag = "file";
-          keywords = "file manager";
-          url = "https://files.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Microbin";
-          logo = "assets/icons/microbin.png";
-          subtitle = "Pastebin server";
-          tag = "pastebin";
-          keywords = "pastebin";
-          url = "https://microbin.${network.domain}";
           target = "_blank";
         }
       ];

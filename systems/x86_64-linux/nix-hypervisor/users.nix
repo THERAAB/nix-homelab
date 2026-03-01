@@ -12,16 +12,10 @@
         group = "unifi";
         isSystemUser = true;
       };
-      flatnotes = {
-        uid = properties.users.flatnotes.uid;
-        group = "flatnotes";
-        isSystemUser = true;
-      };
     };
     groups = {
       hass = {};
       unifi = {};
-      flatnotes = {};
     };
   };
 }

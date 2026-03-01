@@ -19,8 +19,6 @@ and the installation instructions below.
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
 - Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
-- Note-taking with [Flatnotes](https://github.com/Dullage/flatnotes)
-- [Microbin](https://microbin.eu/) locally hosted pastebin
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking

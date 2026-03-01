@@ -20,7 +20,6 @@
       "logs"
       "metadata"
       "*.log"
-      "flatnotes/.flatnotes"
       "var/lib/containers/storage"
       "var/lib/private/AdGuardHome/data"
       "var/lib/private/photoprism/cache"

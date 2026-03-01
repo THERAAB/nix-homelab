@@ -49,20 +49,6 @@
           reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.photoprism}
         '';
       };
-      "microbin.${properties.network.domain}" = {
-        useACMEHost = "${properties.network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.microbin}
-        '';
-      };
-      "bookmarks.${properties.network.domain}" = {
-        useACMEHost = "${properties.network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.linkding}
-        '';
-      };
       "cache.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
@@ -96,20 +82,6 @@
         extraConfig = ''
           encode zstd gzip
           reverse_proxy ${properties.network.nix-hypervisor.tailscale.ip}:${toString properties.ports.olivetin}
-        '';
-      };
-      "notes.${properties.network.domain}" = {
-        useACMEHost = "${properties.network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.flatnotes}
-        '';
-      };
-      "files.${properties.network.domain}" = {
-        useACMEHost = "${properties.network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${properties.network.micro-server.local.ip}:${toString properties.ports.filebrowser}
         '';
       };
       "jellyfin.${properties.network.domain}" = {

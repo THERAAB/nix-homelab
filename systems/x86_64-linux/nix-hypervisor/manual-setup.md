@@ -101,21 +101,6 @@ Set up last, make sure to do above before trying to set up
 
 ## Apps
 
-### Linkding
-
-- Password setup
-
-```
-sudo podman exec -it linkding python manage.py createsuperuser --username=raab --email=raab@example.com
-```
-
-- Add API Key
-- Settings -> Show bookmark url
-
-### File Browser
-
-- Change default user/password
-
 ### Gotify
 
 - Change default user/password
