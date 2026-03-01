@@ -164,15 +164,6 @@ in {
           url = "https://sync.${network.domain}";
           target = "_blank";
         }
-        {
-          name = "OliveTin";
-          logo = "assets/icons/olivetin.png";
-          subtitle = "Execute Commands";
-          tag = "exec";
-          keywords = "exec";
-          url = "https://olivetin.${network.domain}";
-          target = "_blank";
-        }
       ];
     }
     {

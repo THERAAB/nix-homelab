@@ -7,7 +7,6 @@
     ./syncthing.nix
     ./restic.nix
     ./microvm.nix
-    ./olivetin
     ./update-flake.nix
     ./home-assistant
     ./caddy.nix

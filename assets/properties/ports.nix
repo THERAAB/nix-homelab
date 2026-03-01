@@ -4,7 +4,6 @@
   http = 80;
   adguard = 3000;
   netdata = 19999;
-  olivetin = 1337;
   home-assistant = 8123;
   prowlarr = 9696;
   radarr = 7878;
