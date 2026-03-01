@@ -12,6 +12,7 @@ in {
   };
   config = mkIf cfg.enable {
     home.persistence."/nix/persist" = {
+      allowOther = true;
       directories = [
         "Downloads"
         "Music"
