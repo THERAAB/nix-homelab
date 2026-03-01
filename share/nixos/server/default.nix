@@ -9,8 +9,8 @@
     ];
   };
   sops = {
+    keepGenerations = 0;
     secrets = {
-      keepGenerations = 0;
       gotify_gatus_token = {};
       restic_password = {};
       netdata_alarm = {};
