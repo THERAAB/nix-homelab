@@ -11,11 +11,11 @@
         }
         {
           domain = "${properties.network.domain}";
-          answer = "${properties.network.micro-tailscale.local.ip}";
+          answer = "${properties.network.nix-hypervisor.local.ip}";
         }
         {
           domain = "*.${properties.network.domain}";
-          answer = "${properties.network.micro-tailscale.local.ip}";
+          answer = "${properties.network.nix-hypervisor.local.ip}";
         }
       ];
     };

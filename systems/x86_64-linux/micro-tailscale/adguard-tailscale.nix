@@ -3,7 +3,7 @@
   services.adguardhome = {
     host = properties.network.micro-tailscale.local.ip;
     settings = {
-      dns.bind_hosts = [properties.network.micro-tailscale.tailscale.ip properties.network.micro-tailscale.local.ip];
+      dns.bind_hosts = [properties.network.nix-hypervisor.tailscale.ip properties.network.nix-hypervisor.local.ip];
       filtering.rewrites = [
         {
           domain = "pfsense.${properties.network.domain}";
@@ -11,11 +11,11 @@
         }
         {
           domain = "${properties.network.domain}";
-          answer = "${properties.network.micro-tailscale.tailscale.ip}";
+          answer = "${properties.network.nix-hypervisor.tailscale.ip}";
         }
         {
           domain = "*.${properties.network.domain}";
-          answer = "${properties.network.micro-tailscale.tailscale.ip}";
+          answer = "${properties.network.nix-hypervisor.tailscale.ip}";
         }
       ];
     };
