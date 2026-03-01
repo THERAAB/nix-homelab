@@ -9,6 +9,7 @@
     ./microvm.nix
     ./olivetin
     ./update-flake.nix
+    ./home-assistant
   ];
   nix-homelab = {
     server.enable = true;
@@ -23,6 +24,7 @@
       audiobookshelf.enable = true;
       jellyfin.enable = true;
       jellyseerr.enable = true;
+      home-assistant.enable = true;
     };
     media.enable = true;
   };
