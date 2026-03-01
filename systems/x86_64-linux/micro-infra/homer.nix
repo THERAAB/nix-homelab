@@ -176,7 +176,7 @@ in {
       ];
     }
     {
-      name = "Micro-Download";
+      name = "Download";
       icon = "fas fa-download";
       items = [
         {

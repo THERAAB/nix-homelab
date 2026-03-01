@@ -74,7 +74,6 @@
           micro-media = microvm-config;
           micro-infra = microvm-config;
           micro-tailscale = microvm-config;
-          micro-download = microvm-config;
           micro-automate = microvm-config;
         };
       };

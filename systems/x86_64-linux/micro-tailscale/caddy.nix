@@ -25,7 +25,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-download.local.ip}:${toString properties.ports.vuetorrent}
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.vuetorrent}
         '';
       };
       "gotify.${properties.network.domain}" = {
