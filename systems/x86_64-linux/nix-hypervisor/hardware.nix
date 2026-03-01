@@ -3,6 +3,7 @@
   properties,
   ...
 }: {
+  boot.kernelParams = ["intel_iommu=on" "iommu=pt"];
   networking.hostName = "nix-hypervisor";
   services.irqbalance.enable = true;
   systemd.timers.nix-flake-update.timerConfig.OnCalendar = "Sun *-*-* 04:20:00";
