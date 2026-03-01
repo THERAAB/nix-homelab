@@ -18,4 +18,5 @@
     };
   };
   services.netdata.config.registry.enabled = "yes";
+  services.userborn.enable = true;
 }
