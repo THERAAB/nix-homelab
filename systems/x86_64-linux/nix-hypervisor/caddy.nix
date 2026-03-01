@@ -95,7 +95,7 @@
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''
           encode zstd gzip
-          reverse_proxy ${properties.network.micro-infra.local.ip}:${toString properties.ports.adguard}
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.adguard}
         '';
       };
       "${properties.network.domain}" = {

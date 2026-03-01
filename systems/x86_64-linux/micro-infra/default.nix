@@ -1,7 +1,6 @@
 {self, ...}: {
   imports = [
     (self + /share/nixos/microvm)
-    ./adguard.nix
     ./hardware.nix
   ];
   nix-homelab = {

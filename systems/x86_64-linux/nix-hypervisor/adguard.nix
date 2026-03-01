@@ -1,9 +1,9 @@
 {properties, ...}: {
   nix-homelab.networking.adguard.enable = true;
   services.adguardhome = {
-    host = properties.network.micro-infra.local.ip;
+    host = properties.network.nix-hypervisor.local.ip;
     settings = {
-      dns.bind_hosts = [properties.network.micro-infra.local.ip];
+      dns.bind_hosts = [properties.network.nix-hypervisor.local.ip];
       filtering.rewrites = [
         {
           domain = "pfsense.${properties.network.domain}";

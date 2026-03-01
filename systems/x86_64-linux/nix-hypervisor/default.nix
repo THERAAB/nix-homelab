@@ -11,6 +11,7 @@
     ./update-flake.nix
     ./home-assistant
     ./caddy.nix
+    ./adguard.nix
   ];
   nix-homelab = {
     server.enable = true;
