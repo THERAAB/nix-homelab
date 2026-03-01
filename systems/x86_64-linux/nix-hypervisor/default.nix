@@ -1,6 +1,6 @@
 {self, ...}: {
   imports = [
-    #(self + /share/nixos/server)
+    (self + /share/nixos/server)
     #./users.nix
     ./hardware.nix
     #./sops.nix
@@ -17,5 +17,5 @@
     #  photoprism.enable = true;
     #};
   };
-  services.netdata.config.registry.enabled = "yes";
+  #services.netdata.config.registry.enabled = "yes";
 }
