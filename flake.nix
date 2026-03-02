@@ -28,14 +28,6 @@
   outputs = inputs: let
     self = inputs.self;
     properties = import (self + /assets/properties);
-    microvm-config = {
-      modules = with inputs; [
-        microvm.nixosModules.microvm
-      ];
-      specialArgs = {
-        inherit self properties;
-      };
-    };
   in
     inputs.snowfall-lib.mkFlake {
       inherit inputs self;
@@ -71,7 +63,6 @@
           graphical-installer.specialArgs = {
             inherit self properties;
           };
-          micro-tailscale = microvm-config;
         };
       };
     };
