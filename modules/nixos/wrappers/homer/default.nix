@@ -12,7 +12,7 @@ with lib.nix-homelab; let
   uid = 4444;
   port = properties.ports.homer;
   app-name = "homer";
-  mount-icons-dir = "/icons";
+  icons-dir = "/nix/persist/nix-homelab/assets/icons";
   local-config-dir = "/var/lib/${app-name}";
   environment = {
     UMASK = "022";
@@ -37,7 +37,7 @@ in {
     systemd.tmpfiles.rules = [
       "d    ${local-config-dir}            -   -               -               -   -                     "
       "R    ${local-config-dir}/icons      -   -               -               -   -                     "
-      "C    ${local-config-dir}/icons      -   -               -               -   ${mount-icons-dir}    "
+      "C    ${local-config-dir}/icons      -   -               -               -   ${icons-dir}    "
       "Z    ${local-config-dir}            -   ${app-name}     ${app-name}     -   -                     "
     ];
     users = {
