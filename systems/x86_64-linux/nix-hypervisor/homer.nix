@@ -245,7 +245,7 @@ in {
           subtitle = "Tailscale DNS Server";
           tag = "dns";
           keywords = "dns adblock";
-          url = "http://${network.micro-tailscale.tailscale.ip}:3000";
+          url = "http://${network.micro-tailscale.local.ip}:3000";
           target = "_blank";
         }
       ];

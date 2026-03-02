@@ -215,7 +215,7 @@ in {
     }
     {
       name = "Adguard-tailscale";
-      url = "http://${network.micro-tailscale.tailscale.ip}:3000";
+      url = "http://${network.micro-tailscale.local.ip}:3000";
       conditions = [
         "[STATUS] == 200"
         ''[BODY] == pat(*<title>Login</title>*)''
