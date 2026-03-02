@@ -29,7 +29,7 @@ in {
     ];
     virtualisation.oci-containers.containers."${app-name}" = {
       autoStart = true;
-      image = "docker.io/fallenbagel/${app-name}";
+      image = "ghcr.io/seerr-team/seerr";
       volumes = [
         "${local-config-dir}:/app/config"
         "${properties.media.dir.movies}:/movies"
