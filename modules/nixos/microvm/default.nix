@@ -17,8 +17,8 @@ in {
   config = mkIf cfg.enable {
     nix-homelab = {
       core.enable = true;
+      server.podman.enable = true;
       microvm = {
-        podman.enable = true;
         system = {
           enable = true;
           hostName = cfg.hostName;
