@@ -1,7 +1,7 @@
 {properties, ...}: {
   users = {
     users = {
-      raab.extraGroups = ["syncthing"];
+      raab.extraGroups = ["syncthing" "media"];
       hass = {
         uid = properties.users.hass.uid;
         group = "hass";
