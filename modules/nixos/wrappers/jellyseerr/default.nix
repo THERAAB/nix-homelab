@@ -25,7 +25,7 @@ in {
     };
     systemd.tmpfiles.rules = [
       "d    ${local-config-dir}     -       -           -                                 -   - "
-      "Z    ${local-config-dir}     -       ${app-name} ${properties.media.group.name}    -   - "
+      "Z    ${local-config-dir}     -       raab        ${properties.media.group.name}    -   - "
     ];
     virtualisation.oci-containers.containers."${app-name}" = {
       autoStart = true;
