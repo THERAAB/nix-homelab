@@ -38,5 +38,6 @@ in {
     };
     services.openssh.enable = lib.mkDefault false; # tailscale has it's own ssh agent
     users.mutableUsers = false;
+    services.userborn.enable = true;
   };
 }

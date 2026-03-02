@@ -4,7 +4,6 @@
   ];
   nix-homelab = {
     workstation.enable = true;
-    programs.headsetcontrol.enable = true;
     wrappers.mangohud.enable = true;
   };
   home.packages = with pkgs; [

@@ -39,10 +39,8 @@
           sops-nix.nixosModules.sops
         ];
         hosts = {
-          nix-hypervisor = {
-            specialArgs = {
-              inherit self properties;
-            };
+          nix-hypervisor.specialArgs = {
+            inherit self properties;
           };
           nix-nas.specialArgs = {
             inherit self properties;

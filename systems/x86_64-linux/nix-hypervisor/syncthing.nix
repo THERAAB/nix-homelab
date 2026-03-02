@@ -28,13 +28,11 @@ in {
           id = "YEUHTJT-HKSDRRS-FPPJCUU-ZWHQJTR-ZRP3LVM-BYFNSH7-MJ7BGPJ-C6PMFA6";
           addresses = ["tcp://${properties.network.nix-desktop.tailscale.ip}:22000" "tcp://${properties.network.nix-desktop.local.ip}:22000"];
         };
-        galaxy-s7-tab.id = "STQ62IM-HAMN7JJ-AXKOFPA-MLQC73I-KFOEPI4-MBMS44D-VWTFFAF-WAWNSQ3";
-        pixel-6a.id = "MCGDVOM-VJQ3IHA-HHLCELL-ABFIJT7-BFHHWMX-V77WXIF-OTEVLZH-F76I5Q6";
       };
       folders = {
         "${local-dir}/share" = {
           id = "share";
-          devices = ["nix-zenbook" "nix-desktop" "galaxy-s7-tab" "pixel-6a"];
+          devices = ["nix-zenbook" "nix-desktop"];
         };
       };
     };
