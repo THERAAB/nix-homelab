@@ -13,8 +13,7 @@
       inherit inputs self properties;
     };
     config.imports = [
-      (self + /share/microvm)
-      (self + /share/all)
+      (self + /share/nixos/microvm)
       ./vms/micro-tailscale
     ];
   };
