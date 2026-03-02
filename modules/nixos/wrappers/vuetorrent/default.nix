@@ -43,7 +43,7 @@ in {
         UMASK = "002";
         TZ = "America/New_York";
         VPN_ENABLED = "true";
-        VPN_LAN_NETWORK = "${properties.network.nix-desktop.local.ip},${properties.network.ap.subnet},${properties.network.micro-tailscale.local.ip},${properties.network.nix-hypervisor.local.ip}";
+        VPN_LAN_NETWORK = "${properties.network.nix-desktop.local.ip},${properties.network.ap.subnet},${properties.network.nix-hypervisor.local.ip}";
         VPN_CONF = "wg0";
         VPN_EXPOSE_PORTS_ON_LAN = "8118/tcp,8118/udp";
         VPN_PROVIDER = "generic";

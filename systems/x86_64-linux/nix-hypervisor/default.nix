@@ -6,7 +6,6 @@
     ./sops.nix
     ./syncthing.nix
     ./restic.nix
-    ./microvm.nix
     ./update-flake.nix
     ./home-assistant
     ./caddy.nix

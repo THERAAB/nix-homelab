@@ -11,10 +11,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    microvm = {
-      url = "github:astro/microvm.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -44,9 +40,6 @@
         ];
         hosts = {
           nix-hypervisor = {
-            modules = with inputs; [
-              microvm.nixosModules.host
-            ];
             specialArgs = {
               inherit self properties;
             };

@@ -14,13 +14,6 @@
           }
         '';
       };
-      "adguard-tailscale.${properties.network.domain}" = {
-        useACMEHost = "${properties.network.domain}";
-        extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${properties.network.micro-tailscale.local.ip}:${toString properties.ports.adguard}
-        '';
-      };
       "vuetorrent.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''

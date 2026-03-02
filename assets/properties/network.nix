@@ -3,11 +3,6 @@
     tailscale.ip = "100.121.108.123";
     local.ip = "192.168.3.2";
   };
-  micro-tailscale = {
-    tailscale.ip = "100.103.162.45";
-    local.ip = "192.168.3.6";
-    machine-id = "58ce21dec8db4860b484cdf1ad45ecb4";
-  };
   nix-zenbook = {
     local.ip = "192.168.1.4";
     tailscale.ip = "100.85.214.18";

@@ -239,15 +239,6 @@ in {
           url = "https://home-assistant.${network.domain}";
           target = "_blank";
         }
-        {
-          name = "AdGuard Tailscale";
-          logo = "assets/icons/tailscale.png";
-          subtitle = "Tailscale DNS Server";
-          tag = "dns";
-          keywords = "dns adblock";
-          url = "http://${network.micro-tailscale.local.ip}:3000";
-          target = "_blank";
-        }
       ];
     }
   ];
