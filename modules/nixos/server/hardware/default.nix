@@ -27,7 +27,6 @@ in {
     powerManagement = {
       enable = true;
       # Sata power management
-      scsiLinkPolicy = "med_power_with_dipm";
       powertop.enable = true;
       cpuFreqGovernor = lib.mkDefault "powersave";
     };
