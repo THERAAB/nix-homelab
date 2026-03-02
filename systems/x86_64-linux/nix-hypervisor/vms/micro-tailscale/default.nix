@@ -11,7 +11,7 @@
   environment = {
     etc."machine-id" = {
       mode = "0644";
-      text = properties.network.${config.nix-homelab.microvm.system.hostName}.machine-id + "\n";
+      text = properties.network.${config.networking.hostName}.machine-id + "\n";
     };
     variables.TERM = "xterm-256color";
     systemPackages = with pkgs; [

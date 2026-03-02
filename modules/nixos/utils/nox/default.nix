@@ -53,19 +53,6 @@ in {
               $git -C $dir pull
               sudo nix run $dir#apps.nixinate.$1
           }
-          micro_local() {
-            if [ $# -lt 1 ]; then
-              NAMES="$(ls -1 /var/lib/microvms)"
-            else
-              NAMES="$@"
-            fi
-
-            for NAME in $NAMES; do
-              echo $NAME
-              sudo microvm -Ru $NAME
-            done
-          }
-
           case "$1" in
               inputs) inputs;;
               rebuild) rebuild;;
@@ -75,12 +62,6 @@ in {
               status) status;;
               pull) pull;;
               apply) apply $2;;
-              micro-local)
-                shift
-                micro_local $@;;
-              micro)
-                shift
-                sudo ${pkgs.openssh}/bin/ssh -t raab@nix-hypervisor "sudo flock -w 60 /dev/shm/nox-micro nox micro-local $@";;
           esac
         ''
       )
