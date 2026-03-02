@@ -1,9 +1,23 @@
-{self, ...}: {
+{
+  pkgs,
+  properties,
+  config,
+  ...
+}: {
   imports = [
     ./hardware.nix
     ./adguard-tailscale.nix
   ];
-  nix-homelab = {
-    microvm.enable = true;
+  environment = {
+    etc."machine-id" = {
+      mode = "0644";
+      text = properties.network.${config.nix-homelab.microvm.system.hostName}.machine-id + "\n";
+    };
+    variables.TERM = "xterm-256color";
+    systemPackages = with pkgs; [
+      fuse-overlayfs
+    ];
   };
+  users.allowNoPasswordLogin = true;
+  security.sudo.execWheelOnly = true;
 }
