@@ -1,7 +1,6 @@
 {self, ...}: {
   imports = [
     (self + /share/nixos/server)
-    ./users.nix
     ./hardware.nix
     ./sops.nix
     ./syncthing.nix
@@ -42,4 +41,5 @@
     media.enable = true;
   };
   services.netdata.config.registry.enabled = "yes";
+  users.users.raab.extraGroups = ["syncthing" "media"];
 }

@@ -250,18 +250,6 @@ in {
         }
       ];
     }
-    #{
-    #  name = "B-Hyve Water Pump Hub";
-    #  url = "tcp://${network.b-hyve.local.ip}:${toString dns-port}";
-    #  conditions = [
-    #    "[RESPONSE_TIME] < 500"
-    #  ];
-    #  alerts = [
-    #    {
-    #      type = "gotify";
-    #    }
-    #  ];
-    #}
     {
       name = "Ecobee Thermostat";
       url = "tcp://${network.ecobee.local.ip}:${toString dns-port}";
