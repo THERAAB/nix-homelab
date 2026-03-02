@@ -19,7 +19,6 @@ in {
     users.users.hass.uid = properties.users.hass.uid;
     systemd = {
       tmpfiles.rules = [
-        "R  ${local-config-dir}/secrets.yaml          -       -             -              -   -                           "
         "C  ${local-config-dir}/secrets.yaml          -       -             -              -   /run/secrets/home_assistant "
         "Z  ${custom-blueprints-dir}                  -       ${app-name}   ${app-name}    -   -                           "
         "Z  ${local-config-dir}/blueprints            -       ${app-name}   ${app-name}    -   -                           "
