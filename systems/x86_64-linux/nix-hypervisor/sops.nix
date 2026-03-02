@@ -5,7 +5,6 @@
     };
     wireguard_mullvad = {
       owner = "vuetorrent";
-      path = "/var/lib/vuetorrent/wireguard/wg0.conf";
     };
     df_password = {};
     cloudflare_dns_secret = {};
