@@ -8,14 +8,17 @@
         {
           domain = "pfsense.${properties.network.domain}";
           answer = "${properties.network.pfSense.local.ip}";
+          enabled = true;
         }
         {
           domain = "${properties.network.domain}";
           answer = "${properties.network.nix-hypervisor.local.ip}";
+          enabled = true;
         }
         {
           domain = "*.${properties.network.domain}";
           answer = "${properties.network.nix-hypervisor.local.ip}";
+          enabled = true;
         }
       ];
     };
