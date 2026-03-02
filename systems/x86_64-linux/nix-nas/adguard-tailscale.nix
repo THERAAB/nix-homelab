@@ -3,7 +3,7 @@
   services.adguardhome = {
     host = properties.network.nix-nas.local.ip;
     settings = {
-      dns.bind_hosts = [properties.nix-nas.tailscale.ip properties.network.nix-nas.local.ip];
+      dns.bind_hosts = [properties.network.nix-nas.tailscale.ip properties.network.nix-nas.local.ip];
       filtering.rewrites = [
         {
           domain = "pfsense.${properties.network.domain}";
