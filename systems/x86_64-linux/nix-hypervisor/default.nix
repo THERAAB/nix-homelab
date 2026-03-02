@@ -13,7 +13,10 @@
     ./adguard.nix
   ];
   nix-homelab = {
-    server.enable = true;
+    server = {
+      enable = true;
+      podman.enable = true;
+    };
     networking.harmonia.enable = true;
     networking.acme.enable = true;
     wrappers = {

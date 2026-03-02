@@ -6,9 +6,9 @@
 }:
 with lib; 
 with lib.nix-homelab; let
-  cfg = config.nix-homelab.microvm.podman;
+  cfg = config.nix-homelab.server.podman;
 in {
-  options.nix-homelab.microvm.podman = with types; {
+  options.nix-homelab.server.podman = with types; {
     enable = mkEnableOption (lib.mdDoc "Podman setup");
   };
   config = mkIf cfg.enable {
