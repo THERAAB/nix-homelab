@@ -28,8 +28,8 @@ in {
   # Found it from highest number in below command:
   # sudo grep . -r /sys/firmware/acpi/interrupts | grep -v "  0"
   systemd.services.disable-interrupt-gpe6F = {
-    wantedBy = ["network-online.target"];
     after = ["network-online.target"];
+    wants = ["network-online.target"];
     description = "Disable CPU consuming interrupt";
     startLimitBurst = 5;
     startLimitIntervalSec = 60;
