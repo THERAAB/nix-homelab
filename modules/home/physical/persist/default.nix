@@ -23,7 +23,7 @@ in {
       ];
       files = [
         ".ssh/known_hosts"
-        ".ssh/id_rsa"
+        # ".ssh/id_rsa"
       ];
     };
   };
