@@ -15,7 +15,7 @@
       gotify_homelab_token = {};
       git_ssh_key = {
         owner = "raab";
-        path = "/nix/persist/home/raab/.ssh/id_rsa";
+        path = "/home/raab/.ssh/id_rsa";
       };
     };
   };
