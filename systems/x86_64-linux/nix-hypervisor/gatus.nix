@@ -214,19 +214,6 @@ in {
       ];
     }
     {
-      name = "Adguard-tailscale";
-      url = "http://${network.micro-tailscale.local.ip}:3000";
-      conditions = [
-        "[STATUS] == 200"
-        ''[BODY] == pat(*<title>Login</title>*)''
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
       name = "Govee Water Alarm";
       url = "tcp://${network.govee-water-alarm.local.ip}:${toString dns-port}";
       conditions = [
