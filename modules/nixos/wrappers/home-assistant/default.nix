@@ -45,6 +45,7 @@ in {
         "tuya"
         "ecobee"
         "sharkiq"
+        "isal"
       ];
       config = {
         default_config = {};
