@@ -207,15 +207,6 @@ in {
           target = "_blank";
         }
         {
-          name = "Readarr";
-          logo = "assets/icons/readarr.png";
-          subtitle = "Manage Books";
-          tag = "books";
-          keywords = "books audiobooks media";
-          url = "https://readarr.${network.domain}";
-          target = "_blank";
-        }
-        {
           name = "Prowlarr";
           logo = "assets/icons/prowlarr.png";
           subtitle = "Manage Indexers";

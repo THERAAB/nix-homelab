@@ -25,7 +25,6 @@
 
 Add to NetData Cloud
 
-
 ## Privacy VPN
 
 ### VueTorrent
@@ -80,11 +79,6 @@ curl https://am.i.mullvad.net/json
 - Add movies/tv paths in sonarr/radarr and request something (needed for Jellyseerr to work)
 - Forms auth
 - Disable auth for local addr
-
-### Readarr
-
-- Add books path
-- Add Standard Book Format: {Author Name}/{Book Title}/{Book Title}{ (PartNumber)}
 
 ### Audiobookshelf
 

@@ -7,7 +7,6 @@
   home-assistant = 8123;
   prowlarr = 9696;
   radarr = 7878;
-  readarr = 8787;
   sonarr = 8989;
   flaresolverr = 9811;
   vuetorrent = 8112;

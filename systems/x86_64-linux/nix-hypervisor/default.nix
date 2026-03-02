@@ -24,7 +24,6 @@
       prowlarr.enable = true;
       sonarr.enable = true;
       flaresolverr.enable = true;
-      readarr.enable = true;
       vuetorrent.enable = true;
       audiobookshelf.enable = true;
       jellyfin.enable = true;

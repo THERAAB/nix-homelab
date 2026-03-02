@@ -128,18 +128,6 @@ in {
       ];
     }
     {
-      name = "Readarr";
-      url = "https://readarr.${network.domain}/health";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
       name = "Radarr";
       url = "https://movies.${network.domain}/health";
       conditions = [
