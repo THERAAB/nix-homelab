@@ -28,12 +28,12 @@ in {
           }
           rebuild() {
               $git -C $dir pull
-              sudo nixos-rebuild switch --flake $dir#
+              nh os switch $dir
           }
           commit() {
               $git -C $dir pull
               $git -C $dir add .
-              $git -C $dir commit -m "automated commit"
+              $git -C $dir commit -m "$2"
               $git -C $dir push
           }
           status() {
@@ -44,7 +44,7 @@ in {
               rebuild
           }
           gc() {
-              nix-collect-garbage -d
+              nh clean all
           }
           pull() {
               $git -C $dir pull
@@ -56,7 +56,7 @@ in {
           case "$1" in
               inputs) inputs;;
               rebuild) rebuild;;
-              commit) commit;;
+              commit) commit $2;;
               update) update;;
               gc) gc;;
               status) status;;
