@@ -14,6 +14,7 @@ in {
     home.persistence."/nix/persist" = {
       directories = [
         ".config/sops/age"
+        ".config/nix"
         ".config/fish"
         ".cache.tealdeer"
         ".cache/nvim"
