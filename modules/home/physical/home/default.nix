@@ -13,6 +13,12 @@ in {
   };
   config = mkIf cfg.enable {
     home = {
+      file = {
+        ".config/nix/nix.conf" = {
+          text = ''experimental-features = nix-command flakes'';
+          executable = false;
+        };
+      };
       username = "raab";
       homeDirectory = "/home/raab";
       stateVersion = "23.11";

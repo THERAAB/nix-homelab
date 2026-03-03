@@ -3,6 +3,7 @@
   lib,
   config,
   pkgs,
+  self,
   ...
 }:
 with lib;
@@ -23,11 +24,6 @@ in {
       nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
       settings.auto-optimise-store = true;
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 14d";
-      };
     };
     security.auditd.enable = true;
     services = {
@@ -36,6 +32,11 @@ in {
         enable = true;
         package = pkgs.plocate;
       };
+    };
+    programs.nh = {
+      enable = true;
+      clean.enable = true;
+      flake = "/nix/persist/nix-homelab";
     };
     home-manager = {
       useGlobalPkgs = true;
