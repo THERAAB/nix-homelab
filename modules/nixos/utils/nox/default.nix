@@ -33,7 +33,7 @@ in {
           commit() {
               $git -C $dir pull
               $git -C $dir add .
-              $git -C $dir commit -m "$2"
+              $git -C $dir commit -m "committed using nox"
               $git -C $dir push
           }
           status() {
