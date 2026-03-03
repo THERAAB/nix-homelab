@@ -156,6 +156,15 @@ in {
           target = "_blank";
         }
         {
+          name = "BentoPdf";
+          logo = "assets/icons/bentopdf.png";
+          subtitle = "Edit Pdf";
+          tag = "pdf";
+          keywords = "pdf data media";
+          url = "https://pdf.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "SyncThing";
           logo = "assets/icons/syncthing.png";
           subtitle = "Shared Data & Folders";

@@ -30,6 +30,18 @@ in {
       ];
     }
     {
+      name = "BentoPdf";
+      url = "https://pdf.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
       name = "Netdata";
       url = "https://netdata.${network.domain}/";
       conditions = [

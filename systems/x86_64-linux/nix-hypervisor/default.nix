@@ -27,6 +27,7 @@
       jellyfin.enable = true;
       jellyseerr.enable = true;
       home-assistant.enable = true;
+      bentopdf.enable = true;
       gatus = {
         enable = true;
         conf = import ./gatus.nix;
