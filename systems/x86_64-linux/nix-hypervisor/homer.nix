@@ -158,7 +158,7 @@ in {
         {
           name = "BentoPdf";
           logo = "assets/icons/bentopdf.png";
-          subtitle = "Edit Pdf";
+          subtitle = "PDF Editor";
           tag = "pdf";
           keywords = "pdf data media";
           url = "https://pdf.${network.domain}";
