@@ -30,6 +30,18 @@ in {
       ];
     }
     {
+      name = "Immich";
+      url = "https://photos.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
       name = "BentoPdf";
       url = "https://pdf.${network.domain}/";
       conditions = [

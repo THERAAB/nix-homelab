@@ -165,6 +165,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Immich";
+          logo = "assets/icons/immich.png";
+          subtitle = "Photo Viewer & Backup";
+          tag = "photo";
+          keywords = "photo data media";
+          url = "https://photos.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "SyncThing";
           logo = "assets/icons/syncthing.png";
           subtitle = "Shared Data & Folders";

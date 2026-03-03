@@ -20,4 +20,5 @@
   filebrowser = 9940;
   syncthing = 8384;
   harmonia = 5000;
+  immich = 2283;
 }

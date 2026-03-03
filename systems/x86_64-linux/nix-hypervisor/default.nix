@@ -28,6 +28,7 @@
       jellyseerr.enable = true;
       home-assistant.enable = true;
       bentopdf.enable = true;
+      immich.enable = true;
       gatus = {
         enable = true;
         conf = import ./gatus.nix;
