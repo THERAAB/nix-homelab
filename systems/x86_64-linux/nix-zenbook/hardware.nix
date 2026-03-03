@@ -83,7 +83,16 @@
     enable = true;
     scsiLinkPolicy = "med_power_with_dipm";
     powertop.enable = true;
-    powerUpCommands = ''
+  };
+  systemd.services.post-boot = {
+    description = "Post-boot Actions";
+    wantedBy = ["multi-user.target"];
+    restartIfChanged = false;
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+    script = ''
       echo 80 > /sys/class/power_supply/BAT?/charge_control_end_threshold
     '';
   };

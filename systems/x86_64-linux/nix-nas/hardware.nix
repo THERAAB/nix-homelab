@@ -16,10 +16,19 @@ in {
     raab      ALL=(root)  NOPASSWD:/run/current-system/sw/bin/flock -w 60 /dev/shm/nixinate-${config.networking.hostName} nixos-rebuild switch --flake /nix/store/[a-zA-Z0-9]*-source\#${config.networking.hostName}
   '';
   boot.initrd.availableKernelModules = ["sdhci_pci"];
-  powerManagement.powerUpCommands = ''
-    ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
-    ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sdb
-  '';
+  systemd.services.post-boot = {
+    description = "Post-boot Actions";
+    wantedBy = ["multi-user.target"];
+    restartIfChanged = false;
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+    };
+    script = ''
+      ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sda
+      ${pkgs.hdparm}/sbin/hdparm -S 242 /dev/sdb
+    '';
+  };
   networking = {
     hostName = "nix-nas";
     networkmanager.enable = false; # networkmanager hangs on poweroff due to some ipv6 issues
