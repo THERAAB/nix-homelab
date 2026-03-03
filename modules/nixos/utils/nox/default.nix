@@ -56,7 +56,7 @@ in {
           case "$1" in
               inputs) inputs;;
               rebuild) rebuild;;
-              commit) commit $2;;
+              commit) commit;;
               update) update;;
               gc) gc;;
               status) status;;
