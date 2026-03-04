@@ -55,7 +55,7 @@ in {
       panel = false;
     };
     "org/gnome/shell/extensions/blur-my-shell/overview" = {
-      blur = false; #TODO: put back to true when panel-in-overview works with blur my shell again
+      blur = true; #TODO: put back to true when panel-in-overview works with blur my shell again
     };
   };
 }
