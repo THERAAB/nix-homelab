@@ -29,8 +29,8 @@ in {
       base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
       fonts = {
         sansSerif.name = "NotoSans Nerd Font";
+        serif.name = "NotoSans Nerd Font";
         monospace.name = "JetBrainsMono Nerd Font";
-        serif = config.stylix.fonts.sansSerif;
         sizes = {
           terminal = 12;
           applications = 11;
