@@ -32,6 +32,7 @@ in {
         ".config/ulauncher"
         ".config/forge"
         ".config/gsconnect"
+        ".config/Bitwarden"
         ".cache/mozilla"
         ".cache/matplotlib" # Fonts
         ".cache/fontconfig"
@@ -55,6 +56,7 @@ in {
         ".local/share/ulauncher"
         ".local/share/Jellyfin Media Player"
         ".local/share/jellyfinmediaplayer"
+        ".local/share/keyrings"
         ".java" # IntelliJ
         ".compose-cache" # Steam
       ];

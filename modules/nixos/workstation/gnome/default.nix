@@ -20,7 +20,6 @@ in {
       desktopManager.gnome.enable = true;
       displayManager.gdm.enable = true;
       xserver.enable = true;
-      gnome.gnome-keyring.enable = lib.mkForce false;
     };
     environment = {
       gnome.excludePackages =
