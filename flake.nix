@@ -41,7 +41,6 @@
           home-manager.nixosModules.home-manager
           impermanence.nixosModules.impermanence
           sops-nix.nixosModules.sops
-          stylix.nixosModules.stylix
         ];
         hosts = {
           nix-hypervisor.specialArgs = {
@@ -50,11 +49,21 @@
           nix-nas.specialArgs = {
             inherit self properties;
           };
-          nix-zenbook.specialArgs = {
-            inherit self properties;
+          nix-zenbook = {
+            modules = with inputs; [
+              stylix.nixosModules.stylix
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
           };
-          nix-desktop.specialArgs = {
-            inherit self properties;
+          nix-desktop = {
+            modules = with inputs; [
+              stylix.nixosModules.stylix
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
           };
           graphical-installer.specialArgs = {
             inherit self properties;
