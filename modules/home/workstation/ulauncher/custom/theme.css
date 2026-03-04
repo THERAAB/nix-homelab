@@ -1,29 +1,29 @@
 /**
  * App Window
  */
-@define-color bg_color #303446;
+@define-color bg_color #374145;
 @define-color window_bg @bg_color;
-@define-color window_border_color #292c3c;
-@define-color prefs_backgroud #b5bfe2;
+@define-color window_border_color #272e33;
+@define-color prefs_backgroud #d3c6aa;
 
 /**
  * Input
  */
-@define-color selected_bg_color #8caaee;
-@define-color selected_fg_color #a5adce;
-@define-color input_color #949cbb;
+@define-color selected_bg_color #83c092;
+@define-color selected_fg_color #859289;
+@define-color input_color #9da9a0;
 
 /**
  * Result items
  */
-@define-color item_name #b5bfe2;
-@define-color item_text #c6d0f5;
-@define-color item_box_selected #eebebe;
-@define-color item_text_selected #414559;
-@define-color item_name_selected #232634;
-@define-color item_shortcut_color #c6d0f5;
+@define-color item_name #a7c080;
+@define-color item_text #7fbbb3;
+@define-color item_box_selected #4c3743;
+@define-color item_text_selected #dbbc7f;
+@define-color item_name_selected #d3c6aa;
+@define-color item_shortcut_color #d699b6;
 @define-color item_shortcut_shadow darker(@bg_color);
-@define-color item_shortcut_color_sel #232634;
+@define-color item_shortcut_color_sel #e67e80;
 @define-color item_shortcut_shadow_sel darker(@item_box_selected);
 
 .app {

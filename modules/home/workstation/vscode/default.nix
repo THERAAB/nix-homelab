@@ -25,7 +25,7 @@ in {
           "editor.formatOnPaste" = true;
           "editor.formatOnSave" = true;
           "editor.formatOnType" = false;
-          "editor.fontFamily" = "JetBrainsMono Nerd Font";
+          "editor.fontSize" = lib.mkForce 14;
           "editor.defaultFormatter" = "esbenp.prettier-vscode";
           "editor.cursorBlinking" = "smooth";
           "editor.fontLigatures" = true;
@@ -33,7 +33,6 @@ in {
           "window.titleBarStyle" = "custom";
           "window.openFoldersInNewWindow" = "on";
           "window.menuBarVisibility" = "compact";
-          "workbench.colorTheme" = "Catppuccin Frappé";
           "workbench.startupEditor" = "none";
           "workbench.iconTheme" = "vscode-icons";
           "files.trimFinalNewlines" = true;
@@ -52,9 +51,9 @@ in {
           "update.mode" = "none";
           "files.enableTrash" = false;
           "terminal.integrated.initialHint" = false;
+          "terminal.integrated.fontSize" = lib.mkForce 14;
         };
         extensions = with pkgs.vscode-extensions; [
-          catppuccin.catppuccin-vsc
           jnoortheen.nix-ide
           asvetliakov.vscode-neovim
           kamadorueda.alejandra

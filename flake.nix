@@ -20,6 +20,10 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs: let
     self = inputs.self;
@@ -45,11 +49,21 @@
           nix-nas.specialArgs = {
             inherit self properties;
           };
-          nix-zenbook.specialArgs = {
-            inherit self properties;
+          nix-zenbook = {
+            modules = with inputs; [
+              stylix.nixosModules.stylix
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
           };
-          nix-desktop.specialArgs = {
-            inherit self properties;
+          nix-desktop = {
+            modules = with inputs; [
+              stylix.nixosModules.stylix
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
           };
           graphical-installer.specialArgs = {
             inherit self properties;

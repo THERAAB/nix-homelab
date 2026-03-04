@@ -24,5 +24,6 @@ in {
       jetbrains-mono
       noto
     ];
+    boot.plymouth.enable = true;
   };
 }

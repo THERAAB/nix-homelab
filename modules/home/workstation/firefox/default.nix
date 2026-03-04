@@ -12,6 +12,10 @@ in {
     enable = mkEnableOption (lib.mdDoc "Setup firefox");
   };
   config = mkIf cfg.enable {
+    stylix.targets.firefox = {
+      profileNames = ["default"];
+      firefoxGnomeTheme.enable = true;
+    };
     programs.firefox = {
       enable = true;
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {

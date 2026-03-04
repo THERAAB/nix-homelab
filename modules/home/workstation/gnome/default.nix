@@ -143,10 +143,8 @@ in {
       "org/gtk/settings/file-chooser" = {
         clock-format = "12h";
       };
-      "org/gnome/shell/extensions/user-theme" = {
-        name = "catppuccin-frappe-blue-standard";
-      };
     };
+    stylix.targets.qt.platform = "qtct";
 
     # Extra dconf settings which can't be covered by dconf module due to timing or syntax issues
     systemd.user.services.extra-dconf-gnome = {

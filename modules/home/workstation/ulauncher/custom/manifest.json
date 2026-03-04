@@ -6,7 +6,7 @@
   "css_file": "theme.css",
   "css_file_gtk_3.20+": "theme-gtk-3.20.css",
   "matched_text_hl_colors": {
-    "when_selected": "#e78284",
-    "when_not_selected": "#ef9f76"
+    "when_selected": "#e67e80",
+    "when_not_selected": "#d699b6"
   }
 }

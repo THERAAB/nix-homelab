@@ -16,12 +16,9 @@ in {
       "org/gnome/TextEditor" = {
         highlight-current-line = true;
         show-line-numbers = true;
-        style-scheme = "peninsula-dark";
       };
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        monospace-font-name = lib.mkDefault "JetBrainsMono Nerd Font 10";
-        gtk-theme = "catppuccin-frappe-blue-standard";
         cursor-theme = "phinger-cursors-light";
       };
       "org/gnome/desktop/wm/preferences" = {

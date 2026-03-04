@@ -22,7 +22,7 @@ in {
         efiSupport = true;
         configurationLimit = 10;
         gfxmodeEfi = "text";
-        splashImage = null;
+        splashImage = lib.mkForce null;
       };
     };
     services = {
