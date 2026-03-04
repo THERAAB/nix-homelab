@@ -3,7 +3,6 @@
 in {
   services.home-assistant = {
     customComponents = [
-      # TODO: add back
       pkgs.nix-homelab.home-assistant-tapo-p100
     ];
     config.automation = [
