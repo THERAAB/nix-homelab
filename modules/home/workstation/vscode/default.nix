@@ -14,7 +14,7 @@ in {
   config = mkIf cfg.enable {
     programs.vscode = {
       enable = true;
-      # package = pkgs.vscodium;
+      package = pkgs.vscodium;
       mutableExtensionsDir = false;
       profiles.default = {
         userSettings = {
@@ -51,6 +51,7 @@ in {
           "security.workspace.trust.untrustedFiles" = "open";
           "update.mode" = "none";
           "files.enableTrash" = false;
+          "terminal.integrated.initialHint" = false;
         };
         extensions = with pkgs.vscode-extensions; [
           catppuccin.catppuccin-vsc
