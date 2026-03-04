@@ -1,19 +1,19 @@
 {
   fetchFromGitHub,
   buildHomeAssistantComponent,
-  nix-homelab,
+  python313Packages
 }:
 buildHomeAssistantComponent rec {
   domain = "tapo";
   owner = "petretiandrea";
-  version = "v2.10.0";
+  version = "3.2.2";
   src = fetchFromGitHub {
     repo = "home-assistant-tapo-p100";
     rev = version;
     owner = "petretiandrea";
-    sha256 = "sha256-vpF9QFu3LA/XFtDM0ZdmZq6FFsZvCCOJ10alLf+iWVA=";
+    sha256 = "sha256-tvLuj8CEY4yhsdF48Ftzy1hGyJ2E9cxmc6feuHv0rgg=";
   };
   propagatedBuildInputs = [
-    nix-homelab.plugp100
+    python313Packages.plugp100
   ];
 }
