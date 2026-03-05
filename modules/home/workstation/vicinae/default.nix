@@ -18,7 +18,7 @@ in {
       };
       settings = {
         font.family = "system";
-        launcher_window.opacity = lib.mkForce 0.92;
+        launcher_window.opacity = lib.mkForce 0.95;
         pop_to_root_on_close = true;
         theme.dark.icon_theme = "Papirus-Dark";
         favorites = [];
