@@ -26,7 +26,7 @@ in {
     programs.firefox.enable = true;
     stylix = {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest-dark-hard.yaml";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
       fonts = {
         sansSerif.name = "NotoSans Nerd Font";
         serif.name = "NotoSans Nerd Font";
