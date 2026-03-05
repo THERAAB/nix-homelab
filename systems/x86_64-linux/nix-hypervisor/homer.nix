@@ -29,7 +29,7 @@ in {
     }
     {
       name = "Gmail";
-      icon = "fas fa-envelope";
+      icon = "fas fa-envelope-open-text";
       url = "https://mail.google.com/mail/u/0/#inbox";
       target = "_blank";
     }
