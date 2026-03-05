@@ -28,6 +28,7 @@ sudo mount /dev/disk/by-label/nixos /mnt
 cd /mnt
 sudo btrfs subvolume create nix
 sudo btrfs subvolume create persist
+sudo btrfs subvolume create root
 cd ..
 sudo umount /mnt
 
@@ -46,7 +47,7 @@ sudo umount /mnt
 sudo fdisk -l
 
 # Create temp dirs, Mount tmpfs & subvolumes
-sudo mount -t tmpfs none /mnt
+sudo mount -o compress=zstd,noatime,subvol=root /dev/disk/by-label/nixos /mnt
 sudo mkdir -p /mnt/{home/raab,nix,boot,nfs/media,nfs/backups,etc/nixos}
 sudo mount -t tmpfs none /mnt/home/raab
 sudo mount -o compress=zstd,noatime,subvol=nix /dev/disk/by-label/nixos /mnt/nix

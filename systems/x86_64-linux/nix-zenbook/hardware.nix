@@ -34,11 +34,6 @@
     resumeDevice = "/dev/disk/by-label/nixos";
   };
   fileSystems = {
-    "/" = {
-      device = "none";
-      fsType = "tmpfs";
-      options = ["size=6G" "mode=755"];
-    };
     "/home/raab" = {
       device = "none";
       fsType = "tmpfs";

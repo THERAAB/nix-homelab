@@ -32,11 +32,6 @@ in {
     };
     services.tailscale.extraUpFlags = ["--ssh"];
     fileSystems = {
-      "/" = {
-        device = "none";
-        fsType = "tmpfs";
-        options = ["size=8G" "mode=755"];
-      };
       "/home/raab" = {
         device = "none";
         fsType = "tmpfs";

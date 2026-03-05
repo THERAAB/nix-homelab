@@ -11,11 +11,6 @@
     '';
   };
   fileSystems = {
-    "/" = {
-      device = "none";
-      fsType = "tmpfs";
-      options = ["size=10G" "mode=755"];
-    };
     "/home/raab" = {
       device = "none";
       fsType = "tmpfs";
