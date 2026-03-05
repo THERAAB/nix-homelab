@@ -23,6 +23,7 @@ in {
           "unite@hardpixel.eu"
           "forge@jmmaranan.com"
           "gsconnect@andyholmes.github.io"
+          "vicinae@dagimg-dot"
         ];
         disable-extension-version-validation = true;
         favorite-apps = [
@@ -105,8 +106,8 @@ in {
         binding = "<Shift><Alt>h";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-        command = "ulauncher-toggle";
-        name = "Toggle ulauncher";
+        command = "vicinae toggle";
+        name = "Toggle vicinae";
         binding = "<Alt>r";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
@@ -164,6 +165,7 @@ in {
       gnomeExtensions.unite
       gnomeExtensions.forge
       gnomeExtensions.gsconnect
+      gnomeExtensions.vicinae
     ];
   };
 }

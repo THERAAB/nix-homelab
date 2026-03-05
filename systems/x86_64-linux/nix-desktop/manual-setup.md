@@ -24,10 +24,6 @@ Disable minimize to tray
 - Disable Split Direction Hint
 - Change Colors
 
-### Ulauncher
-
-Set theme & number of favorites
-
 ### Printing
 
 http://localhost:631/ > Administration > Add printer

@@ -29,7 +29,6 @@ in {
         ".config/libreoffice"
         ".config/cef_user_data" # Steam
         ".config/JetBrains"
-        ".config/ulauncher"
         ".config/forge"
         ".config/gsconnect"
         ".config/Bitwarden"
@@ -53,10 +52,10 @@ in {
         ".local/share/vulkan"
         ".local/share/icons"
         ".local/share/applications"
-        ".local/share/ulauncher"
         ".local/share/Jellyfin Media Player"
         ".local/share/jellyfinmediaplayer"
         ".local/share/keyrings"
+        ".local/share/vicinae"
         ".java" # IntelliJ
         ".compose-cache" # Steam
       ];

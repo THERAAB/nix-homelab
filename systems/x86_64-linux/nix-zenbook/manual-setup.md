@@ -25,10 +25,6 @@ sudo updatedb
 - Disable Split Direction Hint
 - Change Colors
 
-### Ulauncher
-
-Set theme & number of favorites
-
 ### nix-homelab
 
 ```console

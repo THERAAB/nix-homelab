@@ -13,7 +13,6 @@ in {
   config = mkIf cfg.enable {
     nix-homelab = {
       workstation = {
-        ulauncher.enable = true;
         dconf.enable = true;
         firefox.enable = true;
         gnome.enable = true;
@@ -22,6 +21,7 @@ in {
         kitty.enable = true;
         vscode.enable = true;
         persist.enable = true;
+        vicinae.enable = true;
       };
       physical.enable = true;
     };
