@@ -20,6 +20,6 @@ in {
       unifiPackage = pkgs.unifi;
       mongodbPackage = pkgs.mongodb-7_0;
     };
-    networking.firewall.allowedTCPPorts = port;
+    networking.firewall.allowedTCPPorts = [port];
   };
 }
