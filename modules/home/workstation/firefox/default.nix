@@ -54,6 +54,7 @@ in {
           "geo.enabled" = false;
           "browser.search.suggest.enabled" = false;
           "signon.rememberSignons" = false;
+          "gnomeTheme.normalWidthTabs" = true;
         };
       };
     };
