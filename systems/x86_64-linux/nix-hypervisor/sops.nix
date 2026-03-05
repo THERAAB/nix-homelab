@@ -11,12 +11,6 @@
       df_password = {};
       cloudflare_dns_secret = {};
       harmonia_secret = {};
-      mongo_init = {
-        owner = "unifi";
-      };
-      mongo_secret = {
-        owner = "unifi";
-      };
     };
   };
 }
