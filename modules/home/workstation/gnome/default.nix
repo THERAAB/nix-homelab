@@ -36,6 +36,9 @@ in {
           "org.gnome.TextEditor.desktop"
         ];
       };
+      "org/gnome/shell/extensions/vicinae" = {
+        show-status-indicator = false;
+      };
       "org/gnome/shell/extensions/forge" = {
         tiling-mode-enabled = true;
         window-gap-hidden-on-single = true;

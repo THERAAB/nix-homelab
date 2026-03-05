@@ -20,28 +20,10 @@ in {
         hardware.enable = true;
         syncthing.enable = true;
         system.enable = true;
+        stylix.enable = true;
       };
       physical.enable = true;
     };
     programs.firefox.enable = true;
-    stylix = {
-      enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
-      fonts = {
-        sansSerif.name = "NotoSans Nerd Font";
-        serif.name = "NotoSans Nerd Font";
-        monospace.name = "JetBrainsMono Nerd Font";
-        sizes = {
-          terminal = 12;
-          applications = 11;
-          popups = 10;
-          desktop = 10;
-        };
-      };
-      polarity = "dark";
-    };
-    environment.systemPackages = with pkgs; [
-      base16-schemes
-    ];
   };
 }
