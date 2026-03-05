@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  properties,
   ...
 }:
 with lib;
