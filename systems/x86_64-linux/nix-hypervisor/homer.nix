@@ -2,7 +2,7 @@ let
   network = import ../../../assets/properties/network.nix;
 in {
   # See https://fontawesome.com/v5/search for icons options
-  title = "Nix Homelab";
+  title = "Nix-Homelab";
   subtitle = "Services Dashboard";
   logo = "assets/icons/nixos.png";
   header = true;
@@ -75,27 +75,9 @@ in {
       ];
     }
     {
-      name = "Infra";
+      name = "Monitoring";
       icon = "fas fa-sitemap";
       items = [
-        {
-          name = "AdGuard Local";
-          logo = "assets/icons/adguard.png";
-          subtitle = "Local Network DNS Server";
-          tag = "dns";
-          keywords = "dns adblock";
-          url = "https://adguard.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Unifi Network Application";
-          logo = "assets/icons/unifi.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "https://unifi.${network.domain}";
-          target = "_blank";
-        }
         {
           name = "Gatus";
           logo = "assets/icons/gatus.png";
@@ -114,12 +96,6 @@ in {
           url = "https://gotify.${network.domain}";
           target = "_blank";
         }
-      ];
-    }
-    {
-      name = "Nix-Hypervisor";
-      icon = "fas fa-desktop";
-      items = [
         {
           name = "Netdata";
           logo = "assets/icons/netdata.png";
@@ -130,14 +106,20 @@ in {
           target = "_blank";
         }
         {
-          name = "BentoPdf";
-          logo = "assets/icons/bentopdf.png";
-          subtitle = "PDF Editor";
-          tag = "pdf";
-          keywords = "pdf data media";
-          url = "https://pdf.${network.domain}";
+          name = "Unifi Network Application";
+          logo = "assets/icons/unifi.png";
+          subtitle = "Wireless Access Point";
+          tag = "wireless";
+          keywords = "wireless router access point";
+          url = "https://unifi.${network.domain}";
           target = "_blank";
         }
+      ];
+    }
+    {
+      name = "Appliances";
+      icon = "fas fa-desktop";
+      items = [
         {
           name = "Immich";
           logo = "assets/icons/immich.png";
@@ -145,6 +127,15 @@ in {
           tag = "photo";
           keywords = "photo data media";
           url = "https://photos.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "BentoPdf";
+          logo = "assets/icons/bentopdf.png";
+          subtitle = "PDF Editor";
+          tag = "pdf";
+          keywords = "pdf data media";
+          url = "https://pdf.${network.domain}";
           target = "_blank";
         }
         {
@@ -229,6 +220,15 @@ in {
           tag = "smart-home";
           keywords = "smart home assistant automation";
           url = "https://home-assistant.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "AdGuard Local";
+          logo = "assets/icons/adguard.png";
+          subtitle = "Local Network DNS Server";
+          tag = "dns";
+          keywords = "dns adblock";
+          url = "https://adguard.${network.domain}";
           target = "_blank";
         }
         {
