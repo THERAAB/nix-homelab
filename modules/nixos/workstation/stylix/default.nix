@@ -11,13 +11,10 @@ in {
   options.nix-homelab.workstation.stylix = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup stylix");
   };
-  config =
-    mkIf cfg.enable {
+  config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/porple.yaml";
-      # override base08 because the red is horrible
-      override.base08 = "eb6f92";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/jabuti.yaml";
       fonts = {
         sansSerif.name = "NotoSans Nerd Font";
         serif.name = "NotoSans Nerd Font";
