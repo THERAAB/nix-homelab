@@ -17,7 +17,7 @@ in {
     }
     {
       name = "Tailscale";
-      icon = "fas fa-code";
+      icon = "fas fa-grip-horizontal";
       url = "https://login.tailscale.com";
       target = "_blank";
     }
@@ -43,7 +43,7 @@ in {
   services = [
     {
       name = "Media";
-      icon = "fas fa-play";
+      icon = "fas fa-ticket";
       items = [
         {
           name = "Jellyfin";
@@ -76,7 +76,7 @@ in {
     }
     {
       name = "Monitoring";
-      icon = "fas fa-sitemap";
+      icon = "fas fa-chart-area";
       items = [
         {
           name = "Gatus";
@@ -118,8 +118,17 @@ in {
     }
     {
       name = "Appliances";
-      icon = "fas fa-desktop";
+      icon = "fas fa-calculator";
       items = [
+        {
+          name = "Home Assistant";
+          logo = "assets/icons/home-assistant.png";
+          subtitle = "Smart Home Automation";
+          tag = "smart-home";
+          keywords = "smart home assistant automation";
+          url = "https://home-assistant.${network.domain}";
+          target = "_blank";
+        }
         {
           name = "Immich";
           logo = "assets/icons/immich.png";
@@ -151,7 +160,7 @@ in {
     }
     {
       name = "Download";
-      icon = "fas fa-download";
+      icon = "fas fa-cloud-download-alt";
       items = [
         {
           name = "VueTorrent";
@@ -201,8 +210,8 @@ in {
       ];
     }
     {
-      name = "Devices";
-      icon = "fas fa-sd-card";
+      name = "Networking";
+      icon = "fas fa-network-wired";
       items = [
         {
           name = "PfSense";
@@ -211,15 +220,6 @@ in {
           tag = "wireless";
           keywords = "router firewall";
           url = "https://pfsense.${network.domain}/";
-          target = "_blank";
-        }
-        {
-          name = "Home Assistant";
-          logo = "assets/icons/home-assistant.png";
-          subtitle = "Smart Home Automation";
-          tag = "smart-home";
-          keywords = "smart home assistant automation";
-          url = "https://home-assistant.${network.domain}";
           target = "_blank";
         }
         {
