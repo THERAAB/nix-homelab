@@ -7,7 +7,7 @@ in {
   logo = "assets/icons/nixos.png";
   header = true;
   footer = false;
-  theme = "neon";
+  theme = "walkxcode";
   links = [
     {
       name = "GitHub";
