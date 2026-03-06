@@ -24,17 +24,15 @@ in {
     };
   };
   dconf.settings = {
-    "org/gnome/shell" = {
-      enabled-extensions = [
-        "disable-three-finger-gestures-redux@cygnusx-1-org.github.com"
-      ];
-    };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
       speed = 0.19298245614035081;
     };
     "org/gnome/shell" = {
       last-selected-power-profile = "power-saver";
+      enabled-extensions = [
+        "disable-three-finger-gestures-redux@cygnusx-1-org.github.com"
+      ];
     };
     "org/gnome/desktop/interface" = {
       enable-hot-corners = true;
