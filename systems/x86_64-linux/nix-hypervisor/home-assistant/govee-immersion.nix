@@ -1,24 +1,15 @@
-{ ...}: let
+{...}: let
   devices = import ./devices.properties.nix;
 in {
   services.home-assistant = {
-    customComponents = [
-      # TODO: add back
-      # pkgs.nix-homelab.hacs-govee
-    ];
     config.automation = [
       {
-        alias = "Turn on Govee with TV after sunset ${devices.living-room.lamp-sunset-offset}";
+        alias = "Turn on Govee with TV";
         trigger = {
           platform = "state";
           entity_id = devices.entity-id.living-room.android-tv;
           from = "off";
           to = "idle";
-        };
-        condition = {
-          condition = "sun";
-          after = "sunset";
-          after_offset = devices.living-room.lamp-sunset-offset;
         };
         action = {
           service = "light.turn_on";
