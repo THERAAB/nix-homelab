@@ -8,6 +8,7 @@
         extraConfig = ''
           encode zstd gzip
           reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.unifi} {
+            header_up Host {host}
             transport http {
               tls_insecure_skip_verify
             }
