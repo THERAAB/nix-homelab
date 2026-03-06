@@ -11,6 +11,12 @@
       df_password = {};
       cloudflare_dns_secret = {};
       harmonia_secret = {};
+      mosquitto_password = {
+        owner = "mosquitto";
+      };
+      govee2mqtt_env = {
+        owner = "govee2mqtt";
+      };
     };
   };
 }
