@@ -1,6 +1,7 @@
 {...}: let
   devices = import ./devices.properties.nix;
 in {
+  nix-homelab.wrappers.govee2mqtt.enable = true;
   services.home-assistant = {
     config.automation = [
       {
