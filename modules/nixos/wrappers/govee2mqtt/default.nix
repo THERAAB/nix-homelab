@@ -41,6 +41,9 @@ in {
       services.govee2mqtt = {
         after = ["adguardhome.service"];
         wants = ["adguardhome.service"];
+        preStart = ''
+          ${pkgs.coreutils-full}/bin/sleep 10
+        '';
       };
     };
   };
