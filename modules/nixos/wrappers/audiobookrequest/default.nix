@@ -33,14 +33,12 @@ in {
       image = "docker.io/markbeep/${app-name}:latest";
       volumes = [
         "${local-config-dir}/config:/config"
-        # "${properties.media.dir.audiobooks}:/audiobooks"
-        # "${properties.media.dir.podcasts}:/podcasts"
       ];
       ports = ["${toString port}:8000"];
       environment = {
+        ABR_APP__OPENAPI_ENABLED = "true";
         UMASK = "022";
         TZ = "America/New_York";
-        ABR_APP__OPENAPI_ENABLED = "true";
       };
       extraOptions = [
         "-l=io.containers.autoupdate=registry"
