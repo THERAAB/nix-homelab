@@ -72,6 +72,15 @@ in {
           url = "https://audiobooks.${network.domain}";
           target = "_blank";
         }
+        {
+          name = "Audiobookrequest";
+          logo = "assets/icons/audiobookrequest.png";
+          subtitle = "Request Audiobooks and Podcasts";
+          tag = "audiobook";
+          keywords = "audiobook download podcast media";
+          url = "https://audiobookrequest.${network.domain}";
+          target = "_blank";
+        }
       ];
     }
     {
@@ -187,15 +196,6 @@ in {
           tag = "tv";
           keywords = "tv shows media";
           url = "https://tv.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Audiobookrequest";
-          logo = "assets/icons/audiobookrequest.png";
-          subtitle = "Download Audiobooks and Podcasts";
-          tag = "audiobook";
-          keywords = "audiobook download podcast media";
-          url = "https://audiobookrequest.${network.domain}";
           target = "_blank";
         }
         {
