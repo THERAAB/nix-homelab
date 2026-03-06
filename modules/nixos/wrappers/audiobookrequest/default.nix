@@ -40,7 +40,7 @@ in {
       environment = {
         UMASK = "022";
         TZ = "America/New_York";
-        ABR_APP__OPENAPI_ENABLED = true;
+        ABR_APP__OPENAPI_ENABLED = "true";
       };
       extraOptions = [
         "-l=io.containers.autoupdate=registry"
