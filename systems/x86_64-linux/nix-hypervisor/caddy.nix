@@ -113,6 +113,13 @@
           reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.audiobookshelf}
         '';
       };
+      "audiobookrequest.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.audiobookrequest}
+        '';
+      };
       "prowlarr.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''

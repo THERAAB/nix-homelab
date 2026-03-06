@@ -84,6 +84,10 @@ curl https://am.i.mullvad.net/json
 
 - Add Schedule for automatic library scanning (Every 2 hours)
 
+### Audiobookrequest
+
+- Add setup https://github.com/markbeep/AudioBookRequest?tab=readme-ov-file#basic-usage
+
 ### Jellyseerr
 
 Set up last, make sure to do above before trying to set up

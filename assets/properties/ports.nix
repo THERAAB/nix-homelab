@@ -15,6 +15,7 @@
   gotify = 8238;
   unifi = 8443;
   audiobookshelf = 13379;
+  audiobookrequest = 12279;
   jellyfin = 8096;
   jellyseerr = 5055;
   filebrowser = 9940;

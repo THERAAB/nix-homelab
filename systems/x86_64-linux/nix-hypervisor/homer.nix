@@ -190,6 +190,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Audiobookrequest";
+          logo = "assets/icons/audiobookrequest.png";
+          subtitle = "Download Audiobooks and Podcasts";
+          tag = "audiobook";
+          keywords = "audiobook download podcast media";
+          url = "https://audiobookrequest.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "Flaresolverr";
           logo = "assets/icons/flaresolverr.png";
           subtitle = "Manage Cloudflare Challenges";
