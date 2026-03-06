@@ -5,7 +5,7 @@ A [NixOS](https://nixos.org/) configuration repository for my desktop dotfiles.
 ## What's inside
 
 - [GNOME](https://www.gnome.org/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
-- [Catppuccin](https://github.com/catppuccin/catppuccin) for theming
+- [Stylix](https://github.com/nix-community/stylix) for theming
 - [Forge](https://github.com/forge-ext/forge) for tiling window management
 
 ## Installation
@@ -20,7 +20,7 @@ if you're not me for 3 reasons:
 ### Download NixOS
 
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
-- Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
+- Copy it onto a flash drive (I use but don't recommend [Ventoy](https://www.ventoy.net/en/index.html) for this due to security issues)
 - Tailscale cleanup of old device
 - Boot into flash drive (F11 to load boot menu on startup)
 

@@ -5,7 +5,7 @@ A [NixOS](https://nixos.org/) configuration repository for my zenbook laptop.
 ## What's inside
 
 - [GNOME](https://www.gnome.org/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
-- [Catppuccin](https://github.com/catppuccin/catppuccin) for theming
+- [Stylix](https://github.com/nix-community/stylix) for theming
 - [Forge](https://github.com/forge-ext/forge) for tiling window management
 
 ## Installation

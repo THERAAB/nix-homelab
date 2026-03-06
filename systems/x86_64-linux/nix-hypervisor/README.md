@@ -16,6 +16,7 @@ and the installation instructions below.
 - Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [JellySeerr](https://github.com/Fallenbagel/jellyseerr), and [linuxserver.io](https://www.linuxserver.io/) podman images
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
 - Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
+- [Immich](https://immich.app/) for photo backup/sync between devices
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
@@ -34,7 +35,7 @@ if you're not me for 3 reasons:
 ### Download NixOS
 
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
-- Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
+- Copy it onto a flash drive (I use but don't recommend [Ventoy](https://www.ventoy.net/en/index.html) for this due to security issues)
 - If you previously used this setup and have hardcoded DNS server in pfSense, remove it. Otherwise, you will have no DNS during install
 - Tailscale cleanup of old devices
   - Disable Override local DNS

@@ -47,7 +47,6 @@ Set monitor refresh rate to 100Hz
 ### IntelliJ
 
 - Set to new UI
-- Use Catppuccin Frappe Theme
 - Settings -> Tools -> Terminal -> Disable Shell Integration
 
 ### nix-homelab

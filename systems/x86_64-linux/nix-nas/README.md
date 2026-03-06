@@ -24,7 +24,9 @@ if you're not me for 3 reasons:
 
 - Grab the GNOME installer from the [NixOS Downloads Page](https://nixos.org/download.html#nix-install-linux)
 - Copy it onto a flash drive (I recommend [Ventoy](https://www.ventoy.net/en/index.html) for this)
-- Tailscale cleanup of old device
+- Tailscale cleanup of old devices
+  - Disable Override local DNS
+  - delete old tailscale "nix-nas" device
 - Boot into flash drive (DEL to load boot menu on startup)
 
 ### Get this repo so we can run some scripts
