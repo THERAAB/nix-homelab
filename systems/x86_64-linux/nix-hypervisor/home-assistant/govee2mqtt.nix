@@ -26,7 +26,13 @@ in {
     };
   };
   networking.firewall.allowedTCPPorts = [port];
-  systemd.tmpfiles.rules = [
-    "Z  /etc/mosquitto  -  mosquitto  mosquitto -   - "
-  ];
+  systemd = {
+    tmpfiles.rules = [
+      "Z  /etc/mosquitto  -  mosquitto  mosquitto -   - "
+    ];
+    services.govee2mqtt = {
+      after = ["adguardhome.service"];
+      wants = ["adguardhome.service"];
+    };
+  };
 }
