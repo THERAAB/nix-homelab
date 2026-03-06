@@ -20,6 +20,8 @@ in {
       unifiPackage = pkgs.unifi;
       mongodbPackage = pkgs.mongodb-7_0;
     };
+    # Change kill timeout for unifi because it never dies
+    systemd.services.unifi.serviceConfig.TimeoutSec = lib.mkForce "1min";
     networking.firewall.allowedTCPPorts = [port];
   };
 }
