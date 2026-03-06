@@ -24,7 +24,6 @@
       flaresolverr.enable = true;
       vuetorrent.enable = true;
       audiobookshelf.enable = true;
-      audiobookrequest.enable = true;
       jellyfin.enable = true;
       jellyseerr.enable = true;
       home-assistant.enable = true;

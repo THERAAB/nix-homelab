@@ -212,18 +212,6 @@ in {
       ];
     }
     {
-      name = "Audiobookrequest";
-      url = "https://audioboookrequest.${network.domain}/";
-      conditions = [
-        "[STATUS] == 200"
-      ];
-      alerts = [
-        {
-          type = "gotify";
-        }
-      ];
-    }
-    {
       name = "Homer";
       url = "https://${network.domain}/";
       conditions = [
