@@ -23,8 +23,12 @@ in {
       Install.WantedBy = ["timers.target"];
     };
   };
-  # TODO: 4 finger gestures
   dconf.settings = {
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        "disable-three-finger-gestures-redux@cygnusx-1-org.github.com"
+      ];
+    };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
       speed = 0.19298245614035081;
@@ -58,4 +62,7 @@ in {
       blur = true;
     };
   };
+  home.packages = with pkgs.gnomeExtensions; [
+    disable-3-finger-gestures-redux
+  ];
 }

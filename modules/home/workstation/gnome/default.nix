@@ -160,15 +160,15 @@ in {
       '');
     };
 
-    home.packages = with pkgs; [
-      gnomeExtensions.user-themes
-      gnomeExtensions.blur-my-shell
-      gnomeExtensions.just-perfection
-      gnomeExtensions.auto-move-windows
-      gnomeExtensions.unite
-      gnomeExtensions.forge
-      gnomeExtensions.gsconnect
-      gnomeExtensions.vicinae
+    home.packages = with pkgs.gnomeExtensions; [
+      user-themes
+      blur-my-shell
+      just-perfection
+      auto-move-windows
+      unite
+      forge
+      gsconnect
+      vicinae
     ];
   };
 }
