@@ -33,8 +33,8 @@ in {
           {
             "if" = {
               condition = "time";
-              before = "8:00:00";
-              after = "20:00:00";
+              before = "6:00:00";
+              after = "22:00:00";
             };
             "then" = {
               service = "switch.turn_on";
