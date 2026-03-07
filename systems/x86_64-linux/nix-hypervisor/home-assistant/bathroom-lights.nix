@@ -4,23 +4,53 @@ in {
   services.home-assistant.config = {
     adaptive_lighting = {
       lights = [
-        devices.entity-id.bathroom.lights
+        "light.bathroom_right_bulb_light_2"
+        "light.bathroom_left_bulb_light"
       ];
       separate_turn_on_commands = true;
       transition = 0;
       interval = 15;
       initial_transition = 1;
-      min_brightness = 20;
-      max_brightness = 100;
-      min_color_temp = 2000;
-      max_color_temp = 5500;
+      min_brightness = 10;
+      max_brightness = 90;
+      min_color_temp = 2202;
+      max_color_temp = 4000;
       sleep_brightness = 5;
-      sleep_color_temp = 1000;
+      sleep_color_temp = 2202;
       sunrise_offset = 0;
       sunset_offset = 1800; # 30min
-
     };
     automation = [
+      {
+        alias = "Switch On Adaptive Lighting Sleep Mode at Night";
+        trigger = {
+          trigger = "time";
+          at = "22:00:00";
+        };
+        action = [
+          {
+            service = "switch.turn_on";
+            target.entity_id = [
+              "switch.adaptive_lighting_sleep_mode_adaptive_bathroom_lights"
+            ];
+          }
+        ];
+      }
+      {
+        alias = "Switch Off Adaptive Lighting Sleep Mode at Morning";
+        trigger = {
+          trigger = "time";
+          at = "6:00:00";
+        };
+        action = [
+          {
+            service = "switch.turn_off";
+            target.entity_id = [
+              "switch.adaptive_lighting_sleep_mode_adaptive_bathroom_lights"
+            ];
+          }
+        ];
+      }
       {
         alias = "Turn on Bathroom lights when motion detected";
         trigger = {
@@ -30,25 +60,6 @@ in {
           to = "on";
         };
         action = [
-          {
-            "if" = {
-              condition = "time";
-              before = "6:00:00";
-              after = "22:00:00";
-            };
-            "then" = {
-              service = "switch.turn_on";
-              target.entity_id = [
-                "switch.adaptive_lighting_sleep_mode_adaptive_bathroom_lights"
-              ];
-            };
-            "else" = {
-              service = "switch.turn_off";
-              target.entity_id = [
-                "switch.adaptive_lighting_sleep_mode_adaptive_bathroom_lights"
-              ];
-            };
-          }
           {
             service = "light.turn_on";
             target.entity_id = [
