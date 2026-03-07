@@ -10,12 +10,15 @@ in {
       transition = 0;
       interval = 15;
       initial_transition = 1;
-      min_brightness = 25;
+      min_brightness = 20;
       max_brightness = 100;
-      min_color_temp = 1000;
-      max_color_temp = 4000;
-      sleep_brightness = 10;
+      min_color_temp = 2000;
+      max_color_temp = 5500;
+      sleep_brightness = 5;
       sleep_color_temp = 1000;
+      sunrise_offset = 0;
+      sunset_offset = 1800; # 30min
+
     };
     automation = [
       {
