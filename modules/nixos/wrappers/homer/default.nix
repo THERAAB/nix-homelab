@@ -37,7 +37,7 @@ in {
     systemd.tmpfiles.rules = [
       "d    ${local-config-dir}            -   -               -               -   -                     "
       "R    ${local-config-dir}/icons      -   -               -               -   -                     "
-      "C    ${local-config-dir}/icons      -   -               -               -   ${icons-dir}    "
+      "C    ${local-config-dir}/icons      -   -               -               -   ${icons-dir}          "
       "Z    ${local-config-dir}            -   ${app-name}     ${app-name}     -   -                     "
     ];
     users = {
