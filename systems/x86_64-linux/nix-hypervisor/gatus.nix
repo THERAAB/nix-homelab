@@ -42,6 +42,19 @@ in {
       ];
     }
     {
+      name = "Olivetin";
+      url = "https://olivetin.${network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>OliveTin</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+    {
       name = "BentoPdf";
       url = "https://pdf.${network.domain}/";
       conditions = [

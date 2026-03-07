@@ -106,12 +106,12 @@ in {
           target = "_blank";
         }
         {
-          name = "Unifi Network Application";
-          logo = "assets/icons/unifi.png";
-          subtitle = "Wireless Access Point";
-          tag = "wireless";
-          keywords = "wireless router access point";
-          url = "https://unifi.${network.domain}";
+          name = "OliveTin";
+          logo = "assets/icons/olivetin.png";
+          subtitle = "Execute Commands";
+          tag = "exec";
+          keywords = "exec";
+          url = "https://olivetin.${network.domain}";
           target = "_blank";
         }
       ];
@@ -238,6 +238,15 @@ in {
           tag = "dns";
           keywords = "dns adblock";
           url = "https://adguard-tailscale.${network.domain}";
+          target = "_blank";
+        }
+        {
+          name = "Unifi Network Application";
+          logo = "assets/icons/unifi.png";
+          subtitle = "Wireless Access Point";
+          tag = "wireless";
+          keywords = "wireless router access point";
+          url = "https://unifi.${network.domain}";
           target = "_blank";
         }
       ];

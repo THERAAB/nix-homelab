@@ -18,6 +18,7 @@ and the installation instructions below.
 - Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
 - [Immich](https://immich.app/) for photo backup/sync between devices
 - [Homer](https://github.com/bastienwirtz/homer) Dashboards for local and tailscale access
+- WebUI for script execution with [OliveTin](https://www.olivetin.app/)
 - Reverse Proxy with [Caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 - [Unifi Network Application](https://help.ui.com/hc/en-us/articles/360012282453-Self-Hosting-a-UniFi-Network-Server) for my UniFi equipment
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking
