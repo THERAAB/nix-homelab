@@ -28,9 +28,8 @@ in {
             exclude = {
               entity_id = [
                 devices.entity-id.phones.pixel.battery
-                devices.entity-id.phones.galaxy-tab-s7.battery
-                devices.entity-id.phones.stephanie.iphone.battery
-                devices.entity-id.phones.stephanie.watch.battery
+                devices.entity-id.phones.galaxy-tab.battery
+                devices.entity-id.phones.stephanie.phone.battery
               ];
             };
           };

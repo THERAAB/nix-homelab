@@ -2,6 +2,7 @@
   lib,
   config,
   properties,
+  pkgs,
   ...
 }:
 with lib;
@@ -29,6 +30,9 @@ in {
     networking.firewall.allowedTCPPorts = [port];
     services.home-assistant = {
       enable = true;
+      customComponents = with pkgs.home-assistant-custom-components; [
+        adaptive_lighting
+      ];
       extraComponents = [
         "met"
         "radio_browser"

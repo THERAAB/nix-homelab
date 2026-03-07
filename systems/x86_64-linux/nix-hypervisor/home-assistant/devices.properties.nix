@@ -21,14 +21,13 @@
     };
     phones = {
       pixel = {
-        battery = "sensor.pixel_6_battery_level";
+        battery = "sensor.pixel_9a_battery_level";
         location = "device_tracker.pixel_6";
         notify = "notify.mobile_app_pixel_6";
       };
-      galaxy-tab-s7.battery = "sensor.sm_t870_battery_level";
+      galaxy-tab.battery = "sensor.galaxy_tab_s11_battery_level";
       stephanie = {
-        iphone.battery = "sensor.stephanies_phone_battery_level";
-        watch.battery = "sensor.stephanies_phone_watch_battery";
+        phone.battery = "sensor.pixel_10a_battery_level";
       };
     };
     living-room = {
