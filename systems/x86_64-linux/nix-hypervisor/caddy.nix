@@ -43,6 +43,13 @@
           reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.gotify}
         '';
       };
+      "bookmarks.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.linkwarden}
+        '';
+      };
       "gatus.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
         extraConfig = ''

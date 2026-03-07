@@ -23,4 +23,5 @@
   immich = 2283;
   mosquitto = 1883;
   olivetin = 1337;
+  linkwarden = 10248;
 }

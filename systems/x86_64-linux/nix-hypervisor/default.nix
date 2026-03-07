@@ -30,6 +30,7 @@
       home-assistant.enable = true;
       bentopdf.enable = true;
       immich.enable = true;
+      linkwarden.enable = true;
       gatus = {
         enable = true;
         conf = import ./gatus.nix;

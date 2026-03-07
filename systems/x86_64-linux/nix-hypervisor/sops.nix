@@ -17,6 +17,9 @@
       govee2mqtt_env = {
         owner = "govee2mqtt";
       };
+      linkwarden_nextauth = {
+        owner = "linkwarden";
+      };
     };
   };
 }

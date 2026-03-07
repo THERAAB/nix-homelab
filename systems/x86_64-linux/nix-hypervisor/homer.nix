@@ -148,6 +148,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Linkwarden";
+          logo = "assets/icons/linkwarden.png";
+          subtitle = "Bookmark storage";
+          tag = "bookmarks";
+          keywords = "bookmarks links save";
+          url = "https://bookmarks.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "SyncThing";
           logo = "assets/icons/syncthing.png";
           subtitle = "Shared Data & Folders";
