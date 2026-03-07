@@ -64,6 +64,15 @@ in {
           target = "_blank";
         }
         {
+          name = "Immich";
+          logo = "assets/icons/immich.png";
+          subtitle = "Photo Viewer & Backup";
+          tag = "photo";
+          keywords = "photo data media";
+          url = "https://photos.${network.domain}";
+          target = "_blank";
+        }
+        {
           name = "Audiobookshelf";
           logo = "assets/icons/audiobookshelf.png";
           subtitle = "Listen to Audiobooks and Podcasts";
@@ -127,15 +136,6 @@ in {
           tag = "smart-home";
           keywords = "smart home assistant automation";
           url = "https://home-assistant.${network.domain}";
-          target = "_blank";
-        }
-        {
-          name = "Immich";
-          logo = "assets/icons/immich.png";
-          subtitle = "Photo Viewer & Backup";
-          tag = "photo";
-          keywords = "photo data media";
-          url = "https://photos.${network.domain}";
           target = "_blank";
         }
         {
