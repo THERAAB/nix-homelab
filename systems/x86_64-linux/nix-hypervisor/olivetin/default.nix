@@ -6,20 +6,18 @@
 }: let
   port = properties.ports.olivetin;
   app-name = "olivetin";
-  www-dir = "/var/www/${app-name}";
+  icons-dir = "/var/lib/${app-name}/customIcons";
   scripts-dir = "/var/lib/olivetin/scripts";
   shellScript = pkgs.callPackage ./script.nix {};
   system-icons-dir = self + "/assets/icons";
 in {
   systemd.tmpfiles.rules = [
-    "R  ${www-dir}                    -           -               -               -   -                                     "
-    "C  ${www-dir}                    -           -               -               -   ${pkgs.olivetin}/www      "
     "r  ${scripts-dir}/commands.sh    -           -               -               -   -                                     "
     "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}                        "
-    "R  ${www-dir}/customIcons        -           -               -               -   -                                     "
-    "C  ${www-dir}/customIcons        -           -               -               -   ${system-icons-dir}                   "
+    "R  ${icons-dir}                  -           -               -               -   -                                     "
+    "C  ${icons-dir}                 -           -               -               -   ${system-icons-dir}                   "
     "Z  ${scripts-dir}                500         root            root            -   -                                     "
-    "Z  ${www-dir}                    -           ${app-name}     ${app-name}     -   -                                     "
+    "Z  ${icons-dir}                  -           olivetin        olivetin        -   -                                     "
   ];
   services.olivetin = {
     enable = true;
