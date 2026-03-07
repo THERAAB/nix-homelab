@@ -15,6 +15,7 @@ in {
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/jabuti.yaml";
+      override.base03 = "5e617f";
       fonts = {
         sansSerif.name = "NotoSans Nerd Font";
         serif.name = "NotoSans Nerd Font";
