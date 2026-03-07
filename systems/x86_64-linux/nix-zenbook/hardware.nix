@@ -7,9 +7,8 @@
     initrd.availableKernelModules = ["thunderbolt" "vmd" "sdhci_pci"];
     kernelModules = ["kvm-intel"];
     extraModulePackages = [];
-    # Used to need to add this line to loader.grub.extraConfig for sound, probably no longer needed
-    # acpi /ssdt-csc3551.aml
     loader.grub.extraConfig = ''
+      acpi /ssdt-csc3551.aml
       set timeout=1
     '';
     # Power Management stuff
