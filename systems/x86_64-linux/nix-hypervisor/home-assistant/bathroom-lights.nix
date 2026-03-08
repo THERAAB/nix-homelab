@@ -13,10 +13,10 @@ in {
         interval = 15;
         initial_transition = 1;
         min_brightness = 10;
-        max_brightness = 90;
+        max_brightness = 100;
         min_color_temp = 2202;
         max_color_temp = 4000;
-        sleep_brightness = 5;
+        sleep_brightness = 1;
         sleep_color_temp = 2202;
         sunrise_offset = 1800;
         sunset_offset = 1800; # 30min
