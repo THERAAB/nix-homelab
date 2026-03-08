@@ -75,8 +75,8 @@ in {
                 target = "_blank";
               }
               {
-                name = "Jellyseerr";
-                logo = github-icons-dir + "/jellyseerr.png?raw=true";
+                name = "Seerr";
+                logo = github-icons-dir + "/seerr.png?raw=true";
                 subtitle = "Request Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
