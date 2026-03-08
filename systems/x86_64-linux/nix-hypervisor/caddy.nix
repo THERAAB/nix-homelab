@@ -2,6 +2,7 @@
   properties,
   config,
   pkgs,
+  self,
   ...
 }: {
   networking.firewall.allowedTCPPorts = [properties.ports.http properties.ports.ssl];
@@ -120,6 +121,14 @@
       };
       "${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}-tld";
+        extraConfig = ''
+          root * ${config.services.homer.package}
+          file_server
+          handle_path /assets/config.yml {
+            root * ${(pkgs.formats.yaml {}).generate "homer-config.yml" config.services.homer.settings}
+            file_server
+          }
+        '';
       };
       "audiobooks.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
