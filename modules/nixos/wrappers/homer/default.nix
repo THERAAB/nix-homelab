@@ -72,7 +72,7 @@ in {
             items = [
               {
                 name = "Jellyfin";
-                logo = "https://github.com/THERAAB/nix-homelab/blob/main/assets/icons/jellyfin.png";
+                logo = "https://github.com/THERAAB/nix-homelab/blob/main/assets/icons/jellyfin.png?raw=true";
                 subtitle = "Watch Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
