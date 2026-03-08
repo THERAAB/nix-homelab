@@ -8,5 +8,6 @@
     ./tapo-light-strip.nix
     ./bathroom-lights.nix
     ./washer-dryer.nix
+    ./bedroom-fan.nix
   ];
 }
