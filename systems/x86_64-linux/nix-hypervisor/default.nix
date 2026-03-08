@@ -31,10 +31,7 @@
       bentopdf.enable = true;
       immich.enable = true;
       linkwarden.enable = true;
-      gatus = {
-        enable = true;
-        conf = import ./gatus.nix;
-      };
+      gatus.enable = true;
       homer = {
         enable = true;
         conf = import ./homer.nix;
