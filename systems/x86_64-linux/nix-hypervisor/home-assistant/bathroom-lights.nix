@@ -2,24 +2,26 @@
   devices = import ./devices.properties.nix;
 in {
   services.home-assistant.config = {
-    adaptive_lighting = {
-      lights = [
-        "light.bathroom_right_bulb_light_2"
-        "light.bathroom_left_bulb_light"
-      ];
-      separate_turn_on_commands = true;
-      transition = 0;
-      interval = 15;
-      initial_transition = 1;
-      min_brightness = 10;
-      max_brightness = 90;
-      min_color_temp = 2202;
-      max_color_temp = 4000;
-      sleep_brightness = 5;
-      sleep_color_temp = 2202;
-      sunrise_offset = 0;
-      sunset_offset = 1800; # 30min
-    };
+    adaptive_lighting = [
+      {
+        name = "default";
+        lights = [
+          devices.entity-id.bathroom.lights
+        ];
+        separate_turn_on_commands = true;
+        transition = 2;
+        interval = 15;
+        initial_transition = 1;
+        min_brightness = 10;
+        max_brightness = 90;
+        min_color_temp = 2202;
+        max_color_temp = 4000;
+        sleep_brightness = 5;
+        sleep_color_temp = 2202;
+        sunrise_offset = 1800;
+        sunset_offset = 1800; # 30min
+      }
+    ];
     automation = [
       {
         alias = "Switch On Adaptive Lighting Sleep Mode at Night";
