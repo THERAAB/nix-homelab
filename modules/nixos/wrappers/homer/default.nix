@@ -2,13 +2,13 @@
   lib,
   config,
   properties,
-  self,
   ...
 }:
 with lib;
 with lib.nix-homelab; let
   cfg = config.nix-homelab.wrappers.homer;
   network = properties.network;
+  github-icons-dir = "https://github.com/THERAAB/nix-homelab/blob/main/assets/icons";
 in {
   options.nix-homelab.wrappers.homer = with types; {
     enable = mkEnableOption (lib.mdDoc "Homer");
@@ -67,7 +67,7 @@ in {
             items = [
               {
                 name = "Jellyfin";
-                logo = "https://github.com/THERAAB/nix-homelab/blob/main/assets/icons/jellyfin.png?raw=true";
+                logo = github-icons-dir + "/jellyfin.png?raw=true";
                 subtitle = "Watch Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
@@ -76,7 +76,7 @@ in {
               }
               {
                 name = "Jellyseerr";
-                logo = "https://github.com/THERAAB/nix-homelab/blob/main/assets/icons/jellyseerr.png?raw=true";
+                logo = github-icons-dir + "/jellyseerr.png?raw=true";
                 subtitle = "Request Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
@@ -85,7 +85,7 @@ in {
               }
               {
                 name = "Immich";
-                logo = "assets/icons/immich.png";
+                logo = github-icons-dir + "/immich.png?raw=true";
                 subtitle = "Photo Viewer & Backup";
                 tag = "photo";
                 keywords = "photo data media";
