@@ -25,6 +25,10 @@ in {
     ];
     services.homer = {
       enable = true;
+      virtualHost = {
+        caddy.enable = true;
+        domain = "${properties.network.domain}";
+      };
       settings = {
         # See https://fontawesome.com/v5/search for icons options
         title = "Nix-Homelab";
@@ -72,7 +76,7 @@ in {
             items = [
               {
                 name = "Jellyfin";
-                logo = "${./icons/jellyfin.png}";
+                icon = "''${./jellyfin.png}";
                 subtitle = "Watch Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
