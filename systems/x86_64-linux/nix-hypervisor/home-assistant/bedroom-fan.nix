@@ -14,10 +14,10 @@ in {
           ];
           transition = 0;
           initial_transition = 0;
-          min_brightness = 10;
+          min_brightness = 100;
           max_brightness = 100;
-          min_color_temp = 2700;
-          max_color_temp = 4000;
+          min_color_temp = 3000;
+          max_color_temp = 3000;
           sleep_brightness = 1;
           sleep_color_temp = 2700;
           sunrise_offset = 1800;

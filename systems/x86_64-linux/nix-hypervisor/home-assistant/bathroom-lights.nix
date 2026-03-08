@@ -14,7 +14,7 @@ in {
         initial_transition = 1;
         min_brightness = 10;
         max_brightness = 100;
-        min_color_temp = 2202;
+        min_color_temp = 3000;
         max_color_temp = 4000;
         sleep_brightness = 1;
         sleep_color_temp = 2202;
