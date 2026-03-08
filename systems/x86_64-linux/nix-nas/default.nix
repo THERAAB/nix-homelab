@@ -7,7 +7,7 @@
   nix-homelab = {
     server.enable = true;
     networking.nfs.enable = true;
-    beszel-agent.enable = true;
+    wrappers.beszel-agent.enable = true;
   };
   services.netdata.config.registry.enabled = "no";
 }
