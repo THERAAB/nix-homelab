@@ -4,7 +4,7 @@ in {
   services.home-assistant.config = {
     adaptive_lighting = [
       {
-        name = "default";
+        name = "bathroom";
         lights = [
           devices.entity-id.bathroom.lights
         ];
@@ -24,31 +24,31 @@ in {
     ];
     automation = [
       {
-        alias = "Switch On Adaptive Lighting Sleep Mode at Night";
+        alias = "Switch On Bathroom Adaptive Lighting Sleep Mode at Night";
         trigger = {
           trigger = "time";
-          at = "22:00:00";
+          at = "21:30:00";
         };
         action = [
           {
             service = "switch.turn_on";
             target.entity_id = [
-              "switch.adaptive_lighting_sleep_mode_adaptive_bathroom_lights"
+              "switch.adaptive_lighting_sleep_mode_bathroom"
             ];
           }
         ];
       }
       {
-        alias = "Switch Off Adaptive Lighting Sleep Mode at Morning";
+        alias = "Switch Off Bathroom Adaptive Lighting Sleep Mode at Morning";
         trigger = {
           trigger = "time";
-          at = "6:00:00";
+          at = "6:30:00";
         };
         action = [
           {
             service = "switch.turn_off";
             target.entity_id = [
-              "switch.adaptive_lighting_sleep_mode_adaptive_bathroom_lights"
+              "switch.adaptive_lighting_sleep_mode_bathroom"
             ];
           }
         ];

@@ -1,5 +1,11 @@
 {
   entity-id = {
+    bedroom = {
+      spinny-boi = {
+        light = "light.spinny_boi_light";
+        fan = "fan.spinny_boi_fan";
+      };
+    };
     basement = {
       water-alarms = {
         hot-water-heater = "binary_sensor.hot_water_heater_water_alarm_moisture";
