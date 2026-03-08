@@ -13,6 +13,7 @@ in {
     enable = mkEnableOption (lib.mdDoc "Beszel hub");
   };
   config = mkIf cfg.enable {
+    # TODO: notifications
     services.beszel.hub = {
       enable = true;
       port = port;
