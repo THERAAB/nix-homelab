@@ -17,7 +17,7 @@ in {
           min_brightness = 10;
           max_brightness = 100;
           min_color_temp = 2700;
-          max_color_temp = 6500;
+          max_color_temp = 4000;
           sleep_brightness = 1;
           sleep_color_temp = 2700;
           sunrise_offset = 1800;
