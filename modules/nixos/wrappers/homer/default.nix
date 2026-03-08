@@ -94,7 +94,7 @@ in {
               }
               {
                 name = "Audiobookshelf";
-                logo = "assets/icons/audiobookshelf.png";
+                logo = github-icons-dir + "/audiobookshelf.png?raw=true";
                 subtitle = "Listen to Audiobooks and Podcasts";
                 tag = "audiobook";
                 keywords = "audiobook podcast media";
@@ -109,7 +109,7 @@ in {
             items = [
               {
                 name = "Gatus";
-                logo = "assets/icons/gatus.png";
+                logo = github-icons-dir + "/gatus.png?raw=true";
                 subtitle = "Monitor Services";
                 tag = "monitor";
                 keywords = "monitor";
@@ -118,7 +118,7 @@ in {
               }
               {
                 name = "Gotify";
-                logo = "assets/icons/gotify.png";
+                logo = github-icons-dir + "/gotify.png?raw=true";
                 subtitle = "Send Notifications";
                 tag = "notify";
                 keywords = "notify alert";
@@ -127,7 +127,7 @@ in {
               }
               {
                 name = "Netdata";
-                logo = "assets/icons/netdata.png";
+                logo = github-icons-dir + "/netdata.png?raw=true";
                 subtitle = "Monitor Hardware";
                 tag = "monitor";
                 keywords = "monitor";
@@ -136,7 +136,7 @@ in {
               }
               {
                 name = "OliveTin";
-                logo = "assets/icons/olivetin.png";
+                logo = github-icons-dir + "/olivetin.png?raw=true";
                 subtitle = "Execute Commands";
                 tag = "exec";
                 keywords = "exec";
@@ -151,7 +151,7 @@ in {
             items = [
               {
                 name = "Home Assistant";
-                logo = "assets/icons/home-assistant.png";
+                logo = github-icons-dir + "/home-assistant.png?raw=true";
                 subtitle = "Smart Home Automation";
                 tag = "smart-home";
                 keywords = "smart home assistant automation";
@@ -160,7 +160,7 @@ in {
               }
               {
                 name = "BentoPdf";
-                logo = "assets/icons/bentopdf.png";
+                logo = github-icons-dir + "/bentopdf.png?raw=true";
                 subtitle = "PDF Editor";
                 tag = "pdf";
                 keywords = "pdf data media";
@@ -169,7 +169,7 @@ in {
               }
               {
                 name = "Linkwarden";
-                logo = "assets/icons/linkwarden.png";
+                logo = github-icons-dir + "/linkwarden.png?raw=true";
                 subtitle = "Bookmark storage";
                 tag = "bookmarks";
                 keywords = "bookmarks links save";
@@ -178,7 +178,7 @@ in {
               }
               {
                 name = "SyncThing";
-                logo = "assets/icons/syncthing.png";
+                logo = github-icons-dir + "/syncthing.png?raw=true";
                 subtitle = "Shared Data & Folders";
                 tag = "sync";
                 keywords = "sync backup share data media";
@@ -193,7 +193,7 @@ in {
             items = [
               {
                 name = "VueTorrent";
-                logo = "assets/icons/vuetorrent.png";
+                logo = github-icons-dir + "/vuetorrent.png?raw=true";
                 subtitle = "Manage Torrents";
                 tag = "download";
                 keywords = "torrent download";
@@ -202,7 +202,7 @@ in {
               }
               {
                 name = "Radarr";
-                logo = "assets/icons/radarr.png";
+                logo = github-icons-dir + "/radarr.png?raw=true";
                 subtitle = "Manage Movies";
                 tag = "movies";
                 keywords = "movies media";
@@ -211,7 +211,7 @@ in {
               }
               {
                 name = "Sonarr";
-                logo = "assets/icons/sonarr.png";
+                logo = github-icons-dir + "/sonarr.png?raw=true";
                 subtitle = "Manage TV Shows";
                 tag = "tv";
                 keywords = "tv shows media";
@@ -220,7 +220,7 @@ in {
               }
               {
                 name = "Flaresolverr";
-                logo = "assets/icons/flaresolverr.png";
+                logo = github-icons-dir + "/flaresolverr.png?raw=true";
                 subtitle = "Manage Cloudflare Challenges";
                 tag = "cloudflare";
                 keywords = "tv shows media";
@@ -229,7 +229,7 @@ in {
               }
               {
                 name = "Prowlarr";
-                logo = "assets/icons/prowlarr.png";
+                logo = github-icons-dir + "/prowlarr.png?raw=true";
                 subtitle = "Manage Indexers";
                 tag = "media";
                 keywords = "indexer media torrent download";
@@ -244,7 +244,7 @@ in {
             items = [
               {
                 name = "PfSense";
-                logo = "assets/icons/pfsense.png";
+                logo = github-icons-dir + "/pfsense.png?raw=true";
                 subtitle = "Firewall Router";
                 tag = "wireless";
                 keywords = "router firewall";
@@ -253,7 +253,7 @@ in {
               }
               {
                 name = "AdGuard Local";
-                logo = "assets/icons/adguard.png";
+                logo = github-icons-dir + "/adguard.png?raw=true";
                 subtitle = "Local Network DNS Server";
                 tag = "dns";
                 keywords = "dns adblock";
@@ -262,7 +262,7 @@ in {
               }
               {
                 name = "AdGuard Tailscale";
-                logo = "assets/icons/tailscale.png";
+                logo = github-icons-dir + "/tailscale.png?raw=true";
                 subtitle = "Tailscale DNS Server";
                 tag = "dns";
                 keywords = "dns adblock";
@@ -271,7 +271,7 @@ in {
               }
               {
                 name = "Unifi Network Application";
-                logo = "assets/icons/unifi.png";
+                logo = github-icons-dir + "/unifi.png?raw=true";
                 subtitle = "Wireless Access Point";
                 tag = "wireless";
                 keywords = "wireless router access point";
