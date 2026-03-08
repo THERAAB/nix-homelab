@@ -1,4 +1,9 @@
-{properties, ...}: {
+{
+  properties,
+  config,
+  pkgs,
+  ...
+}: {
   networking.firewall.allowedTCPPorts = [properties.ports.http properties.ports.ssl];
   services.caddy = {
     enable = true;
@@ -116,8 +121,12 @@
       "${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}-tld";
         extraConfig = ''
-          encode zstd gzip
-          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.homer}
+          root * ${config.services.homer.package}
+          file_server
+          handle_path /assets/config.yml {
+            root * ${(pkgs.formats.yaml {}).generate "homer-config.yml" config.services.homer.settings}
+            file_server
+          }
         '';
       };
       "audiobooks.${properties.network.domain}" = {

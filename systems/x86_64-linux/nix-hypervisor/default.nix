@@ -32,10 +32,7 @@
       immich.enable = true;
       linkwarden.enable = true;
       gatus.enable = true;
-      homer = {
-        enable = true;
-        conf = import ./homer.nix;
-      };
+      homer.enable = true;
       gotify.enable = true;
       unifi.enable = true;
     };

@@ -11,7 +11,6 @@
   flaresolverr = 9811;
   vuetorrent = 8112;
   gatus = 7000;
-  homer = 8082;
   gotify = 8238;
   unifi = 8443;
   audiobookshelf = 13379;
