@@ -33,7 +33,6 @@ in {
     hostName = "nix-nas";
     networkmanager.enable = false; # networkmanager hangs on poweroff due to some ipv6 issues
   };
-  # TODO: this no longer works, why?
   # disable interrupt which uses high CPU for ACPI (IRQ 9)
   # Found it from highest number in below command:
   # sudo grep . -r /sys/firmware/acpi/interrupts | grep -v "  0"
