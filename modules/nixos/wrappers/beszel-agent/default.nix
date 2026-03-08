@@ -15,6 +15,7 @@ in {
       enable = true;
       openFirewall = true;
       smartmon.enable = true;
+      environmentFile = config.sops.secrets.beszel_agent_env.path;
     };
   };
 }
