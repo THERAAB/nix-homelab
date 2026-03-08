@@ -8,23 +8,18 @@
 with lib;
 with lib.nix-homelab; let
   cfg = config.nix-homelab.wrappers.homer;
-  app-name = "homer";
-  icons-dir = "/nix/persist/nix-homelab/assets/icons";
-  local-config-dir = "/var/lib/${app-name}";
   network = properties.network;
 in {
   options.nix-homelab.wrappers.homer = with types; {
     enable = mkEnableOption (lib.mdDoc "Homer");
   };
   config = mkIf cfg.enable {
-    systemd.tmpfiles.rules = [
-      "d    ${local-config-dir}            -   -               -               -   -                     "
-      "R    ${local-config-dir}/icons      -   -               -               -   -                     "
-      "C    ${local-config-dir}/icons      -   -               -               -   ${icons-dir}          "
-      "Z    ${local-config-dir}            -   ${app-name}     ${app-name}     -   -                     "
-    ];
     services.homer = {
       enable = true;
+      virtualHost = {
+        caddy.enable = true;
+        domain = network.domain;
+      };
       settings = {
         # See https://fontawesome.com/v5/search for icons options
         title = "Nix-Homelab";
