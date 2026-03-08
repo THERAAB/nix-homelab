@@ -76,7 +76,7 @@ in {
               }
               {
                 name = "Jellyseerr";
-                logo = "assets/icons/jellyseerr.png";
+                logo = "https://github.com/THERAAB/nix-homelab/blob/main/assets/icons/jellyseerr.png?raw=true";
                 subtitle = "Request Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
