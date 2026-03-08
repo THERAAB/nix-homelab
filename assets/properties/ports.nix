@@ -23,5 +23,5 @@
   mosquitto = 1883;
   olivetin = 1337;
   linkwarden = 10248;
-  beszel = 19924;
+  beszel = 8090;
 }
