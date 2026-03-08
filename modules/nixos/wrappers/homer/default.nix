@@ -72,7 +72,7 @@ in {
             items = [
               {
                 name = "Jellyfin";
-                logo = "${self + assets/icons/jellyfin.png}";
+                logo = "${./icons/jellyfin.png}";
                 subtitle = "Watch Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
