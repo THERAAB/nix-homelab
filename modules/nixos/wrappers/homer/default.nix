@@ -24,7 +24,7 @@ in {
         # See https://fontawesome.com/v5/search for icons options
         title = "Nix-Homelab";
         subtitle = "Services Dashboard";
-        logo = "assets/icons/nixos.png";
+        logo = github-icons-dir + "/nixos.png?raw=true";
         header = true;
         footer = false;
         theme = "walkxcode";
