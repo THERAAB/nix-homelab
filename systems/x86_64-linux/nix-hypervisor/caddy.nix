@@ -1,8 +1,5 @@
 {
   properties,
-  config,
-  pkgs,
-  self,
   ...
 }: {
   networking.firewall.allowedTCPPorts = [properties.ports.http properties.ports.ssl];
