@@ -281,6 +281,18 @@ in {
             ];
           }
           {
+            name = "Beszel";
+            url = "https://beszel.${network.domain}/";
+            conditions = [
+              "[STATUS] == 200"
+            ];
+            alerts = [
+              {
+                type = "gotify";
+              }
+            ];
+          }
+          {
             name = "Adguard Tailscale";
             url = "https://adguard-tailscale.${network.domain}/";
             conditions = [

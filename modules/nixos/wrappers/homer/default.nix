@@ -135,6 +135,15 @@ in {
                 target = "_blank";
               }
               {
+                name = "Beszel";
+                logo = github-icons-dir + "/beszel.png?raw=true";
+                subtitle = "Monitor Hardware";
+                tag = "monitor";
+                keywords = "monitor";
+                url = "https://beszel.${network.domain}";
+                target = "_blank";
+              }
+              {
                 name = "OliveTin";
                 logo = github-icons-dir + "/olivetin.png?raw=true";
                 subtitle = "Execute Commands";

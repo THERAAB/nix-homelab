@@ -35,6 +35,8 @@
       homer.enable = true;
       gotify.enable = true;
       unifi.enable = true;
+      beszel-hub.enable = true;
+      beszel-agent.enable = true;
     };
     media.enable = true;
   };

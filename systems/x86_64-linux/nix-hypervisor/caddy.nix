@@ -1,7 +1,4 @@
-{
-  properties,
-  ...
-}: {
+{properties, ...}: {
   networking.firewall.allowedTCPPorts = [properties.ports.http properties.ports.ssl];
   services.caddy = {
     enable = true;
@@ -44,6 +41,13 @@
         extraConfig = ''
           encode zstd gzip
           reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.gotify}
+        '';
+      };
+      "beszel.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.beszel}
         '';
       };
       "bookmarks.${properties.network.domain}" = {
