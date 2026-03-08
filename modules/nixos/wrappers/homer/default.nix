@@ -2,6 +2,7 @@
   lib,
   config,
   properties,
+  self,
   ...
 }:
 with lib;
@@ -71,7 +72,7 @@ in {
             items = [
               {
                 name = "Jellyfin";
-                logo = "assets/icons/jellyfin.png";
+                logo = "${self + assets/icons/jellyfin.png}";
                 subtitle = "Watch Movies & TV";
                 tag = "media";
                 keywords = "movies tv shows media";
