@@ -47,5 +47,16 @@
   services.netdata.config.registry.enabled = "yes";
   users.users.raab.extraGroups = ["syncthing" "media"];
   networking.firewall.allowedTCPPorts = [properties.ports.http properties.ports.ssl];
-  services.caddy.enable = true;
+  services.caddy = {
+    enable = true;
+    virtualHosts = {
+      "adguard-tailscale.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-nas.local.ip}:${toString properties.ports.adguard}
+        '';
+      };
+    };
+  };
 }

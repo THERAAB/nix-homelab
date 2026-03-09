@@ -44,6 +44,19 @@ in {
         };
         endpoints = [
           {
+            name = "Adguard Tailscale";
+            url = "https://adguard-tailscale.${properties.network.domain}/";
+            conditions = [
+              "[STATUS] == 200"
+              ''[BODY] == pat(*<title>Login</title>*)''
+            ];
+            alerts = [
+              {
+                type = "gotify";
+              }
+            ];
+          }
+          {
             name = "Govee Water Alarm";
             url = "tcp://${network.govee-water-alarm.local.ip}:${toString dns-port}";
             conditions = [
