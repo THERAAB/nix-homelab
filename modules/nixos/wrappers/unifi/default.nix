@@ -23,5 +23,19 @@ in {
     # Change kill timeout for unifi because it never dies
     systemd.services.unifi.serviceConfig.TimeoutSec = lib.mkForce "1min";
     networking.firewall.allowedTCPPorts = [port];
+    services.caddy.virtualHosts = {
+      "unifi.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.unifi} {
+            header_up Host {host}
+            transport http {
+              tls_insecure_skip_verify
+            }
+          }
+        '';
+      };
+    };
   };
 }

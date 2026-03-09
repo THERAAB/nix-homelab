@@ -16,6 +16,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Jellyseerr");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "jellyseerr.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.jellyseerr}
+        '';
+      };
+    };
     users = {
       users."${app-name}" = {
         uid = uid;

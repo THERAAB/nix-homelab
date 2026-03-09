@@ -1,5 +1,14 @@
 {properties, ...}: {
   nix-homelab.networking.adguard.enable = true;
+  services.caddy.virtualHosts = {
+    "adguard-tailscale.${properties.network.domain}" = {
+      useACMEHost = "${properties.network.domain}";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy ${properties.network.nix-nas.local.ip}:${toString properties.ports.adguard}
+      '';
+    };
+  };
   services.adguardhome = {
     host = properties.network.nix-nas.local.ip;
     settings = {

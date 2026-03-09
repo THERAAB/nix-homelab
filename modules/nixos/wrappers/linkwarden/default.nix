@@ -14,6 +14,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Linkwarden");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "bookmarks.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.linkwarden}
+        '';
+      };
+    };
     services.linkwarden = {
       enable = true;
       enableRegistration = false;

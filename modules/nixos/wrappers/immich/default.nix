@@ -14,6 +14,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Immich");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "photos.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.immich}
+        '';
+      };
+    };
     systemd.tmpfiles.rules = [
       "d    ${media-dir}     -    -         -        -   - "
       "Z    ${media-dir}     -    immich   immich    -   - "

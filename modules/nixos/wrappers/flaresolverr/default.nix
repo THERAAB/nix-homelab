@@ -15,6 +15,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Flaresolverr");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "flaresolverr.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.flaresolverr}
+        '';
+      };
+    };
     users = {
       users."${app-name}" = {
         uid = uid;

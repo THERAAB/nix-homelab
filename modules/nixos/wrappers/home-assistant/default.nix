@@ -17,6 +17,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Home Assistant");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "home-assistant.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.home-assistant}
+        '';
+      };
+    };
     users.users.hass.uid = properties.users.hass.uid;
     systemd = {
       tmpfiles.rules = [

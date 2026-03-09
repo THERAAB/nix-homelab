@@ -16,6 +16,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Audiobookshelf");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "audiobooks.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.audiobookshelf}
+        '';
+      };
+    };
     users = {
       users."${app-name}" = {
         uid = uid;

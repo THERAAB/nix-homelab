@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  properties,
   ...
 }:
 with lib;
@@ -11,6 +12,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Setup network fileshare permissions");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "cache.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.harmonia}
+        '';
+      };
+    };
     services.harmonia = {
       enable = true;
       signKeyPaths = [config.sops.secrets.harmonia_secret.path];

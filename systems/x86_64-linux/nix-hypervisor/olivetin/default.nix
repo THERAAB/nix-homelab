@@ -12,6 +12,15 @@ in {
     "L  ${scripts-dir}/commands.sh    -           -               -               -   ${shellScript}                        "
     "Z  ${scripts-dir}                500         root            root            -   -                                     "
   ];
+  services.caddy.virtualHosts = {
+    "olivetin.${properties.network.domain}" = {
+      useACMEHost = "${properties.network.domain}";
+      extraConfig = ''
+        encode zstd gzip
+        reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.olivetin}
+      '';
+    };
+  };
   services.olivetin = {
     enable = true;
     settings = {

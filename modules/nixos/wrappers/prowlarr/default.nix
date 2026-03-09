@@ -16,6 +16,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Prowlarr");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "prowlarr.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.prowlarr}
+        '';
+      };
+    };
     users = {
       users."${app-name}" = {
         uid = uid;

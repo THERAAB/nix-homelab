@@ -16,6 +16,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Sonarr");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "tv.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.sonarr}
+        '';
+      };
+    };
     users = {
       users."${app-name}" = {
         uid = uid;

@@ -14,6 +14,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Gotify");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "gotify.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.gotify}
+        '';
+      };
+    };
     networking.firewall.allowedTCPPorts = [port];
     services.${app-name} = {
       enable = true;

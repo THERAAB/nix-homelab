@@ -15,6 +15,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Gatus");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "gatus.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.gatus}
+        '';
+      };
+    };
     services.gatus = {
       openFirewall = true;
       enable = true;

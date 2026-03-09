@@ -15,6 +15,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Netdata monitoring/alerting");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "netdata.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.netdata}
+        '';
+      };
+    };
     networking.firewall.allowedTCPPorts = [port];
     services.netdata = {
       enable = true;

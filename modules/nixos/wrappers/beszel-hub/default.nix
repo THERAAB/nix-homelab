@@ -13,6 +13,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Beszel hub");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "beszel.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.beszel}
+        '';
+      };
+    };
     services.beszel.hub = {
       enable = true;
       port = port;

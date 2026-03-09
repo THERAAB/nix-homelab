@@ -16,6 +16,15 @@ in {
     enable = mkEnableOption (lib.mdDoc "Vuetorrent");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "vuetorrent.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.vuetorrent}
+        '';
+      };
+    };
     users = {
       users."${app-name}" = {
         uid = uid;
