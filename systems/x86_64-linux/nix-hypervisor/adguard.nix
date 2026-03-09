@@ -32,4 +32,19 @@
       '';
     };
   };
+  services.gatus.settings.endpoints = [
+    {
+      name = "Adguard";
+      url = "https://adguard.${properties.network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>Login</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+  ];
 }

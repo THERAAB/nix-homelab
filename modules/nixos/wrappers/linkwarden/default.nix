@@ -23,6 +23,20 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Linkwarden";
+        url = "https://bookmarks.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     services.linkwarden = {
       enable = true;
       enableRegistration = false;

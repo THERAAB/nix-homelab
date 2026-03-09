@@ -14,6 +14,20 @@ in {
     enable = mkEnableOption (lib.mdDoc "Gotify");
   };
   config = mkIf cfg.enable {
+    services.gatus.settings.endpoints = [
+      {
+        name = "Gotify";
+        url = "https://gotify.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     services.caddy.virtualHosts = {
       "gotify.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";

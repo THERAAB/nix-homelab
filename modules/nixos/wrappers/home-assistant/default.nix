@@ -26,6 +26,21 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Home Assistant";
+        url = "https://home-assistant.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+          ''[BODY] == pat(*<title>Home Assistant</title>*)''
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     users.users.hass.uid = properties.users.hass.uid;
     systemd = {
       tmpfiles.rules = [

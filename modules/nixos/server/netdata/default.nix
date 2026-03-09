@@ -24,6 +24,20 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Netdata";
+        url = "https://netdata.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     networking.firewall.allowedTCPPorts = [port];
     services.netdata = {
       enable = true;

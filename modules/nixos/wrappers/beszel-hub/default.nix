@@ -22,6 +22,20 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Beszel";
+        url = "https://beszel.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     services.beszel.hub = {
       enable = true;
       port = port;

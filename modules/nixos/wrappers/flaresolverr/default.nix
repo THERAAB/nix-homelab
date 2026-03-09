@@ -24,6 +24,20 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Flaresolverr";
+        url = "https://flaresolverr.${properties.network.domain}/health";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     users = {
       users."${app-name}" = {
         uid = uid;

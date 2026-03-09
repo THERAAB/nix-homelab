@@ -22,6 +22,20 @@ in {
           '';
         };
       };
+      gatus.settings.endpoints = [
+        {
+          name = "SyncThing";
+          url = "https://sync.${properties.network.domain}/";
+          conditions = [
+            "[STATUS] == 200"
+          ];
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+        }
+      ];
       syncthing = {
         enable = true;
         relay.enable = false;

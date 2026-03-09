@@ -25,6 +25,20 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Jellyseerr";
+        url = "https://jellyseerr.${properties.network.domain}/health";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     users = {
       users."${app-name}" = {
         uid = uid;

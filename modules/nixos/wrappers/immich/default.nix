@@ -23,6 +23,20 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Immich";
+        url = "https://photos.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     systemd.tmpfiles.rules = [
       "d    ${media-dir}     -    -         -        -   - "
       "Z    ${media-dir}     -    immich   immich    -   - "

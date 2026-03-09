@@ -20,6 +20,21 @@ in {
           useACMEHost = "${properties.network.domain}-tld";
         };
       };
+      gatus.settings.endpoints = [
+        {
+          name = "Homer";
+          url = "https://${properties.network.domain}/";
+          conditions = [
+            "[STATUS] == 200"
+            ''[BODY] == pat(*<div id="app-mount"></div>*)''
+          ];
+          alerts = [
+            {
+              type = "gotify";
+            }
+          ];
+        }
+      ];
       homer = {
         enable = true;
         virtualHost = {

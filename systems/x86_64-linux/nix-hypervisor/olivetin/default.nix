@@ -21,6 +21,21 @@ in {
       '';
     };
   };
+  services.gatus.settings.endpoints = [
+    {
+      name = "Olivetin";
+      url = "https://olivetin.${properties.network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>OliveTin</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+  ];
   services.olivetin = {
     enable = true;
     settings = {
@@ -35,6 +50,5 @@ in {
       ];
     };
   };
-
   networking.firewall.allowedTCPPorts = [port];
 }

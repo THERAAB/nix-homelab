@@ -12,6 +12,20 @@ in {
     enable = mkEnableOption (lib.mdDoc "BentoPdf");
   };
   config = mkIf cfg.enable {
+    services.gatus.settings.endpoints = [
+      {
+        name = "BentoPdf";
+        url = "https://pdf.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     services.bentopdf = {
       enable = true;
       domain = "pdf.pumpkin.rodeo";

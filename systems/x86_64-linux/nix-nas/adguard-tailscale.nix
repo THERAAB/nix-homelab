@@ -9,6 +9,21 @@
       '';
     };
   };
+  services.gatus.settings.endpoints = [
+    {
+      name = "Adguard Tailscale";
+      url = "https://adguard-tailscale.${properties.network.domain}/";
+      conditions = [
+        "[STATUS] == 200"
+        ''[BODY] == pat(*<title>Login</title>*)''
+      ];
+      alerts = [
+        {
+          type = "gotify";
+        }
+      ];
+    }
+  ];
   services.adguardhome = {
     host = properties.network.nix-nas.local.ip;
     settings = {

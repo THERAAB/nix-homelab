@@ -14,6 +14,21 @@ in {
     enable = mkEnableOption (lib.mdDoc "Unifi");
   };
   config = mkIf cfg.enable {
+    services.gatus.settings.endpoints = [
+      {
+        name = "Unifi Network Application";
+        url = "https://unifi.${properties.network.domain}";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+        client.insecure = true;
+      }
+    ];
     services.unifi = {
       enable = true;
       openFirewall = true;

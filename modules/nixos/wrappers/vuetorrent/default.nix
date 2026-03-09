@@ -25,6 +25,20 @@ in {
         '';
       };
     };
+    services.gatus.settings.endpoints = [
+      {
+        name = "Vuetorrent";
+        url = "https://vuetorrent.${properties.network.domain}/";
+        conditions = [
+          "[STATUS] == 200"
+        ];
+        alerts = [
+          {
+            type = "gotify";
+          }
+        ];
+      }
+    ];
     users = {
       users."${app-name}" = {
         uid = uid;
