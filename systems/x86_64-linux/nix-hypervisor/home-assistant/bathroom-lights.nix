@@ -19,7 +19,7 @@ in {
         sleep_brightness = 1;
         sleep_color_temp = 2202;
         sunrise_offset = 1800;
-        sunset_offset = 1800; # 30min
+        sunset_offset = -1800; # 30min
       }
     ];
     automation = [
