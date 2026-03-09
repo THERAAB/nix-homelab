@@ -13,29 +13,6 @@ in {
   };
   config = mkIf cfg.enable {
     services = {
-      caddy.virtualHosts = {
-        "sync.${properties.network.domain}" = {
-          useACMEHost = "${properties.network.domain}";
-          extraConfig = ''
-            encode zstd gzip
-            reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.syncthing}
-          '';
-        };
-      };
-      gatus.settings.endpoints = [
-        {
-          name = "SyncThing";
-          url = "https://sync.${properties.network.domain}/";
-          conditions = [
-            "[STATUS] == 200"
-          ];
-          alerts = [
-            {
-              type = "gotify";
-            }
-          ];
-        }
-      ];
       syncthing = {
         enable = true;
         relay.enable = false;

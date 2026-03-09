@@ -57,6 +57,13 @@
           reverse_proxy ${properties.network.nix-nas.local.ip}:${toString properties.ports.adguard}
         '';
       };
+      "sync.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString properties.ports.syncthing}
+        '';
+      };
     };
   };
 }
