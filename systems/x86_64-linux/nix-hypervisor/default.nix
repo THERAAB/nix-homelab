@@ -10,6 +10,7 @@
     ./caddy.nix
     ./adguard.nix
     ./olivetin
+    ./homer.nix
   ];
   nix-homelab = {
     server = {
