@@ -177,6 +177,15 @@ in {
             target = "_blank";
           }
           {
+            name = "Microbin";
+            logo = github-icons-dir + "/microbin.png?raw=true";
+            subtitle = "Pastebin";
+            tag = "pastebin";
+            keywords = "pastebin";
+            url = "https://microbin.${network.domain}";
+            target = "_blank";
+          }
+          {
             name = "SyncThing";
             logo = github-icons-dir + "/syncthing.png?raw=true";
             subtitle = "Shared Data & Folders";

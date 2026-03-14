@@ -42,6 +42,7 @@
       beszel-agent.enable = true;
       olivetin.enable = true;
       miniflux.enable = true;
+      microbin.enable = true;
     };
     media.enable = true;
   };

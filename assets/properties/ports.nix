@@ -25,4 +25,5 @@
   linkwarden = 10248;
   beszel = 8090;
   miniflux = 2637;
+  microbin = 9080;
 }
