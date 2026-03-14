@@ -17,7 +17,7 @@
     };
     bathroom = {
       humidity = "sensor.bathroom_humidity_sensor_humidity";
-      lights = "light.nabu_casa_ha_connect_zbt_1_bathroom_lights";
+      lights = "light.home_assistant_connect_zbt_1_bathroom_lights2";
       motion = "binary_sensor.bathroom_motion_sensor_motion";
     };
     kitchen = {
