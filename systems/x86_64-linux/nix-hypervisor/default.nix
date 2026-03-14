@@ -41,6 +41,7 @@
       beszel-hub.enable = true;
       beszel-agent.enable = true;
       olivetin.enable = true;
+      miniflux.enable = true;
     };
     media.enable = true;
   };

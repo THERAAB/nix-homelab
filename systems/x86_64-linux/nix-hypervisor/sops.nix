@@ -20,6 +20,9 @@
       linkwarden_nextauth = {
         owner = "linkwarden";
       };
+      miniflux_admin = {
+        owner = "linkwarden";
+      };
     };
   };
 }

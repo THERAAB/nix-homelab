@@ -75,6 +75,15 @@ in {
             target = "_blank";
           }
           {
+            name = "Miniflux";
+            logo = github-icons-dir + "/miniflux.png?raw=true";
+            subtitle = "RSS Reader";
+            tag = "rss";
+            keywords = "rss data media";
+            url = "https://rss.${network.domain}";
+            target = "_blank";
+          }
+          {
             name = "Audiobookshelf";
             logo = github-icons-dir + "/audiobookshelf.png?raw=true";
             subtitle = "Listen to Audiobooks and Podcasts";

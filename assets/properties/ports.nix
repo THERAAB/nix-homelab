@@ -24,4 +24,5 @@
   olivetin = 1337;
   linkwarden = 10248;
   beszel = 8090;
+  miniflux = 2637;
 }
