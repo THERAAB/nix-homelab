@@ -68,7 +68,6 @@ in {
               }
             ];
           }
-          # TODO: update
           {
             name = "Govee Water Alarm";
             url = "tcp://${network.govee-water-alarm.local.ip}:${toString dns-port}";
