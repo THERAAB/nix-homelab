@@ -68,6 +68,7 @@ in {
               }
             ];
           }
+          # TODO: update
           {
             name = "Govee Water Alarm";
             url = "tcp://${network.govee-water-alarm.local.ip}:${toString dns-port}";
@@ -81,8 +82,8 @@ in {
             ];
           }
           {
-            name = "Ring Doorbell";
-            url = "tcp://${network.ring-doorbell.local.ip}:${toString dns-port}";
+            name = "Reolink Doorbell";
+            url = "tcp://${network.reolink-doorbell.local.ip}:${toString dns-port}";
             conditions = [
               "[RESPONSE_TIME] < 2500"
             ];

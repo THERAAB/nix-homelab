@@ -7,8 +7,6 @@
 with lib;
 with lib.nix-homelab; let
   cfg = config.nix-homelab.wrappers.miniflux;
-  port = properties.ports.miniflux;
-  host = properties.network.nix-hypervisor.local.ip;
 in {
   options.nix-homelab.wrappers.miniflux = with types; {
     enable = mkEnableOption (lib.mdDoc "Miniflux");
