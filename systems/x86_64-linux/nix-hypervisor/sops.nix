@@ -23,7 +23,6 @@
       miniflux_admin = {
         owner = "linkwarden";
       };
-      go2rtc_env = {};
     };
   };
 }

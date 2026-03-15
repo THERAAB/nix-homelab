@@ -1,19 +1,31 @@
 {
   lib,
   config,
+  properties,
   ...
 }:
 with lib;
 with lib.nix-homelab; let
   cfg = config.nix-homelab.wrappers.frigate;
+  port = properties.ports.frigate;
 in {
   options.nix-homelab.wrappers.frigate = with types; {
     enable = mkEnableOption (lib.mdDoc "Frigate");
   };
   config = mkIf cfg.enable {
+    services.caddy.virtualHosts = {
+      "cameras.${properties.network.domain}" = {
+        useACMEHost = "${properties.network.domain}";
+        extraConfig = ''
+          encode zstd gzip
+          reverse_proxy ${properties.network.nix-hypervisor.local.ip}:${toString port}
+        '';
+      };
+    };
+    networking.firewall.allowedTCPPorts = [port 8544 8555];
     services.frigate = {
       enable = true;
-      hostname = "localhost";
+      hostname = "localhost:${toString port}";
 
       settings = {
         mqtt.enabled = false;
@@ -55,7 +67,7 @@ in {
       settings = {
         streams = {
           "doorbell" = [
-            "rtsp://@192.168.127.11"
+            "rtsp://raab:raab1234A@192.168.127.11"
           ];
         };
         rtsp = {
@@ -64,6 +76,5 @@ in {
         webrtc.listen = ":8555";
       };
     };
-    systemd.services.go2rtc.serviceConfig.EnvironmentFile = config.sops.secrets.go2rtc_env.path;
   };
 }
