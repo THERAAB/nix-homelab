@@ -26,5 +26,4 @@
   beszel = 8090;
   miniflux = 2637;
   microbin = 9080;
-  frigate = 4783;
 }

@@ -43,7 +43,6 @@
       olivetin.enable = true;
       miniflux.enable = true;
       microbin.enable = true;
-      frigate.enable = false;
     };
     media.enable = true;
   };
