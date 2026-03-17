@@ -42,9 +42,3 @@ Set monitor refresh rate to 100Hz
 
 - Set to new UI
 - Settings -> Tools -> Terminal -> Disable Shell Integration
-
-### nix-homelab
-
-```console
-git clone git@github.com:THERAAB/nix-homelab.git /nix/persist/nix-homelab
-```
