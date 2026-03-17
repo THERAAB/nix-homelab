@@ -28,6 +28,7 @@ in {
           }
           rebuild() {
               $git -C $dir pull
+              $git -C $dir add .
               nh os switch $dir
           }
           commit() {
@@ -51,6 +52,7 @@ in {
           }
           apply() {
               $git -C $dir pull
+              $git -C $dir add .
               sudo nix run $dir#apps.nixinate.$1
           }
           case "$1" in
