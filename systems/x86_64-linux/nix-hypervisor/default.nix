@@ -40,7 +40,7 @@
       unifi.enable = true;
       beszel-hub.enable = true;
       beszel-agent.enable = true;
-      olivetin.enable = true;
+      olivetin.enable = false; # TODO: enable once CVEs addressed
       miniflux.enable = true;
       microbin.enable = true;
     };

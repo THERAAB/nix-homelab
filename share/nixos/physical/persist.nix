@@ -19,7 +19,6 @@
       "/etc/ssh"
     ];
     files = [
-      "/var/cache/locatedb"
       "/root/.ssh/known_hosts"
       "/etc/machine-id"
       {
