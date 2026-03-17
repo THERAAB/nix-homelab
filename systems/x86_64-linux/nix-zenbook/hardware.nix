@@ -98,10 +98,10 @@
     udev.extraRules = ''ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"'';
   };
   systemd = {
-    sleep.extraConfig = ''
-      HibernateDelaySec=8h
-      HibernateMode=shutdown
-    '';
+    sleep.settings.Sleep = {
+      HibernateDelaySec = "8h";
+      HibernateMode = "shutdown";
+    };
     services = {
       battery-charge-threshold = {
         wantedBy = ["local-fs.target" "suspend.target"];

@@ -28,7 +28,7 @@ in {
       ffmpeg
       audible-cli
       aaxtomp3
-      neofetch
+      fastfetch
     ];
   };
 }
