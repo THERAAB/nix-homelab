@@ -79,8 +79,8 @@
     scsiLinkPolicy = "med_power_with_dipm";
     powertop.enable = true;
   };
-  systemd.services.post-boot = {
-    description = "Post-boot Actions";
+  systemd.services.post-boot-battery-charge = {
+    description = "Post-boot Battery Charge Actions";
     wantedBy = ["multi-user.target"];
     restartIfChanged = false;
     serviceConfig = {

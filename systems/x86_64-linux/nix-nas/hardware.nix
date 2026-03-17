@@ -16,8 +16,8 @@ in {
     raab      ALL=(root)  NOPASSWD:/run/current-system/sw/bin/flock -w 60 /dev/shm/nixinate-${config.networking.hostName} nixos-rebuild switch --flake /nix/store/[a-zA-Z0-9]*-source\#${config.networking.hostName}
   '';
   boot.initrd.availableKernelModules = ["sdhci_pci"];
-  systemd.services.post-boot = {
-    description = "Post-boot Actions";
+  systemd.services.hdparm-post-boot = {
+    description = "Post-boot Actions for hdparm";
     wantedBy = ["multi-user.target"];
     restartIfChanged = false;
     serviceConfig = {
