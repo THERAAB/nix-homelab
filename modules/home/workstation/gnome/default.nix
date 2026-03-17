@@ -60,6 +60,7 @@ in {
       };
       "org/gnome/shell/extensions/auto-move-windows" = {
         application-list = [
+          "firefox.desktop:1"
           "horizon-client.desktop:2"
           "steam.desktop:3"
         ];
