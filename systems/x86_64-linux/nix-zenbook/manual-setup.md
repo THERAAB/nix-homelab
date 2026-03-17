@@ -14,12 +14,6 @@ Disable minimize to tray
 
 http://localhost:631/ > Administration > Add printer
 
-### Plocate
-
-```console
-sudo updatedb
-```
-
 ### Forge
 
 - Disable Split Direction Hint
