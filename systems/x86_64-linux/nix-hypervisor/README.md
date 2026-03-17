@@ -13,7 +13,7 @@ and the installation instructions below.
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Nix store cache sharing with [Harmonia](https://github.com/nix-community/harmonia)
 - Backups with [SyncThing](https://syncthing.net/)
-- Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [JellySeerr](https://github.com/Fallenbagel/jellyseerr), and [linuxserver.io](https://www.linuxserver.io/) podman images
+- Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [Seerr](https://docs.seerr.dev/), and [linuxserver.io](https://www.linuxserver.io/) podman images
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
 - Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
 - [Immich](https://immich.app/) for photo backup/sync between devices
