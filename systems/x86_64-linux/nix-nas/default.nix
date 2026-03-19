@@ -9,5 +9,6 @@
     networking.nfs.enable = true;
     wrappers.beszel-agent.enable = true;
   };
+  services.beszel.agent.environment.EXTRA_FILESYSTEMS = "sda1";
   services.netdata.config.registry.enabled = "no";
 }
