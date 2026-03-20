@@ -42,7 +42,7 @@ in {
         alias = "Switch Off Bathroom Adaptive Lighting Sleep Mode at Morning";
         trigger = {
           trigger = "time";
-          at = "6:30:00";
+          at = "7:10:00";
         };
         action = [
           {

@@ -59,7 +59,7 @@ in {
           alias = "Switch Off Bedroom Fan at Morning";
           trigger = {
             trigger = "time";
-            at = "6:30:00";
+            at = "8:30:00";
           };
           action = [
             {
