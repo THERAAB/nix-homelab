@@ -12,7 +12,7 @@ and the installation instructions below.
 - Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Nix store cache sharing with [Harmonia](https://github.com/nix-community/harmonia)
-- Backups with [SyncThing](https://syncthing.net/)
+- Backups with [SyncThing](https://syncthing.net/), [Restic](https://restic.net/), [Backrest](https://github.com/garethgeorge/backrest)
 - Media setup with the [Servarr stack](https://wiki.servarr.com/), [Jellyfin](https://jellyfin.org/), [Seerr](https://docs.seerr.dev/), and [linuxserver.io](https://www.linuxserver.io/) podman images
 - VPN with the [hotio qbittorrent](https://hotio.dev/containers/qbittorrent/) image
 - Audiobook hosting with [Audiobookshelf](https://www.audiobookshelf.org/)
