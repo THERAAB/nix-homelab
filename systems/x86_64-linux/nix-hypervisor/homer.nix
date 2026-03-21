@@ -135,6 +135,15 @@ in {
             target = "_blank";
           }
           {
+            name = "Backrest";
+            logo = github-icons-dir + "/backrest.png?raw=true";
+            subtitle = "Restic Backups GUI";
+            tag = "backup";
+            keywords = "backup";
+            url = "https://restic.${network.domain}";
+            target = "_blank";
+          }
+          {
             name = "OliveTin";
             logo = github-icons-dir + "/olivetin.png?raw=true";
             subtitle = "Execute Commands";
