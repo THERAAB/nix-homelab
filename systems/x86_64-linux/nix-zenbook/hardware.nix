@@ -93,7 +93,7 @@
   };
   services = {
     thermald.enable = true;
-    logind.settings.Login.HandlelidSwitch = "suspend-then-hibernate";
+    logind.settings.Login.LidSwitch = "suspend-then-hibernate";
     # Disable ELAN Fingerprint reader
     udev.extraRules = ''ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"'';
   };
