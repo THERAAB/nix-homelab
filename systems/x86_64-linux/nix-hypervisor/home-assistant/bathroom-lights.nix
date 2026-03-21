@@ -18,7 +18,7 @@ in {
         max_color_temp = 4000;
         sleep_brightness = 1;
         sleep_color_temp = 2202;
-        sunrise_offset = 1800;
+        sunrise_offset = 5400; # 1h30min
         sunset_offset = -1800; # 30min
       }
     ];
