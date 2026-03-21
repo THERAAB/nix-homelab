@@ -49,21 +49,21 @@ in {
           }
           {
             enabled = true;
-            url = "${filter-dir}/filter_2.txt";
-            name = "AdAway Default Blocklist";
+            url = "${filter-dir}/filter_51.txt";
+            name = "Hagzi Multi Pro++";
             id = 2;
           }
           {
             enabled = true;
-            url = "${filter-dir}/filter_5.txt";
-            name = "OISD Blocklist Basic";
-            id = 3;
+            url = "${filter-dir}/filter_44.txt";
+            name = "Hagzi Thread Intelligence Feed";
+            id = 2;
           }
           {
             enabled = true;
-            url = "${filter-dir}/filter_4.txt";
-            name = "Dan Pollock's List";
-            id = 4;
+            url = "${filter-dir}/filter_47.txt";
+            name = "Hagzi Gambling Blocklist";
+            id = 2;
           }
           {
             enabled = true;
@@ -82,24 +82,6 @@ in {
             url = "${filter-dir}/filter_12.txt";
             name = "Dandelion Sprout's Anti-Malware List";
             id = 7;
-          }
-          {
-            enabled = true;
-            url = "${filter-dir}/filter_8.txt";
-            name = "NoCoin Filter List";
-            id = 8;
-          }
-          {
-            enabled = true;
-            url = "${filter-dir}/filter_3.txt";
-            name = "Peter Lowe's Blocklist";
-            id = 9;
-          }
-          {
-            enabled = true;
-            url = "${filter-dir}/filter_10.txt";
-            name = "Scam Blocklist by DurableNapkin";
-            id = 10;
           }
         ];
       };
