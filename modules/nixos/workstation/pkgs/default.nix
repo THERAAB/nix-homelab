@@ -36,7 +36,7 @@ in {
       nvme-cli
       stress
       sysfsutils
-      # bitwarden-desktop TODO: put back when fixed
+      bitwarden-desktop
     ];
   };
 }
