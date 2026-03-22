@@ -26,7 +26,11 @@ in {
         enable = true;
         options = ["--cmd cd"];
       };
-      eza.enable = true;
+      eza = {
+        enable = true;
+        enableFishIntegration = true;
+        icons = "always";
+      };
     };
   };
 }
