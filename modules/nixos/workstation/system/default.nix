@@ -6,19 +6,30 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.system;
-in {
+in
+{
   options.nix-homelab.workstation.system = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup system");
   };
   config = mkIf cfg.enable {
-    users.users.raab.extraGroups = ["audio" "openrazer" "plugdev" "input" "syncthing"];
+    users.users.raab.extraGroups = [
+      "audio"
+      "openrazer"
+      "plugdev"
+      "input"
+      "syncthing"
+    ];
     nix.settings = {
-      allowed-users = ["@wheel"];
-      substituters = ["https://cache.${properties.network.domain}"];
-      trusted-public-keys = ["cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="];
+      allowed-users = [ "@wheel" ];
+      substituters = [ "https://cache.${properties.network.domain}" ];
+      trusted-public-keys = [
+        "cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="
+      ];
     };
+    programs.nix-ld.enable = true;
     programs.dconf.enable = true;
     fonts.packages = with pkgs.nerd-fonts; [
       jetbrains-mono

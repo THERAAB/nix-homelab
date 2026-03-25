@@ -22,6 +22,7 @@ in {
         vscode.enable = true;
         persist.enable = true;
         vicinae.enable = true;
+        zed.enable = true;
       };
       physical.enable = true;
     };
