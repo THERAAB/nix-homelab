@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.persist;
-in {
+in
+{
   options.nix-homelab.workstation.persist = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup impermanence home manager module");
   };
@@ -56,6 +58,7 @@ in {
         ".local/share/jellyfinmediaplayer"
         ".local/share/keyrings"
         ".local/share/vicinae"
+        ".local/share/zed"
         ".java" # IntelliJ
         ".compose-cache" # Steam
       ];
