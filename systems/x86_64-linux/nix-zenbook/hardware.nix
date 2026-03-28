@@ -2,11 +2,16 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   boot = {
-    initrd.availableKernelModules = ["thunderbolt" "vmd" "sdhci_pci"];
-    kernelModules = ["kvm-intel"];
-    extraModulePackages = [];
+    initrd.availableKernelModules = [
+      "thunderbolt"
+      "vmd"
+      "sdhci_pci"
+    ];
+    kernelModules = [ "kvm-intel" ];
+    extraModulePackages = [ ];
     loader.grub.extraConfig = ''
       acpi /ssdt-csc3551.aml
       set timeout=1
@@ -37,13 +42,20 @@
     "/home/raab" = {
       device = "none";
       fsType = "tmpfs";
-      options = ["size=2G" "mode=777"];
+      options = [
+        "size=2G"
+        "mode=777"
+      ];
       neededForBoot = true;
     };
     "/swap" = {
       device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
-      options = ["subvol=swap" "compress=no" "noatime"];
+      options = [
+        "subvol=swap"
+        "compress=no"
+        "noatime"
+      ];
     };
   };
   swapDevices = [
@@ -81,7 +93,7 @@
   };
   systemd.services.post-boot-battery-charge = {
     description = "Post-boot Battery Charge Actions";
-    wantedBy = ["multi-user.target"];
+    wantedBy = [ "multi-user.target" ];
     restartIfChanged = false;
     serviceConfig = {
       Type = "oneshot";
@@ -104,8 +116,14 @@
     };
     services = {
       battery-charge-threshold = {
-        wantedBy = ["local-fs.target" "suspend.target"];
-        after = ["local-fs.target" "suspend.target"];
+        wantedBy = [
+          "local-fs.target"
+          "suspend.target"
+        ];
+        after = [
+          "local-fs.target"
+          "suspend.target"
+        ];
         description = "Set the battery charge threshold%";
         startLimitBurst = 5;
         startLimitIntervalSec = 1;
