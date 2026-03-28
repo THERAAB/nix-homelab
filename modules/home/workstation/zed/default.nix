@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib;
@@ -16,6 +17,10 @@ in
     programs.zed-editor = {
       enable = true;
       extensions = [ "nix" ];
+      extraPackages = with pkgs; [
+        nixd
+        shellcheck
+      ];
       enableMcpIntegration = false;
       mutableUserSettings = false;
       mutableUserTasks = false;
@@ -26,6 +31,14 @@ in
         autosave = "on_focus_change";
         ui_font_size = lib.mkForce 14;
         buffer_font_size = lib.mkForce 14;
+        auto_update = false;
+        terminal = {
+          copy_on_select = false;
+          dock = "bottom";
+          env.TERM = "kitty";
+          shell = "system";
+        };
+        lsp.nix.binary.path_lookup = true;
       };
     };
   };
