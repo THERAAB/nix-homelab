@@ -5,9 +5,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.stylix;
-in {
+in
+{
   options.nix-homelab.workstation.stylix = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup stylix");
   };
@@ -15,7 +17,8 @@ in {
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/jabuti.yaml";
-      override.base03 = "9194bc"; # Comments are too hard to read
+      override.base03 = "5e607d"; # Comments are too hard to read
+      override.base04 = "5a5c78"; # Zed side panel
       fonts = {
         sansSerif.name = "NotoSans Nerd Font";
         serif.name = "NotoSans Nerd Font";
