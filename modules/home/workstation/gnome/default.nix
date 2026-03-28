@@ -5,9 +5,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.gnome;
-in {
+in
+{
   options.nix-homelab.workstation.gnome = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup gnome");
   };
@@ -32,7 +34,7 @@ in {
           "horizon-client.desktop"
           "kitty.desktop"
           "steam.desktop"
-          "codium.desktop"
+          "dev.zed.Zed.desktop"
           "org.gnome.TextEditor.desktop"
         ];
       };
@@ -89,7 +91,7 @@ in {
         power-button-action = "interactive";
       };
       "org/gnome/settings-daemon/plugins/media-keys" = {
-        logout = ["<Control><Alt>Page_Up"]; # Change Alt+Ctrl+Del hotkey so it doesn't get intercepted prior to VM
+        logout = [ "<Control><Alt>Page_Up" ]; # Change Alt+Ctrl+Del hotkey so it doesn't get intercepted prior to VM
         custom-keybindings = [
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
@@ -103,9 +105,11 @@ in {
         binding = "<Alt>Return";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
-        command = toString (pkgs.writeShellScript "switch-audio" ''
-          ${pkgs.pulseaudio}/bin/pactl set-default-sink alsa_output.usb-Fractal_Fractal_Scape_Dongle_00000000911AD5811398-00.iec958-stereo
-        '');
+        command = toString (
+          pkgs.writeShellScript "switch-audio" ''
+            ${pkgs.pulseaudio}/bin/pactl set-default-sink alsa_output.usb-Fractal_Fractal_Scape_Dongle_00000000911AD5811398-00.iec958-stereo
+          ''
+        );
         name = "Switch to Headphones";
         binding = "<Shift><Alt>h";
       };
@@ -115,9 +119,11 @@ in {
         binding = "<Alt>r";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
-        command = toString (pkgs.writeShellScript "headphone-battery" ''
-          ${pkgs.pulseaudio}/bin/pactl set-default-sink alsa_output.pci-0000_1b_00.6.iec958-stereo
-        '');
+        command = toString (
+          pkgs.writeShellScript "headphone-battery" ''
+            ${pkgs.pulseaudio}/bin/pactl set-default-sink alsa_output.pci-0000_1b_00.6.iec958-stereo
+          ''
+        );
         name = "Switch to Kanto";
         binding = "<Shift><Alt>k";
       };
@@ -129,17 +135,17 @@ in {
         num-workspaces = 4;
       };
       "org/gnome/desktop/wm/keybindings" = {
-        switch-to-workspace-left = ["<Alt>Left"];
-        switch-to-workspace-right = ["<Alt>Right"];
-        move-to-workspace-1 = ["<Shift><Alt>1"];
-        move-to-workspace-2 = ["<Shift><Alt>2"];
-        move-to-workspace-3 = ["<Shift><Alt>3"];
-        move-to-workspace-4 = ["<Shift><Alt>4"];
-        switch-to-workspace-1 = ["<Alt>1"];
-        switch-to-workspace-2 = ["<Alt>2"];
-        switch-to-workspace-3 = ["<Alt>3"];
-        switch-to-workspace-4 = ["<Alt>4"];
-        close = ["<Shift><Alt>q"];
+        switch-to-workspace-left = [ "<Alt>Left" ];
+        switch-to-workspace-right = [ "<Alt>Right" ];
+        move-to-workspace-1 = [ "<Shift><Alt>1" ];
+        move-to-workspace-2 = [ "<Shift><Alt>2" ];
+        move-to-workspace-3 = [ "<Shift><Alt>3" ];
+        move-to-workspace-4 = [ "<Shift><Alt>4" ];
+        switch-to-workspace-1 = [ "<Alt>1" ];
+        switch-to-workspace-2 = [ "<Alt>2" ];
+        switch-to-workspace-3 = [ "<Alt>3" ];
+        switch-to-workspace-4 = [ "<Alt>4" ];
+        close = [ "<Shift><Alt>q" ];
       };
       "org/gnome/desktop/interface" = {
         clock-format = "12h";
@@ -153,12 +159,14 @@ in {
 
     # Extra dconf settings which can't be covered by dconf module due to timing or syntax issues
     systemd.user.services.extra-dconf-gnome = {
-      Install.WantedBy = ["graphical-session.target"];
-      Unit.After = ["graphical-session.target"];
-      Service.ExecStart = toString (pkgs.writeShellScript "extra-dconf-gnome" ''
-        ${pkgs.dconf}/bin/dconf write /org/gnome/mutter/dynamic-workspaces "false"
-        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/session/idle-delay "uint32 0"
-      '');
+      Install.WantedBy = [ "graphical-session.target" ];
+      Unit.After = [ "graphical-session.target" ];
+      Service.ExecStart = toString (
+        pkgs.writeShellScript "extra-dconf-gnome" ''
+          ${pkgs.dconf}/bin/dconf write /org/gnome/mutter/dynamic-workspaces "false"
+          ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/session/idle-delay "uint32 0"
+        ''
+      );
     };
 
     home.packages = with pkgs.gnomeExtensions; [
