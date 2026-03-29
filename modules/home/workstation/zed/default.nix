@@ -27,7 +27,6 @@ in
       mutableUserKeymaps = false;
       mutableUserDebug = false;
       userSettings = {
-        diagnostics_max_severity = "error";
         vim_mode = true;
         autosave = "on_focus_change";
         ui_font_size = lib.mkForce 14;

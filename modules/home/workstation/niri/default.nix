@@ -31,11 +31,11 @@ in
           };
         };
         layout = {
-          gaps = 4;
+          gaps = 6;
           focus-ring = {
-            width = 1;
-            active.color = "#000000";
-            inactive.color = "#ffffff";
+            width = 2;
+            active.color = "#${config.lib.stylix.colors.base09}";
+            inactive.color = "#${config.lib.stylix.colors.base03}";
           };
         };
         window-rules = [
@@ -53,6 +53,7 @@ in
             clip-to-geometry = true;
           }
         ];
+        debug.honor-xdg-activation-with-invalid-serial = { };
         binds = {
           "Mod+Return".action.spawn = "kitty";
           "Mod+R".action.spawn-sh = "vicinae toggle";
