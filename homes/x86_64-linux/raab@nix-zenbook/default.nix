@@ -18,6 +18,7 @@
     settings = {
       binds = {
         "Mod+R".action.spawn = "fuzzel";
+        "Mod+Return".action.spawn = "kitty";
       };
       spawn-at-startup = [
         { command = [ "noctalia-shell" ]; }
@@ -25,7 +26,6 @@
     };
   };
   programs.fuzzel.enable = true;
-  programs.alacritty.enable = true;
   programs.noctalia-shell.enable = true;
   home.packages = with pkgs; [
     powertop
