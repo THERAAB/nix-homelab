@@ -17,11 +17,11 @@ in
       workstation = {
         auto-upgrade.enable = true;
         pkgs.enable = true;
-        # gnome.enable = true;
         hardware.enable = true;
         syncthing.enable = true;
         system.enable = true;
         stylix.enable = true;
+        niri.enable = true;
       };
       physical.enable = true;
     };

@@ -17,7 +17,7 @@ in
       workstation = {
         dconf.enable = true;
         firefox.enable = true;
-        gnome.enable = true;
+        niri.enable = true;
         gtk.enable = true;
         pkgs.enable = true;
         kitty.enable = true;
