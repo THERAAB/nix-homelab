@@ -15,8 +15,13 @@
   };
   programs.niri = {
     enable = true;
-    settings.binds = {
-      "Mod+R".action.spawn = "fuzzel";
+    settings = {
+      binds = {
+        "Mod+R".action.spawn = "fuzzel";
+      };
+      spawn-at-startup = [
+        { command = [ "noctalia-shell" ]; }
+      ];
     };
   };
   programs.fuzzel.enable = true;
