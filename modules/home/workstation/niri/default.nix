@@ -34,8 +34,25 @@ in
           gaps = 4;
           focus-ring = {
             width = 1;
+            active.color = "#000000";
+            inactive.color = "#ffffff";
           };
         };
+        window-rules = [
+          {
+            geometry-corner-radius =
+              let
+                r = 10.0;
+              in
+              {
+                top-left = r;
+                top-right = r;
+                bottom-left = r;
+                bottom-right = r;
+              };
+            clip-to-geometry = true;
+          }
+        ];
         binds = {
           "Mod+Return".action.spawn = "kitty";
           "Mod+R".action.spawn-sh = "vicinae toggle";
