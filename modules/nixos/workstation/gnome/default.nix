@@ -5,20 +5,22 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.gnome;
-in {
+in
+{
   options.nix-homelab.workstation.gnome = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup gnome");
   };
   config = mkIf cfg.enable {
     services = {
-      displayManager.autoLogin = {
-        enable = true;
-        user = "raab";
-      };
-      desktopManager.gnome.enable = true;
-      displayManager.gdm.enable = true;
+      #displayManager.autoLogin = {
+      #  enable = true;
+      #  user = "raab";
+      # };
+      desktopManager.gnome.enable = false;
+      displayManager.gdm.enable = false;
       xserver.enable = true;
       gnome.gnome-keyring.enable = lib.mkForce false;
     };

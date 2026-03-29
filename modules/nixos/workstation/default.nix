@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation;
-in {
+in
+{
   options.nix-homelab.workstation = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup workstation");
   };
@@ -15,7 +17,7 @@ in {
       workstation = {
         auto-upgrade.enable = true;
         pkgs.enable = true;
-        gnome.enable = true;
+        # gnome.enable = true;
         hardware.enable = true;
         syncthing.enable = true;
         system.enable = true;

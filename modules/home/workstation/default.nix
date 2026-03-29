@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation;
-in {
+in
+{
   options.nix-homelab.workstation = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup workstation");
   };
