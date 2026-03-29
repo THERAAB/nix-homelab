@@ -18,7 +18,7 @@ in
       settings = {
         cursor = {
           theme = "phinger-cursors-light";
-          size = 48;
+          size = 40;
         };
         input = {
           touchpad = {
@@ -48,6 +48,7 @@ in
       };
     };
     programs.noctalia-shell.enable = true;
+    services.mako.enable = true;
     stylix.targets.qt.platform = "qtct";
   };
 }
