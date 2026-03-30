@@ -76,6 +76,11 @@ in
           "Mod+Shift+Right".action.move-column-right = { };
           "Mod+Shift+Up".action.move-window-up = { };
           "Mod+Shift+Down".action.move-window-down = { };
+          "XF86AudioRaiseVolume".action.spawn-sh = "noctalia-shell ipc call volume increase";
+          "XF86AudioLowerVolume".action.spawn-sh = "noctalia-shell ipc call volume decrease";
+          "XF86AudioMute".action.spawn-sh = "noctalia-shell ipc call volume muteOutput";
+          "XF86MonBrightnessUp".action.spawn-sh = "noctalia-shell ipc call brightness increase";
+          "XF86MonBrightnessDown".action.spawn-sh = "noctalia-shell ipc call brightness decrease";
         };
         spawn-at-startup = [
           { command = [ "noctalia-shell" ]; }
@@ -84,7 +89,17 @@ in
         prefer-no-csd = true;
       };
     };
-    programs.noctalia-shell.enable = true;
+    programs.noctalia-shell = {
+      enable = true;
+      settings = {
+        notifications.enabled = true;
+        ui.panelBackgroundOpacity = lib.mkForce 0.96;
+        dock.enabled = false;
+        location = {
+          name = "New York, New York";
+        };
+      };
+    };
     services.mako.enable = true;
     stylix.targets.qt.platform = "qtct";
   };
