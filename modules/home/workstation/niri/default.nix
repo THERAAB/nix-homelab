@@ -34,7 +34,7 @@ in
           background-color = "transparent";
           gaps = 6;
           focus-ring = {
-            width = 2;
+            width = 0;
             active.color = "#${config.lib.stylix.colors.base09}";
             inactive.color = "#${config.lib.stylix.colors.base03}";
           };
@@ -94,9 +94,27 @@ in
       settings = {
         notifications.enabled = true;
         ui.panelBackgroundOpacity = lib.mkForce 0.96;
+        bar = {
+          backgroundOpacity = lib.mkForce 0.96;
+          outerCorners = false;
+          displayMode = "auto_hide";
+        };
+        general = {
+          showChangelogOnStartup = false;
+          telemetryEnabled = false;
+        };
         dock.enabled = false;
         location = {
           name = "New York, New York";
+          weatherShowEffects = true;
+          useFahrenheit = true;
+          use12hourFormat = true;
+        };
+        nightLight = {
+          enabled = true;
+          autoSchedule = true;
+          nightTemp = "4000";
+          dayTemp = "6500";
         };
       };
     };
