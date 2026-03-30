@@ -31,6 +31,7 @@ in
           };
         };
         layout = {
+          background-color = "transparent";
           gaps = 6;
           focus-ring = {
             width = 2;
@@ -53,10 +54,17 @@ in
             clip-to-geometry = true;
           }
         ];
+        layer-rules = [
+          {
+            matches = [ { namespace = "^noctalia-wallpaper*"; } ];
+            place-within-backdrop = true;
+          }
+        ];
         debug.honor-xdg-activation-with-invalid-serial = { };
         binds = {
           "Mod+Return".action.spawn = "kitty";
           "Mod+R".action.spawn-sh = "vicinae toggle";
+          "Mod+Shift+Q".action.close-window = { };
         };
         spawn-at-startup = [
           { command = [ "noctalia-shell" ]; }
