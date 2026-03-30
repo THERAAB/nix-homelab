@@ -65,6 +65,17 @@ in
           "Mod+Return".action.spawn = "kitty";
           "Mod+R".action.spawn-sh = "vicinae toggle";
           "Mod+Shift+Q".action.close-window = { };
+          "Mod+f".action.toggle-window-floating = { };
+          "Mod+Ctrl+f".action.switch-focus-between-floating-and-tiling = { };
+          "Mod+Space".action.fullscreen-window = { };
+          "Mod+Left".action.focus-column-left = { };
+          "Mod+Right".action.focus-column-right = { };
+          "Mod+Up".action.focus-window-or-workspace-up = { };
+          "Mod+Down".action.focus-window-or-workspace-down = { };
+          "Mod+Shift+Left".action.move-column-left = { };
+          "Mod+Shift+Right".action.move-column-right = { };
+          "Mod+Shift+Up".action.move-window-up = { };
+          "Mod+Shift+Down".action.move-window-down = { };
         };
         spawn-at-startup = [
           { command = [ "noctalia-shell" ]; }
