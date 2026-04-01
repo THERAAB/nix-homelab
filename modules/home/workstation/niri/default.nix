@@ -14,6 +14,11 @@ in
     enable = mkEnableOption (lib.mdDoc "Setup niri");
   };
   config = mkIf cfg.enable {
+    home.file.".cache/noctalia/wallpapers.json" = {
+      text = builtins.toJSON {
+        defaultWallpaper = "/nix/persist/nix-homelab/assets/wallpapers/nix-zenbook/wall.jpg";
+      };
+    };
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
@@ -76,13 +81,12 @@ in
             clip-to-geometry = true;
           }
         ];
-        #layer-rules = [
-        #  {
-        #    matches = [ { namespace = "^noctalia-wallpaper*"; } ];
-        #    place-within-backdrop = true;
-        #  }
-        #];
-        # # sudo modprobe i2c_hid_acpi
+        layer-rules = [
+          {
+            matches = [ { namespace = "^noctalia-wallpaper*"; } ];
+            place-within-backdrop = true;
+          }
+        ];
         debug.honor-xdg-activation-with-invalid-serial = { };
         binds = {
           "Mod+O".action.toggle-overview = { };
@@ -136,10 +140,6 @@ in
         version = 1;
       };
       settings = {
-        wallpaper = {
-          directory = "/nix/persist/nix-homelab/assets/wallpapers/nix-zenbook";
-          enabled = true;
-        };
         notifications = {
           enabled = true;
           saveToHistory = {
@@ -148,14 +148,16 @@ in
             critical = true;
           };
         };
-        ui.panelBackgroundOpacity = lib.mkForce 0.96;
+        ui.panelBackgroundOpacity = lib.mkForce 0.75;
         bar = {
-          backgroundOpacity = lib.mkForce 0.96;
           outerCorners = false;
           widgets = {
             left = [
               {
                 id = "Clock";
+                formatHorizontal = "hh:mm AP ddd, MMM dd";
+                formatVertical = "hh:mm AP ddd, MMM dd";
+                tooltipFormat = "hh:mm AP ddd, MMM dd";
               }
               {
                 id = "SystemMonitor";
@@ -165,6 +167,7 @@ in
               }
               {
                 id = "MediaMini";
+                hideWhenIdle = true;
               }
             ];
             center = [
@@ -178,9 +181,11 @@ in
               }
               {
                 id = "NotificationHistory";
+                hideWhenZero = true;
               }
               {
                 id = "Battery";
+                hideIfIdle = true;
               }
               {
                 id = "Volume";
@@ -200,7 +205,6 @@ in
         general = {
           showChangelogOnStartup = false;
           telemetryEnabled = false;
-          clockFormat = "hh:mm AP ddd, MMM dd";
         };
         dock.enabled = false;
         location = {

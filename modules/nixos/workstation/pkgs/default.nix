@@ -38,6 +38,7 @@ in
       stress
       sysfsutils
       bitwarden-desktop
+      jq
     ];
   };
 }
