@@ -147,7 +147,50 @@ in
         bar = {
           backgroundOpacity = lib.mkForce 0.96;
           outerCorners = false;
-          # displayMode = "auto_hide";
+          widgets = {
+            left = [
+              {
+                id = "Clock";
+              }
+              {
+                id = "SystemMonitor";
+              }
+              {
+                id = "ActiveWindow";
+              }
+              {
+                id = "MediaMini";
+              }
+            ];
+            center = [
+              {
+                id = "Workspace";
+              }
+            ];
+            right = [
+              {
+                id = "Tray";
+              }
+              {
+                id = "NotificationHistory";
+              }
+              {
+                id = "Battery";
+              }
+              {
+                id = "Volume";
+              }
+              {
+                id = "Brightness";
+              }
+              {
+                id = "plugin:kde-connect";
+              }
+              {
+                id = "ControlCenter";
+              }
+            ];
+          };
         };
         general = {
           showChangelogOnStartup = false;
