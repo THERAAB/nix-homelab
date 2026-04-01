@@ -49,7 +49,16 @@
       overlays = with inputs; [
         niri-flake.overlays.niri
       ];
-
+      homes.users = {
+        "raab@nix-zenbook".modules = with inputs; [
+          niri-flake.homeModules.niri
+          noctalia.homeModules.default
+        ];
+        "raab@nix-desktop".modules = with inputs; [
+          niri-flake.homeModules.niri
+          noctalia.homeModules.default
+        ];
+      };
       systems = {
         modules.nixos = with inputs; [
           home-manager.nixosModules.home-manager
@@ -64,10 +73,8 @@
           nix-nas.specialArgs = {
             inherit self properties;
           };
-          nix-zenbook = {
-            specialArgs = {
-              inherit self properties;
-            };
+          nix-zenbook.specialArgs = {
+            inherit self properties;
           };
           nix-desktop.specialArgs = {
             inherit self properties;
