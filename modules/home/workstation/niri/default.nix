@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }:
 with lib;
@@ -13,17 +14,38 @@ in
     enable = mkEnableOption (lib.mdDoc "Setup niri");
   };
   config = mkIf cfg.enable {
+    xdg.portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+      config = {
+        common.default = [
+          "gtk"
+          "gnome"
+        ];
+        niri.default = [
+          "gtk"
+          "gnome"
+        ];
+      };
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
     programs.niri = {
       enable = true;
       settings = {
+        overview.backdrop-color = "#${config.lib.stylix.colors.base00}";
         cursor = {
           theme = "phinger-cursors-light";
           size = 40;
+          hide-when-typing = true;
         };
         input = {
           touchpad = {
             accel-speed = 0.6;
             accel-profile = "flat";
+            dwt = true;
           };
           mouse = {
             accel-speed = 0.25;
@@ -62,6 +84,7 @@ in
         ];
         debug.honor-xdg-activation-with-invalid-serial = { };
         binds = {
+          "Mod+O".action.toggle-overview = { };
           "Mod+Return".action.spawn = "kitty";
           "Mod+R".action.spawn-sh = "vicinae toggle";
           "Mod+Shift+Q".action.close-window = { };
@@ -74,8 +97,12 @@ in
           "Mod+Down".action.focus-window-or-workspace-down = { };
           "Mod+Shift+Left".action.move-column-left = { };
           "Mod+Shift+Right".action.move-column-right = { };
-          "Mod+Shift+Up".action.move-window-up = { };
-          "Mod+Shift+Down".action.move-window-down = { };
+          "Mod+Shift+Up".action.move-column-to-workspace-up = { };
+          "Mod+Shift+Down".action.move-column-to-workspace-down = { };
+          "Mod+1".action.focus-workspace = 1;
+          "Mod+2".action.focus-workspace = 2;
+          "Mod+3".action.focus-workspace = 3;
+          "Mod+4".action.focus-workspace = 4;
           "XF86AudioRaiseVolume".action.spawn-sh = "noctalia-shell ipc call volume increase";
           "XF86AudioLowerVolume".action.spawn-sh = "noctalia-shell ipc call volume decrease";
           "XF86AudioMute".action.spawn-sh = "noctalia-shell ipc call volume muteOutput";
@@ -108,7 +135,14 @@ in
         version = 1;
       };
       settings = {
-        notifications.enabled = true;
+        notifications = {
+          enabled = true;
+          saveToHistory = {
+            low = true;
+            normal = true;
+            critical = true;
+          };
+        };
         ui.panelBackgroundOpacity = lib.mkForce 0.96;
         bar = {
           backgroundOpacity = lib.mkForce 0.96;

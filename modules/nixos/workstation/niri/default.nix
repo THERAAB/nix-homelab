@@ -30,11 +30,16 @@ in
         MOZ_ENABLE_WAYLAND = "1";
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         GDK_BACKEND = "wayland";
+        QS_ICON_THEME = "Papirus-Dark";
       };
       systemPackages = with pkgs; [
         xwayland-satellite # xwayland support
       ];
     };
+    environment.pathsToLink = [
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+    ];
     services.greetd = {
       enable = true;
       settings = {
