@@ -31,6 +31,7 @@ in
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         GDK_BACKEND = "wayland";
         QS_ICON_THEME = "Papirus-Dark";
+        TERM = "kitty";
       };
       systemPackages = with pkgs; [
         xwayland-satellite # xwayland support

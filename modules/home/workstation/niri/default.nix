@@ -80,10 +80,7 @@ in
               };
             clip-to-geometry = true;
           }
-          {
-            matches = [ { is-active = false; } ];
-            opacity = 0.95;
-          }
+          { draw-border-with-background = false; }
         ];
         layer-rules = [
           {
@@ -125,6 +122,7 @@ in
         prefer-no-csd = false;
       };
     };
+    services.kdeconnect.enable = true;
     programs.noctalia-shell = {
       enable = true;
       plugins = {
@@ -225,6 +223,5 @@ in
         };
       };
     };
-    stylix.targets.qt.platform = "qtct";
   };
 }
