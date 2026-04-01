@@ -135,6 +135,7 @@ in
         version = 1;
       };
       settings = {
+        wallpaper.directory = "/nix/persist/nix-homelab/assets/wallpapers/nix-zenbook";
         notifications = {
           enabled = true;
           saveToHistory = {
@@ -211,7 +212,6 @@ in
         };
       };
     };
-    services.mako.enable = true;
     stylix.targets.qt.platform = "qtct";
   };
 }
