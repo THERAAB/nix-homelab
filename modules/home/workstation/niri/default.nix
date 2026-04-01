@@ -56,7 +56,7 @@ in
           background-color = "transparent";
           gaps = 6;
           focus-ring = {
-            width = 0;
+            width = 2;
             active.color = "#${config.lib.stylix.colors.base09}";
             inactive.color = "#${config.lib.stylix.colors.base03}";
           };
@@ -76,12 +76,13 @@ in
             clip-to-geometry = true;
           }
         ];
-        layer-rules = [
-          {
-            matches = [ { namespace = "^noctalia-wallpaper*"; } ];
-            place-within-backdrop = true;
-          }
-        ];
+        #layer-rules = [
+        #  {
+        #    matches = [ { namespace = "^noctalia-wallpaper*"; } ];
+        #    place-within-backdrop = true;
+        #  }
+        #];
+        # # sudo modprobe i2c_hid_acpi
         debug.honor-xdg-activation-with-invalid-serial = { };
         binds = {
           "Mod+O".action.toggle-overview = { };
@@ -135,7 +136,10 @@ in
         version = 1;
       };
       settings = {
-        wallpaper.directory = "/nix/persist/nix-homelab/assets/wallpapers/nix-zenbook";
+        wallpaper = {
+          directory = "/nix/persist/nix-homelab/assets/wallpapers/nix-zenbook";
+          enabled = true;
+        };
         notifications = {
           enabled = true;
           saveToHistory = {
@@ -196,6 +200,7 @@ in
         general = {
           showChangelogOnStartup = false;
           telemetryEnabled = false;
+          clockFormat = "hh:mm AP ddd, MMM dd";
         };
         dock.enabled = false;
         location = {
