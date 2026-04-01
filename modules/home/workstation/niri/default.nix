@@ -80,6 +80,10 @@ in
               };
             clip-to-geometry = true;
           }
+          {
+            matches = [ { is-active = false; } ];
+            opacity = 0.95;
+          }
         ];
         layer-rules = [
           {
@@ -118,7 +122,7 @@ in
           { command = [ "noctalia-shell" ]; }
         ];
         hotkey-overlay.skip-at-startup = true;
-        prefer-no-csd = true;
+        prefer-no-csd = false;
       };
     };
     programs.noctalia-shell = {
