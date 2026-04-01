@@ -91,13 +91,29 @@ in
     };
     programs.noctalia-shell = {
       enable = true;
+      plugins = {
+        sources = [
+          {
+            enabled = true;
+            name = "Official Noctalia Plugins";
+            url = "https://github.com/noctalia-dev/noctalia-plugins";
+          }
+        ];
+        states = {
+          kde-connect = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+        };
+        version = 1;
+      };
       settings = {
         notifications.enabled = true;
         ui.panelBackgroundOpacity = lib.mkForce 0.96;
         bar = {
           backgroundOpacity = lib.mkForce 0.96;
           outerCorners = false;
-          displayMode = "auto_hide";
+          # displayMode = "auto_hide";
         };
         general = {
           showChangelogOnStartup = false;

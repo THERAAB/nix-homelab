@@ -34,12 +34,16 @@ in
         ".config/forge"
         ".config/gsconnect"
         ".config/Bitwarden"
+        ".config/noctalia"
+        ".config/kdeconnect"
         ".cache/mozilla"
         ".cache/matplotlib" # Fonts
         ".cache/fontconfig"
         ".cache/libreoffice"
         ".cache/gsconnect"
         ".cache/libgweather"
+        ".cache/noctalia"
+        ".cache/noctalia-qs"
         ".dropbox-dist"
         ".dropbox-hm"
         ".pki" # Discord
