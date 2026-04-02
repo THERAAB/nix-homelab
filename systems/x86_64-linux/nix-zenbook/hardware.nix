@@ -105,14 +105,15 @@
   };
   services = {
     thermald.enable = true;
-    logind.settings.Login.LidSwitch = "suspend-then-hibernate";
     # Disable ELAN Fingerprint reader
     udev.extraRules = ''ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"'';
   };
   systemd = {
     sleep.settings.Sleep = {
-      HibernateDelaySec = "8h";
+      HibernateDelaySec = "2h";
       HibernateMode = "shutdown";
+      AllowSuspendThenHibernate = "yes";
+      AllowHibernation = "yes";
     };
     services = {
       battery-charge-threshold = {
