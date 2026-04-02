@@ -14,11 +14,6 @@ in
     enable = mkEnableOption (lib.mdDoc "Setup niri");
   };
   config = mkIf cfg.enable {
-    home.file.".cache/noctalia/wallpapers.json" = {
-      text = builtins.toJSON {
-        defaultWallpaper = "/nix/persist/nix-homelab/assets/wallpapers/nix-zenbook/wall.jpg";
-      };
-    };
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;
@@ -81,7 +76,34 @@ in
             clip-to-geometry = true;
           }
           { draw-border-with-background = false; }
+          {
+            matches = [ { app-id = "firefox"; } ];
+            open-on-workspace = "Browse";
+            default-column-width.proportion = 1.0;
+            open-focused = true;
+          }
+          {
+            matches = [ { app-id = "Horizon-client"; } ];
+            open-on-workspace = "Work";
+            default-column-width.proportion = 1.0;
+            open-focused = true;
+          }
+          {
+            matches = [ { app-id = "steam"; } ];
+            open-on-workspace = "Game";
+            default-column-width.proportion = 1.0;
+            open-focused = true;
+          }
+          {
+            matches = [ { app-id = "kitty"; } ];
+            default-column-width.proportion = 0.5;
+          }
         ];
+        workspaces = {
+          "3".name = "Browse";
+          "2".name = "Work";
+          "1".name = "Game";
+        };
         layer-rules = [
           {
             matches = [ { namespace = "^noctalia-wallpaper*"; } ];
@@ -188,6 +210,8 @@ in
               {
                 id = "Battery";
                 hideIfIdle = true;
+                displayMode = "graphic";
+                showPowerProfiles = true;
               }
               {
                 id = "Volume";
@@ -208,7 +232,20 @@ in
           showChangelogOnStartup = false;
           telemetryEnabled = false;
         };
-        dock.enabled = false;
+        dock = {
+          enabled = true;
+          size = 1.75;
+          pinnedApps = [
+            "firefox"
+            "org.gnome.Nautilus"
+            "horizon-client"
+            "kitty"
+            "steam"
+            "dev.zed.Zed"
+            "org.gnome.TextEditor"
+          ];
+          pinnedStatic = true;
+        };
         location = {
           name = "New York, New York";
           weatherShowEffects = true;

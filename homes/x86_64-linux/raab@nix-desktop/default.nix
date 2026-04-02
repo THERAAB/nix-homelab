@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./niri.nix
+  ];
   nix-homelab = {
     workstation.enable = true;
     wrappers.mangohud.enable = true;
