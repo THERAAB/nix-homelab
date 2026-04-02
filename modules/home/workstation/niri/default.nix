@@ -76,33 +76,11 @@ in
             clip-to-geometry = true;
           }
           { draw-border-with-background = false; }
-          {
-            matches = [ { app-id = "firefox"; } ];
-            open-on-workspace = "Browse";
-            default-column-width.proportion = 1.0;
-            open-focused = true;
-          }
-          {
-            matches = [ { app-id = "Horizon-client"; } ];
-            open-on-workspace = "Work";
-            default-column-width.proportion = 1.0;
-            open-focused = true;
-          }
-          {
-            matches = [ { app-id = "steam"; } ];
-            open-on-workspace = "Game";
-            default-column-width.proportion = 1.0;
-            open-focused = true;
-          }
-          {
-            matches = [ { app-id = "kitty"; } ];
-            default-column-width.proportion = 0.5;
-          }
         ];
         workspaces = {
-          "3".name = "Browse";
-          "2".name = "Work";
-          "1".name = "Game";
+          "2".name = "Game";
+          "1".name = "Work";
+          "0".name = "Browse";
         };
         layer-rules = [
           {
@@ -131,6 +109,18 @@ in
           "Mod+2".action.focus-workspace = 2;
           "Mod+3".action.focus-workspace = 3;
           "Mod+4".action.focus-workspace = 4;
+          "Mod+Shift+1".action.move-window-to-workspace = [
+            { focus = true; }
+            "Browse"
+          ];
+          "Mod+Shift+2".action.move-window-to-workspace = [
+            { focus = true; }
+            "Work"
+          ];
+          "Mod+Shift+3".action.move-window-to-workspace = [
+            { focus = true; }
+            "Game"
+          ];
           "XF86AudioRaiseVolume".action.spawn-sh = "noctalia-shell ipc call volume increase";
           "XF86AudioLowerVolume".action.spawn-sh = "noctalia-shell ipc call volume decrease";
           "XF86AudioMute".action.spawn-sh = "noctalia-shell ipc call volume muteOutput";
