@@ -17,6 +17,7 @@ in
     environment.systemPackages = with pkgs; [
       pulseaudio # needed to use pactl on pipewire
       dmidecode
+      libnotify
       wmctrl
       gnome-text-editor
       nautilus
