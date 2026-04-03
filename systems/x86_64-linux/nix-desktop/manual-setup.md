@@ -34,10 +34,6 @@ http://localhost:631/ > Administration > Add printer
 protonup
 ```
 
-### Gnome Settings
-
-Set monitor refresh rate to 100Hz
-
 ### IntelliJ
 
 - Set to new UI

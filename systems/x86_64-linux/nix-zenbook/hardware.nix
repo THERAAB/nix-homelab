@@ -82,31 +82,11 @@
       ];
     };
   };
-  environment.systemPackages = with pkgs; [
-    gnome-power-manager
-  ];
   networking.hostName = "nix-zenbook";
   powerManagement = {
     enable = true;
     scsiLinkPolicy = "med_power_with_dipm";
     powertop.enable = true;
-  };
-  systemd.services.post-boot-battery-charge = {
-    description = "Post-boot Battery Charge Actions";
-    wantedBy = [ "multi-user.target" ];
-    restartIfChanged = false;
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-    };
-    script = ''
-      echo 80 > /sys/class/power_supply/BAT?/charge_control_end_threshold
-    '';
-  };
-  services = {
-    thermald.enable = true;
-    # Disable ELAN Fingerprint reader
-    udev.extraRules = ''ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"'';
   };
   systemd = {
     sleep.settings.Sleep = {
@@ -116,6 +96,21 @@
       AllowHibernation = "yes";
     };
     services = {
+      post-boot-battery-charge = {
+        description = "Post-boot Battery Charge Actions";
+        wantedBy = [ "multi-user.target" ];
+        restartIfChanged = false;
+        serviceConfig = {
+          Type = "oneshot";
+          RemainAfterExit = true;
+        };
+        script = ''
+          echo 80 > /sys/class/power_supply/BAT?/charge_control_end_threshold
+        '';
+      };
+      thermald.enable = true;
+      # Disable ELAN Fingerprint reader
+      udev.extraRules = ''ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"'';
       battery-charge-threshold = {
         wantedBy = [
           "local-fs.target"

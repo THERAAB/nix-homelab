@@ -4,7 +4,7 @@ A [NixOS](https://nixos.org/) configuration repository for my zenbook laptop.
 
 ## What's inside
 
-- [GNOME](https://www.gnome.org/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
+- [Niri](https://github.com/niri-wm/niri?tab=readme-ov-file) via [niri-flake](https://github.com/sodiboo/niri-flake/blob/main/docs.md) and [Noctalia-shell](https://docs.noctalia.dev/) on [Wayland](https://wiki.archlinux.org/title/Wayland)
 - [Stylix](https://github.com/nix-community/stylix) for theming
 - [Forge](https://github.com/forge-ext/forge) for tiling window management
 
