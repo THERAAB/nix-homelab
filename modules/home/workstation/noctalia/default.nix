@@ -106,6 +106,7 @@ in
         dock = {
           enabled = true;
           size = 1.75;
+          deadOpacity = 1.0;
           pinnedApps = [
             "firefox"
             "org.gnome.Nautilus"
