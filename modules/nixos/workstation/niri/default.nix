@@ -15,9 +15,17 @@ in
   };
   config = mkIf cfg.enable {
     programs.niri.enable = true;
+    services.keyd = {
+      enable = true;
+      keyboards.default.settings.main = {
+        leftalt = "leftmeta";
+        leftmeta = "leftalt";
+      };
+    };
     environment = {
       systemPackages = with pkgs; [
         xwayland-satellite # xwayland support
+        keyd
       ];
       pathsToLink = [
         "/share/xdg-desktop-portal"
