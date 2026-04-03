@@ -1,6 +1,11 @@
 { pkgs, ... }:
 {
   programs.niri.settings = {
+    outputs."DP-1".mode = {
+      refresh = 100.000;
+      height = 1440;
+      width = 3440;
+    };
     binds = {
       "Mod+Shift+H".action.spawn-sh =
         "${pkgs.pulseaudio}/bin/pactl set-default-sink alsa_output.usb-Fractal_Fractal_Scape_Dongle_00000000911AD5811398-00.iec958-stereo";
@@ -9,7 +14,12 @@
     };
     window-rules = [
       {
-        matches = [ { app-id = "firefox"; } ];
+        matches = [
+          {
+            app-id = "firefox";
+            is-floating = false;
+          }
+        ];
         open-on-workspace = "Browse";
         default-column-width.proportion = 0.5;
         open-focused = true;

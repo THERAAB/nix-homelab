@@ -3,6 +3,7 @@ let
   wall-dir = "/nix/persist/nix-homelab/assets/wallpapers/nix-zenbook";
 in
 {
+  programs.noctalia-shell.settings.idle.enabled = false;
   systemd.user = {
     services.wallpaper-rotate = {
       Unit = {

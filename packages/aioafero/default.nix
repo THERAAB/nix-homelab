@@ -1,9 +1,9 @@
 {
-  python313Packages,
+  python314Packages,
   fetchPypi,
   nix-homelab,
 }:
-python313Packages.buildPythonPackage rec {
+python314Packages.buildPythonPackage rec {
   pname = "aioafero";
   version = "6.0.1";
   pyproject = true;
@@ -11,10 +11,10 @@ python313Packages.buildPythonPackage rec {
     inherit version pname;
     hash = "sha256-Gmbj5Ona4yKVsTblyodTbnP1FDwW2ui76+Qh8OiV56w=";
   };
-  propagatedBuildInputs = with python313Packages; [
+  propagatedBuildInputs = with python314Packages; [
     aiohttp
     beautifulsoup4
     nix-homelab.securelogging
   ];
-  build-system = [python313Packages.hatchling];
+  build-system = [ python314Packages.hatchling ];
 }
