@@ -32,6 +32,8 @@ in
         pkgs.xdg-desktop-portal-gtk
       ];
     };
+    home.file.".cache/noctalia/wallpapers.json".enable = false;
+
     programs.niri = {
       enable = true;
       settings = {
@@ -154,6 +156,7 @@ in
         version = 1;
       };
       settings = {
+        wallpaper.enabled = true;
         notifications = {
           enabled = true;
           saveToHistory = {
