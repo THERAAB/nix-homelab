@@ -16,7 +16,7 @@ in
           pkgs.writeShellScript "wallpaper-rotate" ''
             #!/bin/sh
             wallpaper=`${pkgs.findutils}/bin/find ${wall-dir} -type f | ${pkgs.coreutils-full}/bin/shuf -n1`
-            ${pkgs.noctalia-shell}/bin/noctalia-shell ipc call wallpaper set $wallpaper
+            /etc/profiles/per-user/raab/bin/noctalia-shell ipc call wallpaper set $wallpaper
           ''
         );
         Environment = "DISPLAY=:0";
