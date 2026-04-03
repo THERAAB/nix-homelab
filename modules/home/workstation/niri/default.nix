@@ -32,6 +32,19 @@ in
         pkgs.xdg-desktop-portal-gtk
       ];
     };
+    programs.vicinae.extensions = [
+      (config.lib.vicinae.mkExtension {
+        name = "niri";
+        src =
+          pkgs.fetchFromGitHub {
+            owner = "vicinaehq";
+            repo = "extensions";
+            rev = "50233dff9dfc70fc6b39c2387687e5661b09f005";
+            sha256 = "sha256-GVIbXYiA506LV0cEsG1AA4vTwDJq9R6v6lFFs8z7knY=";
+          }
+          + "/extensions/niri";
+      })
+    ];
     programs.niri = {
       enable = true;
       settings = {
