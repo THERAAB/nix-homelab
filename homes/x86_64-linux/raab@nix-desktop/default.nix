@@ -2,6 +2,7 @@
 {
   imports = [
     ./niri.nix
+    ./noctalia.nix
   ];
   nix-homelab = {
     workstation.enable = true;

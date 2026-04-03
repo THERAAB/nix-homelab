@@ -22,6 +22,7 @@ in
         system.enable = true;
         stylix.enable = true;
         niri.enable = true;
+        noctalia.enable = true;
       };
       physical.enable = true;
     };
