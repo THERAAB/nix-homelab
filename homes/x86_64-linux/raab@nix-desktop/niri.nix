@@ -21,7 +21,12 @@
         open-focused = true;
       }
       {
-        matches = [ { app-id = "steam"; } ];
+        matches = [
+          {
+            app-id = "steam";
+            is-floating = false;
+          }
+        ];
         open-on-workspace = "Game";
         default-column-width.proportion = 1.0;
         open-focused = true;

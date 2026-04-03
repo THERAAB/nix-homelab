@@ -111,6 +111,7 @@ in
           "Mod+f".action.toggle-window-floating = { };
           "Mod+Ctrl+f".action.switch-focus-between-floating-and-tiling = { };
           "Mod+Space".action.fullscreen-window = { };
+          "Mod+Escape".action.toggle-keyboard-shortcuts-inhibit = { };
           "Mod+Left".action.focus-column-left = { };
           "Mod+Right".action.focus-column-right = { };
           "Mod+Up".action.focus-window-or-workspace-up = { };
@@ -123,14 +124,38 @@ in
           "Mod+2".action.focus-workspace = 2;
           "Mod+3".action.focus-workspace = 3;
           "Mod+4".action.focus-workspace = 4;
-          "Mod+Ctrl+1".action.set-column-width = "100%";
-          "Mod+Ctrl+2".action.set-column-width = "70%";
-          "Mod+Ctrl+3".action.set-column-width = "50%";
-          "Mod+Ctrl+4".action.set-column-width = "30%";
-          "Mod+Ctrl+Left".action.spawn-sh = "niri msg action set-column-width -10%";
-          "Mod+Ctrl+Right".action.spawn-sh = "niri msg action set-column-width +10%";
-          "Mod+Ctrl+Up".action.spawn-sh = "niri msg action set-column-height +10%";
-          "Mod+Ctrl+Down".action.spawn-sh = "niri msg action set-column-height -10%";
+          "Mod+Ctrl+1" = {
+            action.set-column-width = "100%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+2" = {
+            action.set-column-width = "70%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+3" = {
+            action.set-column-width = "50%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+4" = {
+            action.set-column-width = "30%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+Left" = {
+            action.spawn-sh = "niri msg action set-column-width -10%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+Right" = {
+            action.spawn-sh = "niri msg action set-column-width +10%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+Up" = {
+            action.spawn-sh = "niri msg action set-column-height +10%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+Down" = {
+            action.spawn-sh = "niri msg action set-column-height -10%";
+            allow-inhibiting = false;
+          };
           "Mod+Shift+1".action.move-window-to-workspace = [
             { focus = true; }
             "Browse"
