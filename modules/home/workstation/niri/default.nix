@@ -95,6 +95,7 @@ in
           "1".name = "Work";
           "0".name = "Browse";
         };
+        layout.always-center-single-column = true;
         layer-rules = [
           {
             matches = [ { namespace = "^noctalia-wallpaper*"; } ];
@@ -122,6 +123,14 @@ in
           "Mod+2".action.focus-workspace = 2;
           "Mod+3".action.focus-workspace = 3;
           "Mod+4".action.focus-workspace = 4;
+          "Mod+Ctrl+1".action.set-column-width = "100%";
+          "Mod+Ctrl+2".action.set-column-width = "70%";
+          "Mod+Ctrl+3".action.set-column-width = "50%";
+          "Mod+Ctrl+4".action.set-column-width = "30%";
+          "Mod+Ctrl+Left".action.spawn-sh = "niri msg action set-column-width -10%";
+          "Mod+Ctrl+Right".action.spawn-sh = "niri msg action set-column-width +10%";
+          "Mod+Ctrl+Up".action.spawn-sh = "niri msg action set-column-height +10%";
+          "Mod+Ctrl+Down".action.spawn-sh = "niri msg action set-column-height -10%";
           "Mod+Shift+1".action.move-window-to-workspace = [
             { focus = true; }
             "Browse"
