@@ -116,10 +116,18 @@ in
           "Mod+Right".action.focus-column-right = { };
           "Mod+Up".action.focus-window-or-workspace-up = { };
           "Mod+Down".action.focus-window-or-workspace-down = { };
+          "Mod+A".action.focus-column-left = { };
+          "Mod+D".action.focus-column-right = { };
+          "Mod+W".action.focus-window-or-workspace-up = { };
+          "Mod+S".action.focus-window-or-workspace-down = { };
           "Mod+Shift+Left".action.move-column-left = { };
           "Mod+Shift+Right".action.move-column-right = { };
           "Mod+Shift+Up".action.move-column-to-workspace-up = { };
           "Mod+Shift+Down".action.move-column-to-workspace-down = { };
+          "Mod+Shift+A".action.move-column-left = { };
+          "Mod+Shift+D".action.move-column-right = { };
+          "Mod+Shift+W".action.move-column-to-workspace-up = { };
+          "Mod+Shift+S".action.move-column-to-workspace-down = { };
           "Mod+1".action.focus-workspace = 1;
           "Mod+2".action.focus-workspace = 2;
           "Mod+3".action.focus-workspace = 3;
@@ -153,6 +161,22 @@ in
             allow-inhibiting = false;
           };
           "Mod+Ctrl+Down" = {
+            action.spawn-sh = "niri msg action set-column-height -10%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+A" = {
+            action.spawn-sh = "niri msg action set-column-width -10%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+D" = {
+            action.spawn-sh = "niri msg action set-column-width +10%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+W" = {
+            action.spawn-sh = "niri msg action set-column-height +10%";
+            allow-inhibiting = false;
+          };
+          "Mod+Ctrl+S" = {
             action.spawn-sh = "niri msg action set-column-height -10%";
             allow-inhibiting = false;
           };
