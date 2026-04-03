@@ -30,6 +30,7 @@ in
       Install.WantedBy = [ "timers.target" ];
     };
   };
+  home.file.".cache/noctalia/wallpapers.json".enable = false;
   programs.niri.settings.window-rules = [
     {
       matches = [ { app-id = "firefox"; } ];

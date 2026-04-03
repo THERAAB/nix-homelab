@@ -32,7 +32,6 @@ in
         pkgs.xdg-desktop-portal-gtk
       ];
     };
-    home.file.".cache/noctalia/wallpapers.json".enable = false;
 
     programs.niri = {
       enable = true;
