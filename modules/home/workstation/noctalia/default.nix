@@ -67,6 +67,7 @@ in
             center = [
               {
                 id = "Workspace";
+                labelMode = "none";
               }
             ];
             right = [
