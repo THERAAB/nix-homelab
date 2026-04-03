@@ -24,11 +24,21 @@
       url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = inputs: let
-    self = inputs.self;
-    properties = import (self + /assets/properties);
-  in
+  outputs =
+    inputs:
+    let
+      self = inputs.self;
+      properties = import (self + /assets/properties);
+    in
     inputs.snowfall-lib.mkFlake {
       inherit inputs self;
       src = ./.;
@@ -36,6 +46,13 @@
       channels-config.allowUnfree = true;
       apps = inputs.nixinate.nixinate.x86_64-linux self;
 
+      overlays = with inputs; [
+        niri-flake.overlays.niri
+      ];
+      homes.modules = with inputs; [
+        niri-flake.homeModules.niri
+        noctalia.homeModules.default
+      ];
       systems = {
         modules.nixos = with inputs; [
           home-manager.nixosModules.home-manager

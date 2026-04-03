@@ -1,6 +1,8 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
-    ./gnome.nix
+    ./niri.nix
+    ./noctalia.nix
   ];
   nix-homelab = {
     workstation.enable = true;
@@ -13,8 +15,8 @@
     jetbrains.idea-oss
   ];
   systemd.user.services.steam = {
-    Install.WantedBy = ["graphical-session.target"];
-    Unit.After = ["graphical-session.target"];
+    Install.WantedBy = [ "graphical-session.target" ];
+    Unit.After = [ "graphical-session.target" ];
     Service.ExecStart = "${pkgs.steam}/bin/steam -nochatui -nofriendsui -silent";
   };
 }

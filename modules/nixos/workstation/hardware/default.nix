@@ -5,20 +5,29 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.hardware;
-in {
+in
+{
   options.nix-homelab.workstation.hardware = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup hardware");
   };
   config = mkIf cfg.enable {
+    stylix.targets.grub.enable = false;
     boot = {
       initrd.verbose = false;
       consoleLogLevel = 0;
-      kernelParams = ["quiet" "splash" "rd.systemd.show_status=false" "udev.log_priority=3" "boot.shell_on_fail"];
+      kernelParams = [
+        "quiet"
+        "splash"
+        "rd.systemd.show_status=false"
+        "udev.log_priority=3"
+        "boot.shell_on_fail"
+      ];
       loader.grub = {
         enable = true;
-        devices = ["nodev"];
+        devices = [ "nodev" ];
         efiSupport = true;
         configurationLimit = 10;
         gfxmodeEfi = "text";
@@ -35,7 +44,7 @@ in {
       };
       printing = {
         enable = true;
-        drivers = [pkgs.epson-escpr];
+        drivers = [ pkgs.epson-escpr ];
       };
       pipewire = {
         enable = true;
@@ -54,7 +63,11 @@ in {
       "/sync" = {
         device = "/dev/disk/by-label/nixos";
         fsType = "btrfs";
-        options = ["subvol=sync" "compress=zstd" "noatime"];
+        options = [
+          "subvol=sync"
+          "compress=zstd"
+          "noatime"
+        ];
       };
     };
   };

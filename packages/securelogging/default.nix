@@ -1,8 +1,8 @@
 {
-  python313Packages,
+  python314Packages,
   fetchPypi,
 }:
-python313Packages.buildPythonPackage rec {
+python314Packages.buildPythonPackage rec {
   pname = "securelogging";
   version = "1.0.1";
   pyproject = true;
@@ -10,5 +10,5 @@ python313Packages.buildPythonPackage rec {
     inherit version pname;
     hash = "sha256-nd1/nTh1NuKhlkjI5o3pc7lb/vgo48CoJMUQcQMT/cc=";
   };
-  build-system = [ python313Packages.hatchling ];
+  build-system = [ python314Packages.hatchling ];
 }

@@ -5,9 +5,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.vicinae;
-in {
+in
+{
   options.nix-homelab.workstation.vicinae = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup vicinae`");
   };
@@ -46,7 +48,7 @@ in {
         launcher_window.opacity = lib.mkForce 0.95;
         pop_to_root_on_close = true;
         theme.dark.icon_theme = "Papirus-Dark";
-        favorites = [];
+        favorites = [ ];
         activate_on_single_click = true;
       };
     };

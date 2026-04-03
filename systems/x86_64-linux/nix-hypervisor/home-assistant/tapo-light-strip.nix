@@ -1,9 +1,12 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   devices = import ./devices.properties.nix;
-in {
+in
+{
   services.home-assistant = {
     customComponents = [
-      pkgs.nix-homelab.home-assistant-tapo-p100
+      # TODO: fix
+      # pkgs.nix-homelab.home-assistant-tapo-p100
     ];
     config.automation = [
       {

@@ -1,4 +1,5 @@
-{self, ...}: {
+{ self, ... }:
+{
   imports = [
     (self + /share/nixos/workstation)
     ./hardware.nix

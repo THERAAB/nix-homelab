@@ -1,6 +1,11 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  ...
+}:
+{
   imports = [
-    ./gnome.nix
+    ./niri.nix
+    ./noctalia.nix
   ];
   nix-homelab = {
     workstation.enable = true;

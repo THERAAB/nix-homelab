@@ -5,9 +5,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.gnome;
-in {
+in
+{
   options.nix-homelab.workstation.gnome = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup gnome");
   };

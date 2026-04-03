@@ -1,7 +1,7 @@
 {
   fetchFromGitHub,
   buildHomeAssistantComponent,
-  python313Packages
+  python314Packages,
 }:
 buildHomeAssistantComponent rec {
   domain = "tapo";
@@ -14,6 +14,6 @@ buildHomeAssistantComponent rec {
     sha256 = "sha256-tvLuj8CEY4yhsdF48Ftzy1hGyJ2E9cxmc6feuHv0rgg=";
   };
   propagatedBuildInputs = [
-    python313Packages.plugp100
+    python314Packages.plugp100
   ];
 }

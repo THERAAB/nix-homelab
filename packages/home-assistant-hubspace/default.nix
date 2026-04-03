@@ -1,8 +1,8 @@
 {
   fetchFromGitHub,
   buildHomeAssistantComponent,
-  python313Packages,
-  nix-homelab
+  python314Packages,
+  nix-homelab,
 }:
 buildHomeAssistantComponent rec {
   domain = "hubspace";
@@ -15,7 +15,7 @@ buildHomeAssistantComponent rec {
     sha256 = "sha256-+k9nVJH7IA8Bk5a7ADTTwQ6H140zPaby/tvJdaxQh1E=";
   };
   propagatedBuildInputs = [
-    python313Packages.aiofiles
+    python314Packages.aiofiles
     nix-homelab.aioafero
   ];
 }

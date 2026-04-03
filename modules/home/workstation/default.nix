@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation;
-in {
+in
+{
   options.nix-homelab.workstation = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup workstation");
   };
@@ -15,7 +17,8 @@ in {
       workstation = {
         dconf.enable = true;
         firefox.enable = true;
-        gnome.enable = true;
+        niri.enable = true;
+        noctalia.enable = true;
         gtk.enable = true;
         pkgs.enable = true;
         kitty.enable = true;

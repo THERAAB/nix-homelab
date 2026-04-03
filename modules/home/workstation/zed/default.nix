@@ -32,6 +32,7 @@ in
         ui_font_size = lib.mkForce 14;
         buffer_font_size = lib.mkForce 14;
         auto_update = false;
+        relative_line_numbers = true;
         terminal = {
           copy_on_select = false;
           dock = "bottom";

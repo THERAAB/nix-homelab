@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.physical.git;
-in {
+in
+{
   options.nix-homelab.physical.git = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup git");
     config-dir = mkOption {
@@ -16,8 +18,9 @@ in {
   };
   config = mkIf cfg.enable {
     programs.git = {
+      signing.format = "openpgp";
       includes = [
-        {path = "${cfg.config-dir}/.gitconfig";}
+        { path = "${cfg.config-dir}/.gitconfig"; }
       ];
       enable = true;
       settings = {
