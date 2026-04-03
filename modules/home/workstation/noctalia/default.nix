@@ -117,7 +117,6 @@ in
           pinnedStatic = true;
         };
         location = {
-          name = "New York, New York";
           weatherShowEffects = true;
           useFahrenheit = true;
           use12hourFormat = true;
