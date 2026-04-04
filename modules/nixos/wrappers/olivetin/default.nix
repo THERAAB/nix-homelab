@@ -6,12 +6,14 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.wrappers.olivetin;
   port = properties.ports.olivetin;
   scripts-dir = "/var/lib/olivetin/scripts";
-  shellScript = pkgs.callPackage ./script.nix {};
-in {
+  shellScript = pkgs.callPackage ./script.nix { };
+in
+{
   options.nix-homelab.wrappers.olivetin = with types; {
     enable = mkEnableOption (lib.mdDoc "Olivetin");
   };
@@ -36,7 +38,7 @@ in {
         url = "https://olivetin.${properties.network.domain}/";
         conditions = [
           "[STATUS] == 200"
-          ''[BODY] == pat(*<title>OliveTin</title>*)''
+          "[BODY] == pat(*<title>OliveTin</title>*)"
         ];
         alerts = [
           {
@@ -47,6 +49,7 @@ in {
     ];
     services.olivetin = {
       enable = true;
+      package = pkgs.olivetin-3k;
       settings = {
         ListenAddressSingleHTTPFrontend = "0.0.0.0:${toString port}";
         actions = [
@@ -59,6 +62,6 @@ in {
         ];
       };
     };
-    networking.firewall.allowedTCPPorts = [port];
+    networking.firewall.allowedTCPPorts = [ port ];
   };
 }

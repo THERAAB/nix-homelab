@@ -2,7 +2,8 @@
   self,
   properties,
   ...
-}: {
+}:
+{
   imports = [
     (self + /share/nixos/server)
     ./hardware.nix
@@ -40,15 +41,21 @@
       unifi.enable = true;
       beszel-hub.enable = true;
       beszel-agent.enable = true;
-      olivetin.enable = false; # TODO: enable once CVEs addressed
+      olivetin.enable = true;
       miniflux.enable = true;
       microbin.enable = true;
     };
     media.enable = true;
   };
   services.netdata.config.registry.enabled = "yes";
-  users.users.raab.extraGroups = ["syncthing" "media"];
-  networking.firewall.allowedTCPPorts = [properties.ports.http properties.ports.ssl];
+  users.users.raab.extraGroups = [
+    "syncthing"
+    "media"
+  ];
+  networking.firewall.allowedTCPPorts = [
+    properties.ports.http
+    properties.ports.ssl
+  ];
   services.caddy = {
     enable = true;
     virtualHosts = {
