@@ -22,7 +22,21 @@ in
         leftmeta = "leftalt";
       };
     };
+    programs.uwsm = {
+      enable = true;
+      waylandCompositors.niri = {
+        prettyName = "Niri";
+        comment = "Niri compositor managed by UWSM";
+        binPath = pkgs.writeShellScript "niri" ''
+          ${lib.getExe config.programs.niri.package} --session
+        '';
+      };
+    };
     environment = {
+      sessionVariables = {
+        NIRI_DISABLE_SYSTEM_MANAGER_NOTIFY = "1";
+        UWSM_SILENT_START = "2";
+      };
       systemPackages = with pkgs; [
         xwayland-satellite # xwayland support
         keyd
@@ -36,7 +50,7 @@ in
       enable = true;
       settings = {
         default_session = {
-          command = "${config.programs.niri.package}/bin/niri-session";
+          command = "${config.programs.uwsm.package}/bin/uwsm start niri-uwsm.desktop";
           user = "raab";
         };
       };
