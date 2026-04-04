@@ -21,13 +21,18 @@
           }
         ];
         open-on-workspace = "Browse";
-        default-column-width.proportion = 0.5;
+        default-column-width.proportion = 0.75;
         open-focused = true;
       }
       {
-        matches = [ { app-id = "Horizon-client"; } ];
+        matches = [
+          {
+            app-id = "Horizon-client";
+            is-floating = false;
+          }
+        ];
         open-on-workspace = "Work";
-        default-column-width.proportion = 1.0;
+        default-column-width.proportion = 0.75;
         open-focused = true;
       }
       {
@@ -42,7 +47,21 @@
         open-focused = true;
       }
       {
-        matches = [ { app-id = "kitty"; } ];
+        matches = [
+          {
+            app-id = "kitty";
+            is-floating = false;
+          }
+        ];
+        default-column-width.proportion = 0.3;
+      }
+      {
+        matches = [
+          {
+            app-id = "dev.zed.Zed";
+            is-floating = false;
+          }
+        ];
         default-column-width.proportion = 0.5;
       }
     ];

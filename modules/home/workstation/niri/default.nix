@@ -61,7 +61,7 @@ in
             dwt = true;
           };
           mouse = {
-            accel-speed = 0.25;
+            accel-speed = 0.3;
             accel-profile = "flat";
           };
         };
