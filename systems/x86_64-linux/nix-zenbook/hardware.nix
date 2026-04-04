@@ -90,8 +90,11 @@
   };
   services = {
     thermald.enable = true;
-    # Disable ELAN Fingerprint reader
-    udev.extraRules = ''ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"'';
+    # Disable ELAN Fingerprint reader, disable pci from waking from suspend
+    udev.extraRules = ''
+      ATTRS{idVendor}=="04f3", ATTRS{idProduct}=="0c6e", SUBSYSTEM=="usb", ATTR{authorized}="0"
+      ACTION=="add", SUBSYSTEM=="pci", DRIVER=="pcieport", ATTR{power/wakeup}="disabled"
+    '';
   };
   systemd = {
     sleep.settings.Sleep = {
