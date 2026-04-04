@@ -14,6 +14,19 @@ in
   };
   config = mkIf cfg.enable {
     services.kdeconnect.enable = true;
+    # Fix for KDE Connect styling, see https://github.com/nix-community/stylix/issues/1958
+    xdg.configFile.kdeglobals.source =
+      let
+        themePackage = builtins.head (
+          builtins.filter (
+            p: builtins.match ".*stylix-kde-theme.*" (baseNameOf p) != null
+          ) config.home.packages
+        );
+        colorSchemeSlug = lib.concatStrings (
+          lib.filter lib.isString (builtins.split "[^a-zA-Z]" config.lib.stylix.colors.scheme)
+        );
+      in
+      "${themePackage}/share/color-schemes/${colorSchemeSlug}.colors";
     programs.noctalia-shell = {
       enable = true;
       plugins = {
