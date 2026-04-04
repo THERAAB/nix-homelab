@@ -6,10 +6,12 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.wrappers.govee2mqtt;
   port = properties.ports.mosquitto;
-in {
+in
+{
   options.nix-homelab.wrappers.govee2mqtt = with types; {
     enable = mkEnableOption (lib.mdDoc "Govee2Mqtt");
   };
@@ -21,7 +23,7 @@ in {
           {
             port = port;
             users.mosquitto = {
-              acl = ["readwrite #"];
+              acl = [ "readwrite #" ];
               passwordFile = config.sops.secrets.mosquitto_password.path;
             };
             omitPasswordAuth = true;
@@ -30,18 +32,19 @@ in {
         ];
       };
       govee2mqtt = {
+        # TODO: this package is too old for HA
         enable = true;
         environmentFile = config.sops.secrets.govee2mqtt_env.path;
       };
     };
-    networking.firewall.allowedTCPPorts = [port];
+    networking.firewall.allowedTCPPorts = [ port ];
     systemd = {
       tmpfiles.rules = [
         "Z  /etc/mosquitto  -  mosquitto  mosquitto -   - "
       ];
       services.govee2mqtt = {
-        after = ["adguardhome.service"];
-        wants = ["adguardhome.service"];
+        after = [ "adguardhome.service" ];
+        wants = [ "adguardhome.service" ];
         preStart = ''
           ${pkgs.coreutils-full}/bin/sleep 10
         '';
