@@ -89,6 +89,7 @@
     powertop.enable = true;
   };
   services = {
+    logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
     thermald.enable = true;
     # Disable ELAN Fingerprint reader, disable pci from waking from suspend
     udev.extraRules = ''
