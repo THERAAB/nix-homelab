@@ -62,9 +62,9 @@ in
             left = [
               {
                 id = "Clock";
-                formatHorizontal = "hh:mm AP ddd, MMM dd";
-                formatVertical = "hh:mm AP ddd, MMM dd";
-                tooltipFormat = "hh:mm AP ddd, MMM dd";
+                formatHorizontal = "hh:mm AP dddd, MMMM dd";
+                formatVertical = "hh:mm AP dddd, MMMM dd";
+                tooltipFormat = "hh:mm AP dddd, MMMM dd";
               }
               {
                 id = "SystemMonitor";
