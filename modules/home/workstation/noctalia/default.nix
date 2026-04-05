@@ -112,9 +112,11 @@ in
               }
               {
                 id = "plugin:tailscale";
-                terminalCommand = "kitty";
-                compactMode = true;
-                taildropReceiveMode = "operator";
+                defaultSettings = {
+                  terminalCommand = "kitty";
+                  compactMode = true;
+                  taildropReceiveMode = "operator";
+                };
               }
               {
                 id = "ControlCenter";
