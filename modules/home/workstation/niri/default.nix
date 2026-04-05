@@ -110,6 +110,7 @@ in
           "Mod+O".action.toggle-overview = { };
           "Mod+Return".action.spawn = "kitty";
           "Mod+R".action.spawn-sh = "vicinae toggle";
+          "Mod+Shift+V".action.spawn-sh = "vicinae vicinae://launch/clipboard/history";
           "Mod+Shift+Q".action.close-window = { };
           "Mod+f".action.toggle-window-floating = { };
           "Mod+Ctrl+f".action.switch-focus-between-floating-and-tiling = { };
