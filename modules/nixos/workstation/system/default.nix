@@ -29,6 +29,7 @@ in
         "cache.${properties.network.domain}:IqbrtbXMzwCjSVZ/sWowaPXtjS+CtpCpStmabZI2TSo="
       ];
     };
+    services.tailscale.extraSetFlags = [ "--operator=raab" ];
     programs.nix-ld.enable = true;
     programs.dconf.enable = true;
     fonts.packages = with pkgs.nerd-fonts; [

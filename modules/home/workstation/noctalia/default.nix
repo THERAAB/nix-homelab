@@ -42,6 +42,10 @@ in
             enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
           };
+          tailscale = {
+            enabled = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
         };
         version = 1;
       };
@@ -105,6 +109,12 @@ in
               }
               {
                 id = "plugin:kde-connect";
+              }
+              {
+                id = "plugin:tailscale";
+                terminalCommand = "kitty";
+                compactMode = true;
+                taildropReceiveMode = "operator";
               }
               {
                 id = "ControlCenter";
