@@ -5,7 +5,18 @@ in
 {
   programs.noctalia-shell.settings = {
     idle.enabled = true;
-    wallpaper.directory = wall-dir;
+    wallpaper = {
+      directory = wall-dir;
+      automationEnabled = true;
+      randomIntervalSec = 600;
+      transitionType = [
+        "fade"
+        "disc"
+        "stripes"
+        "wipe"
+        "honeycomb"
+      ];
+    };
   };
   home.file.".cache/noctalia/wallpapers.json".enable = false;
 }
