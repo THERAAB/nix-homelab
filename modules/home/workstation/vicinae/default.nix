@@ -45,10 +45,12 @@ in
       ];
       settings = {
         font.family = "system";
+        close_on_focus_loss = true;
         launcher_window = {
           layer_shell = {
             enabled = true;
             layer = "overlay";
+            keyboard_interactivity = "on_demand";
             size = {
               width = 557;
               height = 360;
