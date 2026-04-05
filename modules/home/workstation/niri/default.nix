@@ -48,7 +48,10 @@ in
     programs.niri = {
       enable = true;
       settings = {
-        overview.backdrop-color = "#${config.lib.stylix.colors.base00}";
+        overview = {
+          backdrop-color = "#${config.lib.stylix.colors.base00}";
+          workspace-shadow.enable = false;
+        };
         cursor = {
           hide-when-typing = true;
           size = config.stylix.cursor.size;
@@ -65,6 +68,10 @@ in
           };
         };
         layout = {
+          shadow = {
+            enable = true;
+            color = "#000000FF";
+          };
           background-color = "transparent";
           gaps = 6;
           focus-ring = {
@@ -103,6 +110,13 @@ in
           {
             matches = [ { namespace = "^noctalia-wallpaper*"; } ];
             place-within-backdrop = true;
+          }
+          {
+            matches = [ { namespace = "^vicinae*"; } ];
+            shadow = {
+              enable = true;
+              color = "#000000FF";
+            };
           }
         ];
         debug.honor-xdg-activation-with-invalid-serial = { };
