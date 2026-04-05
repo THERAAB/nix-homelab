@@ -70,7 +70,11 @@ in
           gaps = 6;
           focus-ring = {
             width = 2;
-            active.color = "#${config.lib.stylix.colors.base09}";
+            active.gradient = {
+              from = "#${config.lib.stylix.colors.base08}";
+              to = "#${config.lib.stylix.colors.base09}";
+              angle = 45;
+            };
             inactive.color = "#${config.lib.stylix.colors.base03}";
           };
         };
