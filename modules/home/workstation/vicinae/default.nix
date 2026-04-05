@@ -46,7 +46,6 @@ in
       settings = {
         font.family = "system";
         launcher_window = {
-          opacity = lib.mkForce 0.95;
           layer_shell = {
             enabled = true;
             layer = "overlay";
@@ -57,7 +56,6 @@ in
           };
         };
         pop_to_root_on_close = true;
-        theme.dark.icon_theme = "Papirus-Dark";
         favorites = [ ];
         activate_on_single_click = true;
       };

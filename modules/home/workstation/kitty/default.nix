@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.kitty;
-in {
+in
+{
   options.nix-homelab.workstation.kitty = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup kitty");
   };
@@ -18,7 +20,6 @@ in {
         hide_window_decorations = true;
         window_padding_width = 20;
         linux_display_server = "wayland";
-        background_opacity = lib.mkForce "0.93";
         enable_audio_bell = false;
         confirm_os_window_close = 0;
       };

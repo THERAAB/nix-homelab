@@ -59,7 +59,6 @@ in
             critical = true;
           };
         };
-        ui.panelBackgroundOpacity = lib.mkForce 0.75;
         bar = {
           outerCorners = false;
           widgets = {

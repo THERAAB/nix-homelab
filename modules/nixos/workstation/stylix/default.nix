@@ -16,9 +16,7 @@ in
   config = mkIf cfg.enable {
     stylix = {
       enable = true;
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/jabuti.yaml";
-      override.base03 = "5e607d"; # Comments are too hard to read
-      override.base04 = "5a5c78"; # Zed side panel
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/everforest.yaml";
       fonts = {
         sansSerif.name = "NotoSans Nerd Font";
         serif.name = "NotoSans Nerd Font";
@@ -31,6 +29,22 @@ in
         };
       };
       polarity = "dark";
+      cursor = {
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
+        size = 30;
+      };
+      icons = {
+        enable = true;
+        dark = "Papirus-Dark";
+        light = "Papirus-Dark";
+        package = pkgs.papirus-icon-theme;
+      };
+      opacity = {
+        desktop = 0.75;
+        terminal = 0.93;
+        popups = 0.95;
+      };
     };
     environment.systemPackages = with pkgs; [
       base16-schemes

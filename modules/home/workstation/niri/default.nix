@@ -50,9 +50,8 @@ in
       settings = {
         overview.backdrop-color = "#${config.lib.stylix.colors.base00}";
         cursor = {
-          theme = "phinger-cursors-light";
-          size = 40;
           hide-when-typing = true;
+          size = config.stylix.cursor.size;
         };
         input = {
           touchpad = {

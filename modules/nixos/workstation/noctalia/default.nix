@@ -28,7 +28,6 @@ in
         MOZ_ENABLE_WAYLAND = "1";
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         GDK_BACKEND = "wayland";
-        QS_ICON_THEME = "Papirus-Dark";
         TERM = "kitty";
       };
     };
