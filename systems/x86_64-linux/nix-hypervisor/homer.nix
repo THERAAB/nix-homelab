@@ -1,7 +1,9 @@
-{properties, ...}: let
+{ properties, ... }:
+let
   network = properties.network;
   github-icons-dir = "https://github.com/THERAAB/nix-homelab/blob/main/assets/icons";
-in {
+in
+{
   services.homer.settings = {
     # See https://fontawesome.com/v5/search for icons options
     title = "Nix-Homelab";
@@ -9,7 +11,7 @@ in {
     logo = github-icons-dir + "/nixos.png?raw=true";
     header = true;
     footer = false;
-    theme = "walkxcode";
+    theme = "neon";
     links = [
       {
         name = "GitHub";
