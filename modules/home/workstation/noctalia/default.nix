@@ -108,6 +108,7 @@ in
               }
               {
                 id = "ControlCenter";
+                useDistroLogo = true;
               }
             ];
           };
