@@ -73,7 +73,7 @@ in
             color = "#000000FF";
           };
           background-color = "transparent";
-          gaps = 6;
+          gaps = 10;
           focus-ring = {
             width = 2;
             active.gradient = {
@@ -105,7 +105,15 @@ in
           "1".name = "Work";
           "0".name = "Browse";
         };
-        layout.always-center-single-column = true;
+        layout = {
+          always-center-single-column = true;
+          struts = {
+            bottom = 10;
+            left = 5;
+            right = 5;
+            top = 10;
+          };
+        };
         layer-rules = [
           {
             matches = [ { namespace = "^noctalia-wallpaper*"; } ];
