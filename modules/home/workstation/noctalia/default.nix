@@ -68,12 +68,14 @@ in
                 formatHorizontal = "hh:mm AP dddd, MMMM dd";
                 formatVertical = "hh:mm AP dddd, MMMM dd";
                 tooltipFormat = "hh:mm AP dddd, MMMM dd";
+                clockColor = "secondary";
               }
               {
                 id = "SystemMonitor";
               }
               {
                 id = "ActiveWindow";
+                textColor = "tertiary";
               }
               {
                 id = "MediaMini";
@@ -93,6 +95,7 @@ in
               {
                 id = "NotificationHistory";
                 hideWhenZero = true;
+                iconColor = "primary";
               }
               {
                 id = "Battery";
@@ -102,9 +105,11 @@ in
               }
               {
                 id = "Volume";
+                iconColor = "tertiary";
               }
               {
                 id = "Brightness";
+                iconColor = "secondary";
               }
               {
                 id = "plugin:kde-connect";
