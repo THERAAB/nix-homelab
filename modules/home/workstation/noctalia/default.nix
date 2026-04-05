@@ -109,7 +109,7 @@ in
               }
               {
                 id = "Brightness";
-                iconColor = "secondary";
+                iconColor = "error";
               }
               {
                 id = "plugin:kde-connect";
