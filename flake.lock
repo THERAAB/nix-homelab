@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "asus-numberpad-driver": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1775226871,
+        "narHash": "sha256-0O47FqORc0t5YW6k1I3yEZfMNtzvr/KjNEsYTxPTBLg=",
+        "owner": "asus-linux-drivers",
+        "repo": "asus-numberpad-driver",
+        "rev": "df8e32f613151ed0d0eb2bdddf02fe4fb1d5342d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "asus-linux-drivers",
+        "repo": "asus-numberpad-driver",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -501,6 +521,7 @@
     },
     "root": {
       "inputs": {
+        "asus-numberpad-driver": "asus-numberpad-driver",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "niri-flake": "niri-flake",

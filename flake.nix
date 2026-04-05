@@ -32,6 +32,10 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    asus-numberpad-driver = {
+      url = "github:asus-linux-drivers/asus-numberpad-driver";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     inputs:
@@ -67,8 +71,13 @@
           nix-nas.specialArgs = {
             inherit self properties;
           };
-          nix-zenbook.specialArgs = {
-            inherit self properties;
+          nix-zenbook = {
+            modules = with inputs; [
+              asus-numberpad-driver.nixosModules.default
+            ];
+            specialArgs = {
+              inherit self properties;
+            };
           };
           nix-desktop.specialArgs = {
             inherit self properties;
