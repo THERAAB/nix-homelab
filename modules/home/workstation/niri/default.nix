@@ -111,7 +111,7 @@ in
             bottom = 10;
             left = 5;
             right = 5;
-            top = 10;
+            top = 3;
           };
         };
         layer-rules = [
