@@ -38,7 +38,10 @@ in
         enable = true;
         dark = "Papirus-Dark";
         light = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
+        package = pkgs.catppuccin-papirus-folders.override {
+          flavor = "frappe";
+          accent = "maroon";
+        };
       };
       opacity = {
         desktop = 0.75;
