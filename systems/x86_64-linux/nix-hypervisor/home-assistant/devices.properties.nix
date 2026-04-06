@@ -21,7 +21,7 @@
       motion = "binary_sensor.bathroom_motion_sensor_motion";
     };
     kitchen = {
-      cabinet.light = "light.kitchen_over_cabinet_lights";
+      cabinet.light = "light.kitchen_over_cabinet_lights_2";
       motion = "binary_sensor.kitchen_motion_sensor_motion";
       illuminence = "sensor.kitchen_motion_sensor_illuminance";
     };

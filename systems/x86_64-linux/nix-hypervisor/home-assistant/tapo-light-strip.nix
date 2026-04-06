@@ -4,10 +4,6 @@ let
 in
 {
   services.home-assistant = {
-    customComponents = [
-      # TODO: fix
-      # pkgs.nix-homelab.home-assistant-tapo-p100
-    ];
     config.automation = [
       {
         alias = "Turn on Kitchen Cabinet LEDs when Motion Detected";
