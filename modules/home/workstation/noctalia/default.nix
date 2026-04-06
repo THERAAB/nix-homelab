@@ -38,10 +38,6 @@ in
           }
         ];
         states = {
-          kde-connect = {
-            enabled = true;
-            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
-          };
           tailscale = {
             enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
@@ -110,9 +106,6 @@ in
               {
                 id = "Brightness";
                 iconColor = "error";
-              }
-              {
-                id = "plugin:kde-connect";
               }
               {
                 id = "plugin:tailscale";
