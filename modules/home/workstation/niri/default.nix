@@ -99,6 +99,14 @@ in
             clip-to-geometry = true;
           }
           { draw-border-with-background = false; }
+          {
+            matches = [
+              {
+                app-id = "org.kde.kdeconnect.daemon";
+              }
+            ];
+            open-floating = true;
+          }
         ];
         workspaces = {
           "2".name = "Game";
