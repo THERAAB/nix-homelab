@@ -1,29 +1,13 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   devices = import ./devices.properties.nix;
-in {
+in
+{
   services.home-assistant = {
     customComponents = [
       pkgs.nix-homelab.home-assistant-hubspace
     ];
     config = {
-      adaptive_lighting = [
-        {
-          name = "bedroom";
-          lights = [
-            devices.entity-id.bedroom.spinny-boi.light
-          ];
-          transition = 0;
-          initial_transition = 0;
-          min_brightness = 100;
-          max_brightness = 100;
-          min_color_temp = 3000;
-          max_color_temp = 3000;
-          sleep_brightness = 1;
-          sleep_color_temp = 2700;
-          sunrise_offset = 1800;
-          sunset_offset = 1800; # 30min
-        }
-      ];
       automation = [
         {
           alias = "Switch On Bedroom Adaptive Lighting Sleep Mode at Night";
@@ -64,8 +48,7 @@ in {
           action = [
             {
               action = "fan.turn_off";
-              target.entity_id =
-                devices.entity-id.bedroom.spinny-boi.fan;
+              target.entity_id = devices.entity-id.bedroom.spinny-boi.fan;
             }
           ];
         }
@@ -78,14 +61,12 @@ in {
           action = [
             {
               action = "fan.set_percentage";
-              target.entity_id =
-                devices.entity-id.bedroom.spinny-boi.fan;
+              target.entity_id = devices.entity-id.bedroom.spinny-boi.fan;
               data.percentage = 10;
             }
             {
               action = "fan.turn_on";
-              target.entity_id =
-                devices.entity-id.bedroom.spinny-boi.fan;
+              target.entity_id = devices.entity-id.bedroom.spinny-boi.fan;
             }
           ];
         }
