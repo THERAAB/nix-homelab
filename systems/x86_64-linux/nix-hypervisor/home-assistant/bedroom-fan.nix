@@ -10,36 +10,6 @@ in
     config = {
       automation = [
         {
-          alias = "Switch On Bedroom Adaptive Lighting Sleep Mode at Night";
-          trigger = {
-            trigger = "time";
-            at = "21:30:00";
-          };
-          action = [
-            {
-              service = "switch.turn_on";
-              target.entity_id = [
-                "switch.adaptive_lighting_sleep_mode_bedroom"
-              ];
-            }
-          ];
-        }
-        {
-          alias = "Switch Off Bedroom Adaptive Lighting Sleep Mode at Morning";
-          trigger = {
-            trigger = "time";
-            at = "6:30:00";
-          };
-          action = [
-            {
-              service = "switch.turn_off";
-              target.entity_id = [
-                "switch.adaptive_lighting_sleep_mode_bedroom"
-              ];
-            }
-          ];
-        }
-        {
           alias = "Switch Off Bedroom Fan at Morning";
           trigger = {
             trigger = "time";
