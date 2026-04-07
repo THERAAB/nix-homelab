@@ -125,7 +125,7 @@ in
         general = {
           showChangelogOnStartup = false;
           telemetryEnabled = false;
-          dimmerOpacity = 0.35;
+          dimmerOpacity = 0.00;
         };
         dock = {
           enabled = true;
