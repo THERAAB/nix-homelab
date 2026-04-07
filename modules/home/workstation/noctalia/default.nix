@@ -143,6 +143,7 @@ in
           pinnedStatic = true;
         };
         location = {
+          autoLocate = true;
           weatherShowEffects = true;
           useFahrenheit = true;
           use12hourFormat = true;
