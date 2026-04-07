@@ -110,7 +110,7 @@
   };
   systemd = {
     sleep.settings.Sleep = {
-      HibernateDelaySec = "6h";
+      HibernateDelaySec = "4h";
       HibernateMode = "shutdown";
       AllowSuspendThenHibernate = "yes";
       AllowHibernation = "yes";
