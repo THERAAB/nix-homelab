@@ -132,10 +132,14 @@
         wantedBy = [
           "local-fs.target"
           "suspend.target"
+          "hibernate.target"
+          "suspend-then-hibernate.target"
         ];
         after = [
           "local-fs.target"
           "suspend.target"
+          "hibernate.target"
+          "suspend-then-hibernate.target"
         ];
         description = "Set the battery charge threshold%";
         startLimitBurst = 5;
