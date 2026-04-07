@@ -32,6 +32,7 @@ in
         ];
       };
       govee2mqtt = {
+        # TODO: undo later when this is fixed
         # See https://github.com/wez/govee2mqtt/pull/650
         package = pkgs.nix-homelab.govee2mqtt;
         enable = true;
