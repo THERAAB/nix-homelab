@@ -8,22 +8,16 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "govee2mqtt";
-  version = "2025.11.25-60a39bcc";
+  version = "4374efdb232bb074dcfe325008f9deddb063db95";
   src = fetchFromGitHub {
     owner = "wez";
     repo = "govee2mqtt";
-    tag = "2026.03.25-ab9deb66";
-    hash = "sha256-APGvE5BIYgZtAWbM9DGJFuGyI3715g8Gyxou8uhspdM=";
+    rev = "4374efdb232bb074dcfe325008f9deddb063db95";
+    hash = "sha256-ol7Y06XGL+S6HUEB63X7DoyNyX6if8O3Byg55f2acL0=";
   };
   cargoPatches = [
     ./dont-vendor-openssl.diff
   ];
-  prePatch = ''
-    substituteInPlace src/undoc_api.rs \
-        --replace '"6.5.02"' '"7.4.10"'
-    substituteInPlace src/undoc_api.rs \
-        --replace 'iOS 16.5.0) Alamofire/5.6.4' 'iOS 18.4.0) Alamofire/5.10.2'
-  '';
   postPatch = ''
     substituteInPlace src/service/http.rs \
       --replace '"assets"' '"${placeholder "out"}/share/govee2mqtt/assets"'
