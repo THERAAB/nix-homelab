@@ -21,10 +21,6 @@ in
         action = [
           {
             service = "light.turn_on";
-            data = {
-              brightness_pct = 15;
-              color_temp_kelvin = 2600;
-            };
             target = {
               entity_id = devices.entity-id.kitchen.cabinet.light;
             };
