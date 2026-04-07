@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 let
   devices = import ./devices.properties.nix;
 in
