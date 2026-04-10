@@ -14,11 +14,6 @@ Disable minimize to tray
 
 http://localhost:631/ > Administration > Add printer
 
-### Forge
-
-- Disable Split Direction Hint
-- Change Colors
-
 ### Some notes on the Asus Zenbook 14 Q409ZA Bios
 
 - Use Bios 310 for ssdt patch to work properly for audio, Don't update Bios!
