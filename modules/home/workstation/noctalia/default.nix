@@ -72,6 +72,7 @@ in
               {
                 id = "ActiveWindow";
                 textColor = "tertiary";
+                colorizeIcons = false;
               }
               {
                 id = "MediaMini";
