@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.physical.persist;
-in {
+in
+{
   options.nix-homelab.physical.persist = with types; {
     enable = mkEnableOption (lib.mdDoc "Persist files");
   };
@@ -21,10 +23,13 @@ in {
         ".local/share/fish"
         ".local/share/zoxide"
         ".local/share/atuin"
+        ".local/share/kpeoplevcard"
+        ".local/share/kpeople"
       ];
       files = [
         ".ssh/known_hosts"
-        # ".ssh/id_rsa"
+        ".config/mimeapps.list"
+        ".local/state/kdeconnect.smsstaterc"
       ];
     };
   };
