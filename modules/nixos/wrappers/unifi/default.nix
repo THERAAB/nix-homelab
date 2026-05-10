@@ -6,10 +6,12 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.wrappers.unifi;
   port = properties.ports.unifi;
-in {
+in
+{
   options.nix-homelab.wrappers.unifi = with types; {
     enable = mkEnableOption (lib.mdDoc "Unifi");
   };
@@ -30,14 +32,14 @@ in {
       }
     ];
     services.unifi = {
-      enable = true;
+      enable = false; # TODO: fix
       openFirewall = true;
       unifiPackage = pkgs.unifi;
       mongodbPackage = pkgs.mongodb-7_0;
     };
     # Change kill timeout for unifi because it never dies
     systemd.services.unifi.serviceConfig.TimeoutSec = lib.mkForce "1min";
-    networking.firewall.allowedTCPPorts = [port];
+    networking.firewall.allowedTCPPorts = [ port ];
     services.caddy.virtualHosts = {
       "unifi.${properties.network.domain}" = {
         useACMEHost = "${properties.network.domain}";
