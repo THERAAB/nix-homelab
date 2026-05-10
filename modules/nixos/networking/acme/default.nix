@@ -5,10 +5,12 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.networking.acme;
   secrets-dir = "/var/lib/secrets";
-in {
+in
+{
   options.nix-homelab.networking.acme = with types; {
     enable = mkEnableOption (lib.mdDoc "Acme setup");
   };
@@ -21,7 +23,7 @@ in {
       acceptTerms = true;
       defaults = {
         email = "example@aol.com";
-        credentialsFile = "/run/secrets/cloudflare_dns_secret";
+        credentialFiles = "/run/secrets/cloudflare_dns_secret";
         dnsProvider = "cloudflare";
         dnsResolver = "1.1.1.1:${toString properties.ports.dns}";
       };
