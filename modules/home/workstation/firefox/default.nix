@@ -5,19 +5,22 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.firefox;
-in {
+in
+{
   options.nix-homelab.workstation.firefox = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup firefox");
   };
   config = mkIf cfg.enable {
     stylix.targets.firefox = {
-      profileNames = ["default"];
+      profileNames = [ "default" ];
       firefoxGnomeTheme.enable = true;
     };
     programs.firefox = {
       enable = true;
+      configPath = ".mozilla/firefox";
       package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
         extraPolicies = {
           CaptivePortal = true;

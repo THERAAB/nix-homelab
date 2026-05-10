@@ -5,16 +5,17 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.workstation.vscode;
-in {
+in
+{
   options.nix-homelab.workstation.vscode = with types; {
     enable = mkEnableOption (lib.mdDoc "Setup vscode");
   };
   config = mkIf cfg.enable {
-    programs.vscode = {
+    programs.vscodium = {
       enable = true;
-      package = pkgs.vscodium;
       mutableExtensionsDir = false;
       profiles.default = {
         userSettings = {

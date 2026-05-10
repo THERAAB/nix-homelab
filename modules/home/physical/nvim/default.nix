@@ -4,9 +4,11 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.physical.nvim;
-in {
+in
+{
   options.nix-homelab.physical.nvim = with types; {
     enable = mkEnableOption (lib.mdDoc "Configure neovim");
   };
@@ -15,6 +17,8 @@ in {
       enable = true;
       viAlias = true;
       vimAlias = true;
+      withRuby = false;
+      withPython3 = false;
       extraConfig = ''
         set number relativenumber
         set clipboard+=unnamedplus
