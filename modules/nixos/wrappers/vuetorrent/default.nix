@@ -5,13 +5,15 @@
   ...
 }:
 with lib;
-with lib.nix-homelab; let
+with lib.nix-homelab;
+let
   cfg = config.nix-homelab.wrappers.vuetorrent;
   uid = 9990;
   port = properties.ports.vuetorrent;
   app-name = "vuetorrent";
   local-config-dir = "/var/lib/${app-name}";
-in {
+in
+{
   options.nix-homelab.wrappers.vuetorrent = with types; {
     enable = mkEnableOption (lib.mdDoc "Vuetorrent");
   };
@@ -54,12 +56,15 @@ in {
     ];
     virtualisation.oci-containers.containers."${app-name}" = {
       autoStart = true;
-      image = "ghcr.io/hotio/qbittorrent:latest";
+      image = "ghcr.io/hotio/qbittorrent:release-v5.1"; # TODO: why does 5.2 break?
       volumes = [
         "${local-config-dir}:/config"
         "${properties.media.dir.downloads}:/app/qBittorrent/downloads"
       ];
-      ports = ["${toString port}:8080" "8118:8118"];
+      ports = [
+        "${toString port}:8080"
+        "8118:8118"
+      ];
       environment = {
         PUID = "${toString uid}";
         PGID = "${toString properties.media.group.id}";
