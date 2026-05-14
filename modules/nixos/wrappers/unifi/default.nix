@@ -42,9 +42,11 @@ in
       groups.${app-name}.gid = gid;
     };
     systemd.tmpfiles.rules = [
-      "d    ${local-config-dir}     -       -             -           -   - "
-      "d    ${local-config-dir}/db  -       -             -           -   - "
-      "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
+      "d    ${local-config-dir}                         -       -             -           -   - "
+      "d    ${local-config-dir}/db                      -       -             -           -   - "
+      "d    ${local-config-dir}/data                    -       -             -           -   - "
+      "f    ${local-config-dir}/data/system.properties  -       -             -           -   - "
+      "Z    ${local-config-dir}                         -       ${app-name}   ${app-name} -   - "
     ];
     virtualisation.oci-containers.containers = {
       "${app-name}" = {
