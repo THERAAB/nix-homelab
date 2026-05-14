@@ -1,4 +1,5 @@
-{...}: {
+{ ... }:
+{
   sops = {
     keepGenerations = 0;
     secrets = {
@@ -8,9 +9,9 @@
       wireguard_mullvad = {
         owner = "vuetorrent";
       };
-      df_password = {};
-      cloudflare_dns_secret = {};
-      harmonia_secret = {};
+      df_password = { };
+      cloudflare_dns_secret = { };
+      harmonia_secret = { };
       mosquitto_password = {
         owner = "mosquitto";
       };
@@ -22,6 +23,15 @@
       };
       miniflux_admin = {
         owner = "linkwarden";
+      };
+      mongo_init = {
+        owner = "unifi";
+      };
+      mongo_initdb_secret = {
+        owner = "unifi";
+      };
+      mongo_secret = {
+        owner = "unifi";
       };
     };
   };
