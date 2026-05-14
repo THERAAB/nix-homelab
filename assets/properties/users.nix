@@ -3,4 +3,5 @@
   restic.gid = 11202;
   hass.uid = 286;
   nfsnobody.uid = 6000;
+  unifi.uid = 11825;
 }

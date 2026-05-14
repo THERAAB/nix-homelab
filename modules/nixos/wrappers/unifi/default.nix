@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   properties,
   ...
 }:
@@ -10,6 +9,9 @@ with lib.nix-homelab;
 let
   cfg = config.nix-homelab.wrappers.unifi;
   port = properties.ports.unifi;
+  gid = 7813;
+  app-name = "unifi";
+  local-config-dir = "/var/lib/${app-name}";
 in
 {
   options.nix-homelab.wrappers.unifi = with types; {
@@ -31,14 +33,73 @@ in
         client.insecure = true;
       }
     ];
-    services.unifi = {
-      enable = false; # TODO: fix
-      openFirewall = true;
-      unifiPackage = pkgs.unifi;
-      mongodbPackage = pkgs.mongodb-7_0;
+    users = {
+      users."${app-name}" = {
+        uid = properties.users.unifi.uid;
+        group = app-name;
+        isSystemUser = true;
+      };
+      groups.${app-name}.gid = gid;
     };
-    # Change kill timeout for unifi because it never dies
-    systemd.services.unifi.serviceConfig.TimeoutSec = lib.mkForce "1min";
+    systemd.tmpfiles.rules = [
+      "d    ${local-config-dir}     -       -             -           -   - "
+      "d    ${local-config-dir}/db  -       -             -           -   - "
+      "Z    ${local-config-dir}     -       ${app-name}   ${app-name} -   - "
+    ];
+    virtualisation.oci-containers.containers = {
+      "${app-name}" = {
+        autoStart = true;
+        image = "lscr.io/linuxserver/unifi-network-application";
+        volumes = [
+          "${local-config-dir}:/config"
+        ];
+        ports = [
+          "${toString port}:8443"
+          "3478:3478/udp"
+          "1001:1001/udp"
+          "8080:8080"
+        ];
+        environment = {
+          PUID = "${toString properties.users.unifi.uid}";
+          PGID = "${toString gid}";
+          UMASK = "022";
+          TZ = "America/New_York";
+          MONGO_HOST = "${properties.network.nix-hypervisor.local.ip}";
+          MONGO_PORT = "27017";
+        };
+        environmentFiles = [
+          "/run/secrets/mongo_secret"
+        ];
+        extraOptions = [
+          "-l=io.containers.autoupdate=registry"
+        ];
+      };
+      "unifi-db" = {
+        autoStart = true;
+        image = "docker.io/mongo:7.0";
+        volumes = [
+          "${local-config-dir}/db:/data/db"
+          "/run/secrets/mongo_init:/docker-entrypoint-initdb.d/init-mongo.js:ro"
+        ];
+        user = "${toString properties.users.unifi.uid}";
+        environment = {
+          PUID = "${toString properties.users.unifi.uid}";
+          PGID = "${toString gid}";
+          UMASK = "022";
+          TZ = "America/New_York";
+        };
+        environmentFiles = [
+          "/run/secrets/mongo_secret"
+          "/run/secrets/mongo_initdb_secret"
+        ];
+        ports = [
+          "27017:27017"
+        ];
+        extraOptions = [
+          "-l=io.containers.autoupdate=registry"
+        ];
+      };
+    };
     networking.firewall.allowedTCPPorts = [ port ];
     services.caddy.virtualHosts = {
       "unifi.${properties.network.domain}" = {
