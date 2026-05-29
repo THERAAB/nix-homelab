@@ -1,7 +1,11 @@
-{...}: {
+{ ... }:
+{
   boot = {
-    initrd.availableKernelModules = ["ahci" "usbhid"];
-    kernelModules = ["kvm-amd"];
+    initrd.availableKernelModules = [
+      "ahci"
+      "usbhid"
+    ];
+    kernelModules = [ "kvm-amd" ];
     loader.grub.extraConfig = ''
       if keystatus --shift ; then
         set timeout=-1
@@ -14,13 +18,20 @@
     "/home/raab" = {
       device = "none";
       fsType = "tmpfs";
-      options = ["size=10G" "mode=777"];
+      options = [
+        "size=10G"
+        "mode=777"
+      ];
       neededForBoot = true;
     };
     "/games" = {
       device = "/dev/disk/by-label/nixos";
       fsType = "btrfs";
-      options = ["subvol=games" "compress=zstd" "noatime"];
+      options = [
+        "subvol=games"
+        "compress=zstd"
+        "noatime"
+      ];
     };
   };
   networking.hostName = "nix-desktop"; # Define your hostname.
@@ -31,7 +42,7 @@
       configs = {
         "persist" = {
           SUBVOLUME = "/nix/persist";
-          ALLOW_USERS = ["raab"];
+          ALLOW_USERS = [ "raab" ];
           TIMELINE_CREATE = true;
           TIMELINE_CLEANUP = true;
           TIMELINE_MIN_AGE = 7200; # 2 hours
@@ -56,10 +67,10 @@
     amdgpu.initrd.enable = true;
     cpu.amd.updateMicrocode = true;
     openrazer = {
-      enable = true;
-      users = ["raab"];
+      enable = false; # TODO: fix
+      users = [ "raab" ];
     };
     graphics.enable = true;
   };
-  swapDevices = [];
+  swapDevices = [ ];
 }

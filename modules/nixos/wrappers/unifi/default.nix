@@ -50,6 +50,7 @@ in
     ];
     virtualisation.oci-containers.containers = {
       "${app-name}" = {
+        # TODO: fix
         autoStart = true;
         image = "lscr.io/linuxserver/unifi-network-application";
         volumes = [
