@@ -29,7 +29,7 @@ in
       files = [
         ".ssh/known_hosts"
         ".config/mimeapps.list"
-        ".local/state/kdeconnect.smsstaterc"
+        # ".local/state/kdeconnect.smsstaterc"
       ];
     };
   };
