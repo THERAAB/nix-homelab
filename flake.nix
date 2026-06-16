@@ -29,7 +29,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell/legacy-v4"; # TODO: fix
       inputs.nixpkgs.follows = "nixpkgs";
     };
     asus-numberpad-driver = {
