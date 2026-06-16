@@ -38,7 +38,6 @@ in
       nvme-cli
       stress
       sysfsutils
-      # bitwarden-desktop TODO: fix
       jq
     ];
   };
