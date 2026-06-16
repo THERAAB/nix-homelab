@@ -67,7 +67,7 @@
     amdgpu.initrd.enable = true;
     cpu.amd.updateMicrocode = true;
     openrazer = {
-      enable = false; # TODO: fix
+      enable = true;
       users = [ "raab" ];
     };
     graphics.enable = true;
