@@ -33,6 +33,9 @@ in
         buffer_font_size = lib.mkForce 14;
         auto_update = false;
         relative_line_numbers = true;
+        project_panel = {
+          dock = "left";
+        };
         terminal = {
           copy_on_select = false;
           dock = "bottom";
