@@ -24,7 +24,6 @@ in
       defaults = {
         email = "example@aol.com";
         environmentFile = "/run/secrets/cloudflare_dns_secret";
-        };
         dnsProvider = "cloudflare";
         dnsResolver = "1.1.1.1:${toString properties.ports.dns}";
       };
