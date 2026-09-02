@@ -29,7 +29,7 @@ in {
           rebuild() {
               $git -C $dir pull
               $git -C $dir add .
-              nh os switch $dir
+              nh os boot $dir
           }
           commit() {
               $git -C $dir pull

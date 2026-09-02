@@ -49,6 +49,7 @@ in
         ".pki" # Discord
         ".vmware"
         ".omnissa"
+        "omnissa-raab"
         ".local/share/org.gnome.TextEditor"
         ".local/share/maestral"
         ".local/share/python_keyring" # Maestral

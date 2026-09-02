@@ -19,7 +19,7 @@ in
       omnissa-horizon-client
       discord
       imagemagick
-      libreoffice-fresh
+      libreoffice-stable
       psutils
       unzip
       zoom-us
