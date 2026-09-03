@@ -16,7 +16,10 @@ in
   config = mkIf cfg.enable {
     boot = {
       kernelPackages = pkgs.linuxPackages_latest;
-      loader.efi.canTouchEfiVariables = true;
+      loader = {
+        efi.canTouchEfiVariables = true;
+        systemd-boot.bootCounting.enable = true;
+      };
       initrd = {
         availableKernelModules = [
           "nvme"

@@ -38,7 +38,7 @@
       gatus.enable = true;
       homer.enable = true;
       gotify.enable = true;
-      unifi.enable = true;
+      unifi.enable = false;
       beszel-hub.enable = true;
       beszel-agent.enable = true;
       olivetin.enable = true;
