@@ -25,13 +25,13 @@
         owner = "linkwarden";
       };
       mongo_init = {
-        owner = "unifi";
+      #  owner = "unifi";
       };
       mongo_initdb_secret = {
-        owner = "unifi";
+      #  owner = "unifi";
       };
       mongo_secret = {
-        owner = "unifi";
+      #  owner = "unifi";
       };
     };
   };
