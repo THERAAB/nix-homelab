@@ -51,6 +51,7 @@ in
     virtualisation.oci-containers.containers = {
       "${app-name}" = {
         # TODO: fix
+        # switch to https://github.com/rcambrj/unifi-os-server ?
         autoStart = true;
         image = "lscr.io/linuxserver/unifi-network-application";
         volumes = [
