@@ -9,7 +9,6 @@ and the installation instructions below.
 - Remote Deployment/Upgrade with [Nixinate](https://github.com/MatthewCroughan/nixinate)
 - Declarative Home Assistant with [NixOS Home Assistant Module](https://nixos.wiki/wiki/Home_Assistant)
 - Mesh VPN with [Tailscale](https://tailscale.com/)
-- Monitoring/Statistics with [NetData](https://www.netdata.cloud/) and [Gatus](https://github.com/TwiN/gatus)
 - SSL Certs with [Cloudflare](https://www.cloudflare.com/)
 - Nix store cache sharing with [Harmonia](https://github.com/nix-community/harmonia)
 - Backups with [SyncThing](https://syncthing.net/), [Restic](https://restic.net/), [Backrest](https://github.com/garethgeorge/backrest)

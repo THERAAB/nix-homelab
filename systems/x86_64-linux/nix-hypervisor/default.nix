@@ -47,7 +47,6 @@
     };
     media.enable = true;
   };
-  services.netdata.config.registry.enabled = "yes";
   users.users.raab.extraGroups = [
     "syncthing"
     "media"

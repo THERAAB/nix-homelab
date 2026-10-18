@@ -21,10 +21,6 @@
     - Devices & Services -> ZHA devices -> Inovelli switch -> 3 dots under device info -> Manage
     - Bindings -> Bindable groups -> Bathroom lights -> OnOff -> Bind group
 
-## NetData
-
-Add to NetData Cloud
-
 ## Privacy VPN
 
 ### VueTorrent

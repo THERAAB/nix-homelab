@@ -3,7 +3,6 @@
   ssl = 443;
   http = 80;
   adguard = 3000;
-  netdata = 19999;
   home-assistant = 8123;
   prowlarr = 9696;
   radarr = 7878;

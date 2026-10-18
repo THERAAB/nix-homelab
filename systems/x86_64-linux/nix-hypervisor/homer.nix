@@ -119,15 +119,6 @@ in
             target = "_blank";
           }
           {
-            name = "Netdata";
-            logo = github-icons-dir + "/netdata.png?raw=true";
-            subtitle = "Monitor Hardware";
-            tag = "monitor";
-            keywords = "monitor";
-            url = "https://netdata.${network.domain}";
-            target = "_blank";
-          }
-          {
             name = "Beszel";
             logo = github-icons-dir + "/beszel.png?raw=true";
             subtitle = "Monitor Hardware";

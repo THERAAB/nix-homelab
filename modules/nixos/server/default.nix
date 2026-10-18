@@ -16,7 +16,6 @@ in {
       physical.enable = true;
       server = {
         hardware.enable = true;
-        netdata.enable = false; #TODO: fix
         smartd.enable = true;
         users.enable = true;
       };

@@ -8,7 +8,6 @@ and the installation instructions below.
 
 My NAS Server with
 
-- Monitoring/Statistics with [NetData](https://www.netdata.cloud/)
 - Network File Sharing using [NFS](https://wiki.archlinux.org/title/NFS) for media drives
 - [AdGuard Home](https://adguard.com/en/adguard-home/overview.html) for DNS adblocking over tailscale
 

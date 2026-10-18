@@ -14,7 +14,6 @@ in {
   config = mkIf cfg.enable {
     systemd.tmpfiles.rules = [
       "d    ${log-dir}  -    - -        -   - "
-      "Z    ${log-dir}  770  - netdata  -   - "
     ];
     services.smartd = {
       enable = true;

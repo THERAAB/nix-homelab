@@ -4,7 +4,6 @@
   ];
   environment.persistence."/nix/persist/system" = {
     directories = [
-      "/var/cache/netdata"
       "/var/www/"
     ];
   };
@@ -13,7 +12,6 @@
     secrets = {
       gatus_env = {};
       restic_password = {};
-      netdata_alarm = {};
       beszel_agent_env = {
         owner = "beszel-agent";
       };
