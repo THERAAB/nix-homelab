@@ -44,6 +44,7 @@ in
         ".cache/libgweather"
         ".cache/noctalia"
         ".cache/noctalia-qs"
+        ".cache/vicinae"
         ".dropbox-dist"
         ".dropbox-hm"
         ".pki" # Discord
